@@ -19,15 +19,15 @@ Public Class MainProgram
             My.Computer.FileSystem.CreateDirectory(Current + "\Files\ServiceRecords")
             System.IO.File.WriteAllBytes(Current + "\Files\ServiceRecords\1_Jan_1990_000000.xml", My.Resources.XML)
         End If
-        If My.Computer.FileSystem.FileExists(Current + "\Files\Service.pptx") = False Then
-            System.IO.File.WriteAllBytes(Current + "\Files\Service.pptx", My.Resources.Service)
+        If My.Computer.FileSystem.FileExists(Current + "\Files\ServiceWidescreen.pptx") = False Then
+            System.IO.File.WriteAllBytes(Current + "\Files\ServiceWidescreen.pptx", My.Resources.ServiceWidescreen)
         End If
         Return True
     End Function
     Public Function LoadPres()
         Writer = Nothing
         ppApp = CreateObject("PowerPoint.Application")
-        ppPres = ppApp.Presentations.Open(Current + "\Files\Service.pptx", [ReadOnly]:=Office.MsoTriState.msoFalse, WithWindow:=Office.MsoTriState.msoFalse)
+        ppPres = ppApp.Presentations.Open(Current + "\Files\ServiceWidescreen.pptx", [ReadOnly]:=Office.MsoTriState.msoFalse, WithWindow:=Office.MsoTriState.msoFalse)
         ppPres.Slides(1).Name = "Service/Hymnal"
         ppPres.Slides(2).Name = "Prayer Requests"
         ppPres.Slides(3).Name = "Announcements"
@@ -41,7 +41,7 @@ Public Class MainProgram
         ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = " "
         ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = " "
         ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " "
-        ppPres.Slides(1).Shapes(9).TextFrame.TextRange.Text = " "
+        ppPres.Slides(1).Shapes(10).TextFrame.TextRange.Text = " "
         ppPres.Slides(1).Shapes(5).Visible = Office.MsoTriState.msoFalse
         HandleSettings()
         ppPres.SlideShowSettings.Run()
@@ -348,15 +348,21 @@ Public Class MainProgram
         End If
     End Sub
     Private Sub UpdateVerse_Click(sender As Object, e As EventArgs) Handles UpdateVerse.Click
-        Dim commaPos As Integer
-        commaPos = InStr(BookBox.Text, ",")
-        ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
-        ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = Mid(BookBox.Text, commaPos + 1)
-        ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ChapterTxt.Text + " : " + VerseTxt.Text
+        If ShowVerses.Checked Then
+            Dim commaPos As Integer
+            commaPos = InStr(BookBox.Text, ",")
+            ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
+            ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = Mid(BookBox.Text, commaPos + 1)
+            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ChapterTxt.Text + " : " + VerseTxt.Text
+        End If
+
+
     End Sub
 
-    Private Sub ServiceType_TextChanged(sender As Object, e As EventArgs) Handles ServiceType.TextChanged
-        ppPres.Slides(1).Shapes(9).TextFrame.TextRange.Text = ServiceType.Text
+    Private Sub ServiceType_KeyDown(sender As Object, e As KeyEventArgs) Handles ServiceType.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            ppPres.Slides(1).Shapes(10).TextFrame.TextRange.Text = ServiceType.Text
+        End If
     End Sub
     Private Sub ShowPR_Click(sender As Object, e As EventArgs) Handles ShowPR.Click
         PrayerRequests.Show()
@@ -412,7 +418,7 @@ Public Class MainProgram
             ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
             ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = Mid(BookBox.Text, commaPos + 1)
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ChapterTxt.Text + " : " + VerseTxt.Text
-            WriteXML(Writer)
+
         End If
     End Sub
 
@@ -423,7 +429,7 @@ Public Class MainProgram
             ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
             ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = Mid(BookBox.Text, commaPos + 1)
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ChapterTxt.Text + " : " + VerseTxt.Text
-            WriteXML(Writer)
+
         End If
     End Sub
 
@@ -438,5 +444,5 @@ Public Class MainProgram
 
 
 
-    'InSlide2: 1-English Title, 2 - Chinese Title, 3 - HymnHeader, 4 - Hymns, 5 - BibleHeader, 6 - EnglishBook, 7 - ChineseBook, 8 - Chapter+Verse, 9 - Service Type
+    'InSlide2: 1-English Title, 2 - Chinese Title, 3 - HymnHeader, 4 - Hymns, 5 - BibleHeader, 6 - EnglishBook, 7 - ChineseBook, 8 - Chapter+Verse, 10 - Service Type
 End Class

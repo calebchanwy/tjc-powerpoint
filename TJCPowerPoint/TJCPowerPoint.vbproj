@@ -188,8 +188,8 @@
     </None>
     <None Include="App.config" />
     <None Include="Resources\bible" />
-    <None Include="Resources\Service_Widescreen.pptx" />
-    <None Include="Resources\Service.pptx" />
+    <None Include="Resources\Service4to3.pptx" />
+    <None Include="Resources\ServiceWidescreen.pptx" />
     <None Include="Resources\Settings" />
   </ItemGroup>
   <ItemGroup>
