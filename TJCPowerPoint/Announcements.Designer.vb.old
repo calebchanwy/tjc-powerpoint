@@ -1,0 +1,197 @@
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+Partial Class Announcements
+    Inherits System.Windows.Forms.Form
+
+    'Form overrides dispose to clean up the component list.
+    <System.Diagnostics.DebuggerNonUserCode()>
+    Protected Overrides Sub Dispose(ByVal disposing As Boolean)
+        Try
+            If disposing AndAlso components IsNot Nothing Then
+                components.Dispose()
+            End If
+        Finally
+            MyBase.Dispose(disposing)
+        End Try
+    End Sub
+
+    'Required by the Windows Form Designer
+    Private components As System.ComponentModel.IContainer
+
+    'NOTE: The following procedure is required by the Windows Form Designer
+    'It can be modified using the Windows Form Designer.  
+    'Do not modify it using the code editor.
+    <System.Diagnostics.DebuggerStepThrough()>
+    Private Sub InitializeComponent()
+        Me.AnnouncementsTxt = New System.Windows.Forms.TextBox()
+        Me.UpdateAnnouncements = New System.Windows.Forms.Button()
+        Me.SaveAnnouncements = New System.Windows.Forms.Button()
+        Me.LoadAnnouncements = New System.Windows.Forms.Button()
+        Me.CloseAnnouncements = New System.Windows.Forms.Button()
+        Me.PRColorBtn = New System.Windows.Forms.Button()
+        Me.PRFontBtn = New System.Windows.Forms.Button()
+        Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
+        Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
+        Me.PRTitleColorBtn = New System.Windows.Forms.Button()
+        Me.PRTitleFontBtn = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.SuspendLayout()
+        '
+        'AnnouncementsTxt
+        '
+        Me.AnnouncementsTxt.AcceptsReturn = True
+        Me.AnnouncementsTxt.AcceptsTab = True
+        Me.AnnouncementsTxt.AllowDrop = True
+        Me.AnnouncementsTxt.Location = New System.Drawing.Point(17, 12)
+        Me.AnnouncementsTxt.Multiline = True
+        Me.AnnouncementsTxt.Name = "AnnouncementsTxt"
+        Me.AnnouncementsTxt.Size = New System.Drawing.Size(256, 246)
+        Me.AnnouncementsTxt.TabIndex = 0
+        Me.AnnouncementsTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.AnnouncementsTxt.WordWrap = False
+        '
+        'UpdateAnnouncements
+        '
+        Me.UpdateAnnouncements.Location = New System.Drawing.Point(17, 266)
+        Me.UpdateAnnouncements.Name = "UpdateAnnouncements"
+        Me.UpdateAnnouncements.Size = New System.Drawing.Size(84, 75)
+        Me.UpdateAnnouncements.TabIndex = 1
+        Me.UpdateAnnouncements.Text = "Update Notices"
+        Me.UpdateAnnouncements.UseVisualStyleBackColor = True
+        '
+        'SaveAnnouncements
+        '
+        Me.SaveAnnouncements.Location = New System.Drawing.Point(106, 308)
+        Me.SaveAnnouncements.Name = "SaveAnnouncements"
+        Me.SaveAnnouncements.Size = New System.Drawing.Size(57, 33)
+        Me.SaveAnnouncements.TabIndex = 2
+        Me.SaveAnnouncements.Text = "Save"
+        Me.SaveAnnouncements.UseVisualStyleBackColor = True
+        '
+        'LoadAnnouncements
+        '
+        Me.LoadAnnouncements.Location = New System.Drawing.Point(169, 308)
+        Me.LoadAnnouncements.Name = "LoadAnnouncements"
+        Me.LoadAnnouncements.Size = New System.Drawing.Size(56, 33)
+        Me.LoadAnnouncements.TabIndex = 3
+        Me.LoadAnnouncements.Text = "Open"
+        Me.LoadAnnouncements.UseVisualStyleBackColor = True
+        '
+        'CloseAnnouncements
+        '
+        Me.CloseAnnouncements.Location = New System.Drawing.Point(231, 266)
+        Me.CloseAnnouncements.Name = "CloseAnnouncements"
+        Me.CloseAnnouncements.Size = New System.Drawing.Size(44, 75)
+        Me.CloseAnnouncements.TabIndex = 4
+        Me.CloseAnnouncements.Text = "Close"
+        Me.CloseAnnouncements.UseVisualStyleBackColor = True
+        '
+        'PRColorBtn
+        '
+        Me.PRColorBtn.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.Dropper
+        Me.PRColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PRColorBtn.Location = New System.Drawing.Point(107, 277)
+        Me.PRColorBtn.Name = "PRColorBtn"
+        Me.PRColorBtn.Size = New System.Drawing.Size(25, 25)
+        Me.PRColorBtn.TabIndex = 7
+        Me.PRColorBtn.UseVisualStyleBackColor = True
+        '
+        'PRFontBtn
+        '
+        Me.PRFontBtn.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.Font
+        Me.PRFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PRFontBtn.Location = New System.Drawing.Point(138, 277)
+        Me.PRFontBtn.Name = "PRFontBtn"
+        Me.PRFontBtn.Size = New System.Drawing.Size(25, 25)
+        Me.PRFontBtn.TabIndex = 8
+        Me.PRFontBtn.UseVisualStyleBackColor = True
+        '
+        'SaveFileDialog
+        '
+        Me.SaveFileDialog.DefaultExt = "txt"
+        Me.SaveFileDialog.FileName = "Announcements.txt"
+        Me.SaveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*"""
+        Me.SaveFileDialog.InitialDirectory = "df"
+        '
+        'OpenFileDialog
+        '
+        Me.OpenFileDialog.FileName = "Announcements.txt"
+        Me.OpenFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*"""
+        '
+        'PRTitleColorBtn
+        '
+        Me.PRTitleColorBtn.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.Dropper
+        Me.PRTitleColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PRTitleColorBtn.Location = New System.Drawing.Point(169, 277)
+        Me.PRTitleColorBtn.Name = "PRTitleColorBtn"
+        Me.PRTitleColorBtn.Size = New System.Drawing.Size(25, 25)
+        Me.PRTitleColorBtn.TabIndex = 9
+        Me.PRTitleColorBtn.UseVisualStyleBackColor = True
+        '
+        'PRTitleFontBtn
+        '
+        Me.PRTitleFontBtn.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.Font
+        Me.PRTitleFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PRTitleFontBtn.Location = New System.Drawing.Point(200, 277)
+        Me.PRTitleFontBtn.Name = "PRTitleFontBtn"
+        Me.PRTitleFontBtn.Size = New System.Drawing.Size(25, 25)
+        Me.PRTitleFontBtn.TabIndex = 10
+        Me.PRTitleFontBtn.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(119, 261)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(31, 13)
+        Me.Label1.TabIndex = 11
+        Me.Label1.Text = "Body"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(186, 261)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(27, 13)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "Title"
+        '
+        'Announcements
+        '
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.ClientSize = New System.Drawing.Size(296, 355)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.PRTitleColorBtn)
+        Me.Controls.Add(Me.PRTitleFontBtn)
+        Me.Controls.Add(Me.PRColorBtn)
+        Me.Controls.Add(Me.PRFontBtn)
+        Me.Controls.Add(Me.CloseAnnouncements)
+        Me.Controls.Add(Me.LoadAnnouncements)
+        Me.Controls.Add(Me.SaveAnnouncements)
+        Me.Controls.Add(Me.UpdateAnnouncements)
+        Me.Controls.Add(Me.AnnouncementsTxt)
+        Me.HelpButton = True
+        Me.Name = "Announcements"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
+        Me.Text = "Announcements and Notices"
+        Me.ResumeLayout(False)
+        Me.PerformLayout()
+
+    End Sub
+    Friend WithEvents UpdateAnnouncements As Button
+    Friend WithEvents SaveAnnouncements As Button
+    Friend WithEvents LoadAnnouncements As Button
+    Friend WithEvents CloseAnnouncements As Button
+    Friend WithEvents PRColorBtn As Button
+    Friend WithEvents PRFontBtn As Button
+    Friend WithEvents SaveFileDialog As SaveFileDialog
+    Friend WithEvents OpenFileDialog As OpenFileDialog
+    Public WithEvents AnnouncementsTxt As TextBox
+    Friend WithEvents PRTitleColorBtn As Button
+    Friend WithEvents PRTitleFontBtn As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
+End Class

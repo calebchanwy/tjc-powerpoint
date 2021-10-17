@@ -1,0 +1,75 @@
+C:\Users\uberk\documents\visual studio 2015\Projects\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.config
+C:\Users\uberk\documents\visual studio 2015\Projects\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.manifest
+C:\Users\uberk\documents\visual studio 2015\Projects\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.application
+C:\Users\uberk\documents\visual studio 2015\Projects\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe
+C:\Users\uberk\documents\visual studio 2015\Projects\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.pdb
+C:\Users\uberk\documents\visual studio 2015\Projects\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.xml
+C:\Users\uberk\documents\visual studio 2015\Projects\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.ResolveComReference.cache
+C:\Users\uberk\documents\visual studio 2015\Projects\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.MainProgram.resources
+C:\Users\uberk\documents\visual studio 2015\Projects\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.Resources.resources
+C:\Users\uberk\documents\visual studio 2015\Projects\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.PrayerRequests.resources
+C:\Users\uberk\documents\visual studio 2015\Projects\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.GenerateResource.Cache
+C:\Users\uberk\documents\visual studio 2015\Projects\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.TrustInfo.xml
+C:\Users\uberk\documents\visual studio 2015\Projects\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.exe.manifest
+C:\Users\uberk\documents\visual studio 2015\Projects\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.application
+C:\Users\uberk\documents\visual studio 2015\Projects\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.exe
+C:\Users\uberk\documents\visual studio 2015\Projects\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.xml
+C:\Users\uberk\documents\visual studio 2015\Projects\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.pdb
+C:\Users\uberk\documents\visual studio 2015\Projects\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbprojResolveAssemblyReference.cache
+D:\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.config
+D:\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.ResolveComReference.cache
+D:\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.exe
+D:\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.xml
+D:\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.pdb
+D:\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbprojResolveAssemblyReference.cache
+D:\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.manifest
+D:\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.application
+D:\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe
+D:\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.pdb
+D:\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.xml
+D:\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.Announcements.resources
+D:\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.MainProgram.resources
+D:\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.Resources.resources
+D:\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.PrayerRequests.resources
+D:\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.GenerateResource.Cache
+D:\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.TrustInfo.xml
+D:\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.exe.manifest
+D:\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.application
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.config
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.ResolveComReference.cache
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\obj\Debug\TJCPowerPoint.exe
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\obj\Debug\TJCPowerPoint.xml
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\obj\Debug\TJCPowerPoint.pdb
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.manifest
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\bin\Debug\TJCPowerPoint.application
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\bin\Debug\TJCPowerPoint.pdb
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\bin\Debug\TJCPowerPoint.xml
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbprojResolveAssemblyReference.cache
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\obj\Debug\TJCPowerPoint.Announcements.resources
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\obj\Debug\TJCPowerPoint.MainProgram.resources
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\obj\Debug\TJCPowerPoint.Resources.resources
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\obj\Debug\TJCPowerPoint.PrayerRequests.resources
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.GenerateResource.Cache
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\obj\Debug\TJCPowerPoint.TrustInfo.xml
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\obj\Debug\TJCPowerPoint.exe.manifest
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V2\TJCPowerPoint\obj\Debug\TJCPowerPoint.application
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.config
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.ResolveComReference.cache
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\obj\Debug\TJCPowerPoint.exe
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\obj\Debug\TJCPowerPoint.xml
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\obj\Debug\TJCPowerPoint.pdb
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.manifest
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\bin\Debug\TJCPowerPoint.application
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\bin\Debug\TJCPowerPoint.pdb
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\bin\Debug\TJCPowerPoint.xml
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbprojResolveAssemblyReference.cache
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\obj\Debug\TJCPowerPoint.Announcements.resources
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\obj\Debug\TJCPowerPoint.MainProgram.resources
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\obj\Debug\TJCPowerPoint.Resources.resources
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\obj\Debug\TJCPowerPoint.PrayerRequests.resources
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.GenerateResource.Cache
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\obj\Debug\TJCPowerPoint.TrustInfo.xml
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\obj\Debug\TJCPowerPoint.exe.manifest
+C:\Users\uberk\Documents\Visual Studio 2015\Projects\TJCPowerPoint V3\TJCPowerPoint\obj\Debug\TJCPowerPoint.application
