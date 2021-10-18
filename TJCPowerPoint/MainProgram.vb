@@ -31,7 +31,8 @@ Public Class MainProgram
         ppPres.Slides(1).Name = "Service/Hymnal"
         ppPres.Slides(2).Name = "Prayer Requests"
         ppPres.Slides(3).Name = "Announcements"
-        ppPres.Slides(4).Name = "How to Pray"
+        ppPres.Slides(4).Name = "Holy Communion"
+        ppPres.Slides(5).Name = "How to Pray"
         For i As Integer = 1 To ppPres.Slides.Count
             SlideTrack.Items.Add(ppPres.Slides(i).Name)
         Next
@@ -380,6 +381,17 @@ Public Class MainProgram
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
         Time.Text = "Time: " + DateTime.Now.ToString("HH:mm:ss  dddd, dd MMMM yyyy")
+    End Sub
+
+    Private Sub EnglishTitle_KeyDown(sender As Object, e As KeyEventArgs) Handles EnglishTitle.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Call UpdateTitle_Click(sender, e)
+        End If
+    End Sub
+    Private Sub ChineseTitle_KeyDown(sender As Object, e As KeyEventArgs) Handles ChineseTitle.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            Call UpdateTitle_Click(sender, e)
+        End If
     End Sub
 
     Private Sub VerseTxt_KeyDown(sender As Object, e As KeyEventArgs) Handles VerseTxt.KeyDown
