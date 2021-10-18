@@ -40,8 +40,6 @@ Partial Class MainProgram
         Me.ShowVerses = New System.Windows.Forms.CheckBox()
         Me.ShowHymn = New System.Windows.Forms.CheckBox()
         Me.UpdateTitle = New System.Windows.Forms.Button()
-        Me.EndService = New System.Windows.Forms.Button()
-        Me.StartService = New System.Windows.Forms.Button()
         Me.HymnFontBtn = New System.Windows.Forms.Button()
         Me.HymnColorBtn = New System.Windows.Forms.Button()
         Me.EnglishColorBtn = New System.Windows.Forms.Button()
@@ -165,8 +163,6 @@ Partial Class MainProgram
         Me.Title.Controls.Add(Me.ShowVerses)
         Me.Title.Controls.Add(Me.ShowHymn)
         Me.Title.Controls.Add(Me.UpdateTitle)
-        Me.Title.Controls.Add(Me.EndService)
-        Me.Title.Controls.Add(Me.StartService)
         Me.Title.Controls.Add(Me.EnglishTitle)
         Me.Title.Controls.Add(Me.HymnChange)
         Me.Title.Controls.Add(Me.ChineseTitle)
@@ -275,31 +271,6 @@ Partial Class MainProgram
         Me.UpdateTitle.TabIndex = 3
         Me.UpdateTitle.Text = "Update Title"
         Me.UpdateTitle.UseVisualStyleBackColor = True
-        '
-        'EndService
-        '
-        Me.EndService.Enabled = False
-        Me.EndService.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EndService.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.EndService.Location = New System.Drawing.Point(679, 154)
-        Me.EndService.Name = "EndService"
-        Me.EndService.Size = New System.Drawing.Size(100, 30)
-        Me.EndService.TabIndex = 15
-        Me.EndService.TabStop = False
-        Me.EndService.Text = "End Service"
-        Me.EndService.UseVisualStyleBackColor = True
-        '
-        'StartService
-        '
-        Me.StartService.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.StartService.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.StartService.Location = New System.Drawing.Point(573, 154)
-        Me.StartService.Name = "StartService"
-        Me.StartService.Size = New System.Drawing.Size(100, 30)
-        Me.StartService.TabIndex = 14
-        Me.StartService.TabStop = False
-        Me.StartService.Text = "Start Service"
-        Me.StartService.UseVisualStyleBackColor = True
         '
         'HymnFontBtn
         '
@@ -795,8 +766,6 @@ Partial Class MainProgram
     Friend WithEvents HymnColorBtn As Button
     Friend WithEvents HymnChange As Button
     Friend WithEvents Title As GroupBox
-    Friend WithEvents EndService As Button
-    Friend WithEvents StartService As Button
     Friend WithEvents BibleVerse As GroupBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label

@@ -68,7 +68,8 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>iconTJC.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
@@ -225,8 +226,10 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="iconTJC.ico" />
     <None Include="Resources\XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\tjcbirdlogo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

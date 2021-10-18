@@ -215,35 +215,7 @@ Public Class MainProgram
         HymnNos.Text = RecentXML.DocumentElement.SelectSingleNode("Hymn").InnerText
         ShowHymn.Checked = True
     End Sub
-    Private Sub StartService_Click(sender As Object, e As EventArgs) Handles StartService.Click
-        Dim result As Integer = MessageBox.Show("Service will be recorded with title '" + EnglishTitle.Text + "',Yes or No?", "Record Service", MessageBoxButtons.YesNo)
-        If result = DialogResult.Yes Then
-            Writer = MakeXML()
-            StartService.Enabled = False
-            EndService.Enabled = True
-            BookBox.Enabled = True
-            ChapterTxt.Enabled = True
-            VerseTxt.Enabled = True
-            UpdateVerse.Enabled = True
 
-            ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
-            ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
-        Else
-
-        End If
-    End Sub
-    Private Sub EndService_Click(sender As Object, e As EventArgs) Handles EndService.Click
-        StartService.Enabled = True
-        EndService.Enabled = False
-        BookBox.Enabled = False
-        ChapterTxt.Enabled = False
-        VerseTxt.Enabled = False
-        UpdateVerse.Enabled = False
-        Writer.WriteEndElement()
-        Writer.Close()
-        Writer = Nothing
-
-    End Sub
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         If Writer IsNot Nothing Then
             Writer.WriteEndElement()
@@ -362,11 +334,7 @@ Public Class MainProgram
 
     End Sub
 
-    Private Sub ServiceType_KeyDown(sender As Object, e As KeyEventArgs) Handles ServiceType.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            ppPres.Slides(1).Shapes(10).TextFrame.TextRange.Text = ServiceType.Text
-        End If
-    End Sub
+
     Private Sub ShowPR_Click(sender As Object, e As EventArgs) Handles ShowPR.Click
         PrayerRequests.Show()
     End Sub
@@ -441,6 +409,11 @@ Public Class MainProgram
             ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = Mid(BookBox.Text, commaPos + 1)
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ChapterTxt.Text + " : " + VerseTxt.Text
 
+        End If
+    End Sub
+    Private Sub ServiceType_KeyDown(sender As Object, e As KeyEventArgs) Handles ServiceType.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            ppPres.Slides(1).Shapes(10).TextFrame.TextRange.Text = ServiceType.Text
         End If
     End Sub
 
