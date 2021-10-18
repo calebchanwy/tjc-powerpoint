@@ -92,6 +92,7 @@ Public Class MainProgram
     Public Function HandleSettings()
         If My.Computer.FileSystem.FileExists(Current + "\Files\Settings.ini") Then
             Dim Settings As Array = File.ReadAllLines(Current + "\Files\Settings.ini")
+
             For Each str As String In Settings
                 LoadSettings(str)
             Next
@@ -348,7 +349,9 @@ Public Class MainProgram
         End If
     End Sub
     Private Sub UpdateVerse_Click(sender As Object, e As EventArgs) Handles UpdateVerse.Click
-        If ShowVerses.Checked Then
+        If ShowVerses.Checked And VerseTxt.Text = "" And BookBox.Text = "" And ChapterTxt.Text = "" Then
+            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : "
+        ElseIf ShowVerses.Checked Then
             Dim commaPos As Integer
             commaPos = InStr(BookBox.Text, ",")
             ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
@@ -412,7 +415,11 @@ Public Class MainProgram
     End Sub
 
     Private Sub VerseTxt_KeyDown(sender As Object, e As KeyEventArgs) Handles VerseTxt.KeyDown
-        If e.KeyCode = Keys.Enter Then
+        If e.KeyCode = Keys.Enter And VerseTxt.Text = "" And ChapterTxt.Text = "" Then
+            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : "
+        ElseIf e.KeyCode = Keys.Enter And VerseTxt.Text = "" And ChapterTxt.Text IsNot "" Then
+            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ChapterTxt.Text + " : "
+        ElseIf e.KeyCode = Keys.Enter Then
             Dim commaPos As Integer
             commaPos = InStr(BookBox.Text, ",")
             ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
@@ -423,7 +430,11 @@ Public Class MainProgram
     End Sub
 
     Private Sub ChapterTxt_KeyDown(sender As Object, e As KeyEventArgs) Handles ChapterTxt.KeyDown
-        If e.KeyCode = Keys.Enter Then
+        If e.KeyCode = Keys.Enter And VerseTxt.Text = "" And ChapterTxt.Text = "" Then
+            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : "
+        ElseIf e.KeyCode = Keys.Enter And VerseTxt.Text IsNot "" And ChapterTxt.Text = "" Then
+            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : " + VerseTxt.Text
+        ElseIf e.KeyCode = Keys.Enter Then
             Dim commaPos As Integer
             commaPos = InStr(BookBox.Text, ",")
             ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
@@ -431,6 +442,16 @@ Public Class MainProgram
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ChapterTxt.Text + " : " + VerseTxt.Text
 
         End If
+    End Sub
+
+    Private Sub BookBox_KeyDown(sender As Object, e As KeyEventArgs) Handles BookBox.KeyDown
+        ' handles when book box is empty, assumes that no verse or chapter should be shown
+        If BookBox.Text Is "" And e.KeyCode = Keys.Enter Then
+            ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = ""
+            ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = ""
+            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : "
+        End If
+
     End Sub
 
     Private Sub HymnalTitle_Click(sender As Object, e As EventArgs) Handles HymnalTitle.Click
@@ -444,5 +465,5 @@ Public Class MainProgram
 
 
 
-    'InSlide2: 1-English Title, 2 - Chinese Title, 3 - HymnHeader, 4 - Hymns, 5 - BibleHeader, 6 - EnglishBook, 7 - ChineseBook, 8 - Chapter+Verse, 10 - Service Type
+    'InSlide1: 1-English Title, 2 - Chinese Title, 3 - HymnHeader, 4 - Hymns, 5 - BibleHeader, 6 - EnglishBook, 7 - ChineseBook, 8 - Chapter+Verse, 10 - Service Type
 End Class

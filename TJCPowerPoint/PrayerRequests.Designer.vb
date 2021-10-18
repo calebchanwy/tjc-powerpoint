@@ -56,7 +56,6 @@ Partial Class PrayerRequests
         Me.PrayerRequestTxt.Name = "PrayerRequestTxt"
         Me.PrayerRequestTxt.Size = New System.Drawing.Size(487, 352)
         Me.PrayerRequestTxt.TabIndex = 2
-        Me.PrayerRequestTxt.Text = resources.GetString("PrayerRequestTxt.Text")
         Me.PrayerRequestTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.PrayerRequestTxt.WordWrap = False
         '

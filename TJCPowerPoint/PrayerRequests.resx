@@ -117,21 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="PrayerRequestTxt.Text" xml:space="preserve">
-    <value>True Jesus Church Centenary (1917 - 2017)
-Theme : Increase The Nation , Expand All The Borders
-真耶穌教會傳 教百年 (1917 - 2017)
-主題 : 增添國民 , 擴張四境
------------------------------------------------------------------------------------------------
-Thanksgiving Service – Manchester Prayer House 29th May 2017
-感恩聚會 - 曼城聚會點 - 五月二十九日
------------------------------------------------------------------------------------------------National Evergreen Fellowship – Newcastle Church 12th June
-全國長青團契 - 紐卡素教會 - 六月十二日
------------------------------------------------------------------------------------------------27th National Sisters Fellowship – Edinburgh Church – 19th – 20th June
-第廿七屆全國姊妹靈修會 - 愛丁堡教會 - 六月十九至二十日
------------------------------------------------------------------------------------------------Literary Ministry Seminar – 17th – 20th June
-聯總文宣講習會 - 六月十七至二十日</value>
-  </data>
   <metadata name="SaveFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
