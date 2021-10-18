@@ -436,9 +436,7 @@ Public Class MainProgram
             ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = ""
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : "
         End If
-
     End Sub
-
     Private Sub HymnalTitle_Click(sender As Object, e As EventArgs) Handles HymnalTitle.Click
         ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = "Hymnal"
         ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = "詩頌"

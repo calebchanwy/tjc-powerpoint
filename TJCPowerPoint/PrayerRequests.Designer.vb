@@ -47,7 +47,7 @@ Partial Class PrayerRequests
         Me.PrayerRequestTxt.AcceptsReturn = True
         Me.PrayerRequestTxt.AcceptsTab = True
         Me.PrayerRequestTxt.AllowDrop = True
-        Me.PrayerRequestTxt.BackColor = System.Drawing.Color.Blue
+        Me.PrayerRequestTxt.BackColor = System.Drawing.Color.Black
         Me.PrayerRequestTxt.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.PrayerRequestTxt.Font = New System.Drawing.Font("Book Antiqua", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PrayerRequestTxt.ForeColor = System.Drawing.Color.White
@@ -173,7 +173,7 @@ Partial Class PrayerRequests
         '
         'TitleBox
         '
-        Me.TitleBox.BackColor = System.Drawing.Color.Blue
+        Me.TitleBox.BackColor = System.Drawing.Color.Black
         Me.TitleBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TitleBox.Font = New System.Drawing.Font("Book Antiqua", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TitleBox.ForeColor = System.Drawing.SystemColors.Info
@@ -186,7 +186,7 @@ Partial Class PrayerRequests
         '
         'Panel
         '
-        Me.Panel.BackColor = System.Drawing.Color.Blue
+        Me.Panel.BackColor = System.Drawing.Color.Black
         Me.Panel.Controls.Add(Me.TitleBox)
         Me.Panel.Controls.Add(Me.PrayerRequestTxt)
         Me.Panel.Location = New System.Drawing.Point(3, 2)
