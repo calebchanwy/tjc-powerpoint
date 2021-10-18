@@ -106,20 +106,20 @@ Partial Class MainProgram
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(6, 19)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(63, 18)
+        Me.Label1.Size = New System.Drawing.Size(58, 18)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "English"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(1, 58)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(69, 18)
+        Me.Label2.Size = New System.Drawing.Size(68, 18)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Chinese"
         '
@@ -134,10 +134,10 @@ Partial Class MainProgram
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(6, 94)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(60, 18)
+        Me.Label4.Size = New System.Drawing.Size(56, 18)
         Me.Label4.TabIndex = 10
         Me.Label4.Text = "Hymns"
         '
@@ -154,7 +154,7 @@ Partial Class MainProgram
         '
         'Title
         '
-        Me.Title.BackColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Title.BackColor = System.Drawing.SystemColors.ControlText
         Me.Title.Controls.Add(Me.HymnalTitle)
         Me.Title.Controls.Add(Me.ServiceTypeFontBtn)
         Me.Title.Controls.Add(Me.ServiceTypeColorBtn)
@@ -176,7 +176,7 @@ Partial Class MainProgram
         Me.Title.Controls.Add(Me.EnglishFontBtn)
         Me.Title.Controls.Add(Me.ChineseFontBtn)
         Me.Title.Controls.Add(Me.ChineseColorBtn)
-        Me.Title.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Title.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Title.ForeColor = System.Drawing.SystemColors.ControlDark
         Me.Title.Location = New System.Drawing.Point(12, 12)
         Me.Title.Name = "Title"
@@ -263,14 +263,16 @@ Partial Class MainProgram
         '
         'UpdateTitle
         '
-        Me.UpdateTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UpdateTitle.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.UpdateTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.UpdateTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.UpdateTitle.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UpdateTitle.ForeColor = System.Drawing.Color.Maroon
         Me.UpdateTitle.Location = New System.Drawing.Point(470, 94)
         Me.UpdateTitle.Name = "UpdateTitle"
         Me.UpdateTitle.Size = New System.Drawing.Size(309, 40)
         Me.UpdateTitle.TabIndex = 3
         Me.UpdateTitle.Text = "Update Title"
-        Me.UpdateTitle.UseVisualStyleBackColor = True
+        Me.UpdateTitle.UseVisualStyleBackColor = False
         '
         'HymnFontBtn
         '
@@ -436,14 +438,16 @@ Partial Class MainProgram
         '
         'UpdateVerse
         '
-        Me.UpdateVerse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UpdateVerse.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.UpdateVerse.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.UpdateVerse.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.UpdateVerse.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UpdateVerse.ForeColor = System.Drawing.Color.Maroon
         Me.UpdateVerse.Location = New System.Drawing.Point(470, 83)
         Me.UpdateVerse.Name = "UpdateVerse"
         Me.UpdateVerse.Size = New System.Drawing.Size(309, 40)
         Me.UpdateVerse.TabIndex = 3
         Me.UpdateVerse.Text = "Update Chapter and Verse"
-        Me.UpdateVerse.UseVisualStyleBackColor = True
+        Me.UpdateVerse.UseVisualStyleBackColor = False
         '
         'Label5
         '
@@ -723,6 +727,7 @@ Partial Class MainProgram
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(809, 461)
         Me.Controls.Add(Me.Show_AN)
         Me.Controls.Add(Me.Time)
