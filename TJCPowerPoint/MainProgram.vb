@@ -21,6 +21,7 @@ Public Class MainProgram
         End If
         If My.Computer.FileSystem.FileExists(Current + "\Files\ServiceWidescreen.pptx") = False Then
             System.IO.File.WriteAllBytes(Current + "\Files\ServiceWidescreen.pptx", My.Resources.ServiceWidescreen)
+            System.IO.File.WriteAllBytes(Current + "\Files\Service4to3.pptx", My.Resources.Service4to3)
         End If
         Return True
     End Function
@@ -383,18 +384,14 @@ Public Class MainProgram
         Time.Text = "Time: " + DateTime.Now.ToString("HH:mm:ss  dddd, dd MMMM yyyy")
     End Sub
 
-    Private Sub EnglishTitle_KeyDown(sender As Object, e As KeyEventArgs) Handles EnglishTitle.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            Call UpdateTitle_Click(sender, e)
-        End If
-    End Sub
-    Private Sub ChineseTitle_KeyDown(sender As Object, e As KeyEventArgs) Handles ChineseTitle.KeyDown
+    Private Sub Titles_KeyDown(sender As Object, e As KeyEventArgs) Handles EnglishTitle.KeyDown, ChineseTitle.KeyDown
         If e.KeyCode = Keys.Enter Then
             Call UpdateTitle_Click(sender, e)
         End If
     End Sub
 
-    Private Sub VerseTxt_KeyDown(sender As Object, e As KeyEventArgs) Handles VerseTxt.KeyDown
+    Private Sub VerseChapter_KeyDown(sender As Object, e As KeyEventArgs) Handles VerseTxt.KeyDown, ChapterTxt.KeyDown
+        'handling both when chapter and verse enter key pressed
         If e.KeyCode = Keys.Enter And VerseTxt.Text = "" And ChapterTxt.Text = "" Then
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : "
         ElseIf e.KeyCode = Keys.Enter And VerseTxt.Text = "" And ChapterTxt.Text IsNot "" Then
@@ -409,20 +406,6 @@ Public Class MainProgram
         End If
     End Sub
 
-    Private Sub ChapterTxt_KeyDown(sender As Object, e As KeyEventArgs) Handles ChapterTxt.KeyDown
-        If e.KeyCode = Keys.Enter And VerseTxt.Text = "" And ChapterTxt.Text = "" Then
-            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : "
-        ElseIf e.KeyCode = Keys.Enter And VerseTxt.Text IsNot "" And ChapterTxt.Text = "" Then
-            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : " + VerseTxt.Text
-        ElseIf e.KeyCode = Keys.Enter Then
-            Dim commaPos As Integer
-            commaPos = InStr(BookBox.Text, ",")
-            ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
-            ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = Mid(BookBox.Text, commaPos + 1)
-            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ChapterTxt.Text + " : " + VerseTxt.Text
-
-        End If
-    End Sub
     Private Sub ServiceType_KeyDown(sender As Object, e As KeyEventArgs) Handles ServiceType.KeyDown
         If e.KeyCode = Keys.Enter Then
             ppPres.Slides(1).Shapes(10).TextFrame.TextRange.Text = ServiceType.Text

@@ -154,7 +154,7 @@ Partial Class MainProgram
         Me.HymnChange.ForeColor = System.Drawing.Color.Maroon
         Me.HymnChange.Location = New System.Drawing.Point(154, 129)
         Me.HymnChange.Name = "HymnChange"
-        Me.HymnChange.Size = New System.Drawing.Size(53, 55)
+        Me.HymnChange.Size = New System.Drawing.Size(53, 53)
         Me.HymnChange.TabIndex = 5
         Me.HymnChange.TabStop = False
         Me.HymnChange.Text = "Change Hymns"
@@ -201,7 +201,7 @@ Partial Class MainProgram
         Me.HymnalTitle.ForeColor = System.Drawing.SystemColors.ControlText
         Me.HymnalTitle.Location = New System.Drawing.Point(217, 113)
         Me.HymnalTitle.Name = "HymnalTitle"
-        Me.HymnalTitle.Size = New System.Drawing.Size(234, 25)
+        Me.HymnalTitle.Size = New System.Drawing.Size(283, 25)
         Me.HymnalTitle.TabIndex = 20
         Me.HymnalTitle.TabStop = False
         Me.HymnalTitle.Text = "Change Title To ""Hymnal"""
@@ -242,7 +242,7 @@ Partial Class MainProgram
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(279, 140)
+        Me.Label11.Location = New System.Drawing.Point(284, 140)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(102, 18)
         Me.Label11.TabIndex = 19
@@ -252,7 +252,7 @@ Partial Class MainProgram
         '
         Me.ShowVerses.AutoSize = True
         Me.ShowVerses.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ShowVerses.Location = New System.Drawing.Point(323, 95)
+        Me.ShowVerses.Location = New System.Drawing.Point(351, 95)
         Me.ShowVerses.Name = "ShowVerses"
         Me.ShowVerses.Size = New System.Drawing.Size(128, 19)
         Me.ShowVerses.TabIndex = 17
@@ -264,7 +264,7 @@ Partial Class MainProgram
         '
         Me.ShowHymn.AutoSize = True
         Me.ShowHymn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ShowHymn.Location = New System.Drawing.Point(214, 95)
+        Me.ShowHymn.Location = New System.Drawing.Point(245, 95)
         Me.ShowHymn.Name = "ShowHymn"
         Me.ShowHymn.Size = New System.Drawing.Size(98, 19)
         Me.ShowHymn.TabIndex = 18
@@ -275,12 +275,13 @@ Partial Class MainProgram
         'UpdateTitle
         '
         Me.UpdateTitle.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.UpdateTitle.FlatAppearance.BorderSize = 0
         Me.UpdateTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.UpdateTitle.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UpdateTitle.ForeColor = System.Drawing.Color.Maroon
-        Me.UpdateTitle.Location = New System.Drawing.Point(591, 113)
+        Me.UpdateTitle.Location = New System.Drawing.Point(506, 95)
         Me.UpdateTitle.Name = "UpdateTitle"
-        Me.UpdateTitle.Size = New System.Drawing.Size(188, 64)
+        Me.UpdateTitle.Size = New System.Drawing.Size(273, 77)
         Me.UpdateTitle.TabIndex = 3
         Me.UpdateTitle.TabStop = False
         Me.UpdateTitle.Text = "Update Title"
@@ -377,7 +378,7 @@ Partial Class MainProgram
         Me.BibleVerse.Controls.Add(Me.CVColorBtn)
         Me.BibleVerse.Controls.Add(Me.ChapterTxt)
         Me.BibleVerse.Controls.Add(Me.CVFontBtn)
-        Me.BibleVerse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BibleVerse.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BibleVerse.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.BibleVerse.Location = New System.Drawing.Point(12, 208)
         Me.BibleVerse.Name = "BibleVerse"
@@ -389,18 +390,20 @@ Partial Class MainProgram
         'Label13
         '
         Me.Label13.AutoSize = True
+        Me.Label13.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.Location = New System.Drawing.Point(321, 79)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(89, 15)
+        Me.Label13.Size = New System.Drawing.Size(93, 17)
         Me.Label13.TabIndex = 32
         Me.Label13.Text = "Hymn Heading"
         '
         'Label14
         '
         Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.Location = New System.Drawing.Point(233, 79)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(85, 15)
+        Me.Label14.Size = New System.Drawing.Size(90, 17)
         Me.Label14.TabIndex = 31
         Me.Label14.Text = "Bible Heading"
         '
@@ -465,18 +468,20 @@ Partial Class MainProgram
         'Label5
         '
         Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(94, 78)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(83, 15)
+        Me.Label5.Size = New System.Drawing.Size(87, 17)
         Me.Label5.TabIndex = 26
         Me.Label5.Text = "Chinese Book"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(6, 78)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(79, 15)
+        Me.Label3.Size = New System.Drawing.Size(79, 17)
         Me.Label3.TabIndex = 25
         Me.Label3.Text = "English Book"
         '
@@ -509,7 +514,7 @@ Partial Class MainProgram
         Me.BookBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.BookBox.DropDownHeight = 100
         Me.BookBox.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.BookBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BookBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BookBox.ForeColor = System.Drawing.SystemColors.WindowText
         Me.BookBox.FormattingEnabled = True
         Me.BookBox.ImeMode = System.Windows.Forms.ImeMode.[On]
@@ -518,7 +523,7 @@ Partial Class MainProgram
         Me.BookBox.Location = New System.Drawing.Point(16, 47)
         Me.BookBox.MaxDropDownItems = 5
         Me.BookBox.Name = "BookBox"
-        Me.BookBox.Size = New System.Drawing.Size(392, 28)
+        Me.BookBox.Size = New System.Drawing.Size(392, 27)
         Me.BookBox.TabIndex = 0
         '
         'EnglishBookColorBtn
@@ -546,20 +551,20 @@ Partial Class MainProgram
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(576, 26)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(67, 16)
+        Me.Label9.Size = New System.Drawing.Size(60, 16)
         Me.Label9.TabIndex = 18
         Me.Label9.Text = "Verse(s)"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(472, 26)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(62, 16)
+        Me.Label8.Size = New System.Drawing.Size(61, 16)
         Me.Label8.TabIndex = 17
         Me.Label8.Text = "Chapter"
         '
@@ -567,29 +572,29 @@ Partial Class MainProgram
         '
         Me.Label7.AutoSize = True
         Me.Label7.BackColor = System.Drawing.SystemColors.Control
-        Me.Label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.Label7.Location = New System.Drawing.Point(547, 43)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(23, 31)
+        Me.Label7.Size = New System.Drawing.Size(23, 32)
         Me.Label7.TabIndex = 16
         Me.Label7.Text = ":"
         '
         'VerseTxt
         '
-        Me.VerseTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.VerseTxt.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.VerseTxt.Location = New System.Drawing.Point(573, 46)
         Me.VerseTxt.Name = "VerseTxt"
-        Me.VerseTxt.Size = New System.Drawing.Size(144, 29)
+        Me.VerseTxt.Size = New System.Drawing.Size(144, 31)
         Me.VerseTxt.TabIndex = 2
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(10, 25)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(48, 18)
+        Me.Label6.Size = New System.Drawing.Size(46, 18)
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "Book"
         '
@@ -606,10 +611,10 @@ Partial Class MainProgram
         '
         'ChapterTxt
         '
-        Me.ChapterTxt.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ChapterTxt.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChapterTxt.Location = New System.Drawing.Point(470, 45)
         Me.ChapterTxt.Name = "ChapterTxt"
-        Me.ChapterTxt.Size = New System.Drawing.Size(71, 29)
+        Me.ChapterTxt.Size = New System.Drawing.Size(71, 31)
         Me.ChapterTxt.TabIndex = 1
         '
         'CVFontBtn
@@ -625,6 +630,7 @@ Partial Class MainProgram
         '
         'SaveSettings
         '
+        Me.SaveSettings.Font = New System.Drawing.Font("Century Gothic", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaveSettings.Location = New System.Drawing.Point(687, 366)
         Me.SaveSettings.Name = "SaveSettings"
         Me.SaveSettings.Size = New System.Drawing.Size(110, 35)
@@ -640,25 +646,27 @@ Partial Class MainProgram
         'SlideTrack
         '
         Me.SlideTrack.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.SlideTrack.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SlideTrack.FormattingEnabled = True
         Me.SlideTrack.Location = New System.Drawing.Point(128, 374)
         Me.SlideTrack.Name = "SlideTrack"
-        Me.SlideTrack.Size = New System.Drawing.Size(160, 21)
+        Me.SlideTrack.Size = New System.Drawing.Size(160, 24)
         Me.SlideTrack.TabIndex = 4
         Me.SlideTrack.TabStop = False
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.Location = New System.Drawing.Point(19, 375)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(103, 18)
+        Me.Label10.Size = New System.Drawing.Size(95, 18)
         Me.Label10.TabIndex = 19
         Me.Label10.Text = "Go To Slide:"
         '
         'ShowPR
         '
+        Me.ShowPR.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ShowPR.Location = New System.Drawing.Point(328, 366)
         Me.ShowPR.Name = "ShowPR"
         Me.ShowPR.Size = New System.Drawing.Size(109, 76)
@@ -669,6 +677,7 @@ Partial Class MainProgram
         '
         'ExitBtn
         '
+        Me.ExitBtn.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExitBtn.Location = New System.Drawing.Point(687, 407)
         Me.ExitBtn.Name = "ExitBtn"
         Me.ExitBtn.Size = New System.Drawing.Size(110, 35)
@@ -679,6 +688,7 @@ Partial Class MainProgram
         '
         'OpenFolder
         '
+        Me.OpenFolder.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OpenFolder.Location = New System.Drawing.Point(572, 366)
         Me.OpenFolder.Name = "OpenFolder"
         Me.OpenFolder.Size = New System.Drawing.Size(109, 76)
@@ -690,9 +700,10 @@ Partial Class MainProgram
         'Label12
         '
         Me.Label12.AutoSize = True
+        Me.Label12.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.Location = New System.Drawing.Point(20, 410)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(201, 13)
+        Me.Label12.Size = New System.Drawing.Size(230, 16)
         Me.Label12.TabIndex = 24
         Me.Label12.Text = "Change Current Slide Background Colour"
         '
@@ -705,9 +716,10 @@ Partial Class MainProgram
         'Time
         '
         Me.Time.AutoSize = True
+        Me.Time.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Time.Location = New System.Drawing.Point(19, 429)
         Me.Time.Name = "Time"
-        Me.Time.Size = New System.Drawing.Size(33, 13)
+        Me.Time.Size = New System.Drawing.Size(35, 16)
         Me.Time.TabIndex = 25
         Me.Time.Text = "Time:"
         '
@@ -718,6 +730,7 @@ Partial Class MainProgram
         '
         'Show_AN
         '
+        Me.Show_AN.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Show_AN.Location = New System.Drawing.Point(444, 366)
         Me.Show_AN.Name = "Show_AN"
         Me.Show_AN.Size = New System.Drawing.Size(109, 76)
@@ -730,7 +743,7 @@ Partial Class MainProgram
         '
         Me.BGColor.BackgroundImage = CType(resources.GetObject("BGColor.BackgroundImage"), System.Drawing.Image)
         Me.BGColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BGColor.Location = New System.Drawing.Point(225, 404)
+        Me.BGColor.Location = New System.Drawing.Point(255, 405)
         Me.BGColor.Name = "BGColor"
         Me.BGColor.Size = New System.Drawing.Size(25, 25)
         Me.BGColor.TabIndex = 23
