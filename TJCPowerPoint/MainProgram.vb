@@ -21,7 +21,6 @@ Public Class MainProgram
         End If
         If My.Computer.FileSystem.FileExists(Current + "\Files\ServiceWidescreen.pptx") = False Then
             System.IO.File.WriteAllBytes(Current + "\Files\ServiceWidescreen.pptx", My.Resources.ServiceWidescreen)
-            System.IO.File.WriteAllBytes(Current + "\Files\Service4to3.pptx", My.Resources.Service4to3)
         End If
         Return True
     End Function
@@ -31,9 +30,10 @@ Public Class MainProgram
         ppPres = ppApp.Presentations.Open(Current + "\Files\ServiceWidescreen.pptx", [ReadOnly]:=Office.MsoTriState.msoFalse, WithWindow:=Office.MsoTriState.msoFalse)
         ppPres.Slides(1).Name = "Service/Hymnal"
         ppPres.Slides(2).Name = "Prayer Requests"
-        ppPres.Slides(3).Name = "Announcements"
-        ppPres.Slides(4).Name = "Holy Communion"
-        ppPres.Slides(5).Name = "How to Pray"
+        ppPres.Slides(3).Name = "Prayer Requests - Image"
+        ppPres.Slides(4).Name = "Announcements"
+        ppPres.Slides(5).Name = "Holy Communion"
+        ppPres.Slides(6).Name = "How to Pray"
         For i As Integer = 1 To ppPres.Slides.Count
             SlideTrack.Items.Add(ppPres.Slides(i).Name)
         Next
