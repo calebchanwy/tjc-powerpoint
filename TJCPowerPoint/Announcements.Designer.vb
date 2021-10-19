@@ -47,7 +47,7 @@ Partial Class Announcements
         Me.AnnouncementTxt.AcceptsReturn = True
         Me.AnnouncementTxt.AcceptsTab = True
         Me.AnnouncementTxt.AllowDrop = True
-        Me.AnnouncementTxt.BackColor = System.Drawing.Color.Blue
+        Me.AnnouncementTxt.BackColor = System.Drawing.Color.Black
         Me.AnnouncementTxt.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.AnnouncementTxt.Font = New System.Drawing.Font("Book Antiqua", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AnnouncementTxt.ForeColor = System.Drawing.Color.White
@@ -61,6 +61,7 @@ Partial Class Announcements
         '
         'UpdateAnnouncements
         '
+        Me.UpdateAnnouncements.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UpdateAnnouncements.Location = New System.Drawing.Point(508, 103)
         Me.UpdateAnnouncements.Name = "UpdateAnnouncements"
         Me.UpdateAnnouncements.Size = New System.Drawing.Size(68, 142)
@@ -70,6 +71,7 @@ Partial Class Announcements
         '
         'SaveAnnouncements
         '
+        Me.SaveAnnouncements.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaveAnnouncements.Location = New System.Drawing.Point(513, 290)
         Me.SaveAnnouncements.Name = "SaveAnnouncements"
         Me.SaveAnnouncements.Size = New System.Drawing.Size(57, 33)
@@ -80,6 +82,7 @@ Partial Class Announcements
         '
         'LoadAnnouncements
         '
+        Me.LoadAnnouncements.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LoadAnnouncements.Location = New System.Drawing.Point(514, 251)
         Me.LoadAnnouncements.Name = "LoadAnnouncements"
         Me.LoadAnnouncements.Size = New System.Drawing.Size(56, 33)
@@ -90,6 +93,7 @@ Partial Class Announcements
         '
         'CloseAnnouncements
         '
+        Me.CloseAnnouncements.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CloseAnnouncements.Location = New System.Drawing.Point(509, 329)
         Me.CloseAnnouncements.Name = "CloseAnnouncements"
         Me.CloseAnnouncements.Size = New System.Drawing.Size(67, 54)
@@ -112,18 +116,20 @@ Partial Class Announcements
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(525, 51)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(31, 13)
+        Me.Label1.Size = New System.Drawing.Size(35, 16)
         Me.Label1.TabIndex = 11
         Me.Label1.Text = "Body"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(530, 6)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(27, 13)
+        Me.Label2.Size = New System.Drawing.Size(28, 16)
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Title"
         '
@@ -173,9 +179,9 @@ Partial Class Announcements
         '
         'TitleBox
         '
-        Me.TitleBox.BackColor = System.Drawing.Color.Blue
+        Me.TitleBox.BackColor = System.Drawing.Color.Black
         Me.TitleBox.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TitleBox.Font = New System.Drawing.Font("Book Antiqua", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TitleBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TitleBox.ForeColor = System.Drawing.SystemColors.Info
         Me.TitleBox.Location = New System.Drawing.Point(3, 3)
         Me.TitleBox.Name = "TitleBox"
@@ -186,7 +192,7 @@ Partial Class Announcements
         '
         'Panel
         '
-        Me.Panel.BackColor = System.Drawing.Color.Blue
+        Me.Panel.BackColor = System.Drawing.Color.Black
         Me.Panel.Controls.Add(Me.TitleBox)
         Me.Panel.Controls.Add(Me.AnnouncementTxt)
         Me.Panel.Location = New System.Drawing.Point(3, 2)
@@ -197,9 +203,10 @@ Partial Class Announcements
         'Label3
         '
         Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(4, 389)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(361, 13)
+        Me.Label3.Size = New System.Drawing.Size(403, 16)
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "Representation of font size 22, might not be the same for different font sizes"
         '
