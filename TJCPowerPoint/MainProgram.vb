@@ -534,7 +534,7 @@ Public Class MainProgram
 
     Private Sub edtPrayerImg_Click(sender As Object, e As EventArgs) Handles edtPrayerImg.Click
         Dim ofd = New OpenFileDialog()
-        ofd.InitialDirectory = Current + "\Files\"
+        ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Downloads"
         ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*"
         If ofd.ShowDialog = DialogResult.OK Then
             ppPres.Slides(3).Shapes(1).Delete()

@@ -50,7 +50,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>wP5KnQzJ+DCPfPveSEoqI7ykBp4SlV0cS7w0CXkHygo=</dsig:DigestValue>
+        <dsig:DigestValue>uNhcFHUFUUrNFgo64BXX9K43RoCSEAgqAUFKz1eKuBc=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -63,13 +63,13 @@
       <dsig:DigestValue>Pu19E7qonKE37r0Rlh8TNtYZ8g4hIQ2992JTBSV3vc0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="TJCPowerPoint.exe.config" size="188">
+  <file name="TJCPowerPoint.exe.config" size="183">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>j5XMowm9qYcyNWR87Ke1KpLLXBlaYAR38CaZywZFE9o=</dsig:DigestValue>
+      <dsig:DigestValue>W3FZXfp6nic/JgBKAphnz5YgZAGfG4Qip/tcfHJexlE=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
