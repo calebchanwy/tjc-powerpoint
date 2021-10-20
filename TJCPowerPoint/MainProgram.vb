@@ -94,7 +94,6 @@ Public Class MainProgram
     Public Function HandleSettings()
         If My.Computer.FileSystem.FileExists(Current + "\Files\Settings.ini") Then
             Dim Settings As Array = File.ReadAllLines(Current + "\Files\Settings.ini")
-
             For Each str As String In Settings
                 LoadSettings(str)
             Next
@@ -325,7 +324,7 @@ Public Class MainProgram
     Private Sub UpdateVerse_Click(sender As Object, e As EventArgs) Handles UpdateVerse.Click
         If ShowVerses.Checked And VerseTxt.Text = "" And BookBox.Text = "" And ChapterTxt.Text = "" Then
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : "
-        ElseIf ShowVerses.Checked And BookBox.Text IsNot "" Then
+        ElseIf ShowVerses.Checked Then
             Dim commaPos As Integer
             commaPos = InStr(BookBox.Text, ",")
             ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
@@ -392,8 +391,17 @@ Public Class MainProgram
 
     Private Sub VerseChapter_KeyDown(sender As Object, e As KeyEventArgs) Handles VerseTxt.KeyDown, ChapterTxt.KeyDown
         'handling both when chapter and verse enter key pressed
-        If e.KeyCode = Keys.Enter Then
-            Call UpdateVerse_Click(sender, e)
+        If e.KeyCode = Keys.Enter And VerseTxt.Text = "" And ChapterTxt.Text = "" Then
+            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : "
+        ElseIf e.KeyCode = Keys.Enter And VerseTxt.Text = "" And ChapterTxt.Text IsNot "" Then
+            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ChapterTxt.Text + " : "
+        ElseIf e.KeyCode = Keys.Enter Then
+            Dim commaPos As Integer
+            commaPos = InStr(BookBox.Text, ",")
+            ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
+            ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = Mid(BookBox.Text, commaPos + 1)
+            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ChapterTxt.Text + " : " + VerseTxt.Text
+
         End If
     End Sub
 
@@ -409,10 +417,6 @@ Public Class MainProgram
             ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = ""
             ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = ""
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : "
-            ChapterTxt.Text = ""
-            VerseTxt.Text = ""
-        ElseIf e.KeyCode = Keys.Enter Then
-            Call UpdateVerse_Click(sender, e)
         End If
     End Sub
     Private Sub HymnalTitle_Click(sender As Object, e As EventArgs) Handles HymnalTitle.Click
@@ -526,6 +530,16 @@ Public Class MainProgram
 
     Private Sub Time_Click(sender As Object, e As EventArgs) Handles Time.Click
 
+    End Sub
+
+    Private Sub edtPrayerImg_Click(sender As Object, e As EventArgs) Handles edtPrayerImg.Click
+        Dim ofd = New OpenFileDialog()
+        ofd.InitialDirectory = Current + "\Files\"
+        ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*"
+        If ofd.ShowDialog = DialogResult.OK Then
+            ppPres.Slides(3).Shapes(1).Delete()
+            ppPres.Slides(3).Shapes.AddPicture(ofd.FileName, True, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
+        End If
     End Sub
 
 
