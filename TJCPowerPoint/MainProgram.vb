@@ -325,7 +325,7 @@ Public Class MainProgram
     Private Sub UpdateVerse_Click(sender As Object, e As EventArgs) Handles UpdateVerse.Click
         If ShowVerses.Checked And VerseTxt.Text = "" And BookBox.Text = "" And ChapterTxt.Text = "" Then
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : "
-        ElseIf ShowVerses.Checked Then
+        ElseIf ShowVerses.Checked And BookBox.Text IsNot "" Then
             Dim commaPos As Integer
             commaPos = InStr(BookBox.Text, ",")
             ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
@@ -392,17 +392,8 @@ Public Class MainProgram
 
     Private Sub VerseChapter_KeyDown(sender As Object, e As KeyEventArgs) Handles VerseTxt.KeyDown, ChapterTxt.KeyDown
         'handling both when chapter and verse enter key pressed
-        If e.KeyCode = Keys.Enter And VerseTxt.Text = "" And ChapterTxt.Text = "" Then
-            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : "
-        ElseIf e.KeyCode = Keys.Enter And VerseTxt.Text = "" And ChapterTxt.Text IsNot "" Then
-            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ChapterTxt.Text + " : "
-        ElseIf e.KeyCode = Keys.Enter Then
-            Dim commaPos As Integer
-            commaPos = InStr(BookBox.Text, ",")
-            ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
-            ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = Mid(BookBox.Text, commaPos + 1)
-            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ChapterTxt.Text + " : " + VerseTxt.Text
-
+        If e.KeyCode = Keys.Enter Then
+            Call UpdateVerse_Click(sender, e)
         End If
     End Sub
 
@@ -418,6 +409,10 @@ Public Class MainProgram
             ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = ""
             ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = ""
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : "
+            ChapterTxt.Text = ""
+            VerseTxt.Text = ""
+        ElseIf e.KeyCode = Keys.Enter Then
+            Call UpdateVerse_Click(sender, e)
         End If
     End Sub
     Private Sub HymnalTitle_Click(sender As Object, e As EventArgs) Handles HymnalTitle.Click
