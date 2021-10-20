@@ -33,11 +33,16 @@
         End If
     End Sub
 
-    Private Sub PrayerRequests_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub editPrayerImage_Click(sender As Object, e As EventArgs) Handles editPrayerImage.Click
+        Dim ofd = New OpenFileDialog()
+        Dim prayerImage As Bitmap
+        ofd.InitialDirectory = MainProgram.Current + "\Files\"
+        ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*"
+        If ofd.ShowDialog = DialogResult.OK Then
+            MainProgram.ppPres.Slides(3).Shapes(1).Delete()
+            MainProgram.ppPres.Slides(3).Shapes.AddPicture(ofd.FileName, True, True, 0, 0, MainProgram.ppPres.PageSetup.SlideWidth, MainProgram.ppPres.PageSetup.SlideHeight)
+        End If
 
-    End Sub
-
-    Private Sub PrayerRequestTxt_TextChanged(sender As Object, e As EventArgs) Handles PrayerRequestTxt.TextChanged
 
     End Sub
 End Class
