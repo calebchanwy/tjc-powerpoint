@@ -175,7 +175,7 @@ Partial Class PrayerRequests
         '
         Me.TitleBox.BackColor = System.Drawing.Color.Black
         Me.TitleBox.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TitleBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TitleBox.Font = New System.Drawing.Font("Book Antiqua", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TitleBox.ForeColor = System.Drawing.SystemColors.Info
         Me.TitleBox.Location = New System.Drawing.Point(3, 3)
         Me.TitleBox.Name = "TitleBox"
@@ -197,10 +197,9 @@ Partial Class PrayerRequests
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(4, 389)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(403, 16)
+        Me.Label3.Size = New System.Drawing.Size(361, 13)
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "Representation of font size 22, might not be the same for different font sizes"
         '
