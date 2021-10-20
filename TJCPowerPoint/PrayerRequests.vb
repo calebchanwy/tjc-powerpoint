@@ -35,6 +35,7 @@
 
     Private Sub editPrayerImage_Click(sender As Object, e As EventArgs) Handles editPrayerImage.Click
         Dim ofd = New OpenFileDialog()
+        Dim prayerImage As Bitmap
         ofd.InitialDirectory = MainProgram.Current + "\Files\"
         ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*"
         If ofd.ShowDialog = DialogResult.OK Then
