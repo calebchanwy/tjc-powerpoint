@@ -48,6 +48,7 @@ Public Class MainProgram
         HandleSettings()
         ppPres.SlideShowSettings.Run()
         SlideTrack.SelectedIndex = 0
+        LoadPrayerImage()
         Return True
     End Function
     Public Function LoadPrayerImage()
@@ -121,13 +122,13 @@ Public Class MainProgram
     Public Function HandleAnnouncements()
         If My.Computer.FileSystem.FileExists(Current + "\Files\Announcements.txt") Then
             Announcements.AnnouncementTxt.Text = File.ReadAllText(Current + "\Files\Announcements.txt", System.Text.Encoding.UTF32)
-            ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = Announcements.AnnouncementTxt.Text
+            ppPres.Slides(4).Shapes(1).TextFrame.TextRange.Text = Announcements.AnnouncementTxt.Text
         Else
             Using sw As StreamWriter = File.CreateText(Current + "\Files\Announcements.txt")
                 sw.WriteLine(" ")
             End Using
             Announcements.AnnouncementTxt.Text = File.ReadAllText(Current + "\Files\Announcements.txt", System.Text.Encoding.UTF32)
-            ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = Announcements.AnnouncementTxt.Text
+            ppPres.Slides(4).Shapes(1).TextFrame.TextRange.Text = Announcements.AnnouncementTxt.Text
         End If
         Return True
     End Function
