@@ -151,11 +151,11 @@ Partial Class MainProgram
         Me.HymnChange.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.HymnChange.FlatAppearance.BorderSize = 0
         Me.HymnChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.HymnChange.Font = New System.Drawing.Font("Century Gothic", 6.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HymnChange.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HymnChange.ForeColor = System.Drawing.Color.Black
-        Me.HymnChange.Location = New System.Drawing.Point(154, 129)
+        Me.HymnChange.Location = New System.Drawing.Point(154, 124)
         Me.HymnChange.Name = "HymnChange"
-        Me.HymnChange.Size = New System.Drawing.Size(53, 53)
+        Me.HymnChange.Size = New System.Drawing.Size(68, 58)
         Me.HymnChange.TabIndex = 5
         Me.HymnChange.TabStop = False
         Me.HymnChange.Text = "Change Hymns"
@@ -202,9 +202,9 @@ Partial Class MainProgram
         Me.HymnalTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.HymnalTitle.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HymnalTitle.ForeColor = System.Drawing.Color.Black
-        Me.HymnalTitle.Location = New System.Drawing.Point(217, 113)
+        Me.HymnalTitle.Location = New System.Drawing.Point(506, 94)
         Me.HymnalTitle.Name = "HymnalTitle"
-        Me.HymnalTitle.Size = New System.Drawing.Size(283, 25)
+        Me.HymnalTitle.Size = New System.Drawing.Size(273, 31)
         Me.HymnalTitle.TabIndex = 20
         Me.HymnalTitle.TabStop = False
         Me.HymnalTitle.Text = "Change Title To ""Hymnal"""
@@ -235,9 +235,9 @@ Partial Class MainProgram
         'ServiceType
         '
         Me.ServiceType.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ServiceType.Location = New System.Drawing.Point(221, 161)
+        Me.ServiceType.Location = New System.Drawing.Point(228, 161)
         Me.ServiceType.Name = "ServiceType"
-        Me.ServiceType.Size = New System.Drawing.Size(221, 21)
+        Me.ServiceType.Size = New System.Drawing.Size(214, 21)
         Me.ServiceType.TabIndex = 6
         Me.ServiceType.TabStop = False
         '
@@ -245,7 +245,7 @@ Partial Class MainProgram
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(284, 140)
+        Me.Label11.Location = New System.Drawing.Point(286, 140)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(102, 18)
         Me.Label11.TabIndex = 19
@@ -254,25 +254,27 @@ Partial Class MainProgram
         'ShowVerses
         '
         Me.ShowVerses.AutoSize = True
-        Me.ShowVerses.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ShowVerses.Location = New System.Drawing.Point(351, 95)
+        Me.ShowVerses.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ShowVerses.Location = New System.Drawing.Point(348, 100)
         Me.ShowVerses.Name = "ShowVerses"
-        Me.ShowVerses.Size = New System.Drawing.Size(128, 19)
+        Me.ShowVerses.Size = New System.Drawing.Size(139, 21)
         Me.ShowVerses.TabIndex = 17
         Me.ShowVerses.TabStop = False
         Me.ShowVerses.Text = "Show Bible Verses"
+        Me.ShowVerses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.ShowVerses.UseVisualStyleBackColor = True
         '
         'ShowHymn
         '
         Me.ShowHymn.AutoSize = True
-        Me.ShowHymn.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ShowHymn.Location = New System.Drawing.Point(245, 95)
+        Me.ShowHymn.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ShowHymn.Location = New System.Drawing.Point(237, 100)
         Me.ShowHymn.Name = "ShowHymn"
-        Me.ShowHymn.Size = New System.Drawing.Size(98, 19)
+        Me.ShowHymn.Size = New System.Drawing.Size(107, 21)
         Me.ShowHymn.TabIndex = 18
         Me.ShowHymn.TabStop = False
         Me.ShowHymn.Text = "Show Hymns"
+        Me.ShowHymn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         Me.ShowHymn.UseVisualStyleBackColor = True
         '
         'UpdateTitle
@@ -283,9 +285,9 @@ Partial Class MainProgram
         Me.UpdateTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.UpdateTitle.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UpdateTitle.ForeColor = System.Drawing.Color.Black
-        Me.UpdateTitle.Location = New System.Drawing.Point(526, 102)
+        Me.UpdateTitle.Location = New System.Drawing.Point(506, 133)
         Me.UpdateTitle.Name = "UpdateTitle"
-        Me.UpdateTitle.Size = New System.Drawing.Size(236, 69)
+        Me.UpdateTitle.Size = New System.Drawing.Size(273, 50)
         Me.UpdateTitle.TabIndex = 3
         Me.UpdateTitle.TabStop = False
         Me.UpdateTitle.Text = "Update Title"
@@ -295,7 +297,7 @@ Partial Class MainProgram
         '
         Me.HymnFontBtn.BackgroundImage = CType(resources.GetObject("HymnFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.HymnFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.HymnFontBtn.Location = New System.Drawing.Point(183, 93)
+        Me.HymnFontBtn.Location = New System.Drawing.Point(184, 93)
         Me.HymnFontBtn.Name = "HymnFontBtn"
         Me.HymnFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.HymnFontBtn.TabIndex = 12
@@ -306,7 +308,7 @@ Partial Class MainProgram
         '
         Me.HymnColorBtn.BackgroundImage = CType(resources.GetObject("HymnColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.HymnColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.HymnColorBtn.Location = New System.Drawing.Point(152, 93)
+        Me.HymnColorBtn.Location = New System.Drawing.Point(153, 93)
         Me.HymnColorBtn.Name = "HymnColorBtn"
         Me.HymnColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.HymnColorBtn.TabIndex = 11
@@ -671,7 +673,7 @@ Partial Class MainProgram
         'ShowPR
         '
         Me.ShowPR.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ShowPR.Location = New System.Drawing.Point(299, 366)
+        Me.ShowPR.Location = New System.Drawing.Point(301, 366)
         Me.ShowPR.Name = "ShowPR"
         Me.ShowPR.Size = New System.Drawing.Size(138, 35)
         Me.ShowPR.TabIndex = 20
@@ -693,7 +695,7 @@ Partial Class MainProgram
         'OpenFolder
         '
         Me.OpenFolder.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OpenFolder.Location = New System.Drawing.Point(572, 366)
+        Me.OpenFolder.Location = New System.Drawing.Point(570, 366)
         Me.OpenFolder.Name = "OpenFolder"
         Me.OpenFolder.Size = New System.Drawing.Size(109, 76)
         Me.OpenFolder.TabIndex = 23
@@ -735,7 +737,7 @@ Partial Class MainProgram
         'Show_AN
         '
         Me.Show_AN.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Show_AN.Location = New System.Drawing.Point(444, 366)
+        Me.Show_AN.Location = New System.Drawing.Point(451, 366)
         Me.Show_AN.Name = "Show_AN"
         Me.Show_AN.Size = New System.Drawing.Size(109, 76)
         Me.Show_AN.TabIndex = 26
@@ -757,7 +759,7 @@ Partial Class MainProgram
         'edtPrayerImg
         '
         Me.edtPrayerImg.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.edtPrayerImg.Location = New System.Drawing.Point(299, 405)
+        Me.edtPrayerImg.Location = New System.Drawing.Point(301, 405)
         Me.edtPrayerImg.Name = "edtPrayerImg"
         Me.edtPrayerImg.Size = New System.Drawing.Size(138, 37)
         Me.edtPrayerImg.TabIndex = 27

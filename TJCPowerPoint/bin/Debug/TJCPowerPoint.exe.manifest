@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TJCPowerPoint.exe" size="1061888">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TJCPowerPoint.exe" size="1062912">
       <assemblyIdentity name="TJCPowerPoint" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>DEy4DtfQdCsqmC/V7JdVvr+oqNWNYbe4kfHMGNvQIhs=</dsig:DigestValue>
+        <dsig:DigestValue>JsY5fB3hlcrAMVrq2bWKL3JCtwIDgNsMqBuUvmNJR2g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

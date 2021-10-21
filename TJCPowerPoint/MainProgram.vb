@@ -408,7 +408,7 @@ Public Class MainProgram
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : "
         ElseIf e.KeyCode = Keys.Enter And VerseTxt.Text = "" And ChapterTxt.Text IsNot "" Then
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ChapterTxt.Text + " : "
-        ElseIf e.KeyCode = Keys.Enter Then
+        ElseIf e.KeyCode = Keys.Enter And BookBox.Text IsNot "" Then
             Dim commaPos As Integer
             commaPos = InStr(BookBox.Text, ",")
             ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
@@ -430,6 +430,8 @@ Public Class MainProgram
             ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = ""
             ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = ""
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : "
+            VerseTxt.Text = ""
+            ChapterTxt.Text = ""
         End If
     End Sub
     Private Sub HymnalTitle_Click(sender As Object, e As EventArgs) Handles HymnalTitle.Click
