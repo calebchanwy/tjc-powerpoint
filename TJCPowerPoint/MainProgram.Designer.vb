@@ -763,6 +763,7 @@ Partial Class MainProgram
         Me.edtPrayerImg.Name = "edtPrayerImg"
         Me.edtPrayerImg.Size = New System.Drawing.Size(138, 37)
         Me.edtPrayerImg.TabIndex = 27
+        Me.edtPrayerImg.TabStop = False
         Me.edtPrayerImg.Text = "Edit Prayer Image"
         Me.edtPrayerImg.UseVisualStyleBackColor = True
         '
