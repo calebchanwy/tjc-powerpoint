@@ -50,6 +50,18 @@ Public Class MainProgram
         SlideTrack.SelectedIndex = 0
         Return True
     End Function
+    Public Function LoadPrayerImage()
+        If Directory.Exists("\Files\prayerImgDir") = False Then
+            System.IO.File.WriteAllText(Current + "\Files\prayerImgDir.txt", "")
+        Else
+            Dim directory As String
+            directory = My.Computer.FileSystem.ReadAllText(Current + "\Files\prayerImgDir.txt")
+            If My.Computer.FileSystem.FileExists(directory) = True Then
+                ppPres.Slide(3).Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
+            End If
+        End If
+        Return True
+    End Function
     Public Function LoadSettings(str As String)
         Dim two As Integer = Val(str(2))
         Dim three As Integer = Val(str(3))
@@ -538,7 +550,8 @@ Public Class MainProgram
         ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*"
         If ofd.ShowDialog = DialogResult.OK Then
             ppPres.Slides(3).Shapes(1).Delete()
-            ppPres.Slides(3).Shapes.AddPicture(ofd.FileName, True, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
+            ppPres.Slides(3).Shapes.AddPicture(ofd.FileName, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
+            System.IO.File.WriteAllText(Current + "\Files\prayerImgDir.txt", ofd.FileName)
         End If
     End Sub
 

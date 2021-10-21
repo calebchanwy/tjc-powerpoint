@@ -35,11 +35,12 @@
 
     Private Sub editPrayerImage_Click(sender As Object, e As EventArgs) Handles editPrayerImage.Click
         Dim ofd = New OpenFileDialog()
-        ofd.InitialDirectory = MainProgram.Current + "\Files\"
+        ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Downloads"
         ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*"
         If ofd.ShowDialog = DialogResult.OK Then
             MainProgram.ppPres.Slides(3).Shapes(1).Delete()
-            MainProgram.ppPres.Slides(3).Shapes.AddPicture(ofd.FileName, True, True, 0, 0, MainProgram.ppPres.PageSetup.SlideWidth, MainProgram.ppPres.PageSetup.SlideHeight)
+            MainProgram.ppPres.Slides(3).Shapes.AddPicture(ofd.FileName, False, True, 0, 0, MainProgram.ppPres.PageSetup.SlideWidth, MainProgram.ppPres.PageSetup.SlideHeight)
+            System.IO.File.WriteAllText(MainProgram.Current + "\Files\prayerImgDir.txt", ofd.FileName)
         End If
 
 
