@@ -93,3 +93,23 @@ C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPo
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.xml
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.pdb
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.AssemblyReference.cache
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.config
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.manifest
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.application
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.pdb
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.xml
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.AssemblyReference.cache
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.ResolveComReference.cache
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.Announcements.resources
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.MainProgram.resources
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.Resources.resources
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.PrayerRequests.resources
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.GenerateResource.cache
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.CoreCompileInputs.cache
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.TrustInfo.xml
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.exe.manifest
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.application
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.exe
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.xml
+S:\Desktop\random\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.pdb
