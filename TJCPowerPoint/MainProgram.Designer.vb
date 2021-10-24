@@ -90,20 +90,20 @@ Partial Class MainProgram
         '
         'EnglishTitle
         '
-        Me.EnglishTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EnglishTitle.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EnglishTitle.Location = New System.Drawing.Point(67, 17)
         Me.EnglishTitle.Name = "EnglishTitle"
-        Me.EnglishTitle.Size = New System.Drawing.Size(650, 29)
+        Me.EnglishTitle.Size = New System.Drawing.Size(650, 31)
         Me.EnglishTitle.TabIndex = 0
         Me.EnglishTitle.TabStop = False
         Me.EnglishTitle.WordWrap = False
         '
         'ChineseTitle
         '
-        Me.ChineseTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ChineseTitle.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChineseTitle.Location = New System.Drawing.Point(67, 56)
         Me.ChineseTitle.Name = "ChineseTitle"
-        Me.ChineseTitle.Size = New System.Drawing.Size(650, 29)
+        Me.ChineseTitle.Size = New System.Drawing.Size(650, 31)
         Me.ChineseTitle.TabIndex = 1
         Me.ChineseTitle.TabStop = False
         '
@@ -234,10 +234,10 @@ Partial Class MainProgram
         '
         'ServiceType
         '
-        Me.ServiceType.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ServiceType.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ServiceType.Location = New System.Drawing.Point(228, 161)
         Me.ServiceType.Name = "ServiceType"
-        Me.ServiceType.Size = New System.Drawing.Size(214, 21)
+        Me.ServiceType.Size = New System.Drawing.Size(214, 22)
         Me.ServiceType.TabIndex = 6
         Me.ServiceType.TabStop = False
         '

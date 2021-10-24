@@ -378,10 +378,12 @@ Public Class MainProgram
         GetFontAndColor(1, 8) & vbCrLf &
         GetFontAndColor(2, 1) & vbCrLf &
         GetFontAndColor(2, 2) & vbCrLf &
-        GetFontAndColor(3, 1) & vbCrLf &
-        GetFontAndColor(3, 2)
-        For i As Integer = 1 To 4
-            CurrentSettings = CurrentSettings + vbCrLf + "[C" & i & "]=" + Convert.ToString(ppPres.Slides(i).Background.Fill.ForeColor.RGB)
+        GetFontAndColor(4, 1) & vbCrLf &
+        GetFontAndColor(4, 2)
+        For i As Integer = 1 To 5
+            If i <> 3 Then
+                CurrentSettings = CurrentSettings + vbCrLf + "[C" & i & "]=" + Convert.ToString(ppPres.Slides(i).Background.Fill.ForeColor.RGB)
+            End If
         Next
         If SaveFileDialog.ShowDialog() = DialogResult.OK Then
             My.Computer.FileSystem.WriteAllText(SaveFileDialog.FileName, CurrentSettings, False)

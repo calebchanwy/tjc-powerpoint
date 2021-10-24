@@ -4,20 +4,20 @@
     End Sub
 
     Private Sub UpdateAnnouncements_Click(sender As Object, e As EventArgs) Handles UpdateAnnouncements.Click
-        MainProgram.ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = AnnouncementTxt.Text
-        MainProgram.ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Text = TitleBox.Text
+        MainProgram.ppPres.Slides(4).Shapes(1).TextFrame.TextRange.Text = AnnouncementTxt.Text
+        MainProgram.ppPres.Slides(4).Shapes(2).TextFrame.TextRange.Text = TitleBox.Text
     End Sub
     Private Sub PRFontBtn_Click(sender As Object, e As EventArgs) Handles PRFontBtn.Click
-        MainProgram.ChangeFont(3, 1)
+        MainProgram.ChangeFont(4, 1)
     End Sub
     Private Sub PRColorBtn_Click(sender As Object, e As EventArgs) Handles PRColorBtn.Click
-        MainProgram.ChangeColor(3, 1)
+        MainProgram.ChangeColor(4, 1)
     End Sub
     Private Sub PRTitleFontBtn_Click(sender As Object, e As EventArgs) Handles PRTitleFontBtn.Click
-        MainProgram.ChangeFont(3, 2)
+        MainProgram.ChangeFont(4, 2)
     End Sub
     Private Sub PRTitleColorBtn_Click(sender As Object, e As EventArgs) Handles PRTitleColorBtn.Click
-        MainProgram.ChangeColor(3, 2)
+        MainProgram.ChangeColor(4, 2)
     End Sub
     Private Sub SaveAnnouncements_Click(sender As Object, e As EventArgs) Handles SaveAnnouncements.Click
         SaveFileDialog.InitialDirectory = MainProgram.Current + "\Files\"
