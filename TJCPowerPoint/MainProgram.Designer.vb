@@ -84,6 +84,7 @@ Partial Class MainProgram
         Me.Show_AN = New System.Windows.Forms.Button()
         Me.BGColor = New System.Windows.Forms.Button()
         Me.edtPrayerImg = New System.Windows.Forms.Button()
+        Me.edtHC = New System.Windows.Forms.Button()
         Me.Title.SuspendLayout()
         Me.BibleVerse.SuspendLayout()
         Me.SuspendLayout()
@@ -695,9 +696,9 @@ Partial Class MainProgram
         'OpenFolder
         '
         Me.OpenFolder.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OpenFolder.Location = New System.Drawing.Point(570, 366)
+        Me.OpenFolder.Location = New System.Drawing.Point(570, 407)
         Me.OpenFolder.Name = "OpenFolder"
-        Me.OpenFolder.Size = New System.Drawing.Size(109, 76)
+        Me.OpenFolder.Size = New System.Drawing.Size(109, 35)
         Me.OpenFolder.TabIndex = 23
         Me.OpenFolder.TabStop = False
         Me.OpenFolder.Text = "Open Folder"
@@ -767,12 +768,24 @@ Partial Class MainProgram
         Me.edtPrayerImg.Text = "Edit Prayer Image"
         Me.edtPrayerImg.UseVisualStyleBackColor = True
         '
+        'edtHC
+        '
+        Me.edtHC.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.edtHC.Location = New System.Drawing.Point(570, 366)
+        Me.edtHC.Name = "edtHC"
+        Me.edtHC.Size = New System.Drawing.Size(109, 35)
+        Me.edtHC.TabIndex = 28
+        Me.edtHC.TabStop = False
+        Me.edtHC.Text = "Holy Communion"
+        Me.edtHC.UseVisualStyleBackColor = True
+        '
         'MainProgram
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(809, 461)
+        Me.Controls.Add(Me.edtHC)
         Me.Controls.Add(Me.edtPrayerImg)
         Me.Controls.Add(Me.Show_AN)
         Me.Controls.Add(Me.Time)
@@ -862,4 +875,5 @@ Partial Class MainProgram
     Friend WithEvents HymnalTitle As Button
     Friend WithEvents Show_AN As Button
     Friend WithEvents edtPrayerImg As Button
+    Friend WithEvents edtHC As Button
 End Class

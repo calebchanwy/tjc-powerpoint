@@ -126,6 +126,12 @@
     <Compile Include="Announcements.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="HolyCommunion.Designer.vb">
+      <DependentUpon>HolyCommunion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HolyCommunion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainProgram.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Announcements.resx">
       <DependentUpon>Announcements.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HolyCommunion.resx">
+      <DependentUpon>HolyCommunion.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainProgram.resx">
       <DependentUpon>MainProgram.vb</DependentUpon>

@@ -214,7 +214,7 @@ Partial Class Announcements
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(590, 410)
+        Me.ClientSize = New System.Drawing.Size(584, 411)
         Me.ControlBox = False
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel)
@@ -229,6 +229,7 @@ Partial Class Announcements
         Me.Controls.Add(Me.SaveAnnouncements)
         Me.Controls.Add(Me.UpdateAnnouncements)
         Me.HelpButton = True
+        Me.MinimumSize = New System.Drawing.Size(600, 450)
         Me.Name = "Announcements"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Announcements"
