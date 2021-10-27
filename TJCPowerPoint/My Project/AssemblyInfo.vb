@@ -10,9 +10,9 @@ Imports System.Runtime.InteropServices
 
 <Assembly: AssemblyTitle("TJCPowerPoint")>
 <Assembly: AssemblyDescription("Service PowerPoint")>
-<Assembly: AssemblyCompany("Leicester True Jesus Church")>
+<Assembly: AssemblyCompany("True Jesus Church London")>
 <Assembly: AssemblyProduct("TJCPowerPoint")>
-<Assembly: AssemblyCopyright("Copyright ©  2017")>
+<Assembly: AssemblyCopyright("Copyright ©  2021")>
 <Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
@@ -32,4 +32,4 @@ Imports System.Runtime.InteropServices
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
 <Assembly: AssemblyVersion("1.0.0.0")>
-<Assembly: AssemblyFileVersion("1.0.0.0")>
+<Assembly: AssemblyFileVersion("2.0.0.0")>
