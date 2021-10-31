@@ -433,7 +433,7 @@ Public Class MainProgram
         If BookBox.Text Is "" And e.KeyCode = Keys.Enter Then
             ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = ""
             ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = ""
-            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : "
+            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ""
             VerseTxt.Text = ""
             ChapterTxt.Text = ""
         ElseIf e.KeyCode = Keys.Enter Then
@@ -462,6 +462,7 @@ Public Class MainProgram
     Private Sub edtHC_Click(sender As Object, e As EventArgs) Handles edtHC.Click
         HolyCommunion.Show()
     End Sub
+
 
     'InSlide1: 1-English Title, 2 - Chinese Title, 3 - HymnHeader, 4 - Hymns, 5 - BibleHeader, 6 - EnglishBook, 7 - ChineseBook, 8 - Chapter+Verse, 10 - Service Type
 End Class
