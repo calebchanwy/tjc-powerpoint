@@ -351,12 +351,13 @@ Public Class MainProgram
     Private Sub UpdateVerse_Click(sender As Object, e As EventArgs) Handles UpdateVerse.Click
         If ShowVerses.Checked And VerseTxt.Text = "" And BookBox.Text = "" And ChapterTxt.Text = "" Then
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : "
-        ElseIf ShowVerses.Checked And BookBox.SelectedIndex <> -1 Then
+        ElseIf BookBox.SelectedIndex <> -1 Then
             Dim commaPos As Integer
             commaPos = InStr(BookBox.Text, ",")
             ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
             ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = Mid(BookBox.Text, commaPos + 1)
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ChapterTxt.Text + " : " + VerseTxt.Text
+
         End If
     End Sub
 
@@ -415,10 +416,22 @@ Public Class MainProgram
         End If
     End Sub
 
-    Private Sub VerseChapter_KeyDown(sender As Object, e As KeyEventArgs) Handles VerseTxt.KeyDown, ChapterTxt.KeyDown
+    Private Sub Verse_KeyDown(sender As Object, e As KeyEventArgs) Handles VerseTxt.KeyDown
         'handling both when chapter and verse enter key pressed
         If e.KeyCode = Keys.Enter Then
             Call UpdateVerse_Click(sender, e)
+            If VerseTxt.Text IsNot "" Then
+                SelectNextControl(sender, True, True, True, True)
+            End If
+        End If
+    End Sub
+    Private Sub Chapter_KeyDown(sender As Object, e As KeyEventArgs) Handles ChapterTxt.KeyDown
+        'handling both when chapter and verse enter key pressed
+        If e.KeyCode = Keys.Enter Then
+            Call UpdateVerse_Click(sender, e)
+            If ChapterTxt.Text IsNot "" Then
+                SelectNextControl(sender, True, True, True, True)
+            End If
         End If
     End Sub
 
@@ -438,6 +451,9 @@ Public Class MainProgram
             ChapterTxt.Text = ""
         ElseIf e.KeyCode = Keys.Enter Then
             Call UpdateVerse_Click(sender, e)
+            If BookBox.SelectedIndex Then
+                SelectNextControl(sender, True, True, True, True)
+            End If
         End If
     End Sub
     Private Sub HymnalTitle_Click(sender As Object, e As EventArgs) Handles HymnalTitle.Click
@@ -462,6 +478,8 @@ Public Class MainProgram
     Private Sub edtHC_Click(sender As Object, e As EventArgs) Handles edtHC.Click
         HolyCommunion.Show()
     End Sub
+
+
 
 
     'InSlide1: 1-English Title, 2 - Chinese Title, 3 - HymnHeader, 4 - Hymns, 5 - BibleHeader, 6 - EnglishBook, 7 - ChineseBook, 8 - Chapter+Verse, 10 - Service Type
