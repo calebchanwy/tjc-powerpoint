@@ -85,6 +85,7 @@ Partial Class MainProgram
         Me.BGColor = New System.Windows.Forms.Button()
         Me.edtPrayerImg = New System.Windows.Forms.Button()
         Me.edtHC = New System.Windows.Forms.Button()
+        Me.clearbtn = New System.Windows.Forms.Button()
         Me.Title.SuspendLayout()
         Me.BibleVerse.SuspendLayout()
         Me.SuspendLayout()
@@ -363,6 +364,7 @@ Partial Class MainProgram
         'BibleVerse
         '
         Me.BibleVerse.BackColor = System.Drawing.SystemColors.Control
+        Me.BibleVerse.Controls.Add(Me.clearbtn)
         Me.BibleVerse.Controls.Add(Me.Label13)
         Me.BibleVerse.Controls.Add(Me.Label14)
         Me.BibleVerse.Controls.Add(Me.HymnHDColor)
@@ -464,9 +466,9 @@ Partial Class MainProgram
         Me.UpdateVerse.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.UpdateVerse.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UpdateVerse.ForeColor = System.Drawing.Color.Black
-        Me.UpdateVerse.Location = New System.Drawing.Point(470, 83)
+        Me.UpdateVerse.Location = New System.Drawing.Point(530, 83)
         Me.UpdateVerse.Name = "UpdateVerse"
-        Me.UpdateVerse.Size = New System.Drawing.Size(309, 40)
+        Me.UpdateVerse.Size = New System.Drawing.Size(249, 40)
         Me.UpdateVerse.TabIndex = 3
         Me.UpdateVerse.TabStop = False
         Me.UpdateVerse.Text = "Update Chapter and Verse"
@@ -779,6 +781,20 @@ Partial Class MainProgram
         Me.edtHC.Text = "Holy Communion"
         Me.edtHC.UseVisualStyleBackColor = True
         '
+        'clearbtn
+        '
+        Me.clearbtn.BackColor = System.Drawing.SystemColors.Control
+        Me.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.clearbtn.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.clearbtn.ForeColor = System.Drawing.Color.Black
+        Me.clearbtn.Location = New System.Drawing.Point(470, 84)
+        Me.clearbtn.Name = "clearbtn"
+        Me.clearbtn.Size = New System.Drawing.Size(54, 39)
+        Me.clearbtn.TabIndex = 33
+        Me.clearbtn.TabStop = False
+        Me.clearbtn.Text = "Reset"
+        Me.clearbtn.UseVisualStyleBackColor = False
+        '
         'MainProgram
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -876,4 +892,5 @@ Partial Class MainProgram
     Friend WithEvents Show_AN As Button
     Friend WithEvents edtPrayerImg As Button
     Friend WithEvents edtHC As Button
+    Friend WithEvents clearbtn As Button
 End Class

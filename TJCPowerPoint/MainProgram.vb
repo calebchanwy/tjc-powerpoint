@@ -328,6 +328,12 @@ Public Class MainProgram
     Private Sub ShowHymn_CheckedChanged(sender As Object, e As EventArgs) Handles ShowHymn.CheckedChanged
         If ShowHymn.Checked = True Then
             ShowVerses.Checked = False
+            ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = ""
+            ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = ""
+            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ""
+            BookBox.Text = ""
+            VerseTxt.Text = ""
+            ChapterTxt.Text = ""
             ppPres.Slides(1).Shapes(3).Visible = Office.MsoTriState.msoTrue
             ppPres.Slides(1).Shapes(4).Visible = Office.MsoTriState.msoTrue
             ppPres.Slides(1).Shapes(5).Visible = Office.MsoTriState.msoFalse
@@ -350,7 +356,7 @@ Public Class MainProgram
     End Sub
     Private Sub UpdateVerse_Click(sender As Object, e As EventArgs) Handles UpdateVerse.Click
         If ShowVerses.Checked And VerseTxt.Text = "" And BookBox.Text = "" And ChapterTxt.Text = "" Then
-            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " : "
+            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ""
         ElseIf BookBox.SelectedIndex <> -1 Then
             Dim commaPos As Integer
             commaPos = InStr(BookBox.Text, ",")
@@ -477,6 +483,15 @@ Public Class MainProgram
 
     Private Sub edtHC_Click(sender As Object, e As EventArgs) Handles edtHC.Click
         HolyCommunion.Show()
+    End Sub
+
+    Private Sub clearbtn_Click(sender As Object, e As EventArgs) Handles clearbtn.Click
+        ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = ""
+        ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = ""
+        ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ""
+        BookBox.Text = ""
+        VerseTxt.Text = ""
+        ChapterTxt.Text = ""
     End Sub
 
 
