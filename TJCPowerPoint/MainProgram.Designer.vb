@@ -47,6 +47,8 @@ Partial Class MainProgram
         Me.ChineseFontBtn = New System.Windows.Forms.Button()
         Me.ChineseColorBtn = New System.Windows.Forms.Button()
         Me.BibleVerse = New System.Windows.Forms.GroupBox()
+        Me.Label15 = New System.Windows.Forms.Label()
+        Me.clearbtn = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.HymnHDColor = New System.Windows.Forms.Button()
@@ -85,14 +87,14 @@ Partial Class MainProgram
         Me.BGColor = New System.Windows.Forms.Button()
         Me.edtPrayerImg = New System.Windows.Forms.Button()
         Me.edtHC = New System.Windows.Forms.Button()
-        Me.clearbtn = New System.Windows.Forms.Button()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.Title.SuspendLayout()
         Me.BibleVerse.SuspendLayout()
         Me.SuspendLayout()
         '
         'EnglishTitle
         '
-        Me.EnglishTitle.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EnglishTitle.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EnglishTitle.Location = New System.Drawing.Point(67, 17)
         Me.EnglishTitle.Name = "EnglishTitle"
         Me.EnglishTitle.Size = New System.Drawing.Size(650, 31)
@@ -102,7 +104,7 @@ Partial Class MainProgram
         '
         'ChineseTitle
         '
-        Me.ChineseTitle.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ChineseTitle.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChineseTitle.Location = New System.Drawing.Point(67, 56)
         Me.ChineseTitle.Name = "ChineseTitle"
         Me.ChineseTitle.Size = New System.Drawing.Size(650, 31)
@@ -166,6 +168,7 @@ Partial Class MainProgram
         'Title
         '
         Me.Title.BackColor = System.Drawing.SystemColors.Desktop
+        Me.Title.Controls.Add(Me.Label16)
         Me.Title.Controls.Add(Me.HymnalTitle)
         Me.Title.Controls.Add(Me.ServiceTypeFontBtn)
         Me.Title.Controls.Add(Me.ServiceTypeColorBtn)
@@ -247,7 +250,7 @@ Partial Class MainProgram
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(286, 140)
+        Me.Label11.Location = New System.Drawing.Point(228, 140)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(102, 18)
         Me.Label11.TabIndex = 19
@@ -364,6 +367,7 @@ Partial Class MainProgram
         'BibleVerse
         '
         Me.BibleVerse.BackColor = System.Drawing.SystemColors.Control
+        Me.BibleVerse.Controls.Add(Me.Label15)
         Me.BibleVerse.Controls.Add(Me.clearbtn)
         Me.BibleVerse.Controls.Add(Me.Label13)
         Me.BibleVerse.Controls.Add(Me.Label14)
@@ -395,6 +399,32 @@ Partial Class MainProgram
         Me.BibleVerse.TabIndex = 16
         Me.BibleVerse.TabStop = False
         Me.BibleVerse.Text = "BibleVerse(s)"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.ForeColor = System.Drawing.Color.Black
+        Me.Label15.Location = New System.Drawing.Point(631, 124)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(152, 15)
+        Me.Label15.TabIndex = 29
+        Me.Label15.Text = "(or press enter to update)"
+        Me.Label15.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'clearbtn
+        '
+        Me.clearbtn.BackColor = System.Drawing.SystemColors.Control
+        Me.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.clearbtn.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.clearbtn.ForeColor = System.Drawing.Color.Black
+        Me.clearbtn.Location = New System.Drawing.Point(470, 84)
+        Me.clearbtn.Name = "clearbtn"
+        Me.clearbtn.Size = New System.Drawing.Size(54, 39)
+        Me.clearbtn.TabIndex = 33
+        Me.clearbtn.TabStop = False
+        Me.clearbtn.Text = "Reset"
+        Me.clearbtn.UseVisualStyleBackColor = False
         '
         'Label13
         '
@@ -781,19 +811,18 @@ Partial Class MainProgram
         Me.edtHC.Text = "Holy Communion"
         Me.edtHC.UseVisualStyleBackColor = True
         '
-        'clearbtn
+        'Label16
         '
-        Me.clearbtn.BackColor = System.Drawing.SystemColors.Control
-        Me.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.clearbtn.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.clearbtn.ForeColor = System.Drawing.Color.Black
-        Me.clearbtn.Location = New System.Drawing.Point(470, 84)
-        Me.clearbtn.Name = "clearbtn"
-        Me.clearbtn.Size = New System.Drawing.Size(54, 39)
-        Me.clearbtn.TabIndex = 33
-        Me.clearbtn.TabStop = False
-        Me.clearbtn.Text = "Reset"
-        Me.clearbtn.UseVisualStyleBackColor = False
+        Me.Label16.AutoSize = True
+        Me.Label16.BackColor = System.Drawing.SystemColors.Desktop
+        Me.Label16.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.ForeColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Label16.Location = New System.Drawing.Point(326, 143)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(138, 15)
+        Me.Label16.TabIndex = 34
+        Me.Label16.Text = "(press enter to update)"
+        Me.Label16.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'MainProgram
         '
@@ -813,8 +842,8 @@ Partial Class MainProgram
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.SlideTrack)
         Me.Controls.Add(Me.SaveSettings)
-        Me.Controls.Add(Me.BibleVerse)
         Me.Controls.Add(Me.Title)
+        Me.Controls.Add(Me.BibleVerse)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(825, 500)
@@ -893,4 +922,6 @@ Partial Class MainProgram
     Friend WithEvents edtPrayerImg As Button
     Friend WithEvents edtHC As Button
     Friend WithEvents clearbtn As Button
+    Friend WithEvents Label15 As Label
+    Friend WithEvents Label16 As Label
 End Class

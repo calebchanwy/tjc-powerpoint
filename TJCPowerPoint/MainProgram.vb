@@ -309,11 +309,11 @@ Public Class MainProgram
         ChangeColor(1, 8)
     End Sub
     Private Sub ServiceTypeFontBtn_Click(sender As Object, e As EventArgs) Handles ServiceTypeFontBtn.Click
-        ChangeFont(1, 9)
+        ChangeFont(1, 10)
     End Sub
 
     Private Sub ServiceTypeColorBtn_Click(sender As Object, e As EventArgs) Handles ServiceTypeColorBtn.Click
-        ChangeColor(1, 9)
+        ChangeColor(1, 10)
     End Sub
     Private Sub BookBox_SelectedValueChanged(sender As Object, e As EventArgs) Handles BookBox.SelectedValueChanged
         '  Dim commaPos As Integer
@@ -337,9 +337,9 @@ Public Class MainProgram
             ppPres.Slides(1).Shapes(3).Visible = Office.MsoTriState.msoTrue
             ppPres.Slides(1).Shapes(4).Visible = Office.MsoTriState.msoTrue
             ppPres.Slides(1).Shapes(5).Visible = Office.MsoTriState.msoFalse
-            ppPres.Slides(1).Shapes(6).Visible = Office.MsoTriState.msoFalse
-            ppPres.Slides(1).Shapes(7).Visible = Office.MsoTriState.msoFalse
-            ppPres.Slides(1).Shapes(8).Visible = Office.MsoTriState.msoFalse
+            'ppPres.Slides(1).Shapes(6).Visible = Office.MsoTriState.msoFalse
+            'ppPres.Slides(1).Shapes(7).Visible = Office.MsoTriState.msoFalse
+            'ppPres.Slides(1).Shapes(8).Visible = Office.MsoTriState.msoFalse
             ppPres.Slides(1).Shapes(4).TextFrame.TextRange.Text = HymnNos.Text
         End If
     End Sub
@@ -357,7 +357,7 @@ Public Class MainProgram
     Private Sub UpdateVerse_Click(sender As Object, e As EventArgs) Handles UpdateVerse.Click
         If ShowVerses.Checked And VerseTxt.Text = "" And BookBox.Text = "" And ChapterTxt.Text = "" Then
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ""
-        ElseIf BookBox.SelectedIndex <> -1 Then
+        ElseIf BookBox.SelectedIndex <> -1 And ShowVerses.Checked Then
             Dim commaPos As Integer
             commaPos = InStr(BookBox.Text, ",")
             ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
