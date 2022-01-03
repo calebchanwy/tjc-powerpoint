@@ -99,6 +99,7 @@ C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPo
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.pdb
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.xml
+C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.AssemblyReference.cache
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.ResolveComReference.cache
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.Announcements.resources
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.HolyCommunion.resources
@@ -113,4 +114,3 @@ C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPo
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.exe
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.xml
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.pdb
-C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.AssemblyReference.cache
