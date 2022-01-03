@@ -32,6 +32,7 @@ Partial Class MainProgram
         Me.Label4 = New System.Windows.Forms.Label()
         Me.HymnChange = New System.Windows.Forms.Button()
         Me.Title = New System.Windows.Forms.GroupBox()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.HymnalTitle = New System.Windows.Forms.Button()
         Me.ServiceTypeFontBtn = New System.Windows.Forms.Button()
         Me.ServiceTypeColorBtn = New System.Windows.Forms.Button()
@@ -87,7 +88,6 @@ Partial Class MainProgram
         Me.BGColor = New System.Windows.Forms.Button()
         Me.edtPrayerImg = New System.Windows.Forms.Button()
         Me.edtHC = New System.Windows.Forms.Button()
-        Me.Label16 = New System.Windows.Forms.Label()
         Me.Title.SuspendLayout()
         Me.BibleVerse.SuspendLayout()
         Me.SuspendLayout()
@@ -200,6 +200,19 @@ Partial Class MainProgram
         Me.Title.TabIndex = 14
         Me.Title.TabStop = False
         Me.Title.Text = "Title"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.BackColor = System.Drawing.SystemColors.Desktop
+        Me.Label16.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.ForeColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Label16.Location = New System.Drawing.Point(326, 143)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(138, 15)
+        Me.Label16.TabIndex = 34
+        Me.Label16.Text = "(press enter to update)"
+        Me.Label16.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'HymnalTitle
         '
@@ -418,9 +431,9 @@ Partial Class MainProgram
         Me.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.clearbtn.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.clearbtn.ForeColor = System.Drawing.Color.Black
-        Me.clearbtn.Location = New System.Drawing.Point(470, 84)
+        Me.clearbtn.Location = New System.Drawing.Point(470, 83)
         Me.clearbtn.Name = "clearbtn"
-        Me.clearbtn.Size = New System.Drawing.Size(54, 39)
+        Me.clearbtn.Size = New System.Drawing.Size(54, 40)
         Me.clearbtn.TabIndex = 33
         Me.clearbtn.TabStop = False
         Me.clearbtn.Text = "Reset"
@@ -687,7 +700,7 @@ Partial Class MainProgram
         Me.SlideTrack.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.SlideTrack.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SlideTrack.FormattingEnabled = True
-        Me.SlideTrack.Location = New System.Drawing.Point(128, 374)
+        Me.SlideTrack.Location = New System.Drawing.Point(120, 366)
         Me.SlideTrack.Name = "SlideTrack"
         Me.SlideTrack.Size = New System.Drawing.Size(160, 24)
         Me.SlideTrack.TabIndex = 4
@@ -697,7 +710,7 @@ Partial Class MainProgram
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(19, 375)
+        Me.Label10.Location = New System.Drawing.Point(19, 366)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(95, 18)
         Me.Label10.TabIndex = 19
@@ -740,7 +753,7 @@ Partial Class MainProgram
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(20, 410)
+        Me.Label12.Location = New System.Drawing.Point(19, 400)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(230, 16)
         Me.Label12.TabIndex = 24
@@ -756,7 +769,7 @@ Partial Class MainProgram
         '
         Me.Time.AutoSize = True
         Me.Time.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Time.Location = New System.Drawing.Point(19, 429)
+        Me.Time.Location = New System.Drawing.Point(19, 421)
         Me.Time.Name = "Time"
         Me.Time.Size = New System.Drawing.Size(35, 16)
         Me.Time.TabIndex = 25
@@ -782,7 +795,7 @@ Partial Class MainProgram
         '
         Me.BGColor.BackgroundImage = CType(resources.GetObject("BGColor.BackgroundImage"), System.Drawing.Image)
         Me.BGColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BGColor.Location = New System.Drawing.Point(255, 405)
+        Me.BGColor.Location = New System.Drawing.Point(255, 400)
         Me.BGColor.Name = "BGColor"
         Me.BGColor.Size = New System.Drawing.Size(25, 25)
         Me.BGColor.TabIndex = 23
@@ -810,19 +823,6 @@ Partial Class MainProgram
         Me.edtHC.TabStop = False
         Me.edtHC.Text = "Holy Communion"
         Me.edtHC.UseVisualStyleBackColor = True
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.BackColor = System.Drawing.SystemColors.Desktop
-        Me.Label16.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label16.Location = New System.Drawing.Point(326, 143)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(138, 15)
-        Me.Label16.TabIndex = 34
-        Me.Label16.Text = "(press enter to update)"
-        Me.Label16.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'MainProgram
         '

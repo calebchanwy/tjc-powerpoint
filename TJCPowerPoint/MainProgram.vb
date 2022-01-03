@@ -328,18 +328,18 @@ Public Class MainProgram
     Private Sub ShowHymn_CheckedChanged(sender As Object, e As EventArgs) Handles ShowHymn.CheckedChanged
         If ShowHymn.Checked = True Then
             ShowVerses.Checked = False
+            ppPres.Slides(1).Shapes(5).Visible = Office.MsoTriState.msoFalse
+            ppPres.Slides(1).Shapes(6).Visible = Office.MsoTriState.msoFalse
+            ppPres.Slides(1).Shapes(7).Visible = Office.MsoTriState.msoFalse
+            ppPres.Slides(1).Shapes(8).Visible = Office.MsoTriState.msoFalse
+            ppPres.Slides(1).Shapes(3).Visible = Office.MsoTriState.msoTrue
+            ppPres.Slides(1).Shapes(4).Visible = Office.MsoTriState.msoTrue
             ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = ""
             ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = ""
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ""
             BookBox.Text = ""
             VerseTxt.Text = ""
             ChapterTxt.Text = ""
-            ppPres.Slides(1).Shapes(3).Visible = Office.MsoTriState.msoTrue
-            ppPres.Slides(1).Shapes(4).Visible = Office.MsoTriState.msoTrue
-            ppPres.Slides(1).Shapes(5).Visible = Office.MsoTriState.msoFalse
-            'ppPres.Slides(1).Shapes(6).Visible = Office.MsoTriState.msoFalse
-            'ppPres.Slides(1).Shapes(7).Visible = Office.MsoTriState.msoFalse
-            'ppPres.Slides(1).Shapes(8).Visible = Office.MsoTriState.msoFalse
             ppPres.Slides(1).Shapes(4).TextFrame.TextRange.Text = HymnNos.Text
         End If
     End Sub
@@ -434,7 +434,6 @@ Public Class MainProgram
     Private Sub Chapter_KeyDown(sender As Object, e As KeyEventArgs) Handles ChapterTxt.KeyDown
         'handling both when chapter and verse enter key pressed
         If e.KeyCode = Keys.Enter Then
-            Call UpdateVerse_Click(sender, e)
             If ChapterTxt.Text IsNot "" Then
                 SelectNextControl(sender, True, True, True, True)
             End If
@@ -456,7 +455,6 @@ Public Class MainProgram
             VerseTxt.Text = ""
             ChapterTxt.Text = ""
         ElseIf e.KeyCode = Keys.Enter Then
-            Call UpdateVerse_Click(sender, e)
             If BookBox.SelectedIndex Then
                 SelectNextControl(sender, True, True, True, True)
             End If
