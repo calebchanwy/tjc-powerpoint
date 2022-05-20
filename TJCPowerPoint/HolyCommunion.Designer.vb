@@ -28,6 +28,8 @@ Partial Class HolyCommunion
         Me.HCLabel = New System.Windows.Forms.Label()
         Me.updateHC = New System.Windows.Forms.Button()
         Me.HCClose = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'breadTxt
@@ -35,15 +37,14 @@ Partial Class HolyCommunion
         Me.breadTxt.AcceptsReturn = True
         Me.breadTxt.AcceptsTab = True
         Me.breadTxt.BackColor = System.Drawing.Color.Black
-        Me.breadTxt.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.breadTxt.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.breadTxt.ForeColor = System.Drawing.Color.White
-        Me.breadTxt.Location = New System.Drawing.Point(21, 59)
+        Me.breadTxt.Location = New System.Drawing.Point(21, 95)
         Me.breadTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.breadTxt.Multiline = True
         Me.breadTxt.Name = "breadTxt"
-        Me.breadTxt.Size = New System.Drawing.Size(326, 380)
+        Me.breadTxt.Size = New System.Drawing.Size(326, 344)
         Me.breadTxt.TabIndex = 0
-        Me.breadTxt.Text = "Bread:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.breadTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'cupTxt
@@ -51,32 +52,31 @@ Partial Class HolyCommunion
         Me.cupTxt.AcceptsReturn = True
         Me.cupTxt.AcceptsTab = True
         Me.cupTxt.BackColor = System.Drawing.Color.Black
-        Me.cupTxt.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cupTxt.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cupTxt.ForeColor = System.Drawing.Color.White
-        Me.cupTxt.Location = New System.Drawing.Point(353, 59)
+        Me.cupTxt.Location = New System.Drawing.Point(353, 95)
         Me.cupTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cupTxt.Multiline = True
         Me.cupTxt.Name = "cupTxt"
-        Me.cupTxt.Size = New System.Drawing.Size(326, 380)
+        Me.cupTxt.Size = New System.Drawing.Size(326, 344)
         Me.cupTxt.TabIndex = 1
-        Me.cupTxt.Text = "Cup:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.cupTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'HCLabel
         '
         Me.HCLabel.AutoSize = True
         Me.HCLabel.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HCLabel.Location = New System.Drawing.Point(224, 9)
+        Me.HCLabel.Location = New System.Drawing.Point(15, 9)
         Me.HCLabel.Name = "HCLabel"
-        Me.HCLabel.Size = New System.Drawing.Size(259, 36)
+        Me.HCLabel.Size = New System.Drawing.Size(342, 36)
         Me.HCLabel.TabIndex = 2
-        Me.HCLabel.Text = "Holy Communion"
+        Me.HCLabel.Text = "Holy Communion Slide:"
         Me.HCLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'updateHC
         '
         Me.updateHC.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.updateHC.Location = New System.Drawing.Point(685, 59)
+        Me.updateHC.Location = New System.Drawing.Point(685, 95)
         Me.updateHC.Name = "updateHC"
         Me.updateHC.Size = New System.Drawing.Size(112, 116)
         Me.updateHC.TabIndex = 3
@@ -86,18 +86,40 @@ Partial Class HolyCommunion
         'HCClose
         '
         Me.HCClose.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HCClose.Location = New System.Drawing.Point(685, 181)
+        Me.HCClose.Location = New System.Drawing.Point(685, 405)
         Me.HCClose.Name = "HCClose"
         Me.HCClose.Size = New System.Drawing.Size(112, 34)
         Me.HCClose.TabIndex = 4
         Me.HCClose.Text = "Close"
         Me.HCClose.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(147, 68)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(70, 23)
+        Me.Label1.TabIndex = 5
+        Me.Label1.Text = "Bread:"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(482, 68)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(54, 23)
+        Me.Label2.TabIndex = 6
+        Me.Label2.Text = "Cup:"
+        '
         'HolyCommunion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(809, 461)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.HCClose)
         Me.Controls.Add(Me.updateHC)
         Me.Controls.Add(Me.HCLabel)
@@ -119,4 +141,6 @@ Partial Class HolyCommunion
     Friend WithEvents HCLabel As Label
     Friend WithEvents updateHC As Button
     Friend WithEvents HCClose As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents Label2 As Label
 End Class

@@ -29,11 +29,12 @@ Public Class MainProgram
         ppApp = CreateObject("PowerPoint.Application")
         ppPres = ppApp.Presentations.Open(Current + "\Files\ServiceWidescreen.pptx", [ReadOnly]:=Office.MsoTriState.msoFalse, WithWindow:=Office.MsoTriState.msoFalse)
         ppPres.Slides(1).Name = "Service/Hymnal"
-        ppPres.Slides(2).Name = "Prayer Requests"
-        ppPres.Slides(3).Name = "Prayer Requests - Image"
+        ppPres.Slides(2).Name = "Prayer Requests - Image"
+        ppPres.Slides(3).Name = "Prayer Requests"
         ppPres.Slides(4).Name = "Announcements"
         ppPres.Slides(5).Name = "Holy Communion"
-        ppPres.Slides(6).Name = "How to Pray"
+        ppPres.Slides(6).Name = "How To Pray"
+        ppPres.Slides(7).Name = "Turn Off All Devices"
         For i As Integer = 1 To ppPres.Slides.Count
             SlideTrack.Items.Add(ppPres.Slides(i).Name)
         Next
@@ -72,7 +73,7 @@ Public Class MainProgram
             Dim directory As String
             directory = My.Computer.FileSystem.ReadAllText(Current + "\Files\prayerImgDir.txt")
             If My.Computer.FileSystem.FileExists(directory) = True Then
-                ppPres.Slides(3).Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
+                ppPres.Slides(2).Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
             End If
         End If
         Return True
@@ -252,13 +253,7 @@ Public Class MainProgram
         End If
         ppPres.Close()
     End Sub
-    Private Sub UpdateTitle_Click(sender As Object, e As EventArgs) Handles UpdateTitle.Click
-        ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
-        ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
-    End Sub
-    Private Sub HymnChange_Click(sender As Object, e As EventArgs) Handles HymnChange.Click
-        ppPres.Slides(1).Shapes(4).TextFrame.TextRange.Text = HymnNos.Text
-    End Sub
+
     Private Sub EnglishFontBtn_Click(sender As Object, e As EventArgs) Handles EnglishFontBtn.Click
         ChangeFont(1, 1)
     End Sub
@@ -355,9 +350,16 @@ Public Class MainProgram
         End If
     End Sub
     Private Sub UpdateVerse_Click(sender As Object, e As EventArgs) Handles UpdateVerse.Click
-        If ShowVerses.Checked And VerseTxt.Text = "" And BookBox.Text = "" And ChapterTxt.Text = "" Then
+        'if called when show hymns is checked
+        'automatically change to show verses
+        If ShowVerses.Checked = False Then
+            ShowHymn.Checked = False
+            ShowVerses.Checked = True
+            Call ShowVerses_CheckedChanged(sender, e)
+        End If
+        If VerseTxt.Text = "" And BookBox.Text = "" And ChapterTxt.Text = "" Then
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ""
-        ElseIf BookBox.SelectedIndex <> -1 And ShowVerses.Checked Then
+        ElseIf BookBox.SelectedIndex <> -1 Then
             Dim commaPos As Integer
             commaPos = InStr(BookBox.Text, ",")
             ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
@@ -367,6 +369,19 @@ Public Class MainProgram
         End If
     End Sub
 
+    Private Sub UpdateTitle_Click(sender As Object, e As EventArgs) Handles UpdateTitle.Click
+        ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
+        ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
+    End Sub
+
+    Private Sub HymnalTitle_Click(sender As Object, e As EventArgs) Handles HymnalTitle.Click
+        ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = "Hymnal"
+        ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = "詩頌"
+    End Sub
+
+    Private Sub HymnChange_Click(sender As Object, e As EventArgs) Handles HymnChange.Click
+        ppPres.Slides(1).Shapes(4).TextFrame.TextRange.Text = HymnNos.Text
+    End Sub
     Private Sub ShowPR_Click(sender As Object, e As EventArgs) Handles ShowPR.Click
         PrayerRequests.Show()
     End Sub
@@ -460,23 +475,30 @@ Public Class MainProgram
             End If
         End If
     End Sub
-    Private Sub HymnalTitle_Click(sender As Object, e As EventArgs) Handles HymnalTitle.Click
-        ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = "Hymnal"
-        ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = "詩頌"
-    End Sub
+
 
     Private Sub Show_AN_Click(sender As Object, e As EventArgs) Handles Show_AN.Click
         Announcements.Show()
     End Sub
 
     Private Sub edtPrayerImg_Click(sender As Object, e As EventArgs) Handles edtPrayerImg.Click
-        Dim ofd = New OpenFileDialog()
-        ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Downloads"
-        ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF)|*.BMP;*.JPG;*.GIF|All files (*.*)|*.*"
-        If ofd.ShowDialog = DialogResult.OK Then
-            ppPres.Slides(3).Shapes.AddPicture(ofd.FileName, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
-            System.IO.File.WriteAllText(Current + "\Files\prayerImgDir.txt", ofd.FileName)
-        End If
+        Try
+            Dim ofd = New OpenFileDialog()
+            ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Downloads"
+            ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*"
+            If ofd.ShowDialog = DialogResult.OK Then
+                ppPres.Slides(2).Shapes.AddPicture(ofd.FileName, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
+                System.IO.File.WriteAllText(Current + "\Files\prayerImgDir.txt", ofd.FileName)
+                MessageBox.Show("Prayer Image Was Successfully Updated", "Success")
+            Else
+                MessageBox.Show("Prayer Image Was Not Successfully Updated. Please Try Again", "Error")
+            End If
+
+
+        Catch ex As Exception
+            MessageBox.Show("Prayer Image Was Not Successfully Updated. Please Try Again", "Error")
+        End Try
+
     End Sub
 
     Private Sub edtHC_Click(sender As Object, e As EventArgs) Handles edtHC.Click
@@ -491,6 +513,7 @@ Public Class MainProgram
         VerseTxt.Text = ""
         ChapterTxt.Text = ""
     End Sub
+
 
 
 
