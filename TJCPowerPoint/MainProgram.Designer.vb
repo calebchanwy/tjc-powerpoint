@@ -304,6 +304,7 @@ Partial Class MainProgram
         Me.UpdateTitle.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UpdateTitle.ForeColor = System.Drawing.Color.Black
         Me.UpdateTitle.Location = New System.Drawing.Point(506, 133)
+        Me.UpdateTitle.Margin = New System.Windows.Forms.Padding(0)
         Me.UpdateTitle.Name = "UpdateTitle"
         Me.UpdateTitle.Size = New System.Drawing.Size(273, 50)
         Me.UpdateTitle.TabIndex = 3
