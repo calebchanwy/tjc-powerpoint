@@ -35,6 +35,7 @@ Public Class MainProgram
         ppPres.Slides(5).Name = "Holy Communion"
         ppPres.Slides(6).Name = "How To Pray"
         ppPres.Slides(7).Name = "Turn Off All Devices"
+        ppPres.Slides(8).Name = "Service Timetable"
         For i As Integer = 1 To ppPres.Slides.Count
             SlideTrack.Items.Add(ppPres.Slides(i).Name)
         Next
@@ -50,6 +51,7 @@ Public Class MainProgram
         ppPres.SlideShowSettings.Run()
         SlideTrack.SelectedIndex = 0
         LoadPrayerImage()
+        LoadTimetableImg()
         Return True
     End Function
 
@@ -74,6 +76,19 @@ Public Class MainProgram
             directory = My.Computer.FileSystem.ReadAllText(Current + "\Files\prayerImgDir.txt")
             If My.Computer.FileSystem.FileExists(directory) = True Then
                 ppPres.Slides(2).Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
+            End If
+        End If
+        Return True
+    End Function
+
+    Public Function LoadTimetableImg()
+        If My.Computer.FileSystem.FileExists(Current + "\Files\timetableDir.txt") = False Then
+            System.IO.File.WriteAllText(Current + "\Files\timetableDir.txt", "")
+        Else
+            Dim directory As String
+            directory = My.Computer.FileSystem.ReadAllText(Current + "\Files\timetableDir.txt")
+            If My.Computer.FileSystem.FileExists(directory) = True Then
+                ppPres.Slides(8).Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
             End If
         End If
         Return True
@@ -150,13 +165,13 @@ Public Class MainProgram
     Public Function HandlePR()
         If My.Computer.FileSystem.FileExists(Current + "\Files\PrayerRequests.txt") Then
             PrayerRequests.PrayerRequestTxt.Text = File.ReadAllText(Current + "\Files\PrayerRequests.txt", System.Text.Encoding.UTF32)
-            ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Text = PrayerRequests.PrayerRequestTxt.Text
+            ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = PrayerRequests.PrayerRequestTxt.Text
         Else
             Using sw As StreamWriter = File.CreateText(Current + "\Files\PrayerRequests.txt")
                 sw.WriteLine(" ")
             End Using
             PrayerRequests.PrayerRequestTxt.Text = File.ReadAllText(Current + "\Files\PrayerRequests.txt", System.Text.Encoding.UTF32)
-            ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Text = PrayerRequests.PrayerRequestTxt.Text
+            ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = PrayerRequests.PrayerRequestTxt.Text
         End If
         Return True
     End Function
@@ -336,6 +351,9 @@ Public Class MainProgram
             VerseTxt.Text = ""
             ChapterTxt.Text = ""
             ppPres.Slides(1).Shapes(4).TextFrame.TextRange.Text = HymnNos.Text
+        ElseIf ShowHymn.Checked = False And ShowVerses.Checked = False Then
+            'user has tried to uncheck hymn, whilst not showing verses
+            ShowHymn.Checked = True
         End If
     End Sub
     Private Sub ShowVerses_CheckedChanged(sender As Object, e As EventArgs) Handles ShowVerses.CheckedChanged
@@ -347,15 +365,17 @@ Public Class MainProgram
             ppPres.Slides(1).Shapes(6).Visible = Office.MsoTriState.msoTrue
             ppPres.Slides(1).Shapes(7).Visible = Office.MsoTriState.msoTrue
             ppPres.Slides(1).Shapes(8).Visible = Office.MsoTriState.msoTrue
+        ElseIf ShowVerses.Checked = False And ShowHymn.Checked = False Then
+            'user has tried to uncheck verses, whilst not showing hymns
+            ShowVerses.Checked = True
         End If
     End Sub
     Private Sub UpdateVerse_Click(sender As Object, e As EventArgs) Handles UpdateVerse.Click
         'if called when show hymns is checked
         'automatically change to show verses
         If ShowVerses.Checked = False Then
-            ShowHymn.Checked = False
             ShowVerses.Checked = True
-            Call ShowVerses_CheckedChanged(sender, e)
+            ShowHymn.Checked = False
         End If
         If VerseTxt.Text = "" And BookBox.Text = "" And ChapterTxt.Text = "" Then
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ""
@@ -399,7 +419,7 @@ Public Class MainProgram
         Me.Close()
     End Sub
     Private Sub SaveSettings_Click(sender As Object, e As EventArgs) Handles SaveSettings.Click
-        SaveFileDialog.InitialDirectory = Current + "\Files\"
+
         Dim CurrentSettings As String
         CurrentSettings =
         GetFontAndColor(1, 1) & vbCrLf &
@@ -409,8 +429,8 @@ Public Class MainProgram
         GetFontAndColor(1, 6) & vbCrLf &
         GetFontAndColor(1, 7) & vbCrLf &
         GetFontAndColor(1, 8) & vbCrLf &
-        GetFontAndColor(2, 1) & vbCrLf &
-        GetFontAndColor(2, 2) & vbCrLf &
+        GetFontAndColor(3, 1) & vbCrLf &
+        GetFontAndColor(3, 2) & vbCrLf &
         GetFontAndColor(4, 1) & vbCrLf &
         GetFontAndColor(4, 2)
         For i As Integer = 1 To 5
@@ -418,9 +438,12 @@ Public Class MainProgram
                 CurrentSettings = CurrentSettings + vbCrLf + "[C" & i & "]=" + Convert.ToString(ppPres.Slides(i).Background.Fill.ForeColor.RGB)
             End If
         Next
-        If SaveFileDialog.ShowDialog() = DialogResult.OK Then
-            My.Computer.FileSystem.WriteAllText(SaveFileDialog.FileName, CurrentSettings, False)
-        End If
+        Try
+            My.Computer.FileSystem.WriteAllText(Current + "\Files\Settings.ini", CurrentSettings, False)
+            MessageBox.Show("Save Successful", "Save Successful")
+        Catch ex As Exception
+            MessageBox.Show("Save Unsuccessful", "Save Unsuccessful")
+        End Try
     End Sub
 
     Private Sub OpenFolder_Click(sender As Object, e As EventArgs) Handles OpenFolder.Click
@@ -512,6 +535,25 @@ Public Class MainProgram
         BookBox.Text = ""
         VerseTxt.Text = ""
         ChapterTxt.Text = ""
+    End Sub
+
+    Private Sub ServiceTimesBtn_Click(sender As Object, e As EventArgs) Handles ServiceTimesBtn.Click
+        Try
+            Dim ofd = New OpenFileDialog()
+            ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Downloads"
+            ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*"
+            If ofd.ShowDialog = DialogResult.OK Then
+                ppPres.Slides(8).Shapes.AddPicture(ofd.FileName, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
+                System.IO.File.WriteAllText(Current + "\Files\timetableDir.txt", ofd.FileName)
+                MessageBox.Show("Service Timetable Was Successfully Updated", "Success")
+            Else
+                MessageBox.Show("Service Timetable Was Not Successfully Updated. Please Try Again", "Error")
+            End If
+
+
+        Catch ex As Exception
+            MessageBox.Show("Service Timetable Was Not Successfully Updated. Please Try Again", "Error")
+        End Try
     End Sub
 
 

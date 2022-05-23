@@ -88,6 +88,7 @@ Partial Class MainProgram
         Me.BGColor = New System.Windows.Forms.Button()
         Me.edtPrayerImg = New System.Windows.Forms.Button()
         Me.edtHC = New System.Windows.Forms.Button()
+        Me.ServiceTimesBtn = New System.Windows.Forms.Button()
         Me.Title.SuspendLayout()
         Me.BibleVerse.SuspendLayout()
         Me.SuspendLayout()
@@ -786,10 +787,10 @@ Partial Class MainProgram
         Me.Show_AN.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Show_AN.Location = New System.Drawing.Point(451, 366)
         Me.Show_AN.Name = "Show_AN"
-        Me.Show_AN.Size = New System.Drawing.Size(109, 76)
+        Me.Show_AN.Size = New System.Drawing.Size(109, 35)
         Me.Show_AN.TabIndex = 26
         Me.Show_AN.TabStop = False
-        Me.Show_AN.Text = "Edit Announcements"
+        Me.Show_AN.Text = "Announcements"
         Me.Show_AN.UseVisualStyleBackColor = True
         '
         'BGColor
@@ -825,12 +826,24 @@ Partial Class MainProgram
         Me.edtHC.Text = "Holy Communion"
         Me.edtHC.UseVisualStyleBackColor = True
         '
+        'ServiceTimesBtn
+        '
+        Me.ServiceTimesBtn.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ServiceTimesBtn.Location = New System.Drawing.Point(451, 407)
+        Me.ServiceTimesBtn.Name = "ServiceTimesBtn"
+        Me.ServiceTimesBtn.Size = New System.Drawing.Size(109, 35)
+        Me.ServiceTimesBtn.TabIndex = 29
+        Me.ServiceTimesBtn.TabStop = False
+        Me.ServiceTimesBtn.Text = "Edit Timetable"
+        Me.ServiceTimesBtn.UseVisualStyleBackColor = True
+        '
         'MainProgram
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.ClientSize = New System.Drawing.Size(809, 461)
+        Me.Controls.Add(Me.ServiceTimesBtn)
         Me.Controls.Add(Me.edtHC)
         Me.Controls.Add(Me.edtPrayerImg)
         Me.Controls.Add(Me.Show_AN)
@@ -925,4 +938,5 @@ Partial Class MainProgram
     Friend WithEvents clearbtn As Button
     Friend WithEvents Label15 As Label
     Friend WithEvents Label16 As Label
+    Friend WithEvents ServiceTimesBtn As Button
 End Class

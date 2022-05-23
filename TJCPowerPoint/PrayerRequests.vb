@@ -14,6 +14,12 @@
     Private Sub UpdatePrayerRequests_Click(sender As Object, e As EventArgs) Handles UpdatePrayerRequests.Click
         MainProgram.ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = PrayerRequestTxt.Text
         MainProgram.ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Text = TitleBox.Text
+        Try
+            My.Computer.FileSystem.WriteAllText(MainProgram.Current + "\Files\PrayerRequests.txt", PrayerRequestTxt.Text, False)
+            MessageBox.Show("Save Successful", "Save Successful")
+        Catch ex As Exception
+            MessageBox.Show("Save Unsuccessful", "Save Unsuccessful")
+        End Try
 
     End Sub
     Private Sub PRFontBtn_Click(sender As Object, e As EventArgs) Handles PRFontBtn.Click
@@ -27,9 +33,6 @@
     End Sub
     Private Sub PRTitleColorBtn_Click(sender As Object, e As EventArgs) Handles PRTitleColorBtn.Click
         MainProgram.ChangeColor(3, 2)
-    End Sub
-    Private Sub SavePrayerRequests_Click(sender As Object, e As EventArgs) Handles SavePrayerRequests.Click
-        My.Computer.FileSystem.WriteAllText(directory, PrayerRequestTxt.Text, False)
     End Sub
 
     Private Sub editPrayerImage_Click(sender As Object, e As EventArgs) Handles editPrayerImage.Click

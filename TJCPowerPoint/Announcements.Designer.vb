@@ -23,9 +23,7 @@ Partial Class Announcements
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Announcements))
-        Me.AnnouncementTxt = New System.Windows.Forms.TextBox()
         Me.UpdateAnnouncements = New System.Windows.Forms.Button()
-        Me.SaveAnnouncements = New System.Windows.Forms.Button()
         Me.LoadAnnouncements = New System.Windows.Forms.Button()
         Me.CloseAnnouncements = New System.Windows.Forms.Button()
         Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
@@ -36,28 +34,12 @@ Partial Class Announcements
         Me.PRTitleFontBtn = New System.Windows.Forms.Button()
         Me.PRColorBtn = New System.Windows.Forms.Button()
         Me.PRFontBtn = New System.Windows.Forms.Button()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.AnnouncementTxt = New System.Windows.Forms.TextBox()
         Me.TitleBox = New System.Windows.Forms.TextBox()
         Me.Panel = New System.Windows.Forms.Panel()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Panel.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'AnnouncementTxt
-        '
-        Me.AnnouncementTxt.AcceptsReturn = True
-        Me.AnnouncementTxt.AcceptsTab = True
-        Me.AnnouncementTxt.AllowDrop = True
-        Me.AnnouncementTxt.BackColor = System.Drawing.Color.Black
-        Me.AnnouncementTxt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.AnnouncementTxt.Font = New System.Drawing.Font("Book Antiqua", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.AnnouncementTxt.ForeColor = System.Drawing.Color.White
-        Me.AnnouncementTxt.Location = New System.Drawing.Point(0, 29)
-        Me.AnnouncementTxt.Multiline = True
-        Me.AnnouncementTxt.Name = "AnnouncementTxt"
-        Me.AnnouncementTxt.Size = New System.Drawing.Size(487, 352)
-        Me.AnnouncementTxt.TabIndex = 2
-        Me.AnnouncementTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.AnnouncementTxt.WordWrap = False
         '
         'UpdateAnnouncements
         '
@@ -69,23 +51,12 @@ Partial Class Announcements
         Me.UpdateAnnouncements.Text = "Update Announcements"
         Me.UpdateAnnouncements.UseVisualStyleBackColor = True
         '
-        'SaveAnnouncements
-        '
-        Me.SaveAnnouncements.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SaveAnnouncements.Location = New System.Drawing.Point(513, 290)
-        Me.SaveAnnouncements.Name = "SaveAnnouncements"
-        Me.SaveAnnouncements.Size = New System.Drawing.Size(57, 33)
-        Me.SaveAnnouncements.TabIndex = 2
-        Me.SaveAnnouncements.TabStop = False
-        Me.SaveAnnouncements.Text = "Save"
-        Me.SaveAnnouncements.UseVisualStyleBackColor = True
-        '
         'LoadAnnouncements
         '
         Me.LoadAnnouncements.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LoadAnnouncements.Location = New System.Drawing.Point(514, 251)
+        Me.LoadAnnouncements.Location = New System.Drawing.Point(508, 251)
         Me.LoadAnnouncements.Name = "LoadAnnouncements"
-        Me.LoadAnnouncements.Size = New System.Drawing.Size(56, 33)
+        Me.LoadAnnouncements.Size = New System.Drawing.Size(68, 33)
         Me.LoadAnnouncements.TabIndex = 3
         Me.LoadAnnouncements.TabStop = False
         Me.LoadAnnouncements.Text = "Open"
@@ -94,9 +65,9 @@ Partial Class Announcements
         'CloseAnnouncements
         '
         Me.CloseAnnouncements.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CloseAnnouncements.Location = New System.Drawing.Point(509, 329)
+        Me.CloseAnnouncements.Location = New System.Drawing.Point(508, 370)
         Me.CloseAnnouncements.Name = "CloseAnnouncements"
-        Me.CloseAnnouncements.Size = New System.Drawing.Size(67, 54)
+        Me.CloseAnnouncements.Size = New System.Drawing.Size(68, 54)
         Me.CloseAnnouncements.TabIndex = 4
         Me.CloseAnnouncements.Text = "Close"
         Me.CloseAnnouncements.UseVisualStyleBackColor = True
@@ -177,6 +148,33 @@ Partial Class Announcements
         Me.PRFontBtn.TabStop = False
         Me.PRFontBtn.UseVisualStyleBackColor = True
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(4, 389)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(403, 16)
+        Me.Label3.TabIndex = 15
+        Me.Label3.Text = "Representation of font size 22, might not be the same for different font sizes"
+        '
+        'AnnouncementTxt
+        '
+        Me.AnnouncementTxt.AcceptsReturn = True
+        Me.AnnouncementTxt.AcceptsTab = True
+        Me.AnnouncementTxt.AllowDrop = True
+        Me.AnnouncementTxt.BackColor = System.Drawing.Color.Black
+        Me.AnnouncementTxt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.AnnouncementTxt.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AnnouncementTxt.ForeColor = System.Drawing.Color.White
+        Me.AnnouncementTxt.Location = New System.Drawing.Point(0, 29)
+        Me.AnnouncementTxt.Multiline = True
+        Me.AnnouncementTxt.Name = "AnnouncementTxt"
+        Me.AnnouncementTxt.Size = New System.Drawing.Size(487, 352)
+        Me.AnnouncementTxt.TabIndex = 2
+        Me.AnnouncementTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.AnnouncementTxt.WordWrap = False
+        '
         'TitleBox
         '
         Me.TitleBox.BackColor = System.Drawing.Color.Black
@@ -200,21 +198,11 @@ Partial Class Announcements
         Me.Panel.Size = New System.Drawing.Size(490, 381)
         Me.Panel.TabIndex = 14
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(4, 389)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(403, 16)
-        Me.Label3.TabIndex = 15
-        Me.Label3.Text = "Representation of font size 22, might not be the same for different font sizes"
-        '
         'Announcements
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(584, 411)
+        Me.ClientSize = New System.Drawing.Size(584, 434)
         Me.ControlBox = False
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel)
@@ -226,9 +214,9 @@ Partial Class Announcements
         Me.Controls.Add(Me.PRFontBtn)
         Me.Controls.Add(Me.CloseAnnouncements)
         Me.Controls.Add(Me.LoadAnnouncements)
-        Me.Controls.Add(Me.SaveAnnouncements)
         Me.Controls.Add(Me.UpdateAnnouncements)
         Me.HelpButton = True
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MinimumSize = New System.Drawing.Size(600, 450)
         Me.Name = "Announcements"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
@@ -240,19 +228,18 @@ Partial Class Announcements
 
     End Sub
     Friend WithEvents UpdateAnnouncements As Button
-    Friend WithEvents SaveAnnouncements As Button
     Friend WithEvents LoadAnnouncements As Button
     Friend WithEvents CloseAnnouncements As Button
     Friend WithEvents PRColorBtn As Button
     Friend WithEvents PRFontBtn As Button
     Friend WithEvents SaveFileDialog As SaveFileDialog
     Friend WithEvents OpenFileDialog As OpenFileDialog
-    Public WithEvents AnnouncementTxt As TextBox
     Friend WithEvents PRTitleColorBtn As Button
     Friend WithEvents PRTitleFontBtn As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Public WithEvents AnnouncementTxt As TextBox
     Friend WithEvents TitleBox As TextBox
     Friend WithEvents Panel As Panel
-    Friend WithEvents Label3 As Label
 End Class

@@ -6,6 +6,13 @@
     Private Sub UpdateAnnouncements_Click(sender As Object, e As EventArgs) Handles UpdateAnnouncements.Click
         MainProgram.ppPres.Slides(4).Shapes(1).TextFrame.TextRange.Text = AnnouncementTxt.Text
         MainProgram.ppPres.Slides(4).Shapes(2).TextFrame.TextRange.Text = TitleBox.Text
+        Try
+            My.Computer.FileSystem.WriteAllText(MainProgram.Current + "\Files\Announcements.txt", AnnouncementTxt.Text, False)
+            MessageBox.Show("Save Successful", "Save Successful")
+        Catch ex As Exception
+            MessageBox.Show("Save Unsuccessful", "Save Unsuccessful")
+        End Try
+
     End Sub
     Private Sub PRFontBtn_Click(sender As Object, e As EventArgs) Handles PRFontBtn.Click
         MainProgram.ChangeFont(4, 1)
@@ -18,12 +25,6 @@
     End Sub
     Private Sub PRTitleColorBtn_Click(sender As Object, e As EventArgs) Handles PRTitleColorBtn.Click
         MainProgram.ChangeColor(4, 2)
-    End Sub
-    Private Sub SaveAnnouncements_Click(sender As Object, e As EventArgs) Handles SaveAnnouncements.Click
-        SaveFileDialog.InitialDirectory = MainProgram.Current + "\Files\"
-        If SaveFileDialog.ShowDialog = DialogResult.OK Then
-            My.Computer.FileSystem.WriteAllText(SaveFileDialog.FileName, AnnouncementTxt.Text, False)
-        End If
     End Sub
 
     Private Sub LoadAnnouncements_Click(sender As Object, e As EventArgs) Handles LoadAnnouncements.Click

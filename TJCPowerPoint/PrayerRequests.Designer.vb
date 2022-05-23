@@ -25,7 +25,6 @@ Partial Class PrayerRequests
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PrayerRequests))
         Me.PrayerRequestTxt = New System.Windows.Forms.TextBox()
         Me.UpdatePrayerRequests = New System.Windows.Forms.Button()
-        Me.SavePrayerRequests = New System.Windows.Forms.Button()
         Me.ClosePrayerRequests = New System.Windows.Forms.Button()
         Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
@@ -49,7 +48,7 @@ Partial Class PrayerRequests
         Me.PrayerRequestTxt.AllowDrop = True
         Me.PrayerRequestTxt.BackColor = System.Drawing.Color.Black
         Me.PrayerRequestTxt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.PrayerRequestTxt.Font = New System.Drawing.Font("Book Antiqua", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PrayerRequestTxt.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PrayerRequestTxt.ForeColor = System.Drawing.Color.White
         Me.PrayerRequestTxt.Location = New System.Drawing.Point(0, 29)
         Me.PrayerRequestTxt.Multiline = True
@@ -69,21 +68,10 @@ Partial Class PrayerRequests
         Me.UpdatePrayerRequests.Text = "Update Prayer Requests"
         Me.UpdatePrayerRequests.UseVisualStyleBackColor = True
         '
-        'SavePrayerRequests
-        '
-        Me.SavePrayerRequests.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SavePrayerRequests.Location = New System.Drawing.Point(509, 251)
-        Me.SavePrayerRequests.Name = "SavePrayerRequests"
-        Me.SavePrayerRequests.Size = New System.Drawing.Size(67, 33)
-        Me.SavePrayerRequests.TabIndex = 2
-        Me.SavePrayerRequests.TabStop = False
-        Me.SavePrayerRequests.Text = "Save"
-        Me.SavePrayerRequests.UseVisualStyleBackColor = True
-        '
         'ClosePrayerRequests
         '
         Me.ClosePrayerRequests.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ClosePrayerRequests.Location = New System.Drawing.Point(509, 290)
+        Me.ClosePrayerRequests.Location = New System.Drawing.Point(509, 370)
         Me.ClosePrayerRequests.Name = "ClosePrayerRequests"
         Me.ClosePrayerRequests.Size = New System.Drawing.Size(67, 54)
         Me.ClosePrayerRequests.TabIndex = 4
@@ -213,7 +201,7 @@ Partial Class PrayerRequests
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(584, 411)
+        Me.ClientSize = New System.Drawing.Size(584, 434)
         Me.ControlBox = False
         Me.Controls.Add(Me.editPrayerImage)
         Me.Controls.Add(Me.Label3)
@@ -225,7 +213,6 @@ Partial Class PrayerRequests
         Me.Controls.Add(Me.PRColorBtn)
         Me.Controls.Add(Me.PRFontBtn)
         Me.Controls.Add(Me.ClosePrayerRequests)
-        Me.Controls.Add(Me.SavePrayerRequests)
         Me.Controls.Add(Me.UpdatePrayerRequests)
         Me.HelpButton = True
         Me.MinimumSize = New System.Drawing.Size(600, 450)
@@ -239,7 +226,6 @@ Partial Class PrayerRequests
 
     End Sub
     Friend WithEvents UpdatePrayerRequests As Button
-    Friend WithEvents SavePrayerRequests As Button
     Friend WithEvents ClosePrayerRequests As Button
     Friend WithEvents PRColorBtn As Button
     Friend WithEvents PRFontBtn As Button
