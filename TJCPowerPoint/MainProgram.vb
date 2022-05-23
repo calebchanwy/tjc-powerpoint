@@ -390,6 +390,15 @@ Public Class MainProgram
     End Sub
 
     Private Sub UpdateTitle_Click(sender As Object, e As EventArgs) Handles UpdateTitle.Click
+        'Removing blank tabs from titles to force centred titles
+        If EnglishTitle.Text.Length > 1 And ChineseTitle.Text.Length > 1 Then
+            While EnglishTitle.Text(EnglishTitle.Text.Length - 1) = " " Or EnglishTitle.Text(EnglishTitle.Text.Length - 1) = "	"
+                EnglishTitle.Text = EnglishTitle.Text.Remove(EnglishTitle.Text.Length - 1)
+            End While
+            While ChineseTitle.Text(ChineseTitle.Text.Length - 1) = " " Or ChineseTitle.Text(ChineseTitle.Text.Length - 1) = "	"
+                ChineseTitle.Text = ChineseTitle.Text.Remove(ChineseTitle.Text.Length - 1)
+            End While
+        End If
         ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
         ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
     End Sub

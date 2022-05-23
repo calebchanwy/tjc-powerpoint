@@ -134,6 +134,7 @@ Partial Class MainProgram
         '
         'HymnNos
         '
+        Me.HymnNos.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HymnNos.Location = New System.Drawing.Point(67, 93)
         Me.HymnNos.Multiline = True
         Me.HymnNos.Name = "HymnNos"
