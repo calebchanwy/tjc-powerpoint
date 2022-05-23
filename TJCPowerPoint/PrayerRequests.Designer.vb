@@ -53,7 +53,7 @@ Partial Class PrayerRequests
         Me.PrayerRequestTxt.Location = New System.Drawing.Point(0, 29)
         Me.PrayerRequestTxt.Multiline = True
         Me.PrayerRequestTxt.Name = "PrayerRequestTxt"
-        Me.PrayerRequestTxt.Size = New System.Drawing.Size(487, 352)
+        Me.PrayerRequestTxt.Size = New System.Drawing.Size(604, 352)
         Me.PrayerRequestTxt.TabIndex = 2
         Me.PrayerRequestTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.PrayerRequestTxt.WordWrap = False
@@ -61,7 +61,7 @@ Partial Class PrayerRequests
         'UpdatePrayerRequests
         '
         Me.UpdatePrayerRequests.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UpdatePrayerRequests.Location = New System.Drawing.Point(509, 103)
+        Me.UpdatePrayerRequests.Location = New System.Drawing.Point(625, 101)
         Me.UpdatePrayerRequests.Name = "UpdatePrayerRequests"
         Me.UpdatePrayerRequests.Size = New System.Drawing.Size(67, 79)
         Me.UpdatePrayerRequests.TabIndex = 3
@@ -71,7 +71,7 @@ Partial Class PrayerRequests
         'ClosePrayerRequests
         '
         Me.ClosePrayerRequests.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ClosePrayerRequests.Location = New System.Drawing.Point(509, 370)
+        Me.ClosePrayerRequests.Location = New System.Drawing.Point(625, 368)
         Me.ClosePrayerRequests.Name = "ClosePrayerRequests"
         Me.ClosePrayerRequests.Size = New System.Drawing.Size(67, 54)
         Me.ClosePrayerRequests.TabIndex = 4
@@ -94,7 +94,7 @@ Partial Class PrayerRequests
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(525, 51)
+        Me.Label1.Location = New System.Drawing.Point(641, 49)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(35, 16)
         Me.Label1.TabIndex = 11
@@ -104,7 +104,7 @@ Partial Class PrayerRequests
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(530, 6)
+        Me.Label2.Location = New System.Drawing.Point(646, 4)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(28, 16)
         Me.Label2.TabIndex = 12
@@ -114,7 +114,7 @@ Partial Class PrayerRequests
         '
         Me.PRTitleColorBtn.BackgroundImage = CType(resources.GetObject("PRTitleColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRTitleColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PRTitleColorBtn.Location = New System.Drawing.Point(513, 22)
+        Me.PRTitleColorBtn.Location = New System.Drawing.Point(629, 20)
         Me.PRTitleColorBtn.Name = "PRTitleColorBtn"
         Me.PRTitleColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.PRTitleColorBtn.TabIndex = 9
@@ -125,7 +125,7 @@ Partial Class PrayerRequests
         '
         Me.PRTitleFontBtn.BackgroundImage = CType(resources.GetObject("PRTitleFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRTitleFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PRTitleFontBtn.Location = New System.Drawing.Point(544, 22)
+        Me.PRTitleFontBtn.Location = New System.Drawing.Point(660, 20)
         Me.PRTitleFontBtn.Name = "PRTitleFontBtn"
         Me.PRTitleFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.PRTitleFontBtn.TabIndex = 10
@@ -136,7 +136,7 @@ Partial Class PrayerRequests
         '
         Me.PRColorBtn.BackgroundImage = CType(resources.GetObject("PRColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PRColorBtn.Location = New System.Drawing.Point(513, 67)
+        Me.PRColorBtn.Location = New System.Drawing.Point(629, 65)
         Me.PRColorBtn.Name = "PRColorBtn"
         Me.PRColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.PRColorBtn.TabIndex = 7
@@ -147,7 +147,7 @@ Partial Class PrayerRequests
         '
         Me.PRFontBtn.BackgroundImage = CType(resources.GetObject("PRFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PRFontBtn.Location = New System.Drawing.Point(544, 67)
+        Me.PRFontBtn.Location = New System.Drawing.Point(660, 65)
         Me.PRFontBtn.Name = "PRFontBtn"
         Me.PRFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.PRFontBtn.TabIndex = 8
@@ -159,10 +159,10 @@ Partial Class PrayerRequests
         Me.TitleBox.BackColor = System.Drawing.Color.Black
         Me.TitleBox.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.TitleBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TitleBox.ForeColor = System.Drawing.SystemColors.Info
+        Me.TitleBox.ForeColor = System.Drawing.Color.White
         Me.TitleBox.Location = New System.Drawing.Point(3, 3)
         Me.TitleBox.Name = "TitleBox"
-        Me.TitleBox.Size = New System.Drawing.Size(484, 20)
+        Me.TitleBox.Size = New System.Drawing.Size(601, 20)
         Me.TitleBox.TabIndex = 1
         Me.TitleBox.Text = "Prayer Requests - 代禱"
         Me.TitleBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -174,7 +174,7 @@ Partial Class PrayerRequests
         Me.Panel.Controls.Add(Me.PrayerRequestTxt)
         Me.Panel.Location = New System.Drawing.Point(3, 2)
         Me.Panel.Name = "Panel"
-        Me.Panel.Size = New System.Drawing.Size(490, 381)
+        Me.Panel.Size = New System.Drawing.Size(607, 381)
         Me.Panel.TabIndex = 14
         '
         'Label3
@@ -190,7 +190,7 @@ Partial Class PrayerRequests
         'editPrayerImage
         '
         Me.editPrayerImage.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.editPrayerImage.Location = New System.Drawing.Point(509, 188)
+        Me.editPrayerImage.Location = New System.Drawing.Point(625, 186)
         Me.editPrayerImage.Name = "editPrayerImage"
         Me.editPrayerImage.Size = New System.Drawing.Size(67, 57)
         Me.editPrayerImage.TabIndex = 16
@@ -201,7 +201,7 @@ Partial Class PrayerRequests
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(584, 434)
+        Me.ClientSize = New System.Drawing.Size(697, 434)
         Me.ControlBox = False
         Me.Controls.Add(Me.editPrayerImage)
         Me.Controls.Add(Me.Label3)

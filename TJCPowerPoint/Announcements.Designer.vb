@@ -44,7 +44,7 @@ Partial Class Announcements
         'UpdateAnnouncements
         '
         Me.UpdateAnnouncements.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UpdateAnnouncements.Location = New System.Drawing.Point(508, 103)
+        Me.UpdateAnnouncements.Location = New System.Drawing.Point(645, 107)
         Me.UpdateAnnouncements.Name = "UpdateAnnouncements"
         Me.UpdateAnnouncements.Size = New System.Drawing.Size(68, 142)
         Me.UpdateAnnouncements.TabIndex = 3
@@ -54,7 +54,7 @@ Partial Class Announcements
         'LoadAnnouncements
         '
         Me.LoadAnnouncements.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LoadAnnouncements.Location = New System.Drawing.Point(508, 251)
+        Me.LoadAnnouncements.Location = New System.Drawing.Point(645, 255)
         Me.LoadAnnouncements.Name = "LoadAnnouncements"
         Me.LoadAnnouncements.Size = New System.Drawing.Size(68, 33)
         Me.LoadAnnouncements.TabIndex = 3
@@ -65,7 +65,7 @@ Partial Class Announcements
         'CloseAnnouncements
         '
         Me.CloseAnnouncements.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CloseAnnouncements.Location = New System.Drawing.Point(508, 370)
+        Me.CloseAnnouncements.Location = New System.Drawing.Point(645, 374)
         Me.CloseAnnouncements.Name = "CloseAnnouncements"
         Me.CloseAnnouncements.Size = New System.Drawing.Size(68, 54)
         Me.CloseAnnouncements.TabIndex = 4
@@ -88,7 +88,7 @@ Partial Class Announcements
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(525, 51)
+        Me.Label1.Location = New System.Drawing.Point(662, 55)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(35, 16)
         Me.Label1.TabIndex = 11
@@ -98,7 +98,7 @@ Partial Class Announcements
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(530, 6)
+        Me.Label2.Location = New System.Drawing.Point(667, 10)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(28, 16)
         Me.Label2.TabIndex = 12
@@ -108,7 +108,7 @@ Partial Class Announcements
         '
         Me.PRTitleColorBtn.BackgroundImage = CType(resources.GetObject("PRTitleColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRTitleColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PRTitleColorBtn.Location = New System.Drawing.Point(513, 22)
+        Me.PRTitleColorBtn.Location = New System.Drawing.Point(650, 26)
         Me.PRTitleColorBtn.Name = "PRTitleColorBtn"
         Me.PRTitleColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.PRTitleColorBtn.TabIndex = 9
@@ -119,7 +119,7 @@ Partial Class Announcements
         '
         Me.PRTitleFontBtn.BackgroundImage = CType(resources.GetObject("PRTitleFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRTitleFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PRTitleFontBtn.Location = New System.Drawing.Point(544, 22)
+        Me.PRTitleFontBtn.Location = New System.Drawing.Point(681, 26)
         Me.PRTitleFontBtn.Name = "PRTitleFontBtn"
         Me.PRTitleFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.PRTitleFontBtn.TabIndex = 10
@@ -130,7 +130,7 @@ Partial Class Announcements
         '
         Me.PRColorBtn.BackgroundImage = CType(resources.GetObject("PRColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PRColorBtn.Location = New System.Drawing.Point(513, 67)
+        Me.PRColorBtn.Location = New System.Drawing.Point(650, 71)
         Me.PRColorBtn.Name = "PRColorBtn"
         Me.PRColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.PRColorBtn.TabIndex = 7
@@ -141,7 +141,7 @@ Partial Class Announcements
         '
         Me.PRFontBtn.BackgroundImage = CType(resources.GetObject("PRFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PRFontBtn.Location = New System.Drawing.Point(544, 67)
+        Me.PRFontBtn.Location = New System.Drawing.Point(681, 71)
         Me.PRFontBtn.Name = "PRFontBtn"
         Me.PRFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.PRFontBtn.TabIndex = 8
@@ -170,7 +170,7 @@ Partial Class Announcements
         Me.AnnouncementTxt.Location = New System.Drawing.Point(0, 29)
         Me.AnnouncementTxt.Multiline = True
         Me.AnnouncementTxt.Name = "AnnouncementTxt"
-        Me.AnnouncementTxt.Size = New System.Drawing.Size(487, 352)
+        Me.AnnouncementTxt.Size = New System.Drawing.Size(636, 352)
         Me.AnnouncementTxt.TabIndex = 2
         Me.AnnouncementTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.AnnouncementTxt.WordWrap = False
@@ -183,7 +183,7 @@ Partial Class Announcements
         Me.TitleBox.ForeColor = System.Drawing.Color.White
         Me.TitleBox.Location = New System.Drawing.Point(3, 3)
         Me.TitleBox.Name = "TitleBox"
-        Me.TitleBox.Size = New System.Drawing.Size(484, 20)
+        Me.TitleBox.Size = New System.Drawing.Size(630, 20)
         Me.TitleBox.TabIndex = 1
         Me.TitleBox.Text = "Announcements 佈告"
         Me.TitleBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -195,14 +195,14 @@ Partial Class Announcements
         Me.Panel.Controls.Add(Me.AnnouncementTxt)
         Me.Panel.Location = New System.Drawing.Point(3, 2)
         Me.Panel.Name = "Panel"
-        Me.Panel.Size = New System.Drawing.Size(490, 381)
+        Me.Panel.Size = New System.Drawing.Size(636, 381)
         Me.Panel.TabIndex = 14
         '
         'Announcements
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(584, 434)
+        Me.ClientSize = New System.Drawing.Size(725, 438)
         Me.ControlBox = False
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel)

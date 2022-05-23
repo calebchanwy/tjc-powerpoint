@@ -11,14 +11,43 @@ Public Class MainProgram
     Dim Writer As XmlTextWriter = Nothing
     Dim RecentFile As String
 
+    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        MakeFolder()
+        LoadPres()
+        HandleAnnouncements()
+        HandlePR()
+        LoadHC()
+        'RecentFile = Directory.GetFiles(Current + "\Files\ServiceRecords").OrderByDescending(Function(f) New FileInfo(f).LastWriteTime).First().ToString
+        'Dim RecentXML As New XmlDocument()
+        'RecentXML.Load(RecentFile)
+        'EnglishTitle.Text = RecentXML.DocumentElement.SelectSingleNode("EnglishTitle").InnerText
+        'ChineseTitle.Text = RecentXML.DocumentElement.SelectSingleNode("ChineseTitle").InnerText
+        'HymnNos.Text = RecentXML.DocumentElement.SelectSingleNode("Hymn").InnerText
+
+        'default opening auto fill
+        ShowHymn.Checked = True
+        EnglishTitle.Text = "English Sermon Title"
+        ChineseTitle.Text = "中文講道題目"
+    End Sub
+
+    Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        If Writer IsNot Nothing Then
+            Writer.WriteEndElement()
+            Writer.Close()
+        End If
+        ppPres.Close()
+    End Sub
+
     Public Function MakeFolder()
         If Directory.Exists("\Files") = False Then
             My.Computer.FileSystem.CreateDirectory(Current + "\Files")
         End If
-        If Directory.Exists("\Files\ServiceRecords") = False Then
-            My.Computer.FileSystem.CreateDirectory(Current + "\Files\ServiceRecords")
-            System.IO.File.WriteAllBytes(Current + "\Files\ServiceRecords\1_Jan_1990_000000.xml", My.Resources.XML)
-        End If
+
+        'If Directory.Exists("\Files\ServiceRecords") = False Then
+        '    My.Computer.FileSystem.CreateDirectory(Current + "\Files\ServiceRecords")
+        '    System.IO.File.WriteAllBytes(Current + "\Files\ServiceRecords\1_Jan_1990_000000.xml", My.Resources.XML)
+        'End If
+
         If My.Computer.FileSystem.FileExists(Current + "\Files\ServiceWidescreen.pptx") = False Then
             System.IO.File.WriteAllBytes(Current + "\Files\ServiceWidescreen.pptx", My.Resources.ServiceWidescreen)
         End If
@@ -68,6 +97,7 @@ Public Class MainProgram
         End If
         Return True
     End Function
+
     Public Function LoadPrayerImage()
         If My.Computer.FileSystem.FileExists(Current + "\Files\prayerImgDir.txt") = False Then
             System.IO.File.WriteAllText(Current + "\Files\prayerImgDir.txt", "")
@@ -200,74 +230,55 @@ Public Class MainProgram
         Return Font
     End Function
 
-    Public Function MakeXML()
-        Dim Title As String = Replace(EnglishTitle.Text, " ", "_")
-        Dim Name As String = Current + "\Files\ServiceRecords\" + Title + (DateTime.Now.ToString("_dd_MMMM_yyyy_HHmmss")) + ".xml"
-        Dim writer As New XmlTextWriter(Name, System.Text.Encoding.UTF32)
-        writer.WriteStartDocument(True)
-        writer.Formatting = Formatting.Indented
-        writer.Indentation = 2
-        writer.WriteStartElement("ServiceRecord")
-        writer.WriteStartElement("Time")
-        writer.WriteString(DateTime.Now.ToString("HH:mm:ss"))
-        writer.WriteEndElement()
-        writer.WriteStartElement("EnglishTitle")
-        writer.WriteString(EnglishTitle.Text)
-        writer.WriteEndElement()
-        writer.WriteStartElement("ChineseTitle")
-        writer.WriteString(ChineseTitle.Text)
-        writer.WriteEndElement()
-        writer.WriteStartElement("Hymn")
-        writer.WriteString(HymnNos.Text)
-        writer.WriteEndElement()
-        Return writer
-    End Function
+    '----------------------------FOLLOWING COMMENTED FUNCTIONS REDUNDANT AFTER SAVING R
 
-    Public Function WriteXML(writer As XmlTextWriter)
-        Dim commaPos As Integer
-        commaPos = InStr(BookBox.Text, ",")
-        writer.WriteStartElement("Bible")
-        writer.WriteStartElement("Book")
-        writer.WriteStartElement("English")
-        writer.WriteString(Mid(BookBox.Text, 1, commaPos - 1))
-        writer.WriteEndElement()
-        writer.WriteStartElement("Chinese")
-        writer.WriteString(Mid(BookBox.Text, commaPos + 1))
-        writer.WriteEndElement()
-        writer.WriteStartElement("Chapter")
-        writer.WriteString(ChapterTxt.Text)
-        writer.WriteEndElement()
-        writer.WriteStartElement("Verses")
-        writer.WriteString(VerseTxt.Text)
-        writer.WriteEndElement()
-        writer.WriteEndElement()
-        writer.WriteEndElement()
-        Return True
-    End Function
+    'Public Function MakeXML()
+    '    Dim Title As String = Replace(EnglishTitle.Text, " ", "_")
+    '    Dim Name As String = Current + "\Files\ServiceRecords\" + Title + (DateTime.Now.ToString("_dd_MMMM_yyyy_HHmmss")) + ".xml"
+    '    Dim writer As New XmlTextWriter(Name, System.Text.Encoding.UTF32)
+    '    writer.WriteStartDocument(True)
+    '    writer.Formatting = Formatting.Indented
+    '    writer.Indentation = 2
+    '    writer.WriteStartElement("ServiceRecord")
+    '    writer.WriteStartElement("Time")
+    '    writer.WriteString(DateTime.Now.ToString("HH:mm:ss"))
+    '    writer.WriteEndElement()
+    '    writer.WriteStartElement("EnglishTitle")
+    '    writer.WriteString(EnglishTitle.Text)
+    '    writer.WriteEndElement()
+    '    writer.WriteStartElement("ChineseTitle")
+    '    writer.WriteString(ChineseTitle.Text)
+    '    writer.WriteEndElement()
+    '    writer.WriteStartElement("Hymn")
+    '    writer.WriteString(HymnNos.Text)
+    '    writer.WriteEndElement()
+    '    Return writer
+    'End Function
+
+    'Public Function WriteXML(writer As XmlTextWriter)
+    '    Dim commaPos As Integer
+    '    commaPos = InStr(BookBox.Text, ",")
+    '    writer.WriteStartElement("Bible")
+    '    writer.WriteStartElement("Book")
+    '    writer.WriteStartElement("English")
+    '    writer.WriteString(Mid(BookBox.Text, 1, commaPos - 1))
+    '    writer.WriteEndElement()
+    '    writer.WriteStartElement("Chinese")
+    '    writer.WriteString(Mid(BookBox.Text, commaPos + 1))
+    '    writer.WriteEndElement()
+    '    writer.WriteStartElement("Chapter")
+    '    writer.WriteString(ChapterTxt.Text)
+    '    writer.WriteEndElement()
+    '    writer.WriteStartElement("Verses")
+    '    writer.WriteString(VerseTxt.Text)
+    '    writer.WriteEndElement()
+    '    writer.WriteEndElement()
+    '    writer.WriteEndElement()
+    '    Return True
+    'End Function
 
 
-    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MakeFolder()
-        RecentFile = Directory.GetFiles(Current + "\Files\ServiceRecords").OrderByDescending(Function(f) New FileInfo(f).LastWriteTime).First().ToString
-        LoadPres()
-        HandleAnnouncements()
-        HandlePR()
-        LoadHC()
-        Dim RecentXML As New XmlDocument()
-        RecentXML.Load(RecentFile)
-        EnglishTitle.Text = RecentXML.DocumentElement.SelectSingleNode("EnglishTitle").InnerText
-        ChineseTitle.Text = RecentXML.DocumentElement.SelectSingleNode("ChineseTitle").InnerText
-        HymnNos.Text = RecentXML.DocumentElement.SelectSingleNode("Hymn").InnerText
-        ShowHymn.Checked = True
-    End Sub
 
-    Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        If Writer IsNot Nothing Then
-            Writer.WriteEndElement()
-            Writer.Close()
-        End If
-        ppPres.Close()
-    End Sub
 
     Private Sub EnglishFontBtn_Click(sender As Object, e As EventArgs) Handles EnglishFontBtn.Click
         ChangeFont(1, 1)
@@ -324,13 +335,6 @@ Public Class MainProgram
 
     Private Sub ServiceTypeColorBtn_Click(sender As Object, e As EventArgs) Handles ServiceTypeColorBtn.Click
         ChangeColor(1, 10)
-    End Sub
-    Private Sub BookBox_SelectedValueChanged(sender As Object, e As EventArgs) Handles BookBox.SelectedValueChanged
-        '  Dim commaPos As Integer
-        'commaPos = InStr(BookBox.Text, ",")
-        ' ppPres.Slides(2).Shapes(6).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
-        ' ppPres.Slides(2).Shapes(7).TextFrame.TextRange.Text = Mid(BookBox.Text, commaPos + 1)
-        ' ppPres.Slides(2).Shapes(8).TextFrame.TextRange.Text = "        :        "
     End Sub
     Private Sub SlideTrack_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SlideTrack.SelectedIndexChanged
         ppPres.SlideShowWindow.View.GotoSlide(SlideTrack.SelectedIndex + 1)
@@ -412,8 +416,17 @@ Public Class MainProgram
     End Sub
 
     Private Sub HymnalTitle_Click(sender As Object, e As EventArgs) Handles HymnalTitle.Click
-        ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = "Hymnal"
-        ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = "詩頌"
+        If HymnalTitle.Text = "Change Title To ""Hymnal""" Then
+            ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = "Hymnal"
+            ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = "詩頌"
+            HymnalTitle.Text = "Change Titles Back To Service Titles"
+        Else
+            ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
+            ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
+            HymnalTitle.Text = "Change Title To ""Hymnal"""
+        End If
+
+
     End Sub
 
     Private Sub HymnChange_Click(sender As Object, e As EventArgs) Handles HymnChange.Click
