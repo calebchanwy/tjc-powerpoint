@@ -398,7 +398,15 @@ Public Class MainProgram
             While ChineseTitle.Text(ChineseTitle.Text.Length - 1) = " " Or ChineseTitle.Text(ChineseTitle.Text.Length - 1) = "	"
                 ChineseTitle.Text = ChineseTitle.Text.Remove(ChineseTitle.Text.Length - 1)
             End While
+            'removing blank spaces from beginning
+            While EnglishTitle.Text(0) = " " Or EnglishTitle.Text(0) = "	"
+                EnglishTitle.Text = EnglishTitle.Text.Remove(0, 1)
+            End While
+            While ChineseTitle.Text(0) = " " Or ChineseTitle.Text(0) = "	"
+                ChineseTitle.Text = ChineseTitle.Text.Remove(0, 1)
+            End While
         End If
+
         ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
         ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
     End Sub
