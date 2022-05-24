@@ -135,29 +135,27 @@ Public Class MainProgram
             If str(3) <> "]" Then
                 Dim FontColor As String = Mid(str, InStr(str, "=") + 1, Len(str) - InStr(str, "="))
                 ppPres.Slides(two).Shapes(three).TextFrame.TextRange.Font.Color.RGB = Color.FromArgb(Convert.ToInt32(FontColor)).ToArgb
-                If two = "2" Then
+                If two = "3" Then
                     PrayerRequests.PrayerRequestTxt.ForeColor = Color.FromArgb(Convert.ToInt32(FontColor))
                     PrayerRequests.TitleBox.ForeColor = Color.FromArgb(Convert.ToInt32(FontColor))
-                ElseIf two = "3" Then
+                ElseIf two = "4" Then
                     Announcements.AnnouncementTxt.ForeColor = Color.FromArgb(Convert.ToInt32(FontColor))
-                    Announcements.TitleBox.ForeColor = Color.FromArgb(Convert.ToInt32(FontColor))
                 End If
             Else
                 Dim BGColor As String = Mid(str, InStr(str, "=") + 1, Len(str) - InStr(str, "="))
                 ppPres.Slides(two).Background.Fill.ForeColor.RGB = Color.FromArgb(Convert.ToInt32(BGColor)).ToArgb
-                If two = "2" Then
+                If two = "3" Then
                     Dim R As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).R
                     Dim G As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).G
                     Dim B As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).B
                     PrayerRequests.PrayerRequestTxt.BackColor = Color.FromArgb(255, B, G, R)
                     PrayerRequests.TitleBox.BackColor = Color.FromArgb(255, B, G, R)
                     PrayerRequests.Panel.BackColor = Color.FromArgb(255, B, G, R)
-                ElseIf two = "3" Then
+                ElseIf two = "4" Then
                     Dim R As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).R
                     Dim G As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).G
                     Dim B As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).B
                     Announcements.AnnouncementTxt.BackColor = Color.FromArgb(255, B, G, R)
-                    Announcements.TitleBox.BackColor = Color.FromArgb(255, B, G, R)
                     Announcements.Panel.BackColor = Color.FromArgb(255, B, G, R)
                 End If
             End If
@@ -585,8 +583,6 @@ Public Class MainProgram
             MessageBox.Show("Service Timetable Was Not Successfully Updated. Please Try Again", "Error")
         End Try
     End Sub
-
-
 
 
 

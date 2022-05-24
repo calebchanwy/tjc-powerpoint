@@ -5,7 +5,6 @@
 
     Private Sub UpdateAnnouncements_Click(sender As Object, e As EventArgs) Handles UpdateAnnouncements.Click
         MainProgram.ppPres.Slides(4).Shapes(1).TextFrame.TextRange.Text = AnnouncementTxt.Text
-        MainProgram.ppPres.Slides(4).Shapes(2).TextFrame.TextRange.Text = TitleBox.Text
         Try
             My.Computer.FileSystem.WriteAllText(MainProgram.Current + "\Files\Announcements.txt", AnnouncementTxt.Text, False)
             MessageBox.Show("Save Successful", "Save Successful")
@@ -42,7 +41,5 @@
 
     End Sub
 
-    Private Sub TitleBox_TextChanged(sender As Object, e As EventArgs) Handles TitleBox.TextChanged
 
-    End Sub
 End Class

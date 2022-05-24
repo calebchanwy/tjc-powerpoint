@@ -24,29 +24,6 @@ Partial Class MainProgram
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainProgram))
-        Me.EnglishTitle = New System.Windows.Forms.TextBox()
-        Me.ChineseTitle = New System.Windows.Forms.TextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.HymnNos = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.HymnChange = New System.Windows.Forms.Button()
-        Me.Title = New System.Windows.Forms.GroupBox()
-        Me.Label16 = New System.Windows.Forms.Label()
-        Me.HymnalTitle = New System.Windows.Forms.Button()
-        Me.ServiceTypeFontBtn = New System.Windows.Forms.Button()
-        Me.ServiceTypeColorBtn = New System.Windows.Forms.Button()
-        Me.ServiceType = New System.Windows.Forms.TextBox()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.ShowVerses = New System.Windows.Forms.CheckBox()
-        Me.ShowHymn = New System.Windows.Forms.CheckBox()
-        Me.UpdateTitle = New System.Windows.Forms.Button()
-        Me.HymnFontBtn = New System.Windows.Forms.Button()
-        Me.HymnColorBtn = New System.Windows.Forms.Button()
-        Me.EnglishColorBtn = New System.Windows.Forms.Button()
-        Me.EnglishFontBtn = New System.Windows.Forms.Button()
-        Me.ChineseFontBtn = New System.Windows.Forms.Button()
-        Me.ChineseColorBtn = New System.Windows.Forms.Button()
         Me.BibleVerse = New System.Windows.Forms.GroupBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.clearbtn = New System.Windows.Forms.Button()
@@ -89,296 +66,32 @@ Partial Class MainProgram
         Me.edtPrayerImg = New System.Windows.Forms.Button()
         Me.edtHC = New System.Windows.Forms.Button()
         Me.ServiceTimesBtn = New System.Windows.Forms.Button()
-        Me.Title.SuspendLayout()
+        Me.ChineseColorBtn = New System.Windows.Forms.Button()
+        Me.ChineseFontBtn = New System.Windows.Forms.Button()
+        Me.EnglishFontBtn = New System.Windows.Forms.Button()
+        Me.HymnNos = New System.Windows.Forms.TextBox()
+        Me.EnglishColorBtn = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.HymnColorBtn = New System.Windows.Forms.Button()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.HymnFontBtn = New System.Windows.Forms.Button()
+        Me.ChineseTitle = New System.Windows.Forms.TextBox()
+        Me.HymnChange = New System.Windows.Forms.Button()
+        Me.EnglishTitle = New System.Windows.Forms.TextBox()
+        Me.UpdateTitle = New System.Windows.Forms.Button()
+        Me.ShowVerses = New System.Windows.Forms.CheckBox()
+        Me.Label11 = New System.Windows.Forms.Label()
+        Me.ServiceType = New System.Windows.Forms.TextBox()
+        Me.ServiceTypeColorBtn = New System.Windows.Forms.Button()
+        Me.ServiceTypeFontBtn = New System.Windows.Forms.Button()
+        Me.HymnalTitle = New System.Windows.Forms.Button()
+        Me.Label16 = New System.Windows.Forms.Label()
+        Me.Title = New System.Windows.Forms.GroupBox()
+        Me.ShowHymn = New System.Windows.Forms.CheckBox()
         Me.BibleVerse.SuspendLayout()
+        Me.Title.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'EnglishTitle
-        '
-        Me.EnglishTitle.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EnglishTitle.Location = New System.Drawing.Point(67, 17)
-        Me.EnglishTitle.Name = "EnglishTitle"
-        Me.EnglishTitle.Size = New System.Drawing.Size(650, 31)
-        Me.EnglishTitle.TabIndex = 0
-        Me.EnglishTitle.TabStop = False
-        Me.EnglishTitle.WordWrap = False
-        '
-        'ChineseTitle
-        '
-        Me.ChineseTitle.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ChineseTitle.Location = New System.Drawing.Point(67, 56)
-        Me.ChineseTitle.Name = "ChineseTitle"
-        Me.ChineseTitle.Size = New System.Drawing.Size(650, 31)
-        Me.ChineseTitle.TabIndex = 1
-        Me.ChineseTitle.TabStop = False
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(6, 19)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(58, 18)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "English"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(1, 58)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(68, 18)
-        Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Chinese"
-        '
-        'HymnNos
-        '
-        Me.HymnNos.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HymnNos.Location = New System.Drawing.Point(67, 93)
-        Me.HymnNos.Multiline = True
-        Me.HymnNos.Name = "HymnNos"
-        Me.HymnNos.Size = New System.Drawing.Size(80, 90)
-        Me.HymnNos.TabIndex = 4
-        Me.HymnNos.TabStop = False
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(6, 94)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(56, 18)
-        Me.Label4.TabIndex = 10
-        Me.Label4.Text = "Hymns"
-        '
-        'HymnChange
-        '
-        Me.HymnChange.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.HymnChange.FlatAppearance.BorderSize = 0
-        Me.HymnChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.HymnChange.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HymnChange.ForeColor = System.Drawing.Color.Black
-        Me.HymnChange.Location = New System.Drawing.Point(154, 124)
-        Me.HymnChange.Name = "HymnChange"
-        Me.HymnChange.Size = New System.Drawing.Size(68, 58)
-        Me.HymnChange.TabIndex = 5
-        Me.HymnChange.TabStop = False
-        Me.HymnChange.Text = "Change Hymns"
-        Me.HymnChange.UseVisualStyleBackColor = False
-        '
-        'Title
-        '
-        Me.Title.BackColor = System.Drawing.SystemColors.Desktop
-        Me.Title.Controls.Add(Me.Label16)
-        Me.Title.Controls.Add(Me.HymnalTitle)
-        Me.Title.Controls.Add(Me.ServiceTypeFontBtn)
-        Me.Title.Controls.Add(Me.ServiceTypeColorBtn)
-        Me.Title.Controls.Add(Me.ServiceType)
-        Me.Title.Controls.Add(Me.Label11)
-        Me.Title.Controls.Add(Me.ShowVerses)
-        Me.Title.Controls.Add(Me.ShowHymn)
-        Me.Title.Controls.Add(Me.UpdateTitle)
-        Me.Title.Controls.Add(Me.EnglishTitle)
-        Me.Title.Controls.Add(Me.HymnChange)
-        Me.Title.Controls.Add(Me.ChineseTitle)
-        Me.Title.Controls.Add(Me.HymnFontBtn)
-        Me.Title.Controls.Add(Me.Label1)
-        Me.Title.Controls.Add(Me.HymnColorBtn)
-        Me.Title.Controls.Add(Me.Label2)
-        Me.Title.Controls.Add(Me.Label4)
-        Me.Title.Controls.Add(Me.EnglishColorBtn)
-        Me.Title.Controls.Add(Me.HymnNos)
-        Me.Title.Controls.Add(Me.EnglishFontBtn)
-        Me.Title.Controls.Add(Me.ChineseFontBtn)
-        Me.Title.Controls.Add(Me.ChineseColorBtn)
-        Me.Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Title.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Title.ForeColor = System.Drawing.SystemColors.ControlDark
-        Me.Title.Location = New System.Drawing.Point(12, 12)
-        Me.Title.Margin = New System.Windows.Forms.Padding(0)
-        Me.Title.Name = "Title"
-        Me.Title.Size = New System.Drawing.Size(785, 190)
-        Me.Title.TabIndex = 14
-        Me.Title.TabStop = False
-        Me.Title.Text = "Title"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.BackColor = System.Drawing.SystemColors.Desktop
-        Me.Label16.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.ForeColor = System.Drawing.SystemColors.AppWorkspace
-        Me.Label16.Location = New System.Drawing.Point(326, 143)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(138, 15)
-        Me.Label16.TabIndex = 34
-        Me.Label16.Text = "(press enter to update)"
-        Me.Label16.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'HymnalTitle
-        '
-        Me.HymnalTitle.BackColor = System.Drawing.Color.DarkGray
-        Me.HymnalTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.HymnalTitle.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HymnalTitle.ForeColor = System.Drawing.Color.Black
-        Me.HymnalTitle.Location = New System.Drawing.Point(506, 94)
-        Me.HymnalTitle.Name = "HymnalTitle"
-        Me.HymnalTitle.Size = New System.Drawing.Size(273, 31)
-        Me.HymnalTitle.TabIndex = 20
-        Me.HymnalTitle.TabStop = False
-        Me.HymnalTitle.Text = "Change Title To ""Hymnal"""
-        Me.HymnalTitle.UseVisualStyleBackColor = False
-        '
-        'ServiceTypeFontBtn
-        '
-        Me.ServiceTypeFontBtn.BackgroundImage = CType(resources.GetObject("ServiceTypeFontBtn.BackgroundImage"), System.Drawing.Image)
-        Me.ServiceTypeFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ServiceTypeFontBtn.Location = New System.Drawing.Point(475, 159)
-        Me.ServiceTypeFontBtn.Name = "ServiceTypeFontBtn"
-        Me.ServiceTypeFontBtn.Size = New System.Drawing.Size(25, 25)
-        Me.ServiceTypeFontBtn.TabIndex = 15
-        Me.ServiceTypeFontBtn.TabStop = False
-        Me.ServiceTypeFontBtn.UseVisualStyleBackColor = True
-        '
-        'ServiceTypeColorBtn
-        '
-        Me.ServiceTypeColorBtn.BackgroundImage = CType(resources.GetObject("ServiceTypeColorBtn.BackgroundImage"), System.Drawing.Image)
-        Me.ServiceTypeColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ServiceTypeColorBtn.Location = New System.Drawing.Point(445, 159)
-        Me.ServiceTypeColorBtn.Name = "ServiceTypeColorBtn"
-        Me.ServiceTypeColorBtn.Size = New System.Drawing.Size(25, 25)
-        Me.ServiceTypeColorBtn.TabIndex = 14
-        Me.ServiceTypeColorBtn.TabStop = False
-        Me.ServiceTypeColorBtn.UseVisualStyleBackColor = True
-        '
-        'ServiceType
-        '
-        Me.ServiceType.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ServiceType.Location = New System.Drawing.Point(228, 161)
-        Me.ServiceType.Name = "ServiceType"
-        Me.ServiceType.Size = New System.Drawing.Size(214, 22)
-        Me.ServiceType.TabIndex = 6
-        Me.ServiceType.TabStop = False
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(228, 140)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(102, 18)
-        Me.Label11.TabIndex = 19
-        Me.Label11.Text = "Service Type"
-        '
-        'ShowVerses
-        '
-        Me.ShowVerses.AutoSize = True
-        Me.ShowVerses.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ShowVerses.Location = New System.Drawing.Point(348, 100)
-        Me.ShowVerses.Name = "ShowVerses"
-        Me.ShowVerses.Size = New System.Drawing.Size(139, 21)
-        Me.ShowVerses.TabIndex = 17
-        Me.ShowVerses.TabStop = False
-        Me.ShowVerses.Text = "Show Bible Verses"
-        Me.ShowVerses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.ShowVerses.UseVisualStyleBackColor = True
-        '
-        'ShowHymn
-        '
-        Me.ShowHymn.AutoSize = True
-        Me.ShowHymn.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ShowHymn.Location = New System.Drawing.Point(237, 100)
-        Me.ShowHymn.Name = "ShowHymn"
-        Me.ShowHymn.Size = New System.Drawing.Size(107, 21)
-        Me.ShowHymn.TabIndex = 18
-        Me.ShowHymn.TabStop = False
-        Me.ShowHymn.Text = "Show Hymns"
-        Me.ShowHymn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        Me.ShowHymn.UseVisualStyleBackColor = True
-        '
-        'UpdateTitle
-        '
-        Me.UpdateTitle.BackColor = System.Drawing.SystemColors.ActiveCaption
-        Me.UpdateTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.UpdateTitle.FlatAppearance.BorderSize = 0
-        Me.UpdateTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.UpdateTitle.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UpdateTitle.ForeColor = System.Drawing.Color.Black
-        Me.UpdateTitle.Location = New System.Drawing.Point(506, 133)
-        Me.UpdateTitle.Margin = New System.Windows.Forms.Padding(0)
-        Me.UpdateTitle.Name = "UpdateTitle"
-        Me.UpdateTitle.Size = New System.Drawing.Size(273, 50)
-        Me.UpdateTitle.TabIndex = 3
-        Me.UpdateTitle.TabStop = False
-        Me.UpdateTitle.Text = "Update Title"
-        Me.UpdateTitle.UseVisualStyleBackColor = False
-        '
-        'HymnFontBtn
-        '
-        Me.HymnFontBtn.BackgroundImage = CType(resources.GetObject("HymnFontBtn.BackgroundImage"), System.Drawing.Image)
-        Me.HymnFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.HymnFontBtn.Location = New System.Drawing.Point(184, 93)
-        Me.HymnFontBtn.Name = "HymnFontBtn"
-        Me.HymnFontBtn.Size = New System.Drawing.Size(25, 25)
-        Me.HymnFontBtn.TabIndex = 12
-        Me.HymnFontBtn.TabStop = False
-        Me.HymnFontBtn.UseVisualStyleBackColor = True
-        '
-        'HymnColorBtn
-        '
-        Me.HymnColorBtn.BackgroundImage = CType(resources.GetObject("HymnColorBtn.BackgroundImage"), System.Drawing.Image)
-        Me.HymnColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.HymnColorBtn.Location = New System.Drawing.Point(153, 93)
-        Me.HymnColorBtn.Name = "HymnColorBtn"
-        Me.HymnColorBtn.Size = New System.Drawing.Size(25, 25)
-        Me.HymnColorBtn.TabIndex = 11
-        Me.HymnColorBtn.TabStop = False
-        Me.HymnColorBtn.UseVisualStyleBackColor = True
-        '
-        'EnglishColorBtn
-        '
-        Me.EnglishColorBtn.BackgroundImage = CType(resources.GetObject("EnglishColorBtn.BackgroundImage"), System.Drawing.Image)
-        Me.EnglishColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.EnglishColorBtn.Location = New System.Drawing.Point(723, 17)
-        Me.EnglishColorBtn.Name = "EnglishColorBtn"
-        Me.EnglishColorBtn.Size = New System.Drawing.Size(25, 25)
-        Me.EnglishColorBtn.TabIndex = 5
-        Me.EnglishColorBtn.TabStop = False
-        Me.EnglishColorBtn.UseVisualStyleBackColor = True
-        '
-        'EnglishFontBtn
-        '
-        Me.EnglishFontBtn.BackgroundImage = CType(resources.GetObject("EnglishFontBtn.BackgroundImage"), System.Drawing.Image)
-        Me.EnglishFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.EnglishFontBtn.Location = New System.Drawing.Point(754, 17)
-        Me.EnglishFontBtn.Name = "EnglishFontBtn"
-        Me.EnglishFontBtn.Size = New System.Drawing.Size(25, 25)
-        Me.EnglishFontBtn.TabIndex = 6
-        Me.EnglishFontBtn.TabStop = False
-        Me.EnglishFontBtn.UseVisualStyleBackColor = True
-        '
-        'ChineseFontBtn
-        '
-        Me.ChineseFontBtn.BackgroundImage = CType(resources.GetObject("ChineseFontBtn.BackgroundImage"), System.Drawing.Image)
-        Me.ChineseFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ChineseFontBtn.Location = New System.Drawing.Point(754, 58)
-        Me.ChineseFontBtn.Name = "ChineseFontBtn"
-        Me.ChineseFontBtn.Size = New System.Drawing.Size(25, 25)
-        Me.ChineseFontBtn.TabIndex = 8
-        Me.ChineseFontBtn.TabStop = False
-        Me.ChineseFontBtn.UseVisualStyleBackColor = True
-        '
-        'ChineseColorBtn
-        '
-        Me.ChineseColorBtn.BackgroundImage = CType(resources.GetObject("ChineseColorBtn.BackgroundImage"), System.Drawing.Image)
-        Me.ChineseColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ChineseColorBtn.Location = New System.Drawing.Point(723, 58)
-        Me.ChineseColorBtn.Name = "ChineseColorBtn"
-        Me.ChineseColorBtn.Size = New System.Drawing.Size(25, 25)
-        Me.ChineseColorBtn.TabIndex = 7
-        Me.ChineseColorBtn.TabStop = False
-        Me.ChineseColorBtn.UseVisualStyleBackColor = True
         '
         'BibleVerse
         '
@@ -524,7 +237,7 @@ Partial Class MainProgram
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(94, 78)
+        Me.Label5.Location = New System.Drawing.Point(101, 78)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(87, 17)
         Me.Label5.TabIndex = 26
@@ -534,7 +247,7 @@ Partial Class MainProgram
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(6, 78)
+        Me.Label3.Location = New System.Drawing.Point(13, 78)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(79, 17)
         Me.Label3.TabIndex = 25
@@ -544,7 +257,7 @@ Partial Class MainProgram
         '
         Me.ChineseBookColorBtn.BackgroundImage = CType(resources.GetObject("ChineseBookColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.ChineseBookColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ChineseBookColorBtn.Location = New System.Drawing.Point(105, 98)
+        Me.ChineseBookColorBtn.Location = New System.Drawing.Point(112, 98)
         Me.ChineseBookColorBtn.Name = "ChineseBookColorBtn"
         Me.ChineseBookColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.ChineseBookColorBtn.TabIndex = 23
@@ -555,7 +268,7 @@ Partial Class MainProgram
         '
         Me.ChineseBookFontBtn.BackgroundImage = CType(resources.GetObject("ChineseBookFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.ChineseBookFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ChineseBookFontBtn.Location = New System.Drawing.Point(134, 98)
+        Me.ChineseBookFontBtn.Location = New System.Drawing.Point(141, 98)
         Me.ChineseBookFontBtn.Name = "ChineseBookFontBtn"
         Me.ChineseBookFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.ChineseBookFontBtn.TabIndex = 24
@@ -569,7 +282,7 @@ Partial Class MainProgram
         Me.BookBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.BookBox.DropDownHeight = 100
         Me.BookBox.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.BookBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BookBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BookBox.ForeColor = System.Drawing.SystemColors.WindowText
         Me.BookBox.FormattingEnabled = True
         Me.BookBox.ImeMode = System.Windows.Forms.ImeMode.[On]
@@ -578,14 +291,14 @@ Partial Class MainProgram
         Me.BookBox.Location = New System.Drawing.Point(16, 47)
         Me.BookBox.MaxDropDownItems = 5
         Me.BookBox.Name = "BookBox"
-        Me.BookBox.Size = New System.Drawing.Size(392, 29)
+        Me.BookBox.Size = New System.Drawing.Size(392, 27)
         Me.BookBox.TabIndex = 0
         '
         'EnglishBookColorBtn
         '
         Me.EnglishBookColorBtn.BackgroundImage = CType(resources.GetObject("EnglishBookColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.EnglishBookColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.EnglishBookColorBtn.Location = New System.Drawing.Point(16, 98)
+        Me.EnglishBookColorBtn.Location = New System.Drawing.Point(23, 98)
         Me.EnglishBookColorBtn.Name = "EnglishBookColorBtn"
         Me.EnglishBookColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.EnglishBookColorBtn.TabIndex = 19
@@ -596,7 +309,7 @@ Partial Class MainProgram
         '
         Me.EnglishBookFontBtn.BackgroundImage = CType(resources.GetObject("EnglishBookFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.EnglishBookFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.EnglishBookFontBtn.Location = New System.Drawing.Point(45, 98)
+        Me.EnglishBookFontBtn.Location = New System.Drawing.Point(52, 98)
         Me.EnglishBookFontBtn.Name = "EnglishBookFontBtn"
         Me.EnglishBookFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.EnglishBookFontBtn.TabIndex = 20
@@ -704,7 +417,7 @@ Partial Class MainProgram
         Me.SlideTrack.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.SlideTrack.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SlideTrack.FormattingEnabled = True
-        Me.SlideTrack.Location = New System.Drawing.Point(120, 372)
+        Me.SlideTrack.Location = New System.Drawing.Point(120, 366)
         Me.SlideTrack.Name = "SlideTrack"
         Me.SlideTrack.Size = New System.Drawing.Size(160, 24)
         Me.SlideTrack.TabIndex = 4
@@ -714,7 +427,7 @@ Partial Class MainProgram
         '
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(19, 375)
+        Me.Label10.Location = New System.Drawing.Point(19, 369)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(95, 18)
         Me.Label10.TabIndex = 19
@@ -758,7 +471,7 @@ Partial Class MainProgram
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(19, 406)
+        Me.Label12.Location = New System.Drawing.Point(19, 401)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(230, 16)
         Me.Label12.TabIndex = 24
@@ -774,7 +487,7 @@ Partial Class MainProgram
         '
         Me.Time.AutoSize = True
         Me.Time.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Time.Location = New System.Drawing.Point(19, 428)
+        Me.Time.Location = New System.Drawing.Point(19, 423)
         Me.Time.Name = "Time"
         Me.Time.Size = New System.Drawing.Size(35, 16)
         Me.Time.TabIndex = 25
@@ -800,7 +513,7 @@ Partial Class MainProgram
         '
         Me.BGColor.BackgroundImage = CType(resources.GetObject("BGColor.BackgroundImage"), System.Drawing.Image)
         Me.BGColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BGColor.Location = New System.Drawing.Point(255, 401)
+        Me.BGColor.Location = New System.Drawing.Point(255, 396)
         Me.BGColor.Name = "BGColor"
         Me.BGColor.Size = New System.Drawing.Size(25, 25)
         Me.BGColor.TabIndex = 23
@@ -840,6 +553,295 @@ Partial Class MainProgram
         Me.ServiceTimesBtn.Text = "Edit Timetable"
         Me.ServiceTimesBtn.UseVisualStyleBackColor = True
         '
+        'ChineseColorBtn
+        '
+        Me.ChineseColorBtn.BackgroundImage = CType(resources.GetObject("ChineseColorBtn.BackgroundImage"), System.Drawing.Image)
+        Me.ChineseColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ChineseColorBtn.Location = New System.Drawing.Point(723, 58)
+        Me.ChineseColorBtn.Name = "ChineseColorBtn"
+        Me.ChineseColorBtn.Size = New System.Drawing.Size(25, 25)
+        Me.ChineseColorBtn.TabIndex = 7
+        Me.ChineseColorBtn.TabStop = False
+        Me.ChineseColorBtn.UseVisualStyleBackColor = True
+        '
+        'ChineseFontBtn
+        '
+        Me.ChineseFontBtn.BackgroundImage = CType(resources.GetObject("ChineseFontBtn.BackgroundImage"), System.Drawing.Image)
+        Me.ChineseFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ChineseFontBtn.Location = New System.Drawing.Point(754, 58)
+        Me.ChineseFontBtn.Name = "ChineseFontBtn"
+        Me.ChineseFontBtn.Size = New System.Drawing.Size(25, 25)
+        Me.ChineseFontBtn.TabIndex = 8
+        Me.ChineseFontBtn.TabStop = False
+        Me.ChineseFontBtn.UseVisualStyleBackColor = True
+        '
+        'EnglishFontBtn
+        '
+        Me.EnglishFontBtn.BackgroundImage = CType(resources.GetObject("EnglishFontBtn.BackgroundImage"), System.Drawing.Image)
+        Me.EnglishFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.EnglishFontBtn.Location = New System.Drawing.Point(754, 17)
+        Me.EnglishFontBtn.Name = "EnglishFontBtn"
+        Me.EnglishFontBtn.Size = New System.Drawing.Size(25, 25)
+        Me.EnglishFontBtn.TabIndex = 6
+        Me.EnglishFontBtn.TabStop = False
+        Me.EnglishFontBtn.UseVisualStyleBackColor = True
+        '
+        'HymnNos
+        '
+        Me.HymnNos.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HymnNos.Location = New System.Drawing.Point(67, 93)
+        Me.HymnNos.Multiline = True
+        Me.HymnNos.Name = "HymnNos"
+        Me.HymnNos.Size = New System.Drawing.Size(80, 90)
+        Me.HymnNos.TabIndex = 4
+        Me.HymnNos.TabStop = False
+        '
+        'EnglishColorBtn
+        '
+        Me.EnglishColorBtn.BackgroundImage = CType(resources.GetObject("EnglishColorBtn.BackgroundImage"), System.Drawing.Image)
+        Me.EnglishColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.EnglishColorBtn.Location = New System.Drawing.Point(723, 17)
+        Me.EnglishColorBtn.Name = "EnglishColorBtn"
+        Me.EnglishColorBtn.Size = New System.Drawing.Size(25, 25)
+        Me.EnglishColorBtn.TabIndex = 5
+        Me.EnglishColorBtn.TabStop = False
+        Me.EnglishColorBtn.UseVisualStyleBackColor = True
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(6, 94)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(56, 18)
+        Me.Label4.TabIndex = 10
+        Me.Label4.Text = "Hymns"
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(1, 58)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(68, 18)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Chinese"
+        '
+        'HymnColorBtn
+        '
+        Me.HymnColorBtn.BackgroundImage = CType(resources.GetObject("HymnColorBtn.BackgroundImage"), System.Drawing.Image)
+        Me.HymnColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.HymnColorBtn.Location = New System.Drawing.Point(153, 93)
+        Me.HymnColorBtn.Name = "HymnColorBtn"
+        Me.HymnColorBtn.Size = New System.Drawing.Size(25, 25)
+        Me.HymnColorBtn.TabIndex = 11
+        Me.HymnColorBtn.TabStop = False
+        Me.HymnColorBtn.UseVisualStyleBackColor = True
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(6, 19)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(58, 18)
+        Me.Label1.TabIndex = 2
+        Me.Label1.Text = "English"
+        '
+        'HymnFontBtn
+        '
+        Me.HymnFontBtn.BackgroundImage = CType(resources.GetObject("HymnFontBtn.BackgroundImage"), System.Drawing.Image)
+        Me.HymnFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.HymnFontBtn.Location = New System.Drawing.Point(184, 93)
+        Me.HymnFontBtn.Name = "HymnFontBtn"
+        Me.HymnFontBtn.Size = New System.Drawing.Size(25, 25)
+        Me.HymnFontBtn.TabIndex = 12
+        Me.HymnFontBtn.TabStop = False
+        Me.HymnFontBtn.UseVisualStyleBackColor = True
+        '
+        'ChineseTitle
+        '
+        Me.ChineseTitle.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ChineseTitle.Location = New System.Drawing.Point(67, 56)
+        Me.ChineseTitle.Name = "ChineseTitle"
+        Me.ChineseTitle.Size = New System.Drawing.Size(650, 31)
+        Me.ChineseTitle.TabIndex = 1
+        Me.ChineseTitle.TabStop = False
+        '
+        'HymnChange
+        '
+        Me.HymnChange.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.HymnChange.FlatAppearance.BorderSize = 0
+        Me.HymnChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.HymnChange.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HymnChange.ForeColor = System.Drawing.Color.Black
+        Me.HymnChange.Location = New System.Drawing.Point(154, 124)
+        Me.HymnChange.Name = "HymnChange"
+        Me.HymnChange.Size = New System.Drawing.Size(68, 58)
+        Me.HymnChange.TabIndex = 5
+        Me.HymnChange.TabStop = False
+        Me.HymnChange.Text = "Change Hymns"
+        Me.HymnChange.UseVisualStyleBackColor = False
+        '
+        'EnglishTitle
+        '
+        Me.EnglishTitle.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EnglishTitle.Location = New System.Drawing.Point(67, 17)
+        Me.EnglishTitle.Name = "EnglishTitle"
+        Me.EnglishTitle.Size = New System.Drawing.Size(650, 31)
+        Me.EnglishTitle.TabIndex = 0
+        Me.EnglishTitle.TabStop = False
+        Me.EnglishTitle.WordWrap = False
+        '
+        'UpdateTitle
+        '
+        Me.UpdateTitle.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.UpdateTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.UpdateTitle.FlatAppearance.BorderSize = 0
+        Me.UpdateTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.UpdateTitle.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UpdateTitle.ForeColor = System.Drawing.Color.Black
+        Me.UpdateTitle.Location = New System.Drawing.Point(506, 133)
+        Me.UpdateTitle.Margin = New System.Windows.Forms.Padding(0)
+        Me.UpdateTitle.Name = "UpdateTitle"
+        Me.UpdateTitle.Size = New System.Drawing.Size(273, 50)
+        Me.UpdateTitle.TabIndex = 3
+        Me.UpdateTitle.TabStop = False
+        Me.UpdateTitle.Text = "Update Title"
+        Me.UpdateTitle.UseVisualStyleBackColor = False
+        '
+        'ShowVerses
+        '
+        Me.ShowVerses.AutoSize = True
+        Me.ShowVerses.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ShowVerses.ForeColor = System.Drawing.Color.White
+        Me.ShowVerses.Location = New System.Drawing.Point(356, 99)
+        Me.ShowVerses.Name = "ShowVerses"
+        Me.ShowVerses.Size = New System.Drawing.Size(139, 21)
+        Me.ShowVerses.TabIndex = 17
+        Me.ShowVerses.TabStop = False
+        Me.ShowVerses.Text = "Show Bible Verses"
+        Me.ShowVerses.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.ShowVerses.UseVisualStyleBackColor = True
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Location = New System.Drawing.Point(228, 140)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(102, 18)
+        Me.Label11.TabIndex = 19
+        Me.Label11.Text = "Service Type"
+        '
+        'ServiceType
+        '
+        Me.ServiceType.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ServiceType.Location = New System.Drawing.Point(228, 161)
+        Me.ServiceType.Name = "ServiceType"
+        Me.ServiceType.Size = New System.Drawing.Size(214, 22)
+        Me.ServiceType.TabIndex = 6
+        Me.ServiceType.TabStop = False
+        '
+        'ServiceTypeColorBtn
+        '
+        Me.ServiceTypeColorBtn.BackgroundImage = CType(resources.GetObject("ServiceTypeColorBtn.BackgroundImage"), System.Drawing.Image)
+        Me.ServiceTypeColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ServiceTypeColorBtn.Location = New System.Drawing.Point(445, 159)
+        Me.ServiceTypeColorBtn.Name = "ServiceTypeColorBtn"
+        Me.ServiceTypeColorBtn.Size = New System.Drawing.Size(25, 25)
+        Me.ServiceTypeColorBtn.TabIndex = 14
+        Me.ServiceTypeColorBtn.TabStop = False
+        Me.ServiceTypeColorBtn.UseVisualStyleBackColor = True
+        '
+        'ServiceTypeFontBtn
+        '
+        Me.ServiceTypeFontBtn.BackgroundImage = CType(resources.GetObject("ServiceTypeFontBtn.BackgroundImage"), System.Drawing.Image)
+        Me.ServiceTypeFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ServiceTypeFontBtn.Location = New System.Drawing.Point(475, 159)
+        Me.ServiceTypeFontBtn.Name = "ServiceTypeFontBtn"
+        Me.ServiceTypeFontBtn.Size = New System.Drawing.Size(25, 25)
+        Me.ServiceTypeFontBtn.TabIndex = 15
+        Me.ServiceTypeFontBtn.TabStop = False
+        Me.ServiceTypeFontBtn.UseVisualStyleBackColor = True
+        '
+        'HymnalTitle
+        '
+        Me.HymnalTitle.BackColor = System.Drawing.Color.Silver
+        Me.HymnalTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.HymnalTitle.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HymnalTitle.ForeColor = System.Drawing.Color.Black
+        Me.HymnalTitle.Location = New System.Drawing.Point(506, 94)
+        Me.HymnalTitle.Name = "HymnalTitle"
+        Me.HymnalTitle.Size = New System.Drawing.Size(273, 31)
+        Me.HymnalTitle.TabIndex = 20
+        Me.HymnalTitle.TabStop = False
+        Me.HymnalTitle.Text = "Change Title To ""Hymnal"""
+        Me.HymnalTitle.UseVisualStyleBackColor = False
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.BackColor = System.Drawing.SystemColors.Desktop
+        Me.Label16.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.ForeColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Label16.Location = New System.Drawing.Point(326, 143)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(138, 15)
+        Me.Label16.TabIndex = 34
+        Me.Label16.Text = "(press enter to update)"
+        Me.Label16.TextAlign = System.Drawing.ContentAlignment.TopRight
+        '
+        'Title
+        '
+        Me.Title.BackColor = System.Drawing.SystemColors.Desktop
+        Me.Title.Controls.Add(Me.ShowHymn)
+        Me.Title.Controls.Add(Me.Label16)
+        Me.Title.Controls.Add(Me.HymnalTitle)
+        Me.Title.Controls.Add(Me.ServiceTypeFontBtn)
+        Me.Title.Controls.Add(Me.ServiceTypeColorBtn)
+        Me.Title.Controls.Add(Me.ServiceType)
+        Me.Title.Controls.Add(Me.Label11)
+        Me.Title.Controls.Add(Me.ShowVerses)
+        Me.Title.Controls.Add(Me.UpdateTitle)
+        Me.Title.Controls.Add(Me.EnglishTitle)
+        Me.Title.Controls.Add(Me.HymnChange)
+        Me.Title.Controls.Add(Me.ChineseTitle)
+        Me.Title.Controls.Add(Me.HymnFontBtn)
+        Me.Title.Controls.Add(Me.Label1)
+        Me.Title.Controls.Add(Me.HymnColorBtn)
+        Me.Title.Controls.Add(Me.Label2)
+        Me.Title.Controls.Add(Me.Label4)
+        Me.Title.Controls.Add(Me.EnglishColorBtn)
+        Me.Title.Controls.Add(Me.HymnNos)
+        Me.Title.Controls.Add(Me.EnglishFontBtn)
+        Me.Title.Controls.Add(Me.ChineseFontBtn)
+        Me.Title.Controls.Add(Me.ChineseColorBtn)
+        Me.Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Title.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Title.ForeColor = System.Drawing.SystemColors.ControlDark
+        Me.Title.Location = New System.Drawing.Point(12, 12)
+        Me.Title.Margin = New System.Windows.Forms.Padding(0)
+        Me.Title.Name = "Title"
+        Me.Title.Size = New System.Drawing.Size(785, 190)
+        Me.Title.TabIndex = 14
+        Me.Title.TabStop = False
+        Me.Title.Text = "Title"
+        '
+        'ShowHymn
+        '
+        Me.ShowHymn.AutoSize = True
+        Me.ShowHymn.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ShowHymn.ForeColor = System.Drawing.Color.White
+        Me.ShowHymn.Location = New System.Drawing.Point(233, 99)
+        Me.ShowHymn.Name = "ShowHymn"
+        Me.ShowHymn.Size = New System.Drawing.Size(107, 21)
+        Me.ShowHymn.TabIndex = 35
+        Me.ShowHymn.TabStop = False
+        Me.ShowHymn.Text = "Show Hymns"
+        Me.ShowHymn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.ShowHymn.UseVisualStyleBackColor = True
+        '
         'MainProgram
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -868,29 +870,14 @@ Partial Class MainProgram
         Me.Name = "MainProgram"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Text = "True Jesus Church PowerPoint"
-        Me.Title.ResumeLayout(False)
-        Me.Title.PerformLayout()
         Me.BibleVerse.ResumeLayout(False)
         Me.BibleVerse.PerformLayout()
+        Me.Title.ResumeLayout(False)
+        Me.Title.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents EnglishTitle As TextBox
-    Friend WithEvents ChineseTitle As TextBox
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents EnglishColorBtn As Button
-    Friend WithEvents EnglishFontBtn As Button
-    Friend WithEvents ChineseFontBtn As Button
-    Friend WithEvents ChineseColorBtn As Button
-    Friend WithEvents HymnNos As TextBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents HymnFontBtn As Button
-    Friend WithEvents HymnColorBtn As Button
-    Friend WithEvents HymnChange As Button
-    Friend WithEvents Title As GroupBox
     Friend WithEvents BibleVerse As GroupBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
@@ -904,9 +891,6 @@ Partial Class MainProgram
     Friend WithEvents EnglishBookColorBtn As Button
     Friend WithEvents EnglishBookFontBtn As Button
     Friend WithEvents SaveSettings As Button
-    Friend WithEvents ShowVerses As CheckBox
-    Friend WithEvents ShowHymn As CheckBox
-    Friend WithEvents UpdateTitle As Button
     Friend WithEvents ColorDialog As ColorDialog
     Friend WithEvents Label5 As Label
     Friend WithEvents Label3 As Label
@@ -918,10 +902,6 @@ Partial Class MainProgram
     Friend WithEvents ShowPR As Button
     Friend WithEvents ExitBtn As Button
     Friend WithEvents OpenFolder As Button
-    Friend WithEvents ServiceType As TextBox
-    Friend WithEvents Label11 As Label
-    Friend WithEvents ServiceTypeFontBtn As Button
-    Friend WithEvents ServiceTypeColorBtn As Button
     Friend WithEvents BGColor As Button
     Friend WithEvents Label12 As Label
     Friend WithEvents SaveFileDialog As SaveFileDialog
@@ -934,12 +914,33 @@ Partial Class MainProgram
     Friend WithEvents Time As Label
     Friend WithEvents Timer As Timer
     Public WithEvents FontDialog As FontDialog
-    Friend WithEvents HymnalTitle As Button
     Friend WithEvents Show_AN As Button
     Friend WithEvents edtPrayerImg As Button
     Friend WithEvents edtHC As Button
     Friend WithEvents clearbtn As Button
     Friend WithEvents Label15 As Label
-    Friend WithEvents Label16 As Label
     Friend WithEvents ServiceTimesBtn As Button
+    Friend WithEvents ChineseColorBtn As Button
+    Friend WithEvents ChineseFontBtn As Button
+    Friend WithEvents EnglishFontBtn As Button
+    Friend WithEvents HymnNos As TextBox
+    Friend WithEvents EnglishColorBtn As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents Label2 As Label
+    Friend WithEvents HymnColorBtn As Button
+    Friend WithEvents Label1 As Label
+    Friend WithEvents HymnFontBtn As Button
+    Friend WithEvents ChineseTitle As TextBox
+    Friend WithEvents HymnChange As Button
+    Friend WithEvents EnglishTitle As TextBox
+    Friend WithEvents UpdateTitle As Button
+    Friend WithEvents ShowVerses As CheckBox
+    Friend WithEvents Label11 As Label
+    Friend WithEvents ServiceType As TextBox
+    Friend WithEvents ServiceTypeColorBtn As Button
+    Friend WithEvents ServiceTypeFontBtn As Button
+    Friend WithEvents HymnalTitle As Button
+    Friend WithEvents Label16 As Label
+    Friend WithEvents Title As GroupBox
+    Friend WithEvents ShowHymn As CheckBox
 End Class

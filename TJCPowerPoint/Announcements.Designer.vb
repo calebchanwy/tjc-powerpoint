@@ -29,15 +29,15 @@ Partial Class Announcements
         Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.PRTitleColorBtn = New System.Windows.Forms.Button()
-        Me.PRTitleFontBtn = New System.Windows.Forms.Button()
         Me.PRColorBtn = New System.Windows.Forms.Button()
         Me.PRFontBtn = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.AnnouncementTxt = New System.Windows.Forms.TextBox()
-        Me.TitleBox = New System.Windows.Forms.TextBox()
         Me.Panel = New System.Windows.Forms.Panel()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.PRTitleFontBtn = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.PRTitleColorBtn = New System.Windows.Forms.Button()
         Me.Panel.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -94,38 +94,6 @@ Partial Class Announcements
         Me.Label1.TabIndex = 11
         Me.Label1.Text = "Body"
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(667, 10)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(28, 16)
-        Me.Label2.TabIndex = 12
-        Me.Label2.Text = "Title"
-        '
-        'PRTitleColorBtn
-        '
-        Me.PRTitleColorBtn.BackgroundImage = CType(resources.GetObject("PRTitleColorBtn.BackgroundImage"), System.Drawing.Image)
-        Me.PRTitleColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PRTitleColorBtn.Location = New System.Drawing.Point(650, 26)
-        Me.PRTitleColorBtn.Name = "PRTitleColorBtn"
-        Me.PRTitleColorBtn.Size = New System.Drawing.Size(25, 25)
-        Me.PRTitleColorBtn.TabIndex = 9
-        Me.PRTitleColorBtn.TabStop = False
-        Me.PRTitleColorBtn.UseVisualStyleBackColor = True
-        '
-        'PRTitleFontBtn
-        '
-        Me.PRTitleFontBtn.BackgroundImage = CType(resources.GetObject("PRTitleFontBtn.BackgroundImage"), System.Drawing.Image)
-        Me.PRTitleFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PRTitleFontBtn.Location = New System.Drawing.Point(681, 26)
-        Me.PRTitleFontBtn.Name = "PRTitleFontBtn"
-        Me.PRTitleFontBtn.Size = New System.Drawing.Size(25, 25)
-        Me.PRTitleFontBtn.TabIndex = 10
-        Me.PRTitleFontBtn.TabStop = False
-        Me.PRTitleFontBtn.UseVisualStyleBackColor = True
-        '
         'PRColorBtn
         '
         Me.PRColorBtn.BackgroundImage = CType(resources.GetObject("PRColorBtn.BackgroundImage"), System.Drawing.Image)
@@ -152,7 +120,7 @@ Partial Class Announcements
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(4, 389)
+        Me.Label3.Location = New System.Drawing.Point(9, 389)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(403, 16)
         Me.Label3.TabIndex = 15
@@ -167,36 +135,64 @@ Partial Class Announcements
         Me.AnnouncementTxt.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.AnnouncementTxt.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AnnouncementTxt.ForeColor = System.Drawing.Color.White
-        Me.AnnouncementTxt.Location = New System.Drawing.Point(0, 29)
+        Me.AnnouncementTxt.Location = New System.Drawing.Point(0, 0)
         Me.AnnouncementTxt.Multiline = True
         Me.AnnouncementTxt.Name = "AnnouncementTxt"
-        Me.AnnouncementTxt.Size = New System.Drawing.Size(636, 352)
+        Me.AnnouncementTxt.Size = New System.Drawing.Size(609, 328)
         Me.AnnouncementTxt.TabIndex = 2
         Me.AnnouncementTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.AnnouncementTxt.WordWrap = False
         '
-        'TitleBox
-        '
-        Me.TitleBox.BackColor = System.Drawing.Color.Black
-        Me.TitleBox.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.TitleBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TitleBox.ForeColor = System.Drawing.Color.White
-        Me.TitleBox.Location = New System.Drawing.Point(3, 3)
-        Me.TitleBox.Name = "TitleBox"
-        Me.TitleBox.Size = New System.Drawing.Size(630, 20)
-        Me.TitleBox.TabIndex = 1
-        Me.TitleBox.Text = "Announcements 佈告"
-        Me.TitleBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        '
         'Panel
         '
         Me.Panel.BackColor = System.Drawing.Color.Black
-        Me.Panel.Controls.Add(Me.TitleBox)
         Me.Panel.Controls.Add(Me.AnnouncementTxt)
-        Me.Panel.Location = New System.Drawing.Point(3, 2)
+        Me.Panel.Location = New System.Drawing.Point(12, 55)
         Me.Panel.Name = "Panel"
-        Me.Panel.Size = New System.Drawing.Size(636, 381)
+        Me.Panel.Size = New System.Drawing.Size(609, 328)
         Me.Panel.TabIndex = 14
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(12, 21)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(228, 25)
+        Me.Label4.TabIndex = 16
+        Me.Label4.Text = "Edit Announcements:"
+        '
+        'PRTitleFontBtn
+        '
+        Me.PRTitleFontBtn.BackgroundImage = CType(resources.GetObject("PRTitleFontBtn.BackgroundImage"), System.Drawing.Image)
+        Me.PRTitleFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PRTitleFontBtn.Location = New System.Drawing.Point(681, 26)
+        Me.PRTitleFontBtn.Name = "PRTitleFontBtn"
+        Me.PRTitleFontBtn.Size = New System.Drawing.Size(25, 25)
+        Me.PRTitleFontBtn.TabIndex = 10
+        Me.PRTitleFontBtn.TabStop = False
+        Me.PRTitleFontBtn.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(667, 10)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(28, 16)
+        Me.Label2.TabIndex = 12
+        Me.Label2.Text = "Title"
+        '
+        'PRTitleColorBtn
+        '
+        Me.PRTitleColorBtn.BackgroundImage = CType(resources.GetObject("PRTitleColorBtn.BackgroundImage"), System.Drawing.Image)
+        Me.PRTitleColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PRTitleColorBtn.Location = New System.Drawing.Point(650, 26)
+        Me.PRTitleColorBtn.Name = "PRTitleColorBtn"
+        Me.PRTitleColorBtn.Size = New System.Drawing.Size(25, 25)
+        Me.PRTitleColorBtn.TabIndex = 9
+        Me.PRTitleColorBtn.TabStop = False
+        Me.PRTitleColorBtn.UseVisualStyleBackColor = True
         '
         'Announcements
         '
@@ -204,6 +200,7 @@ Partial Class Announcements
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(725, 438)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel)
         Me.Controls.Add(Me.Label2)
@@ -234,12 +231,12 @@ Partial Class Announcements
     Friend WithEvents PRFontBtn As Button
     Friend WithEvents SaveFileDialog As SaveFileDialog
     Friend WithEvents OpenFileDialog As OpenFileDialog
-    Friend WithEvents PRTitleColorBtn As Button
-    Friend WithEvents PRTitleFontBtn As Button
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
     Friend WithEvents Label3 As Label
     Public WithEvents AnnouncementTxt As TextBox
-    Friend WithEvents TitleBox As TextBox
     Friend WithEvents Panel As Panel
+    Friend WithEvents Label4 As Label
+    Friend WithEvents PRTitleFontBtn As Button
+    Friend WithEvents Label2 As Label
+    Friend WithEvents PRTitleColorBtn As Button
 End Class
