@@ -43,24 +43,24 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TJCPowerPoint.exe" size="1632768">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TJCPowerPoint.exe" size="1616384">
       <assemblyIdentity name="TJCPowerPoint" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>o4bESU9l5v1Fr3Hg8Clx5HLug8tG+Omul4bi6baxILA=</dsig:DigestValue>
+        <dsig:DigestValue>dtIUTlTt+s94iwDCjWkW6APR1hUKCFJm+fGG7ClyffU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="Resources\border.png" size="6537">
+  <file name="Resources\border.png" size="3398">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>MpMewdhXvE/oUVVM4QnzQJinfOmgk4B9V4sChFdH+bE=</dsig:DigestValue>
+      <dsig:DigestValue>LRDRLP/RE+pQbnVoe89N2/Y0XcET9QjumDpScnCgm/s=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\close.png" size="10190">

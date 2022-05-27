@@ -12,7 +12,6 @@ Public Class MainProgram
     Dim RecentFile As String
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
         MakeFolder()
         LoadPres()
         HandleAnnouncements()
@@ -33,6 +32,7 @@ Public Class MainProgram
         ChineseTitle.Text = "中文講道題目"
 
     End Sub
+
 
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         'Checking for Null errors due to error elsewhere, ensure safe close of program

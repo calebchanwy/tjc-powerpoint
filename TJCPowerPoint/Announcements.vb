@@ -33,15 +33,41 @@
         End If
     End Sub
 
-    Private Sub Announcements_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
-    Private Sub AnnouncementTxt_TextChanged(sender As Object, e As EventArgs) Handles AnnouncementTxt.TextChanged
-
-    End Sub
-
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         MainProgram.ppPres.SlideShowWindow.View.GotoSlide(4)
     End Sub
+
+    'https://stackoverflow.com/questions/17392088/allow-a-user-to-move-a-borderless-window
+    Private IsFormBeingDragged As Boolean = False
+    Private MouseDownX As Integer
+    Private MouseDownY As Integer
+
+    Private Sub Form1_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles navBar.MouseDown, header.MouseDown
+
+        If e.Button = MouseButtons.Left Then
+            IsFormBeingDragged = True
+            MouseDownX = e.X
+            MouseDownY = e.Y
+        End If
+    End Sub
+
+    Private Sub Form1_MouseUp(ByVal sender As Object, ByVal e As MouseEventArgs) Handles navBar.MouseUp, header.MouseUp
+
+        If e.Button = MouseButtons.Left Then
+            IsFormBeingDragged = False
+        End If
+    End Sub
+
+    Private Sub Form1_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles navBar.MouseMove, header.MouseMove
+
+        If IsFormBeingDragged Then
+            Dim temp As Point = New Point()
+
+            temp.X = Me.Location.X + (e.X - MouseDownX)
+            temp.Y = Me.Location.Y + (e.Y - MouseDownY)
+            Me.Location = temp
+            temp = Nothing
+        End If
+    End Sub
+
 End Class

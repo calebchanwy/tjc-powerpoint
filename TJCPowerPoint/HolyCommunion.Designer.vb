@@ -25,12 +25,13 @@ Partial Class HolyCommunion
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(HolyCommunion))
         Me.breadTxt = New System.Windows.Forms.TextBox()
         Me.cupTxt = New System.Windows.Forms.TextBox()
-        Me.HCLabel = New System.Windows.Forms.Label()
+        Me.header = New System.Windows.Forms.Label()
         Me.updateHC = New System.Windows.Forms.Button()
         Me.HCClose = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.navBar = New System.Windows.Forms.FlowLayoutPanel()
         Me.SuspendLayout()
         '
         'breadTxt
@@ -40,7 +41,7 @@ Partial Class HolyCommunion
         Me.breadTxt.BackColor = System.Drawing.Color.Black
         Me.breadTxt.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.breadTxt.ForeColor = System.Drawing.Color.White
-        Me.breadTxt.Location = New System.Drawing.Point(21, 95)
+        Me.breadTxt.Location = New System.Drawing.Point(21, 129)
         Me.breadTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.breadTxt.Multiline = True
         Me.breadTxt.Name = "breadTxt"
@@ -55,7 +56,7 @@ Partial Class HolyCommunion
         Me.cupTxt.BackColor = System.Drawing.Color.Black
         Me.cupTxt.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cupTxt.ForeColor = System.Drawing.Color.White
-        Me.cupTxt.Location = New System.Drawing.Point(353, 95)
+        Me.cupTxt.Location = New System.Drawing.Point(353, 129)
         Me.cupTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cupTxt.Multiline = True
         Me.cupTxt.Name = "cupTxt"
@@ -63,23 +64,25 @@ Partial Class HolyCommunion
         Me.cupTxt.TabIndex = 1
         Me.cupTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
-        'HCLabel
+        'header
         '
-        Me.HCLabel.AutoSize = True
-        Me.HCLabel.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HCLabel.Location = New System.Drawing.Point(12, 18)
-        Me.HCLabel.Name = "HCLabel"
-        Me.HCLabel.Size = New System.Drawing.Size(290, 25)
-        Me.HCLabel.TabIndex = 2
-        Me.HCLabel.Text = "Edit Holy Communion Slide:"
-        Me.HCLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.header.AutoSize = True
+        Me.header.BackColor = System.Drawing.Color.Transparent
+        Me.header.Cursor = System.Windows.Forms.Cursors.SizeAll
+        Me.header.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.header.Location = New System.Drawing.Point(15, 36)
+        Me.header.Name = "header"
+        Me.header.Size = New System.Drawing.Size(369, 32)
+        Me.header.TabIndex = 2
+        Me.header.Text = "Edit Holy Communion Slide:"
+        Me.header.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'updateHC
         '
         Me.updateHC.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.updateHC.Location = New System.Drawing.Point(685, 95)
+        Me.updateHC.Location = New System.Drawing.Point(685, 129)
         Me.updateHC.Name = "updateHC"
-        Me.updateHC.Size = New System.Drawing.Size(112, 116)
+        Me.updateHC.Size = New System.Drawing.Size(128, 116)
         Me.updateHC.TabIndex = 3
         Me.updateHC.Text = "Update Holy Communion"
         Me.updateHC.UseVisualStyleBackColor = True
@@ -87,9 +90,9 @@ Partial Class HolyCommunion
         'HCClose
         '
         Me.HCClose.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HCClose.Location = New System.Drawing.Point(685, 405)
+        Me.HCClose.Location = New System.Drawing.Point(685, 439)
         Me.HCClose.Name = "HCClose"
-        Me.HCClose.Size = New System.Drawing.Size(112, 34)
+        Me.HCClose.Size = New System.Drawing.Size(128, 34)
         Me.HCClose.TabIndex = 4
         Me.HCClose.Text = "Close"
         Me.HCClose.UseVisualStyleBackColor = True
@@ -97,8 +100,9 @@ Partial Class HolyCommunion
         'Label1
         '
         Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(147, 68)
+        Me.Label1.Location = New System.Drawing.Point(147, 102)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(70, 23)
         Me.Label1.TabIndex = 5
@@ -107,8 +111,9 @@ Partial Class HolyCommunion
         'Label2
         '
         Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(496, 68)
+        Me.Label2.Location = New System.Drawing.Point(496, 102)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(54, 23)
         Me.Label2.TabIndex = 6
@@ -117,28 +122,42 @@ Partial Class HolyCommunion
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(685, 217)
+        Me.Button1.Location = New System.Drawing.Point(685, 251)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(112, 74)
+        Me.Button1.Size = New System.Drawing.Size(128, 74)
         Me.Button1.TabIndex = 7
         Me.Button1.Text = "Go To Holy Communion Slide"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'navBar
+        '
+        Me.navBar.BackColor = System.Drawing.Color.Transparent
+        Me.navBar.Cursor = System.Windows.Forms.Cursors.SizeAll
+        Me.navBar.Location = New System.Drawing.Point(-1, -2)
+        Me.navBar.Name = "navBar"
+        Me.navBar.Size = New System.Drawing.Size(825, 80)
+        Me.navBar.TabIndex = 8
         '
         'HolyCommunion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(809, 461)
+        Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border2
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(825, 500)
         Me.ControlBox = False
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.HCClose)
         Me.Controls.Add(Me.updateHC)
-        Me.Controls.Add(Me.HCLabel)
+        Me.Controls.Add(Me.header)
         Me.Controls.Add(Me.cupTxt)
         Me.Controls.Add(Me.breadTxt)
+        Me.Controls.Add(Me.navBar)
+        Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximumSize = New System.Drawing.Size(825, 500)
@@ -152,10 +171,11 @@ Partial Class HolyCommunion
 
     Friend WithEvents breadTxt As TextBox
     Friend WithEvents cupTxt As TextBox
-    Friend WithEvents HCLabel As Label
+    Friend WithEvents header As Label
     Friend WithEvents updateHC As Button
     Friend WithEvents HCClose As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents Button1 As Button
+    Friend WithEvents navBar As FlowLayoutPanel
 End Class

@@ -858,6 +858,7 @@ Partial Class MainProgram
         Me.topNavBar.BackColor = System.Drawing.Color.Transparent
         Me.topNavBar.Controls.Add(Me.closeForm)
         Me.topNavBar.Controls.Add(Me.minForm)
+        Me.topNavBar.Cursor = System.Windows.Forms.Cursors.SizeAll
         Me.topNavBar.Location = New System.Drawing.Point(12, 5)
         Me.topNavBar.Name = "topNavBar"
         Me.topNavBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes
@@ -902,6 +903,7 @@ Partial Class MainProgram
         'TJCLogo
         '
         Me.TJCLogo.BackColor = System.Drawing.Color.Transparent
+        Me.TJCLogo.Cursor = System.Windows.Forms.Cursors.SizeAll
         Me.TJCLogo.Image = CType(resources.GetObject("TJCLogo.Image"), System.Drawing.Image)
         Me.TJCLogo.InitialImage = Nothing
         Me.TJCLogo.Location = New System.Drawing.Point(17, 4)
@@ -926,6 +928,7 @@ Partial Class MainProgram
         '
         Me.TJCLabel.AutoSize = True
         Me.TJCLabel.BackColor = System.Drawing.Color.Transparent
+        Me.TJCLabel.Cursor = System.Windows.Forms.Cursors.SizeAll
         Me.TJCLabel.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TJCLabel.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.TJCLabel.Location = New System.Drawing.Point(59, 14)
