@@ -30,6 +30,7 @@ Partial Class HolyCommunion
         Me.HCClose = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'breadTxt
@@ -65,12 +66,12 @@ Partial Class HolyCommunion
         'HCLabel
         '
         Me.HCLabel.AutoSize = True
-        Me.HCLabel.Font = New System.Drawing.Font("Century Gothic", 21.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HCLabel.Location = New System.Drawing.Point(15, 9)
+        Me.HCLabel.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HCLabel.Location = New System.Drawing.Point(12, 18)
         Me.HCLabel.Name = "HCLabel"
-        Me.HCLabel.Size = New System.Drawing.Size(342, 36)
+        Me.HCLabel.Size = New System.Drawing.Size(290, 25)
         Me.HCLabel.TabIndex = 2
-        Me.HCLabel.Text = "Holy Communion Slide:"
+        Me.HCLabel.Text = "Edit Holy Communion Slide:"
         Me.HCLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'updateHC
@@ -113,11 +114,23 @@ Partial Class HolyCommunion
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Cup:"
         '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(685, 217)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(112, 74)
+        Me.Button1.TabIndex = 7
+        Me.Button1.Text = "Go To Holy Communion Slide"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'HolyCommunion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(809, 461)
+        Me.ControlBox = False
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.HCClose)
@@ -128,6 +141,7 @@ Partial Class HolyCommunion
         Me.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.MaximumSize = New System.Drawing.Size(825, 500)
         Me.MinimumSize = New System.Drawing.Size(825, 500)
         Me.Name = "HolyCommunion"
         Me.Text = "Holy Communion"
@@ -143,4 +157,5 @@ Partial Class HolyCommunion
     Friend WithEvents HCClose As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
+    Friend WithEvents Button1 As Button
 End Class

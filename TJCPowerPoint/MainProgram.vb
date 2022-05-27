@@ -17,6 +17,8 @@ Public Class MainProgram
         HandleAnnouncements()
         HandlePR()
         LoadHC()
+        LoadPrayerImage()
+        LoadTimetableImg()
         'RecentFile = Directory.GetFiles(Current + "\Files\ServiceRecords").OrderByDescending(Function(f) New FileInfo(f).LastWriteTime).First().ToString
         'Dim RecentXML As New XmlDocument()
         'RecentXML.Load(RecentFile)
@@ -31,11 +33,14 @@ Public Class MainProgram
     End Sub
 
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        'Checking for Null errors due to error elsewhere, ensure safe close of program
         If Writer IsNot Nothing Then
             Writer.WriteEndElement()
             Writer.Close()
         End If
-        ppPres.Close()
+        If ppPres IsNot Nothing Then
+            ppPres.Close()
+        End If
     End Sub
 
     Public Function MakeFolder()
@@ -68,6 +73,7 @@ Public Class MainProgram
         For i As Integer = 1 To ppPres.Slides.Count
             SlideTrack.Items.Add(ppPres.Slides(i).Name)
         Next
+        'InSlide1: 1-English Title, 2 - Chinese Title, 3 - HymnHeader, 4 - Hymns, 5 - BibleHeader, 6 - EnglishBook, 7 - ChineseBook, 8 - Chapter+Verse, 10 - Service Type
         ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = " "
         ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = " "
         ppPres.Slides(1).Shapes(4).TextFrame.TextRange.Text = " "
@@ -79,8 +85,7 @@ Public Class MainProgram
         HandleSettings()
         ppPres.SlideShowSettings.Run()
         SlideTrack.SelectedIndex = 0
-        LoadPrayerImage()
-        LoadTimetableImg()
+
         Return True
     End Function
 
@@ -137,7 +142,6 @@ Public Class MainProgram
                 ppPres.Slides(two).Shapes(three).TextFrame.TextRange.Font.Color.RGB = Color.FromArgb(Convert.ToInt32(FontColor)).ToArgb
                 If two = "3" Then
                     PrayerRequests.PrayerRequestTxt.ForeColor = Color.FromArgb(Convert.ToInt32(FontColor))
-                    PrayerRequests.TitleBox.ForeColor = Color.FromArgb(Convert.ToInt32(FontColor))
                 ElseIf two = "4" Then
                     Announcements.AnnouncementTxt.ForeColor = Color.FromArgb(Convert.ToInt32(FontColor))
                 End If
@@ -149,7 +153,6 @@ Public Class MainProgram
                     Dim G As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).G
                     Dim B As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).B
                     PrayerRequests.PrayerRequestTxt.BackColor = Color.FromArgb(255, B, G, R)
-                    PrayerRequests.TitleBox.BackColor = Color.FromArgb(255, B, G, R)
                     PrayerRequests.Panel.BackColor = Color.FromArgb(255, B, G, R)
                 ElseIf two = "4" Then
                     Dim R As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).R
@@ -228,7 +231,7 @@ Public Class MainProgram
         Return Font
     End Function
 
-    '----------------------------FOLLOWING COMMENTED FUNCTIONS REDUNDANT AFTER SAVING R
+    '----------------------------FOLLOWING COMMENTED FUNCTIONS REDUNDANT AS NO LONGER SAVING SERVICE RECORDS -----------------------------
 
     'Public Function MakeXML()
     '    Dim Title As String = Replace(EnglishTitle.Text, " ", "_")
@@ -274,9 +277,6 @@ Public Class MainProgram
     '    writer.WriteEndElement()
     '    Return True
     'End Function
-
-
-
 
     Private Sub EnglishFontBtn_Click(sender As Object, e As EventArgs) Handles EnglishFontBtn.Click
         ChangeFont(1, 1)
@@ -408,7 +408,7 @@ Public Class MainProgram
                 ChineseTitle.Text = ChineseTitle.Text.Remove(0, 1)
             End While
         End If
-
+        HymnalTitle.Text = "Change Title To ""Hymnal"""
         ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
         ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
     End Sub
@@ -444,6 +444,7 @@ Public Class MainProgram
     End Sub
 
     Private Sub ExitBtn_Click(sender As Object, e As EventArgs) Handles ExitBtn.Click
+
         Me.Close()
     End Sub
     Private Sub SaveSettings_Click(sender As Object, e As EventArgs) Handles SaveSettings.Click
@@ -461,7 +462,7 @@ Public Class MainProgram
         GetFontAndColor(3, 2) & vbCrLf &
         GetFontAndColor(4, 1) & vbCrLf &
         GetFontAndColor(4, 2)
-        For i As Integer = 1 To 5
+        For i As Integer = 1 To 8
             If i <> 3 Then
                 CurrentSettings = CurrentSettings + vbCrLf + "[C" & i & "]=" + Convert.ToString(ppPres.Slides(i).Background.Fill.ForeColor.RGB)
             End If
@@ -584,7 +585,47 @@ Public Class MainProgram
         End Try
     End Sub
 
+    Private Sub minForm_Click(sender As Object, e As EventArgs) Handles minForm.Click
+        Me.WindowState = FormWindowState.Minimized
+    End Sub
+
+    Private Sub closeForm_Click(sender As Object, e As EventArgs) Handles closeForm.Click
+        Me.Close()
+    End Sub
 
 
-    'InSlide1: 1-English Title, 2 - Chinese Title, 3 - HymnHeader, 4 - Hymns, 5 - BibleHeader, 6 - EnglishBook, 7 - ChineseBook, 8 - Chapter+Verse, 10 - Service Type
+
+    'https://stackoverflow.com/questions/17392088/allow-a-user-to-move-a-borderless-window
+    Private IsFormBeingDragged As Boolean = False
+    Private MouseDownX As Integer
+    Private MouseDownY As Integer
+
+    Private Sub Form1_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles topNavBar.MouseDown, TJCLabel.MouseDown, TJCLogo.MouseDown
+
+        If e.Button = MouseButtons.Left Then
+            IsFormBeingDragged = True
+            MouseDownX = e.X
+            MouseDownY = e.Y
+        End If
+    End Sub
+
+    Private Sub Form1_MouseUp(ByVal sender As Object, ByVal e As MouseEventArgs) Handles topNavBar.MouseUp, TJCLabel.MouseUp, TJCLogo.MouseUp
+
+        If e.Button = MouseButtons.Left Then
+            IsFormBeingDragged = False
+        End If
+    End Sub
+
+    Private Sub Form1_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles topNavBar.MouseMove, TJCLabel.MouseMove, TJCLogo.MouseMove
+
+        If IsFormBeingDragged Then
+            Dim temp As Point = New Point()
+
+            temp.X = Me.Location.X + (e.X - MouseDownX)
+            temp.Y = Me.Location.Y + (e.Y - MouseDownY)
+            Me.Location = temp
+            temp = Nothing
+        End If
+    End Sub
+
 End Class

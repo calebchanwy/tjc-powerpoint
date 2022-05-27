@@ -13,7 +13,6 @@
     End Sub
     Private Sub UpdatePrayerRequests_Click(sender As Object, e As EventArgs) Handles UpdatePrayerRequests.Click
         MainProgram.ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = PrayerRequestTxt.Text
-        MainProgram.ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Text = TitleBox.Text
         Try
             My.Computer.FileSystem.WriteAllText(MainProgram.Current + "\Files\PrayerRequests.txt", PrayerRequestTxt.Text, False)
             MessageBox.Show("Save Successful", "Save Successful")
@@ -53,6 +52,10 @@
             MessageBox.Show("Prayer Image Was Not Successfully Updated. Please Try Again", "Error")
         End Try
 
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        MainProgram.ppPres.SlideShowWindow.View.GotoSlide(3)
     End Sub
 
 
