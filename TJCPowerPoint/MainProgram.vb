@@ -12,6 +12,7 @@ Public Class MainProgram
     Dim RecentFile As String
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         MakeFolder()
         LoadPres()
         HandleAnnouncements()
@@ -30,6 +31,7 @@ Public Class MainProgram
         ShowHymn.Checked = True
         EnglishTitle.Text = "English Sermon Title"
         ChineseTitle.Text = "中文講道題目"
+
     End Sub
 
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing

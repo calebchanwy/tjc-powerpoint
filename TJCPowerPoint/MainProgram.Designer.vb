@@ -102,7 +102,7 @@ Partial Class MainProgram
         '
         'BibleVerse
         '
-        Me.BibleVerse.BackColor = System.Drawing.SystemColors.Control
+        Me.BibleVerse.BackColor = System.Drawing.Color.Transparent
         Me.BibleVerse.Controls.Add(Me.Label15)
         Me.BibleVerse.Controls.Add(Me.clearbtn)
         Me.BibleVerse.Controls.Add(Me.Label13)
@@ -129,7 +129,7 @@ Partial Class MainProgram
         Me.BibleVerse.Controls.Add(Me.CVFontBtn)
         Me.BibleVerse.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BibleVerse.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.BibleVerse.Location = New System.Drawing.Point(15, 231)
+        Me.BibleVerse.Location = New System.Drawing.Point(15, 241)
         Me.BibleVerse.Name = "BibleVerse"
         Me.BibleVerse.Size = New System.Drawing.Size(785, 144)
         Me.BibleVerse.TabIndex = 16
@@ -349,7 +349,7 @@ Partial Class MainProgram
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.BackColor = System.Drawing.SystemColors.Control
+        Me.Label7.BackColor = System.Drawing.Color.Transparent
         Me.Label7.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.Label7.Location = New System.Drawing.Point(547, 43)
@@ -412,7 +412,7 @@ Partial Class MainProgram
         'SaveSettings
         '
         Me.SaveSettings.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SaveSettings.Location = New System.Drawing.Point(690, 389)
+        Me.SaveSettings.Location = New System.Drawing.Point(690, 399)
         Me.SaveSettings.Name = "SaveSettings"
         Me.SaveSettings.Size = New System.Drawing.Size(110, 35)
         Me.SaveSettings.TabIndex = 17
@@ -429,7 +429,7 @@ Partial Class MainProgram
         Me.SlideTrack.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.SlideTrack.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SlideTrack.FormattingEnabled = True
-        Me.SlideTrack.Location = New System.Drawing.Point(117, 389)
+        Me.SlideTrack.Location = New System.Drawing.Point(117, 399)
         Me.SlideTrack.Name = "SlideTrack"
         Me.SlideTrack.Size = New System.Drawing.Size(160, 24)
         Me.SlideTrack.TabIndex = 4
@@ -438,8 +438,9 @@ Partial Class MainProgram
         'Label10
         '
         Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
         Me.Label10.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(16, 392)
+        Me.Label10.Location = New System.Drawing.Point(16, 402)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(95, 18)
         Me.Label10.TabIndex = 19
@@ -448,7 +449,7 @@ Partial Class MainProgram
         'ShowPR
         '
         Me.ShowPR.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ShowPR.Location = New System.Drawing.Point(291, 389)
+        Me.ShowPR.Location = New System.Drawing.Point(291, 399)
         Me.ShowPR.Name = "ShowPR"
         Me.ShowPR.Size = New System.Drawing.Size(138, 35)
         Me.ShowPR.TabIndex = 20
@@ -460,7 +461,7 @@ Partial Class MainProgram
         '
         Me.ExitBtn.BackColor = System.Drawing.Color.White
         Me.ExitBtn.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ExitBtn.Location = New System.Drawing.Point(690, 430)
+        Me.ExitBtn.Location = New System.Drawing.Point(690, 440)
         Me.ExitBtn.Name = "ExitBtn"
         Me.ExitBtn.Size = New System.Drawing.Size(110, 35)
         Me.ExitBtn.TabIndex = 22
@@ -471,7 +472,7 @@ Partial Class MainProgram
         'OpenFolder
         '
         Me.OpenFolder.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OpenFolder.Location = New System.Drawing.Point(573, 430)
+        Me.OpenFolder.Location = New System.Drawing.Point(573, 440)
         Me.OpenFolder.Name = "OpenFolder"
         Me.OpenFolder.Size = New System.Drawing.Size(109, 35)
         Me.OpenFolder.TabIndex = 23
@@ -482,8 +483,9 @@ Partial Class MainProgram
         'Label12
         '
         Me.Label12.AutoSize = True
+        Me.Label12.BackColor = System.Drawing.Color.Transparent
         Me.Label12.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(16, 424)
+        Me.Label12.Location = New System.Drawing.Point(16, 434)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(229, 16)
         Me.Label12.TabIndex = 24
@@ -498,8 +500,9 @@ Partial Class MainProgram
         'Time
         '
         Me.Time.AutoSize = True
+        Me.Time.BackColor = System.Drawing.Color.Transparent
         Me.Time.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Time.Location = New System.Drawing.Point(16, 446)
+        Me.Time.Location = New System.Drawing.Point(16, 456)
         Me.Time.Name = "Time"
         Me.Time.Size = New System.Drawing.Size(34, 16)
         Me.Time.TabIndex = 25
@@ -513,7 +516,7 @@ Partial Class MainProgram
         'Show_AN
         '
         Me.Show_AN.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Show_AN.Location = New System.Drawing.Point(435, 389)
+        Me.Show_AN.Location = New System.Drawing.Point(435, 399)
         Me.Show_AN.Name = "Show_AN"
         Me.Show_AN.Size = New System.Drawing.Size(128, 35)
         Me.Show_AN.TabIndex = 26
@@ -524,7 +527,7 @@ Partial Class MainProgram
         'edtPrayerImg
         '
         Me.edtPrayerImg.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.edtPrayerImg.Location = New System.Drawing.Point(291, 430)
+        Me.edtPrayerImg.Location = New System.Drawing.Point(291, 440)
         Me.edtPrayerImg.Name = "edtPrayerImg"
         Me.edtPrayerImg.Size = New System.Drawing.Size(138, 37)
         Me.edtPrayerImg.TabIndex = 27
@@ -535,7 +538,7 @@ Partial Class MainProgram
         'edtHC
         '
         Me.edtHC.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.edtHC.Location = New System.Drawing.Point(573, 389)
+        Me.edtHC.Location = New System.Drawing.Point(573, 399)
         Me.edtHC.Name = "edtHC"
         Me.edtHC.Size = New System.Drawing.Size(109, 35)
         Me.edtHC.TabIndex = 28
@@ -546,7 +549,7 @@ Partial Class MainProgram
         'ServiceTimesBtn
         '
         Me.ServiceTimesBtn.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ServiceTimesBtn.Location = New System.Drawing.Point(435, 430)
+        Me.ServiceTimesBtn.Location = New System.Drawing.Point(435, 440)
         Me.ServiceTimesBtn.Name = "ServiceTimesBtn"
         Me.ServiceTimesBtn.Size = New System.Drawing.Size(128, 35)
         Me.ServiceTimesBtn.TabIndex = 29
@@ -740,7 +743,7 @@ Partial Class MainProgram
         Me.Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Title.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Title.ForeColor = System.Drawing.SystemColors.ControlDark
-        Me.Title.Location = New System.Drawing.Point(15, 35)
+        Me.Title.Location = New System.Drawing.Point(15, 45)
         Me.Title.Margin = New System.Windows.Forms.Padding(0)
         Me.Title.Name = "Title"
         Me.Title.Size = New System.Drawing.Size(785, 190)
@@ -852,13 +855,13 @@ Partial Class MainProgram
         '
         'topNavBar
         '
-        Me.topNavBar.BackColor = System.Drawing.SystemColors.Control
+        Me.topNavBar.BackColor = System.Drawing.Color.Transparent
         Me.topNavBar.Controls.Add(Me.closeForm)
         Me.topNavBar.Controls.Add(Me.minForm)
-        Me.topNavBar.Location = New System.Drawing.Point(0, 0)
+        Me.topNavBar.Location = New System.Drawing.Point(12, 5)
         Me.topNavBar.Name = "topNavBar"
         Me.topNavBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.topNavBar.Size = New System.Drawing.Size(815, 35)
+        Me.topNavBar.Size = New System.Drawing.Size(798, 35)
         Me.topNavBar.TabIndex = 30
         '
         'closeForm
@@ -870,7 +873,7 @@ Partial Class MainProgram
         Me.closeForm.FlatAppearance.BorderSize = 0
         Me.closeForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.closeForm.ForeColor = System.Drawing.Color.Transparent
-        Me.closeForm.Location = New System.Drawing.Point(793, 7)
+        Me.closeForm.Location = New System.Drawing.Point(776, 7)
         Me.closeForm.Margin = New System.Windows.Forms.Padding(7)
         Me.closeForm.Name = "closeForm"
         Me.closeForm.Size = New System.Drawing.Size(15, 15)
@@ -887,7 +890,7 @@ Partial Class MainProgram
         Me.minForm.FlatAppearance.BorderSize = 0
         Me.minForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.minForm.ForeColor = System.Drawing.Color.Transparent
-        Me.minForm.Location = New System.Drawing.Point(765, 8)
+        Me.minForm.Location = New System.Drawing.Point(748, 8)
         Me.minForm.Margin = New System.Windows.Forms.Padding(8)
         Me.minForm.Name = "minForm"
         Me.minForm.Padding = New System.Windows.Forms.Padding(3)
@@ -901,7 +904,7 @@ Partial Class MainProgram
         Me.TJCLogo.BackColor = System.Drawing.Color.Transparent
         Me.TJCLogo.Image = CType(resources.GetObject("TJCLogo.Image"), System.Drawing.Image)
         Me.TJCLogo.InitialImage = Nothing
-        Me.TJCLogo.Location = New System.Drawing.Point(17, -1)
+        Me.TJCLogo.Location = New System.Drawing.Point(17, 4)
         Me.TJCLogo.Name = "TJCLogo"
         Me.TJCLogo.Size = New System.Drawing.Size(40, 40)
         Me.TJCLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
@@ -912,7 +915,7 @@ Partial Class MainProgram
         '
         Me.BGColor.BackgroundImage = CType(resources.GetObject("BGColor.BackgroundImage"), System.Drawing.Image)
         Me.BGColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BGColor.Location = New System.Drawing.Point(252, 419)
+        Me.BGColor.Location = New System.Drawing.Point(252, 429)
         Me.BGColor.Name = "BGColor"
         Me.BGColor.Size = New System.Drawing.Size(25, 25)
         Me.BGColor.TabIndex = 23
@@ -925,7 +928,7 @@ Partial Class MainProgram
         Me.TJCLabel.BackColor = System.Drawing.Color.Transparent
         Me.TJCLabel.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TJCLabel.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.TJCLabel.Location = New System.Drawing.Point(59, 9)
+        Me.TJCLabel.Location = New System.Drawing.Point(59, 14)
         Me.TJCLabel.Name = "TJCLabel"
         Me.TJCLabel.Size = New System.Drawing.Size(281, 22)
         Me.TJCLabel.TabIndex = 31
@@ -936,7 +939,9 @@ Partial Class MainProgram
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(815, 480)
+        Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border2
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(815, 490)
         Me.Controls.Add(Me.Title)
         Me.Controls.Add(Me.TJCLabel)
         Me.Controls.Add(Me.TJCLogo)
@@ -955,10 +960,11 @@ Partial Class MainProgram
         Me.Controls.Add(Me.SlideTrack)
         Me.Controls.Add(Me.SaveSettings)
         Me.Controls.Add(Me.BibleVerse)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximumSize = New System.Drawing.Size(815, 480)
-        Me.MinimumSize = New System.Drawing.Size(815, 480)
+        Me.MaximumSize = New System.Drawing.Size(815, 490)
+        Me.MinimumSize = New System.Drawing.Size(815, 490)
         Me.Name = "MainProgram"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Text = "True Jesus Church PowerPoint"

@@ -70,9 +70,7 @@
   <PropertyGroup>
     <ApplicationIcon>Resources\tjcbirdlogo.ico</ApplicationIcon>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
-  </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
     <SignManifests>false</SignManifests>
   </PropertyGroup>
@@ -90,6 +88,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -246,6 +247,7 @@
     <None Include="Resources\XML" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\border.png" />
     <Content Include="Resources\close.png" />
     <Content Include="Resources\icons8-close-24.png" />
     <Content Include="Resources\icons8-close-48.png" />
