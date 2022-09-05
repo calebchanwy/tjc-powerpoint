@@ -137,7 +137,7 @@ Partial Class Announcements
         Me.AnnouncementTxt.AllowDrop = True
         Me.AnnouncementTxt.BackColor = System.Drawing.Color.Black
         Me.AnnouncementTxt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.AnnouncementTxt.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AnnouncementTxt.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AnnouncementTxt.ForeColor = System.Drawing.Color.White
         Me.AnnouncementTxt.Location = New System.Drawing.Point(0, 0)
         Me.AnnouncementTxt.Multiline = True

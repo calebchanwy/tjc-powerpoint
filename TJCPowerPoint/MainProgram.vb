@@ -1,5 +1,6 @@
 ﻿Imports Office = Microsoft.Office.Core
 Imports PowerPoint = Microsoft.Office.Interop.PowerPoint
+Imports System.Runtime.InteropServices
 Imports System.IO
 Imports System.Xml
 
@@ -11,7 +12,51 @@ Public Class MainProgram
     Dim Writer As XmlTextWriter = Nothing
     Dim RecentFile As String
 
+    'https://stackoverflow.com/questions/16493698/drop-shadow-on-a-borderless-winform#:~:text=1)%20Create%20an%20image%20having,4)%20You%20are%20done!
+
+    Private aeroEnabled As Boolean
+    Protected Overrides ReadOnly Property CreateParams() As CreateParams
+        Get
+            CheckAeroEnabled()
+            Dim cp As CreateParams = MyBase.CreateParams
+            If Not aeroEnabled Then
+                cp.ClassStyle = NativeConstants.CS_DROPSHADOW
+                Return cp
+            Else
+                Return cp
+            End If
+        End Get
+    End Property
+    Protected Overrides Sub WndProc(ByRef m As Message)
+        Select Case m.Msg
+            Case NativeConstants.WM_NCPAINT
+                Dim val = 2
+                If aeroEnabled Then
+                    NativeMethods.DwmSetWindowAttribute(Handle, 2, val, 4)
+                    Dim bla As New NativeStructs.MARGINS()
+                    With bla
+                        .bottomHeight = 1
+                        .leftWidth = 1
+                        .rightWidth = 1
+                        .topHeight = 1
+                    End With
+                    NativeMethods.DwmExtendFrameIntoClientArea(Handle, bla)
+                End If
+                Exit Select
+        End Select
+        MyBase.WndProc(m)
+    End Sub
+    Private Sub CheckAeroEnabled()
+        'assume that OS is above windows 6
+        Dim enabled As Integer = 0
+        Dim response As Integer = NativeMethods.DwmIsCompositionEnabled(enabled)
+        aeroEnabled = (enabled = 1)
+    End Sub
+
+
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Hide()
+        Me.FormBorderStyle = FormBorderStyle.None
         MakeFolder()
         LoadPres()
         HandleAnnouncements()
@@ -25,24 +70,30 @@ Public Class MainProgram
         'EnglishTitle.Text = RecentXML.DocumentElement.SelectSingleNode("EnglishTitle").InnerText
         'ChineseTitle.Text = RecentXML.DocumentElement.SelectSingleNode("ChineseTitle").InnerText
         'HymnNos.Text = RecentXML.DocumentElement.SelectSingleNode("Hymn").InnerText
-
         'default opening auto fill
         ShowHymn.Checked = True
         EnglishTitle.Text = "English Sermon Title"
         ChineseTitle.Text = "中文講道題目"
+        Me.Show()
+        Me.ShowInTaskbar = True
+        Me.Activate()
 
     End Sub
 
 
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
-        'Checking for Null errors due to error elsewhere, ensure safe close of program
-        If Writer IsNot Nothing Then
-            Writer.WriteEndElement()
-            Writer.Close()
-        End If
-        If ppPres IsNot Nothing Then
-            ppPres.Close()
-        End If
+        Try
+            'Checking for Null errors due to error elsewhere, ensure safe close of program
+            If Writer IsNot Nothing Then
+                Writer.WriteEndElement()
+                Writer.Close()
+            End If
+            If ppPres IsNot Nothing Then
+                ppPres.Close()
+            End If
+        Catch ex As Exception
+
+        End Try
     End Sub
 
     Public Function MakeFolder()
@@ -61,7 +112,6 @@ Public Class MainProgram
         Return True
     End Function
     Public Function LoadPres()
-        Writer = Nothing
         ppApp = CreateObject("PowerPoint.Application")
         ppPres = ppApp.Presentations.Open(Current + "\Files\ServiceWidescreen.pptx", [ReadOnly]:=Office.MsoTriState.msoFalse, WithWindow:=Office.MsoTriState.msoFalse)
         ppPres.Slides(1).Name = "Service/Hymnal"
@@ -339,6 +389,7 @@ Public Class MainProgram
     Private Sub SlideTrack_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SlideTrack.SelectedIndexChanged
         ppPres.SlideShowWindow.View.GotoSlide(SlideTrack.SelectedIndex + 1)
     End Sub
+
     Private Sub ShowHymn_CheckedChanged(sender As Object, e As EventArgs) Handles ShowHymn.CheckedChanged
         If ShowHymn.Checked = True Then
             ShowVerses.Checked = False
@@ -346,7 +397,12 @@ Public Class MainProgram
             ppPres.Slides(1).Shapes(6).Visible = Office.MsoTriState.msoFalse
             ppPres.Slides(1).Shapes(7).Visible = Office.MsoTriState.msoFalse
             ppPres.Slides(1).Shapes(8).Visible = Office.MsoTriState.msoFalse
-            ppPres.Slides(1).Shapes(3).Visible = Office.MsoTriState.msoTrue
+            'check if hymnal or not
+            If HymnalTitle.Text = "Change Title To ""Hymnal""" Then
+                ppPres.Slides(1).Shapes(3).Visible = Office.MsoTriState.msoTrue
+            Else
+                ppPres.Slides(1).Shapes(3).Visible = Office.MsoTriState.msoFalse
+            End If
             ppPres.Slides(1).Shapes(4).Visible = Office.MsoTriState.msoTrue
             ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = ""
             ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = ""
@@ -410,9 +466,13 @@ Public Class MainProgram
                 ChineseTitle.Text = ChineseTitle.Text.Remove(0, 1)
             End While
         End If
-        HymnalTitle.Text = "Change Title To ""Hymnal"""
         ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
         ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
+        If ShowHymn.Checked Then
+            HymnalTitle.Text = "Change Title To ""Hymnal"""
+            ppPres.Slides(1).Shapes(3).Visible = True
+            ppPres.Slides(1).Shapes(4).Top = 260
+        End If
     End Sub
 
     Private Sub HymnalTitle_Click(sender As Object, e As EventArgs) Handles HymnalTitle.Click
@@ -420,17 +480,37 @@ Public Class MainProgram
             ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = "Hymnal"
             ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = "詩頌"
             HymnalTitle.Text = "Change Titles Back To Service Titles"
+            ppPres.Slides(1).Shapes(3).Visible = False
+            ppPres.Slides(1).Shapes(4).Top = 175
+
         Else
             ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
             ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
             HymnalTitle.Text = "Change Title To ""Hymnal"""
+            ppPres.Slides(1).Shapes(3).Visible = True
+            ppPres.Slides(1).Shapes(4).Top = 260
         End If
 
 
     End Sub
 
     Private Sub HymnChange_Click(sender As Object, e As EventArgs) Handles HymnChange.Click
+        'if called when show hymns is checked
+        'automatically change to show verses
+        If ShowHymn.Checked = False Then
+            ShowHymn.Checked = True
+            ShowVerses.Checked = False
+        End If
         ppPres.Slides(1).Shapes(4).TextFrame.TextRange.Text = HymnNos.Text
+        If HymnalTitle.Text = "Change Title To ""Hymnal""" Then
+            ppPres.Slides(1).Shapes(3).Visible = True
+            ppPres.Slides(1).Shapes(4).Top = 260
+        Else
+            ppPres.Slides(1).Shapes(3).Visible = False
+            ppPres.Slides(1).Shapes(4).Top = 175
+        End If
+
+
     End Sub
     Private Sub ShowPR_Click(sender As Object, e As EventArgs) Handles ShowPR.Click
         PrayerRequests.Show()
@@ -630,4 +710,29 @@ Public Class MainProgram
         End If
     End Sub
 
+
+End Class
+
+Public Class NativeStructs
+    Public Structure MARGINS
+        Public leftWidth As Integer
+        Public rightWidth As Integer
+        Public topHeight As Integer
+        Public bottomHeight As Integer
+    End Structure
+End Class
+Public Class NativeMethods
+    <DllImport("dwmapi")>
+    Public Shared Function DwmExtendFrameIntoClientArea(ByVal hWnd As IntPtr, ByRef pMarInset As NativeStructs.MARGINS) As Integer
+    End Function
+    <DllImport("dwmapi")>
+    Friend Shared Function DwmSetWindowAttribute(ByVal hwnd As IntPtr, ByVal attr As Integer, ByRef attrValue As Integer, ByVal attrSize As Integer) As Integer
+    End Function
+    <DllImport("dwmapi.dll")>
+    Public Shared Function DwmIsCompositionEnabled(ByRef pfEnabled As Integer) As Integer
+    End Function
+End Class
+Public Class NativeConstants
+    Public Const CS_DROPSHADOW As Integer = &H20000
+    Public Const WM_NCPAINT As Integer = &H85
 End Class

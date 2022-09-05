@@ -68,7 +68,6 @@ Partial Class MainProgram
         Me.HymnNos = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.ChineseTitle = New System.Windows.Forms.TextBox()
         Me.HymnChange = New System.Windows.Forms.Button()
         Me.EnglishTitle = New System.Windows.Forms.TextBox()
@@ -79,6 +78,7 @@ Partial Class MainProgram
         Me.HymnalTitle = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Title = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.ShowHymn = New System.Windows.Forms.CheckBox()
         Me.ServiceTypeFontBtn = New System.Windows.Forms.Button()
         Me.ServiceTypeColorBtn = New System.Windows.Forms.Button()
@@ -128,7 +128,7 @@ Partial Class MainProgram
         Me.BibleVerse.Controls.Add(Me.ChapterTxt)
         Me.BibleVerse.Controls.Add(Me.CVFontBtn)
         Me.BibleVerse.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BibleVerse.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.BibleVerse.ForeColor = System.Drawing.SystemColors.ControlText
         Me.BibleVerse.Location = New System.Drawing.Point(15, 241)
         Me.BibleVerse.Name = "BibleVerse"
         Me.BibleVerse.Size = New System.Drawing.Size(785, 144)
@@ -381,7 +381,7 @@ Partial Class MainProgram
         '
         Me.CVColorBtn.BackgroundImage = CType(resources.GetObject("CVColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.CVColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.CVColorBtn.Location = New System.Drawing.Point(723, 45)
+        Me.CVColorBtn.Location = New System.Drawing.Point(723, 50)
         Me.CVColorBtn.Name = "CVColorBtn"
         Me.CVColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.CVColorBtn.TabIndex = 4
@@ -402,7 +402,7 @@ Partial Class MainProgram
         '
         Me.CVFontBtn.BackgroundImage = CType(resources.GetObject("CVFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.CVFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.CVFontBtn.Location = New System.Drawing.Point(754, 45)
+        Me.CVFontBtn.Location = New System.Drawing.Point(754, 50)
         Me.CVFontBtn.Name = "CVFontBtn"
         Me.CVFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.CVFontBtn.TabIndex = 6
@@ -588,16 +588,6 @@ Partial Class MainProgram
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Chinese"
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(6, 19)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(58, 18)
-        Me.Label1.TabIndex = 2
-        Me.Label1.Text = "English"
-        '
         'ChineseTitle
         '
         Me.ChineseTitle.Cursor = System.Windows.Forms.Cursors.IBeam
@@ -612,7 +602,6 @@ Partial Class MainProgram
         '
         Me.HymnChange.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.HymnChange.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.HymnChange.FlatAppearance.BorderSize = 0
         Me.HymnChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.HymnChange.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HymnChange.ForeColor = System.Drawing.Color.Black
@@ -640,7 +629,6 @@ Partial Class MainProgram
         Me.UpdateTitle.BackColor = System.Drawing.SystemColors.ActiveCaption
         Me.UpdateTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.UpdateTitle.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.UpdateTitle.FlatAppearance.BorderSize = 0
         Me.UpdateTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.UpdateTitle.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UpdateTitle.ForeColor = System.Drawing.Color.Black
@@ -657,7 +645,7 @@ Partial Class MainProgram
         '
         Me.ShowVerses.AutoSize = True
         Me.ShowVerses.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ShowVerses.ForeColor = System.Drawing.Color.White
+        Me.ShowVerses.ForeColor = System.Drawing.Color.Black
         Me.ShowVerses.Location = New System.Drawing.Point(356, 99)
         Me.ShowVerses.Name = "ShowVerses"
         Me.ShowVerses.Size = New System.Drawing.Size(139, 21)
@@ -689,7 +677,7 @@ Partial Class MainProgram
         '
         'HymnalTitle
         '
-        Me.HymnalTitle.BackColor = System.Drawing.Color.Silver
+        Me.HymnalTitle.BackColor = System.Drawing.SystemColors.Control
         Me.HymnalTitle.Cursor = System.Windows.Forms.Cursors.Hand
         Me.HymnalTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.HymnalTitle.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -705,9 +693,9 @@ Partial Class MainProgram
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.BackColor = System.Drawing.SystemColors.Desktop
+        Me.Label16.BackColor = System.Drawing.Color.Transparent
         Me.Label16.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.ForeColor = System.Drawing.SystemColors.AppWorkspace
+        Me.Label16.ForeColor = System.Drawing.Color.Black
         Me.Label16.Location = New System.Drawing.Point(326, 143)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(138, 15)
@@ -717,7 +705,8 @@ Partial Class MainProgram
         '
         'Title
         '
-        Me.Title.BackColor = System.Drawing.SystemColors.Desktop
+        Me.Title.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.Title.Controls.Add(Me.Label1)
         Me.Title.Controls.Add(Me.ShowHymn)
         Me.Title.Controls.Add(Me.Label16)
         Me.Title.Controls.Add(Me.HymnalTitle)
@@ -731,7 +720,6 @@ Partial Class MainProgram
         Me.Title.Controls.Add(Me.HymnChange)
         Me.Title.Controls.Add(Me.ChineseTitle)
         Me.Title.Controls.Add(Me.HymnFontBtn)
-        Me.Title.Controls.Add(Me.Label1)
         Me.Title.Controls.Add(Me.HymnColorBtn)
         Me.Title.Controls.Add(Me.Label2)
         Me.Title.Controls.Add(Me.Label4)
@@ -742,20 +730,32 @@ Partial Class MainProgram
         Me.Title.Controls.Add(Me.ChineseColorBtn)
         Me.Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Title.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Title.ForeColor = System.Drawing.SystemColors.ControlDark
+        Me.Title.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Title.Location = New System.Drawing.Point(15, 45)
         Me.Title.Margin = New System.Windows.Forms.Padding(0)
         Me.Title.Name = "Title"
         Me.Title.Size = New System.Drawing.Size(785, 190)
         Me.Title.TabIndex = 14
         Me.Title.TabStop = False
-        Me.Title.Text = "Title"
+        Me.Title.Text = "Title(s)"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
+        Me.Label1.Location = New System.Drawing.Point(4, 24)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(58, 18)
+        Me.Label1.TabIndex = 37
+        Me.Label1.Text = "English"
         '
         'ShowHymn
         '
         Me.ShowHymn.AutoSize = True
         Me.ShowHymn.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ShowHymn.ForeColor = System.Drawing.Color.White
+        Me.ShowHymn.ForeColor = System.Drawing.Color.Black
         Me.ShowHymn.Location = New System.Drawing.Point(233, 99)
         Me.ShowHymn.Name = "ShowHymn"
         Me.ShowHymn.Size = New System.Drawing.Size(107, 21)
@@ -858,7 +858,7 @@ Partial Class MainProgram
         Me.topNavBar.BackColor = System.Drawing.Color.Transparent
         Me.topNavBar.Controls.Add(Me.closeForm)
         Me.topNavBar.Controls.Add(Me.minForm)
-        Me.topNavBar.Cursor = System.Windows.Forms.Cursors.SizeAll
+        Me.topNavBar.Cursor = System.Windows.Forms.Cursors.Default
         Me.topNavBar.Location = New System.Drawing.Point(12, 5)
         Me.topNavBar.Name = "topNavBar"
         Me.topNavBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes
@@ -903,7 +903,7 @@ Partial Class MainProgram
         'TJCLogo
         '
         Me.TJCLogo.BackColor = System.Drawing.Color.Transparent
-        Me.TJCLogo.Cursor = System.Windows.Forms.Cursors.SizeAll
+        Me.TJCLogo.Cursor = System.Windows.Forms.Cursors.Default
         Me.TJCLogo.Image = CType(resources.GetObject("TJCLogo.Image"), System.Drawing.Image)
         Me.TJCLogo.InitialImage = Nothing
         Me.TJCLogo.Location = New System.Drawing.Point(17, 4)
@@ -928,7 +928,7 @@ Partial Class MainProgram
         '
         Me.TJCLabel.AutoSize = True
         Me.TJCLabel.BackColor = System.Drawing.Color.Transparent
-        Me.TJCLabel.Cursor = System.Windows.Forms.Cursors.SizeAll
+        Me.TJCLabel.Cursor = System.Windows.Forms.Cursors.Default
         Me.TJCLabel.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TJCLabel.ForeColor = System.Drawing.SystemColors.HotTrack
         Me.TJCLabel.Location = New System.Drawing.Point(59, 14)
@@ -942,7 +942,7 @@ Partial Class MainProgram
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border2
+        Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border5
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(815, 490)
         Me.Controls.Add(Me.Title)
@@ -1031,7 +1031,6 @@ Partial Class MainProgram
     Friend WithEvents Label4 As Label
     Friend WithEvents Label2 As Label
     Friend WithEvents HymnColorBtn As Button
-    Friend WithEvents Label1 As Label
     Friend WithEvents HymnFontBtn As Button
     Friend WithEvents ChineseTitle As TextBox
     Friend WithEvents HymnChange As Button
@@ -1051,4 +1050,5 @@ Partial Class MainProgram
     Friend WithEvents minForm As Button
     Friend WithEvents TJCLogo As PictureBox
     Friend WithEvents TJCLabel As Label
+    Friend WithEvents Label1 As Label
 End Class
