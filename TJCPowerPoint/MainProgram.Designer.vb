@@ -78,6 +78,8 @@ Partial Class MainProgram
         Me.HymnalTitle = New System.Windows.Forms.Button()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Title = New System.Windows.Forms.GroupBox()
+        Me.moveChineseDown = New System.Windows.Forms.Button()
+        Me.moveChineseUp = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ShowHymn = New System.Windows.Forms.CheckBox()
         Me.ServiceTypeFontBtn = New System.Windows.Forms.Button()
@@ -594,7 +596,7 @@ Partial Class MainProgram
         Me.ChineseTitle.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChineseTitle.Location = New System.Drawing.Point(67, 56)
         Me.ChineseTitle.Name = "ChineseTitle"
-        Me.ChineseTitle.Size = New System.Drawing.Size(650, 31)
+        Me.ChineseTitle.Size = New System.Drawing.Size(588, 31)
         Me.ChineseTitle.TabIndex = 1
         Me.ChineseTitle.TabStop = False
         '
@@ -706,6 +708,8 @@ Partial Class MainProgram
         'Title
         '
         Me.Title.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.Title.Controls.Add(Me.moveChineseDown)
+        Me.Title.Controls.Add(Me.moveChineseUp)
         Me.Title.Controls.Add(Me.Label1)
         Me.Title.Controls.Add(Me.ShowHymn)
         Me.Title.Controls.Add(Me.Label16)
@@ -738,6 +742,28 @@ Partial Class MainProgram
         Me.Title.TabIndex = 14
         Me.Title.TabStop = False
         Me.Title.Text = "Title(s)"
+        '
+        'moveChineseDown
+        '
+        Me.moveChineseDown.BackgroundImage = CType(resources.GetObject("moveChineseDown.BackgroundImage"), System.Drawing.Image)
+        Me.moveChineseDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.moveChineseDown.Location = New System.Drawing.Point(661, 58)
+        Me.moveChineseDown.Name = "moveChineseDown"
+        Me.moveChineseDown.Size = New System.Drawing.Size(25, 25)
+        Me.moveChineseDown.TabIndex = 39
+        Me.moveChineseDown.TabStop = False
+        Me.moveChineseDown.UseVisualStyleBackColor = True
+        '
+        'moveChineseUp
+        '
+        Me.moveChineseUp.BackgroundImage = CType(resources.GetObject("moveChineseUp.BackgroundImage"), System.Drawing.Image)
+        Me.moveChineseUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.moveChineseUp.Location = New System.Drawing.Point(692, 58)
+        Me.moveChineseUp.Name = "moveChineseUp"
+        Me.moveChineseUp.Size = New System.Drawing.Size(25, 25)
+        Me.moveChineseUp.TabIndex = 38
+        Me.moveChineseUp.TabStop = False
+        Me.moveChineseUp.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -1051,4 +1077,6 @@ Partial Class MainProgram
     Friend WithEvents TJCLogo As PictureBox
     Friend WithEvents TJCLabel As Label
     Friend WithEvents Label1 As Label
+    Friend WithEvents moveChineseDown As Button
+    Friend WithEvents moveChineseUp As Button
 End Class

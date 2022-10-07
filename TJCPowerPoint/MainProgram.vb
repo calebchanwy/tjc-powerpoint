@@ -468,10 +468,10 @@ Public Class MainProgram
         End If
         ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
         ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
+        HymnalTitle.Text = "Change Title To ""Hymnal"""
+        ppPres.Slides(1).Shapes(4).Top = 260
         If ShowHymn.Checked Then
-            HymnalTitle.Text = "Change Title To ""Hymnal"""
             ppPres.Slides(1).Shapes(3).Visible = True
-            ppPres.Slides(1).Shapes(4).Top = 260
         End If
     End Sub
 
@@ -710,7 +710,13 @@ Public Class MainProgram
         End If
     End Sub
 
+    Private Sub moveChineseUp_Click(sender As Object, e As EventArgs) Handles moveChineseUp.Click
+        ppPres.Slides(1).Shapes(2).Top = ppPres.Slides(1).Shapes(2).Top - 10
+    End Sub
 
+    Private Sub moveChineseDown_Click(sender As Object, e As EventArgs) Handles moveChineseDown.Click
+        ppPres.Slides(1).Shapes(2).Top = ppPres.Slides(1).Shapes(2).Top + 10
+    End Sub
 End Class
 
 Public Class NativeStructs
