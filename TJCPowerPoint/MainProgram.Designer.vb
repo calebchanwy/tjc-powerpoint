@@ -136,7 +136,7 @@ Partial Class MainProgram
         Me.BibleVerse.Size = New System.Drawing.Size(785, 144)
         Me.BibleVerse.TabIndex = 16
         Me.BibleVerse.TabStop = False
-        Me.BibleVerse.Text = "BibleVerse(s)"
+        Me.BibleVerse.Text = "Bible Verse(s)"
         '
         'Label15
         '
@@ -153,9 +153,9 @@ Partial Class MainProgram
         'clearbtn
         '
         Me.clearbtn.BackColor = System.Drawing.Color.Transparent
-        Me.clearbtn.Cursor = System.Windows.Forms.Cursors.Default
+        Me.clearbtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.clearbtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.clearbtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.clearbtn.ForeColor = System.Drawing.Color.Maroon
         Me.clearbtn.Location = New System.Drawing.Point(470, 82)
         Me.clearbtn.Name = "clearbtn"
         Me.clearbtn.Size = New System.Drawing.Size(54, 42)
@@ -230,7 +230,7 @@ Partial Class MainProgram
         '
         'UpdateVerse
         '
-        Me.UpdateVerse.BackColor = System.Drawing.Color.White
+        Me.UpdateVerse.BackColor = System.Drawing.Color.Transparent
         Me.UpdateVerse.Cursor = System.Windows.Forms.Cursors.Hand
         Me.UpdateVerse.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UpdateVerse.ForeColor = System.Drawing.Color.Navy
@@ -292,7 +292,7 @@ Partial Class MainProgram
         Me.BookBox.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.BookBox.DropDownHeight = 100
         Me.BookBox.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.BookBox.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BookBox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BookBox.ForeColor = System.Drawing.SystemColors.WindowText
         Me.BookBox.FormattingEnabled = True
         Me.BookBox.ImeMode = System.Windows.Forms.ImeMode.[On]
@@ -301,7 +301,7 @@ Partial Class MainProgram
         Me.BookBox.Location = New System.Drawing.Point(10, 48)
         Me.BookBox.MaxDropDownItems = 5
         Me.BookBox.Name = "BookBox"
-        Me.BookBox.Size = New System.Drawing.Size(392, 27)
+        Me.BookBox.Size = New System.Drawing.Size(392, 29)
         Me.BookBox.TabIndex = 0
         '
         'EnglishBookColorBtn
@@ -411,6 +411,7 @@ Partial Class MainProgram
         '
         'SaveSettings
         '
+        Me.SaveSettings.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.SaveSettings.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaveSettings.Location = New System.Drawing.Point(690, 399)
         Me.SaveSettings.Name = "SaveSettings"
@@ -427,11 +428,12 @@ Partial Class MainProgram
         'SlideTrack
         '
         Me.SlideTrack.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.SlideTrack.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SlideTrack.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.SlideTrack.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SlideTrack.FormattingEnabled = True
-        Me.SlideTrack.Location = New System.Drawing.Point(117, 399)
+        Me.SlideTrack.Location = New System.Drawing.Point(113, 402)
         Me.SlideTrack.Name = "SlideTrack"
-        Me.SlideTrack.Size = New System.Drawing.Size(160, 24)
+        Me.SlideTrack.Size = New System.Drawing.Size(160, 21)
         Me.SlideTrack.TabIndex = 4
         Me.SlideTrack.TabStop = False
         '
@@ -448,6 +450,7 @@ Partial Class MainProgram
         '
         'ShowPR
         '
+        Me.ShowPR.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.ShowPR.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ShowPR.Location = New System.Drawing.Point(291, 399)
         Me.ShowPR.Name = "ShowPR"
@@ -460,6 +463,7 @@ Partial Class MainProgram
         'ExitBtn
         '
         Me.ExitBtn.BackColor = System.Drawing.Color.White
+        Me.ExitBtn.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.ExitBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExitBtn.Location = New System.Drawing.Point(690, 440)
         Me.ExitBtn.Name = "ExitBtn"
@@ -471,6 +475,7 @@ Partial Class MainProgram
         '
         'OpenFolder
         '
+        Me.OpenFolder.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.OpenFolder.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OpenFolder.Location = New System.Drawing.Point(573, 440)
         Me.OpenFolder.Name = "OpenFolder"
@@ -515,6 +520,7 @@ Partial Class MainProgram
         '
         'Show_AN
         '
+        Me.Show_AN.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Show_AN.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Show_AN.Location = New System.Drawing.Point(435, 399)
         Me.Show_AN.Name = "Show_AN"
@@ -526,6 +532,7 @@ Partial Class MainProgram
         '
         'edtPrayerImg
         '
+        Me.edtPrayerImg.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.edtPrayerImg.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.edtPrayerImg.Location = New System.Drawing.Point(291, 440)
         Me.edtPrayerImg.Name = "edtPrayerImg"
@@ -537,6 +544,7 @@ Partial Class MainProgram
         '
         'edtHC
         '
+        Me.edtHC.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.edtHC.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.edtHC.Location = New System.Drawing.Point(573, 399)
         Me.edtHC.Name = "edtHC"
@@ -548,6 +556,7 @@ Partial Class MainProgram
         '
         'ServiceTimesBtn
         '
+        Me.ServiceTimesBtn.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.ServiceTimesBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ServiceTimesBtn.Location = New System.Drawing.Point(435, 440)
         Me.ServiceTimesBtn.Name = "ServiceTimesBtn"
@@ -600,7 +609,7 @@ Partial Class MainProgram
         '
         'HymnChange
         '
-        Me.HymnChange.BackColor = System.Drawing.Color.White
+        Me.HymnChange.BackColor = System.Drawing.Color.Transparent
         Me.HymnChange.Cursor = System.Windows.Forms.Cursors.Hand
         Me.HymnChange.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HymnChange.ForeColor = System.Drawing.Color.Navy
@@ -625,7 +634,7 @@ Partial Class MainProgram
         '
         'UpdateTitle
         '
-        Me.UpdateTitle.BackColor = System.Drawing.Color.White
+        Me.UpdateTitle.BackColor = System.Drawing.Color.Transparent
         Me.UpdateTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.UpdateTitle.Cursor = System.Windows.Forms.Cursors.Hand
         Me.UpdateTitle.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -939,7 +948,7 @@ Partial Class MainProgram
         '
         Me.BGColor.BackgroundImage = CType(resources.GetObject("BGColor.BackgroundImage"), System.Drawing.Image)
         Me.BGColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BGColor.Location = New System.Drawing.Point(252, 429)
+        Me.BGColor.Location = New System.Drawing.Point(248, 429)
         Me.BGColor.Name = "BGColor"
         Me.BGColor.Size = New System.Drawing.Size(25, 25)
         Me.BGColor.TabIndex = 23
