@@ -69,17 +69,18 @@ Partial Class HolyCommunion
         Me.header.AutoSize = True
         Me.header.BackColor = System.Drawing.Color.Transparent
         Me.header.Cursor = System.Windows.Forms.Cursors.SizeAll
-        Me.header.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.header.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.header.Location = New System.Drawing.Point(15, 36)
         Me.header.Name = "header"
-        Me.header.Size = New System.Drawing.Size(369, 32)
+        Me.header.Size = New System.Drawing.Size(376, 37)
         Me.header.TabIndex = 2
         Me.header.Text = "Edit Holy Communion Slide:"
         Me.header.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'updateHC
         '
-        Me.updateHC.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.updateHC.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.updateHC.ForeColor = System.Drawing.Color.Navy
         Me.updateHC.Location = New System.Drawing.Point(685, 129)
         Me.updateHC.Name = "updateHC"
         Me.updateHC.Size = New System.Drawing.Size(128, 116)
@@ -89,7 +90,7 @@ Partial Class HolyCommunion
         '
         'HCClose
         '
-        Me.HCClose.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HCClose.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HCClose.Location = New System.Drawing.Point(685, 439)
         Me.HCClose.Name = "HCClose"
         Me.HCClose.Size = New System.Drawing.Size(128, 34)
@@ -101,10 +102,10 @@ Partial Class HolyCommunion
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(147, 102)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(70, 23)
+        Me.Label1.Size = New System.Drawing.Size(69, 25)
         Me.Label1.TabIndex = 5
         Me.Label1.Text = "Bread:"
         '
@@ -112,16 +113,16 @@ Partial Class HolyCommunion
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(496, 102)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(54, 23)
+        Me.Label2.Size = New System.Drawing.Size(53, 25)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Cup:"
         '
         'Button1
         '
-        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Location = New System.Drawing.Point(685, 251)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(128, 74)

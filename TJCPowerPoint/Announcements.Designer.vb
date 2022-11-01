@@ -45,7 +45,8 @@ Partial Class Announcements
         '
         'UpdateAnnouncements
         '
-        Me.UpdateAnnouncements.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UpdateAnnouncements.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UpdateAnnouncements.ForeColor = System.Drawing.Color.Navy
         Me.UpdateAnnouncements.Location = New System.Drawing.Point(627, 153)
         Me.UpdateAnnouncements.Name = "UpdateAnnouncements"
         Me.UpdateAnnouncements.Size = New System.Drawing.Size(86, 113)
@@ -55,7 +56,7 @@ Partial Class Announcements
         '
         'LoadAnnouncements
         '
-        Me.LoadAnnouncements.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LoadAnnouncements.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LoadAnnouncements.Location = New System.Drawing.Point(627, 272)
         Me.LoadAnnouncements.Name = "LoadAnnouncements"
         Me.LoadAnnouncements.Size = New System.Drawing.Size(86, 33)
@@ -66,7 +67,7 @@ Partial Class Announcements
         '
         'CloseAnnouncements
         '
-        Me.CloseAnnouncements.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CloseAnnouncements.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CloseAnnouncements.Location = New System.Drawing.Point(627, 386)
         Me.CloseAnnouncements.Name = "CloseAnnouncements"
         Me.CloseAnnouncements.Size = New System.Drawing.Size(86, 54)
@@ -90,10 +91,10 @@ Partial Class Announcements
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(654, 101)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(34, 16)
+        Me.Label1.Size = New System.Drawing.Size(32, 13)
         Me.Label1.TabIndex = 11
         Me.Label1.Text = "Body"
         '
@@ -123,10 +124,10 @@ Partial Class Announcements
         '
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(9, 389)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(402, 16)
+        Me.Label3.Size = New System.Drawing.Size(402, 13)
         Me.Label3.TabIndex = 15
         Me.Label3.Text = "Representation of font size 22, might not be the same for different font sizes"
         '
@@ -161,10 +162,10 @@ Partial Class Announcements
         Me.header.AutoSize = True
         Me.header.BackColor = System.Drawing.Color.Transparent
         Me.header.Cursor = System.Windows.Forms.Cursors.SizeAll
-        Me.header.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.header.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.header.Location = New System.Drawing.Point(12, 21)
         Me.header.Name = "header"
-        Me.header.Size = New System.Drawing.Size(228, 25)
+        Me.header.Size = New System.Drawing.Size(224, 30)
         Me.header.TabIndex = 16
         Me.header.Text = "Edit Announcements:"
         '
@@ -183,10 +184,10 @@ Partial Class Announcements
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(659, 56)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(27, 16)
+        Me.Label2.Size = New System.Drawing.Size(29, 13)
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Title"
         '
@@ -203,7 +204,7 @@ Partial Class Announcements
         '
         'Button1
         '
-        Me.Button1.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Location = New System.Drawing.Point(627, 311)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(86, 68)

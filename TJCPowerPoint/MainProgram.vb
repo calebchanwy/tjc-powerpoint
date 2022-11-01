@@ -137,7 +137,6 @@ Public Class MainProgram
         HandleSettings()
         ppPres.SlideShowSettings.Run()
         SlideTrack.SelectedIndex = 0
-
         Return True
     End Function
 
@@ -473,6 +472,7 @@ Public Class MainProgram
         If ShowHymn.Checked Then
             ppPres.Slides(1).Shapes(3).Visible = True
         End If
+
     End Sub
 
     Private Sub HymnalTitle_Click(sender As Object, e As EventArgs) Handles HymnalTitle.Click
@@ -640,12 +640,23 @@ Public Class MainProgram
     End Sub
 
     Private Sub clearbtn_Click(sender As Object, e As EventArgs) Handles clearbtn.Click
+        'resetting bible verses
         ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = ""
         ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = ""
         ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ""
         BookBox.Text = ""
         VerseTxt.Text = ""
         ChapterTxt.Text = ""
+        'resetting titles
+        ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = ""
+        ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ""
+        EnglishTitle.Text = ""
+        ChineseTitle.Text = ""
+        'Resetting Hymns
+        ppPres.Slides(1).Shapes(4).TextFrame.TextRange.Text = ""
+        HymnNos.Text = ""
+
+        Call HymnChange_Click(sender, e)
     End Sub
 
     Private Sub ServiceTimesBtn_Click(sender As Object, e As EventArgs) Handles ServiceTimesBtn.Click
@@ -682,7 +693,7 @@ Public Class MainProgram
     Private MouseDownX As Integer
     Private MouseDownY As Integer
 
-    Private Sub Form1_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles topNavBar.MouseDown, TJCLabel.MouseDown, TJCLogo.MouseDown
+    Private Sub Form1_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles topNavBar.MouseDown, TJCLogo.MouseDown
 
         If e.Button = MouseButtons.Left Then
             IsFormBeingDragged = True
@@ -691,14 +702,14 @@ Public Class MainProgram
         End If
     End Sub
 
-    Private Sub Form1_MouseUp(ByVal sender As Object, ByVal e As MouseEventArgs) Handles topNavBar.MouseUp, TJCLabel.MouseUp, TJCLogo.MouseUp
+    Private Sub Form1_MouseUp(ByVal sender As Object, ByVal e As MouseEventArgs) Handles topNavBar.MouseUp, TJCLogo.MouseUp
 
         If e.Button = MouseButtons.Left Then
             IsFormBeingDragged = False
         End If
     End Sub
 
-    Private Sub Form1_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles topNavBar.MouseMove, TJCLabel.MouseMove, TJCLogo.MouseMove
+    Private Sub Form1_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles topNavBar.MouseMove, TJCLogo.MouseMove
 
         If IsFormBeingDragged Then
             Dim temp As Point = New Point()
@@ -717,6 +728,8 @@ Public Class MainProgram
     Private Sub moveChineseDown_Click(sender As Object, e As EventArgs) Handles moveChineseDown.Click
         ppPres.Slides(1).Shapes(2).Top = ppPres.Slides(1).Shapes(2).Top + 10
     End Sub
+
+
 End Class
 
 Public Class NativeStructs

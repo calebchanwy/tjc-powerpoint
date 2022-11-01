@@ -95,7 +95,7 @@ Partial Class MainProgram
         Me.minForm = New System.Windows.Forms.Button()
         Me.TJCLogo = New System.Windows.Forms.PictureBox()
         Me.BGColor = New System.Windows.Forms.Button()
-        Me.TJCLabel = New System.Windows.Forms.Label()
+        Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.BibleVerse.SuspendLayout()
         Me.Title.SuspendLayout()
         Me.topNavBar.SuspendLayout()
@@ -129,7 +129,7 @@ Partial Class MainProgram
         Me.BibleVerse.Controls.Add(Me.CVColorBtn)
         Me.BibleVerse.Controls.Add(Me.ChapterTxt)
         Me.BibleVerse.Controls.Add(Me.CVFontBtn)
-        Me.BibleVerse.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BibleVerse.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BibleVerse.ForeColor = System.Drawing.SystemColors.ControlText
         Me.BibleVerse.Location = New System.Drawing.Point(15, 241)
         Me.BibleVerse.Name = "BibleVerse"
@@ -141,47 +141,46 @@ Partial Class MainProgram
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.Color.Black
-        Me.Label15.Location = New System.Drawing.Point(631, 124)
+        Me.Label15.Location = New System.Drawing.Point(654, 126)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(152, 15)
+        Me.Label15.Size = New System.Drawing.Size(125, 13)
         Me.Label15.TabIndex = 29
         Me.Label15.Text = "(or press enter to update)"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.TopRight
         '
         'clearbtn
         '
-        Me.clearbtn.BackColor = System.Drawing.SystemColors.Control
+        Me.clearbtn.BackColor = System.Drawing.Color.Transparent
         Me.clearbtn.Cursor = System.Windows.Forms.Cursors.Default
-        Me.clearbtn.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.clearbtn.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.clearbtn.ForeColor = System.Drawing.Color.Black
+        Me.clearbtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.clearbtn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.clearbtn.Location = New System.Drawing.Point(470, 82)
         Me.clearbtn.Name = "clearbtn"
         Me.clearbtn.Size = New System.Drawing.Size(54, 42)
         Me.clearbtn.TabIndex = 33
         Me.clearbtn.TabStop = False
-        Me.clearbtn.Text = "Reset"
+        Me.clearbtn.Text = "Reset All"
         Me.clearbtn.UseVisualStyleBackColor = False
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.Location = New System.Drawing.Point(321, 79)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(93, 17)
+        Me.Label13.Size = New System.Drawing.Size(88, 15)
         Me.Label13.TabIndex = 32
         Me.Label13.Text = "Hymn Heading"
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.Location = New System.Drawing.Point(233, 79)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(90, 17)
+        Me.Label14.Size = New System.Drawing.Size(81, 15)
         Me.Label14.TabIndex = 31
         Me.Label14.Text = "Bible Heading"
         '
@@ -231,11 +230,10 @@ Partial Class MainProgram
         '
         'UpdateVerse
         '
-        Me.UpdateVerse.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.UpdateVerse.BackColor = System.Drawing.Color.White
         Me.UpdateVerse.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.UpdateVerse.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.UpdateVerse.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UpdateVerse.ForeColor = System.Drawing.Color.Black
+        Me.UpdateVerse.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UpdateVerse.ForeColor = System.Drawing.Color.Navy
         Me.UpdateVerse.Location = New System.Drawing.Point(530, 83)
         Me.UpdateVerse.Name = "UpdateVerse"
         Me.UpdateVerse.Size = New System.Drawing.Size(249, 40)
@@ -247,20 +245,20 @@ Partial Class MainProgram
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(101, 78)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(87, 17)
+        Me.Label5.Size = New System.Drawing.Size(79, 15)
         Me.Label5.TabIndex = 26
         Me.Label5.Text = "Chinese Book"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(13, 78)
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(8, 78)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(79, 17)
+        Me.Label3.Size = New System.Drawing.Size(75, 15)
         Me.Label3.TabIndex = 25
         Me.Label3.Text = "English Book"
         '
@@ -300,7 +298,7 @@ Partial Class MainProgram
         Me.BookBox.ImeMode = System.Windows.Forms.ImeMode.[On]
         Me.BookBox.IntegralHeight = False
         Me.BookBox.Items.AddRange(New Object() {"Genesis,創世紀", "Exodus,出埃及記", "Leviticus,利未記", "Numbers,民數記", "Deuteronomy,申命記", "Joshua,約書亞記", "Judges,士師記", "Ruth,路得記", "1 Samuel,撒母耳記上", "2 Samuel,撒母耳記下", "1 Kings,列王記上", "2 Kings,列王記下", "1 Chronicles,歷代志上", "2 Chronicles,歷代志下", "Ezra,以斯拉記", "Nehemiah,尼希米記", "Esther,以斯帖記", "Job,約伯記", "Psalms,詩篇", "Proverbs,箴言", "Ecclesiastes,傳道書", "Song of Songs,雅歌", "Isaiah,以賽亞書", "Jeremiah,耶利米書", "Lamentations,耶利米哀歌", "Ezekiel,以西結書", "Daniel,但以理書", "Hosea,何西阿書", "Joel,約珥書", "Amos,阿摩司書", "Obadiah,俄巴底亞書", "Jonah,約拿書", "Micah,彌迦書", "Nahum,那鴻書", "Habakkuk,哈巴谷書", "Zephaniah,西番雅書", "Haggai,哈該書", "Zechariah,撒迦利亞", "Malachi,瑪拉基書", "Matthew,馬太福音", "Mark,馬可福音", "Luke,路加福音", "John,約翰福音", "Acts,使徒行傳", "Romans,羅馬書", "1 Corinthians,哥林多前書", "2 Corinthians,哥林多後書", "Galatians,加拉太書", "Ephesians,以弗所書", "Philippians,腓立比書", "Colossians,歌羅西書", "1 Thessalonians,帖撒羅尼迦前書", "2 Thessalonians,帖撒羅尼迦後書", "1 Timothy,提摩太前書", "2 Timothy,提摩太後書", "Titus,提多書", "Philemon,腓利門書", "Hebrews,希伯來書", "James,雅各書", "1 Peter,彼得前書", "2 Peter,彼得後書", "1 John,約翰一書", "2 John,約翰二書", "3 John,約翰三書", "Jude,猶大書", "Revelation,啟示錄"})
-        Me.BookBox.Location = New System.Drawing.Point(16, 47)
+        Me.BookBox.Location = New System.Drawing.Point(10, 48)
         Me.BookBox.MaxDropDownItems = 5
         Me.BookBox.Name = "BookBox"
         Me.BookBox.Size = New System.Drawing.Size(392, 27)
@@ -310,7 +308,7 @@ Partial Class MainProgram
         '
         Me.EnglishBookColorBtn.BackgroundImage = CType(resources.GetObject("EnglishBookColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.EnglishBookColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.EnglishBookColorBtn.Location = New System.Drawing.Point(23, 98)
+        Me.EnglishBookColorBtn.Location = New System.Drawing.Point(18, 98)
         Me.EnglishBookColorBtn.Name = "EnglishBookColorBtn"
         Me.EnglishBookColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.EnglishBookColorBtn.TabIndex = 19
@@ -321,7 +319,7 @@ Partial Class MainProgram
         '
         Me.EnglishBookFontBtn.BackgroundImage = CType(resources.GetObject("EnglishBookFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.EnglishBookFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.EnglishBookFontBtn.Location = New System.Drawing.Point(52, 98)
+        Me.EnglishBookFontBtn.Location = New System.Drawing.Point(47, 98)
         Me.EnglishBookFontBtn.Name = "EnglishBookFontBtn"
         Me.EnglishBookFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.EnglishBookFontBtn.TabIndex = 20
@@ -331,20 +329,20 @@ Partial Class MainProgram
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(576, 26)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(59, 16)
+        Me.Label9.Size = New System.Drawing.Size(57, 17)
         Me.Label9.TabIndex = 18
         Me.Label9.Text = "Verse(s)"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(472, 26)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(60, 16)
+        Me.Label8.Size = New System.Drawing.Size(56, 17)
         Me.Label8.TabIndex = 17
         Me.Label8.Text = "Chapter"
         '
@@ -372,10 +370,10 @@ Partial Class MainProgram
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(10, 25)
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(7, 26)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(46, 18)
+        Me.Label6.Size = New System.Drawing.Size(45, 20)
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "Book"
         '
@@ -413,7 +411,7 @@ Partial Class MainProgram
         '
         'SaveSettings
         '
-        Me.SaveSettings.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SaveSettings.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaveSettings.Location = New System.Drawing.Point(690, 399)
         Me.SaveSettings.Name = "SaveSettings"
         Me.SaveSettings.Size = New System.Drawing.Size(110, 35)
@@ -441,16 +439,16 @@ Partial Class MainProgram
         '
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.Transparent
-        Me.Label10.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.Location = New System.Drawing.Point(16, 402)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(95, 18)
+        Me.Label10.Size = New System.Drawing.Size(91, 20)
         Me.Label10.TabIndex = 19
         Me.Label10.Text = "Go To Slide:"
         '
         'ShowPR
         '
-        Me.ShowPR.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ShowPR.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ShowPR.Location = New System.Drawing.Point(291, 399)
         Me.ShowPR.Name = "ShowPR"
         Me.ShowPR.Size = New System.Drawing.Size(138, 35)
@@ -462,7 +460,7 @@ Partial Class MainProgram
         'ExitBtn
         '
         Me.ExitBtn.BackColor = System.Drawing.Color.White
-        Me.ExitBtn.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ExitBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExitBtn.Location = New System.Drawing.Point(690, 440)
         Me.ExitBtn.Name = "ExitBtn"
         Me.ExitBtn.Size = New System.Drawing.Size(110, 35)
@@ -473,7 +471,7 @@ Partial Class MainProgram
         '
         'OpenFolder
         '
-        Me.OpenFolder.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OpenFolder.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OpenFolder.Location = New System.Drawing.Point(573, 440)
         Me.OpenFolder.Name = "OpenFolder"
         Me.OpenFolder.Size = New System.Drawing.Size(109, 35)
@@ -486,10 +484,10 @@ Partial Class MainProgram
         '
         Me.Label12.AutoSize = True
         Me.Label12.BackColor = System.Drawing.Color.Transparent
-        Me.Label12.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.Location = New System.Drawing.Point(16, 434)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(229, 16)
+        Me.Label12.Size = New System.Drawing.Size(220, 13)
         Me.Label12.TabIndex = 24
         Me.Label12.Text = "Change Current Slide Background Colour"
         '
@@ -503,10 +501,10 @@ Partial Class MainProgram
         '
         Me.Time.AutoSize = True
         Me.Time.BackColor = System.Drawing.Color.Transparent
-        Me.Time.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Time.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Time.Location = New System.Drawing.Point(16, 456)
         Me.Time.Name = "Time"
-        Me.Time.Size = New System.Drawing.Size(34, 16)
+        Me.Time.Size = New System.Drawing.Size(34, 13)
         Me.Time.TabIndex = 25
         Me.Time.Text = "Time:"
         '
@@ -517,7 +515,7 @@ Partial Class MainProgram
         '
         'Show_AN
         '
-        Me.Show_AN.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Show_AN.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Show_AN.Location = New System.Drawing.Point(435, 399)
         Me.Show_AN.Name = "Show_AN"
         Me.Show_AN.Size = New System.Drawing.Size(128, 35)
@@ -528,7 +526,7 @@ Partial Class MainProgram
         '
         'edtPrayerImg
         '
-        Me.edtPrayerImg.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.edtPrayerImg.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.edtPrayerImg.Location = New System.Drawing.Point(291, 440)
         Me.edtPrayerImg.Name = "edtPrayerImg"
         Me.edtPrayerImg.Size = New System.Drawing.Size(138, 37)
@@ -539,7 +537,7 @@ Partial Class MainProgram
         '
         'edtHC
         '
-        Me.edtHC.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.edtHC.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.edtHC.Location = New System.Drawing.Point(573, 399)
         Me.edtHC.Name = "edtHC"
         Me.edtHC.Size = New System.Drawing.Size(109, 35)
@@ -550,7 +548,7 @@ Partial Class MainProgram
         '
         'ServiceTimesBtn
         '
-        Me.ServiceTimesBtn.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ServiceTimesBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ServiceTimesBtn.Location = New System.Drawing.Point(435, 440)
         Me.ServiceTimesBtn.Name = "ServiceTimesBtn"
         Me.ServiceTimesBtn.Size = New System.Drawing.Size(128, 35)
@@ -566,74 +564,72 @@ Partial Class MainProgram
         Me.HymnNos.Location = New System.Drawing.Point(67, 93)
         Me.HymnNos.Multiline = True
         Me.HymnNos.Name = "HymnNos"
-        Me.HymnNos.Size = New System.Drawing.Size(80, 90)
+        Me.HymnNos.Size = New System.Drawing.Size(93, 90)
         Me.HymnNos.TabIndex = 4
         Me.HymnNos.TabStop = False
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(6, 94)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(56, 18)
+        Me.Label4.Size = New System.Drawing.Size(58, 20)
         Me.Label4.TabIndex = 10
         Me.Label4.Text = "Hymns"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(1, 58)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(68, 18)
+        Me.Label2.Size = New System.Drawing.Size(63, 20)
         Me.Label2.TabIndex = 3
         Me.Label2.Text = "Chinese"
         '
         'ChineseTitle
         '
         Me.ChineseTitle.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.ChineseTitle.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ChineseTitle.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChineseTitle.Location = New System.Drawing.Point(67, 56)
         Me.ChineseTitle.Name = "ChineseTitle"
-        Me.ChineseTitle.Size = New System.Drawing.Size(588, 31)
+        Me.ChineseTitle.Size = New System.Drawing.Size(588, 33)
         Me.ChineseTitle.TabIndex = 1
         Me.ChineseTitle.TabStop = False
         '
         'HymnChange
         '
-        Me.HymnChange.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.HymnChange.BackColor = System.Drawing.Color.White
         Me.HymnChange.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.HymnChange.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.HymnChange.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HymnChange.ForeColor = System.Drawing.Color.Black
-        Me.HymnChange.Location = New System.Drawing.Point(154, 124)
+        Me.HymnChange.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HymnChange.ForeColor = System.Drawing.Color.Navy
+        Me.HymnChange.Location = New System.Drawing.Point(166, 124)
         Me.HymnChange.Name = "HymnChange"
-        Me.HymnChange.Size = New System.Drawing.Size(68, 58)
+        Me.HymnChange.Size = New System.Drawing.Size(55, 59)
         Me.HymnChange.TabIndex = 5
         Me.HymnChange.TabStop = False
-        Me.HymnChange.Text = "Change Hymns"
+        Me.HymnChange.Text = "Update Hymns"
         Me.HymnChange.UseVisualStyleBackColor = False
         '
         'EnglishTitle
         '
         Me.EnglishTitle.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.EnglishTitle.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EnglishTitle.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EnglishTitle.Location = New System.Drawing.Point(67, 17)
         Me.EnglishTitle.Name = "EnglishTitle"
-        Me.EnglishTitle.Size = New System.Drawing.Size(650, 31)
+        Me.EnglishTitle.Size = New System.Drawing.Size(650, 33)
         Me.EnglishTitle.TabIndex = 0
         Me.EnglishTitle.TabStop = False
         Me.EnglishTitle.WordWrap = False
         '
         'UpdateTitle
         '
-        Me.UpdateTitle.BackColor = System.Drawing.SystemColors.ActiveCaption
+        Me.UpdateTitle.BackColor = System.Drawing.Color.White
         Me.UpdateTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.UpdateTitle.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.UpdateTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.UpdateTitle.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UpdateTitle.ForeColor = System.Drawing.Color.Black
+        Me.UpdateTitle.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UpdateTitle.ForeColor = System.Drawing.Color.Navy
         Me.UpdateTitle.Location = New System.Drawing.Point(506, 133)
         Me.UpdateTitle.Margin = New System.Windows.Forms.Padding(0)
         Me.UpdateTitle.Name = "UpdateTitle"
@@ -646,11 +642,11 @@ Partial Class MainProgram
         'ShowVerses
         '
         Me.ShowVerses.AutoSize = True
-        Me.ShowVerses.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ShowVerses.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ShowVerses.ForeColor = System.Drawing.Color.Black
         Me.ShowVerses.Location = New System.Drawing.Point(356, 99)
         Me.ShowVerses.Name = "ShowVerses"
-        Me.ShowVerses.Size = New System.Drawing.Size(139, 21)
+        Me.ShowVerses.Size = New System.Drawing.Size(132, 21)
         Me.ShowVerses.TabIndex = 17
         Me.ShowVerses.TabStop = False
         Me.ShowVerses.Text = "Show Bible Verses"
@@ -660,10 +656,10 @@ Partial Class MainProgram
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.Location = New System.Drawing.Point(228, 140)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(102, 18)
+        Me.Label11.Size = New System.Drawing.Size(96, 20)
         Me.Label11.TabIndex = 19
         Me.Label11.Text = "Service Type"
         '
@@ -681,8 +677,8 @@ Partial Class MainProgram
         '
         Me.HymnalTitle.BackColor = System.Drawing.SystemColors.Control
         Me.HymnalTitle.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.HymnalTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.HymnalTitle.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HymnalTitle.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.HymnalTitle.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HymnalTitle.ForeColor = System.Drawing.Color.Black
         Me.HymnalTitle.Location = New System.Drawing.Point(506, 94)
         Me.HymnalTitle.Name = "HymnalTitle"
@@ -696,11 +692,11 @@ Partial Class MainProgram
         '
         Me.Label16.AutoSize = True
         Me.Label16.BackColor = System.Drawing.Color.Transparent
-        Me.Label16.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label16.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.Color.Black
-        Me.Label16.Location = New System.Drawing.Point(326, 143)
+        Me.Label16.Location = New System.Drawing.Point(319, 145)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(138, 15)
+        Me.Label16.Size = New System.Drawing.Size(112, 13)
         Me.Label16.TabIndex = 34
         Me.Label16.Text = "(press enter to update)"
         Me.Label16.TextAlign = System.Drawing.ContentAlignment.TopRight
@@ -733,7 +729,7 @@ Partial Class MainProgram
         Me.Title.Controls.Add(Me.ChineseFontBtn)
         Me.Title.Controls.Add(Me.ChineseColorBtn)
         Me.Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Title.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Title.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Title.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Title.Location = New System.Drawing.Point(15, 45)
         Me.Title.Margin = New System.Windows.Forms.Padding(0)
@@ -769,22 +765,22 @@ Partial Class MainProgram
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Label1.Location = New System.Drawing.Point(4, 24)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(58, 18)
+        Me.Label1.Size = New System.Drawing.Size(59, 20)
         Me.Label1.TabIndex = 37
         Me.Label1.Text = "English"
         '
         'ShowHymn
         '
         Me.ShowHymn.AutoSize = True
-        Me.ShowHymn.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ShowHymn.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ShowHymn.ForeColor = System.Drawing.Color.Black
         Me.ShowHymn.Location = New System.Drawing.Point(233, 99)
         Me.ShowHymn.Name = "ShowHymn"
-        Me.ShowHymn.Size = New System.Drawing.Size(107, 21)
+        Me.ShowHymn.Size = New System.Drawing.Size(101, 21)
         Me.ShowHymn.TabIndex = 35
         Me.ShowHymn.TabStop = False
         Me.ShowHymn.Text = "Show Hymns"
@@ -817,7 +813,7 @@ Partial Class MainProgram
         '
         Me.HymnFontBtn.BackgroundImage = CType(resources.GetObject("HymnFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.HymnFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.HymnFontBtn.Location = New System.Drawing.Point(184, 93)
+        Me.HymnFontBtn.Location = New System.Drawing.Point(197, 93)
         Me.HymnFontBtn.Name = "HymnFontBtn"
         Me.HymnFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.HymnFontBtn.TabIndex = 12
@@ -828,7 +824,7 @@ Partial Class MainProgram
         '
         Me.HymnColorBtn.BackgroundImage = CType(resources.GetObject("HymnColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.HymnColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.HymnColorBtn.Location = New System.Drawing.Point(153, 93)
+        Me.HymnColorBtn.Location = New System.Drawing.Point(166, 93)
         Me.HymnColorBtn.Name = "HymnColorBtn"
         Me.HymnColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.HymnColorBtn.TabIndex = 11
@@ -885,10 +881,10 @@ Partial Class MainProgram
         Me.topNavBar.Controls.Add(Me.closeForm)
         Me.topNavBar.Controls.Add(Me.minForm)
         Me.topNavBar.Cursor = System.Windows.Forms.Cursors.Default
-        Me.topNavBar.Location = New System.Drawing.Point(12, 5)
+        Me.topNavBar.Location = New System.Drawing.Point(327, 4)
         Me.topNavBar.Name = "topNavBar"
         Me.topNavBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.topNavBar.Size = New System.Drawing.Size(798, 35)
+        Me.topNavBar.Size = New System.Drawing.Size(483, 40)
         Me.topNavBar.TabIndex = 30
         '
         'closeForm
@@ -900,7 +896,7 @@ Partial Class MainProgram
         Me.closeForm.FlatAppearance.BorderSize = 0
         Me.closeForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.closeForm.ForeColor = System.Drawing.Color.Transparent
-        Me.closeForm.Location = New System.Drawing.Point(776, 7)
+        Me.closeForm.Location = New System.Drawing.Point(461, 7)
         Me.closeForm.Margin = New System.Windows.Forms.Padding(7)
         Me.closeForm.Name = "closeForm"
         Me.closeForm.Size = New System.Drawing.Size(15, 15)
@@ -917,7 +913,7 @@ Partial Class MainProgram
         Me.minForm.FlatAppearance.BorderSize = 0
         Me.minForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.minForm.ForeColor = System.Drawing.Color.Transparent
-        Me.minForm.Location = New System.Drawing.Point(748, 8)
+        Me.minForm.Location = New System.Drawing.Point(433, 8)
         Me.minForm.Margin = New System.Windows.Forms.Padding(8)
         Me.minForm.Name = "minForm"
         Me.minForm.Padding = New System.Windows.Forms.Padding(3)
@@ -934,7 +930,7 @@ Partial Class MainProgram
         Me.TJCLogo.InitialImage = Nothing
         Me.TJCLogo.Location = New System.Drawing.Point(17, 4)
         Me.TJCLogo.Name = "TJCLogo"
-        Me.TJCLogo.Size = New System.Drawing.Size(40, 40)
+        Me.TJCLogo.Size = New System.Drawing.Size(312, 40)
         Me.TJCLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.TJCLogo.TabIndex = 2
         Me.TJCLogo.TabStop = False
@@ -950,18 +946,11 @@ Partial Class MainProgram
         Me.BGColor.TabStop = False
         Me.BGColor.UseVisualStyleBackColor = True
         '
-        'TJCLabel
+        'ImageList1
         '
-        Me.TJCLabel.AutoSize = True
-        Me.TJCLabel.BackColor = System.Drawing.Color.Transparent
-        Me.TJCLabel.Cursor = System.Windows.Forms.Cursors.Default
-        Me.TJCLabel.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TJCLabel.ForeColor = System.Drawing.SystemColors.HotTrack
-        Me.TJCLabel.Location = New System.Drawing.Point(59, 14)
-        Me.TJCLabel.Name = "TJCLabel"
-        Me.TJCLabel.Size = New System.Drawing.Size(281, 22)
-        Me.TJCLabel.TabIndex = 31
-        Me.TJCLabel.Text = "True Jesus Church PowerPoint"
+        Me.ImageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
+        Me.ImageList1.ImageSize = New System.Drawing.Size(16, 16)
+        Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
         '
         'MainProgram
         '
@@ -972,7 +961,6 @@ Partial Class MainProgram
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(815, 490)
         Me.Controls.Add(Me.Title)
-        Me.Controls.Add(Me.TJCLabel)
         Me.Controls.Add(Me.TJCLogo)
         Me.Controls.Add(Me.topNavBar)
         Me.Controls.Add(Me.ServiceTimesBtn)
@@ -990,6 +978,7 @@ Partial Class MainProgram
         Me.Controls.Add(Me.SaveSettings)
         Me.Controls.Add(Me.BibleVerse)
         Me.DoubleBuffered = True
+        Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(815, 490)
@@ -1059,7 +1048,6 @@ Partial Class MainProgram
     Friend WithEvents HymnColorBtn As Button
     Friend WithEvents HymnFontBtn As Button
     Friend WithEvents ChineseTitle As TextBox
-    Friend WithEvents HymnChange As Button
     Friend WithEvents EnglishTitle As TextBox
     Friend WithEvents UpdateTitle As Button
     Friend WithEvents ShowVerses As CheckBox
@@ -1075,8 +1063,9 @@ Partial Class MainProgram
     Friend WithEvents closeForm As Button
     Friend WithEvents minForm As Button
     Friend WithEvents TJCLogo As PictureBox
-    Friend WithEvents TJCLabel As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents moveChineseDown As Button
     Friend WithEvents moveChineseUp As Button
+    Friend WithEvents HymnChange As Button
+    Friend WithEvents ImageList1 As ImageList
 End Class
