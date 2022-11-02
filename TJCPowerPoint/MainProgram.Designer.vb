@@ -720,7 +720,7 @@ Partial Class MainProgram
         Me.Label16.BackColor = System.Drawing.Color.Transparent
         Me.Label16.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.Color.Black
-        Me.Label16.Location = New System.Drawing.Point(319, 145)
+        Me.Label16.Location = New System.Drawing.Point(329, 145)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(112, 13)
         Me.Label16.TabIndex = 34
