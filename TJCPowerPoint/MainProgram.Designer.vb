@@ -467,7 +467,7 @@ Partial Class MainProgram
         'ExitBtn
         '
         Me.ExitBtn.AutoSize = True
-        Me.ExitBtn.BackColor = System.Drawing.Color.White
+        Me.ExitBtn.BackColor = System.Drawing.Color.Transparent
         Me.ExitBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ExitBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExitBtn.ForeColor = System.Drawing.Color.Maroon
