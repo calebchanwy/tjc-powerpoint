@@ -50,8 +50,8 @@ Public Class HolyCommunion
     End Sub
 
     Private Sub updateHC_Click(sender As Object, e As EventArgs) Handles updateHC.Click
-        MainProgram.ppPres.Slides(5).Shapes(1).TextFrame.TextRange.Text = breadTxt.Text
-        MainProgram.ppPres.Slides(5).Shapes(2).TextFrame.TextRange.Text = cupTxt.Text
+        MainProgram.ppPres.Slides(5).Shapes(2).TextFrame.TextRange.Text = breadTxt.Text
+        MainProgram.ppPres.Slides(5).Shapes(3).TextFrame.TextRange.Text = cupTxt.Text
         Try
             My.Computer.FileSystem.WriteAllText(MainProgram.Current + "\Files\bread.txt", breadTxt.Text, False)
             My.Computer.FileSystem.WriteAllText(MainProgram.Current + "\Files\cup.txt", cupTxt.Text, False)

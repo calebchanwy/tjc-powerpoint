@@ -3,6 +3,8 @@ Imports PowerPoint = Microsoft.Office.Interop.PowerPoint
 Imports System.Runtime.InteropServices
 Imports System.IO
 Imports System.Xml
+Imports System.Text.RegularExpressions
+
 
 Public Class MainProgram
     Dim ppApp As New PowerPoint.Application
@@ -503,13 +505,16 @@ Public Class MainProgram
         End If
         ppPres.Slides(1).Shapes(4).TextFrame.TextRange.Text = HymnNos.Text
         If HymnalTitle.Text = "Change Title To ""Hymnal""" Then
-            ppPres.Slides(1).Shapes(3).Visible = True
             ppPres.Slides(1).Shapes(4).Top = 260
+            ppPres.Slides(1).Shapes(3).Visible = True
         Else
             ppPres.Slides(1).Shapes(3).Visible = False
             ppPres.Slides(1).Shapes(4).Top = 175
         End If
 
+        'updating hymns on holy communion slide
+        'replacing all new lines with commas
+        ppPres.Slides(5).Shapes(1).TextFrame.TextRange.Text = "Hymns 詩: " + HymnNos.Text.Replace(vbCrLf, ", ")
 
     End Sub
     Private Sub ShowPR_Click(sender As Object, e As EventArgs) Handles ShowPR.Click
