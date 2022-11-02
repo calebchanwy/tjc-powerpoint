@@ -4,7 +4,7 @@ Imports System.Runtime.InteropServices
 Imports System.IO
 Imports System.Xml
 Imports System.Text.RegularExpressions
-
+Imports System.Threading
 
 Public Class MainProgram
     Dim ppApp As New PowerPoint.Application
@@ -57,8 +57,6 @@ Public Class MainProgram
 
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.Hide()
-        Me.FormBorderStyle = FormBorderStyle.None
         MakeFolder()
         LoadPres()
         HandleAnnouncements()
@@ -76,10 +74,6 @@ Public Class MainProgram
         ShowHymn.Checked = True
         EnglishTitle.Text = "English Sermon Title"
         ChineseTitle.Text = "中文講道題目"
-        Me.Show()
-        Me.ShowInTaskbar = True
-        Me.Activate()
-
     End Sub
 
 
@@ -659,10 +653,11 @@ Public Class MainProgram
         ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ""
         EnglishTitle.Text = ""
         ChineseTitle.Text = ""
+        EnglishTitle.Text = "English Sermon Title"
+        ChineseTitle.Text = "中文講道題目"
         'Resetting Hymns
         ppPres.Slides(1).Shapes(4).TextFrame.TextRange.Text = ""
         HymnNos.Text = ""
-
         Call HymnChange_Click(sender, e)
     End Sub
 
