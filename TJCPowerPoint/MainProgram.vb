@@ -642,23 +642,18 @@ Public Class MainProgram
 
     Private Sub clearbtn_Click(sender As Object, e As EventArgs) Handles clearbtn.Click
         'resetting bible verses
-        ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = ""
-        ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = ""
-        ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ""
         BookBox.Text = ""
         VerseTxt.Text = ""
         ChapterTxt.Text = ""
         'resetting titles
-        ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = ""
-        ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ""
         EnglishTitle.Text = ""
         ChineseTitle.Text = ""
-        EnglishTitle.Text = "English Sermon Title"
-        ChineseTitle.Text = "中文講道題目"
         'Resetting Hymns
-        ppPres.Slides(1).Shapes(4).TextFrame.TextRange.Text = ""
         HymnNos.Text = ""
         Call HymnChange_Click(sender, e)
+        Call UpdateTitle_Click(sender, e)
+        EnglishTitle.Text = "English Sermon Title"
+        ChineseTitle.Text = "中文講道題目"
     End Sub
 
     Private Sub ServiceTimesBtn_Click(sender As Object, e As EventArgs) Handles ServiceTimesBtn.Click

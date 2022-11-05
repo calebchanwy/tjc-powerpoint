@@ -133,7 +133,7 @@ Partial Class HolyCommunion
         'navBar
         '
         Me.navBar.BackColor = System.Drawing.Color.Transparent
-        Me.navBar.Cursor = System.Windows.Forms.Cursors.SizeAll
+        Me.navBar.Cursor = System.Windows.Forms.Cursors.Default
         Me.navBar.Location = New System.Drawing.Point(-1, -2)
         Me.navBar.Name = "navBar"
         Me.navBar.Size = New System.Drawing.Size(825, 80)

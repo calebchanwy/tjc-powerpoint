@@ -153,7 +153,7 @@ Partial Class MainProgram
         'clearbtn
         '
         Me.clearbtn.AutoSize = True
-        Me.clearbtn.BackColor = System.Drawing.Color.Transparent
+        Me.clearbtn.BackColor = System.Drawing.Color.White
         Me.clearbtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.clearbtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.clearbtn.ForeColor = System.Drawing.Color.Maroon
@@ -232,7 +232,7 @@ Partial Class MainProgram
         'UpdateVerse
         '
         Me.UpdateVerse.AutoSize = True
-        Me.UpdateVerse.BackColor = System.Drawing.Color.Transparent
+        Me.UpdateVerse.BackColor = System.Drawing.Color.White
         Me.UpdateVerse.Cursor = System.Windows.Forms.Cursors.Hand
         Me.UpdateVerse.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UpdateVerse.ForeColor = System.Drawing.Color.Navy
@@ -362,6 +362,7 @@ Partial Class MainProgram
         '
         'VerseTxt
         '
+        Me.VerseTxt.AcceptsReturn = True
         Me.VerseTxt.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.VerseTxt.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.VerseTxt.Location = New System.Drawing.Point(573, 46)
@@ -392,6 +393,7 @@ Partial Class MainProgram
         '
         'ChapterTxt
         '
+        Me.ChapterTxt.AcceptsReturn = True
         Me.ChapterTxt.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.ChapterTxt.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChapterTxt.HideSelection = False
@@ -414,6 +416,7 @@ Partial Class MainProgram
         'SaveSettings
         '
         Me.SaveSettings.AutoSize = True
+        Me.SaveSettings.BackColor = System.Drawing.Color.White
         Me.SaveSettings.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.SaveSettings.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaveSettings.Location = New System.Drawing.Point(690, 399)
@@ -422,7 +425,7 @@ Partial Class MainProgram
         Me.SaveSettings.TabIndex = 17
         Me.SaveSettings.TabStop = False
         Me.SaveSettings.Text = "Save Config"
-        Me.SaveSettings.UseVisualStyleBackColor = True
+        Me.SaveSettings.UseVisualStyleBackColor = False
         '
         'FontDialog
         '
@@ -454,6 +457,7 @@ Partial Class MainProgram
         'ShowPR
         '
         Me.ShowPR.AutoSize = True
+        Me.ShowPR.BackColor = System.Drawing.Color.White
         Me.ShowPR.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.ShowPR.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ShowPR.Location = New System.Drawing.Point(291, 399)
@@ -462,12 +466,12 @@ Partial Class MainProgram
         Me.ShowPR.TabIndex = 20
         Me.ShowPR.TabStop = False
         Me.ShowPR.Text = "Edit Prayer Requests"
-        Me.ShowPR.UseVisualStyleBackColor = True
+        Me.ShowPR.UseVisualStyleBackColor = False
         '
         'ExitBtn
         '
         Me.ExitBtn.AutoSize = True
-        Me.ExitBtn.BackColor = System.Drawing.Color.Transparent
+        Me.ExitBtn.BackColor = System.Drawing.Color.White
         Me.ExitBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ExitBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExitBtn.ForeColor = System.Drawing.Color.Maroon
@@ -482,6 +486,7 @@ Partial Class MainProgram
         'OpenFolder
         '
         Me.OpenFolder.AutoSize = True
+        Me.OpenFolder.BackColor = System.Drawing.Color.White
         Me.OpenFolder.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.OpenFolder.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OpenFolder.Location = New System.Drawing.Point(573, 440)
@@ -490,7 +495,7 @@ Partial Class MainProgram
         Me.OpenFolder.TabIndex = 23
         Me.OpenFolder.TabStop = False
         Me.OpenFolder.Text = "Open Folder"
-        Me.OpenFolder.UseVisualStyleBackColor = True
+        Me.OpenFolder.UseVisualStyleBackColor = False
         '
         'Label12
         '
@@ -528,6 +533,7 @@ Partial Class MainProgram
         'Show_AN
         '
         Me.Show_AN.AutoSize = True
+        Me.Show_AN.BackColor = System.Drawing.Color.White
         Me.Show_AN.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.Show_AN.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Show_AN.Location = New System.Drawing.Point(435, 399)
@@ -536,11 +542,12 @@ Partial Class MainProgram
         Me.Show_AN.TabIndex = 26
         Me.Show_AN.TabStop = False
         Me.Show_AN.Text = "Edit Announcements"
-        Me.Show_AN.UseVisualStyleBackColor = True
+        Me.Show_AN.UseVisualStyleBackColor = False
         '
         'edtPrayerImg
         '
         Me.edtPrayerImg.AutoSize = True
+        Me.edtPrayerImg.BackColor = System.Drawing.Color.White
         Me.edtPrayerImg.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.edtPrayerImg.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.edtPrayerImg.Location = New System.Drawing.Point(291, 440)
@@ -549,11 +556,12 @@ Partial Class MainProgram
         Me.edtPrayerImg.TabIndex = 27
         Me.edtPrayerImg.TabStop = False
         Me.edtPrayerImg.Text = "Edit Prayer Image"
-        Me.edtPrayerImg.UseVisualStyleBackColor = True
+        Me.edtPrayerImg.UseVisualStyleBackColor = False
         '
         'edtHC
         '
         Me.edtHC.AutoSize = True
+        Me.edtHC.BackColor = System.Drawing.Color.White
         Me.edtHC.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.edtHC.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.edtHC.Location = New System.Drawing.Point(573, 399)
@@ -562,11 +570,12 @@ Partial Class MainProgram
         Me.edtHC.TabIndex = 28
         Me.edtHC.TabStop = False
         Me.edtHC.Text = "Holy Communion"
-        Me.edtHC.UseVisualStyleBackColor = True
+        Me.edtHC.UseVisualStyleBackColor = False
         '
         'ServiceTimesBtn
         '
         Me.ServiceTimesBtn.AutoSize = True
+        Me.ServiceTimesBtn.BackColor = System.Drawing.Color.White
         Me.ServiceTimesBtn.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.ServiceTimesBtn.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ServiceTimesBtn.Location = New System.Drawing.Point(435, 440)
@@ -575,7 +584,7 @@ Partial Class MainProgram
         Me.ServiceTimesBtn.TabIndex = 29
         Me.ServiceTimesBtn.TabStop = False
         Me.ServiceTimesBtn.Text = "Edit Timetable"
-        Me.ServiceTimesBtn.UseVisualStyleBackColor = True
+        Me.ServiceTimesBtn.UseVisualStyleBackColor = False
         '
         'HymnNos
         '
@@ -621,7 +630,7 @@ Partial Class MainProgram
         '
         'HymnChange
         '
-        Me.HymnChange.BackColor = System.Drawing.Color.Transparent
+        Me.HymnChange.BackColor = System.Drawing.Color.White
         Me.HymnChange.Cursor = System.Windows.Forms.Cursors.Hand
         Me.HymnChange.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HymnChange.ForeColor = System.Drawing.Color.Navy
@@ -646,7 +655,7 @@ Partial Class MainProgram
         '
         'UpdateTitle
         '
-        Me.UpdateTitle.BackColor = System.Drawing.Color.Transparent
+        Me.UpdateTitle.BackColor = System.Drawing.Color.White
         Me.UpdateTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.UpdateTitle.Cursor = System.Windows.Forms.Cursors.Hand
         Me.UpdateTitle.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -701,7 +710,7 @@ Partial Class MainProgram
         '
         'HymnalTitle
         '
-        Me.HymnalTitle.BackColor = System.Drawing.SystemColors.Control
+        Me.HymnalTitle.BackColor = System.Drawing.Color.White
         Me.HymnalTitle.Cursor = System.Windows.Forms.Cursors.Hand
         Me.HymnalTitle.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.HymnalTitle.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -911,10 +920,10 @@ Partial Class MainProgram
         Me.topNavBar.Controls.Add(Me.closeForm)
         Me.topNavBar.Controls.Add(Me.minForm)
         Me.topNavBar.Cursor = System.Windows.Forms.Cursors.Default
-        Me.topNavBar.Location = New System.Drawing.Point(327, 4)
+        Me.topNavBar.Location = New System.Drawing.Point(2, 4)
         Me.topNavBar.Name = "topNavBar"
         Me.topNavBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.topNavBar.Size = New System.Drawing.Size(483, 40)
+        Me.topNavBar.Size = New System.Drawing.Size(808, 40)
         Me.topNavBar.TabIndex = 30
         '
         'closeForm
@@ -926,7 +935,7 @@ Partial Class MainProgram
         Me.closeForm.FlatAppearance.BorderSize = 0
         Me.closeForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.closeForm.ForeColor = System.Drawing.Color.Transparent
-        Me.closeForm.Location = New System.Drawing.Point(461, 7)
+        Me.closeForm.Location = New System.Drawing.Point(786, 7)
         Me.closeForm.Margin = New System.Windows.Forms.Padding(7)
         Me.closeForm.Name = "closeForm"
         Me.closeForm.Size = New System.Drawing.Size(15, 15)
@@ -943,7 +952,7 @@ Partial Class MainProgram
         Me.minForm.FlatAppearance.BorderSize = 0
         Me.minForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.minForm.ForeColor = System.Drawing.Color.Transparent
-        Me.minForm.Location = New System.Drawing.Point(433, 8)
+        Me.minForm.Location = New System.Drawing.Point(758, 8)
         Me.minForm.Margin = New System.Windows.Forms.Padding(8)
         Me.minForm.Name = "minForm"
         Me.minForm.Padding = New System.Windows.Forms.Padding(3)
