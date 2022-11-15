@@ -3,8 +3,6 @@ Imports PowerPoint = Microsoft.Office.Interop.PowerPoint
 Imports System.Runtime.InteropServices
 Imports System.IO
 Imports System.Xml
-Imports System.Text.RegularExpressions
-Imports System.Threading
 
 Public Class MainProgram
     Dim ppApp As New PowerPoint.Application
@@ -14,69 +12,24 @@ Public Class MainProgram
     Dim Writer As XmlTextWriter = Nothing
     Dim RecentFile As String
 
-    'https://stackoverflow.com/questions/16493698/drop-shadow-on-a-borderless-winform#:~:text=1)%20Create%20an%20image%20having,4)%20You%20are%20done!
-
-    Private aeroEnabled As Boolean
-    Protected Overrides ReadOnly Property CreateParams() As CreateParams
-        Get
-            CheckAeroEnabled()
-            Dim cp As CreateParams = MyBase.CreateParams
-            If Not aeroEnabled Then
-                cp.ClassStyle = NativeConstants.CS_DROPSHADOW
-                Return cp
-            Else
-                Return cp
-            End If
-        End Get
-    End Property
-    Protected Overrides Sub WndProc(ByRef m As Message)
-        Select Case m.Msg
-            Case NativeConstants.WM_NCPAINT
-                Dim val = 2
-                If aeroEnabled Then
-                    NativeMethods.DwmSetWindowAttribute(Handle, 2, val, 4)
-                    Dim bla As New NativeStructs.MARGINS()
-                    With bla
-                        .bottomHeight = 1
-                        .leftWidth = 1
-                        .rightWidth = 1
-                        .topHeight = 1
-                    End With
-                    NativeMethods.DwmExtendFrameIntoClientArea(Handle, bla)
-                End If
-                Exit Select
-        End Select
-        MyBase.WndProc(m)
-    End Sub
-    Private Sub CheckAeroEnabled()
-        'assume that OS is above windows 6
-        Dim enabled As Integer = 0
-        Dim response As Integer = NativeMethods.DwmIsCompositionEnabled(enabled)
-        aeroEnabled = (enabled = 1)
-    End Sub
-
-
+    'Method dealing with what the form will do when it initially opens
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        MakeFolder()
-        LoadPres()
-        HandleAnnouncements()
-        HandlePR()
-        LoadHC()
-        LoadPrayerImage()
-        LoadTimetableImg()
-        'RecentFile = Directory.GetFiles(Current + "\Files\ServiceRecords").OrderByDescending(Function(f) New FileInfo(f).LastWriteTime).First().ToString
-        'Dim RecentXML As New XmlDocument()
-        'RecentXML.Load(RecentFile)
-        'EnglishTitle.Text = RecentXML.DocumentElement.SelectSingleNode("EnglishTitle").InnerText
-        'ChineseTitle.Text = RecentXML.DocumentElement.SelectSingleNode("ChineseTitle").InnerText
-        'HymnNos.Text = RecentXML.DocumentElement.SelectSingleNode("Hymn").InnerText
-        'default opening auto fill
-        ShowHymn.Checked = True
-        EnglishTitle.Text = "English Sermon Title"
-        ChineseTitle.Text = "中文講道題目"
+        Try
+            MakeFolder()
+            LoadPres()
+            ResetServiceDetails()
+            HandleAnnouncements()
+            HandlePR()
+            LoadHC()
+            LoadPrayerImage()
+            LoadTimetableImg()
+        Catch ex As Exception
+            Me.Close()
+        End Try
     End Sub
 
 
+    'Method to deal with the form closing
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
             'Checking for Null errors due to error elsewhere, ensure safe close of program
@@ -88,26 +41,21 @@ Public Class MainProgram
                 ppPres.Close()
             End If
         Catch ex As Exception
-
         End Try
     End Sub
 
-    Public Function MakeFolder()
+    'Method called to create a folder for the files and resources
+    Public Sub MakeFolder()
         If Directory.Exists("\Files") = False Then
             My.Computer.FileSystem.CreateDirectory(Current + "\Files")
         End If
-
-        'If Directory.Exists("\Files\ServiceRecords") = False Then
-        '    My.Computer.FileSystem.CreateDirectory(Current + "\Files\ServiceRecords")
-        '    System.IO.File.WriteAllBytes(Current + "\Files\ServiceRecords\1_Jan_1990_000000.xml", My.Resources.XML)
-        'End If
-
         If My.Computer.FileSystem.FileExists(Current + "\Files\ServiceWidescreen.pptx") = False Then
             System.IO.File.WriteAllBytes(Current + "\Files\ServiceWidescreen.pptx", My.Resources.ServiceWidescreen)
         End If
-        Return True
-    End Function
-    Public Function LoadPres()
+    End Sub
+
+    'Method to load up the presentation and instantiate slide text boxes
+    Public Sub LoadPres()
         ppApp = CreateObject("PowerPoint.Application")
         ppPres = ppApp.Presentations.Open(Current + "\Files\ServiceWidescreen.pptx", [ReadOnly]:=Office.MsoTriState.msoFalse, WithWindow:=Office.MsoTriState.msoFalse)
         ppPres.Slides(1).Name = "Service/Hymnal"
@@ -121,7 +69,13 @@ Public Class MainProgram
         For i As Integer = 1 To ppPres.Slides.Count
             SlideTrack.Items.Add(ppPres.Slides(i).Name)
         Next
-        'InSlide1: 1-English Title, 2 - Chinese Title, 3 - HymnHeader, 4 - Hymns, 5 - BibleHeader, 6 - EnglishBook, 7 - ChineseBook, 8 - Chapter+Verse, 10 - Service Type
+        HandleSettings()
+        ppPres.SlideShowSettings.Run()
+        SlideTrack.SelectedIndex = 0
+    End Sub
+
+    'Method that will reset the program to the initial running state
+    Public Sub ResetServiceDetails()
         ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = " "
         ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = " "
         ppPres.Slides(1).Shapes(4).TextFrame.TextRange.Text = " "
@@ -130,13 +84,17 @@ Public Class MainProgram
         ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " "
         ppPres.Slides(1).Shapes(10).TextFrame.TextRange.Text = " "
         ppPres.Slides(1).Shapes(5).Visible = Office.MsoTriState.msoFalse
-        HandleSettings()
-        ppPres.SlideShowSettings.Run()
-        SlideTrack.SelectedIndex = 0
-        Return True
-    End Function
+        ppPres.Slides(1).Shapes(3).Visible = Office.MsoTriState.msoTrue
+        ShowHymn.Checked = True
+        EnglishTitle.Text = "English Sermon Title"
+        ChineseTitle.Text = "中文講道題目"
+        HymnNos.Text = ""
+        HymnalTitle.Text = "Change Title To ""Hymnal"""
+    End Sub
 
-    Public Function LoadHC()
+    'Method to deal with loading the Holy Communion slide with details from the text files
+    'If no text file exists, then no names will be displayed
+    Public Sub LoadHC()
         Dim bread As String
         Dim cup As String
         If My.Computer.FileSystem.FileExists(Current + "\Files\bread.txt") = True Then
@@ -147,10 +105,11 @@ Public Class MainProgram
             cup = My.Computer.FileSystem.ReadAllText(Current + "\Files\cup.txt")
             ppPres.Slides(5).Shapes(2).TextFrame.TextRange.Text = cup
         End If
-        Return True
-    End Function
+    End Sub
 
-    Public Function LoadPrayerImage()
+    'Method to deal with loading the prayer requests image using directory listed out in text file
+    'If no text file exists, then no prayer request image will be loaded
+    Public Sub LoadPrayerImage()
         If My.Computer.FileSystem.FileExists(Current + "\Files\prayerImgDir.txt") = False Then
             System.IO.File.WriteAllText(Current + "\Files\prayerImgDir.txt", "")
         Else
@@ -160,10 +119,11 @@ Public Class MainProgram
                 ppPres.Slides(2).Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
             End If
         End If
-        Return True
-    End Function
+    End Sub
 
-    Public Function LoadTimetableImg()
+    'Method to deal with loading the timetable image using directory listed out in text file
+    'If no text file exists, then no prayer request image will be loaded
+    Public Sub LoadTimetableImg()
         If My.Computer.FileSystem.FileExists(Current + "\Files\timetableDir.txt") = False Then
             System.IO.File.WriteAllText(Current + "\Files\timetableDir.txt", "")
         Else
@@ -173,9 +133,11 @@ Public Class MainProgram
                 ppPres.Slides(8).Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
             End If
         End If
-        Return True
-    End Function
-    Public Function LoadSettings(str As String)
+    End Sub
+
+    'Function that deals with taking the settings saved in the xml file
+    'Applies the colours and fonts of each textbox
+    Public Sub LoadSettings(str As String)
         Dim two As Integer = Val(str(2))
         Dim three As Integer = Val(str(3))
         If str(1) = "F" Then
@@ -210,9 +172,9 @@ Public Class MainProgram
                 End If
             End If
         End If
-        Return True
-    End Function
-    Public Function HandleSettings()
+    End Sub
+
+    Public Sub HandleSettings()
         If My.Computer.FileSystem.FileExists(Current + "\Files\Settings.ini") Then
             Dim Settings As Array = File.ReadAllLines(Current + "\Files\Settings.ini")
             For Each str As String In Settings
@@ -225,9 +187,8 @@ Public Class MainProgram
                 LoadSettings(str)
             Next
         End If
-        Return True
-    End Function
-    Public Function HandleAnnouncements()
+    End Sub
+    Public Sub HandleAnnouncements()
         If My.Computer.FileSystem.FileExists(Current + "\Files\Announcements.txt") Then
             Announcements.AnnouncementTxt.Text = File.ReadAllText(Current + "\Files\Announcements.txt", System.Text.Encoding.UTF32)
             ppPres.Slides(4).Shapes(1).TextFrame.TextRange.Text = Announcements.AnnouncementTxt.Text
@@ -238,9 +199,8 @@ Public Class MainProgram
             Announcements.AnnouncementTxt.Text = File.ReadAllText(Current + "\Files\Announcements.txt", System.Text.Encoding.UTF32)
             ppPres.Slides(4).Shapes(1).TextFrame.TextRange.Text = Announcements.AnnouncementTxt.Text
         End If
-        Return True
-    End Function
-    Public Function HandlePR()
+    End Sub
+    Public Sub HandlePR()
         If My.Computer.FileSystem.FileExists(Current + "\Files\PrayerRequests.txt") Then
             PrayerRequests.PrayerRequestTxt.Text = File.ReadAllText(Current + "\Files\PrayerRequests.txt", System.Text.Encoding.UTF32)
             ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = PrayerRequests.PrayerRequestTxt.Text
@@ -251,139 +211,28 @@ Public Class MainProgram
             PrayerRequests.PrayerRequestTxt.Text = File.ReadAllText(Current + "\Files\PrayerRequests.txt", System.Text.Encoding.UTF32)
             ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = PrayerRequests.PrayerRequestTxt.Text
         End If
-        Return True
-    End Function
-    Public Function ChangeFont(i As Integer, j As Integer)
+    End Sub
+    Public Sub ChangeFont(i As Integer, j As Integer)
         FontDialog.Font = New Font(ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Name.ToString, ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Size)
         If FontDialog.ShowDialog = DialogResult.OK Then
             ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
             ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
         End If
-        Return True
-    End Function
-    Public Function ChangeColor(i As Integer, j As Integer)
+    End Sub
+    Public Sub ChangeColor(i As Integer, j As Integer)
         If ColorDialog.ShowDialog = DialogResult.OK Then
             Dim Red As Integer = Convert.ToInt32(ColorDialog.Color.R)
             Dim Green As Integer = Convert.ToInt32(ColorDialog.Color.G)
             Dim Blue As Integer = Convert.ToInt32(ColorDialog.Color.B)
             ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Color.RGB = Color.FromArgb(255, Blue, Green, Red).ToArgb
         End If
-        Return True
-    End Function
+    End Sub
     Public Function GetFontAndColor(i As Integer, j As Integer)
         Dim Font As String
         Font = "[F" & i & j & "]=" + ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Name + "," + Convert.ToString(ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Size) +
             vbCrLf + "[C" & i & j & "]=" + Convert.ToString(ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Color.RGB)
-
         Return Font
     End Function
-
-    '----------------------------FOLLOWING COMMENTED FUNCTIONS REDUNDANT AS NO LONGER SAVING SERVICE RECORDS -----------------------------
-
-    'Public Function MakeXML()
-    '    Dim Title As String = Replace(EnglishTitle.Text, " ", "_")
-    '    Dim Name As String = Current + "\Files\ServiceRecords\" + Title + (DateTime.Now.ToString("_dd_MMMM_yyyy_HHmmss")) + ".xml"
-    '    Dim writer As New XmlTextWriter(Name, System.Text.Encoding.UTF32)
-    '    writer.WriteStartDocument(True)
-    '    writer.Formatting = Formatting.Indented
-    '    writer.Indentation = 2
-    '    writer.WriteStartElement("ServiceRecord")
-    '    writer.WriteStartElement("Time")
-    '    writer.WriteString(DateTime.Now.ToString("HH:mm:ss"))
-    '    writer.WriteEndElement()
-    '    writer.WriteStartElement("EnglishTitle")
-    '    writer.WriteString(EnglishTitle.Text)
-    '    writer.WriteEndElement()
-    '    writer.WriteStartElement("ChineseTitle")
-    '    writer.WriteString(ChineseTitle.Text)
-    '    writer.WriteEndElement()
-    '    writer.WriteStartElement("Hymn")
-    '    writer.WriteString(HymnNos.Text)
-    '    writer.WriteEndElement()
-    '    Return writer
-    'End Function
-
-    'Public Function WriteXML(writer As XmlTextWriter)
-    '    Dim commaPos As Integer
-    '    commaPos = InStr(BookBox.Text, ",")
-    '    writer.WriteStartElement("Bible")
-    '    writer.WriteStartElement("Book")
-    '    writer.WriteStartElement("English")
-    '    writer.WriteString(Mid(BookBox.Text, 1, commaPos - 1))
-    '    writer.WriteEndElement()
-    '    writer.WriteStartElement("Chinese")
-    '    writer.WriteString(Mid(BookBox.Text, commaPos + 1))
-    '    writer.WriteEndElement()
-    '    writer.WriteStartElement("Chapter")
-    '    writer.WriteString(ChapterTxt.Text)
-    '    writer.WriteEndElement()
-    '    writer.WriteStartElement("Verses")
-    '    writer.WriteString(VerseTxt.Text)
-    '    writer.WriteEndElement()
-    '    writer.WriteEndElement()
-    '    writer.WriteEndElement()
-    '    Return True
-    'End Function
-
-    Private Sub EnglishFontBtn_Click(sender As Object, e As EventArgs) Handles EnglishFontBtn.Click
-        ChangeFont(1, 1)
-    End Sub
-    Private Sub EnglishColorBtn_Click(sender As Object, e As EventArgs) Handles EnglishColorBtn.Click
-        ChangeColor(1, 1)
-    End Sub
-    Private Sub ChineseFontBtn_Click(sender As Object, e As EventArgs) Handles ChineseFontBtn.Click
-        ChangeFont(1, 2)
-    End Sub
-    Private Sub ChineseColorBtn_Click(sender As Object, e As EventArgs) Handles ChineseColorBtn.Click
-        ChangeColor(1, 2)
-    End Sub
-    Private Sub HymnHDFont_Click(sender As Object, e As EventArgs) Handles HymnHDFont.Click
-        ChangeFont(1, 3)
-    End Sub
-    Private Sub HymnHDColor_Click(sender As Object, e As EventArgs) Handles HymnHDColor.Click
-        ChangeColor(1, 3)
-    End Sub
-    Private Sub HymnFontBtn_Click(sender As Object, e As EventArgs) Handles HymnFontBtn.Click
-        ChangeFont(1, 4)
-    End Sub
-    Private Sub HymnColorBtn_Click(sender As Object, e As EventArgs) Handles HymnColorBtn.Click
-        ChangeColor(1, 4)
-    End Sub
-    Private Sub BBibleHDFont_Click(sender As Object, e As EventArgs) Handles BibleHDFont.Click
-        ChangeFont(1, 5)
-    End Sub
-
-    Private Sub BibleHDColor_Click(sender As Object, e As EventArgs) Handles BibleHDColor.Click
-        ChangeColor(1, 5)
-    End Sub
-    Private Sub EnglishBookFontBtn_Click(sender As Object, e As EventArgs) Handles EnglishBookFontBtn.Click
-        ChangeFont(1, 6)
-    End Sub
-    Private Sub EnglishBookColorBtn_Click(sender As Object, e As EventArgs) Handles EnglishBookColorBtn.Click
-        ChangeColor(1, 6)
-    End Sub
-    Private Sub ChineseBookFontBtn_Click(sender As Object, e As EventArgs) Handles ChineseBookFontBtn.Click
-        ChangeFont(1, 7)
-    End Sub
-    Private Sub ChineseBookColorBtn_Click(sender As Object, e As EventArgs) Handles ChineseBookColorBtn.Click
-        ChangeColor(1, 7)
-    End Sub
-    Private Sub CVFontBtn_Click(sender As Object, e As EventArgs) Handles CVFontBtn.Click
-        ChangeFont(1, 8)
-    End Sub
-    Private Sub CVColorBtn_Click(sender As Object, e As EventArgs) Handles CVColorBtn.Click
-        ChangeColor(1, 8)
-    End Sub
-    Private Sub ServiceTypeFontBtn_Click(sender As Object, e As EventArgs) Handles ServiceTypeFontBtn.Click
-        ChangeFont(1, 10)
-    End Sub
-
-    Private Sub ServiceTypeColorBtn_Click(sender As Object, e As EventArgs) Handles ServiceTypeColorBtn.Click
-        ChangeColor(1, 10)
-    End Sub
-    Private Sub SlideTrack_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SlideTrack.SelectedIndexChanged
-        ppPres.SlideShowWindow.View.GotoSlide(SlideTrack.SelectedIndex + 1)
-    End Sub
 
     Private Sub ShowHymn_CheckedChanged(sender As Object, e As EventArgs) Handles ShowHymn.CheckedChanged
         If ShowHymn.Checked = True Then
@@ -486,8 +335,6 @@ Public Class MainProgram
             ppPres.Slides(1).Shapes(3).Visible = True
             ppPres.Slides(1).Shapes(4).Top = 260
         End If
-
-
     End Sub
 
     Private Sub HymnChange_Click(sender As Object, e As EventArgs) Handles HymnChange.Click
@@ -511,6 +358,67 @@ Public Class MainProgram
         ppPres.Slides(5).Shapes(1).TextFrame.TextRange.Text = "Hymns 詩: " + HymnNos.Text.Replace(vbCrLf, ", ")
 
     End Sub
+
+    Private Sub EnglishFontBtn_Click(sender As Object, e As EventArgs) Handles EnglishFontBtn.Click
+        ChangeFont(1, 1)
+    End Sub
+    Private Sub EnglishColorBtn_Click(sender As Object, e As EventArgs) Handles EnglishColorBtn.Click
+        ChangeColor(1, 1)
+    End Sub
+    Private Sub ChineseFontBtn_Click(sender As Object, e As EventArgs) Handles ChineseFontBtn.Click
+        ChangeFont(1, 2)
+    End Sub
+    Private Sub ChineseColorBtn_Click(sender As Object, e As EventArgs) Handles ChineseColorBtn.Click
+        ChangeColor(1, 2)
+    End Sub
+    Private Sub HymnHDFont_Click(sender As Object, e As EventArgs) Handles HymnHDFont.Click
+        ChangeFont(1, 3)
+    End Sub
+    Private Sub HymnHDColor_Click(sender As Object, e As EventArgs) Handles HymnHDColor.Click
+        ChangeColor(1, 3)
+    End Sub
+    Private Sub HymnFontBtn_Click(sender As Object, e As EventArgs) Handles HymnFontBtn.Click
+        ChangeFont(1, 4)
+    End Sub
+    Private Sub HymnColorBtn_Click(sender As Object, e As EventArgs) Handles HymnColorBtn.Click
+        ChangeColor(1, 4)
+    End Sub
+    Private Sub BBibleHDFont_Click(sender As Object, e As EventArgs) Handles BibleHDFont.Click
+        ChangeFont(1, 5)
+    End Sub
+
+    Private Sub BibleHDColor_Click(sender As Object, e As EventArgs) Handles BibleHDColor.Click
+        ChangeColor(1, 5)
+    End Sub
+    Private Sub EnglishBookFontBtn_Click(sender As Object, e As EventArgs) Handles EnglishBookFontBtn.Click
+        ChangeFont(1, 6)
+    End Sub
+    Private Sub EnglishBookColorBtn_Click(sender As Object, e As EventArgs) Handles EnglishBookColorBtn.Click
+        ChangeColor(1, 6)
+    End Sub
+    Private Sub ChineseBookFontBtn_Click(sender As Object, e As EventArgs) Handles ChineseBookFontBtn.Click
+        ChangeFont(1, 7)
+    End Sub
+    Private Sub ChineseBookColorBtn_Click(sender As Object, e As EventArgs) Handles ChineseBookColorBtn.Click
+        ChangeColor(1, 7)
+    End Sub
+    Private Sub CVFontBtn_Click(sender As Object, e As EventArgs) Handles CVFontBtn.Click
+        ChangeFont(1, 8)
+    End Sub
+    Private Sub CVColorBtn_Click(sender As Object, e As EventArgs) Handles CVColorBtn.Click
+        ChangeColor(1, 8)
+    End Sub
+    Private Sub ServiceTypeFontBtn_Click(sender As Object, e As EventArgs) Handles ServiceTypeFontBtn.Click
+        ChangeFont(1, 10)
+    End Sub
+
+    Private Sub ServiceTypeColorBtn_Click(sender As Object, e As EventArgs) Handles ServiceTypeColorBtn.Click
+        ChangeColor(1, 10)
+    End Sub
+    Private Sub SlideTrack_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SlideTrack.SelectedIndexChanged
+        ppPres.SlideShowWindow.View.GotoSlide(SlideTrack.SelectedIndex + 1)
+    End Sub
+
     Private Sub ShowPR_Click(sender As Object, e As EventArgs) Handles ShowPR.Click
         PrayerRequests.Show()
     End Sub
@@ -525,11 +433,11 @@ Public Class MainProgram
     End Sub
 
     Private Sub ExitBtn_Click(sender As Object, e As EventArgs) Handles ExitBtn.Click
-
         Me.Close()
     End Sub
-    Private Sub SaveSettings_Click(sender As Object, e As EventArgs) Handles SaveSettings.Click
 
+
+    Private Sub SaveSettings_Click(sender As Object, e As EventArgs) Handles SaveSettings.Click
         Dim CurrentSettings As String
         CurrentSettings =
         GetFontAndColor(1, 1) & vbCrLf &
@@ -639,19 +547,7 @@ Public Class MainProgram
     End Sub
 
     Private Sub clearbtn_Click(sender As Object, e As EventArgs) Handles clearbtn.Click
-        'resetting bible verses
-        BookBox.Text = ""
-        VerseTxt.Text = ""
-        ChapterTxt.Text = ""
-        'resetting titles
-        EnglishTitle.Text = ""
-        ChineseTitle.Text = ""
-        'Resetting Hymns
-        HymnNos.Text = ""
-        Call HymnChange_Click(sender, e)
-        Call UpdateTitle_Click(sender, e)
-        EnglishTitle.Text = "English Sermon Title"
-        ChineseTitle.Text = "中文講道題目"
+        Call ResetServiceDetails()
     End Sub
 
     Private Sub ServiceTimesBtn_Click(sender As Object, e As EventArgs) Handles ServiceTimesBtn.Click
@@ -673,21 +569,34 @@ Public Class MainProgram
         End Try
     End Sub
 
+
+    'Following two methods deal with moving the chinese title up or down to create more/less spacing
+    'Needed when English title takes two or more lines
+    Private Sub moveChineseUp_Click(sender As Object, e As EventArgs) Handles moveChineseUp.Click
+        ppPres.Slides(1).Shapes(2).Top = ppPres.Slides(1).Shapes(2).Top - 10
+    End Sub
+    Private Sub moveChineseDown_Click(sender As Object, e As EventArgs) Handles moveChineseDown.Click
+        ppPres.Slides(1).Shapes(2).Top = ppPres.Slides(1).Shapes(2).Top + 10
+    End Sub
+
+
+    'NAVIGATION BAR
+    'Methods dealing with when the close/minimise button are pressed
     Private Sub minForm_Click(sender As Object, e As EventArgs) Handles minForm.Click
         Me.WindowState = FormWindowState.Minimized
     End Sub
-
     Private Sub closeForm_Click(sender As Object, e As EventArgs) Handles closeForm.Click
         Me.Close()
     End Sub
 
-
-
+    'Following methods deal with the movement of the form
+    'If the user drags the mouse on the top navigation bar or the tjc logo,
+    'the form will drag to where the user has dragged their moue to
+    'Copied from the following stack over
     'https://stackoverflow.com/questions/17392088/allow-a-user-to-move-a-borderless-window
     Private IsFormBeingDragged As Boolean = False
     Private MouseDownX As Integer
     Private MouseDownY As Integer
-
     Private Sub Form1_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles topNavBar.MouseDown, TJCLogo.MouseDown
 
         If e.Button = MouseButtons.Left Then
@@ -696,14 +605,12 @@ Public Class MainProgram
             MouseDownY = e.Y
         End If
     End Sub
-
     Private Sub Form1_MouseUp(ByVal sender As Object, ByVal e As MouseEventArgs) Handles topNavBar.MouseUp, TJCLogo.MouseUp
 
         If e.Button = MouseButtons.Left Then
             IsFormBeingDragged = False
         End If
     End Sub
-
     Private Sub Form1_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles topNavBar.MouseMove, TJCLogo.MouseMove
 
         If IsFormBeingDragged Then
@@ -716,14 +623,48 @@ Public Class MainProgram
         End If
     End Sub
 
-    Private Sub moveChineseUp_Click(sender As Object, e As EventArgs) Handles moveChineseUp.Click
-        ppPres.Slides(1).Shapes(2).Top = ppPres.Slides(1).Shapes(2).Top - 10
-    End Sub
 
-    Private Sub moveChineseDown_Click(sender As Object, e As EventArgs) Handles moveChineseDown.Click
-        ppPres.Slides(1).Shapes(2).Top = ppPres.Slides(1).Shapes(2).Top + 10
+    'Following Code below will enable the windows form to have shadow and similar effects to a windows 7 application
+    'Taken from stack overflow post in the following link:
+    'https://stackoverflow.com/questions/16493698/drop-shadow-on-a-borderless-winform#:~:text=1)%20Create%20an%20image%20having,4)%20You%20are%20done!
+    Private aeroEnabled As Boolean
+    Protected Overrides ReadOnly Property CreateParams() As CreateParams
+        Get
+            CheckAeroEnabled()
+            Dim cp As CreateParams = MyBase.CreateParams
+            If Not aeroEnabled Then
+                cp.ClassStyle = NativeConstants.CS_DROPSHADOW
+                Return cp
+            Else
+                Return cp
+            End If
+        End Get
+    End Property
+    Protected Overrides Sub WndProc(ByRef m As Message)
+        Select Case m.Msg
+            Case NativeConstants.WM_NCPAINT
+                Dim val = 2
+                If aeroEnabled Then
+                    NativeMethods.DwmSetWindowAttribute(Handle, 2, val, 4)
+                    Dim bla As New NativeStructs.MARGINS()
+                    With bla
+                        .bottomHeight = 1
+                        .leftWidth = 1
+                        .rightWidth = 1
+                        .topHeight = 1
+                    End With
+                    NativeMethods.DwmExtendFrameIntoClientArea(Handle, bla)
+                End If
+                Exit Select
+        End Select
+        MyBase.WndProc(m)
     End Sub
-
+    Private Sub CheckAeroEnabled()
+        'assume that OS is above windows 6
+        Dim enabled As Integer = 0
+        Dim response As Integer = NativeMethods.DwmIsCompositionEnabled(enabled)
+        aeroEnabled = (enabled = 1)
+    End Sub
 
 End Class
 
@@ -750,3 +691,5 @@ Public Class NativeConstants
     Public Const CS_DROPSHADOW As Integer = &H20000
     Public Const WM_NCPAINT As Integer = &H85
 End Class
+
+
