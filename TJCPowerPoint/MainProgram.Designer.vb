@@ -471,7 +471,7 @@ Partial Class MainProgram
         'ExitBtn
         '
         Me.ExitBtn.AutoSize = True
-        Me.ExitBtn.BackColor = System.Drawing.Color.White
+        Me.ExitBtn.BackColor = System.Drawing.Color.Transparent
         Me.ExitBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ExitBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExitBtn.ForeColor = System.Drawing.Color.Maroon
@@ -552,7 +552,7 @@ Partial Class MainProgram
         Me.edtPrayerImg.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.edtPrayerImg.Location = New System.Drawing.Point(291, 440)
         Me.edtPrayerImg.Name = "edtPrayerImg"
-        Me.edtPrayerImg.Size = New System.Drawing.Size(138, 37)
+        Me.edtPrayerImg.Size = New System.Drawing.Size(138, 35)
         Me.edtPrayerImg.TabIndex = 27
         Me.edtPrayerImg.TabStop = False
         Me.edtPrayerImg.Text = "Edit Prayer Image"
@@ -630,7 +630,7 @@ Partial Class MainProgram
         '
         'HymnChange
         '
-        Me.HymnChange.BackColor = System.Drawing.Color.White
+        Me.HymnChange.BackColor = System.Drawing.Color.Transparent
         Me.HymnChange.Cursor = System.Windows.Forms.Cursors.Hand
         Me.HymnChange.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HymnChange.ForeColor = System.Drawing.Color.Navy
@@ -655,7 +655,7 @@ Partial Class MainProgram
         '
         'UpdateTitle
         '
-        Me.UpdateTitle.BackColor = System.Drawing.Color.White
+        Me.UpdateTitle.BackColor = System.Drawing.Color.Transparent
         Me.UpdateTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.UpdateTitle.Cursor = System.Windows.Forms.Cursors.Hand
         Me.UpdateTitle.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -710,7 +710,7 @@ Partial Class MainProgram
         '
         'HymnalTitle
         '
-        Me.HymnalTitle.BackColor = System.Drawing.Color.White
+        Me.HymnalTitle.BackColor = System.Drawing.Color.Transparent
         Me.HymnalTitle.Cursor = System.Windows.Forms.Cursors.Hand
         Me.HymnalTitle.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.HymnalTitle.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -738,7 +738,7 @@ Partial Class MainProgram
         '
         'Title
         '
-        Me.Title.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.Title.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.Title.Controls.Add(Me.moveChineseDown)
         Me.Title.Controls.Add(Me.moveChineseUp)
         Me.Title.Controls.Add(Me.Label1)

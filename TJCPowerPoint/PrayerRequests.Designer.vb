@@ -23,7 +23,6 @@ Partial Class PrayerRequests
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PrayerRequests))
-        Me.PrayerRequestTxt = New System.Windows.Forms.TextBox()
         Me.UpdatePrayerRequests = New System.Windows.Forms.Button()
         Me.ClosePrayerRequests = New System.Windows.Forms.Button()
         Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
@@ -34,31 +33,15 @@ Partial Class PrayerRequests
         Me.PRTitleFontBtn = New System.Windows.Forms.Button()
         Me.PRColorBtn = New System.Windows.Forms.Button()
         Me.PRFontBtn = New System.Windows.Forms.Button()
-        Me.Panel = New System.Windows.Forms.Panel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.editPrayerImage = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.header = New System.Windows.Forms.Label()
         Me.navBar = New System.Windows.Forms.FlowLayoutPanel()
+        Me.PrayerRequestTxt = New System.Windows.Forms.TextBox()
+        Me.Panel = New System.Windows.Forms.Panel()
         Me.Panel.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'PrayerRequestTxt
-        '
-        Me.PrayerRequestTxt.AcceptsReturn = True
-        Me.PrayerRequestTxt.AcceptsTab = True
-        Me.PrayerRequestTxt.AllowDrop = True
-        Me.PrayerRequestTxt.BackColor = System.Drawing.Color.Black
-        Me.PrayerRequestTxt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.PrayerRequestTxt.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PrayerRequestTxt.ForeColor = System.Drawing.Color.White
-        Me.PrayerRequestTxt.Location = New System.Drawing.Point(11, 35)
-        Me.PrayerRequestTxt.Multiline = True
-        Me.PrayerRequestTxt.Name = "PrayerRequestTxt"
-        Me.PrayerRequestTxt.Size = New System.Drawing.Size(604, 378)
-        Me.PrayerRequestTxt.TabIndex = 2
-        Me.PrayerRequestTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.PrayerRequestTxt.WordWrap = False
         '
         'UpdatePrayerRequests
         '
@@ -159,15 +142,6 @@ Partial Class PrayerRequests
         Me.PRFontBtn.TabStop = False
         Me.PRFontBtn.UseVisualStyleBackColor = True
         '
-        'Panel
-        '
-        Me.Panel.BackColor = System.Drawing.Color.Black
-        Me.Panel.Controls.Add(Me.PrayerRequestTxt)
-        Me.Panel.Location = New System.Drawing.Point(14, 73)
-        Me.Panel.Name = "Panel"
-        Me.Panel.Size = New System.Drawing.Size(607, 342)
-        Me.Panel.TabIndex = 14
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -221,6 +195,32 @@ Partial Class PrayerRequests
         Me.navBar.Size = New System.Drawing.Size(725, 70)
         Me.navBar.TabIndex = 19
         '
+        'PrayerRequestTxt
+        '
+        Me.PrayerRequestTxt.AcceptsReturn = True
+        Me.PrayerRequestTxt.AcceptsTab = True
+        Me.PrayerRequestTxt.AllowDrop = True
+        Me.PrayerRequestTxt.BackColor = System.Drawing.Color.Black
+        Me.PrayerRequestTxt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.PrayerRequestTxt.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PrayerRequestTxt.ForeColor = System.Drawing.Color.White
+        Me.PrayerRequestTxt.Location = New System.Drawing.Point(0, 0)
+        Me.PrayerRequestTxt.Multiline = True
+        Me.PrayerRequestTxt.Name = "PrayerRequestTxt"
+        Me.PrayerRequestTxt.Size = New System.Drawing.Size(604, 336)
+        Me.PrayerRequestTxt.TabIndex = 2
+        Me.PrayerRequestTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.PrayerRequestTxt.WordWrap = False
+        '
+        'Panel
+        '
+        Me.Panel.BackColor = System.Drawing.Color.Black
+        Me.Panel.Controls.Add(Me.PrayerRequestTxt)
+        Me.Panel.Location = New System.Drawing.Point(14, 73)
+        Me.Panel.Name = "Panel"
+        Me.Panel.Size = New System.Drawing.Size(607, 342)
+        Me.Panel.TabIndex = 14
+        '
         'PrayerRequests
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -261,15 +261,15 @@ Partial Class PrayerRequests
     Friend WithEvents PRFontBtn As Button
     Friend WithEvents SaveFileDialog As SaveFileDialog
     Friend WithEvents OpenFileDialog As OpenFileDialog
-    Public WithEvents PrayerRequestTxt As TextBox
     Friend WithEvents PRTitleColorBtn As Button
     Friend WithEvents PRTitleFontBtn As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Panel As Panel
     Friend WithEvents Label3 As Label
     Friend WithEvents editPrayerImage As Button
     Friend WithEvents Button1 As Button
     Friend WithEvents header As Label
     Friend WithEvents navBar As FlowLayoutPanel
+    Public WithEvents PrayerRequestTxt As TextBox
+    Friend WithEvents Panel As Panel
 End Class

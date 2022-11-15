@@ -124,9 +124,7 @@ Public Class MainProgram
         'InSlide1: 1-English Title, 2 - Chinese Title, 3 - HymnHeader, 4 - Hymns, 5 - BibleHeader, 6 - EnglishBook, 7 - ChineseBook, 8 - Chapter+Verse, 10 - Service Type
         ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = " "
         ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = " "
-        ppPres.Slides(1).Shapes(3).TextFrame.TextRange.Text = "Hymns 詩"
         ppPres.Slides(1).Shapes(4).TextFrame.TextRange.Text = " "
-        ppPres.Slides(1).Shapes(5).TextFrame.TextRange.Text = "Bible Verse 經文"
         ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = " "
         ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = " "
         ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " "

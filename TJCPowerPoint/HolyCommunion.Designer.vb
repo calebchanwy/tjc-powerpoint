@@ -41,7 +41,7 @@ Partial Class HolyCommunion
         Me.breadTxt.BackColor = System.Drawing.Color.Black
         Me.breadTxt.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.breadTxt.ForeColor = System.Drawing.Color.White
-        Me.breadTxt.Location = New System.Drawing.Point(21, 129)
+        Me.breadTxt.Location = New System.Drawing.Point(11, 97)
         Me.breadTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.breadTxt.Multiline = True
         Me.breadTxt.Name = "breadTxt"
@@ -56,7 +56,7 @@ Partial Class HolyCommunion
         Me.cupTxt.BackColor = System.Drawing.Color.Black
         Me.cupTxt.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cupTxt.ForeColor = System.Drawing.Color.White
-        Me.cupTxt.Location = New System.Drawing.Point(353, 129)
+        Me.cupTxt.Location = New System.Drawing.Point(343, 97)
         Me.cupTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cupTxt.Multiline = True
         Me.cupTxt.Name = "cupTxt"
@@ -68,42 +68,44 @@ Partial Class HolyCommunion
         '
         Me.header.AutoSize = True
         Me.header.BackColor = System.Drawing.Color.Transparent
-        Me.header.Cursor = System.Windows.Forms.Cursors.SizeAll
-        Me.header.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.header.Location = New System.Drawing.Point(15, 36)
+        Me.header.Cursor = System.Windows.Forms.Cursors.Default
+        Me.header.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.header.Location = New System.Drawing.Point(10, 23)
         Me.header.Name = "header"
-        Me.header.Size = New System.Drawing.Size(376, 37)
+        Me.header.Size = New System.Drawing.Size(285, 30)
         Me.header.TabIndex = 2
-        Me.header.Text = "Edit Holy Communion Slide:"
+        Me.header.Text = "Edit Holy Communion Slide"
         Me.header.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'updateHC
         '
         Me.updateHC.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.updateHC.ForeColor = System.Drawing.Color.Navy
-        Me.updateHC.Location = New System.Drawing.Point(685, 129)
+        Me.updateHC.Location = New System.Drawing.Point(675, 97)
         Me.updateHC.Name = "updateHC"
-        Me.updateHC.Size = New System.Drawing.Size(128, 116)
+        Me.updateHC.Size = New System.Drawing.Size(63, 52)
         Me.updateHC.TabIndex = 3
-        Me.updateHC.Text = "Update Holy Communion"
+        Me.updateHC.Text = "Update Slide"
         Me.updateHC.UseVisualStyleBackColor = True
         '
         'HCClose
         '
-        Me.HCClose.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HCClose.Location = New System.Drawing.Point(685, 439)
+        Me.HCClose.BackColor = System.Drawing.Color.White
+        Me.HCClose.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HCClose.ForeColor = System.Drawing.Color.Maroon
+        Me.HCClose.Location = New System.Drawing.Point(675, 407)
         Me.HCClose.Name = "HCClose"
-        Me.HCClose.Size = New System.Drawing.Size(128, 34)
+        Me.HCClose.Size = New System.Drawing.Size(63, 34)
         Me.HCClose.TabIndex = 4
         Me.HCClose.Text = "Close"
-        Me.HCClose.UseVisualStyleBackColor = True
+        Me.HCClose.UseVisualStyleBackColor = False
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(147, 102)
+        Me.Label1.Location = New System.Drawing.Point(137, 70)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(69, 25)
         Me.Label1.TabIndex = 5
@@ -114,7 +116,7 @@ Partial Class HolyCommunion
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(496, 102)
+        Me.Label2.Location = New System.Drawing.Point(486, 70)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 25)
         Me.Label2.TabIndex = 6
@@ -123,20 +125,20 @@ Partial Class HolyCommunion
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(685, 251)
+        Me.Button1.Location = New System.Drawing.Point(675, 155)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(128, 74)
+        Me.Button1.Size = New System.Drawing.Size(63, 44)
         Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Go To Holy Communion Slide"
+        Me.Button1.Text = "Go To Slide"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'navBar
         '
         Me.navBar.BackColor = System.Drawing.Color.Transparent
         Me.navBar.Cursor = System.Windows.Forms.Cursors.Default
-        Me.navBar.Location = New System.Drawing.Point(-1, -2)
+        Me.navBar.Location = New System.Drawing.Point(0, -2)
         Me.navBar.Name = "navBar"
-        Me.navBar.Size = New System.Drawing.Size(825, 80)
+        Me.navBar.Size = New System.Drawing.Size(749, 69)
         Me.navBar.TabIndex = 8
         '
         'HolyCommunion
@@ -145,7 +147,7 @@ Partial Class HolyCommunion
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border2
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(825, 500)
+        Me.ClientSize = New System.Drawing.Size(750, 450)
         Me.ControlBox = False
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
@@ -159,10 +161,11 @@ Partial Class HolyCommunion
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.HelpButton = True
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.MaximumSize = New System.Drawing.Size(825, 500)
-        Me.MinimumSize = New System.Drawing.Size(825, 500)
+        Me.MaximumSize = New System.Drawing.Size(750, 450)
+        Me.MinimumSize = New System.Drawing.Size(750, 450)
         Me.Name = "HolyCommunion"
         Me.Text = "Holy Communion"
         Me.ResumeLayout(False)
