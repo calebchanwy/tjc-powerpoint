@@ -43,17 +43,62 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TJCPowerPoint.exe" size="1230848">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TJCPowerPoint.exe" size="1651200">
       <assemblyIdentity name="TJCPowerPoint" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>4iFDDAA+UkIhpqt5tTebsFk5WDMl7GPZ3lttp/r1bNc=</dsig:DigestValue>
+        <dsig:DigestValue>F+1N/gnIBW9ICbE6tGYeqMb6FcqUCyTViZl7lqKzckE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
+  <file name="Resources\border.png" size="3563">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>4YGXBv1mQd0jMgiCWrueweLnsy4bhxN3gL5uSq0zNBw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\close.png" size="10190">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>y7njPEoDCJIPYc0BjNIvzt76i/Etl7+oiAkS6FhYCEs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\icons8-close-24.png" size="1165">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>gcZlro4A5h547rslwGOrgchjF5bBfUYcPLlkkdTYwuM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\icons8-close-48.png" size="355">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>SKZixk1lOBOfeK+yLTIKOYCaJ3Vl5KdmNs6LARrpt7I=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\minimize-sign.png" size="2664">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>XtqPCPVGSvbtmITEbelzIGpGXRONxPGAABhDp3umwM8=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Resources\tjcbirdlogo.ico" size="200997">
     <hash>
       <dsig:Transforms>
@@ -63,20 +108,29 @@
       <dsig:DigestValue>Pu19E7qonKE37r0Rlh8TNtYZ8g4hIQ2992JTBSV3vc0=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="TJCPowerPoint.exe.config" size="188">
+  <file name="Resources\tjcbirdlogoTransparent.png" size="17238">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>j5XMowm9qYcyNWR87Ke1KpLLXBlaYAR38CaZywZFE9o=</dsig:DigestValue>
+      <dsig:DigestValue>4nIr/oQbRx1V2XRbDylzzhaih4pNXe/5tPAl42F/Fvw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="TJCPowerPoint.exe.config" size="220">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>izReS3RVASV+RGfZ+cGZXWodHUGSfDB0wKbOH+C3dVQ=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
     <application>
-      <!-- A list of the Windows versions that this application has been tested on and is
-           is designed to work with. Uncomment the appropriate elements and Windows will 
-           automatically selected the most compatible environment. -->
+      <!-- A list of the Windows versions that this application has been tested on
+           and is designed to work with. Uncomment the appropriate elements
+           and Windows will automatically select the most compatible environment. -->
       <!-- Windows Vista -->
       <!--<supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}" />-->
       <!-- Windows 7 -->
@@ -89,4 +143,10 @@
       <!--<supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />-->
     </application>
   </compatibility>
+  <application xmlns="urn:schemas-microsoft-com:asm.v3">
+    <windowsSettings>
+      <dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">true</dpiAware>
+      <longPathAware xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">true</longPathAware>
+    </windowsSettings>
+  </application>
 </asmv1:assembly>

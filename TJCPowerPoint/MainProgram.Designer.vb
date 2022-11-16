@@ -678,7 +678,7 @@ Partial Class MainProgram
         Me.ShowVerses.ForeColor = System.Drawing.Color.Black
         Me.ShowVerses.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_holy_bible_16
         Me.ShowVerses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ShowVerses.Location = New System.Drawing.Point(479, 94)
+        Me.ShowVerses.Location = New System.Drawing.Point(475, 94)
         Me.ShowVerses.Margin = New System.Windows.Forms.Padding(0)
         Me.ShowVerses.Name = "ShowVerses"
         Me.ShowVerses.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
@@ -823,7 +823,7 @@ Partial Class MainProgram
         Me.ShowSermonHymns.ForeColor = System.Drawing.Color.Black
         Me.ShowSermonHymns.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_musical_notes_16
         Me.ShowSermonHymns.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ShowSermonHymns.Location = New System.Drawing.Point(314, 94)
+        Me.ShowSermonHymns.Location = New System.Drawing.Point(305, 94)
         Me.ShowSermonHymns.Margin = New System.Windows.Forms.Padding(0)
         Me.ShowSermonHymns.Name = "ShowSermonHymns"
         Me.ShowSermonHymns.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
