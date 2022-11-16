@@ -18,7 +18,7 @@ Public Class MainProgram
             MakeFolder()
             LoadPres()
             HandleAnnouncements()
-            HandlePR()
+            HandlePrayerRequests()
             LoadHC()
             LoadPrayerImage()
             LoadTimetableImg()
@@ -26,7 +26,6 @@ Public Class MainProgram
             Me.Close()
         End Try
     End Sub
-
 
     'Method to deal with the form closing
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -41,6 +40,10 @@ Public Class MainProgram
             End If
         Catch ex As Exception
         End Try
+    End Sub
+    'Method dealing when the exit button is clicked
+    Private Sub ExitBtn_Click(sender As Object, e As EventArgs) Handles ExitBtn.Click, closeForm.Click
+        Me.Close()
     End Sub
 
     'Method called to create a folder for the files and resources
@@ -198,7 +201,7 @@ Public Class MainProgram
             ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = Announcements.AnnouncementTxt.Text
         End If
     End Sub
-    Public Sub HandlePR()
+    Public Sub HandlePrayerRequests()
         If My.Computer.FileSystem.FileExists(Current + "\Files\PrayerRequests.txt") Then
             PrayerRequests.PrayerRequestTxt.Text = File.ReadAllText(Current + "\Files\PrayerRequests.txt", System.Text.Encoding.UTF32)
             ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Text = PrayerRequests.PrayerRequestTxt.Text
@@ -273,8 +276,9 @@ Public Class MainProgram
         Else
             If ShowHymnal.Checked.Equals(False) And ShowSermonHymns.Checked.Equals(False) Then
                 ShowVerses.Checked = True
-            ElseIf ShowHymnal.Checked.Equals(True) Then
+            ElseIf ShowHymnal.Checked.Equals(True) And ShowSermonHymns.Checked.Equals(False) Then
                 'when user has unchecked bible verse whilst being in hymnal
+                'Assumes that user wants to go back to show hymnal hymns
                 'must make hymn nos visible again and any bible verses invisible
                 ppPres.Slides(1).Shapes(5).Visible = False
                 ppPres.Slides(1).Shapes(6).Visible = False
@@ -296,6 +300,11 @@ Public Class MainProgram
         Else
             If ShowVerses.Checked.Equals(False) And ShowSermonHymns.Checked.Equals(False) Then
                 ShowHymnal.Checked = True
+            ElseIf ShowVerses.Checked.Equals(True) And ShowSermonHymns.Checked.Equals(False) Then
+                'User has unchecked hymnal whilst showing bible verses
+                'Assumes that user wants to go back to sermon titles
+                ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
+                ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
             End If
         End If
 
@@ -428,7 +437,7 @@ Public Class MainProgram
         ppPres.SlideShowWindow.View.GotoSlide(SlideTrack.SelectedIndex + 1)
     End Sub
 
-    Private Sub ShowPR_Click(sender As Object, e As EventArgs) Handles ShowPR.Click
+    Private Sub OpenPrayerRequestsWindow_Click(sender As Object, e As EventArgs) Handles OpenPrayerRequestsWindow.Click
         PrayerRequests.Show()
     End Sub
     Private Sub BGColor_Click(sender As Object, e As EventArgs) Handles BGColor.Click
@@ -440,11 +449,6 @@ Public Class MainProgram
             ppPres.Slides(CurrentSlide).Background.Fill.ForeColor.RGB = Color.FromArgb(255, Blue, Green, Red).ToArgb
         End If
     End Sub
-
-    Private Sub ExitBtn_Click(sender As Object, e As EventArgs) Handles ExitBtn.Click
-        Me.Close()
-    End Sub
-
 
     Private Sub SaveSettings_Click(sender As Object, e As EventArgs) Handles SaveSettings.Click
         Dim CurrentSettings As String
@@ -596,9 +600,6 @@ Public Class MainProgram
     'Methods dealing with when the close/minimise button are pressed
     Private Sub minForm_Click(sender As Object, e As EventArgs) Handles minForm.Click
         Me.WindowState = FormWindowState.Minimized
-    End Sub
-    Private Sub closeForm_Click(sender As Object, e As EventArgs) Handles closeForm.Click
-        Me.Close()
     End Sub
 
     'Following methods deal with the movement of the form

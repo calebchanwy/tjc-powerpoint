@@ -54,7 +54,7 @@ Partial Class MainProgram
         Me.ColorDialog = New System.Windows.Forms.ColorDialog()
         Me.SlideTrack = New System.Windows.Forms.ComboBox()
         Me.Label10 = New System.Windows.Forms.Label()
-        Me.ShowPR = New System.Windows.Forms.Button()
+        Me.OpenPrayerRequestsWindow = New System.Windows.Forms.Button()
         Me.ExitBtn = New System.Windows.Forms.Button()
         Me.OpenFolder = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
@@ -455,17 +455,17 @@ Partial Class MainProgram
         '
         'ShowPR
         '
-        Me.ShowPR.AutoSize = True
-        Me.ShowPR.BackColor = System.Drawing.Color.White
-        Me.ShowPR.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.ShowPR.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ShowPR.Location = New System.Drawing.Point(291, 399)
-        Me.ShowPR.Name = "ShowPR"
-        Me.ShowPR.Size = New System.Drawing.Size(138, 35)
-        Me.ShowPR.TabIndex = 20
-        Me.ShowPR.TabStop = False
-        Me.ShowPR.Text = "Edit Prayer Requests"
-        Me.ShowPR.UseVisualStyleBackColor = False
+        Me.OpenPrayerRequestsWindow.AutoSize = True
+        Me.OpenPrayerRequestsWindow.BackColor = System.Drawing.Color.White
+        Me.OpenPrayerRequestsWindow.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.OpenPrayerRequestsWindow.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.OpenPrayerRequestsWindow.Location = New System.Drawing.Point(291, 399)
+        Me.OpenPrayerRequestsWindow.Name = "ShowPR"
+        Me.OpenPrayerRequestsWindow.Size = New System.Drawing.Size(138, 35)
+        Me.OpenPrayerRequestsWindow.TabIndex = 20
+        Me.OpenPrayerRequestsWindow.TabStop = False
+        Me.OpenPrayerRequestsWindow.Text = "Edit Prayer Requests"
+        Me.OpenPrayerRequestsWindow.UseVisualStyleBackColor = False
         '
         'ExitBtn
         '
@@ -1017,7 +1017,7 @@ Partial Class MainProgram
         Me.Controls.Add(Me.BGColor)
         Me.Controls.Add(Me.OpenFolder)
         Me.Controls.Add(Me.ExitBtn)
-        Me.Controls.Add(Me.ShowPR)
+        Me.Controls.Add(Me.OpenPrayerRequestsWindow)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.SlideTrack)
         Me.Controls.Add(Me.SaveSettings)
@@ -1062,7 +1062,7 @@ Partial Class MainProgram
     Friend WithEvents SlideTrack As ComboBox
     Friend WithEvents Label10 As Label
     Friend WithEvents UpdateVerse As Button
-    Friend WithEvents ShowPR As Button
+    Friend WithEvents OpenPrayerRequestsWindow As Button
     Friend WithEvents ExitBtn As Button
     Friend WithEvents OpenFolder As Button
     Friend WithEvents BGColor As Button
