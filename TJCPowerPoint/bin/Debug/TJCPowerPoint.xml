@@ -92,6 +92,11 @@ TJCPowerPoint
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.icons8_music_161">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:TJCPowerPoint.My.Resources.Resources.icons8_music_24">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -113,6 +118,11 @@ TJCPowerPoint
 </summary>
 </member>
 <member name="P:TJCPowerPoint.My.Resources.Resources.icons8_restart_241">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.icons8_restart_242">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>

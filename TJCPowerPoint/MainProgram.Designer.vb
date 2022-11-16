@@ -453,14 +453,14 @@ Partial Class MainProgram
         Me.Label10.TabIndex = 19
         Me.Label10.Text = "Go To Slide:"
         '
-        'ShowPR
+        'OpenPrayerRequestsWindow
         '
         Me.OpenPrayerRequestsWindow.AutoSize = True
         Me.OpenPrayerRequestsWindow.BackColor = System.Drawing.Color.White
         Me.OpenPrayerRequestsWindow.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.OpenPrayerRequestsWindow.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OpenPrayerRequestsWindow.Location = New System.Drawing.Point(291, 399)
-        Me.OpenPrayerRequestsWindow.Name = "ShowPR"
+        Me.OpenPrayerRequestsWindow.Name = "OpenPrayerRequestsWindow"
         Me.OpenPrayerRequestsWindow.Size = New System.Drawing.Size(138, 35)
         Me.OpenPrayerRequestsWindow.TabIndex = 20
         Me.OpenPrayerRequestsWindow.TabStop = False
@@ -681,6 +681,7 @@ Partial Class MainProgram
         Me.ShowVerses.Location = New System.Drawing.Point(479, 94)
         Me.ShowVerses.Margin = New System.Windows.Forms.Padding(0)
         Me.ShowVerses.Name = "ShowVerses"
+        Me.ShowVerses.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.ShowVerses.Size = New System.Drawing.Size(140, 27)
         Me.ShowVerses.TabIndex = 17
         Me.ShowVerses.TabStop = False
@@ -763,15 +764,16 @@ Partial Class MainProgram
         'ShowHymnal
         '
         Me.ShowHymnal.Appearance = System.Windows.Forms.Appearance.Button
-        Me.ShowHymnal.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.icons8_music_16
         Me.ShowHymnal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ShowHymnal.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ShowHymnal.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ShowHymnal.ForeColor = System.Drawing.Color.Black
+        Me.ShowHymnal.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_music_161
         Me.ShowHymnal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ShowHymnal.Location = New System.Drawing.Point(619, 94)
         Me.ShowHymnal.Margin = New System.Windows.Forms.Padding(0)
         Me.ShowHymnal.Name = "ShowHymnal"
+        Me.ShowHymnal.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.ShowHymnal.Size = New System.Drawing.Size(160, 27)
         Me.ShowHymnal.TabIndex = 40
         Me.ShowHymnal.TabStop = False
@@ -824,6 +826,7 @@ Partial Class MainProgram
         Me.ShowSermonHymns.Location = New System.Drawing.Point(314, 94)
         Me.ShowSermonHymns.Margin = New System.Windows.Forms.Padding(0)
         Me.ShowSermonHymns.Name = "ShowSermonHymns"
+        Me.ShowSermonHymns.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.ShowSermonHymns.Size = New System.Drawing.Size(165, 27)
         Me.ShowSermonHymns.TabIndex = 35
         Me.ShowSermonHymns.TabStop = False
