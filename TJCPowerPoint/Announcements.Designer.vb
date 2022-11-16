@@ -38,7 +38,7 @@ Partial Class Announcements
         Me.PRTitleFontBtn = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PRTitleColorBtn = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.goToAnnouncements = New System.Windows.Forms.Button()
         Me.navBar = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel.SuspendLayout()
         Me.SuspendLayout()
@@ -202,15 +202,15 @@ Partial Class Announcements
         Me.PRTitleColorBtn.TabStop = False
         Me.PRTitleColorBtn.UseVisualStyleBackColor = True
         '
-        'Button1
+        'goToAnnouncements
         '
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(627, 311)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(86, 68)
-        Me.Button1.TabIndex = 17
-        Me.Button1.Text = "Go To Announcements"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.goToAnnouncements.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.goToAnnouncements.Location = New System.Drawing.Point(627, 311)
+        Me.goToAnnouncements.Name = "goToAnnouncements"
+        Me.goToAnnouncements.Size = New System.Drawing.Size(86, 68)
+        Me.goToAnnouncements.TabIndex = 17
+        Me.goToAnnouncements.Text = "Go To Announcements"
+        Me.goToAnnouncements.UseVisualStyleBackColor = True
         '
         'navBar
         '
@@ -229,7 +229,7 @@ Partial Class Announcements
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(725, 450)
         Me.ControlBox = False
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.goToAnnouncements)
         Me.Controls.Add(Me.header)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Panel)
@@ -273,6 +273,6 @@ Partial Class Announcements
     Friend WithEvents PRTitleFontBtn As Button
     Friend WithEvents Label2 As Label
     Friend WithEvents PRTitleColorBtn As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents goToAnnouncements As Button
     Friend WithEvents navBar As FlowLayoutPanel
 End Class

@@ -2,9 +2,58 @@
 Imports TJCPowerPoint.NativeConstants, TJCPowerPoint.NativeMethods, TJCPowerPoint.NativeStructs
 Public Class Announcements
 
-    'https://stackoverflow.com/questions/16493698/drop-shadow-on-a-borderless-winform#:~:text=1)%20Create%20an%20image%20having,4)%20You%20are%20done!
-
     Private aeroEnabled As Boolean
+    Private slideNumber As Integer
+
+    'Method Announcements_Load dealing when the announcements form initially opens
+    Private Sub Announcements_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.aeroEnabled = False
+        Me.FormBorderStyle = FormBorderStyle.None
+        'HERE INITALISE THE ANNOUNCEMENT SLIDE NUMBER ACCORDING TO ORDER ON POWERPOINT
+        slideNumber = 3
+    End Sub
+
+    Private Sub CloseAnnouncements_Click(sender As Object, e As EventArgs) Handles CloseAnnouncements.Click
+        Me.Hide()
+    End Sub
+
+    Private Sub UpdateAnnouncements_Click(sender As Object, e As EventArgs) Handles UpdateAnnouncements.Click
+        MainProgram.ppPres.Slides(slideNumber).Shapes(1).TextFrame.TextRange.Text = AnnouncementTxt.Text
+        Try
+            My.Computer.FileSystem.WriteAllText(MainProgram.Current + "\Files\Announcements.txt", AnnouncementTxt.Text, False)
+            MessageBox.Show("Save Successful", "Save Successful")
+        Catch ex As Exception
+            MessageBox.Show("Save Unsuccessful", "Save Unsuccessful")
+        End Try
+
+    End Sub
+    Private Sub PRFontBtn_Click(sender As Object, e As EventArgs) Handles PRFontBtn.Click
+        MainProgram.ChangeFont(slideNumber, 1)
+    End Sub
+    Private Sub PRColorBtn_Click(sender As Object, e As EventArgs) Handles PRColorBtn.Click
+        MainProgram.ChangeColor(slideNumber, 1)
+    End Sub
+    Private Sub PRTitleFontBtn_Click(sender As Object, e As EventArgs) Handles PRTitleFontBtn.Click
+        MainProgram.ChangeFont(slideNumber, 2)
+    End Sub
+    Private Sub PRTitleColorBtn_Click(sender As Object, e As EventArgs) Handles PRTitleColorBtn.Click
+        MainProgram.ChangeColor(slideNumber, 2)
+    End Sub
+
+    Private Sub LoadAnnouncements_Click(sender As Object, e As EventArgs) Handles LoadAnnouncements.Click
+        OpenFileDialog.InitialDirectory = MainProgram.Current + "\Files\"
+        If OpenFileDialog.ShowDialog = DialogResult.OK Then
+            AnnouncementTxt.Text = IO.File.ReadAllText(OpenFileDialog.FileName)
+        End If
+    End Sub
+
+    Private Sub goToAnnouncements_Click(sender As Object, e As EventArgs) Handles goToAnnouncements.Click
+        MainProgram.ppPres.SlideShowWindow.View.GotoSlide(slideNumber)
+    End Sub
+
+
+    'CREATING DROPDOWN SHADOW AND ROUDED CORNERS
+    'https://stackoverflow.com/questions/16493698/drop-shadow-on-a-borderless-winform#:~:text=1)%20Create%20an%20image%20having,4)%20You%20are%20done!
     Protected Overrides ReadOnly Property CreateParams() As CreateParams
         Get
             CheckAeroEnabled()
@@ -45,44 +94,9 @@ Public Class Announcements
             aeroEnabled = False
         End If
     End Sub
-    Private Sub CloseAnnouncements_Click(sender As Object, e As EventArgs) Handles CloseAnnouncements.Click
-        Me.Hide()
-    End Sub
 
-    Private Sub UpdateAnnouncements_Click(sender As Object, e As EventArgs) Handles UpdateAnnouncements.Click
-        MainProgram.ppPres.Slides(4).Shapes(1).TextFrame.TextRange.Text = AnnouncementTxt.Text
-        Try
-            My.Computer.FileSystem.WriteAllText(MainProgram.Current + "\Files\Announcements.txt", AnnouncementTxt.Text, False)
-            MessageBox.Show("Save Successful", "Save Successful")
-        Catch ex As Exception
-            MessageBox.Show("Save Unsuccessful", "Save Unsuccessful")
-        End Try
 
-    End Sub
-    Private Sub PRFontBtn_Click(sender As Object, e As EventArgs) Handles PRFontBtn.Click
-        MainProgram.ChangeFont(4, 1)
-    End Sub
-    Private Sub PRColorBtn_Click(sender As Object, e As EventArgs) Handles PRColorBtn.Click
-        MainProgram.ChangeColor(4, 1)
-    End Sub
-    Private Sub PRTitleFontBtn_Click(sender As Object, e As EventArgs) Handles PRTitleFontBtn.Click
-        MainProgram.ChangeFont(4, 2)
-    End Sub
-    Private Sub PRTitleColorBtn_Click(sender As Object, e As EventArgs) Handles PRTitleColorBtn.Click
-        MainProgram.ChangeColor(4, 2)
-    End Sub
-
-    Private Sub LoadAnnouncements_Click(sender As Object, e As EventArgs) Handles LoadAnnouncements.Click
-        OpenFileDialog.InitialDirectory = MainProgram.Current + "\Files\"
-        If OpenFileDialog.ShowDialog = DialogResult.OK Then
-            AnnouncementTxt.Text = IO.File.ReadAllText(OpenFileDialog.FileName)
-        End If
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        MainProgram.ppPres.SlideShowWindow.View.GotoSlide(4)
-    End Sub
-
+    'DEALING WITH FORM MOVEMENT
     'https://stackoverflow.com/questions/17392088/allow-a-user-to-move-a-borderless-window
     Private IsFormBeingDragged As Boolean = False
     Private MouseDownX As Integer
@@ -96,14 +110,12 @@ Public Class Announcements
             MouseDownY = e.Y
         End If
     End Sub
-
     Private Sub Form1_MouseUp(ByVal sender As Object, ByVal e As MouseEventArgs) Handles navBar.MouseUp, header.MouseUp
 
         If e.Button = MouseButtons.Left Then
             IsFormBeingDragged = False
         End If
     End Sub
-
     Private Sub Form1_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles navBar.MouseMove, header.MouseMove
 
         If IsFormBeingDragged Then
@@ -115,11 +127,5 @@ Public Class Announcements
             temp = Nothing
         End If
     End Sub
-
-    Private Sub Announcements_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.aeroEnabled = False
-        Me.FormBorderStyle = FormBorderStyle.None
-    End Sub
-
 
 End Class

@@ -30,7 +30,7 @@ Partial Class HolyCommunion
         Me.HCClose = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.goToHCSlide = New System.Windows.Forms.Button()
         Me.navBar = New System.Windows.Forms.FlowLayoutPanel()
         Me.SuspendLayout()
         '
@@ -124,13 +124,13 @@ Partial Class HolyCommunion
         '
         'Button1
         '
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(675, 155)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(63, 44)
-        Me.Button1.TabIndex = 7
-        Me.Button1.Text = "Go To Slide"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.goToHCSlide.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.goToHCSlide.Location = New System.Drawing.Point(675, 155)
+        Me.goToHCSlide.Name = "Button1"
+        Me.goToHCSlide.Size = New System.Drawing.Size(63, 44)
+        Me.goToHCSlide.TabIndex = 7
+        Me.goToHCSlide.Text = "Go To Slide"
+        Me.goToHCSlide.UseVisualStyleBackColor = True
         '
         'navBar
         '
@@ -149,7 +149,7 @@ Partial Class HolyCommunion
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(750, 450)
         Me.ControlBox = False
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.goToHCSlide)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.HCClose)
@@ -180,6 +180,6 @@ Partial Class HolyCommunion
     Friend WithEvents HCClose As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Button1 As Button
+    Friend WithEvents goToHCSlide As Button
     Friend WithEvents navBar As FlowLayoutPanel
 End Class
