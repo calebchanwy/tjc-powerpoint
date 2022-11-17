@@ -47,6 +47,7 @@ Public Class Announcements
         OpenFileDialog.InitialDirectory = MainProgram.CurrentDirectory + "\Files\"
         If OpenFileDialog.ShowDialog = DialogResult.OK Then
             AnnouncementTxt.Text = IO.File.ReadAllText(OpenFileDialog.FileName)
+            Call UpdateAnnouncements_Click(sender, e)
         End If
     End Sub
 

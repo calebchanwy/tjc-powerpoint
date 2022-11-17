@@ -479,6 +479,9 @@ Public Class MainProgram
     End Sub
 
     Private Sub OpenFolder_Click(sender As Object, e As EventArgs) Handles OpenFolder.Click
+        openFilesFolder()
+    End Sub
+    Public Sub openFilesFolder()
         Process.Start(CurrentDirectory + "\Files")
     End Sub
 

@@ -48,24 +48,25 @@ Partial Class Announcements
         '
         'UpdateAnnouncements
         '
-        Me.UpdateAnnouncements.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UpdateAnnouncements.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
         Me.UpdateAnnouncements.ForeColor = System.Drawing.Color.Navy
         Me.UpdateAnnouncements.Location = New System.Drawing.Point(20, 397)
         Me.UpdateAnnouncements.Name = "UpdateAnnouncements"
-        Me.UpdateAnnouncements.Size = New System.Drawing.Size(198, 43)
+        Me.UpdateAnnouncements.Size = New System.Drawing.Size(187, 43)
         Me.UpdateAnnouncements.TabIndex = 3
         Me.UpdateAnnouncements.Text = "Update Announcements"
         Me.UpdateAnnouncements.UseVisualStyleBackColor = True
         '
         'LoadAnnouncements
         '
-        Me.LoadAnnouncements.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LoadAnnouncements.Location = New System.Drawing.Point(391, 398)
+        Me.LoadAnnouncements.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LoadAnnouncements.ForeColor = System.Drawing.Color.Navy
+        Me.LoadAnnouncements.Location = New System.Drawing.Point(213, 398)
         Me.LoadAnnouncements.Name = "LoadAnnouncements"
-        Me.LoadAnnouncements.Size = New System.Drawing.Size(86, 43)
+        Me.LoadAnnouncements.Size = New System.Drawing.Size(165, 42)
         Me.LoadAnnouncements.TabIndex = 3
         Me.LoadAnnouncements.TabStop = False
-        Me.LoadAnnouncements.Text = "Open Folder"
+        Me.LoadAnnouncements.Text = "Insert Announcements"
         Me.LoadAnnouncements.UseVisualStyleBackColor = True
         '
         'CloseAnnouncements
@@ -210,7 +211,7 @@ Partial Class Announcements
         'goToAnnouncements
         '
         Me.goToAnnouncements.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.goToAnnouncements.Location = New System.Drawing.Point(224, 397)
+        Me.goToAnnouncements.Location = New System.Drawing.Point(384, 397)
         Me.goToAnnouncements.Name = "goToAnnouncements"
         Me.goToAnnouncements.Size = New System.Drawing.Size(161, 43)
         Me.goToAnnouncements.TabIndex = 17

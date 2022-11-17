@@ -239,6 +239,7 @@ Partial Class MainProgram
         Me.UpdateVerse.Cursor = System.Windows.Forms.Cursors.Hand
         Me.UpdateVerse.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UpdateVerse.ForeColor = System.Drawing.Color.Navy
+        Me.UpdateVerse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.UpdateVerse.Location = New System.Drawing.Point(538, 83)
         Me.UpdateVerse.Name = "UpdateVerse"
         Me.UpdateVerse.Size = New System.Drawing.Size(241, 41)
