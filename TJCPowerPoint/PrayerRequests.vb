@@ -7,7 +7,7 @@ Public Class PrayerRequests
     Private Sub onCreate(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.aeroEnabled = False
         Me.FormBorderStyle = FormBorderStyle.None
-        directory = MainProgram.Current + "\Files\PrayerRequests.txt"
+        directory = MainProgram.CurrentDirectory + "\Files\PrayerRequests.txt"
         If My.Computer.FileSystem.FileExists(directory) Then
             PrayerRequestTxt.Text = IO.File.ReadAllText(directory)
         End If
@@ -17,15 +17,18 @@ Public Class PrayerRequests
     End Sub
 
     'Method handling when form is closed
-    Private Sub ClosePrayerRequests_Click(sender As Object, e As EventArgs) Handles ClosePrayerRequests.Click
+    Private Sub ClosePrayerRequests_Click(sender As Object, e As EventArgs) Handles ClosePrayerRequests.Click, closeForm.Click
         Me.Hide()
+    End Sub
+    Private Sub minForm_Click(sender As Object, e As EventArgs) Handles minForm.Click
+        Me.WindowState = FormWindowState.Minimized
     End Sub
 
 
     Private Sub UpdatePrayerRequests_Click(sender As Object, e As EventArgs) Handles UpdatePrayerRequests.Click
         MainProgram.ppPres.Slides(slideNumber).Shapes(1).TextFrame.TextRange.Text = PrayerRequestTxt.Text
         Try
-            My.Computer.FileSystem.WriteAllText(MainProgram.Current + "\Files\PrayerRequests.txt", PrayerRequestTxt.Text, False)
+            My.Computer.FileSystem.WriteAllText(MainProgram.CurrentDirectory + "\Files\PrayerRequests.txt", PrayerRequestTxt.Text, False)
             MessageBox.Show("Save Successful", "Save Successful")
         Catch ex As Exception
             MessageBox.Show("Save Unsuccessful", "Save Unsuccessful")
@@ -49,9 +52,15 @@ Public Class PrayerRequests
         Call MainProgram.insertPrayerImage()
     End Sub
 
+    Private Sub deletePrayerImage_Click(sender As Object, e As EventArgs) Handles deletePrayerImage.Click
+        Call MainProgram.deletePrayerImage()
+    End Sub
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         MainProgram.ppPres.SlideShowWindow.View.GotoSlide(slideNumber)
     End Sub
+
+
 
 
     'FOLLOWING METHODS DEAL WITH CREATING WINDOW AS A BORDERLESS DROP SHADOW WINDOWS FORM

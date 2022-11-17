@@ -7,10 +7,11 @@ Imports System.Xml
 Public Class MainProgram
     Dim ppApp As New PowerPoint.Application
     Public ppPres As PowerPoint.Presentation
-    Public Current As String = Directory.GetCurrentDirectory()
+    Public CurrentDirectory As String = Directory.GetCurrentDirectory()
     Dim PrayerRequests As New PrayerRequests
     Dim Writer As XmlTextWriter = Nothing
     Dim RecentFile As String
+
 
     'Method dealing with what the form will do when it initially opens
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -49,17 +50,17 @@ Public Class MainProgram
     'Method called to create a folder for the files and resources
     Public Sub MakeFolder()
         If Directory.Exists("\Files") = False Then
-            My.Computer.FileSystem.CreateDirectory(Current + "\Files")
+            My.Computer.FileSystem.CreateDirectory(CurrentDirectory + "\Files")
         End If
-        If My.Computer.FileSystem.FileExists(Current + "\Files\ServiceWidescreen.pptx") = False Then
-            System.IO.File.WriteAllBytes(Current + "\Files\ServiceWidescreen.pptx", My.Resources.ServiceWidescreen)
+        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\ServiceWidescreen.pptx") = False Then
+            System.IO.File.WriteAllBytes(CurrentDirectory + "\Files\ServiceWidescreen.pptx", My.Resources.ServiceWidescreen)
         End If
     End Sub
 
     'Method to load up the presentation and instantiate slide text boxes
     Public Sub LoadPres()
         ppApp = CreateObject("PowerPoint.Application")
-        ppPres = ppApp.Presentations.Open(Current + "\Files\ServiceWidescreen.pptx", [ReadOnly]:=Office.MsoTriState.msoFalse, WithWindow:=Office.MsoTriState.msoFalse)
+        ppPres = ppApp.Presentations.Open(CurrentDirectory + "\Files\ServiceWidescreen.pptx", [ReadOnly]:=Office.MsoTriState.msoFalse, WithWindow:=Office.MsoTriState.msoFalse)
         ppPres.Slides(1).Name = "Service/Hymnal"
         ppPres.Slides(2).Name = "Prayer Requests"
         ppPres.Slides(3).Name = "Announcements"
@@ -98,12 +99,12 @@ Public Class MainProgram
     Public Sub LoadHC()
         Dim bread As String
         Dim cup As String
-        If My.Computer.FileSystem.FileExists(Current + "\Files\bread.txt") = True Then
-            bread = My.Computer.FileSystem.ReadAllText(Current + "\Files\bread.txt")
+        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\bread.txt") = True Then
+            bread = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\bread.txt")
             ppPres.Slides(5).Shapes(1).TextFrame.TextRange.Text = bread
         End If
-        If My.Computer.FileSystem.FileExists(Current + "\Files\cup.txt") = True Then
-            cup = My.Computer.FileSystem.ReadAllText(Current + "\Files\cup.txt")
+        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\cup.txt") = True Then
+            cup = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\cup.txt")
             ppPres.Slides(5).Shapes(2).TextFrame.TextRange.Text = cup
         End If
     End Sub
@@ -111,11 +112,11 @@ Public Class MainProgram
     'Method to deal with loading the prayer requests image using directory listed out in text file
     'If no text file exists, then no prayer request image will be loaded
     Public Sub LoadPrayerImage()
-        If My.Computer.FileSystem.FileExists(Current + "\Files\prayerImgDir.txt") = False Then
-            System.IO.File.WriteAllText(Current + "\Files\prayerImgDir.txt", "")
+        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\prayerImgDir.txt") = False Then
+            System.IO.File.WriteAllText(CurrentDirectory + "\Files\prayerImgDir.txt", "")
         Else
             Dim directory As String
-            directory = My.Computer.FileSystem.ReadAllText(Current + "\Files\prayerImgDir.txt")
+            directory = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\prayerImgDir.txt")
             If My.Computer.FileSystem.FileExists(directory) = True Then
                 ppPres.Slides(2).Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
             End If
@@ -125,11 +126,11 @@ Public Class MainProgram
     'Method to deal with loading the timetable image using directory listed out in text file
     'If no text file exists, then no prayer request image will be loaded
     Public Sub LoadTimetableImg()
-        If My.Computer.FileSystem.FileExists(Current + "\Files\timetableDir.txt") = False Then
-            System.IO.File.WriteAllText(Current + "\Files\timetableDir.txt", "")
+        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\timetableDir.txt") = False Then
+            System.IO.File.WriteAllText(CurrentDirectory + "\Files\timetableDir.txt", "")
         Else
             Dim directory As String
-            directory = My.Computer.FileSystem.ReadAllText(Current + "\Files\timetableDir.txt")
+            directory = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\timetableDir.txt")
             If My.Computer.FileSystem.FileExists(directory) = True Then
                 ppPres.Slides(8).Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
             End If
@@ -176,40 +177,40 @@ Public Class MainProgram
     End Sub
 
     Public Sub HandleSettings()
-        If My.Computer.FileSystem.FileExists(Current + "\Files\Settings.ini") Then
-            Dim Settings As Array = File.ReadAllLines(Current + "\Files\Settings.ini")
+        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\Settings.ini") Then
+            Dim Settings As Array = File.ReadAllLines(CurrentDirectory + "\Files\Settings.ini")
             For Each str As String In Settings
                 LoadSettings(str)
             Next
         Else
-            File.WriteAllBytes(Current + "\Files\Settings.ini", My.Resources.Settings)
-            Dim Settings As Array = File.ReadAllLines(Current + "\Files\Settings.ini")
+            File.WriteAllBytes(CurrentDirectory + "\Files\Settings.ini", My.Resources.Settings)
+            Dim Settings As Array = File.ReadAllLines(CurrentDirectory + "\Files\Settings.ini")
             For Each str As String In Settings
                 LoadSettings(str)
             Next
         End If
     End Sub
     Public Sub HandleAnnouncements()
-        If My.Computer.FileSystem.FileExists(Current + "\Files\Announcements.txt") Then
-            Announcements.AnnouncementTxt.Text = File.ReadAllText(Current + "\Files\Announcements.txt", System.Text.Encoding.UTF32)
+        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\Announcements.txt") Then
+            Announcements.AnnouncementTxt.Text = File.ReadAllText(CurrentDirectory + "\Files\Announcements.txt", System.Text.Encoding.UTF32)
             ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = Announcements.AnnouncementTxt.Text
         Else
-            Using sw As StreamWriter = File.CreateText(Current + "\Files\Announcements.txt")
+            Using sw As StreamWriter = File.CreateText(CurrentDirectory + "\Files\Announcements.txt")
                 sw.WriteLine(" ")
             End Using
-            Announcements.AnnouncementTxt.Text = File.ReadAllText(Current + "\Files\Announcements.txt", System.Text.Encoding.UTF32)
+            Announcements.AnnouncementTxt.Text = File.ReadAllText(CurrentDirectory + "\Files\Announcements.txt", System.Text.Encoding.UTF32)
             ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = Announcements.AnnouncementTxt.Text
         End If
     End Sub
     Public Sub HandlePrayerRequests()
-        If My.Computer.FileSystem.FileExists(Current + "\Files\PrayerRequests.txt") Then
-            PrayerRequests.PrayerRequestTxt.Text = File.ReadAllText(Current + "\Files\PrayerRequests.txt", System.Text.Encoding.UTF32)
+        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\PrayerRequests.txt") Then
+            PrayerRequests.PrayerRequestTxt.Text = File.ReadAllText(CurrentDirectory + "\Files\PrayerRequests.txt", System.Text.Encoding.UTF32)
             ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Text = PrayerRequests.PrayerRequestTxt.Text
         Else
-            Using sw As StreamWriter = File.CreateText(Current + "\Files\PrayerRequests.txt")
+            Using sw As StreamWriter = File.CreateText(CurrentDirectory + "\Files\PrayerRequests.txt")
                 sw.WriteLine(" ")
             End Using
-            PrayerRequests.PrayerRequestTxt.Text = File.ReadAllText(Current + "\Files\PrayerRequests.txt", System.Text.Encoding.UTF32)
+            PrayerRequests.PrayerRequestTxt.Text = File.ReadAllText(CurrentDirectory + "\Files\PrayerRequests.txt", System.Text.Encoding.UTF32)
             ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Text = PrayerRequests.PrayerRequestTxt.Text
         End If
     End Sub
@@ -470,7 +471,7 @@ Public Class MainProgram
             End If
         Next
         Try
-            My.Computer.FileSystem.WriteAllText(Current + "\Files\Settings.ini", CurrentSettings, False)
+            My.Computer.FileSystem.WriteAllText(CurrentDirectory + "\Files\Settings.ini", CurrentSettings, False)
             MessageBox.Show("Save Successful", "Save Successful")
         Catch ex As Exception
             MessageBox.Show("Save Unsuccessful", "Save Unsuccessful")
@@ -478,7 +479,7 @@ Public Class MainProgram
     End Sub
 
     Private Sub OpenFolder_Click(sender As Object, e As EventArgs) Handles OpenFolder.Click
-        Process.Start(Current + "\Files")
+        Process.Start(CurrentDirectory + "\Files")
     End Sub
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
@@ -545,8 +546,9 @@ Public Class MainProgram
             ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Downloads"
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*"
             If ofd.ShowDialog = DialogResult.OK Then
+                deletePrayerImage()
                 ppPres.Slides(2).Shapes.AddPicture(ofd.FileName, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
-                System.IO.File.WriteAllText(Current + "\Files\prayerImgDir.txt", ofd.FileName)
+                System.IO.File.WriteAllText(CurrentDirectory + "\Files\prayerImgDir.txt", ofd.FileName)
                 MessageBox.Show("Prayer Image Was Successfully Updated", "Success")
             Else
                 MessageBox.Show("Prayer Image Was Not Successfully Updated. Please Try Again", "Error")
@@ -556,6 +558,13 @@ Public Class MainProgram
         Catch ex As Exception
             MessageBox.Show("Prayer Image Was Not Successfully Updated. Please Try Again", "Error")
         End Try
+    End Sub
+
+    Public Sub deletePrayerImage()
+        If ppPres.Slides(2).Shapes.Count >= 6 Then
+            ppPres.Slides(2).Shapes(6).Delete()
+            System.IO.File.WriteAllText(CurrentDirectory + "\Files\prayerImgDir.txt", "")
+        End If
     End Sub
 
     Private Sub edtHC_Click(sender As Object, e As EventArgs) Handles edtHC.Click
@@ -573,7 +582,7 @@ Public Class MainProgram
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*"
             If ofd.ShowDialog = DialogResult.OK Then
                 ppPres.Slides(7).Shapes.AddPicture(ofd.FileName, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
-                System.IO.File.WriteAllText(Current + "\Files\timetableDir.txt", ofd.FileName)
+                System.IO.File.WriteAllText(CurrentDirectory + "\Files\timetableDir.txt", ofd.FileName)
                 MessageBox.Show("Service Timetable Was Successfully Updated", "Success")
             Else
                 MessageBox.Show("Service Timetable Was Not Successfully Updated. Please Try Again", "Error")

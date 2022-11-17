@@ -40,16 +40,19 @@ Partial Class Announcements
         Me.PRTitleColorBtn = New System.Windows.Forms.Button()
         Me.goToAnnouncements = New System.Windows.Forms.Button()
         Me.navBar = New System.Windows.Forms.FlowLayoutPanel()
+        Me.closeForm = New System.Windows.Forms.Button()
+        Me.minForm = New System.Windows.Forms.Button()
         Me.Panel.SuspendLayout()
+        Me.navBar.SuspendLayout()
         Me.SuspendLayout()
         '
         'UpdateAnnouncements
         '
         Me.UpdateAnnouncements.Font = New System.Drawing.Font("Segoe UI Semibold", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UpdateAnnouncements.ForeColor = System.Drawing.Color.Navy
-        Me.UpdateAnnouncements.Location = New System.Drawing.Point(627, 153)
+        Me.UpdateAnnouncements.Location = New System.Drawing.Point(20, 397)
         Me.UpdateAnnouncements.Name = "UpdateAnnouncements"
-        Me.UpdateAnnouncements.Size = New System.Drawing.Size(86, 113)
+        Me.UpdateAnnouncements.Size = New System.Drawing.Size(198, 43)
         Me.UpdateAnnouncements.TabIndex = 3
         Me.UpdateAnnouncements.Text = "Update Announcements"
         Me.UpdateAnnouncements.UseVisualStyleBackColor = True
@@ -57,9 +60,9 @@ Partial Class Announcements
         'LoadAnnouncements
         '
         Me.LoadAnnouncements.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LoadAnnouncements.Location = New System.Drawing.Point(627, 272)
+        Me.LoadAnnouncements.Location = New System.Drawing.Point(391, 398)
         Me.LoadAnnouncements.Name = "LoadAnnouncements"
-        Me.LoadAnnouncements.Size = New System.Drawing.Size(86, 33)
+        Me.LoadAnnouncements.Size = New System.Drawing.Size(86, 43)
         Me.LoadAnnouncements.TabIndex = 3
         Me.LoadAnnouncements.TabStop = False
         Me.LoadAnnouncements.Text = "Open Folder"
@@ -67,10 +70,11 @@ Partial Class Announcements
         '
         'CloseAnnouncements
         '
-        Me.CloseAnnouncements.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CloseAnnouncements.Location = New System.Drawing.Point(627, 386)
+        Me.CloseAnnouncements.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CloseAnnouncements.ForeColor = System.Drawing.Color.Maroon
+        Me.CloseAnnouncements.Location = New System.Drawing.Point(627, 398)
         Me.CloseAnnouncements.Name = "CloseAnnouncements"
-        Me.CloseAnnouncements.Size = New System.Drawing.Size(86, 54)
+        Me.CloseAnnouncements.Size = New System.Drawing.Size(86, 42)
         Me.CloseAnnouncements.TabIndex = 4
         Me.CloseAnnouncements.Text = "Close"
         Me.CloseAnnouncements.UseVisualStyleBackColor = True
@@ -125,7 +129,7 @@ Partial Class Announcements
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(9, 389)
+        Me.Label3.Location = New System.Drawing.Point(20, 379)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(402, 13)
         Me.Label3.TabIndex = 15
@@ -140,7 +144,7 @@ Partial Class Announcements
         Me.AnnouncementTxt.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.AnnouncementTxt.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AnnouncementTxt.ForeColor = System.Drawing.Color.White
-        Me.AnnouncementTxt.Location = New System.Drawing.Point(0, 0)
+        Me.AnnouncementTxt.Location = New System.Drawing.Point(1, 1)
         Me.AnnouncementTxt.Multiline = True
         Me.AnnouncementTxt.Name = "AnnouncementTxt"
         Me.AnnouncementTxt.Size = New System.Drawing.Size(609, 328)
@@ -152,7 +156,7 @@ Partial Class Announcements
         '
         Me.Panel.BackColor = System.Drawing.Color.Black
         Me.Panel.Controls.Add(Me.AnnouncementTxt)
-        Me.Panel.Location = New System.Drawing.Point(12, 55)
+        Me.Panel.Location = New System.Drawing.Point(20, 48)
         Me.Panel.Name = "Panel"
         Me.Panel.Size = New System.Drawing.Size(609, 328)
         Me.Panel.TabIndex = 14
@@ -163,11 +167,12 @@ Partial Class Announcements
         Me.header.BackColor = System.Drawing.Color.Transparent
         Me.header.Cursor = System.Windows.Forms.Cursors.SizeAll
         Me.header.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.header.Location = New System.Drawing.Point(12, 21)
+        Me.header.ForeColor = System.Drawing.Color.SteelBlue
+        Me.header.Location = New System.Drawing.Point(12, 16)
         Me.header.Name = "header"
-        Me.header.Size = New System.Drawing.Size(224, 30)
+        Me.header.Size = New System.Drawing.Size(174, 30)
         Me.header.TabIndex = 16
-        Me.header.Text = "Edit Announcements:"
+        Me.header.Text = "Announcements"
         '
         'PRTitleFontBtn
         '
@@ -204,10 +209,10 @@ Partial Class Announcements
         '
         'goToAnnouncements
         '
-        Me.goToAnnouncements.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.goToAnnouncements.Location = New System.Drawing.Point(627, 311)
+        Me.goToAnnouncements.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.goToAnnouncements.Location = New System.Drawing.Point(224, 397)
         Me.goToAnnouncements.Name = "goToAnnouncements"
-        Me.goToAnnouncements.Size = New System.Drawing.Size(86, 68)
+        Me.goToAnnouncements.Size = New System.Drawing.Size(161, 43)
         Me.goToAnnouncements.TabIndex = 17
         Me.goToAnnouncements.Text = "Go To Announcements"
         Me.goToAnnouncements.UseVisualStyleBackColor = True
@@ -215,11 +220,50 @@ Partial Class Announcements
         'navBar
         '
         Me.navBar.BackColor = System.Drawing.Color.Transparent
+        Me.navBar.Controls.Add(Me.closeForm)
+        Me.navBar.Controls.Add(Me.minForm)
         Me.navBar.Cursor = System.Windows.Forms.Cursors.Default
+        Me.navBar.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.navBar.Location = New System.Drawing.Point(0, 0)
         Me.navBar.Name = "navBar"
-        Me.navBar.Size = New System.Drawing.Size(725, 51)
+        Me.navBar.Padding = New System.Windows.Forms.Padding(5)
+        Me.navBar.Size = New System.Drawing.Size(725, 49)
         Me.navBar.TabIndex = 18
+        '
+        'closeForm
+        '
+        Me.closeForm.BackColor = System.Drawing.Color.Transparent
+        Me.closeForm.BackgroundImage = CType(resources.GetObject("closeForm.BackgroundImage"), System.Drawing.Image)
+        Me.closeForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.closeForm.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.closeForm.FlatAppearance.BorderSize = 0
+        Me.closeForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.closeForm.ForeColor = System.Drawing.Color.Transparent
+        Me.closeForm.Location = New System.Drawing.Point(693, 12)
+        Me.closeForm.Margin = New System.Windows.Forms.Padding(7)
+        Me.closeForm.Name = "closeForm"
+        Me.closeForm.Size = New System.Drawing.Size(15, 15)
+        Me.closeForm.TabIndex = 19
+        Me.closeForm.TabStop = False
+        Me.closeForm.UseVisualStyleBackColor = False
+        '
+        'minForm
+        '
+        Me.minForm.BackColor = System.Drawing.Color.Transparent
+        Me.minForm.BackgroundImage = CType(resources.GetObject("minForm.BackgroundImage"), System.Drawing.Image)
+        Me.minForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.minForm.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.minForm.FlatAppearance.BorderSize = 0
+        Me.minForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.minForm.ForeColor = System.Drawing.Color.Transparent
+        Me.minForm.Location = New System.Drawing.Point(665, 13)
+        Me.minForm.Margin = New System.Windows.Forms.Padding(8)
+        Me.minForm.Name = "minForm"
+        Me.minForm.Padding = New System.Windows.Forms.Padding(3)
+        Me.minForm.Size = New System.Drawing.Size(13, 13)
+        Me.minForm.TabIndex = 20
+        Me.minForm.TabStop = False
+        Me.minForm.UseVisualStyleBackColor = False
         '
         'Announcements
         '
@@ -229,6 +273,7 @@ Partial Class Announcements
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(725, 450)
         Me.ControlBox = False
+        Me.Controls.Add(Me.UpdateAnnouncements)
         Me.Controls.Add(Me.goToAnnouncements)
         Me.Controls.Add(Me.header)
         Me.Controls.Add(Me.Label3)
@@ -241,7 +286,6 @@ Partial Class Announcements
         Me.Controls.Add(Me.PRFontBtn)
         Me.Controls.Add(Me.CloseAnnouncements)
         Me.Controls.Add(Me.LoadAnnouncements)
-        Me.Controls.Add(Me.UpdateAnnouncements)
         Me.Controls.Add(Me.navBar)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -254,6 +298,7 @@ Partial Class Announcements
         Me.Text = "Announcements"
         Me.Panel.ResumeLayout(False)
         Me.Panel.PerformLayout()
+        Me.navBar.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -275,4 +320,6 @@ Partial Class Announcements
     Friend WithEvents PRTitleColorBtn As Button
     Friend WithEvents goToAnnouncements As Button
     Friend WithEvents navBar As FlowLayoutPanel
+    Friend WithEvents closeForm As Button
+    Friend WithEvents minForm As Button
 End Class

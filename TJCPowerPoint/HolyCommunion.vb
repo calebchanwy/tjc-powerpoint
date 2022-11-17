@@ -6,12 +6,12 @@ Public Class HolyCommunion
     Private Sub onCreate(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim bread As String
         Dim cup As String
-        If My.Computer.FileSystem.FileExists(MainProgram.Current + "\Files\bread.txt") = True Then
-            bread = My.Computer.FileSystem.ReadAllText(MainProgram.Current + "\Files\bread.txt")
+        If My.Computer.FileSystem.FileExists(MainProgram.CurrentDirectory + "\Files\bread.txt") = True Then
+            bread = My.Computer.FileSystem.ReadAllText(MainProgram.CurrentDirectory + "\Files\bread.txt")
             breadTxt.Text = bread
         End If
-        If My.Computer.FileSystem.FileExists(MainProgram.Current + "\Files\cup.txt") = True Then
-            cup = My.Computer.FileSystem.ReadAllText(MainProgram.Current + "\Files\cup.txt")
+        If My.Computer.FileSystem.FileExists(MainProgram.CurrentDirectory + "\Files\cup.txt") = True Then
+            cup = My.Computer.FileSystem.ReadAllText(MainProgram.CurrentDirectory + "\Files\cup.txt")
             cupTxt.Text = cup
         End If
 
@@ -21,16 +21,20 @@ Public Class HolyCommunion
     End Sub
 
     'Method handling when form is closed
-    Private Sub HCClose_Click(sender As Object, e As EventArgs) Handles HCClose.Click
+    Private Sub HCClose_Click(sender As Object, e As EventArgs) Handles HCClose.Click, closeForm.Click
         Me.Hide()
+    End Sub
+
+    Private Sub minForm_Click(sender As Object, e As EventArgs) Handles minForm.Click
+        Me.WindowState = FormWindowState.Minimized
     End Sub
 
     Private Sub updateHC_Click(sender As Object, e As EventArgs) Handles updateHC.Click
         MainProgram.ppPres.Slides(slideNumber).Shapes(2).TextFrame.TextRange.Text = breadTxt.Text
         MainProgram.ppPres.Slides(slideNumber).Shapes(3).TextFrame.TextRange.Text = cupTxt.Text
         Try
-            My.Computer.FileSystem.WriteAllText(MainProgram.Current + "\Files\bread.txt", breadTxt.Text, False)
-            My.Computer.FileSystem.WriteAllText(MainProgram.Current + "\Files\cup.txt", cupTxt.Text, False)
+            My.Computer.FileSystem.WriteAllText(MainProgram.CurrentDirectory + "\Files\bread.txt", breadTxt.Text, False)
+            My.Computer.FileSystem.WriteAllText(MainProgram.CurrentDirectory + "\Files\cup.txt", cupTxt.Text, False)
             MessageBox.Show("Update Successful", "Update Successful")
 
         Catch ex As Exception
@@ -119,4 +123,5 @@ Public Class HolyCommunion
             aeroEnabled = False
         End If
     End Sub
+
 End Class

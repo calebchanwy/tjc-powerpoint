@@ -32,6 +32,9 @@ Partial Class HolyCommunion
         Me.Label2 = New System.Windows.Forms.Label()
         Me.goToHCSlide = New System.Windows.Forms.Button()
         Me.navBar = New System.Windows.Forms.FlowLayoutPanel()
+        Me.closeForm = New System.Windows.Forms.Button()
+        Me.minForm = New System.Windows.Forms.Button()
+        Me.navBar.SuspendLayout()
         Me.SuspendLayout()
         '
         'breadTxt
@@ -41,11 +44,11 @@ Partial Class HolyCommunion
         Me.breadTxt.BackColor = System.Drawing.Color.Black
         Me.breadTxt.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.breadTxt.ForeColor = System.Drawing.Color.White
-        Me.breadTxt.Location = New System.Drawing.Point(11, 97)
+        Me.breadTxt.Location = New System.Drawing.Point(32, 81)
         Me.breadTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.breadTxt.Multiline = True
         Me.breadTxt.Name = "breadTxt"
-        Me.breadTxt.Size = New System.Drawing.Size(326, 344)
+        Me.breadTxt.Size = New System.Drawing.Size(326, 297)
         Me.breadTxt.TabIndex = 0
         Me.breadTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -56,11 +59,11 @@ Partial Class HolyCommunion
         Me.cupTxt.BackColor = System.Drawing.Color.Black
         Me.cupTxt.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cupTxt.ForeColor = System.Drawing.Color.White
-        Me.cupTxt.Location = New System.Drawing.Point(343, 97)
+        Me.cupTxt.Location = New System.Drawing.Point(386, 81)
         Me.cupTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cupTxt.Multiline = True
         Me.cupTxt.Name = "cupTxt"
-        Me.cupTxt.Size = New System.Drawing.Size(326, 344)
+        Me.cupTxt.Size = New System.Drawing.Size(326, 297)
         Me.cupTxt.TabIndex = 1
         Me.cupTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -70,22 +73,23 @@ Partial Class HolyCommunion
         Me.header.BackColor = System.Drawing.Color.Transparent
         Me.header.Cursor = System.Windows.Forms.Cursors.Default
         Me.header.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.header.Location = New System.Drawing.Point(10, 23)
+        Me.header.ForeColor = System.Drawing.Color.SteelBlue
+        Me.header.Location = New System.Drawing.Point(29, 16)
         Me.header.Name = "header"
-        Me.header.Size = New System.Drawing.Size(285, 30)
+        Me.header.Size = New System.Drawing.Size(187, 30)
         Me.header.TabIndex = 2
-        Me.header.Text = "Edit Holy Communion Slide"
+        Me.header.Text = "Holy Communion"
         Me.header.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'updateHC
         '
         Me.updateHC.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.updateHC.ForeColor = System.Drawing.Color.Navy
-        Me.updateHC.Location = New System.Drawing.Point(675, 97)
+        Me.updateHC.Location = New System.Drawing.Point(32, 393)
         Me.updateHC.Name = "updateHC"
-        Me.updateHC.Size = New System.Drawing.Size(63, 52)
+        Me.updateHC.Size = New System.Drawing.Size(257, 34)
         Me.updateHC.TabIndex = 3
-        Me.updateHC.Text = "Update Slide"
+        Me.updateHC.Text = "Update Holy Communion Slide"
         Me.updateHC.UseVisualStyleBackColor = True
         '
         'HCClose
@@ -93,9 +97,9 @@ Partial Class HolyCommunion
         Me.HCClose.BackColor = System.Drawing.Color.White
         Me.HCClose.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HCClose.ForeColor = System.Drawing.Color.Maroon
-        Me.HCClose.Location = New System.Drawing.Point(675, 407)
+        Me.HCClose.Location = New System.Drawing.Point(649, 395)
         Me.HCClose.Name = "HCClose"
-        Me.HCClose.Size = New System.Drawing.Size(63, 34)
+        Me.HCClose.Size = New System.Drawing.Size(63, 32)
         Me.HCClose.TabIndex = 4
         Me.HCClose.Text = "Close"
         Me.HCClose.UseVisualStyleBackColor = False
@@ -105,7 +109,7 @@ Partial Class HolyCommunion
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(137, 70)
+        Me.Label1.Location = New System.Drawing.Point(165, 52)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(69, 25)
         Me.Label1.TabIndex = 5
@@ -116,30 +120,69 @@ Partial Class HolyCommunion
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(486, 70)
+        Me.Label2.Location = New System.Drawing.Point(527, 52)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 25)
         Me.Label2.TabIndex = 6
         Me.Label2.Text = "Cup:"
         '
-        'Button1
+        'goToHCSlide
         '
         Me.goToHCSlide.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.goToHCSlide.Location = New System.Drawing.Point(675, 155)
-        Me.goToHCSlide.Name = "Button1"
-        Me.goToHCSlide.Size = New System.Drawing.Size(63, 44)
+        Me.goToHCSlide.Location = New System.Drawing.Point(295, 393)
+        Me.goToHCSlide.Name = "goToHCSlide"
+        Me.goToHCSlide.Size = New System.Drawing.Size(196, 34)
         Me.goToHCSlide.TabIndex = 7
-        Me.goToHCSlide.Text = "Go To Slide"
+        Me.goToHCSlide.Text = "Go To Holy Communion Slide"
         Me.goToHCSlide.UseVisualStyleBackColor = True
         '
         'navBar
         '
         Me.navBar.BackColor = System.Drawing.Color.Transparent
+        Me.navBar.Controls.Add(Me.closeForm)
+        Me.navBar.Controls.Add(Me.minForm)
         Me.navBar.Cursor = System.Windows.Forms.Cursors.Default
+        Me.navBar.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
         Me.navBar.Location = New System.Drawing.Point(0, -2)
         Me.navBar.Name = "navBar"
-        Me.navBar.Size = New System.Drawing.Size(749, 69)
+        Me.navBar.Padding = New System.Windows.Forms.Padding(5)
+        Me.navBar.Size = New System.Drawing.Size(749, 51)
         Me.navBar.TabIndex = 8
+        '
+        'closeForm
+        '
+        Me.closeForm.BackColor = System.Drawing.Color.Transparent
+        Me.closeForm.BackgroundImage = CType(resources.GetObject("closeForm.BackgroundImage"), System.Drawing.Image)
+        Me.closeForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.closeForm.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.closeForm.FlatAppearance.BorderSize = 0
+        Me.closeForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.closeForm.ForeColor = System.Drawing.Color.Transparent
+        Me.closeForm.Location = New System.Drawing.Point(717, 12)
+        Me.closeForm.Margin = New System.Windows.Forms.Padding(7)
+        Me.closeForm.Name = "closeForm"
+        Me.closeForm.Size = New System.Drawing.Size(15, 15)
+        Me.closeForm.TabIndex = 9
+        Me.closeForm.TabStop = False
+        Me.closeForm.UseVisualStyleBackColor = False
+        '
+        'minForm
+        '
+        Me.minForm.BackColor = System.Drawing.Color.Transparent
+        Me.minForm.BackgroundImage = CType(resources.GetObject("minForm.BackgroundImage"), System.Drawing.Image)
+        Me.minForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.minForm.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.minForm.FlatAppearance.BorderSize = 0
+        Me.minForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.minForm.ForeColor = System.Drawing.Color.Transparent
+        Me.minForm.Location = New System.Drawing.Point(689, 13)
+        Me.minForm.Margin = New System.Windows.Forms.Padding(8)
+        Me.minForm.Name = "minForm"
+        Me.minForm.Padding = New System.Windows.Forms.Padding(3)
+        Me.minForm.Size = New System.Drawing.Size(13, 13)
+        Me.minForm.TabIndex = 10
+        Me.minForm.TabStop = False
+        Me.minForm.UseVisualStyleBackColor = False
         '
         'HolyCommunion
         '
@@ -168,6 +211,7 @@ Partial Class HolyCommunion
         Me.MinimumSize = New System.Drawing.Size(750, 450)
         Me.Name = "HolyCommunion"
         Me.Text = "Holy Communion"
+        Me.navBar.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -182,4 +226,6 @@ Partial Class HolyCommunion
     Friend WithEvents Label2 As Label
     Friend WithEvents goToHCSlide As Button
     Friend WithEvents navBar As FlowLayoutPanel
+    Friend WithEvents closeForm As Button
+    Friend WithEvents minForm As Button
 End Class

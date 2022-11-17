@@ -13,14 +13,17 @@ Public Class Announcements
         slideNumber = 3
     End Sub
 
-    Private Sub CloseAnnouncements_Click(sender As Object, e As EventArgs) Handles CloseAnnouncements.Click
+    Private Sub CloseAnnouncements_Click(sender As Object, e As EventArgs) Handles CloseAnnouncements.Click, closeForm.Click
         Me.Hide()
+    End Sub
+    Private Sub minForm_Click(sender As Object, e As EventArgs) Handles minForm.Click
+        Me.WindowState = FormWindowState.Minimized
     End Sub
 
     Private Sub UpdateAnnouncements_Click(sender As Object, e As EventArgs) Handles UpdateAnnouncements.Click
         MainProgram.ppPres.Slides(slideNumber).Shapes(1).TextFrame.TextRange.Text = AnnouncementTxt.Text
         Try
-            My.Computer.FileSystem.WriteAllText(MainProgram.Current + "\Files\Announcements.txt", AnnouncementTxt.Text, False)
+            My.Computer.FileSystem.WriteAllText(MainProgram.CurrentDirectory + "\Files\Announcements.txt", AnnouncementTxt.Text, False)
             MessageBox.Show("Save Successful", "Save Successful")
         Catch ex As Exception
             MessageBox.Show("Save Unsuccessful", "Save Unsuccessful")
@@ -41,7 +44,7 @@ Public Class Announcements
     End Sub
 
     Private Sub LoadAnnouncements_Click(sender As Object, e As EventArgs) Handles LoadAnnouncements.Click
-        OpenFileDialog.InitialDirectory = MainProgram.Current + "\Files\"
+        OpenFileDialog.InitialDirectory = MainProgram.CurrentDirectory + "\Files\"
         If OpenFileDialog.ShowDialog = DialogResult.OK Then
             AnnouncementTxt.Text = IO.File.ReadAllText(OpenFileDialog.FileName)
         End If
@@ -127,5 +130,4 @@ Public Class Announcements
             temp = Nothing
         End If
     End Sub
-
 End Class
