@@ -189,6 +189,7 @@ Partial Class MainProgram
         '
         Me.HymnHDColor.BackgroundImage = CType(resources.GetObject("HymnHDColor.BackgroundImage"), System.Drawing.Image)
         Me.HymnHDColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.HymnHDColor.Cursor = System.Windows.Forms.Cursors.Hand
         Me.HymnHDColor.Location = New System.Drawing.Point(332, 99)
         Me.HymnHDColor.Name = "HymnHDColor"
         Me.HymnHDColor.Size = New System.Drawing.Size(25, 25)
@@ -200,6 +201,7 @@ Partial Class MainProgram
         '
         Me.HymnHDFont.BackgroundImage = CType(resources.GetObject("HymnHDFont.BackgroundImage"), System.Drawing.Image)
         Me.HymnHDFont.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.HymnHDFont.Cursor = System.Windows.Forms.Cursors.Hand
         Me.HymnHDFont.Location = New System.Drawing.Point(361, 99)
         Me.HymnHDFont.Name = "HymnHDFont"
         Me.HymnHDFont.Size = New System.Drawing.Size(25, 25)
@@ -211,6 +213,7 @@ Partial Class MainProgram
         '
         Me.BibleHDColor.BackgroundImage = CType(resources.GetObject("BibleHDColor.BackgroundImage"), System.Drawing.Image)
         Me.BibleHDColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BibleHDColor.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BibleHDColor.Location = New System.Drawing.Point(243, 99)
         Me.BibleHDColor.Name = "BibleHDColor"
         Me.BibleHDColor.Size = New System.Drawing.Size(25, 25)
@@ -222,6 +225,7 @@ Partial Class MainProgram
         '
         Me.BibleHDFont.BackgroundImage = CType(resources.GetObject("BibleHDFont.BackgroundImage"), System.Drawing.Image)
         Me.BibleHDFont.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BibleHDFont.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BibleHDFont.Location = New System.Drawing.Point(272, 99)
         Me.BibleHDFont.Name = "BibleHDFont"
         Me.BibleHDFont.Size = New System.Drawing.Size(25, 25)
@@ -267,6 +271,7 @@ Partial Class MainProgram
         '
         Me.ChineseBookColorBtn.BackgroundImage = CType(resources.GetObject("ChineseBookColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.ChineseBookColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ChineseBookColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ChineseBookColorBtn.Location = New System.Drawing.Point(112, 98)
         Me.ChineseBookColorBtn.Name = "ChineseBookColorBtn"
         Me.ChineseBookColorBtn.Size = New System.Drawing.Size(25, 25)
@@ -278,6 +283,7 @@ Partial Class MainProgram
         '
         Me.ChineseBookFontBtn.BackgroundImage = CType(resources.GetObject("ChineseBookFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.ChineseBookFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ChineseBookFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ChineseBookFontBtn.Location = New System.Drawing.Point(141, 98)
         Me.ChineseBookFontBtn.Name = "ChineseBookFontBtn"
         Me.ChineseBookFontBtn.Size = New System.Drawing.Size(25, 25)
@@ -309,6 +315,7 @@ Partial Class MainProgram
         '
         Me.EnglishBookColorBtn.BackgroundImage = CType(resources.GetObject("EnglishBookColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.EnglishBookColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.EnglishBookColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.EnglishBookColorBtn.Location = New System.Drawing.Point(18, 98)
         Me.EnglishBookColorBtn.Name = "EnglishBookColorBtn"
         Me.EnglishBookColorBtn.Size = New System.Drawing.Size(25, 25)
@@ -320,6 +327,7 @@ Partial Class MainProgram
         '
         Me.EnglishBookFontBtn.BackgroundImage = CType(resources.GetObject("EnglishBookFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.EnglishBookFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.EnglishBookFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.EnglishBookFontBtn.Location = New System.Drawing.Point(47, 98)
         Me.EnglishBookFontBtn.Name = "EnglishBookFontBtn"
         Me.EnglishBookFontBtn.Size = New System.Drawing.Size(25, 25)
@@ -383,6 +391,7 @@ Partial Class MainProgram
         '
         Me.CVColorBtn.BackgroundImage = CType(resources.GetObject("CVColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.CVColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.CVColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CVColorBtn.Location = New System.Drawing.Point(723, 50)
         Me.CVColorBtn.Name = "CVColorBtn"
         Me.CVColorBtn.Size = New System.Drawing.Size(25, 25)
@@ -405,6 +414,7 @@ Partial Class MainProgram
         '
         Me.CVFontBtn.BackgroundImage = CType(resources.GetObject("CVFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.CVFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.CVFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CVFontBtn.Location = New System.Drawing.Point(754, 50)
         Me.CVFontBtn.Name = "CVFontBtn"
         Me.CVFontBtn.Size = New System.Drawing.Size(25, 25)
@@ -416,14 +426,18 @@ Partial Class MainProgram
         '
         Me.SaveSettings.AutoSize = True
         Me.SaveSettings.BackColor = System.Drawing.Color.White
-        Me.SaveSettings.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.SaveSettings.Cursor = System.Windows.Forms.Cursors.Hand
         Me.SaveSettings.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SaveSettings.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_save_20
+        Me.SaveSettings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.SaveSettings.Location = New System.Drawing.Point(690, 399)
         Me.SaveSettings.Name = "SaveSettings"
+        Me.SaveSettings.Padding = New System.Windows.Forms.Padding(5, 0, 3, 0)
         Me.SaveSettings.Size = New System.Drawing.Size(110, 35)
         Me.SaveSettings.TabIndex = 17
         Me.SaveSettings.TabStop = False
         Me.SaveSettings.Text = "Save Config"
+        Me.SaveSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.SaveSettings.UseVisualStyleBackColor = False
         '
         'FontDialog
@@ -457,14 +471,16 @@ Partial Class MainProgram
         '
         Me.OpenPrayerRequestsWindow.AutoSize = True
         Me.OpenPrayerRequestsWindow.BackColor = System.Drawing.Color.White
-        Me.OpenPrayerRequestsWindow.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.OpenPrayerRequestsWindow.Cursor = System.Windows.Forms.Cursors.Hand
         Me.OpenPrayerRequestsWindow.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OpenPrayerRequestsWindow.Location = New System.Drawing.Point(291, 399)
+        Me.OpenPrayerRequestsWindow.Location = New System.Drawing.Point(297, 399)
         Me.OpenPrayerRequestsWindow.Name = "OpenPrayerRequestsWindow"
+        Me.OpenPrayerRequestsWindow.Padding = New System.Windows.Forms.Padding(5, 0, 3, 0)
         Me.OpenPrayerRequestsWindow.Size = New System.Drawing.Size(138, 35)
         Me.OpenPrayerRequestsWindow.TabIndex = 20
         Me.OpenPrayerRequestsWindow.TabStop = False
         Me.OpenPrayerRequestsWindow.Text = "Edit Prayer Requests"
+        Me.OpenPrayerRequestsWindow.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.OpenPrayerRequestsWindow.UseVisualStyleBackColor = False
         '
         'ExitBtn
@@ -474,26 +490,34 @@ Partial Class MainProgram
         Me.ExitBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ExitBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ExitBtn.ForeColor = System.Drawing.Color.Maroon
+        Me.ExitBtn.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_cancel_20
+        Me.ExitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ExitBtn.Location = New System.Drawing.Point(690, 440)
         Me.ExitBtn.Name = "ExitBtn"
+        Me.ExitBtn.Padding = New System.Windows.Forms.Padding(20, 0, 30, 0)
         Me.ExitBtn.Size = New System.Drawing.Size(110, 35)
         Me.ExitBtn.TabIndex = 22
         Me.ExitBtn.TabStop = False
         Me.ExitBtn.Text = "Exit"
+        Me.ExitBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.ExitBtn.UseVisualStyleBackColor = False
         '
         'OpenFolder
         '
         Me.OpenFolder.AutoSize = True
         Me.OpenFolder.BackColor = System.Drawing.Color.White
-        Me.OpenFolder.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.OpenFolder.Cursor = System.Windows.Forms.Cursors.Hand
         Me.OpenFolder.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OpenFolder.Location = New System.Drawing.Point(573, 440)
+        Me.OpenFolder.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_folder_20
+        Me.OpenFolder.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.OpenFolder.Location = New System.Drawing.Point(575, 440)
         Me.OpenFolder.Name = "OpenFolder"
+        Me.OpenFolder.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
         Me.OpenFolder.Size = New System.Drawing.Size(109, 35)
         Me.OpenFolder.TabIndex = 23
         Me.OpenFolder.TabStop = False
         Me.OpenFolder.Text = "Open Folder"
+        Me.OpenFolder.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.OpenFolder.UseVisualStyleBackColor = False
         '
         'Label12
@@ -533,23 +557,28 @@ Partial Class MainProgram
         '
         Me.Show_AN.AutoSize = True
         Me.Show_AN.BackColor = System.Drawing.Color.White
-        Me.Show_AN.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.Show_AN.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Show_AN.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Show_AN.Location = New System.Drawing.Point(435, 399)
+        Me.Show_AN.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_announcement_20
+        Me.Show_AN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Show_AN.Location = New System.Drawing.Point(441, 399)
         Me.Show_AN.Name = "Show_AN"
+        Me.Show_AN.Padding = New System.Windows.Forms.Padding(5, 0, 3, 0)
         Me.Show_AN.Size = New System.Drawing.Size(128, 35)
         Me.Show_AN.TabIndex = 26
         Me.Show_AN.TabStop = False
-        Me.Show_AN.Text = "Edit Announcements"
+        Me.Show_AN.Text = "Announcements"
+        Me.Show_AN.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Show_AN.UseVisualStyleBackColor = False
         '
         'edtPrayerImg
         '
         Me.edtPrayerImg.AutoSize = True
         Me.edtPrayerImg.BackColor = System.Drawing.Color.White
+        Me.edtPrayerImg.Cursor = System.Windows.Forms.Cursors.Hand
         Me.edtPrayerImg.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.edtPrayerImg.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.edtPrayerImg.Location = New System.Drawing.Point(291, 440)
+        Me.edtPrayerImg.Location = New System.Drawing.Point(297, 440)
         Me.edtPrayerImg.Name = "edtPrayerImg"
         Me.edtPrayerImg.Size = New System.Drawing.Size(138, 35)
         Me.edtPrayerImg.TabIndex = 27
@@ -561,11 +590,12 @@ Partial Class MainProgram
         '
         Me.edtHC.AutoSize = True
         Me.edtHC.BackColor = System.Drawing.Color.White
+        Me.edtHC.Cursor = System.Windows.Forms.Cursors.Hand
         Me.edtHC.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.edtHC.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.edtHC.Location = New System.Drawing.Point(573, 399)
+        Me.edtHC.Location = New System.Drawing.Point(441, 440)
         Me.edtHC.Name = "edtHC"
-        Me.edtHC.Size = New System.Drawing.Size(110, 35)
+        Me.edtHC.Size = New System.Drawing.Size(128, 35)
         Me.edtHC.TabIndex = 28
         Me.edtHC.TabStop = False
         Me.edtHC.Text = "Holy Communion"
@@ -575,14 +605,18 @@ Partial Class MainProgram
         '
         Me.ServiceTimesBtn.AutoSize = True
         Me.ServiceTimesBtn.BackColor = System.Drawing.Color.White
-        Me.ServiceTimesBtn.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.ServiceTimesBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ServiceTimesBtn.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ServiceTimesBtn.Location = New System.Drawing.Point(435, 440)
+        Me.ServiceTimesBtn.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_schedule_20
+        Me.ServiceTimesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ServiceTimesBtn.Location = New System.Drawing.Point(575, 399)
         Me.ServiceTimesBtn.Name = "ServiceTimesBtn"
-        Me.ServiceTimesBtn.Size = New System.Drawing.Size(128, 35)
+        Me.ServiceTimesBtn.Padding = New System.Windows.Forms.Padding(5, 0, 3, 0)
+        Me.ServiceTimesBtn.Size = New System.Drawing.Size(109, 35)
         Me.ServiceTimesBtn.TabIndex = 29
         Me.ServiceTimesBtn.TabStop = False
-        Me.ServiceTimesBtn.Text = "Edit Timetable"
+        Me.ServiceTimesBtn.Text = "Timetable"
+        Me.ServiceTimesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.ServiceTimesBtn.UseVisualStyleBackColor = False
         '
         'HymnNos
@@ -676,7 +710,7 @@ Partial Class MainProgram
         Me.ShowVerses.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ShowVerses.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ShowVerses.ForeColor = System.Drawing.Color.Black
-        Me.ShowVerses.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_holy_bible_16
+        Me.ShowVerses.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_holy_bible_16__1_
         Me.ShowVerses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ShowVerses.Location = New System.Drawing.Point(475, 94)
         Me.ShowVerses.Margin = New System.Windows.Forms.Padding(0)
@@ -785,6 +819,7 @@ Partial Class MainProgram
         '
         Me.moveChineseDown.BackgroundImage = CType(resources.GetObject("moveChineseDown.BackgroundImage"), System.Drawing.Image)
         Me.moveChineseDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.moveChineseDown.Cursor = System.Windows.Forms.Cursors.Hand
         Me.moveChineseDown.Location = New System.Drawing.Point(661, 60)
         Me.moveChineseDown.Name = "moveChineseDown"
         Me.moveChineseDown.Size = New System.Drawing.Size(25, 25)
@@ -796,6 +831,7 @@ Partial Class MainProgram
         '
         Me.moveChineseUp.BackgroundImage = CType(resources.GetObject("moveChineseUp.BackgroundImage"), System.Drawing.Image)
         Me.moveChineseUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.moveChineseUp.Cursor = System.Windows.Forms.Cursors.Hand
         Me.moveChineseUp.Location = New System.Drawing.Point(692, 60)
         Me.moveChineseUp.Name = "moveChineseUp"
         Me.moveChineseUp.Size = New System.Drawing.Size(25, 25)
@@ -838,6 +874,7 @@ Partial Class MainProgram
         '
         Me.ServiceTypeFontBtn.BackgroundImage = CType(resources.GetObject("ServiceTypeFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.ServiceTypeFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ServiceTypeFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ServiceTypeFontBtn.Location = New System.Drawing.Point(475, 159)
         Me.ServiceTypeFontBtn.Name = "ServiceTypeFontBtn"
         Me.ServiceTypeFontBtn.Size = New System.Drawing.Size(25, 25)
@@ -849,6 +886,7 @@ Partial Class MainProgram
         '
         Me.ServiceTypeColorBtn.BackgroundImage = CType(resources.GetObject("ServiceTypeColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.ServiceTypeColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ServiceTypeColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ServiceTypeColorBtn.Location = New System.Drawing.Point(445, 159)
         Me.ServiceTypeColorBtn.Name = "ServiceTypeColorBtn"
         Me.ServiceTypeColorBtn.Size = New System.Drawing.Size(25, 25)
@@ -860,6 +898,7 @@ Partial Class MainProgram
         '
         Me.HymnFontBtn.BackgroundImage = CType(resources.GetObject("HymnFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.HymnFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.HymnFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.HymnFontBtn.Location = New System.Drawing.Point(197, 93)
         Me.HymnFontBtn.Name = "HymnFontBtn"
         Me.HymnFontBtn.Size = New System.Drawing.Size(25, 25)
@@ -871,6 +910,7 @@ Partial Class MainProgram
         '
         Me.HymnColorBtn.BackgroundImage = CType(resources.GetObject("HymnColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.HymnColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.HymnColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.HymnColorBtn.Location = New System.Drawing.Point(166, 93)
         Me.HymnColorBtn.Name = "HymnColorBtn"
         Me.HymnColorBtn.Size = New System.Drawing.Size(25, 25)
@@ -882,6 +922,7 @@ Partial Class MainProgram
         '
         Me.EnglishColorBtn.BackgroundImage = CType(resources.GetObject("EnglishColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.EnglishColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.EnglishColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.EnglishColorBtn.Location = New System.Drawing.Point(723, 20)
         Me.EnglishColorBtn.Name = "EnglishColorBtn"
         Me.EnglishColorBtn.Size = New System.Drawing.Size(25, 25)
@@ -893,6 +934,7 @@ Partial Class MainProgram
         '
         Me.EnglishFontBtn.BackgroundImage = CType(resources.GetObject("EnglishFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.EnglishFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.EnglishFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.EnglishFontBtn.Location = New System.Drawing.Point(754, 20)
         Me.EnglishFontBtn.Name = "EnglishFontBtn"
         Me.EnglishFontBtn.Size = New System.Drawing.Size(25, 25)
@@ -904,6 +946,7 @@ Partial Class MainProgram
         '
         Me.ChineseFontBtn.BackgroundImage = CType(resources.GetObject("ChineseFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.ChineseFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ChineseFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ChineseFontBtn.Location = New System.Drawing.Point(754, 60)
         Me.ChineseFontBtn.Name = "ChineseFontBtn"
         Me.ChineseFontBtn.Size = New System.Drawing.Size(25, 25)
@@ -915,6 +958,7 @@ Partial Class MainProgram
         '
         Me.ChineseColorBtn.BackgroundImage = CType(resources.GetObject("ChineseColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.ChineseColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ChineseColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ChineseColorBtn.Location = New System.Drawing.Point(723, 60)
         Me.ChineseColorBtn.Name = "ChineseColorBtn"
         Me.ChineseColorBtn.Size = New System.Drawing.Size(25, 25)
@@ -986,6 +1030,7 @@ Partial Class MainProgram
         '
         Me.BGColor.BackgroundImage = CType(resources.GetObject("BGColor.BackgroundImage"), System.Drawing.Image)
         Me.BGColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.BGColor.Cursor = System.Windows.Forms.Cursors.Hand
         Me.BGColor.Location = New System.Drawing.Point(248, 429)
         Me.BGColor.Name = "BGColor"
         Me.BGColor.Size = New System.Drawing.Size(25, 25)

@@ -589,10 +589,15 @@ Public Class MainProgram
     'Following two methods deal with moving the chinese title up or down to create more/less spacing
     'Needed when English title takes two or more lines
     Private Sub moveChineseUp_Click(sender As Object, e As EventArgs) Handles moveChineseUp.Click
-        ppPres.Slides(1).Shapes(2).Top = ppPres.Slides(1).Shapes(2).Top - 10
+        If ppPres.Slides(1).Shapes(2).Top >= 10 Then
+            ppPres.Slides(1).Shapes(2).Top = ppPres.Slides(1).Shapes(2).Top - 10
+        End If
+
     End Sub
     Private Sub moveChineseDown_Click(sender As Object, e As EventArgs) Handles moveChineseDown.Click
-        ppPres.Slides(1).Shapes(2).Top = ppPres.Slides(1).Shapes(2).Top + 10
+        If ppPres.Slides(1).Shapes(2).Top <= 200 Then
+            ppPres.Slides(1).Shapes(2).Top = ppPres.Slides(1).Shapes(2).Top + 10
+        End If
     End Sub
 
 
