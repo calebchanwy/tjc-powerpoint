@@ -426,7 +426,7 @@ Partial Class MainProgram
         'SaveSettings
         '
         Me.SaveSettings.AutoSize = True
-        Me.SaveSettings.BackColor = System.Drawing.Color.White
+        Me.SaveSettings.BackColor = System.Drawing.Color.Transparent
         Me.SaveSettings.Cursor = System.Windows.Forms.Cursors.Hand
         Me.SaveSettings.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SaveSettings.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_save_20
@@ -471,7 +471,7 @@ Partial Class MainProgram
         'OpenPrayerRequestsWindow
         '
         Me.OpenPrayerRequestsWindow.AutoSize = True
-        Me.OpenPrayerRequestsWindow.BackColor = System.Drawing.Color.White
+        Me.OpenPrayerRequestsWindow.BackColor = System.Drawing.Color.Transparent
         Me.OpenPrayerRequestsWindow.Cursor = System.Windows.Forms.Cursors.Hand
         Me.OpenPrayerRequestsWindow.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OpenPrayerRequestsWindow.Location = New System.Drawing.Point(297, 399)
@@ -481,7 +481,6 @@ Partial Class MainProgram
         Me.OpenPrayerRequestsWindow.TabIndex = 20
         Me.OpenPrayerRequestsWindow.TabStop = False
         Me.OpenPrayerRequestsWindow.Text = "Edit Prayer Requests"
-        Me.OpenPrayerRequestsWindow.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.OpenPrayerRequestsWindow.UseVisualStyleBackColor = False
         '
         'ExitBtn
@@ -495,7 +494,7 @@ Partial Class MainProgram
         Me.ExitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ExitBtn.Location = New System.Drawing.Point(690, 440)
         Me.ExitBtn.Name = "ExitBtn"
-        Me.ExitBtn.Padding = New System.Windows.Forms.Padding(20, 0, 30, 0)
+        Me.ExitBtn.Padding = New System.Windows.Forms.Padding(5, 0, 10, 0)
         Me.ExitBtn.Size = New System.Drawing.Size(110, 35)
         Me.ExitBtn.TabIndex = 22
         Me.ExitBtn.TabStop = False
@@ -506,7 +505,7 @@ Partial Class MainProgram
         'OpenFolder
         '
         Me.OpenFolder.AutoSize = True
-        Me.OpenFolder.BackColor = System.Drawing.Color.White
+        Me.OpenFolder.BackColor = System.Drawing.Color.Transparent
         Me.OpenFolder.Cursor = System.Windows.Forms.Cursors.Hand
         Me.OpenFolder.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OpenFolder.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_folder_20
@@ -557,7 +556,7 @@ Partial Class MainProgram
         'Show_AN
         '
         Me.Show_AN.AutoSize = True
-        Me.Show_AN.BackColor = System.Drawing.Color.White
+        Me.Show_AN.BackColor = System.Drawing.Color.Transparent
         Me.Show_AN.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Show_AN.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Show_AN.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_announcement_20
@@ -575,7 +574,7 @@ Partial Class MainProgram
         'edtPrayerImg
         '
         Me.edtPrayerImg.AutoSize = True
-        Me.edtPrayerImg.BackColor = System.Drawing.Color.White
+        Me.edtPrayerImg.BackColor = System.Drawing.Color.Transparent
         Me.edtPrayerImg.Cursor = System.Windows.Forms.Cursors.Hand
         Me.edtPrayerImg.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.edtPrayerImg.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -584,13 +583,13 @@ Partial Class MainProgram
         Me.edtPrayerImg.Size = New System.Drawing.Size(138, 35)
         Me.edtPrayerImg.TabIndex = 27
         Me.edtPrayerImg.TabStop = False
-        Me.edtPrayerImg.Text = "Edit Prayer Image"
+        Me.edtPrayerImg.Text = "Insert Prayer Image"
         Me.edtPrayerImg.UseVisualStyleBackColor = False
         '
         'edtHC
         '
         Me.edtHC.AutoSize = True
-        Me.edtHC.BackColor = System.Drawing.Color.White
+        Me.edtHC.BackColor = System.Drawing.Color.Transparent
         Me.edtHC.Cursor = System.Windows.Forms.Cursors.Hand
         Me.edtHC.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.edtHC.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -605,7 +604,7 @@ Partial Class MainProgram
         'ServiceTimesBtn
         '
         Me.ServiceTimesBtn.AutoSize = True
-        Me.ServiceTimesBtn.BackColor = System.Drawing.Color.White
+        Me.ServiceTimesBtn.BackColor = System.Drawing.Color.Transparent
         Me.ServiceTimesBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ServiceTimesBtn.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ServiceTimesBtn.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_schedule_20

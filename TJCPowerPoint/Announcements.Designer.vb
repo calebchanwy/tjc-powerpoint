@@ -48,6 +48,7 @@ Partial Class Announcements
         '
         'UpdateAnnouncements
         '
+        Me.UpdateAnnouncements.Cursor = System.Windows.Forms.Cursors.Hand
         Me.UpdateAnnouncements.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
         Me.UpdateAnnouncements.ForeColor = System.Drawing.Color.Navy
         Me.UpdateAnnouncements.Location = New System.Drawing.Point(20, 397)
@@ -59,6 +60,7 @@ Partial Class Announcements
         '
         'LoadAnnouncements
         '
+        Me.LoadAnnouncements.Cursor = System.Windows.Forms.Cursors.Hand
         Me.LoadAnnouncements.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LoadAnnouncements.ForeColor = System.Drawing.Color.Navy
         Me.LoadAnnouncements.Location = New System.Drawing.Point(213, 398)
@@ -71,6 +73,7 @@ Partial Class Announcements
         '
         'CloseAnnouncements
         '
+        Me.CloseAnnouncements.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CloseAnnouncements.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CloseAnnouncements.ForeColor = System.Drawing.Color.Maroon
         Me.CloseAnnouncements.Location = New System.Drawing.Point(627, 398)
@@ -107,6 +110,7 @@ Partial Class Announcements
         '
         Me.PRColorBtn.BackgroundImage = CType(resources.GetObject("PRColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PRColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PRColorBtn.Location = New System.Drawing.Point(642, 117)
         Me.PRColorBtn.Name = "PRColorBtn"
         Me.PRColorBtn.Size = New System.Drawing.Size(25, 25)
@@ -118,6 +122,7 @@ Partial Class Announcements
         '
         Me.PRFontBtn.BackgroundImage = CType(resources.GetObject("PRFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PRFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PRFontBtn.Location = New System.Drawing.Point(673, 117)
         Me.PRFontBtn.Name = "PRFontBtn"
         Me.PRFontBtn.Size = New System.Drawing.Size(25, 25)
@@ -179,6 +184,7 @@ Partial Class Announcements
         '
         Me.PRTitleFontBtn.BackgroundImage = CType(resources.GetObject("PRTitleFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRTitleFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PRTitleFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PRTitleFontBtn.Location = New System.Drawing.Point(673, 72)
         Me.PRTitleFontBtn.Name = "PRTitleFontBtn"
         Me.PRTitleFontBtn.Size = New System.Drawing.Size(25, 25)
@@ -201,6 +207,7 @@ Partial Class Announcements
         '
         Me.PRTitleColorBtn.BackgroundImage = CType(resources.GetObject("PRTitleColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRTitleColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PRTitleColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.PRTitleColorBtn.Location = New System.Drawing.Point(642, 72)
         Me.PRTitleColorBtn.Name = "PRTitleColorBtn"
         Me.PRTitleColorBtn.Size = New System.Drawing.Size(25, 25)
@@ -210,6 +217,7 @@ Partial Class Announcements
         '
         'goToAnnouncements
         '
+        Me.goToAnnouncements.Cursor = System.Windows.Forms.Cursors.Hand
         Me.goToAnnouncements.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.goToAnnouncements.Location = New System.Drawing.Point(384, 397)
         Me.goToAnnouncements.Name = "goToAnnouncements"

@@ -83,6 +83,7 @@ Partial Class HolyCommunion
         '
         'updateHC
         '
+        Me.updateHC.Cursor = System.Windows.Forms.Cursors.Hand
         Me.updateHC.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.updateHC.ForeColor = System.Drawing.Color.Navy
         Me.updateHC.Location = New System.Drawing.Point(32, 393)
@@ -95,6 +96,7 @@ Partial Class HolyCommunion
         'HCClose
         '
         Me.HCClose.BackColor = System.Drawing.Color.White
+        Me.HCClose.Cursor = System.Windows.Forms.Cursors.Hand
         Me.HCClose.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HCClose.ForeColor = System.Drawing.Color.Maroon
         Me.HCClose.Location = New System.Drawing.Point(649, 395)
@@ -128,6 +130,7 @@ Partial Class HolyCommunion
         '
         'goToHCSlide
         '
+        Me.goToHCSlide.Cursor = System.Windows.Forms.Cursors.Hand
         Me.goToHCSlide.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.goToHCSlide.Location = New System.Drawing.Point(295, 393)
         Me.goToHCSlide.Name = "goToHCSlide"
