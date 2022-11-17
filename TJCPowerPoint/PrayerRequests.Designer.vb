@@ -290,6 +290,7 @@ Partial Class PrayerRequests
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border2
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(725, 500)
         Me.ControlBox = False
         Me.Controls.Add(Me.deletePrayerImage)
@@ -307,6 +308,7 @@ Partial Class PrayerRequests
         Me.Controls.Add(Me.ClosePrayerRequests)
         Me.Controls.Add(Me.UpdatePrayerRequests)
         Me.Controls.Add(Me.navBar)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.HelpButton = True
         Me.MaximumSize = New System.Drawing.Size(725, 500)
