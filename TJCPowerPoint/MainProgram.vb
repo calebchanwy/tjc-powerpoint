@@ -66,8 +66,9 @@ Public Class MainProgram
         ppPres.Slides(3).Name = "Announcements"
         ppPres.Slides(4).Name = "Holy Communion"
         ppPres.Slides(5).Name = "How To Pray"
-        ppPres.Slides(6).Name = "Turn Off All Devices"
-        ppPres.Slides(7).Name = "Service Timetable"
+        ppPres.Slides(6).Name = "Break"
+        ppPres.Slides(7).Name = "Turn Off All Devices"
+        ppPres.Slides(8).Name = "Service Timetable"
         For i As Integer = 1 To ppPres.Slides.Count
             SlideTrack.Items.Add(ppPres.Slides(i).Name)
         Next
@@ -101,11 +102,11 @@ Public Class MainProgram
         Dim cup As String
         If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\bread.txt") = True Then
             bread = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\bread.txt")
-            ppPres.Slides(5).Shapes(1).TextFrame.TextRange.Text = bread
+            ppPres.Slides(4).Shapes(3).TextFrame.TextRange.Text = bread
         End If
         If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\cup.txt") = True Then
             cup = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\cup.txt")
-            ppPres.Slides(5).Shapes(2).TextFrame.TextRange.Text = cup
+            ppPres.Slides(4).Shapes(4).TextFrame.TextRange.Text = cup
         End If
     End Sub
 
@@ -352,6 +353,9 @@ Public Class MainProgram
         ppPres.Slides(1).Shapes(4).Top = 260
         If ShowSermonHymns.Checked Then
             ppPres.Slides(1).Shapes(3).Visible = True
+        ElseIf ShowHymnal.Checked Then
+            'If updated titles during hymnal, return to service hymns
+            ShowSermonHymns.Checked = True
         End If
 
     End Sub
@@ -374,7 +378,7 @@ Public Class MainProgram
 
         'updating hymns on holy communion slide
         'replacing all new lines with commas
-        ppPres.Slides(4).Shapes(1).TextFrame.TextRange.Text = "Hymns 詩: " + HymnNos.Text.Replace(vbCrLf, ", ")
+        ppPres.Slides(4).Shapes(2).TextFrame.TextRange.Text = "Hymns 詩: " + HymnNos.Text.Replace(vbCrLf, ", ")
 
     End Sub
 
@@ -465,7 +469,7 @@ Public Class MainProgram
         GetFontAndColor(2, 2) & vbCrLf &
         GetFontAndColor(3, 1) & vbCrLf &
         GetFontAndColor(3, 2)
-        For i As Integer = 1 To 7
+        For i As Integer = 1 To 8
             If i <> 2 Then
                 CurrentSettings = CurrentSettings + vbCrLf + "[C" & i & "]=" + Convert.ToString(ppPres.Slides(i).Background.Fill.ForeColor.RGB)
             End If
@@ -487,6 +491,8 @@ Public Class MainProgram
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
         Time.Text = "Time: " + DateTime.Now.ToString("HH:mm:ss  dddd, dd MMMM yyyy")
+        'update time on break slide
+        ppPres.Slides(6).Shapes(1).TextFrame.TextRange.Text = DateTime.Now.ToString("HH:mm:ss")
     End Sub
 
     Private Sub Titles_KeyDown(sender As Object, e As KeyEventArgs) Handles EnglishTitle.KeyDown, ChineseTitle.KeyDown
@@ -584,7 +590,7 @@ Public Class MainProgram
             ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Downloads"
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*"
             If ofd.ShowDialog = DialogResult.OK Then
-                ppPres.Slides(7).Shapes.AddPicture(ofd.FileName, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
+                ppPres.Slides(8).Shapes.AddPicture(ofd.FileName, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
                 System.IO.File.WriteAllText(CurrentDirectory + "\Files\timetableDir.txt", ofd.FileName)
                 MessageBox.Show("Service Timetable Was Successfully Updated", "Success")
             Else
