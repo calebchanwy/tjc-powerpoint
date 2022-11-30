@@ -153,7 +153,7 @@ Partial Class MainProgram
         'clearbtn
         '
         Me.clearbtn.AutoSize = True
-        Me.clearbtn.BackColor = System.Drawing.Color.White
+        Me.clearbtn.BackColor = System.Drawing.Color.Transparent
         Me.clearbtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.clearbtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.clearbtn.ForeColor = System.Drawing.Color.Maroon
@@ -235,7 +235,7 @@ Partial Class MainProgram
         '
         'UpdateVerse
         '
-        Me.UpdateVerse.BackColor = System.Drawing.Color.White
+        Me.UpdateVerse.BackColor = System.Drawing.Color.Transparent
         Me.UpdateVerse.Cursor = System.Windows.Forms.Cursors.Hand
         Me.UpdateVerse.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UpdateVerse.ForeColor = System.Drawing.Color.Navy
