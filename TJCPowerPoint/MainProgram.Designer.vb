@@ -59,7 +59,6 @@ Partial Class MainProgram
         Me.OpenFolder = New System.Windows.Forms.Button()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
-        Me.Time = New System.Windows.Forms.Label()
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
         Me.Show_AN = New System.Windows.Forms.Button()
         Me.edtPrayerImg = New System.Windows.Forms.Button()
@@ -462,7 +461,7 @@ Partial Class MainProgram
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.Transparent
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(16, 402)
+        Me.Label10.Location = New System.Drawing.Point(15, 402)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(91, 20)
         Me.Label10.TabIndex = 19
@@ -525,7 +524,7 @@ Partial Class MainProgram
         Me.Label12.AutoSize = True
         Me.Label12.BackColor = System.Drawing.Color.Transparent
         Me.Label12.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(16, 434)
+        Me.Label12.Location = New System.Drawing.Point(16, 439)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(220, 13)
         Me.Label12.TabIndex = 24
@@ -536,17 +535,6 @@ Partial Class MainProgram
         Me.SaveFileDialog.FileName = "Settings.ini"
         Me.SaveFileDialog.Filter = "INI Files (*.ini)|*.ini|All Files (*.*)|*.*"""
         Me.SaveFileDialog.RestoreDirectory = True
-        '
-        'Time
-        '
-        Me.Time.AutoSize = True
-        Me.Time.BackColor = System.Drawing.Color.Transparent
-        Me.Time.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Time.Location = New System.Drawing.Point(16, 456)
-        Me.Time.Name = "Time"
-        Me.Time.Size = New System.Drawing.Size(34, 13)
-        Me.Time.TabIndex = 25
-        Me.Time.Text = "Time:"
         '
         'Timer
         '
@@ -1031,7 +1019,7 @@ Partial Class MainProgram
         Me.BGColor.BackgroundImage = CType(resources.GetObject("BGColor.BackgroundImage"), System.Drawing.Image)
         Me.BGColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BGColor.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BGColor.Location = New System.Drawing.Point(248, 429)
+        Me.BGColor.Location = New System.Drawing.Point(248, 434)
         Me.BGColor.Name = "BGColor"
         Me.BGColor.Size = New System.Drawing.Size(25, 25)
         Me.BGColor.TabIndex = 23
@@ -1060,7 +1048,6 @@ Partial Class MainProgram
         Me.Controls.Add(Me.edtHC)
         Me.Controls.Add(Me.edtPrayerImg)
         Me.Controls.Add(Me.Show_AN)
-        Me.Controls.Add(Me.Time)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.BGColor)
         Me.Controls.Add(Me.OpenFolder)
@@ -1122,7 +1109,6 @@ Partial Class MainProgram
     Friend WithEvents HymnHDFont As Button
     Friend WithEvents BibleHDColor As Button
     Friend WithEvents BibleHDFont As Button
-    Friend WithEvents Time As Label
     Friend WithEvents Timer As Timer
     Public WithEvents FontDialog As FontDialog
     Friend WithEvents Show_AN As Button

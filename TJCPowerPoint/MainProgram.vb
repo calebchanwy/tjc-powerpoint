@@ -490,7 +490,6 @@ Public Class MainProgram
     End Sub
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
-        Time.Text = "Time: " + DateTime.Now.ToString("HH:mm:ss  dddd, dd MMMM yyyy")
         'update time on break slide
         ppPres.Slides(6).Shapes(1).TextFrame.TextRange.Text = DateTime.Now.ToString("HH:mm:ss")
     End Sub
