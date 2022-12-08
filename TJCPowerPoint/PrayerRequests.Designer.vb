@@ -43,6 +43,7 @@ Partial Class PrayerRequests
         Me.PrayerRequestTxt = New System.Windows.Forms.TextBox()
         Me.Panel = New System.Windows.Forms.Panel()
         Me.deletePrayerImage = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.navBar.SuspendLayout()
         Me.Panel.SuspendLayout()
         Me.SuspendLayout()
@@ -285,6 +286,15 @@ Partial Class PrayerRequests
         Me.deletePrayerImage.Text = "Delete Image"
         Me.deletePrayerImage.UseVisualStyleBackColor = True
         '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(539, 441)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 21
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'PrayerRequests
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -293,6 +303,7 @@ Partial Class PrayerRequests
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(725, 500)
         Me.ControlBox = False
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.deletePrayerImage)
         Me.Controls.Add(Me.header)
         Me.Controls.Add(Me.Button1)
@@ -343,4 +354,5 @@ Partial Class PrayerRequests
     Friend WithEvents deletePrayerImage As Button
     Friend WithEvents closeForm As Button
     Friend WithEvents minForm As Button
+    Friend WithEvents Button2 As Button
 End Class

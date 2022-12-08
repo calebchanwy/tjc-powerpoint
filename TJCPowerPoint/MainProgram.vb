@@ -75,7 +75,8 @@ Public Class MainProgram
         HandleSettings()
         ResetServiceDetails()
         ppPres.SlideShowSettings.Run()
-        SlideTrack.SelectedIndex = 0
+        'by default go to break slide
+        SlideTrack.SelectedIndex = 5
     End Sub
 
     'Method that will reset the program to the initial running state
@@ -249,21 +250,21 @@ Public Class MainProgram
             ppPres.Slides(1).Shapes(4).Top = 260
             ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
             ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
+            ppPres.Slides(1).Shapes(4).TextFrame.TextRange.Text = HymnNos.Text
             ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = ""
             ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = ""
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ""
             BookBox.Text = ""
             VerseTxt.Text = ""
             ChapterTxt.Text = ""
-            ppPres.Slides(1).Shapes(4).TextFrame.TextRange.Text = HymnNos.Text
+
             ShowVerses.Checked = False
             ShowHymnal.Checked = False
-        Else
-            If ShowHymnal.Checked.Equals(False) And ShowVerses.Checked.Equals(False) Then
-                ShowSermonHymns.Checked = True
-            End If
+            Return
         End If
-
+        If ShowHymnal.Checked.Equals(False) And ShowVerses.Checked.Equals(False) Then
+            ShowSermonHymns.Checked = True
+        End If
 
     End Sub
     Private Sub ShowVerses_CheckedChanged(sender As Object, e As EventArgs) Handles ShowVerses.CheckedChanged
@@ -275,40 +276,42 @@ Public Class MainProgram
             ppPres.Slides(1).Shapes(7).Visible = True
             ppPres.Slides(1).Shapes(8).Visible = True
             ShowSermonHymns.Checked = False
-        Else
-            If ShowHymnal.Checked.Equals(False) And ShowSermonHymns.Checked.Equals(False) Then
-                ShowVerses.Checked = True
-            ElseIf ShowHymnal.Checked.Equals(True) And ShowSermonHymns.Checked.Equals(False) Then
-                'when user has unchecked bible verse whilst being in hymnal
-                'Assumes that user wants to go back to show hymnal hymns
-                'must make hymn nos visible again and any bible verses invisible
-                ppPres.Slides(1).Shapes(5).Visible = False
-                ppPres.Slides(1).Shapes(6).Visible = False
-                ppPres.Slides(1).Shapes(7).Visible = False
-                ppPres.Slides(1).Shapes(8).Visible = False
-                ppPres.Slides(1).Shapes(3).Visible = False
-                ppPres.Slides(1).Shapes(4).Visible = True
-                ppPres.Slides(1).Shapes(4).Top = 175
-            End If
+            Return
         End If
+        If ShowHymnal.Checked.Equals(False) And ShowSermonHymns.Checked.Equals(False) Then
+            ShowVerses.Checked = True
+        ElseIf ShowHymnal.Checked.Equals(True) And ShowSermonHymns.Checked.Equals(False) Then
+            'when user has unchecked bible verse whilst being in hymnal
+            'Assumes that user wants to go back to show hymnal hymns
+            'must make hymn nos visible again and any bible verses invisible
+            ppPres.Slides(1).Shapes(5).Visible = False
+            ppPres.Slides(1).Shapes(6).Visible = False
+            ppPres.Slides(1).Shapes(7).Visible = False
+            ppPres.Slides(1).Shapes(8).Visible = False
+            ppPres.Slides(1).Shapes(3).Visible = False
+            ppPres.Slides(1).Shapes(4).Visible = True
+            ppPres.Slides(1).Shapes(4).Top = 175
+        End If
+
     End Sub
     Private Sub ShowHymnal_CheckedChanged(sender As Object, e As EventArgs) Handles ShowHymnal.CheckedChanged
         If ShowHymnal.Checked Then
+            ppPres.Slides(1).Shapes(3).Visible = False
             ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = "Hymnal"
             ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = "詩頌"
-            ppPres.Slides(1).Shapes(3).Visible = False
             ppPres.Slides(1).Shapes(4).Top = 175
             ShowSermonHymns.Checked = False
-        Else
-            If ShowVerses.Checked.Equals(False) And ShowSermonHymns.Checked.Equals(False) Then
-                ShowHymnal.Checked = True
-            ElseIf ShowVerses.Checked.Equals(True) And ShowSermonHymns.Checked.Equals(False) Then
-                'User has unchecked hymnal whilst showing bible verses
-                'Assumes that user wants to go back to sermon titles
-                ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
-                ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
-            End If
+            Return
         End If
+        If ShowVerses.Checked.Equals(False) And ShowSermonHymns.Checked.Equals(False) Then
+            ShowHymnal.Checked = True
+        ElseIf ShowVerses.Checked.Equals(True) And ShowSermonHymns.Checked.Equals(False) Then
+            'User has unchecked hymnal whilst showing bible verses
+            'Assumes that user wants to go back to sermon titles
+            ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
+            ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
+        End If
+
 
     End Sub
 
@@ -317,7 +320,6 @@ Public Class MainProgram
         'automatically change to show verses
         If ShowVerses.Checked = False Then
             ShowVerses.Checked = True
-            ShowSermonHymns.Checked = False
         End If
         If VerseTxt.Text = "" And BookBox.Text = "" And ChapterTxt.Text = "" Then
             ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ""
@@ -376,10 +378,11 @@ Public Class MainProgram
             ppPres.Slides(1).Shapes(4).Top = 175
         End If
 
-        'updating hymns on holy communion slide
-        'replacing all new lines with commas
-        ppPres.Slides(4).Shapes(2).TextFrame.TextRange.Text = "Hymns 詩: " + HymnNos.Text.Replace(vbCrLf, ", ")
-
+        If SlideTrack.SelectedIndex = 3 Then
+            'updating hymns on holy communion slide
+            'replacing all new lines with commas
+            ppPres.Slides(4).Shapes(2).TextFrame.TextRange.Text = "Hymns 詩: " + HymnNos.Text.Replace(vbCrLf, ", ")
+        End If
     End Sub
 
     Private Sub EnglishFontBtn_Click(sender As Object, e As EventArgs) Handles EnglishFontBtn.Click
@@ -490,8 +493,10 @@ Public Class MainProgram
     End Sub
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
-        'update time on break slide
-        ppPres.Slides(6).Shapes(1).TextFrame.TextRange.Text = DateTime.Now.ToString("HH:mm:ss")
+        If SlideTrack.SelectedIndex = 5 Then
+            'update time on break slide
+            ppPres.Slides(6).Shapes(1).TextFrame.TextRange.Text = DateTime.Now.ToString("HH:mm:ss")
+        End If
     End Sub
 
     Private Sub Titles_KeyDown(sender As Object, e As KeyEventArgs) Handles EnglishTitle.KeyDown, ChineseTitle.KeyDown
