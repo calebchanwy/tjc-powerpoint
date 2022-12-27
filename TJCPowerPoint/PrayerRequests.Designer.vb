@@ -252,9 +252,9 @@ Partial Class PrayerRequests
         Me.PrayerRequestTxt.AcceptsReturn = True
         Me.PrayerRequestTxt.AcceptsTab = True
         Me.PrayerRequestTxt.AllowDrop = True
-        Me.PrayerRequestTxt.BackColor = System.Drawing.Color.White
+        Me.PrayerRequestTxt.BackColor = System.Drawing.Color.WhiteSmoke
         Me.PrayerRequestTxt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.PrayerRequestTxt.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PrayerRequestTxt.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PrayerRequestTxt.ForeColor = System.Drawing.Color.White
         Me.PrayerRequestTxt.Location = New System.Drawing.Point(2, 2)
         Me.PrayerRequestTxt.Multiline = True

@@ -1,4 +1,6 @@
-﻿Imports TJCPowerPoint.NativeConstants, TJCPowerPoint.NativeMethods, TJCPowerPoint.NativeStructs
+﻿Imports Microsoft
+Imports Microsoft.Office.Interop
+Imports TJCPowerPoint.NativeConstants, TJCPowerPoint.NativeMethods, TJCPowerPoint.NativeStructs
 Public Class HolyCommunion
     Private slideNumber As Integer
 
@@ -124,4 +126,109 @@ Public Class HolyCommunion
         End If
     End Sub
 
+    'HYMN SELECTION --------------------------------------------
+
+    Private Sub updateHymns()
+        Dim hymns As String
+        Dim count As Integer
+        Dim index As Integer
+        hymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
+        count = HymnsSelectionBox.Items.Count
+        index = HymnsSelectionBox.SelectedIndex
+        'updating hymns on holy communion slide
+        If HymnsSelectionBox.Items.Count < 4 Then
+            MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange.Text = hymns
+            highlightCurrentHymn(MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange)
+            Return
+        End If
+    End Sub
+    Private Sub UpdateHymn_Click(sender As Object, e As EventArgs) Handles UpdateHymn.Click
+        updateHymns()
+    End Sub
+    Private Sub nextHymn_Click(sender As Object, e As EventArgs) Handles nextHymn.Click
+        If HymnsSelectionBox.SelectedIndex = HymnsSelectionBox.Items.Count - 1 Then
+            Return
+        End If
+        HymnsSelectionBox.SelectedIndex += 1
+    End Sub
+
+    Private Sub prevHymn_Click(sender As Object, e As EventArgs) Handles prevHymn.Click
+        If HymnsSelectionBox.SelectedIndex = 0 Then
+            Return
+        End If
+        HymnsSelectionBox.SelectedIndex -= 1
+    End Sub
+    Private Sub removeCurrentHymn(textBox As PowerPoint.TextRange)
+        Dim selectedIndex As Integer = HymnsSelectionBox.SelectedIndex
+        Dim size As Integer = HymnsSelectionBox.Items.Count
+        If size = 0 Then
+            'if there are new hymns to be removed return
+            Return
+        End If
+        If size = 1 Then
+            'only one hymn in selection box no need to find new selected hymn
+            textBox.Delete()
+            HymnsSelectionBox.Items.Clear()
+            Return
+        End If
+        If selectedIndex = size - 1 Then
+            'if hymn is last hymn selected, reselect last hymn
+            textBox.Paragraphs(selectedIndex + 1).Delete()
+            HymnsSelectionBox.Items.RemoveAt(selectedIndex)
+            HymnsSelectionBox.SelectedIndex = size - 2
+            Return
+        End If
+        'for all other cases, select the next hymn at the same index
+        textBox.Paragraphs(selectedIndex + 1).Delete()
+        HymnsSelectionBox.Items.RemoveAt(selectedIndex)
+        HymnsSelectionBox.SelectedIndex = selectedIndex
+    End Sub
+
+    Private Sub highlightCurrentHymn(textBox As PowerPoint.TextRange)
+        ''resetting fonts to highlight selected hymn
+        If HymnsSelectionBox.Items.Count = 0 Then
+            Return
+        End If
+        If HymnsSelectionBox.Items.Count = 1 Then
+            textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Size = 56
+            textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Bold = Office.Core.MsoTriState.msoTrue
+            Return
+        End If
+        'resetting styles
+        textBox.Font.Size = 40
+        textBox.Font.Bold = Office.Core.MsoTriState.msoFalse
+        'highlighting paragraph
+        textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Size = 56
+        textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Bold = Office.Core.MsoTriState.msoTrue
+    End Sub
+
+    Private Sub HymnsSelectionBox_KeyDown(sender As Object, e As KeyEventArgs) Handles HymnsSelectionBox.KeyDown
+        If e.KeyCode = Keys.Back Or e.KeyCode = Keys.Delete Then
+            'handles deleting 
+            'updating hymns on holy communion slide
+            removeCurrentHymn(MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange)
+        End If
+    End Sub
+    Private Sub HymnsSelectionBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles HymnsSelectionBox.SelectedIndexChanged
+        'updating hymns on holy communion slide
+        highlightCurrentHymn(MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange)
+    End Sub
+
+    Private Sub HymnNos_KeyDown(sender As Object, e As KeyEventArgs) Handles HymnNos.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            'user pressed enter to submit hymn
+            If HymnNos.Text = vbNewLine Or HymnNos.Text = "" Then
+                'user tried to enter empty line
+                HymnNos.Text = ""
+                Return
+            End If
+            HymnsSelectionBox.Items.Add(HymnNos.Text.Replace(vbNewLine, ""))
+            HymnNos.Text = ""
+            'if first hymn added, select hymn
+            If HymnsSelectionBox.Items.Count.Equals(1) Then
+                HymnsSelectionBox.SelectedIndex = 0
+            End If
+            updateHymns()
+        End If
+    End Sub
 End Class

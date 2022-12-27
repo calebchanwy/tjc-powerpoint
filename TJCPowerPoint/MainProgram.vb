@@ -281,13 +281,11 @@ Public Class MainProgram
             ppPres.SlideShowWindow.View.GotoSlide(2)
             ShowVerses.Checked = False
             ShowHymnal.Checked = False
+            updateHymns()
             'clearing bible verses
-            ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = " "
-            ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Text = " "
             ppPres.Slides(3).Shapes(4).TextFrame.TextRange.Text = " "
             ppPres.Slides(3).Shapes(5).TextFrame.TextRange.Text = " "
             ppPres.Slides(3).Shapes(6).TextFrame.TextRange.Text = " "
-            ppPres.Slides(3).Shapes(7).TextFrame.TextRange.Text = " "
             BookBox.Text = ""
             VerseTxt.Text = ""
             ChapterTxt.Text = ""
@@ -302,7 +300,6 @@ Public Class MainProgram
             ppPres.SlideShowWindow.View.GotoSlide(3)
             ShowSermonHymns.Checked = False
             ShowHymnal.Checked = False
-
         End If
         If ShowHymnal.Checked.Equals(False) And ShowSermonHymns.Checked.Equals(False) Then
             ShowVerses.Checked = True
@@ -312,10 +309,10 @@ Public Class MainProgram
     End Sub
     Private Sub ShowHymnal_CheckedChanged(sender As Object, e As EventArgs) Handles ShowHymnal.CheckedChanged
         If ShowHymnal.Checked Then
-            Call UpdateHymn_Click(sender, e)
             ppPres.SlideShowWindow.View.GotoSlide(4)
             ShowSermonHymns.Checked = False
             ShowVerses.Checked = False
+            updateHymns()
         End If
 
         If ShowVerses.Checked.Equals(False) And ShowSermonHymns.Checked.Equals(False) Then
@@ -375,24 +372,23 @@ Public Class MainProgram
 
 
     'HYMN SELECTION --------------------------------------------
-    Private Sub UpdateHymn_Click(sender As Object, e As EventArgs) Handles UpdateHymn.Click
+    Private Sub updateHymns()
         Dim hymns As String = ""
         hymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
         If ShowSermonHymns.Checked Then
             'if showing sermon hymns
             ppPres.Slides(2).Shapes(4).TextFrame.TextRange.Text = hymns
             highlightCurrentHymn(ppPres.Slides(2).Shapes(4).TextFrame.TextRange)
-        End If
-        If ShowHymnal.Checked Then
+        ElseIf ShowHymnal.Checked Then
             'if showing hymnal hymns
             ppPres.Slides(4).Shapes(1).TextFrame.TextRange.Text = hymns
             highlightCurrentHymn(ppPres.Slides(4).Shapes(1).TextFrame.TextRange)
+        ElseIf ShowVerses.Checked Then
+            ShowSermonHymns.Checked = True
         End If
-        If SlideTrack.SelectedIndex = 4 Then
-            'updating hymns on holy communion slide
-            ppPres.Slides(7).Shapes(2).TextFrame.TextRange.Text = hymns
-            highlightCurrentHymn(ppPres.Slides(7).Shapes(2).TextFrame.TextRange)
-        End If
+    End Sub
+    Private Sub UpdateHymn_Click(sender As Object, e As EventArgs) Handles UpdateHymn.Click
+        updateHymns()
     End Sub
     Private Sub nextHymn_Click(sender As Object, e As EventArgs) Handles nextHymn.Click
         If HymnsSelectionBox.SelectedIndex = HymnsSelectionBox.Items.Count - 1 Then
@@ -454,19 +450,13 @@ Public Class MainProgram
     Private Sub HymnsSelectionBox_KeyDown(sender As Object, e As KeyEventArgs) Handles HymnsSelectionBox.KeyDown
         If e.KeyCode = Keys.Back Or e.KeyCode = Keys.Delete Then
             'handles deleting 
-            If SlideTrack.SelectedIndex = 4 Then
-                'updating hymns on holy communion slide
-                removeCurrentHymn(ppPres.Slides(7).Shapes(2).TextFrame.TextRange)
-                Return
-            End If
             If ShowSermonHymns.Checked Then
                 'if showing sermon hymns
                 removeCurrentHymn(ppPres.Slides(2).Shapes(4).TextFrame.TextRange)
                 Return
-            End If
-            If ShowHymnal.Checked Then
-                'if showing hymnal hymns
-                removeCurrentHymn(ppPres.Slides(4).Shapes(1).TextFrame.TextRange)
+            ElseIf ShowHymnal.Checked Then
+            'if showing hymnal hymns
+            removeCurrentHymn(ppPres.Slides(4).Shapes(1).TextFrame.TextRange)
                 Return
             End If
         End If
@@ -475,14 +465,9 @@ Public Class MainProgram
         If ShowSermonHymns.Checked Then
             'if showing sermon hymns
             highlightCurrentHymn(ppPres.Slides(2).Shapes(4).TextFrame.TextRange)
-        End If
-        If ShowHymnal.Checked Then
+        ElseIf ShowHymnal.Checked Then
             'if showing hymnal hymns
             highlightCurrentHymn(ppPres.Slides(4).Shapes(1).TextFrame.TextRange)
-        End If
-        If SlideTrack.SelectedIndex = 4 Then
-            'updating hymns on holy communion slide
-            highlightCurrentHymn(ppPres.Slides(7).Shapes(2).TextFrame.TextRange)
         End If
     End Sub
 
@@ -842,7 +827,6 @@ Public Class MainProgram
         Dim response As Integer = NativeMethods.DwmIsCompositionEnabled(enabled)
         aeroEnabled = (enabled = 1)
     End Sub
-
 
 End Class
 
