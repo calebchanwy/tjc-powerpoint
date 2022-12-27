@@ -130,6 +130,7 @@ Public Class MainProgram
         EnglishTitle.Text = "English Sermon Title"
         ChineseTitle.Text = "中文講道題目"
         HymnNos.Text = ""
+        HymnsSelectionBox.Items.Clear()
     End Sub
 
     'Method to deal with loading the Holy Communion slide with details from the text files
@@ -276,6 +277,7 @@ Public Class MainProgram
 
 
     Private Sub ShowSermonHymns_CheckedChanged(sender As Object, e As EventArgs) Handles ShowSermonHymns.CheckedChanged
+        'If wanting to show sermon hymns whilst showing hymnal, clear hymns
         If ShowSermonHymns.Checked Then
             SlideTrack.SelectedIndex = 1
             ppPres.SlideShowWindow.View.GotoSlide(2)

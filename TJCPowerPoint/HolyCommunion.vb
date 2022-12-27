@@ -129,18 +129,15 @@ Public Class HolyCommunion
     'HYMN SELECTION --------------------------------------------
 
     Private Sub updateHymns()
-        Dim hymns As String
-        Dim count As Integer
-        Dim index As Integer
-        hymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
-        count = HymnsSelectionBox.Items.Count
-        index = HymnsSelectionBox.SelectedIndex
-        'updating hymns on holy communion slide
+        Dim hymns As String = ""
         If HymnsSelectionBox.Items.Count < 4 Then
-            MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange.Text = hymns
-            highlightCurrentHymn(MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange)
-            Return
+            hymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
+        Else
+            hymns = HymnsSelectionBox.Items(0) + vbNewLine + HymnsSelectionBox.Items(1) + vbNewLine + HymnsSelectionBox.Items(2)
         End If
+        'updating hymns on holy communion slide maximum of first three hymn
+        MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange.Text = hymns
+        highlightCurrentHymn(MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange)
     End Sub
     Private Sub UpdateHymn_Click(sender As Object, e As EventArgs) Handles UpdateHymn.Click
         updateHymns()
@@ -212,6 +209,7 @@ Public Class HolyCommunion
     Private Sub HymnsSelectionBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles HymnsSelectionBox.SelectedIndexChanged
         'updating hymns on holy communion slide
         highlightCurrentHymn(MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange)
+        updateHymns()
     End Sub
 
     Private Sub HymnNos_KeyDown(sender As Object, e As KeyEventArgs) Handles HymnNos.KeyDown
@@ -227,6 +225,9 @@ Public Class HolyCommunion
             'if first hymn added, select hymn
             If HymnsSelectionBox.Items.Count.Equals(1) Then
                 HymnsSelectionBox.SelectedIndex = 0
+            ElseIf HymnsSelectionBox.Items.Count > 3 Then
+                'no need to update hymns if count is more than 3
+                Return
             End If
             updateHymns()
         End If
