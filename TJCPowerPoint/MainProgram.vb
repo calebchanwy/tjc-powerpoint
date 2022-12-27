@@ -61,36 +61,72 @@ Public Class MainProgram
     Public Sub LoadPres()
         ppApp = CreateObject("PowerPoint.Application")
         ppPres = ppApp.Presentations.Open(CurrentDirectory + "\Files\ServiceWidescreen.pptx", [ReadOnly]:=Office.MsoTriState.msoFalse, WithWindow:=Office.MsoTriState.msoFalse)
-        ppPres.Slides(1).Name = "Service/Hymnal"
-        ppPres.Slides(2).Name = "Prayer Requests"
-        ppPres.Slides(3).Name = "Announcements"
-        ppPres.Slides(4).Name = "Holy Communion"
-        ppPres.Slides(5).Name = "How To Pray"
-        ppPres.Slides(6).Name = "Break"
-        ppPres.Slides(7).Name = "Turn Off All Devices"
-        ppPres.Slides(8).Name = "Service Timetable"
-        For i As Integer = 1 To ppPres.Slides.Count
-            SlideTrack.Items.Add(ppPres.Slides(i).Name)
+        ppPres.Slides(1).Name = "Break"
+        ppPres.Slides(2).Name = "Service"
+        ppPres.Slides(5).Name = "Prayer Requests"
+        ppPres.Slides(6).Name = "Announcements"
+        ppPres.Slides(7).Name = "Holy Communion"
+        ppPres.Slides(8).Name = "How To Pray"
+        ppPres.Slides(9).Name = "Turn Off All Devices"
+        ppPres.Slides(10).Name = "Service Timetable"
+        Dim included() As Integer = {1, 2, 5, 6, 7, 8, 9, 10}
+        For Each num As Integer In included
+            SlideTrack.Items.Add(ppPres.Slides(num).Name)
         Next
         HandleSettings()
         ResetServiceDetails()
         ppPres.SlideShowSettings.Run()
         'by default go to break slide
-        SlideTrack.SelectedIndex = 5
+        SlideTrack.SelectedIndex = 0
+        'ORDER OF SLIDES:
+        ' 1 - Break slide
+        ' 2 - Service Hymns
+        '   2.1 English Title
+        '   2.2 Chinese Title
+        '   2.3 Hymn Header
+        '   2.4 Hymn No
+        '   2.5 Service Type
+        ' 3 - Bible Verses
+        '   3.1 English Title
+        '   3.2 Chinese Title
+        '   3.3 Bible Verse Header
+        '   3.4 English Book
+        '   3.5 Chinese Book
+        '   3.6 Chapter and Verses
+        '   3.7 Service Type
+        ' 4 - Hymnal
+        '   4.1 Hymn Nos
+        ' 5 - Prayer Requests
+        '6 - Announcements
+        '7 - Holy Communion
+        '   7.2 Hymn
+        '   7.3 Bread
+        '   7.4 Cup
+        '8 - How to pray
+        '9 - Turn off devices
+        '10 - Service Timetable
+
     End Sub
 
     'Method that will reset the program to the initial running state
     Public Sub ResetServiceDetails()
-        ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = " "
-        ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = " "
-        ppPres.Slides(1).Shapes(4).TextFrame.TextRange.Text = " "
-        ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = " "
-        ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = " "
-        ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = " "
-        ppPres.Slides(1).Shapes(10).TextFrame.TextRange.Text = " "
-        ppPres.Slides(1).Shapes(5).Visible = Office.MsoTriState.msoFalse
-        ppPres.Slides(1).Shapes(3).Visible = Office.MsoTriState.msoTrue
-        ShowSermonHymns.Checked = True
+        'service slide
+        ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Text = " "
+        ppPres.Slides(2).Shapes(2).TextFrame.TextRange.Text = " "
+        ppPres.Slides(2).Shapes(4).TextFrame.TextRange.Text = " "
+        ppPres.Slides(2).Shapes(5).TextFrame.TextRange.Text = " "
+        'bible verse slide
+        ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = " "
+        ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Text = " "
+        ppPres.Slides(3).Shapes(4).TextFrame.TextRange.Text = " "
+        ppPres.Slides(3).Shapes(5).TextFrame.TextRange.Text = " "
+        ppPres.Slides(3).Shapes(6).TextFrame.TextRange.Text = " "
+        ppPres.Slides(3).Shapes(7).TextFrame.TextRange.Text = " "
+        BookBox.Text = ""
+        VerseTxt.Text = ""
+        ChapterTxt.Text = ""
+        'Hymnal Slide
+        ppPres.Slides(4).Shapes(1).TextFrame.TextRange.Text = " "
         EnglishTitle.Text = "English Sermon Title"
         ChineseTitle.Text = "中文講道題目"
         HymnNos.Text = ""
@@ -103,11 +139,11 @@ Public Class MainProgram
         Dim cup As String
         If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\bread.txt") = True Then
             bread = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\bread.txt")
-            ppPres.Slides(4).Shapes(3).TextFrame.TextRange.Text = bread
+            ppPres.Slides(7).Shapes(3).TextFrame.TextRange.Text = bread
         End If
         If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\cup.txt") = True Then
             cup = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\cup.txt")
-            ppPres.Slides(4).Shapes(4).TextFrame.TextRange.Text = cup
+            ppPres.Slides(7).Shapes(4).TextFrame.TextRange.Text = cup
         End If
     End Sub
 
@@ -120,7 +156,7 @@ Public Class MainProgram
             Dim directory As String
             directory = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\prayerImgDir.txt")
             If My.Computer.FileSystem.FileExists(directory) = True Then
-                ppPres.Slides(2).Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
+                ppPres.Slides(5).Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
             End If
         End If
     End Sub
@@ -134,7 +170,7 @@ Public Class MainProgram
             Dim directory As String
             directory = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\timetableDir.txt")
             If My.Computer.FileSystem.FileExists(directory) = True Then
-                ppPres.Slides(8).Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
+                ppPres.Slides(10).Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
             End If
         End If
     End Sub
@@ -153,21 +189,21 @@ Public Class MainProgram
             If str(3) <> "]" Then
                 Dim FontColor As String = Mid(str, InStr(str, "=") + 1, Len(str) - InStr(str, "="))
                 ppPres.Slides(two).Shapes(three).TextFrame.TextRange.Font.Color.RGB = Color.FromArgb(Convert.ToInt32(FontColor)).ToArgb
-                If two = "3" Then
+                If two = "5" Then
                     PrayerRequests.PrayerRequestTxt.ForeColor = Color.FromArgb(Convert.ToInt32(FontColor))
-                ElseIf two = "4" Then
+                ElseIf two = "6" Then
                     Announcements.AnnouncementTxt.ForeColor = Color.FromArgb(Convert.ToInt32(FontColor))
                 End If
             Else
                 Dim BGColor As String = Mid(str, InStr(str, "=") + 1, Len(str) - InStr(str, "="))
                 ppPres.Slides(two).Background.Fill.ForeColor.RGB = Color.FromArgb(Convert.ToInt32(BGColor)).ToArgb
-                If two = "3" Then
+                If two = "5" Then
                     Dim R As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).R
                     Dim G As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).G
                     Dim B As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).B
                     PrayerRequests.PrayerRequestTxt.BackColor = Color.FromArgb(255, B, G, R)
                     PrayerRequests.Panel.BackColor = Color.FromArgb(255, B, G, R)
-                ElseIf two = "4" Then
+                ElseIf two = "6" Then
                     Dim R As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).R
                     Dim G As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).G
                     Dim B As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).B
@@ -195,25 +231,25 @@ Public Class MainProgram
     Public Sub HandleAnnouncements()
         If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\Announcements.txt") Then
             Announcements.AnnouncementTxt.Text = File.ReadAllText(CurrentDirectory + "\Files\Announcements.txt", System.Text.Encoding.UTF32)
-            ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = Announcements.AnnouncementTxt.Text
+            ppPres.Slides(6).Shapes(1).TextFrame.TextRange.Text = Announcements.AnnouncementTxt.Text
         Else
             Using sw As StreamWriter = File.CreateText(CurrentDirectory + "\Files\Announcements.txt")
                 sw.WriteLine(" ")
             End Using
             Announcements.AnnouncementTxt.Text = File.ReadAllText(CurrentDirectory + "\Files\Announcements.txt", System.Text.Encoding.UTF32)
-            ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = Announcements.AnnouncementTxt.Text
+            ppPres.Slides(6).Shapes(1).TextFrame.TextRange.Text = Announcements.AnnouncementTxt.Text
         End If
     End Sub
     Public Sub HandlePrayerRequests()
         If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\PrayerRequests.txt") Then
             PrayerRequests.PrayerRequestTxt.Text = File.ReadAllText(CurrentDirectory + "\Files\PrayerRequests.txt", System.Text.Encoding.UTF32)
-            ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Text = PrayerRequests.PrayerRequestTxt.Text
+            ppPres.Slides(5).Shapes(1).TextFrame.TextRange.Text = PrayerRequests.PrayerRequestTxt.Text
         Else
             Using sw As StreamWriter = File.CreateText(CurrentDirectory + "\Files\PrayerRequests.txt")
                 sw.WriteLine(" ")
             End Using
             PrayerRequests.PrayerRequestTxt.Text = File.ReadAllText(CurrentDirectory + "\Files\PrayerRequests.txt", System.Text.Encoding.UTF32)
-            ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Text = PrayerRequests.PrayerRequestTxt.Text
+            ppPres.Slides(5).Shapes(1).TextFrame.TextRange.Text = PrayerRequests.PrayerRequestTxt.Text
         End If
     End Sub
     Public Sub ChangeFont(i As Integer, j As Integer)
@@ -241,26 +277,20 @@ Public Class MainProgram
 
     Private Sub ShowSermonHymns_CheckedChanged(sender As Object, e As EventArgs) Handles ShowSermonHymns.CheckedChanged
         If ShowSermonHymns.Checked Then
-            ppPres.Slides(1).Shapes(5).Visible = False
-            ppPres.Slides(1).Shapes(6).Visible = False
-            ppPres.Slides(1).Shapes(7).Visible = False
-            ppPres.Slides(1).Shapes(8).Visible = False
-            ppPres.Slides(1).Shapes(3).Visible = True
-            ppPres.Slides(1).Shapes(4).Visible = True
-            ppPres.Slides(1).Shapes(4).Top = 260
-            ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
-            ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
-            ppPres.Slides(1).Shapes(4).TextFrame.TextRange.Text = HymnNos.Text
-            ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = ""
-            ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = ""
-            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ""
+            SlideTrack.SelectedIndex = 1
+            ppPres.SlideShowWindow.View.GotoSlide(2)
+            ShowVerses.Checked = False
+            ShowHymnal.Checked = False
+            'clearing bible verses
+            ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = " "
+            ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Text = " "
+            ppPres.Slides(3).Shapes(4).TextFrame.TextRange.Text = " "
+            ppPres.Slides(3).Shapes(5).TextFrame.TextRange.Text = " "
+            ppPres.Slides(3).Shapes(6).TextFrame.TextRange.Text = " "
+            ppPres.Slides(3).Shapes(7).TextFrame.TextRange.Text = " "
             BookBox.Text = ""
             VerseTxt.Text = ""
             ChapterTxt.Text = ""
-
-            ShowVerses.Checked = False
-            ShowHymnal.Checked = False
-            Return
         End If
         If ShowHymnal.Checked.Equals(False) And ShowVerses.Checked.Equals(False) Then
             ShowSermonHymns.Checked = True
@@ -269,49 +299,28 @@ Public Class MainProgram
     End Sub
     Private Sub ShowVerses_CheckedChanged(sender As Object, e As EventArgs) Handles ShowVerses.CheckedChanged
         If ShowVerses.Checked Then
-            ppPres.Slides(1).Shapes(3).Visible = False
-            ppPres.Slides(1).Shapes(4).Visible = False
-            ppPres.Slides(1).Shapes(5).Visible = True
-            ppPres.Slides(1).Shapes(6).Visible = True
-            ppPres.Slides(1).Shapes(7).Visible = True
-            ppPres.Slides(1).Shapes(8).Visible = True
+            ppPres.SlideShowWindow.View.GotoSlide(3)
             ShowSermonHymns.Checked = False
-            Return
+            ShowHymnal.Checked = False
+
         End If
         If ShowHymnal.Checked.Equals(False) And ShowSermonHymns.Checked.Equals(False) Then
             ShowVerses.Checked = True
-        ElseIf ShowHymnal.Checked.Equals(True) And ShowSermonHymns.Checked.Equals(False) Then
-            'when user has unchecked bible verse whilst being in hymnal
-            'Assumes that user wants to go back to show hymnal hymns
-            'must make hymn nos visible again and any bible verses invisible
-            ppPres.Slides(1).Shapes(5).Visible = False
-            ppPres.Slides(1).Shapes(6).Visible = False
-            ppPres.Slides(1).Shapes(7).Visible = False
-            ppPres.Slides(1).Shapes(8).Visible = False
-            ppPres.Slides(1).Shapes(3).Visible = False
-            ppPres.Slides(1).Shapes(4).Visible = True
-            ppPres.Slides(1).Shapes(4).Top = 175
         End If
+
 
     End Sub
     Private Sub ShowHymnal_CheckedChanged(sender As Object, e As EventArgs) Handles ShowHymnal.CheckedChanged
         If ShowHymnal.Checked Then
-            ppPres.Slides(1).Shapes(3).Visible = False
-            ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = "Hymnal"
-            ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = "詩頌"
-            ppPres.Slides(1).Shapes(4).Top = 175
+            Call UpdateHymn_Click(sender, e)
+            ppPres.SlideShowWindow.View.GotoSlide(4)
             ShowSermonHymns.Checked = False
-            Return
-        End If
-        If ShowVerses.Checked.Equals(False) And ShowSermonHymns.Checked.Equals(False) Then
-            ShowHymnal.Checked = True
-        ElseIf ShowVerses.Checked.Equals(True) And ShowSermonHymns.Checked.Equals(False) Then
-            'User has unchecked hymnal whilst showing bible verses
-            'Assumes that user wants to go back to sermon titles
-            ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
-            ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
+            ShowVerses.Checked = False
         End If
 
+        If ShowVerses.Checked.Equals(False) And ShowSermonHymns.Checked.Equals(False) Then
+            ShowHymnal.Checked = True
+        End If
 
     End Sub
 
@@ -322,13 +331,13 @@ Public Class MainProgram
             ShowVerses.Checked = True
         End If
         If VerseTxt.Text = "" And BookBox.Text = "" And ChapterTxt.Text = "" Then
-            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ""
+            ppPres.Slides(3).Shapes(6).TextFrame.TextRange.Text = ""
         ElseIf BookBox.SelectedIndex <> -1 Then
             Dim commaPos As Integer
             commaPos = InStr(BookBox.Text, ",")
-            ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
-            ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = Mid(BookBox.Text, commaPos + 1)
-            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ChapterTxt.Text + " : " + VerseTxt.Text
+            ppPres.Slides(3).Shapes(4).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
+            ppPres.Slides(3).Shapes(5).TextFrame.TextRange.Text = Mid(BookBox.Text, commaPos + 1)
+            ppPres.Slides(3).Shapes(6).TextFrame.TextRange.Text = ChapterTxt.Text + " : " + VerseTxt.Text
 
         End If
     End Sub
@@ -350,99 +359,226 @@ Public Class MainProgram
                 ChineseTitle.Text = ChineseTitle.Text.Remove(0, 1)
             End While
         End If
-        ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
-        ppPres.Slides(1).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
-        ppPres.Slides(1).Shapes(4).Top = 260
-        If ShowSermonHymns.Checked Then
-            ppPres.Slides(1).Shapes(3).Visible = True
-        ElseIf ShowHymnal.Checked Then
+        'update on sermon slide
+        ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
+        ppPres.Slides(2).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
+        'update on bible verse slide
+        ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
+        ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
+        If ShowHymnal.Checked Then
             'If updated titles during hymnal, return to service hymns
             ShowSermonHymns.Checked = True
         End If
 
     End Sub
 
-    Private Sub UpdateHymn_Click(sender As Object, e As EventArgs) Handles UpdateHymn.Click
-        ppPres.Slides(1).Shapes(4).TextFrame.TextRange.Text = HymnNos.Text
-        'if called when show hymns is checked
-        'automatically change to show verses
-        If ShowSermonHymns.Checked = False And ShowHymnal.Checked = False Then
-            ShowSermonHymns.Checked = True
-            ShowVerses.Checked = False
-        End If
-        If ShowHymnal.Checked = False Then
-            ppPres.Slides(1).Shapes(4).Top = 260
-            ppPres.Slides(1).Shapes(3).Visible = True
-        Else
-            ppPres.Slides(1).Shapes(3).Visible = False
-            ppPres.Slides(1).Shapes(4).Top = 175
-        End If
 
-        If SlideTrack.SelectedIndex = 3 Then
+
+    'HYMN SELECTION --------------------------------------------
+    Private Sub UpdateHymn_Click(sender As Object, e As EventArgs) Handles UpdateHymn.Click
+        Dim hymns As String = ""
+        hymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
+        If ShowSermonHymns.Checked Then
+            'if showing sermon hymns
+            ppPres.Slides(2).Shapes(4).TextFrame.TextRange.Text = hymns
+            highlightCurrentHymn(ppPres.Slides(2).Shapes(4).TextFrame.TextRange)
+        End If
+        If ShowHymnal.Checked Then
+            'if showing hymnal hymns
+            ppPres.Slides(4).Shapes(1).TextFrame.TextRange.Text = hymns
+            highlightCurrentHymn(ppPres.Slides(4).Shapes(1).TextFrame.TextRange)
+        End If
+        If SlideTrack.SelectedIndex = 4 Then
             'updating hymns on holy communion slide
-            'replacing all new lines with commas
-            ppPres.Slides(4).Shapes(2).TextFrame.TextRange.Text = "Hymns 詩: " + HymnNos.Text.Replace(vbCrLf, ", ")
+            ppPres.Slides(7).Shapes(2).TextFrame.TextRange.Text = hymns
+            highlightCurrentHymn(ppPres.Slides(7).Shapes(2).TextFrame.TextRange)
+        End If
+    End Sub
+    Private Sub nextHymn_Click(sender As Object, e As EventArgs) Handles nextHymn.Click
+        If HymnsSelectionBox.SelectedIndex = HymnsSelectionBox.Items.Count - 1 Then
+            Return
+        End If
+        HymnsSelectionBox.SelectedIndex += 1
+    End Sub
+
+    Private Sub prevHymn_Click(sender As Object, e As EventArgs) Handles prevHymn.Click
+        If HymnsSelectionBox.SelectedIndex = 0 Then
+            Return
+        End If
+        HymnsSelectionBox.SelectedIndex -= 1
+    End Sub
+    Private Sub removeCurrentHymn(textBox As PowerPoint.TextRange)
+        Dim selectedIndex As Integer = HymnsSelectionBox.SelectedIndex
+        Dim size As Integer = HymnsSelectionBox.Items.Count
+        If size = 0 Then
+            'if there are new hymns to be removed return
+            Return
+        End If
+        If size = 1 Then
+            'only one hymn in selection box no need to find new selected hymn
+            textBox.Delete()
+            HymnsSelectionBox.Items.Clear()
+            Return
+        End If
+        If selectedIndex = size - 1 Then
+            'if hymn is last hymn selected, reselect last hymn
+            textBox.Paragraphs(selectedIndex + 1).Delete()
+            HymnsSelectionBox.Items.RemoveAt(selectedIndex)
+            HymnsSelectionBox.SelectedIndex = size - 2
+            Return
+        End If
+        'for all other cases, select the next hymn at the same index
+        textBox.Paragraphs(selectedIndex + 1).Delete()
+        HymnsSelectionBox.Items.RemoveAt(selectedIndex)
+        HymnsSelectionBox.SelectedIndex = selectedIndex
+    End Sub
+
+    Private Sub highlightCurrentHymn(textBox As PowerPoint.TextRange)
+        ''resetting fonts to highlight selected hymn
+        If HymnsSelectionBox.Items.Count = 0 Then
+            Return
+        End If
+        If HymnsSelectionBox.Items.Count = 1 Then
+            textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Size = 56
+            textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Bold = Office.MsoTriState.msoTrue
+            Return
+        End If
+        'resetting styles
+        textBox.Font.Size = 40
+        textBox.Font.Bold = Office.MsoTriState.msoFalse
+        'highlighting paragraph
+        textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Size = 56
+        textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Bold = Office.MsoTriState.msoTrue
+    End Sub
+
+    Private Sub HymnsSelectionBox_KeyDown(sender As Object, e As KeyEventArgs) Handles HymnsSelectionBox.KeyDown
+        If e.KeyCode = Keys.Back Or e.KeyCode = Keys.Delete Then
+            'handles deleting 
+            If SlideTrack.SelectedIndex = 4 Then
+                'updating hymns on holy communion slide
+                removeCurrentHymn(ppPres.Slides(7).Shapes(2).TextFrame.TextRange)
+                Return
+            End If
+            If ShowSermonHymns.Checked Then
+                'if showing sermon hymns
+                removeCurrentHymn(ppPres.Slides(2).Shapes(4).TextFrame.TextRange)
+                Return
+            End If
+            If ShowHymnal.Checked Then
+                'if showing hymnal hymns
+                removeCurrentHymn(ppPres.Slides(4).Shapes(1).TextFrame.TextRange)
+                Return
+            End If
+        End If
+    End Sub
+    Private Sub HymnsSelectionBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles HymnsSelectionBox.SelectedIndexChanged
+        If ShowSermonHymns.Checked Then
+            'if showing sermon hymns
+            highlightCurrentHymn(ppPres.Slides(2).Shapes(4).TextFrame.TextRange)
+        End If
+        If ShowHymnal.Checked Then
+            'if showing hymnal hymns
+            highlightCurrentHymn(ppPres.Slides(4).Shapes(1).TextFrame.TextRange)
+        End If
+        If SlideTrack.SelectedIndex = 4 Then
+            'updating hymns on holy communion slide
+            highlightCurrentHymn(ppPres.Slides(7).Shapes(2).TextFrame.TextRange)
+        End If
+    End Sub
+
+    Private Sub HymnNos_KeyDown(sender As Object, e As KeyEventArgs) Handles HymnNos.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            'user pressed enter to submit hymn
+            If HymnNos.Text = vbNewLine Or HymnNos.Text = "" Then
+                'user tried to enter empty line
+                HymnNos.Text = ""
+                Return
+            End If
+            HymnsSelectionBox.Items.Add(HymnNos.Text.Replace(vbNewLine, ""))
+            HymnNos.Text = ""
+            'if first hymn added, select hymn
+            If HymnsSelectionBox.Items.Count.Equals(1) Then
+                HymnsSelectionBox.SelectedIndex = 0
+            End If
         End If
     End Sub
 
     Private Sub EnglishFontBtn_Click(sender As Object, e As EventArgs) Handles EnglishFontBtn.Click
-        ChangeFont(1, 1)
+        ChangeFont(2, 1)
+        ChangeFont(3, 1)
     End Sub
     Private Sub EnglishColorBtn_Click(sender As Object, e As EventArgs) Handles EnglishColorBtn.Click
-        ChangeColor(1, 1)
+        ChangeColor(2, 1)
+        ChangeColor(3, 1)
     End Sub
     Private Sub ChineseFontBtn_Click(sender As Object, e As EventArgs) Handles ChineseFontBtn.Click
-        ChangeFont(1, 2)
+        ChangeFont(2, 2)
+        ChangeFont(3, 2)
     End Sub
     Private Sub ChineseColorBtn_Click(sender As Object, e As EventArgs) Handles ChineseColorBtn.Click
-        ChangeColor(1, 2)
+        ChangeColor(2, 2)
+        ChangeColor(3, 2)
     End Sub
     Private Sub HymnHDFont_Click(sender As Object, e As EventArgs) Handles HymnHDFont.Click
-        ChangeFont(1, 3)
+        ChangeFont(2, 3)
     End Sub
     Private Sub HymnHDColor_Click(sender As Object, e As EventArgs) Handles HymnHDColor.Click
-        ChangeColor(1, 3)
+        ChangeColor(2, 3)
     End Sub
     Private Sub HymnFontBtn_Click(sender As Object, e As EventArgs) Handles HymnFontBtn.Click
-        ChangeFont(1, 4)
+        ChangeFont(2, 4)
     End Sub
     Private Sub HymnColorBtn_Click(sender As Object, e As EventArgs) Handles HymnColorBtn.Click
-        ChangeColor(1, 4)
+        ChangeColor(2, 4)
     End Sub
     Private Sub BBibleHDFont_Click(sender As Object, e As EventArgs) Handles BibleHDFont.Click
-        ChangeFont(1, 5)
+        ChangeFont(2, 5)
     End Sub
 
     Private Sub BibleHDColor_Click(sender As Object, e As EventArgs) Handles BibleHDColor.Click
-        ChangeColor(1, 5)
+        ChangeColor(2, 5)
     End Sub
     Private Sub EnglishBookFontBtn_Click(sender As Object, e As EventArgs) Handles EnglishBookFontBtn.Click
-        ChangeFont(1, 6)
+        ChangeFont(2, 6)
     End Sub
     Private Sub EnglishBookColorBtn_Click(sender As Object, e As EventArgs) Handles EnglishBookColorBtn.Click
-        ChangeColor(1, 6)
+        ChangeColor(2, 6)
     End Sub
     Private Sub ChineseBookFontBtn_Click(sender As Object, e As EventArgs) Handles ChineseBookFontBtn.Click
-        ChangeFont(1, 7)
+        ChangeFont(2, 7)
     End Sub
     Private Sub ChineseBookColorBtn_Click(sender As Object, e As EventArgs) Handles ChineseBookColorBtn.Click
-        ChangeColor(1, 7)
+        ChangeColor(2, 7)
     End Sub
     Private Sub CVFontBtn_Click(sender As Object, e As EventArgs) Handles CVFontBtn.Click
-        ChangeFont(1, 8)
+        ChangeFont(2, 8)
     End Sub
     Private Sub CVColorBtn_Click(sender As Object, e As EventArgs) Handles CVColorBtn.Click
-        ChangeColor(1, 8)
+        ChangeColor(2, 8)
     End Sub
     Private Sub ServiceTypeFontBtn_Click(sender As Object, e As EventArgs) Handles ServiceTypeFontBtn.Click
-        ChangeFont(1, 10)
+        ChangeFont(2, 10)
     End Sub
 
     Private Sub ServiceTypeColorBtn_Click(sender As Object, e As EventArgs) Handles ServiceTypeColorBtn.Click
-        ChangeColor(1, 10)
+        ChangeColor(2, 10)
     End Sub
     Private Sub SlideTrack_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SlideTrack.SelectedIndexChanged
-        ppPres.SlideShowWindow.View.GotoSlide(SlideTrack.SelectedIndex + 1)
+        Select Case SlideTrack.SelectedIndex
+            Case 0 To 1
+                'Break slide and main service slide
+                ppPres.SlideShowWindow.View.GotoSlide(SlideTrack.SelectedIndex + 1)
+            Case 2 To 8
+                'Prayer Requests, announcements, holy communion,off devices,how to pray, service times
+                ppPres.SlideShowWindow.View.GotoSlide(SlideTrack.SelectedIndex + 3)
+        End Select
+        If SlideTrack.SelectedIndex = 4 Then
+            'updating hymns on holy communion slide
+            Call UpdateHymn_Click(sender, e)
+        ElseIf SlideTrack.SelectedIndex = 1 Then
+            'enable show sermon hymns
+            ShowSermonHymns.Checked = True
+        End If
     End Sub
 
     Private Sub OpenPrayerRequestsWindow_Click(sender As Object, e As EventArgs) Handles OpenPrayerRequestsWindow.Click
@@ -461,22 +597,22 @@ Public Class MainProgram
     Private Sub SaveSettings_Click(sender As Object, e As EventArgs) Handles SaveSettings.Click
         Dim CurrentSettings As String
         CurrentSettings =
-        GetFontAndColor(1, 1) & vbCrLf &
-        GetFontAndColor(1, 2) & vbCrLf &
-        GetFontAndColor(1, 4) & vbCrLf &
-        GetFontAndColor(1, 9) & vbCrLf &
-        GetFontAndColor(1, 6) & vbCrLf &
-        GetFontAndColor(1, 7) & vbCrLf &
-        GetFontAndColor(1, 8) & vbCrLf &
         GetFontAndColor(2, 1) & vbCrLf &
         GetFontAndColor(2, 2) & vbCrLf &
+        GetFontAndColor(2, 3) & vbCrLf &
+        GetFontAndColor(2, 4) & vbCrLf &
+        GetFontAndColor(2, 5) & vbCrLf &
         GetFontAndColor(3, 1) & vbCrLf &
-        GetFontAndColor(3, 2)
-        For i As Integer = 1 To 8
-            If i <> 2 Then
-                CurrentSettings = CurrentSettings + vbCrLf + "[C" & i & "]=" + Convert.ToString(ppPres.Slides(i).Background.Fill.ForeColor.RGB)
-            End If
-        Next
+        GetFontAndColor(3, 2) & vbCrLf &
+        GetFontAndColor(3, 3) & vbCrLf &
+        GetFontAndColor(3, 4) & vbCrLf &
+        GetFontAndColor(3, 5) & vbCrLf &
+        GetFontAndColor(3, 6) & vbCrLf &
+        GetFontAndColor(3, 7) & vbCrLf &
+        GetFontAndColor(5, 1) & vbCrLf &
+        GetFontAndColor(5, 2) & vbCrLf &
+        GetFontAndColor(6, 1) & vbCrLf &
+        GetFontAndColor(6, 2)
         Try
             My.Computer.FileSystem.WriteAllText(CurrentDirectory + "\Files\Settings.ini", CurrentSettings, False)
             MessageBox.Show("Save Successful", "Save Successful")
@@ -493,9 +629,9 @@ Public Class MainProgram
     End Sub
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
-        If SlideTrack.SelectedIndex = 5 Then
+        If SlideTrack.SelectedIndex = 0 Then
             'update time on break slide
-            ppPres.Slides(6).Shapes(1).TextFrame.TextRange.Text = DateTime.Now.ToString("HH:mm:ss")
+            ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = DateTime.Now.ToString("HH:mm:ss")
         End If
     End Sub
 
@@ -525,16 +661,17 @@ Public Class MainProgram
 
     Private Sub ServiceType_KeyDown(sender As Object, e As KeyEventArgs) Handles ServiceType.KeyDown
         If e.KeyCode = Keys.Enter Then
-            ppPres.Slides(1).Shapes(10).TextFrame.TextRange.Text = ServiceType.Text
+            ppPres.Slides(2).Shapes(5).TextFrame.TextRange.Text = ServiceType.Text
+            ppPres.Slides(3).Shapes(7).TextFrame.TextRange.Text = ServiceType.Text
         End If
     End Sub
 
     Private Sub BookBox_KeyDown(sender As Object, e As KeyEventArgs) Handles BookBox.KeyDown
         ' handles when book box is empty, assumes that no verse or chapter should be shown
         If BookBox.Text Is "" And e.KeyCode = Keys.Enter Then
-            ppPres.Slides(1).Shapes(6).TextFrame.TextRange.Text = ""
-            ppPres.Slides(1).Shapes(7).TextFrame.TextRange.Text = ""
-            ppPres.Slides(1).Shapes(8).TextFrame.TextRange.Text = ""
+            ppPres.Slides(3).Shapes(4).TextFrame.TextRange.Text = ""
+            ppPres.Slides(3).Shapes(5).TextFrame.TextRange.Text = ""
+            ppPres.Slides(3).Shapes(6).TextFrame.TextRange.Text = ""
             VerseTxt.Text = ""
             ChapterTxt.Text = ""
         ElseIf e.KeyCode = Keys.Enter Then
@@ -560,7 +697,7 @@ Public Class MainProgram
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*"
             If ofd.ShowDialog = DialogResult.OK Then
                 deletePrayerImage()
-                ppPres.Slides(2).Shapes.AddPicture(ofd.FileName, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
+                ppPres.Slides(5).Shapes.AddPicture(ofd.FileName, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
                 System.IO.File.WriteAllText(CurrentDirectory + "\Files\prayerImgDir.txt", ofd.FileName)
                 MessageBox.Show("Prayer Image Was Successfully Updated", "Success")
             Else
@@ -574,8 +711,8 @@ Public Class MainProgram
     End Sub
 
     Public Sub deletePrayerImage()
-        If ppPres.Slides(2).Shapes.Count >= 6 Then
-            ppPres.Slides(2).Shapes(6).Delete()
+        If ppPres.Slides(5).Shapes.Count >= 6 Then
+            ppPres.Slides(5).Shapes(6).Delete()
             System.IO.File.WriteAllText(CurrentDirectory + "\Files\prayerImgDir.txt", "")
         End If
     End Sub
@@ -594,7 +731,7 @@ Public Class MainProgram
             ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Downloads"
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*"
             If ofd.ShowDialog = DialogResult.OK Then
-                ppPres.Slides(8).Shapes.AddPicture(ofd.FileName, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
+                ppPres.Slides(10).Shapes.AddPicture(ofd.FileName, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
                 System.IO.File.WriteAllText(CurrentDirectory + "\Files\timetableDir.txt", ofd.FileName)
                 MessageBox.Show("Service Timetable Was Successfully Updated", "Success")
             Else
@@ -611,14 +748,14 @@ Public Class MainProgram
     'Following two methods deal with moving the chinese title up or down to create more/less spacing
     'Needed when English title takes two or more lines
     Private Sub moveChineseUp_Click(sender As Object, e As EventArgs) Handles moveChineseUp.Click
-        If ppPres.Slides(1).Shapes(2).Top >= 10 Then
-            ppPres.Slides(1).Shapes(2).Top = ppPres.Slides(1).Shapes(2).Top - 10
+        If ppPres.Slides(2).Shapes(2).Top >= 10 Then
+            ppPres.Slides(2).Shapes(2).Top = ppPres.Slides(2).Shapes(2).Top - 10
         End If
 
     End Sub
     Private Sub moveChineseDown_Click(sender As Object, e As EventArgs) Handles moveChineseDown.Click
-        If ppPres.Slides(1).Shapes(2).Top <= 200 Then
-            ppPres.Slides(1).Shapes(2).Top = ppPres.Slides(1).Shapes(2).Top + 10
+        If ppPres.Slides(2).Shapes(2).Top <= 200 Then
+            ppPres.Slides(2).Shapes(2).Top = ppPres.Slides(2).Shapes(2).Top + 10
         End If
     End Sub
 
@@ -705,6 +842,7 @@ Public Class MainProgram
         Dim response As Integer = NativeMethods.DwmIsCompositionEnabled(enabled)
         aeroEnabled = (enabled = 1)
     End Sub
+
 
 End Class
 

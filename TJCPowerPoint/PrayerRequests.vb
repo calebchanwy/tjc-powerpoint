@@ -13,7 +13,7 @@ Public Class PrayerRequests
         End If
 
         'slide number according to order of powerpoint slide
-        slideNumber = 2
+        slideNumber = 5
     End Sub
 
     'Method handling when form is closed

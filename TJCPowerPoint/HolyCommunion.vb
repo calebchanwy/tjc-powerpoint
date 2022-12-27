@@ -17,7 +17,7 @@ Public Class HolyCommunion
 
         Me.aeroEnabled = False
         Me.FormBorderStyle = FormBorderStyle.None
-        slideNumber = 4
+        slideNumber = 7
     End Sub
 
     'Method handling when form is closed

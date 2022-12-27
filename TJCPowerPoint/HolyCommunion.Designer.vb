@@ -41,9 +41,9 @@ Partial Class HolyCommunion
         '
         Me.breadTxt.AcceptsReturn = True
         Me.breadTxt.AcceptsTab = True
-        Me.breadTxt.BackColor = System.Drawing.Color.Black
+        Me.breadTxt.BackColor = System.Drawing.Color.WhiteSmoke
         Me.breadTxt.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.breadTxt.ForeColor = System.Drawing.Color.White
+        Me.breadTxt.ForeColor = System.Drawing.Color.Black
         Me.breadTxt.Location = New System.Drawing.Point(32, 81)
         Me.breadTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.breadTxt.Multiline = True
@@ -56,9 +56,9 @@ Partial Class HolyCommunion
         '
         Me.cupTxt.AcceptsReturn = True
         Me.cupTxt.AcceptsTab = True
-        Me.cupTxt.BackColor = System.Drawing.Color.Black
+        Me.cupTxt.BackColor = System.Drawing.Color.WhiteSmoke
         Me.cupTxt.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cupTxt.ForeColor = System.Drawing.Color.White
+        Me.cupTxt.ForeColor = System.Drawing.Color.Black
         Me.cupTxt.Location = New System.Drawing.Point(386, 81)
         Me.cupTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cupTxt.Multiline = True

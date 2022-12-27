@@ -10,7 +10,7 @@ Public Class Announcements
         Me.aeroEnabled = False
         Me.FormBorderStyle = FormBorderStyle.None
         'HERE INITALISE THE ANNOUNCEMENT SLIDE NUMBER ACCORDING TO ORDER ON POWERPOINT
-        slideNumber = 3
+        slideNumber = 6
     End Sub
 
     Private Sub CloseAnnouncements_Click(sender As Object, e As EventArgs) Handles CloseAnnouncements.Click, closeForm.Click
@@ -53,6 +53,7 @@ Public Class Announcements
 
     Private Sub goToAnnouncements_Click(sender As Object, e As EventArgs) Handles goToAnnouncements.Click
         MainProgram.ppPres.SlideShowWindow.View.GotoSlide(slideNumber)
+        MainProgram.SlideTrack.SelectedIndex = slideNumber - 3
     End Sub
 
 

@@ -146,11 +146,11 @@ Partial Class Announcements
         Me.AnnouncementTxt.AcceptsReturn = True
         Me.AnnouncementTxt.AcceptsTab = True
         Me.AnnouncementTxt.AllowDrop = True
-        Me.AnnouncementTxt.BackColor = System.Drawing.Color.Black
+        Me.AnnouncementTxt.BackColor = System.Drawing.Color.WhiteSmoke
         Me.AnnouncementTxt.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.AnnouncementTxt.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AnnouncementTxt.ForeColor = System.Drawing.Color.White
-        Me.AnnouncementTxt.Location = New System.Drawing.Point(1, 1)
+        Me.AnnouncementTxt.Location = New System.Drawing.Point(0, 3)
         Me.AnnouncementTxt.Multiline = True
         Me.AnnouncementTxt.Name = "AnnouncementTxt"
         Me.AnnouncementTxt.Size = New System.Drawing.Size(609, 328)
@@ -160,7 +160,7 @@ Partial Class Announcements
         '
         'Panel
         '
-        Me.Panel.BackColor = System.Drawing.Color.Black
+        Me.Panel.BackColor = System.Drawing.Color.WhiteSmoke
         Me.Panel.Controls.Add(Me.AnnouncementTxt)
         Me.Panel.Location = New System.Drawing.Point(20, 48)
         Me.Panel.Name = "Panel"
