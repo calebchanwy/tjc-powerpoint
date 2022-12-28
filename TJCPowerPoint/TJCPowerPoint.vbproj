@@ -249,8 +249,15 @@
   <ItemGroup>
     <Content Include="Resources\border.png" />
     <Content Include="Resources\close.png" />
+    <Content Include="Resources\icons8-announcement-20.png" />
     <Content Include="Resources\icons8-close-24.png" />
     <Content Include="Resources\icons8-close-48.png" />
+    <Content Include="Resources\icons8-folder-20.png" />
+    <Content Include="Resources\icons8-holy-bible-16 %281%29.png" />
+    <Content Include="Resources\icons8-music-16.png" />
+    <Content Include="Resources\icons8-musical-notes-16.png" />
+    <Content Include="Resources\icons8-save-20.png" />
+    <Content Include="Resources\icons8-schedule-20.png" />
     <Content Include="Resources\minimize-sign.png" />
     <Content Include="Resources\tjcbirdlogo.ico" />
     <Content Include="Resources\tjcbirdlogoTransparent.png" />
