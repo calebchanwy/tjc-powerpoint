@@ -184,6 +184,7 @@ Public Class HolyCommunion
     Private Sub highlightCurrentHymn(textBox As PowerPoint.TextRange)
         ''resetting fonts to highlight selected hymn
         If HymnsSelectionBox.Items.Count = 0 Then
+            'if no hymns currently in list box do nothing
             Return
         End If
         If HymnsSelectionBox.Items.Count = 1 Then
@@ -227,9 +228,9 @@ Public Class HolyCommunion
                 HymnsSelectionBox.SelectedIndex = 0
             ElseIf HymnsSelectionBox.Items.Count > 3 Then
                 'no need to update hymns if count is more than 3
-                Return
+            Else
+                updateHymns()
             End If
-            updateHymns()
         End If
     End Sub
 End Class

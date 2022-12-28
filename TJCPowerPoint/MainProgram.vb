@@ -389,7 +389,7 @@ Public Class MainProgram
             ShowSermonHymns.Checked = True
         End If
     End Sub
-    Private Sub UpdateHymn_Click(sender As Object, e As EventArgs) Handles UpdateHymn.Click
+    Private Sub UpdateHymn_Click(sender As Object, e As EventArgs)
         updateHymns()
     End Sub
     Private Sub nextHymn_Click(sender As Object, e As EventArgs) Handles nextHymn.Click
@@ -457,8 +457,8 @@ Public Class MainProgram
                 removeCurrentHymn(ppPres.Slides(2).Shapes(4).TextFrame.TextRange)
                 Return
             ElseIf ShowHymnal.Checked Then
-            'if showing hymnal hymns
-            removeCurrentHymn(ppPres.Slides(4).Shapes(1).TextFrame.TextRange)
+                'if showing hymnal hymns
+                removeCurrentHymn(ppPres.Slides(4).Shapes(1).TextFrame.TextRange)
                 Return
             End If
         End If
@@ -487,6 +487,7 @@ Public Class MainProgram
             If HymnsSelectionBox.Items.Count.Equals(1) Then
                 HymnsSelectionBox.SelectedIndex = 0
             End If
+            updateHymns()
         End If
     End Sub
 

@@ -65,9 +65,7 @@ Partial Class MainProgram
         Me.edtHC = New System.Windows.Forms.Button()
         Me.ServiceTimesBtn = New System.Windows.Forms.Button()
         Me.HymnNos = New System.Windows.Forms.TextBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.ChineseTitle = New System.Windows.Forms.TextBox()
-        Me.UpdateHymn = New System.Windows.Forms.Button()
         Me.EnglishTitle = New System.Windows.Forms.TextBox()
         Me.UpdateTitle = New System.Windows.Forms.Button()
         Me.ShowVerses = New System.Windows.Forms.CheckBox()
@@ -75,31 +73,33 @@ Partial Class MainProgram
         Me.ServiceType = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Title = New System.Windows.Forms.GroupBox()
-        Me.prevHymn = New System.Windows.Forms.Button()
-        Me.nextHymn = New System.Windows.Forms.Button()
-        Me.HymnsSelectionBox = New System.Windows.Forms.ListBox()
         Me.ShowHymnal = New System.Windows.Forms.CheckBox()
         Me.moveChineseDown = New System.Windows.Forms.Button()
         Me.moveChineseUp = New System.Windows.Forms.Button()
         Me.ShowSermonHymns = New System.Windows.Forms.CheckBox()
         Me.ServiceTypeFontBtn = New System.Windows.Forms.Button()
         Me.ServiceTypeColorBtn = New System.Windows.Forms.Button()
-        Me.HymnFontBtn = New System.Windows.Forms.Button()
-        Me.HymnColorBtn = New System.Windows.Forms.Button()
         Me.EnglishColorBtn = New System.Windows.Forms.Button()
         Me.EnglishFontBtn = New System.Windows.Forms.Button()
         Me.ChineseFontBtn = New System.Windows.Forms.Button()
         Me.ChineseColorBtn = New System.Windows.Forms.Button()
+        Me.prevHymn = New System.Windows.Forms.Button()
+        Me.nextHymn = New System.Windows.Forms.Button()
+        Me.HymnsSelectionBox = New System.Windows.Forms.ListBox()
+        Me.HymnFontBtn = New System.Windows.Forms.Button()
+        Me.HymnColorBtn = New System.Windows.Forms.Button()
         Me.topNavBar = New System.Windows.Forms.FlowLayoutPanel()
         Me.closeForm = New System.Windows.Forms.Button()
         Me.minForm = New System.Windows.Forms.Button()
         Me.TJCLogo = New System.Windows.Forms.PictureBox()
         Me.BGColor = New System.Windows.Forms.Button()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.BibleVerse.SuspendLayout()
         Me.Title.SuspendLayout()
         Me.topNavBar.SuspendLayout()
         CType(Me.TJCLogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'BibleVerse
@@ -613,54 +613,30 @@ Partial Class MainProgram
         Me.HymnNos.AcceptsReturn = True
         Me.HymnNos.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.HymnNos.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HymnNos.Location = New System.Drawing.Point(11, 39)
+        Me.HymnNos.Location = New System.Drawing.Point(6, 17)
         Me.HymnNos.Multiline = True
         Me.HymnNos.Name = "HymnNos"
-        Me.HymnNos.Size = New System.Drawing.Size(84, 29)
+        Me.HymnNos.Size = New System.Drawing.Size(84, 25)
         Me.HymnNos.TabIndex = 4
         Me.HymnNos.TabStop = False
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(7, 16)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(58, 20)
-        Me.Label4.TabIndex = 10
-        Me.Label4.Text = "Hymns"
         '
         'ChineseTitle
         '
         Me.ChineseTitle.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.ChineseTitle.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ChineseTitle.Location = New System.Drawing.Point(104, 56)
+        Me.ChineseTitle.Location = New System.Drawing.Point(5, 55)
         Me.ChineseTitle.Name = "ChineseTitle"
-        Me.ChineseTitle.Size = New System.Drawing.Size(551, 33)
+        Me.ChineseTitle.Size = New System.Drawing.Size(506, 33)
         Me.ChineseTitle.TabIndex = 1
         Me.ChineseTitle.TabStop = False
-        '
-        'UpdateHymn
-        '
-        Me.UpdateHymn.BackColor = System.Drawing.Color.Transparent
-        Me.UpdateHymn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.UpdateHymn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UpdateHymn.ForeColor = System.Drawing.Color.Navy
-        Me.UpdateHymn.Location = New System.Drawing.Point(104, 127)
-        Me.UpdateHymn.Name = "UpdateHymn"
-        Me.UpdateHymn.Size = New System.Drawing.Size(117, 57)
-        Me.UpdateHymn.TabIndex = 5
-        Me.UpdateHymn.TabStop = False
-        Me.UpdateHymn.Text = "Update Hymns"
-        Me.UpdateHymn.UseVisualStyleBackColor = False
         '
         'EnglishTitle
         '
         Me.EnglishTitle.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.EnglishTitle.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EnglishTitle.Location = New System.Drawing.Point(104, 17)
+        Me.EnglishTitle.Location = New System.Drawing.Point(5, 16)
         Me.EnglishTitle.Name = "EnglishTitle"
-        Me.EnglishTitle.Size = New System.Drawing.Size(613, 33)
+        Me.EnglishTitle.Size = New System.Drawing.Size(568, 33)
         Me.EnglishTitle.TabIndex = 0
         Me.EnglishTitle.TabStop = False
         Me.EnglishTitle.WordWrap = False
@@ -673,10 +649,10 @@ Partial Class MainProgram
         Me.UpdateTitle.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UpdateTitle.ForeColor = System.Drawing.Color.Navy
         Me.UpdateTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.UpdateTitle.Location = New System.Drawing.Point(506, 133)
+        Me.UpdateTitle.Location = New System.Drawing.Point(362, 131)
         Me.UpdateTitle.Margin = New System.Windows.Forms.Padding(0)
         Me.UpdateTitle.Name = "UpdateTitle"
-        Me.UpdateTitle.Size = New System.Drawing.Size(273, 50)
+        Me.UpdateTitle.Size = New System.Drawing.Size(273, 49)
         Me.UpdateTitle.TabIndex = 3
         Me.UpdateTitle.TabStop = False
         Me.UpdateTitle.Text = "Update Title"
@@ -691,7 +667,7 @@ Partial Class MainProgram
         Me.ShowVerses.ForeColor = System.Drawing.Color.Black
         Me.ShowVerses.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_holy_bible_16__1_
         Me.ShowVerses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ShowVerses.Location = New System.Drawing.Point(475, 94)
+        Me.ShowVerses.Location = New System.Drawing.Point(174, 93)
         Me.ShowVerses.Margin = New System.Windows.Forms.Padding(0)
         Me.ShowVerses.Name = "ShowVerses"
         Me.ShowVerses.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
@@ -706,7 +682,7 @@ Partial Class MainProgram
         '
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(228, 140)
+        Me.Label11.Location = New System.Drawing.Point(6, 139)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(96, 20)
         Me.Label11.TabIndex = 19
@@ -716,7 +692,7 @@ Partial Class MainProgram
         '
         Me.ServiceType.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.ServiceType.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ServiceType.Location = New System.Drawing.Point(228, 161)
+        Me.ServiceType.Location = New System.Drawing.Point(6, 160)
         Me.ServiceType.Name = "ServiceType"
         Me.ServiceType.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
         Me.ServiceType.Size = New System.Drawing.Size(214, 22)
@@ -729,7 +705,7 @@ Partial Class MainProgram
         Me.Label16.BackColor = System.Drawing.Color.Transparent
         Me.Label16.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.Color.Black
-        Me.Label16.Location = New System.Drawing.Point(329, 145)
+        Me.Label16.Location = New System.Drawing.Point(107, 144)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(112, 13)
         Me.Label16.TabIndex = 34
@@ -739,9 +715,6 @@ Partial Class MainProgram
         'Title
         '
         Me.Title.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.Title.Controls.Add(Me.prevHymn)
-        Me.Title.Controls.Add(Me.nextHymn)
-        Me.Title.Controls.Add(Me.HymnsSelectionBox)
         Me.Title.Controls.Add(Me.ShowHymnal)
         Me.Title.Controls.Add(Me.moveChineseDown)
         Me.Title.Controls.Add(Me.moveChineseUp)
@@ -754,63 +727,21 @@ Partial Class MainProgram
         Me.Title.Controls.Add(Me.ShowVerses)
         Me.Title.Controls.Add(Me.UpdateTitle)
         Me.Title.Controls.Add(Me.EnglishTitle)
-        Me.Title.Controls.Add(Me.UpdateHymn)
         Me.Title.Controls.Add(Me.ChineseTitle)
-        Me.Title.Controls.Add(Me.HymnFontBtn)
-        Me.Title.Controls.Add(Me.HymnColorBtn)
-        Me.Title.Controls.Add(Me.Label4)
         Me.Title.Controls.Add(Me.EnglishColorBtn)
-        Me.Title.Controls.Add(Me.HymnNos)
         Me.Title.Controls.Add(Me.EnglishFontBtn)
         Me.Title.Controls.Add(Me.ChineseFontBtn)
         Me.Title.Controls.Add(Me.ChineseColorBtn)
         Me.Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Title.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Title.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        Me.Title.Location = New System.Drawing.Point(15, 45)
+        Me.Title.Location = New System.Drawing.Point(159, 45)
         Me.Title.Margin = New System.Windows.Forms.Padding(0)
         Me.Title.Name = "Title"
-        Me.Title.Size = New System.Drawing.Size(785, 190)
+        Me.Title.Size = New System.Drawing.Size(641, 190)
         Me.Title.TabIndex = 14
         Me.Title.TabStop = False
         Me.Title.Text = "Title(s)"
-        '
-        'prevHymn
-        '
-        Me.prevHymn.BackgroundImage = CType(resources.GetObject("prevHymn.BackgroundImage"), System.Drawing.Image)
-        Me.prevHymn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.prevHymn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.prevHymn.Location = New System.Drawing.Point(135, 96)
-        Me.prevHymn.Name = "prevHymn"
-        Me.prevHymn.Size = New System.Drawing.Size(25, 25)
-        Me.prevHymn.TabIndex = 43
-        Me.prevHymn.TabStop = False
-        Me.prevHymn.UseVisualStyleBackColor = True
-        '
-        'nextHymn
-        '
-        Me.nextHymn.BackgroundImage = CType(resources.GetObject("nextHymn.BackgroundImage"), System.Drawing.Image)
-        Me.nextHymn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.nextHymn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.nextHymn.Location = New System.Drawing.Point(104, 96)
-        Me.nextHymn.Name = "nextHymn"
-        Me.nextHymn.Size = New System.Drawing.Size(25, 25)
-        Me.nextHymn.TabIndex = 42
-        Me.nextHymn.TabStop = False
-        Me.nextHymn.UseVisualStyleBackColor = True
-        '
-        'HymnsSelectionBox
-        '
-        Me.HymnsSelectionBox.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.HymnsSelectionBox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HymnsSelectionBox.FormattingEnabled = True
-        Me.HymnsSelectionBox.ItemHeight = 21
-        Me.HymnsSelectionBox.Location = New System.Drawing.Point(11, 74)
-        Me.HymnsSelectionBox.Name = "HymnsSelectionBox"
-        Me.HymnsSelectionBox.ScrollAlwaysVisible = True
-        Me.HymnsSelectionBox.Size = New System.Drawing.Size(84, 109)
-        Me.HymnsSelectionBox.TabIndex = 41
-        Me.HymnsSelectionBox.TabStop = False
         '
         'ShowHymnal
         '
@@ -821,7 +752,7 @@ Partial Class MainProgram
         Me.ShowHymnal.ForeColor = System.Drawing.Color.Black
         Me.ShowHymnal.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_music_161
         Me.ShowHymnal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ShowHymnal.Location = New System.Drawing.Point(619, 94)
+        Me.ShowHymnal.Location = New System.Drawing.Point(318, 93)
         Me.ShowHymnal.Margin = New System.Windows.Forms.Padding(0)
         Me.ShowHymnal.Name = "ShowHymnal"
         Me.ShowHymnal.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
@@ -837,7 +768,7 @@ Partial Class MainProgram
         Me.moveChineseDown.BackgroundImage = CType(resources.GetObject("moveChineseDown.BackgroundImage"), System.Drawing.Image)
         Me.moveChineseDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.moveChineseDown.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.moveChineseDown.Location = New System.Drawing.Point(661, 60)
+        Me.moveChineseDown.Location = New System.Drawing.Point(517, 57)
         Me.moveChineseDown.Name = "moveChineseDown"
         Me.moveChineseDown.Size = New System.Drawing.Size(25, 25)
         Me.moveChineseDown.TabIndex = 39
@@ -849,7 +780,7 @@ Partial Class MainProgram
         Me.moveChineseUp.BackgroundImage = CType(resources.GetObject("moveChineseUp.BackgroundImage"), System.Drawing.Image)
         Me.moveChineseUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.moveChineseUp.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.moveChineseUp.Location = New System.Drawing.Point(692, 60)
+        Me.moveChineseUp.Location = New System.Drawing.Point(548, 57)
         Me.moveChineseUp.Name = "moveChineseUp"
         Me.moveChineseUp.Size = New System.Drawing.Size(25, 25)
         Me.moveChineseUp.TabIndex = 38
@@ -864,7 +795,7 @@ Partial Class MainProgram
         Me.ShowSermonHymns.ForeColor = System.Drawing.Color.Black
         Me.ShowSermonHymns.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_musical_notes_16
         Me.ShowSermonHymns.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ShowSermonHymns.Location = New System.Drawing.Point(305, 94)
+        Me.ShowSermonHymns.Location = New System.Drawing.Point(4, 93)
         Me.ShowSermonHymns.Margin = New System.Windows.Forms.Padding(0)
         Me.ShowSermonHymns.Name = "ShowSermonHymns"
         Me.ShowSermonHymns.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
@@ -880,7 +811,7 @@ Partial Class MainProgram
         Me.ServiceTypeFontBtn.BackgroundImage = CType(resources.GetObject("ServiceTypeFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.ServiceTypeFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ServiceTypeFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ServiceTypeFontBtn.Location = New System.Drawing.Point(475, 159)
+        Me.ServiceTypeFontBtn.Location = New System.Drawing.Point(257, 159)
         Me.ServiceTypeFontBtn.Name = "ServiceTypeFontBtn"
         Me.ServiceTypeFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.ServiceTypeFontBtn.TabIndex = 15
@@ -892,43 +823,19 @@ Partial Class MainProgram
         Me.ServiceTypeColorBtn.BackgroundImage = CType(resources.GetObject("ServiceTypeColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.ServiceTypeColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ServiceTypeColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ServiceTypeColorBtn.Location = New System.Drawing.Point(445, 159)
+        Me.ServiceTypeColorBtn.Location = New System.Drawing.Point(226, 157)
         Me.ServiceTypeColorBtn.Name = "ServiceTypeColorBtn"
         Me.ServiceTypeColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.ServiceTypeColorBtn.TabIndex = 14
         Me.ServiceTypeColorBtn.TabStop = False
         Me.ServiceTypeColorBtn.UseVisualStyleBackColor = True
         '
-        'HymnFontBtn
-        '
-        Me.HymnFontBtn.BackgroundImage = CType(resources.GetObject("HymnFontBtn.BackgroundImage"), System.Drawing.Image)
-        Me.HymnFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.HymnFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.HymnFontBtn.Location = New System.Drawing.Point(166, 96)
-        Me.HymnFontBtn.Name = "HymnFontBtn"
-        Me.HymnFontBtn.Size = New System.Drawing.Size(25, 25)
-        Me.HymnFontBtn.TabIndex = 12
-        Me.HymnFontBtn.TabStop = False
-        Me.HymnFontBtn.UseVisualStyleBackColor = True
-        '
-        'HymnColorBtn
-        '
-        Me.HymnColorBtn.BackgroundImage = CType(resources.GetObject("HymnColorBtn.BackgroundImage"), System.Drawing.Image)
-        Me.HymnColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.HymnColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.HymnColorBtn.Location = New System.Drawing.Point(196, 96)
-        Me.HymnColorBtn.Name = "HymnColorBtn"
-        Me.HymnColorBtn.Size = New System.Drawing.Size(25, 25)
-        Me.HymnColorBtn.TabIndex = 11
-        Me.HymnColorBtn.TabStop = False
-        Me.HymnColorBtn.UseVisualStyleBackColor = True
-        '
         'EnglishColorBtn
         '
         Me.EnglishColorBtn.BackgroundImage = CType(resources.GetObject("EnglishColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.EnglishColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.EnglishColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.EnglishColorBtn.Location = New System.Drawing.Point(723, 20)
+        Me.EnglishColorBtn.Location = New System.Drawing.Point(579, 17)
         Me.EnglishColorBtn.Name = "EnglishColorBtn"
         Me.EnglishColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.EnglishColorBtn.TabIndex = 5
@@ -940,7 +847,7 @@ Partial Class MainProgram
         Me.EnglishFontBtn.BackgroundImage = CType(resources.GetObject("EnglishFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.EnglishFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.EnglishFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.EnglishFontBtn.Location = New System.Drawing.Point(754, 20)
+        Me.EnglishFontBtn.Location = New System.Drawing.Point(610, 17)
         Me.EnglishFontBtn.Name = "EnglishFontBtn"
         Me.EnglishFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.EnglishFontBtn.TabIndex = 6
@@ -952,7 +859,7 @@ Partial Class MainProgram
         Me.ChineseFontBtn.BackgroundImage = CType(resources.GetObject("ChineseFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.ChineseFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ChineseFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ChineseFontBtn.Location = New System.Drawing.Point(754, 60)
+        Me.ChineseFontBtn.Location = New System.Drawing.Point(610, 57)
         Me.ChineseFontBtn.Name = "ChineseFontBtn"
         Me.ChineseFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.ChineseFontBtn.TabIndex = 8
@@ -964,12 +871,73 @@ Partial Class MainProgram
         Me.ChineseColorBtn.BackgroundImage = CType(resources.GetObject("ChineseColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.ChineseColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ChineseColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ChineseColorBtn.Location = New System.Drawing.Point(723, 60)
+        Me.ChineseColorBtn.Location = New System.Drawing.Point(579, 57)
         Me.ChineseColorBtn.Name = "ChineseColorBtn"
         Me.ChineseColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.ChineseColorBtn.TabIndex = 7
         Me.ChineseColorBtn.TabStop = False
         Me.ChineseColorBtn.UseVisualStyleBackColor = True
+        '
+        'prevHymn
+        '
+        Me.prevHymn.BackgroundImage = CType(resources.GetObject("prevHymn.BackgroundImage"), System.Drawing.Image)
+        Me.prevHymn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.prevHymn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.prevHymn.Location = New System.Drawing.Point(98, 79)
+        Me.prevHymn.Name = "prevHymn"
+        Me.prevHymn.Size = New System.Drawing.Size(25, 25)
+        Me.prevHymn.TabIndex = 43
+        Me.prevHymn.TabStop = False
+        Me.prevHymn.UseVisualStyleBackColor = True
+        '
+        'nextHymn
+        '
+        Me.nextHymn.BackgroundImage = CType(resources.GetObject("nextHymn.BackgroundImage"), System.Drawing.Image)
+        Me.nextHymn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.nextHymn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.nextHymn.Location = New System.Drawing.Point(98, 110)
+        Me.nextHymn.Name = "nextHymn"
+        Me.nextHymn.Size = New System.Drawing.Size(25, 25)
+        Me.nextHymn.TabIndex = 42
+        Me.nextHymn.TabStop = False
+        Me.nextHymn.UseVisualStyleBackColor = True
+        '
+        'HymnsSelectionBox
+        '
+        Me.HymnsSelectionBox.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.HymnsSelectionBox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HymnsSelectionBox.FormattingEnabled = True
+        Me.HymnsSelectionBox.ItemHeight = 21
+        Me.HymnsSelectionBox.Location = New System.Drawing.Point(6, 48)
+        Me.HymnsSelectionBox.Name = "HymnsSelectionBox"
+        Me.HymnsSelectionBox.ScrollAlwaysVisible = True
+        Me.HymnsSelectionBox.Size = New System.Drawing.Size(84, 130)
+        Me.HymnsSelectionBox.TabIndex = 41
+        Me.HymnsSelectionBox.TabStop = False
+        '
+        'HymnFontBtn
+        '
+        Me.HymnFontBtn.BackgroundImage = CType(resources.GetObject("HymnFontBtn.BackgroundImage"), System.Drawing.Image)
+        Me.HymnFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.HymnFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.HymnFontBtn.Location = New System.Drawing.Point(98, 48)
+        Me.HymnFontBtn.Name = "HymnFontBtn"
+        Me.HymnFontBtn.Size = New System.Drawing.Size(25, 25)
+        Me.HymnFontBtn.TabIndex = 12
+        Me.HymnFontBtn.TabStop = False
+        Me.HymnFontBtn.UseVisualStyleBackColor = True
+        '
+        'HymnColorBtn
+        '
+        Me.HymnColorBtn.BackgroundImage = CType(resources.GetObject("HymnColorBtn.BackgroundImage"), System.Drawing.Image)
+        Me.HymnColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.HymnColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.HymnColorBtn.Location = New System.Drawing.Point(98, 17)
+        Me.HymnColorBtn.Name = "HymnColorBtn"
+        Me.HymnColorBtn.Size = New System.Drawing.Size(25, 25)
+        Me.HymnColorBtn.TabIndex = 11
+        Me.HymnColorBtn.TabStop = False
+        Me.HymnColorBtn.UseVisualStyleBackColor = True
         '
         'topNavBar
         '
@@ -1049,6 +1017,23 @@ Partial Class MainProgram
         Me.ImageList1.ImageSize = New System.Drawing.Size(16, 16)
         Me.ImageList1.TransparentColor = System.Drawing.Color.Transparent
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.SystemColors.Menu
+        Me.GroupBox1.Controls.Add(Me.prevHymn)
+        Me.GroupBox1.Controls.Add(Me.HymnNos)
+        Me.GroupBox1.Controls.Add(Me.nextHymn)
+        Me.GroupBox1.Controls.Add(Me.HymnsSelectionBox)
+        Me.GroupBox1.Controls.Add(Me.HymnColorBtn)
+        Me.GroupBox1.Controls.Add(Me.HymnFontBtn)
+        Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(15, 45)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(137, 190)
+        Me.GroupBox1.TabIndex = 31
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Hymn(s)"
+        '
         'MainProgram
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
@@ -1058,6 +1043,7 @@ Partial Class MainProgram
         Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border5
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(815, 490)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Title)
         Me.Controls.Add(Me.TJCLogo)
         Me.Controls.Add(Me.topNavBar)
@@ -1089,6 +1075,8 @@ Partial Class MainProgram
         Me.Title.PerformLayout()
         Me.topNavBar.ResumeLayout(False)
         CType(Me.TJCLogo, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1139,7 +1127,6 @@ Partial Class MainProgram
     Friend WithEvents EnglishFontBtn As Button
     Friend WithEvents HymnNos As TextBox
     Friend WithEvents EnglishColorBtn As Button
-    Friend WithEvents Label4 As Label
     Friend WithEvents HymnColorBtn As Button
     Friend WithEvents HymnFontBtn As Button
     Friend WithEvents ChineseTitle As TextBox
@@ -1159,10 +1146,10 @@ Partial Class MainProgram
     Friend WithEvents TJCLogo As PictureBox
     Friend WithEvents moveChineseDown As Button
     Friend WithEvents moveChineseUp As Button
-    Friend WithEvents UpdateHymn As Button
     Friend WithEvents ImageList1 As ImageList
     Friend WithEvents ShowHymnal As CheckBox
     Friend WithEvents HymnsSelectionBox As ListBox
     Friend WithEvents prevHymn As Button
     Friend WithEvents nextHymn As Button
+    Friend WithEvents GroupBox1 As GroupBox
 End Class
