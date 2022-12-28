@@ -11,6 +11,8 @@ Public Class MainProgram
     Dim PrayerRequests As New PrayerRequests
     Dim Writer As XmlTextWriter = Nothing
     Dim RecentFile As String
+    Dim sermonHymns As String = ""
+    Dim prevSelectedIndex As Integer = -1
 
 
     'Method dealing with what the form will do when it initially opens
@@ -281,6 +283,23 @@ Public Class MainProgram
         If ShowSermonHymns.Checked Then
             SlideTrack.SelectedIndex = 1
             ppPres.SlideShowWindow.View.GotoSlide(2)
+            If ShowHymnal.Checked Then
+                'clear hymnal hymns
+                HymnsSelectionBox.Items.Clear()
+                ppPres.Slides(4).Shapes(1).TextFrame.TextRange.Text = ""
+                'reinsert sermon hymns from previous
+                Dim hymnsArr As String()
+                hymnsArr = Split(sermonHymns, vbNewLine)
+                For Each hymn As String In hymnsArr
+                    If hymn IsNot "" Then
+                        HymnsSelectionBox.Items.Add(hymn)
+                    End If
+                Next
+                If HymnsSelectionBox.Items.Count >= 1 Then
+                    'if there are hymns in selection box, by default select first hymn
+                    HymnsSelectionBox.SelectedIndex = 0
+                End If
+            End If
             ShowVerses.Checked = False
             ShowHymnal.Checked = False
             updateHymns()
@@ -306,12 +325,15 @@ Public Class MainProgram
         If ShowHymnal.Checked.Equals(False) And ShowSermonHymns.Checked.Equals(False) Then
             ShowVerses.Checked = True
         End If
-
-
     End Sub
     Private Sub ShowHymnal_CheckedChanged(sender As Object, e As EventArgs) Handles ShowHymnal.CheckedChanged
         If ShowHymnal.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(4)
+            If ShowSermonHymns.Checked Then
+                'take note of sermon hymns
+                sermonHymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
+                HymnsSelectionBox.Items.Clear()
+            End If
             ShowSermonHymns.Checked = False
             ShowVerses.Checked = False
             updateHymns()
@@ -332,6 +354,7 @@ Public Class MainProgram
         If VerseTxt.Text = "" And BookBox.Text = "" And ChapterTxt.Text = "" Then
             ppPres.Slides(3).Shapes(6).TextFrame.TextRange.Text = ""
         ElseIf BookBox.SelectedIndex <> -1 Then
+            'if selected proper book update text boxes
             Dim commaPos As Integer
             commaPos = InStr(BookBox.Text, ",")
             ppPres.Slides(3).Shapes(4).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
@@ -433,20 +456,26 @@ Public Class MainProgram
 
     Private Sub highlightCurrentHymn(textBox As PowerPoint.TextRange)
         ''resetting fonts to highlight selected hymn
-        If HymnsSelectionBox.Items.Count = 0 Then
+        If HymnsSelectionBox.Items.Count = 0 Or HymnsSelectionBox.SelectedIndex = -1 Then
             Return
         End If
         If HymnsSelectionBox.Items.Count = 1 Then
-            textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Size = 56
-            textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Bold = Office.MsoTriState.msoTrue
+            'if only one hymn, no need to reset styles
+            textBox.Paragraphs(0).Font.Size = 56
+            textBox.Paragraphs(0).Font.Bold = Office.MsoTriState.msoTrue
+            textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Color.RGB = 0
             Return
         End If
-        'resetting styles
-        textBox.Font.Size = 40
-        textBox.Font.Bold = Office.MsoTriState.msoFalse
+        If prevSelectedIndex <> -1 Then
+            'resetting styles of previously selected index
+            textBox.Paragraphs(prevSelectedIndex + 1).Font.Size = 40
+            textBox.Paragraphs(prevSelectedIndex + 1).Font.Bold = Office.MsoTriState.msoFalse
+            textBox.Paragraphs(prevSelectedIndex + 1).Font.Color.RGB = 5723991
+        End If
         'highlighting paragraph
         textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Size = 56
         textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Bold = Office.MsoTriState.msoTrue
+        textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Color.RGB = 0
     End Sub
 
     Private Sub HymnsSelectionBox_KeyDown(sender As Object, e As KeyEventArgs) Handles HymnsSelectionBox.KeyDown
@@ -464,6 +493,7 @@ Public Class MainProgram
         End If
     End Sub
     Private Sub HymnsSelectionBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles HymnsSelectionBox.SelectedIndexChanged
+
         If ShowSermonHymns.Checked Then
             'if showing sermon hymns
             highlightCurrentHymn(ppPres.Slides(2).Shapes(4).TextFrame.TextRange)
@@ -471,6 +501,7 @@ Public Class MainProgram
             'if showing hymnal hymns
             highlightCurrentHymn(ppPres.Slides(4).Shapes(1).TextFrame.TextRange)
         End If
+        prevSelectedIndex = HymnsSelectionBox.SelectedIndex
     End Sub
 
     Private Sub HymnNos_KeyDown(sender As Object, e As KeyEventArgs) Handles HymnNos.KeyDown

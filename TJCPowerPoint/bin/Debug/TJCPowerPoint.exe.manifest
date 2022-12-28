@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TJCPowerPoint.exe" size="3223552">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TJCPowerPoint.exe" size="3224064">
       <assemblyIdentity name="TJCPowerPoint" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>USCwg9UlZW6WHPbFhM1Wv5vmcWOl9nOeBlUjbvG1wlw=</dsig:DigestValue>
+        <dsig:DigestValue>NK/g6YFeuYsIdnWjQZvLLFozvWy1SyotjQFaPr8c9LQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -72,6 +72,15 @@
       <dsig:DigestValue>y7njPEoDCJIPYc0BjNIvzt76i/Etl7+oiAkS6FhYCEs=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Resources\icons8-announcement-20.png" size="398">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>iFwY5/ZCRPL7wB7cGavVX5WK2sOcLjTfs6iXJ8t5Mhg=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Resources\icons8-close-24.png" size="1165">
     <hash>
       <dsig:Transforms>
@@ -88,6 +97,60 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>SKZixk1lOBOfeK+yLTIKOYCaJ3Vl5KdmNs6LARrpt7I=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\icons8-folder-20.png" size="238">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>A/N2zo0T+s7fxw+uw7dH7Cnq1d7sR+//VhyI/OsWMZc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\icons8-holy-bible-16 (1).png" size="181">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>zIUnW9E1G2VyeZXre5ke07BVtmvIT1xba527isGdD84=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\icons8-music-16.png" size="220">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>yrh9XFNJFu+tLhWSL6hYKWJ2WCm0K9/+N+E0zAUmzKk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\icons8-musical-notes-16.png" size="225">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>kpOCdAIT1iscCa41oBYNNrpFUxICjgwDHWZqAmA2qOI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\icons8-save-20.png" size="357">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>zGxlx1+maSvm/qYBXgLa1s2af885UBcLus31EGbq5IM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\icons8-schedule-20.png" size="409">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>cEgZVYZjd2LJaocRQgqEsrMQC+SrxQdHsdPwQqMcJX4=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\minimize-sign.png" size="2664">
