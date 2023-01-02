@@ -9,6 +9,7 @@ Public Class Announcements
     Private Sub Announcements_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.aeroEnabled = False
         Me.FormBorderStyle = FormBorderStyle.None
+        AnnouncementTxt.Focus()
         'HERE INITALISE THE ANNOUNCEMENT SLIDE NUMBER ACCORDING TO ORDER ON POWERPOINT
         slideNumber = 6
     End Sub
@@ -132,4 +133,5 @@ Public Class Announcements
             temp = Nothing
         End If
     End Sub
+
 End Class

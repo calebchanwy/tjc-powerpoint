@@ -285,8 +285,6 @@ Public Class MainProgram
             'navigate to service slide
             SlideTrack.SelectedIndex = 1
             ppPres.SlideShowWindow.View.GotoSlide(2)
-
-
             'If wanting to show sermon hymns whilst showing hymnal, clear hymns
             If ShowHymnal.Checked Then
                 'clear hymnal hymns
@@ -348,11 +346,6 @@ Public Class MainProgram
     End Sub
 
     Private Sub UpdateVerse_Click(sender As Object, e As EventArgs) Handles UpdateVerse.Click
-        'if called when show hymns is checked
-        'automatically change to show verses
-        If ShowVerses.Checked = False Then
-            ShowVerses.Checked = True
-        End If
         If VerseTxt.Text = "" And BookBox.Text = "" And ChapterTxt.Text = "" Then
             ppPres.Slides(3).Shapes(6).TextFrame.TextRange.Text = ""
         ElseIf BookBox.SelectedIndex <> -1 Then
@@ -362,7 +355,11 @@ Public Class MainProgram
             ppPres.Slides(3).Shapes(4).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
             ppPres.Slides(3).Shapes(5).TextFrame.TextRange.Text = Mid(BookBox.Text, commaPos + 1)
             ppPres.Slides(3).Shapes(6).TextFrame.TextRange.Text = ChapterTxt.Text + " : " + VerseTxt.Text
-
+        End If
+        'if called when show hymns is checked
+        'automatically change to show verses
+        If ShowVerses.Checked = False Then
+            ShowVerses.Checked = True
         End If
     End Sub
 
@@ -809,7 +806,6 @@ Public Class MainProgram
         If textbox.Top <= 200 Then
             textbox.Top = textbox.Top + 10
         End If
-
     End Sub
 
 

@@ -7,6 +7,7 @@ Public Class PrayerRequests
     Private Sub onCreate(sender As Object, e As EventArgs) Handles MyBase.Load
         Me.aeroEnabled = False
         Me.FormBorderStyle = FormBorderStyle.None
+        PrayerRequestTxt.Focus()
         directory = MainProgram.CurrentDirectory + "\Files\PrayerRequests.txt"
         If My.Computer.FileSystem.FileExists(directory) Then
             PrayerRequestTxt.Text = IO.File.ReadAllText(directory)

@@ -56,7 +56,7 @@ Partial Class HolyCommunion
         Me.breadTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.breadTxt.Multiline = True
         Me.breadTxt.Name = "breadTxt"
-        Me.breadTxt.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
+        Me.breadTxt.ScrollBars = System.Windows.Forms.ScrollBars.Both
         Me.breadTxt.Size = New System.Drawing.Size(274, 297)
         Me.breadTxt.TabIndex = 0
         Me.breadTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
@@ -72,7 +72,7 @@ Partial Class HolyCommunion
         Me.cupTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cupTxt.Multiline = True
         Me.cupTxt.Name = "cupTxt"
-        Me.cupTxt.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
+        Me.cupTxt.ScrollBars = System.Windows.Forms.ScrollBars.Both
         Me.cupTxt.Size = New System.Drawing.Size(274, 297)
         Me.cupTxt.TabIndex = 1
         Me.cupTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
