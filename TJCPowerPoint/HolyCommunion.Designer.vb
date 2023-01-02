@@ -28,33 +28,36 @@ Partial Class HolyCommunion
         Me.header = New System.Windows.Forms.Label()
         Me.updateHC = New System.Windows.Forms.Button()
         Me.HCClose = New System.Windows.Forms.Button()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.goToHCSlide = New System.Windows.Forms.Button()
         Me.navBar = New System.Windows.Forms.FlowLayoutPanel()
         Me.closeForm = New System.Windows.Forms.Button()
         Me.minForm = New System.Windows.Forms.Button()
         Me.HymnsSelectionBox = New System.Windows.Forms.ListBox()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.HymnNos = New System.Windows.Forms.TextBox()
         Me.prevHymn = New System.Windows.Forms.Button()
         Me.nextHymn = New System.Windows.Forms.Button()
-        Me.UpdateHymn = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.navBar.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'breadTxt
         '
         Me.breadTxt.AcceptsReturn = True
         Me.breadTxt.AcceptsTab = True
-        Me.breadTxt.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.breadTxt.BackColor = System.Drawing.SystemColors.Control
         Me.breadTxt.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.breadTxt.ForeColor = System.Drawing.Color.Black
-        Me.breadTxt.Location = New System.Drawing.Point(153, 81)
+        Me.breadTxt.Location = New System.Drawing.Point(6, 20)
         Me.breadTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.breadTxt.Multiline = True
         Me.breadTxt.Name = "breadTxt"
-        Me.breadTxt.Size = New System.Drawing.Size(286, 297)
+        Me.breadTxt.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
+        Me.breadTxt.Size = New System.Drawing.Size(274, 297)
         Me.breadTxt.TabIndex = 0
         Me.breadTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -62,14 +65,15 @@ Partial Class HolyCommunion
         '
         Me.cupTxt.AcceptsReturn = True
         Me.cupTxt.AcceptsTab = True
-        Me.cupTxt.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.cupTxt.BackColor = System.Drawing.SystemColors.Control
         Me.cupTxt.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cupTxt.ForeColor = System.Drawing.Color.Black
-        Me.cupTxt.Location = New System.Drawing.Point(445, 81)
+        Me.cupTxt.Location = New System.Drawing.Point(6, 19)
         Me.cupTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cupTxt.Multiline = True
         Me.cupTxt.Name = "cupTxt"
-        Me.cupTxt.Size = New System.Drawing.Size(287, 297)
+        Me.cupTxt.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
+        Me.cupTxt.Size = New System.Drawing.Size(274, 297)
         Me.cupTxt.TabIndex = 1
         Me.cupTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -92,7 +96,7 @@ Partial Class HolyCommunion
         Me.updateHC.Cursor = System.Windows.Forms.Cursors.Hand
         Me.updateHC.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.updateHC.ForeColor = System.Drawing.Color.Navy
-        Me.updateHC.Location = New System.Drawing.Point(119, 393)
+        Me.updateHC.Location = New System.Drawing.Point(12, 391)
         Me.updateHC.Name = "updateHC"
         Me.updateHC.Size = New System.Drawing.Size(232, 36)
         Me.updateHC.TabIndex = 3
@@ -112,33 +116,11 @@ Partial Class HolyCommunion
         Me.HCClose.Text = "Close"
         Me.HCClose.UseVisualStyleBackColor = False
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(242, 52)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(69, 25)
-        Me.Label1.TabIndex = 5
-        Me.Label1.Text = "Bread:"
-        '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(561, 52)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 25)
-        Me.Label2.TabIndex = 6
-        Me.Label2.Text = "Cup:"
-        '
         'goToHCSlide
         '
         Me.goToHCSlide.Cursor = System.Windows.Forms.Cursors.Hand
         Me.goToHCSlide.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.goToHCSlide.Location = New System.Drawing.Point(357, 393)
+        Me.goToHCSlide.Location = New System.Drawing.Point(250, 392)
         Me.goToHCSlide.Name = "goToHCSlide"
         Me.goToHCSlide.Size = New System.Drawing.Size(196, 36)
         Me.goToHCSlide.TabIndex = 7
@@ -199,33 +181,22 @@ Partial Class HolyCommunion
         Me.HymnsSelectionBox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HymnsSelectionBox.FormattingEnabled = True
         Me.HymnsSelectionBox.ItemHeight = 21
-        Me.HymnsSelectionBox.Location = New System.Drawing.Point(12, 122)
+        Me.HymnsSelectionBox.Location = New System.Drawing.Point(11, 55)
         Me.HymnsSelectionBox.Name = "HymnsSelectionBox"
         Me.HymnsSelectionBox.ScrollAlwaysVisible = True
-        Me.HymnsSelectionBox.Size = New System.Drawing.Size(101, 256)
+        Me.HymnsSelectionBox.Size = New System.Drawing.Size(89, 256)
         Me.HymnsSelectionBox.TabIndex = 44
         Me.HymnsSelectionBox.TabStop = False
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.BackColor = System.Drawing.Color.Transparent
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(8, 57)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(58, 20)
-        Me.Label4.TabIndex = 43
-        Me.Label4.Text = "Hymns"
         '
         'HymnNos
         '
         Me.HymnNos.AcceptsReturn = True
         Me.HymnNos.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.HymnNos.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HymnNos.Location = New System.Drawing.Point(12, 80)
+        Me.HymnNos.Location = New System.Drawing.Point(11, 20)
         Me.HymnNos.Multiline = True
         Me.HymnNos.Name = "HymnNos"
-        Me.HymnNos.Size = New System.Drawing.Size(132, 29)
+        Me.HymnNos.Size = New System.Drawing.Size(118, 29)
         Me.HymnNos.TabIndex = 42
         Me.HymnNos.TabStop = False
         '
@@ -234,7 +205,7 @@ Partial Class HolyCommunion
         Me.prevHymn.BackgroundImage = CType(resources.GetObject("prevHymn.BackgroundImage"), System.Drawing.Image)
         Me.prevHymn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.prevHymn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.prevHymn.Location = New System.Drawing.Point(119, 122)
+        Me.prevHymn.Location = New System.Drawing.Point(104, 55)
         Me.prevHymn.Name = "prevHymn"
         Me.prevHymn.Size = New System.Drawing.Size(25, 25)
         Me.prevHymn.TabIndex = 47
@@ -246,26 +217,51 @@ Partial Class HolyCommunion
         Me.nextHymn.BackgroundImage = CType(resources.GetObject("nextHymn.BackgroundImage"), System.Drawing.Image)
         Me.nextHymn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.nextHymn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.nextHymn.Location = New System.Drawing.Point(119, 153)
+        Me.nextHymn.Location = New System.Drawing.Point(104, 86)
         Me.nextHymn.Name = "nextHymn"
         Me.nextHymn.Size = New System.Drawing.Size(25, 25)
         Me.nextHymn.TabIndex = 46
         Me.nextHymn.TabStop = False
         Me.nextHymn.UseVisualStyleBackColor = True
         '
-        'UpdateHymn
+        'GroupBox1
         '
-        Me.UpdateHymn.BackColor = System.Drawing.Color.Transparent
-        Me.UpdateHymn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.UpdateHymn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UpdateHymn.ForeColor = System.Drawing.Color.Navy
-        Me.UpdateHymn.Location = New System.Drawing.Point(12, 393)
-        Me.UpdateHymn.Name = "UpdateHymn"
-        Me.UpdateHymn.Size = New System.Drawing.Size(101, 36)
-        Me.UpdateHymn.TabIndex = 45
-        Me.UpdateHymn.TabStop = False
-        Me.UpdateHymn.Text = "Update Hymns"
-        Me.UpdateHymn.UseVisualStyleBackColor = False
+        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.prevHymn)
+        Me.GroupBox1.Controls.Add(Me.HymnNos)
+        Me.GroupBox1.Controls.Add(Me.nextHymn)
+        Me.GroupBox1.Controls.Add(Me.HymnsSelectionBox)
+        Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 55)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(135, 323)
+        Me.GroupBox1.TabIndex = 48
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Hymn(s)"
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.breadTxt)
+        Me.GroupBox2.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.Location = New System.Drawing.Point(153, 55)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(286, 323)
+        Me.GroupBox2.TabIndex = 49
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Bread"
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox3.Controls.Add(Me.cupTxt)
+        Me.GroupBox3.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox3.Location = New System.Drawing.Point(446, 55)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(286, 323)
+        Me.GroupBox3.TabIndex = 50
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Cup"
         '
         'HolyCommunion
         '
@@ -275,20 +271,13 @@ Partial Class HolyCommunion
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(750, 450)
         Me.ControlBox = False
-        Me.Controls.Add(Me.prevHymn)
-        Me.Controls.Add(Me.nextHymn)
-        Me.Controls.Add(Me.UpdateHymn)
-        Me.Controls.Add(Me.HymnsSelectionBox)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.HymnNos)
+        Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.goToHCSlide)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.HCClose)
         Me.Controls.Add(Me.updateHC)
         Me.Controls.Add(Me.header)
-        Me.Controls.Add(Me.cupTxt)
-        Me.Controls.Add(Me.breadTxt)
         Me.Controls.Add(Me.navBar)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -301,6 +290,12 @@ Partial Class HolyCommunion
         Me.Name = "HolyCommunion"
         Me.Text = "Holy Communion"
         Me.navBar.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -311,16 +306,15 @@ Partial Class HolyCommunion
     Friend WithEvents header As Label
     Friend WithEvents updateHC As Button
     Friend WithEvents HCClose As Button
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Label2 As Label
     Friend WithEvents goToHCSlide As Button
     Friend WithEvents navBar As FlowLayoutPanel
     Friend WithEvents closeForm As Button
     Friend WithEvents minForm As Button
     Friend WithEvents HymnsSelectionBox As ListBox
-    Friend WithEvents Label4 As Label
     Friend WithEvents HymnNos As TextBox
     Friend WithEvents prevHymn As Button
     Friend WithEvents nextHymn As Button
-    Friend WithEvents UpdateHymn As Button
+    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents GroupBox3 As GroupBox
 End Class

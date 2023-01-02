@@ -46,7 +46,7 @@ Public Class HolyCommunion
     End Sub
 
     Private Sub goToHCSlide_Click(sender As Object, e As EventArgs) Handles goToHCSlide.Click
-        MainProgram.ppPres.SlideShowWindow.View.GotoSlide(slideNumber)
+        MainProgram.SlideTrack.SelectedIndex = slideNumber - 3
     End Sub
 
 
@@ -139,7 +139,7 @@ Public Class HolyCommunion
         MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange.Text = hymns
         highlightCurrentHymn(MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange)
     End Sub
-    Private Sub UpdateHymn_Click(sender As Object, e As EventArgs) Handles UpdateHymn.Click
+    Private Sub UpdateHymn_Click(sender As Object, e As EventArgs)
         updateHymns()
     End Sub
     Private Sub nextHymn_Click(sender As Object, e As EventArgs) Handles nextHymn.Click
@@ -185,17 +185,24 @@ Public Class HolyCommunion
         ''resetting fonts to highlight selected hymn
         If HymnsSelectionBox.Items.Count = 0 Then
             'if no hymns currently in list box do nothing
+            textBox.Font.Size = 40
+            textBox.Font.Bold = Office.Core.MsoTriState.msoFalse
+            textBox.Font.Color.TintAndShade = 0.05
             Return
         End If
         If HymnsSelectionBox.Items.Count = 1 Then
+            'if only one hymn, no need to reset styles
             textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Size = 56
             textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Bold = Office.Core.MsoTriState.msoTrue
+            textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Color.TintAndShade = 0
             Return
         End If
         'resetting styles
+        textBox.Font.Color.TintAndShade = 0.05
         textBox.Font.Size = 40
         textBox.Font.Bold = Office.Core.MsoTriState.msoFalse
         'highlighting paragraph
+        textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Color.TintAndShade = 0
         textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Size = 56
         textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Bold = Office.Core.MsoTriState.msoTrue
     End Sub

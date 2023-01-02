@@ -33,18 +33,17 @@ Partial Class PrayerRequests
         Me.PRTitleFontBtn = New System.Windows.Forms.Button()
         Me.PRColorBtn = New System.Windows.Forms.Button()
         Me.PRFontBtn = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.editPrayerImage = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.goToPRSlide = New System.Windows.Forms.Button()
         Me.header = New System.Windows.Forms.Label()
         Me.navBar = New System.Windows.Forms.FlowLayoutPanel()
         Me.closeForm = New System.Windows.Forms.Button()
         Me.minForm = New System.Windows.Forms.Button()
-        Me.PrayerRequestTxt = New System.Windows.Forms.TextBox()
-        Me.Panel = New System.Windows.Forms.Panel()
         Me.deletePrayerImage = New System.Windows.Forms.Button()
+        Me.PrayerRequestTxt = New System.Windows.Forms.TextBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.navBar.SuspendLayout()
-        Me.Panel.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'UpdatePrayerRequests
@@ -87,7 +86,7 @@ Partial Class PrayerRequests
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(663, 120)
+        Me.Label1.Location = New System.Drawing.Point(668, 127)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(32, 13)
         Me.Label1.TabIndex = 11
@@ -98,7 +97,7 @@ Partial Class PrayerRequests
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(666, 58)
+        Me.Label2.Location = New System.Drawing.Point(669, 65)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(29, 13)
         Me.Label2.TabIndex = 12
@@ -109,7 +108,7 @@ Partial Class PrayerRequests
         Me.PRTitleColorBtn.BackgroundImage = CType(resources.GetObject("PRTitleColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRTitleColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PRTitleColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PRTitleColorBtn.Location = New System.Drawing.Point(649, 74)
+        Me.PRTitleColorBtn.Location = New System.Drawing.Point(654, 81)
         Me.PRTitleColorBtn.Name = "PRTitleColorBtn"
         Me.PRTitleColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.PRTitleColorBtn.TabIndex = 9
@@ -121,7 +120,7 @@ Partial Class PrayerRequests
         Me.PRTitleFontBtn.BackgroundImage = CType(resources.GetObject("PRTitleFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRTitleFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PRTitleFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PRTitleFontBtn.Location = New System.Drawing.Point(680, 74)
+        Me.PRTitleFontBtn.Location = New System.Drawing.Point(685, 81)
         Me.PRTitleFontBtn.Name = "PRTitleFontBtn"
         Me.PRTitleFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.PRTitleFontBtn.TabIndex = 10
@@ -133,7 +132,7 @@ Partial Class PrayerRequests
         Me.PRColorBtn.BackgroundImage = CType(resources.GetObject("PRColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PRColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PRColorBtn.Location = New System.Drawing.Point(649, 136)
+        Me.PRColorBtn.Location = New System.Drawing.Point(654, 143)
         Me.PRColorBtn.Name = "PRColorBtn"
         Me.PRColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.PRColorBtn.TabIndex = 7
@@ -145,23 +144,12 @@ Partial Class PrayerRequests
         Me.PRFontBtn.BackgroundImage = CType(resources.GetObject("PRFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PRFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PRFontBtn.Location = New System.Drawing.Point(680, 136)
+        Me.PRFontBtn.Location = New System.Drawing.Point(685, 143)
         Me.PRFontBtn.Name = "PRFontBtn"
         Me.PRFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.PRFontBtn.TabIndex = 8
         Me.PRFontBtn.TabStop = False
         Me.PRFontBtn.UseVisualStyleBackColor = True
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(23, 400)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(402, 13)
-        Me.Label3.TabIndex = 15
-        Me.Label3.Text = "Representation of font size 22, might not be the same for different font sizes"
         '
         'editPrayerImage
         '
@@ -170,21 +158,21 @@ Partial Class PrayerRequests
         Me.editPrayerImage.ForeColor = System.Drawing.Color.Navy
         Me.editPrayerImage.Location = New System.Drawing.Point(187, 441)
         Me.editPrayerImage.Name = "editPrayerImage"
-        Me.editPrayerImage.Size = New System.Drawing.Size(79, 42)
+        Me.editPrayerImage.Size = New System.Drawing.Size(104, 42)
         Me.editPrayerImage.TabIndex = 16
-        Me.editPrayerImage.Text = "Edit Image"
+        Me.editPrayerImage.Text = "Insert As Image"
         Me.editPrayerImage.UseVisualStyleBackColor = True
         '
-        'Button1
+        'goToPRSlide
         '
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(391, 441)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(141, 42)
-        Me.Button1.TabIndex = 17
-        Me.Button1.Text = "Go To Prayer Requests"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.goToPRSlide.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.goToPRSlide.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.goToPRSlide.Location = New System.Drawing.Point(416, 441)
+        Me.goToPRSlide.Name = "goToPRSlide"
+        Me.goToPRSlide.Size = New System.Drawing.Size(141, 42)
+        Me.goToPRSlide.TabIndex = 17
+        Me.goToPRSlide.Text = "Go To Prayer Requests"
+        Me.goToPRSlide.UseVisualStyleBackColor = True
         '
         'header
         '
@@ -247,43 +235,47 @@ Partial Class PrayerRequests
         Me.minForm.TabStop = False
         Me.minForm.UseVisualStyleBackColor = False
         '
-        'PrayerRequestTxt
-        '
-        Me.PrayerRequestTxt.AcceptsReturn = True
-        Me.PrayerRequestTxt.AcceptsTab = True
-        Me.PrayerRequestTxt.AllowDrop = True
-        Me.PrayerRequestTxt.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.PrayerRequestTxt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.PrayerRequestTxt.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PrayerRequestTxt.ForeColor = System.Drawing.Color.White
-        Me.PrayerRequestTxt.Location = New System.Drawing.Point(2, 2)
-        Me.PrayerRequestTxt.Multiline = True
-        Me.PrayerRequestTxt.Name = "PrayerRequestTxt"
-        Me.PrayerRequestTxt.Size = New System.Drawing.Size(604, 336)
-        Me.PrayerRequestTxt.TabIndex = 2
-        Me.PrayerRequestTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
-        Me.PrayerRequestTxt.WordWrap = False
-        '
-        'Panel
-        '
-        Me.Panel.BackColor = System.Drawing.Color.White
-        Me.Panel.Controls.Add(Me.PrayerRequestTxt)
-        Me.Panel.Location = New System.Drawing.Point(26, 55)
-        Me.Panel.Name = "Panel"
-        Me.Panel.Size = New System.Drawing.Size(607, 342)
-        Me.Panel.TabIndex = 14
-        '
         'deletePrayerImage
         '
         Me.deletePrayerImage.Cursor = System.Windows.Forms.Cursors.Hand
         Me.deletePrayerImage.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.deletePrayerImage.ForeColor = System.Drawing.Color.Maroon
-        Me.deletePrayerImage.Location = New System.Drawing.Point(272, 441)
+        Me.deletePrayerImage.Location = New System.Drawing.Point(297, 441)
         Me.deletePrayerImage.Name = "deletePrayerImage"
         Me.deletePrayerImage.Size = New System.Drawing.Size(113, 42)
         Me.deletePrayerImage.TabIndex = 20
         Me.deletePrayerImage.Text = "Delete Image"
         Me.deletePrayerImage.UseVisualStyleBackColor = True
+        '
+        'PrayerRequestTxt
+        '
+        Me.PrayerRequestTxt.AcceptsReturn = True
+        Me.PrayerRequestTxt.AcceptsTab = True
+        Me.PrayerRequestTxt.AllowDrop = True
+        Me.PrayerRequestTxt.BackColor = System.Drawing.SystemColors.Control
+        Me.PrayerRequestTxt.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.PrayerRequestTxt.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PrayerRequestTxt.ForeColor = System.Drawing.Color.White
+        Me.PrayerRequestTxt.Location = New System.Drawing.Point(6, 26)
+        Me.PrayerRequestTxt.Multiline = True
+        Me.PrayerRequestTxt.Name = "PrayerRequestTxt"
+        Me.PrayerRequestTxt.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.PrayerRequestTxt.Size = New System.Drawing.Size(599, 329)
+        Me.PrayerRequestTxt.TabIndex = 2
+        Me.PrayerRequestTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        Me.PrayerRequestTxt.WordWrap = False
+        '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.PrayerRequestTxt)
+        Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(24, 53)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(619, 364)
+        Me.GroupBox1.TabIndex = 21
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Edit Prayer Requests:"
         '
         'PrayerRequests
         '
@@ -293,12 +285,11 @@ Partial Class PrayerRequests
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(725, 500)
         Me.ControlBox = False
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.deletePrayerImage)
         Me.Controls.Add(Me.header)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.goToPRSlide)
         Me.Controls.Add(Me.editPrayerImage)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Panel)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PRTitleColorBtn)
@@ -317,8 +308,8 @@ Partial Class PrayerRequests
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "PrayerRequests"
         Me.navBar.ResumeLayout(False)
-        Me.Panel.ResumeLayout(False)
-        Me.Panel.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -333,14 +324,13 @@ Partial Class PrayerRequests
     Friend WithEvents PRTitleFontBtn As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents Label2 As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents editPrayerImage As Button
-    Friend WithEvents Button1 As Button
+    Friend WithEvents goToPRSlide As Button
     Friend WithEvents header As Label
     Friend WithEvents navBar As FlowLayoutPanel
-    Public WithEvents PrayerRequestTxt As TextBox
-    Friend WithEvents Panel As Panel
     Friend WithEvents deletePrayerImage As Button
     Friend WithEvents closeForm As Button
     Friend WithEvents minForm As Button
+    Public WithEvents PrayerRequestTxt As TextBox
+    Friend WithEvents GroupBox1 As GroupBox
 End Class

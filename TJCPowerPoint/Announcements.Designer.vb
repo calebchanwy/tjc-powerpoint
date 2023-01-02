@@ -31,9 +31,7 @@ Partial Class Announcements
         Me.Label1 = New System.Windows.Forms.Label()
         Me.PRColorBtn = New System.Windows.Forms.Button()
         Me.PRFontBtn = New System.Windows.Forms.Button()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.AnnouncementTxt = New System.Windows.Forms.TextBox()
-        Me.Panel = New System.Windows.Forms.Panel()
         Me.header = New System.Windows.Forms.Label()
         Me.PRTitleFontBtn = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -42,8 +40,9 @@ Partial Class Announcements
         Me.navBar = New System.Windows.Forms.FlowLayoutPanel()
         Me.closeForm = New System.Windows.Forms.Button()
         Me.minForm = New System.Windows.Forms.Button()
-        Me.Panel.SuspendLayout()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.navBar.SuspendLayout()
+        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
         'UpdateAnnouncements
@@ -51,7 +50,7 @@ Partial Class Announcements
         Me.UpdateAnnouncements.Cursor = System.Windows.Forms.Cursors.Hand
         Me.UpdateAnnouncements.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
         Me.UpdateAnnouncements.ForeColor = System.Drawing.Color.Navy
-        Me.UpdateAnnouncements.Location = New System.Drawing.Point(20, 397)
+        Me.UpdateAnnouncements.Location = New System.Drawing.Point(17, 387)
         Me.UpdateAnnouncements.Name = "UpdateAnnouncements"
         Me.UpdateAnnouncements.Size = New System.Drawing.Size(187, 43)
         Me.UpdateAnnouncements.TabIndex = 3
@@ -63,7 +62,7 @@ Partial Class Announcements
         Me.LoadAnnouncements.Cursor = System.Windows.Forms.Cursors.Hand
         Me.LoadAnnouncements.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LoadAnnouncements.ForeColor = System.Drawing.Color.Navy
-        Me.LoadAnnouncements.Location = New System.Drawing.Point(213, 398)
+        Me.LoadAnnouncements.Location = New System.Drawing.Point(213, 388)
         Me.LoadAnnouncements.Name = "LoadAnnouncements"
         Me.LoadAnnouncements.Size = New System.Drawing.Size(165, 42)
         Me.LoadAnnouncements.TabIndex = 3
@@ -76,9 +75,9 @@ Partial Class Announcements
         Me.CloseAnnouncements.Cursor = System.Windows.Forms.Cursors.Hand
         Me.CloseAnnouncements.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CloseAnnouncements.ForeColor = System.Drawing.Color.Maroon
-        Me.CloseAnnouncements.Location = New System.Drawing.Point(627, 398)
+        Me.CloseAnnouncements.Location = New System.Drawing.Point(637, 388)
         Me.CloseAnnouncements.Name = "CloseAnnouncements"
-        Me.CloseAnnouncements.Size = New System.Drawing.Size(86, 42)
+        Me.CloseAnnouncements.Size = New System.Drawing.Size(76, 42)
         Me.CloseAnnouncements.TabIndex = 4
         Me.CloseAnnouncements.Text = "Close"
         Me.CloseAnnouncements.UseVisualStyleBackColor = True
@@ -100,7 +99,7 @@ Partial Class Announcements
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(654, 101)
+        Me.Label1.Location = New System.Drawing.Point(664, 113)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(32, 13)
         Me.Label1.TabIndex = 11
@@ -111,7 +110,7 @@ Partial Class Announcements
         Me.PRColorBtn.BackgroundImage = CType(resources.GetObject("PRColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PRColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PRColorBtn.Location = New System.Drawing.Point(642, 117)
+        Me.PRColorBtn.Location = New System.Drawing.Point(652, 129)
         Me.PRColorBtn.Name = "PRColorBtn"
         Me.PRColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.PRColorBtn.TabIndex = 7
@@ -123,23 +122,12 @@ Partial Class Announcements
         Me.PRFontBtn.BackgroundImage = CType(resources.GetObject("PRFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PRFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PRFontBtn.Location = New System.Drawing.Point(673, 117)
+        Me.PRFontBtn.Location = New System.Drawing.Point(683, 129)
         Me.PRFontBtn.Name = "PRFontBtn"
         Me.PRFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.PRFontBtn.TabIndex = 8
         Me.PRFontBtn.TabStop = False
         Me.PRFontBtn.UseVisualStyleBackColor = True
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(20, 379)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(402, 13)
-        Me.Label3.TabIndex = 15
-        Me.Label3.Text = "Representation of font size 22, might not be the same for different font sizes"
         '
         'AnnouncementTxt
         '
@@ -148,24 +136,16 @@ Partial Class Announcements
         Me.AnnouncementTxt.AllowDrop = True
         Me.AnnouncementTxt.BackColor = System.Drawing.Color.WhiteSmoke
         Me.AnnouncementTxt.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.AnnouncementTxt.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AnnouncementTxt.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AnnouncementTxt.ForeColor = System.Drawing.Color.White
-        Me.AnnouncementTxt.Location = New System.Drawing.Point(0, 3)
+        Me.AnnouncementTxt.Location = New System.Drawing.Point(10, 26)
         Me.AnnouncementTxt.Multiline = True
         Me.AnnouncementTxt.Name = "AnnouncementTxt"
-        Me.AnnouncementTxt.Size = New System.Drawing.Size(609, 328)
+        Me.AnnouncementTxt.ScrollBars = System.Windows.Forms.ScrollBars.Both
+        Me.AnnouncementTxt.Size = New System.Drawing.Size(603, 293)
         Me.AnnouncementTxt.TabIndex = 2
         Me.AnnouncementTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.AnnouncementTxt.WordWrap = False
-        '
-        'Panel
-        '
-        Me.Panel.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.Panel.Controls.Add(Me.AnnouncementTxt)
-        Me.Panel.Location = New System.Drawing.Point(20, 48)
-        Me.Panel.Name = "Panel"
-        Me.Panel.Size = New System.Drawing.Size(609, 328)
-        Me.Panel.TabIndex = 14
         '
         'header
         '
@@ -185,7 +165,7 @@ Partial Class Announcements
         Me.PRTitleFontBtn.BackgroundImage = CType(resources.GetObject("PRTitleFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRTitleFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PRTitleFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PRTitleFontBtn.Location = New System.Drawing.Point(673, 72)
+        Me.PRTitleFontBtn.Location = New System.Drawing.Point(683, 84)
         Me.PRTitleFontBtn.Name = "PRTitleFontBtn"
         Me.PRTitleFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.PRTitleFontBtn.TabIndex = 10
@@ -197,7 +177,7 @@ Partial Class Announcements
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(659, 56)
+        Me.Label2.Location = New System.Drawing.Point(669, 68)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(29, 13)
         Me.Label2.TabIndex = 12
@@ -208,7 +188,7 @@ Partial Class Announcements
         Me.PRTitleColorBtn.BackgroundImage = CType(resources.GetObject("PRTitleColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.PRTitleColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PRTitleColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PRTitleColorBtn.Location = New System.Drawing.Point(642, 72)
+        Me.PRTitleColorBtn.Location = New System.Drawing.Point(652, 84)
         Me.PRTitleColorBtn.Name = "PRTitleColorBtn"
         Me.PRTitleColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.PRTitleColorBtn.TabIndex = 9
@@ -219,7 +199,7 @@ Partial Class Announcements
         '
         Me.goToAnnouncements.Cursor = System.Windows.Forms.Cursors.Hand
         Me.goToAnnouncements.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.goToAnnouncements.Location = New System.Drawing.Point(384, 397)
+        Me.goToAnnouncements.Location = New System.Drawing.Point(384, 388)
         Me.goToAnnouncements.Name = "goToAnnouncements"
         Me.goToAnnouncements.Size = New System.Drawing.Size(161, 43)
         Me.goToAnnouncements.TabIndex = 17
@@ -274,6 +254,18 @@ Partial Class Announcements
         Me.minForm.TabStop = False
         Me.minForm.UseVisualStyleBackColor = False
         '
+        'GroupBox1
+        '
+        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.AnnouncementTxt)
+        Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Location = New System.Drawing.Point(17, 56)
+        Me.GroupBox1.Name = "GroupBox1"
+        Me.GroupBox1.Size = New System.Drawing.Size(619, 325)
+        Me.GroupBox1.TabIndex = 19
+        Me.GroupBox1.TabStop = False
+        Me.GroupBox1.Text = "Edit Announcements:"
+        '
         'Announcements
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -282,11 +274,10 @@ Partial Class Announcements
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(725, 450)
         Me.ControlBox = False
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.UpdateAnnouncements)
         Me.Controls.Add(Me.goToAnnouncements)
         Me.Controls.Add(Me.header)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Panel)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.PRTitleColorBtn)
@@ -305,9 +296,9 @@ Partial Class Announcements
         Me.Name = "Announcements"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Announcements"
-        Me.Panel.ResumeLayout(False)
-        Me.Panel.PerformLayout()
         Me.navBar.ResumeLayout(False)
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -320,9 +311,7 @@ Partial Class Announcements
     Friend WithEvents SaveFileDialog As SaveFileDialog
     Friend WithEvents OpenFileDialog As OpenFileDialog
     Friend WithEvents Label1 As Label
-    Friend WithEvents Label3 As Label
     Public WithEvents AnnouncementTxt As TextBox
-    Friend WithEvents Panel As Panel
     Friend WithEvents header As Label
     Friend WithEvents PRTitleFontBtn As Button
     Friend WithEvents Label2 As Label
@@ -331,4 +320,5 @@ Partial Class Announcements
     Friend WithEvents navBar As FlowLayoutPanel
     Friend WithEvents closeForm As Button
     Friend WithEvents minForm As Button
+    Friend WithEvents GroupBox1 As GroupBox
 End Class

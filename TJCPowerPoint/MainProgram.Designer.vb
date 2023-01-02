@@ -26,7 +26,6 @@ Partial Class MainProgram
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainProgram))
         Me.BibleVerse = New System.Windows.Forms.GroupBox()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.clearbtn = New System.Windows.Forms.Button()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.HymnHDColor = New System.Windows.Forms.Button()
@@ -49,6 +48,7 @@ Partial Class MainProgram
         Me.CVColorBtn = New System.Windows.Forms.Button()
         Me.ChapterTxt = New System.Windows.Forms.TextBox()
         Me.CVFontBtn = New System.Windows.Forms.Button()
+        Me.clearbtn = New System.Windows.Forms.Button()
         Me.SaveSettings = New System.Windows.Forms.Button()
         Me.FontDialog = New System.Windows.Forms.FontDialog()
         Me.ColorDialog = New System.Windows.Forms.ColorDialog()
@@ -106,7 +106,6 @@ Partial Class MainProgram
         '
         Me.BibleVerse.BackColor = System.Drawing.Color.Transparent
         Me.BibleVerse.Controls.Add(Me.Label15)
-        Me.BibleVerse.Controls.Add(Me.clearbtn)
         Me.BibleVerse.Controls.Add(Me.Label13)
         Me.BibleVerse.Controls.Add(Me.Label14)
         Me.BibleVerse.Controls.Add(Me.HymnHDColor)
@@ -129,7 +128,7 @@ Partial Class MainProgram
         Me.BibleVerse.Controls.Add(Me.CVColorBtn)
         Me.BibleVerse.Controls.Add(Me.ChapterTxt)
         Me.BibleVerse.Controls.Add(Me.CVFontBtn)
-        Me.BibleVerse.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BibleVerse.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BibleVerse.ForeColor = System.Drawing.SystemColors.ControlText
         Me.BibleVerse.Location = New System.Drawing.Point(15, 241)
         Me.BibleVerse.Name = "BibleVerse"
@@ -143,27 +142,12 @@ Partial Class MainProgram
         Me.Label15.AutoSize = True
         Me.Label15.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.Color.Black
-        Me.Label15.Location = New System.Drawing.Point(654, 126)
+        Me.Label15.Location = New System.Drawing.Point(654, 125)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(125, 13)
         Me.Label15.TabIndex = 29
         Me.Label15.Text = "(or press enter to update)"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.TopRight
-        '
-        'clearbtn
-        '
-        Me.clearbtn.AutoSize = True
-        Me.clearbtn.BackColor = System.Drawing.Color.Transparent
-        Me.clearbtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.clearbtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.clearbtn.ForeColor = System.Drawing.Color.Maroon
-        Me.clearbtn.Location = New System.Drawing.Point(470, 82)
-        Me.clearbtn.Name = "clearbtn"
-        Me.clearbtn.Size = New System.Drawing.Size(62, 42)
-        Me.clearbtn.TabIndex = 33
-        Me.clearbtn.TabStop = False
-        Me.clearbtn.Text = "Reset All"
-        Me.clearbtn.UseVisualStyleBackColor = False
         '
         'Label13
         '
@@ -240,9 +224,9 @@ Partial Class MainProgram
         Me.UpdateVerse.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UpdateVerse.ForeColor = System.Drawing.Color.Navy
         Me.UpdateVerse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.UpdateVerse.Location = New System.Drawing.Point(538, 83)
+        Me.UpdateVerse.Location = New System.Drawing.Point(470, 83)
         Me.UpdateVerse.Name = "UpdateVerse"
-        Me.UpdateVerse.Size = New System.Drawing.Size(241, 41)
+        Me.UpdateVerse.Size = New System.Drawing.Size(309, 41)
         Me.UpdateVerse.TabIndex = 3
         Me.UpdateVerse.TabStop = False
         Me.UpdateVerse.Text = "Update Chapter and Verse"
@@ -422,6 +406,21 @@ Partial Class MainProgram
         Me.CVFontBtn.TabIndex = 6
         Me.CVFontBtn.TabStop = False
         Me.CVFontBtn.UseVisualStyleBackColor = True
+        '
+        'clearbtn
+        '
+        Me.clearbtn.AutoSize = True
+        Me.clearbtn.BackColor = System.Drawing.Color.Transparent
+        Me.clearbtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.clearbtn.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.clearbtn.ForeColor = System.Drawing.Color.Maroon
+        Me.clearbtn.Location = New System.Drawing.Point(288, 139)
+        Me.clearbtn.Name = "clearbtn"
+        Me.clearbtn.Size = New System.Drawing.Size(103, 45)
+        Me.clearbtn.TabIndex = 33
+        Me.clearbtn.TabStop = False
+        Me.clearbtn.Text = "Reset All"
+        Me.clearbtn.UseVisualStyleBackColor = False
         '
         'SaveSettings
         '
@@ -649,10 +648,10 @@ Partial Class MainProgram
         Me.UpdateTitle.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UpdateTitle.ForeColor = System.Drawing.Color.Navy
         Me.UpdateTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.UpdateTitle.Location = New System.Drawing.Point(362, 131)
+        Me.UpdateTitle.Location = New System.Drawing.Point(394, 139)
         Me.UpdateTitle.Margin = New System.Windows.Forms.Padding(0)
         Me.UpdateTitle.Name = "UpdateTitle"
-        Me.UpdateTitle.Size = New System.Drawing.Size(273, 49)
+        Me.UpdateTitle.Size = New System.Drawing.Size(241, 43)
         Me.UpdateTitle.TabIndex = 3
         Me.UpdateTitle.TabStop = False
         Me.UpdateTitle.Text = "Update Title"
@@ -681,15 +680,17 @@ Partial Class MainProgram
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.Location = New System.Drawing.Point(6, 139)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(96, 20)
+        Me.Label11.Size = New System.Drawing.Size(85, 17)
         Me.Label11.TabIndex = 19
         Me.Label11.Text = "Service Type"
         '
         'ServiceType
         '
+        Me.ServiceType.AutoCompleteCustomSource.AddRange(New String() {"Friday Evening Service", "Bible Study", "Main Service", "Sabbath Service", "End of Year Services", "African Ministry Training Course", "AMTC", "NSSC", "YTTC", "Spiritual Convocation"})
+        Me.ServiceType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
         Me.ServiceType.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.ServiceType.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ServiceType.Location = New System.Drawing.Point(6, 160)
@@ -705,7 +706,7 @@ Partial Class MainProgram
         Me.Label16.BackColor = System.Drawing.Color.Transparent
         Me.Label16.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label16.ForeColor = System.Drawing.Color.Black
-        Me.Label16.Location = New System.Drawing.Point(107, 144)
+        Me.Label16.Location = New System.Drawing.Point(96, 142)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(112, 13)
         Me.Label16.TabIndex = 34
@@ -716,6 +717,7 @@ Partial Class MainProgram
         '
         Me.Title.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.Title.Controls.Add(Me.ShowHymnal)
+        Me.Title.Controls.Add(Me.clearbtn)
         Me.Title.Controls.Add(Me.moveChineseDown)
         Me.Title.Controls.Add(Me.moveChineseUp)
         Me.Title.Controls.Add(Me.ShowSermonHymns)
@@ -733,7 +735,7 @@ Partial Class MainProgram
         Me.Title.Controls.Add(Me.ChineseFontBtn)
         Me.Title.Controls.Add(Me.ChineseColorBtn)
         Me.Title.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Title.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Title.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Title.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
         Me.Title.Location = New System.Drawing.Point(159, 45)
         Me.Title.Margin = New System.Windows.Forms.Padding(0)
@@ -741,7 +743,7 @@ Partial Class MainProgram
         Me.Title.Size = New System.Drawing.Size(641, 190)
         Me.Title.TabIndex = 14
         Me.Title.TabStop = False
-        Me.Title.Text = "Title(s)"
+        Me.Title.Text = "Titles"
         '
         'ShowHymnal
         '
@@ -811,7 +813,7 @@ Partial Class MainProgram
         Me.ServiceTypeFontBtn.BackgroundImage = CType(resources.GetObject("ServiceTypeFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.ServiceTypeFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ServiceTypeFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ServiceTypeFontBtn.Location = New System.Drawing.Point(257, 159)
+        Me.ServiceTypeFontBtn.Location = New System.Drawing.Point(257, 157)
         Me.ServiceTypeFontBtn.Name = "ServiceTypeFontBtn"
         Me.ServiceTypeFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.ServiceTypeFontBtn.TabIndex = 15
@@ -906,7 +908,9 @@ Partial Class MainProgram
         '
         Me.HymnsSelectionBox.Cursor = System.Windows.Forms.Cursors.Hand
         Me.HymnsSelectionBox.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HymnsSelectionBox.FormatString = "N0"
         Me.HymnsSelectionBox.FormattingEnabled = True
+        Me.HymnsSelectionBox.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.HymnsSelectionBox.ItemHeight = 21
         Me.HymnsSelectionBox.Location = New System.Drawing.Point(6, 48)
         Me.HymnsSelectionBox.Name = "HymnsSelectionBox"
@@ -1026,7 +1030,7 @@ Partial Class MainProgram
         Me.GroupBox1.Controls.Add(Me.HymnsSelectionBox)
         Me.GroupBox1.Controls.Add(Me.HymnColorBtn)
         Me.GroupBox1.Controls.Add(Me.HymnFontBtn)
-        Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(15, 45)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(137, 190)
