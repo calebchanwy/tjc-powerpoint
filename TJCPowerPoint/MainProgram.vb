@@ -15,7 +15,6 @@ Public Class MainProgram
     Dim hymnalHymns As String = ""
     Dim prevSelectedIndex As Integer = -1
 
-
     'Method dealing with what the form will do when it initially opens
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
@@ -488,6 +487,17 @@ Public Class MainProgram
         textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Color.TintAndShade = 0
     End Sub
 
+    'handles deleting from button
+    Private Sub delHymnBtn_Click(sender As Object, e As EventArgs) Handles delHymnBtn.Click
+        If ShowHymnal.Checked Then
+            'if showing hymnal hymns
+            removeCurrentHymn(ppPres.Slides(4).Shapes(1).TextFrame.TextRange)
+            Return
+        End If
+        'assumes wanting to remove hymns from sermon hymns
+        removeCurrentHymn(ppPres.Slides(2).Shapes(4).TextFrame.TextRange)
+    End Sub
+
     'Handles deleting hymns from selection box
     Private Sub HymnsSelectionBox_KeyDown(sender As Object, e As KeyEventArgs) Handles HymnsSelectionBox.KeyDown
         If e.KeyCode = Keys.Back Or e.KeyCode = Keys.Delete Then
@@ -891,6 +901,7 @@ Public Class MainProgram
         Dim response As Integer = NativeMethods.DwmIsCompositionEnabled(enabled)
         aeroEnabled = (enabled = 1)
     End Sub
+
 
 End Class
 

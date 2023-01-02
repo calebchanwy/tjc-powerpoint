@@ -3,6 +3,7 @@ Imports Microsoft.Office.Interop
 Imports TJCPowerPoint.NativeConstants, TJCPowerPoint.NativeMethods, TJCPowerPoint.NativeStructs
 Public Class HolyCommunion
     Private slideNumber As Integer
+    Private highlightedParagraph As Integer
 
     'Method called when the form is initially created
     Private Sub onCreate(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -20,6 +21,7 @@ Public Class HolyCommunion
         Me.aeroEnabled = False
         Me.FormBorderStyle = FormBorderStyle.None
         slideNumber = 7
+        highlightedParagraph = 1
     End Sub
 
     'Method handling when form is closed
@@ -50,90 +52,23 @@ Public Class HolyCommunion
     End Sub
 
 
-    'FOLLOWING METHODS DEAL WITH FORM MOVEMENT WHEN MOUSE DRAGGED ON TOP NAV BAR
-    'https://stackoverflow.com/questions/17392088/allow-a-user-to-move-a-borderless-window
-    Private IsFormBeingDragged As Boolean = False
-    Private MouseDownX As Integer
-    Private MouseDownY As Integer
-    Private Sub Form1_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles navBar.MouseDown, header.MouseDown
-
-        If e.Button = MouseButtons.Left Then
-            IsFormBeingDragged = True
-            MouseDownX = e.X
-            MouseDownY = e.Y
-        End If
-    End Sub
-    Private Sub Form1_MouseUp(ByVal sender As Object, ByVal e As MouseEventArgs) Handles navBar.MouseUp, header.MouseUp
-
-        If e.Button = MouseButtons.Left Then
-            IsFormBeingDragged = False
-        End If
-    End Sub
-    Private Sub Form1_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles navBar.MouseMove, header.MouseMove
-
-        If IsFormBeingDragged Then
-            Dim temp As Point = New Point()
-
-            temp.X = Me.Location.X + (e.X - MouseDownX)
-            temp.Y = Me.Location.Y + (e.Y - MouseDownY)
-            Me.Location = temp
-            temp = Nothing
-        End If
-    End Sub
-
-
-    'FOLLOWING METHODS DEAL WITH CREATING WINDOW AS A BORDERLESS DROP SHADOW WINDOWS FORM
-    'https://stackoverflow.com/questions/16493698/drop-shadow-on-a-borderless-winform#:~:text=1)%20Create%20an%20image%20having,4)%20You%20are%20done!
-    Private aeroEnabled As Boolean
-    Protected Overrides ReadOnly Property CreateParams() As CreateParams
-        Get
-            CheckAeroEnabled()
-            Dim cp As CreateParams = MyBase.CreateParams
-            If Not aeroEnabled Then
-                cp.ClassStyle = NativeConstants.CS_DROPSHADOW
-                Return cp
-            Else
-                Return cp
-            End If
-        End Get
-    End Property
-    Protected Overrides Sub WndProc(ByRef m As Message)
-        Select Case m.Msg
-            Case NativeConstants.WM_NCPAINT
-                Dim val = 2
-                If aeroEnabled Then
-                    NativeMethods.DwmSetWindowAttribute(Handle, 2, val, 4)
-                    Dim bla As New NativeStructs.MARGINS()
-                    With bla
-                        .bottomHeight = 1
-                        .leftWidth = 1
-                        .rightWidth = 1
-                        .topHeight = 1
-                    End With
-                    NativeMethods.DwmExtendFrameIntoClientArea(Handle, bla)
-                End If
-                Exit Select
-        End Select
-        MyBase.WndProc(m)
-    End Sub
-    Private Sub CheckAeroEnabled()
-        If Environment.OSVersion.Version.Major >= 6 Then
-            Dim enabled As Integer = 0
-            Dim response As Integer = NativeMethods.DwmIsCompositionEnabled(enabled)
-            aeroEnabled = (enabled = 1)
-        Else
-            aeroEnabled = False
-        End If
-    End Sub
-
     'HYMN SELECTION --------------------------------------------
-
     Private Sub updateHymns()
         Dim hymns As String = ""
-        If HymnsSelectionBox.Items.Count < 4 Then
+        Dim count = HymnsSelectionBox.Items.Count
+        Dim index = HymnsSelectionBox.SelectedIndex
+        If count < 4 Then
             hymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
         Else
-            hymns = HymnsSelectionBox.Items(0) + vbNewLine + HymnsSelectionBox.Items(1) + vbNewLine + HymnsSelectionBox.Items(2)
+            If count >= 3 Then
+                'if selected index less than total items -4 then insert selected hymn and 2 hymns after
+                If index < count - 3 Then
+                    hymns = HymnsSelectionBox.Items(index) + vbNewLine + HymnsSelectionBox.Items(index + 1) + vbNewLine + HymnsSelectionBox.Items(index + 2)
+                Else
+                    'insert last three hymns
+                    hymns = HymnsSelectionBox.Items(count - 3) + vbNewLine + HymnsSelectionBox.Items(count - 2) + vbNewLine + HymnsSelectionBox.Items(count - 1)
+                End If
+            End If
         End If
         'updating hymns on holy communion slide maximum of first three hymn
         MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange.Text = hymns
@@ -192,9 +127,9 @@ Public Class HolyCommunion
         End If
         If HymnsSelectionBox.Items.Count = 1 Then
             'if only one hymn, no need to reset styles
-            textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Size = 56
-            textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Bold = Office.Core.MsoTriState.msoTrue
-            textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Color.TintAndShade = 0
+            textBox.Paragraphs(1).Font.Size = 56
+            textBox.Paragraphs(1).Font.Bold = Office.Core.MsoTriState.msoTrue
+            textBox.Paragraphs(1).Font.Color.TintAndShade = 0
             Return
         End If
         'resetting styles
@@ -202,9 +137,20 @@ Public Class HolyCommunion
         textBox.Font.Size = 40
         textBox.Font.Bold = Office.Core.MsoTriState.msoFalse
         'highlighting paragraph
-        textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Color.TintAndShade = 0
-        textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Size = 56
-        textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Bold = Office.Core.MsoTriState.msoTrue
+        textBox.Paragraphs(highlightedParagraph).Font.Color.TintAndShade = 0
+        textBox.Paragraphs(highlightedParagraph).Font.Size = 56
+        textBox.Paragraphs(highlightedParagraph).Font.Bold = Office.Core.MsoTriState.msoTrue
+    End Sub
+
+    Private Sub delHymnBtn_Click(sender As Object, e As EventArgs) Handles delHymnBtn.Click
+        removeCurrentHymn(MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange)
+    End Sub
+    Private Sub HymnColorBtn_Click(sender As Object, e As EventArgs) Handles HymnColorBtn.Click
+        MainProgram.ChangeColor(slideNumber, 2)
+    End Sub
+
+    Private Sub HymnFontBtn_Click(sender As Object, e As EventArgs) Handles HymnFontBtn.Click
+        MainProgram.ChangeFont(slideNumber, 2)
     End Sub
 
     Private Sub HymnsSelectionBox_KeyDown(sender As Object, e As KeyEventArgs) Handles HymnsSelectionBox.KeyDown
@@ -216,7 +162,17 @@ Public Class HolyCommunion
     End Sub
     Private Sub HymnsSelectionBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles HymnsSelectionBox.SelectedIndexChanged
         'updating hymns on holy communion slide
-        highlightCurrentHymn(MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange)
+        'handling how selected index changes the highlighted pargarph
+        Dim count = HymnsSelectionBox.Items.Count
+        If count >= 3 Then
+            If HymnsSelectionBox.SelectedIndex = HymnsSelectionBox.Items.Count - 1 Then
+                highlightedParagraph = 3
+            ElseIf HymnsSelectionBox.SelectedIndex = HymnsSelectionBox.Items.Count - 2 Then
+                highlightedParagraph = 2
+            ElseIf HymnsSelectionBox.SelectedIndex = HymnsSelectionBox.Items.Count - 3 Then
+                highlightedParagraph = 1
+            End If
+        End If
         updateHymns()
     End Sub
 
@@ -240,4 +196,84 @@ Public Class HolyCommunion
             End If
         End If
     End Sub
+
+
+    'FOLLOWING METHODS DEAL WITH FORM MOVEMENT WHEN MOUSE DRAGGED ON TOP NAV BAR
+    'https://stackoverflow.com/questions/17392088/allow-a-user-to-move-a-borderless-window
+    Private IsFormBeingDragged As Boolean = False
+    Private MouseDownX As Integer
+    Private MouseDownY As Integer
+    Private Sub Form1_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles navBar.MouseDown, header.MouseDown
+
+        If e.Button = MouseButtons.Left Then
+            IsFormBeingDragged = True
+            MouseDownX = e.X
+            MouseDownY = e.Y
+        End If
+    End Sub
+    Private Sub Form1_MouseUp(ByVal sender As Object, ByVal e As MouseEventArgs) Handles navBar.MouseUp, header.MouseUp
+
+        If e.Button = MouseButtons.Left Then
+            IsFormBeingDragged = False
+        End If
+    End Sub
+    Private Sub Form1_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles navBar.MouseMove, header.MouseMove
+
+        If IsFormBeingDragged Then
+            Dim temp As Point = New Point()
+
+            temp.X = Me.Location.X + (e.X - MouseDownX)
+            temp.Y = Me.Location.Y + (e.Y - MouseDownY)
+            Me.Location = temp
+            temp = Nothing
+        End If
+    End Sub
+
+
+
+
+    'FOLLOWING METHODS DEAL WITH CREATING WINDOW AS A BORDERLESS DROP SHADOW WINDOWS FORM
+    'https://stackoverflow.com/questions/16493698/drop-shadow-on-a-borderless-winform#:~:text=1)%20Create%20an%20image%20having,4)%20You%20are%20done!
+    Private aeroEnabled As Boolean
+    Protected Overrides ReadOnly Property CreateParams() As CreateParams
+        Get
+            CheckAeroEnabled()
+            Dim cp As CreateParams = MyBase.CreateParams
+            If Not aeroEnabled Then
+                cp.ClassStyle = NativeConstants.CS_DROPSHADOW
+                Return cp
+            Else
+                Return cp
+            End If
+        End Get
+    End Property
+    Protected Overrides Sub WndProc(ByRef m As Message)
+        Select Case m.Msg
+            Case NativeConstants.WM_NCPAINT
+                Dim val = 2
+                If aeroEnabled Then
+                    NativeMethods.DwmSetWindowAttribute(Handle, 2, val, 4)
+                    Dim bla As New NativeStructs.MARGINS()
+                    With bla
+                        .bottomHeight = 1
+                        .leftWidth = 1
+                        .rightWidth = 1
+                        .topHeight = 1
+                    End With
+                    NativeMethods.DwmExtendFrameIntoClientArea(Handle, bla)
+                End If
+                Exit Select
+        End Select
+        MyBase.WndProc(m)
+    End Sub
+    Private Sub CheckAeroEnabled()
+        If Environment.OSVersion.Version.Major >= 6 Then
+            Dim enabled As Integer = 0
+            Dim response As Integer = NativeMethods.DwmIsCompositionEnabled(enabled)
+            aeroEnabled = (enabled = 1)
+        Else
+            aeroEnabled = False
+        End If
+    End Sub
+
 End Class

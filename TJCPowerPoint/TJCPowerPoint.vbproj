@@ -252,6 +252,7 @@
     <Content Include="Resources\icons8-announcement-20.png" />
     <Content Include="Resources\icons8-close-24.png" />
     <Content Include="Resources\icons8-close-48.png" />
+    <Content Include="Resources\icons8-delete-trash-20.png" />
     <Content Include="Resources\icons8-folder-20.png" />
     <Content Include="Resources\icons8-holy-bible-16 %281%29.png" />
     <Content Include="Resources\icons8-music-16.png" />

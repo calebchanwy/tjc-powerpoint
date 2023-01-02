@@ -7,14 +7,14 @@
     <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="TJCPowerPoint.exe.manifest" size="10724">
+    <dependentAssembly dependencyType="install" codebase="TJCPowerPoint.exe.manifest" size="11137">
       <assemblyIdentity name="TJCPowerPoint.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="x86" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>VV/oZspnvWcunVflovSGX5QDM703SiJbVzZqDcogAkA=</dsig:DigestValue>
+        <dsig:DigestValue>AtWH+mjBRR/QqFht2DqKg7RLUGtf8aM4y76u3dtCmvs=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

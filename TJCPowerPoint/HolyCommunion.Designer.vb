@@ -37,8 +37,11 @@ Partial Class HolyCommunion
         Me.prevHymn = New System.Windows.Forms.Button()
         Me.nextHymn = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.HymnColorBtn = New System.Windows.Forms.Button()
+        Me.HymnFontBtn = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.delHymnBtn = New System.Windows.Forms.Button()
         Me.navBar.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -205,7 +208,7 @@ Partial Class HolyCommunion
         Me.prevHymn.BackgroundImage = CType(resources.GetObject("prevHymn.BackgroundImage"), System.Drawing.Image)
         Me.prevHymn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.prevHymn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.prevHymn.Location = New System.Drawing.Point(104, 55)
+        Me.prevHymn.Location = New System.Drawing.Point(104, 117)
         Me.prevHymn.Name = "prevHymn"
         Me.prevHymn.Size = New System.Drawing.Size(25, 25)
         Me.prevHymn.TabIndex = 47
@@ -217,7 +220,7 @@ Partial Class HolyCommunion
         Me.nextHymn.BackgroundImage = CType(resources.GetObject("nextHymn.BackgroundImage"), System.Drawing.Image)
         Me.nextHymn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.nextHymn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.nextHymn.Location = New System.Drawing.Point(104, 86)
+        Me.nextHymn.Location = New System.Drawing.Point(104, 148)
         Me.nextHymn.Name = "nextHymn"
         Me.nextHymn.Size = New System.Drawing.Size(25, 25)
         Me.nextHymn.TabIndex = 46
@@ -227,6 +230,9 @@ Partial Class HolyCommunion
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.delHymnBtn)
+        Me.GroupBox1.Controls.Add(Me.HymnColorBtn)
+        Me.GroupBox1.Controls.Add(Me.HymnFontBtn)
         Me.GroupBox1.Controls.Add(Me.prevHymn)
         Me.GroupBox1.Controls.Add(Me.HymnNos)
         Me.GroupBox1.Controls.Add(Me.nextHymn)
@@ -238,6 +244,30 @@ Partial Class HolyCommunion
         Me.GroupBox1.TabIndex = 48
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Hymn(s)"
+        '
+        'HymnColorBtn
+        '
+        Me.HymnColorBtn.BackgroundImage = CType(resources.GetObject("HymnColorBtn.BackgroundImage"), System.Drawing.Image)
+        Me.HymnColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.HymnColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.HymnColorBtn.Location = New System.Drawing.Point(104, 55)
+        Me.HymnColorBtn.Name = "HymnColorBtn"
+        Me.HymnColorBtn.Size = New System.Drawing.Size(25, 25)
+        Me.HymnColorBtn.TabIndex = 51
+        Me.HymnColorBtn.TabStop = False
+        Me.HymnColorBtn.UseVisualStyleBackColor = True
+        '
+        'HymnFontBtn
+        '
+        Me.HymnFontBtn.BackgroundImage = CType(resources.GetObject("HymnFontBtn.BackgroundImage"), System.Drawing.Image)
+        Me.HymnFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.HymnFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.HymnFontBtn.Location = New System.Drawing.Point(104, 86)
+        Me.HymnFontBtn.Name = "HymnFontBtn"
+        Me.HymnFontBtn.Size = New System.Drawing.Size(25, 25)
+        Me.HymnFontBtn.TabIndex = 52
+        Me.HymnFontBtn.TabStop = False
+        Me.HymnFontBtn.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
@@ -262,6 +292,18 @@ Partial Class HolyCommunion
         Me.GroupBox3.TabIndex = 50
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Cup"
+        '
+        'delHymnBtn
+        '
+        Me.delHymnBtn.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.icons8_delete_trash_20
+        Me.delHymnBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.delHymnBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.delHymnBtn.Location = New System.Drawing.Point(104, 179)
+        Me.delHymnBtn.Name = "delHymnBtn"
+        Me.delHymnBtn.Size = New System.Drawing.Size(25, 25)
+        Me.delHymnBtn.TabIndex = 45
+        Me.delHymnBtn.TabStop = False
+        Me.delHymnBtn.UseVisualStyleBackColor = True
         '
         'HolyCommunion
         '
@@ -317,4 +359,7 @@ Partial Class HolyCommunion
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
+    Friend WithEvents HymnColorBtn As Button
+    Friend WithEvents HymnFontBtn As Button
+    Friend WithEvents delHymnBtn As Button
 End Class

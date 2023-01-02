@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TJCPowerPoint.exe" size="3224064">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TJCPowerPoint.exe" size="3260928">
       <assemblyIdentity name="TJCPowerPoint" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>50ID7X+fAhMi/euF2+wia8XQuQodrf4G+q7mh5ZUNEw=</dsig:DigestValue>
+        <dsig:DigestValue>gHBf/WaY1vuP3KC9lRQXcniZn9cFl4LWJYDtI1U6B4g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -97,6 +97,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>SKZixk1lOBOfeK+yLTIKOYCaJ3Vl5KdmNs6LARrpt7I=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\icons8-delete-trash-20.png" size="314">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>FDvL1zlqISamB5hihigSi9P+5UWduO7JzApqjE0rKrk=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\icons8-folder-20.png" size="238">

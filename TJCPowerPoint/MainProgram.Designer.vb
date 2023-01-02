@@ -34,6 +34,7 @@ Partial Class MainProgram
         Me.BibleHDFont = New System.Windows.Forms.Button()
         Me.UpdateVerse = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
         Me.ChineseBookColorBtn = New System.Windows.Forms.Button()
         Me.ChineseBookFontBtn = New System.Windows.Forms.Button()
         Me.BookBox = New System.Windows.Forms.ComboBox()
@@ -94,7 +95,7 @@ Partial Class MainProgram
         Me.BGColor = New System.Windows.Forms.Button()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.delHymnBtn = New System.Windows.Forms.Button()
         Me.BibleVerse.SuspendLayout()
         Me.Title.SuspendLayout()
         Me.topNavBar.SuspendLayout()
@@ -241,6 +242,16 @@ Partial Class MainProgram
         Me.Label5.Size = New System.Drawing.Size(79, 15)
         Me.Label5.TabIndex = 26
         Me.Label5.Text = "Chinese Book"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(8, 78)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(75, 15)
+        Me.Label3.TabIndex = 25
+        Me.Label3.Text = "English Book"
         '
         'ChineseBookColorBtn
         '
@@ -608,7 +619,7 @@ Partial Class MainProgram
         Me.HymnNos.Location = New System.Drawing.Point(6, 21)
         Me.HymnNos.Multiline = True
         Me.HymnNos.Name = "HymnNos"
-        Me.HymnNos.Size = New System.Drawing.Size(84, 25)
+        Me.HymnNos.Size = New System.Drawing.Size(92, 25)
         Me.HymnNos.TabIndex = 4
         Me.HymnNos.TabStop = False
         '
@@ -878,7 +889,7 @@ Partial Class MainProgram
         Me.prevHymn.BackgroundImage = CType(resources.GetObject("prevHymn.BackgroundImage"), System.Drawing.Image)
         Me.prevHymn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.prevHymn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.prevHymn.Location = New System.Drawing.Point(98, 83)
+        Me.prevHymn.Location = New System.Drawing.Point(104, 83)
         Me.prevHymn.Name = "prevHymn"
         Me.prevHymn.Size = New System.Drawing.Size(25, 25)
         Me.prevHymn.TabIndex = 43
@@ -890,7 +901,7 @@ Partial Class MainProgram
         Me.nextHymn.BackgroundImage = CType(resources.GetObject("nextHymn.BackgroundImage"), System.Drawing.Image)
         Me.nextHymn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.nextHymn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.nextHymn.Location = New System.Drawing.Point(98, 114)
+        Me.nextHymn.Location = New System.Drawing.Point(104, 114)
         Me.nextHymn.Name = "nextHymn"
         Me.nextHymn.Size = New System.Drawing.Size(25, 25)
         Me.nextHymn.TabIndex = 42
@@ -908,7 +919,7 @@ Partial Class MainProgram
         Me.HymnsSelectionBox.Location = New System.Drawing.Point(6, 52)
         Me.HymnsSelectionBox.Name = "HymnsSelectionBox"
         Me.HymnsSelectionBox.ScrollAlwaysVisible = True
-        Me.HymnsSelectionBox.Size = New System.Drawing.Size(84, 118)
+        Me.HymnsSelectionBox.Size = New System.Drawing.Size(92, 118)
         Me.HymnsSelectionBox.TabIndex = 41
         Me.HymnsSelectionBox.TabStop = False
         '
@@ -917,7 +928,7 @@ Partial Class MainProgram
         Me.HymnFontBtn.BackgroundImage = CType(resources.GetObject("HymnFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.HymnFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.HymnFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.HymnFontBtn.Location = New System.Drawing.Point(98, 52)
+        Me.HymnFontBtn.Location = New System.Drawing.Point(104, 52)
         Me.HymnFontBtn.Name = "HymnFontBtn"
         Me.HymnFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.HymnFontBtn.TabIndex = 12
@@ -929,7 +940,7 @@ Partial Class MainProgram
         Me.HymnColorBtn.BackgroundImage = CType(resources.GetObject("HymnColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.HymnColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.HymnColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.HymnColorBtn.Location = New System.Drawing.Point(98, 21)
+        Me.HymnColorBtn.Location = New System.Drawing.Point(104, 21)
         Me.HymnColorBtn.Name = "HymnColorBtn"
         Me.HymnColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.HymnColorBtn.TabIndex = 11
@@ -1017,6 +1028,7 @@ Partial Class MainProgram
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.SystemColors.Menu
+        Me.GroupBox1.Controls.Add(Me.delHymnBtn)
         Me.GroupBox1.Controls.Add(Me.prevHymn)
         Me.GroupBox1.Controls.Add(Me.HymnNos)
         Me.GroupBox1.Controls.Add(Me.nextHymn)
@@ -1031,15 +1043,17 @@ Partial Class MainProgram
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Hymn(s)"
         '
-        'Label3
+        'delHymnBtn
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(8, 78)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(75, 15)
-        Me.Label3.TabIndex = 25
-        Me.Label3.Text = "English Book"
+        Me.delHymnBtn.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.icons8_delete_trash_20
+        Me.delHymnBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.delHymnBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.delHymnBtn.Location = New System.Drawing.Point(104, 145)
+        Me.delHymnBtn.Name = "delHymnBtn"
+        Me.delHymnBtn.Size = New System.Drawing.Size(25, 25)
+        Me.delHymnBtn.TabIndex = 44
+        Me.delHymnBtn.TabStop = False
+        Me.delHymnBtn.UseVisualStyleBackColor = True
         '
         'MainProgram
         '
@@ -1159,4 +1173,5 @@ Partial Class MainProgram
     Friend WithEvents nextHymn As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents delHymnBtn As Button
 End Class

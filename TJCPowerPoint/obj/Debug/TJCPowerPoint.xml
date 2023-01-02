@@ -92,6 +92,11 @@ TJCPowerPoint
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.icons8_delete_trash_20">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:TJCPowerPoint.My.Resources.Resources.icons8_folder_20">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
