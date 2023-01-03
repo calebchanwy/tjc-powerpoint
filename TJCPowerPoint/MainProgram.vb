@@ -288,8 +288,8 @@ Public Class MainProgram
             'remove memory of hymnal hymns
             hymnalHymns = ""
         Else
-            'changed to not showing sermon hymns
-            'take note of sermon hymns
+            'when sermon hymns is unchecked
+            'take note of sermon hymns in memory
             sermonHymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
         End If
     End Sub
@@ -297,7 +297,7 @@ Public Class MainProgram
         If ShowVerses.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(3)
         Else
-            'changed to not showing bible verses
+            'when show verses is unchecked
             'clearing bible verses
             ppPres.Slides(3).Shapes(4).TextFrame.TextRange.Text = " "
             ppPres.Slides(3).Shapes(5).TextFrame.TextRange.Text = " "
@@ -313,7 +313,7 @@ Public Class MainProgram
             reinsertHymns(hymnalHymns)
             updateHymns()
         Else
-            'switched away from hymnal, reinsert sermon hymns
+            'when hymnal is unchecked
             'take note of hymnal hymns
             hymnalHymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
             'clear hymnal hymns
