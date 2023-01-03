@@ -48,6 +48,10 @@ Partial Class MainProgram
         Me.CVColorBtn = New System.Windows.Forms.Button()
         Me.ChapterTxt = New System.Windows.Forms.TextBox()
         Me.CVFontBtn = New System.Windows.Forms.Button()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.ShowHymnal = New System.Windows.Forms.RadioButton()
+        Me.ShowVerses = New System.Windows.Forms.RadioButton()
+        Me.ShowSermonHymns = New System.Windows.Forms.RadioButton()
         Me.clearbtn = New System.Windows.Forms.Button()
         Me.SaveSettings = New System.Windows.Forms.Button()
         Me.FontDialog = New System.Windows.Forms.FontDialog()
@@ -57,7 +61,6 @@ Partial Class MainProgram
         Me.OpenPrayerRequestsWindow = New System.Windows.Forms.Button()
         Me.ExitBtn = New System.Windows.Forms.Button()
         Me.OpenFolder = New System.Windows.Forms.Button()
-        Me.Label12 = New System.Windows.Forms.Label()
         Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
         Me.Timer = New System.Windows.Forms.Timer(Me.components)
         Me.Show_AN = New System.Windows.Forms.Button()
@@ -68,15 +71,12 @@ Partial Class MainProgram
         Me.ChineseTitle = New System.Windows.Forms.TextBox()
         Me.EnglishTitle = New System.Windows.Forms.TextBox()
         Me.UpdateTitle = New System.Windows.Forms.Button()
-        Me.ShowVerses = New System.Windows.Forms.CheckBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ServiceType = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Title = New System.Windows.Forms.GroupBox()
-        Me.ShowHymnal = New System.Windows.Forms.CheckBox()
         Me.moveChineseDown = New System.Windows.Forms.Button()
         Me.moveChineseUp = New System.Windows.Forms.Button()
-        Me.ShowSermonHymns = New System.Windows.Forms.CheckBox()
         Me.ServiceTypeFontBtn = New System.Windows.Forms.Button()
         Me.ServiceTypeColorBtn = New System.Windows.Forms.Button()
         Me.EnglishColorBtn = New System.Windows.Forms.Button()
@@ -92,11 +92,11 @@ Partial Class MainProgram
         Me.closeForm = New System.Windows.Forms.Button()
         Me.minForm = New System.Windows.Forms.Button()
         Me.TJCLogo = New System.Windows.Forms.PictureBox()
-        Me.BGColor = New System.Windows.Forms.Button()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.delHymnBtn = New System.Windows.Forms.Button()
         Me.BibleVerse.SuspendLayout()
+        Me.Panel1.SuspendLayout()
         Me.Title.SuspendLayout()
         Me.topNavBar.SuspendLayout()
         CType(Me.TJCLogo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -411,6 +411,64 @@ Partial Class MainProgram
         Me.CVFontBtn.TabStop = False
         Me.CVFontBtn.UseVisualStyleBackColor = True
         '
+        'Panel1
+        '
+        Me.Panel1.Controls.Add(Me.ShowHymnal)
+        Me.Panel1.Controls.Add(Me.ShowVerses)
+        Me.Panel1.Controls.Add(Me.ShowSermonHymns)
+        Me.Panel1.Location = New System.Drawing.Point(6, 101)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(480, 32)
+        Me.Panel1.TabIndex = 33
+        '
+        'ShowHymnal
+        '
+        Me.ShowHymnal.Appearance = System.Windows.Forms.Appearance.Button
+        Me.ShowHymnal.AutoSize = True
+        Me.ShowHymnal.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ShowHymnal.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.ShowHymnal.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_music_16
+        Me.ShowHymnal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ShowHymnal.Location = New System.Drawing.Point(311, 3)
+        Me.ShowHymnal.Name = "ShowHymnal"
+        Me.ShowHymnal.Size = New System.Drawing.Size(161, 27)
+        Me.ShowHymnal.TabIndex = 2
+        Me.ShowHymnal.Text = "   Show Hymnal Hymns"
+        Me.ShowHymnal.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ShowHymnal.UseVisualStyleBackColor = True
+        '
+        'ShowVerses
+        '
+        Me.ShowVerses.Appearance = System.Windows.Forms.Appearance.Button
+        Me.ShowVerses.AutoSize = True
+        Me.ShowVerses.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ShowVerses.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.ShowVerses.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_holy_bible_16
+        Me.ShowVerses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ShowVerses.Location = New System.Drawing.Point(167, 3)
+        Me.ShowVerses.Name = "ShowVerses"
+        Me.ShowVerses.Size = New System.Drawing.Size(138, 27)
+        Me.ShowVerses.TabIndex = 1
+        Me.ShowVerses.Text = "   Show Bible Verses"
+        Me.ShowVerses.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ShowVerses.UseVisualStyleBackColor = True
+        '
+        'ShowSermonHymns
+        '
+        Me.ShowSermonHymns.Appearance = System.Windows.Forms.Appearance.Button
+        Me.ShowSermonHymns.AutoSize = True
+        Me.ShowSermonHymns.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.ShowSermonHymns.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.ShowSermonHymns.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_musical_notes_16
+        Me.ShowSermonHymns.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.ShowSermonHymns.Location = New System.Drawing.Point(0, 3)
+        Me.ShowSermonHymns.Name = "ShowSermonHymns"
+        Me.ShowSermonHymns.Size = New System.Drawing.Size(161, 27)
+        Me.ShowSermonHymns.TabIndex = 0
+        Me.ShowSermonHymns.Text = "   Show Sermon Hymns"
+        Me.ShowSermonHymns.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.ShowSermonHymns.UseVisualStyleBackColor = True
+        '
         'clearbtn
         '
         Me.clearbtn.AutoSize = True
@@ -522,17 +580,6 @@ Partial Class MainProgram
         Me.OpenFolder.Text = "Open Folder"
         Me.OpenFolder.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.OpenFolder.UseVisualStyleBackColor = False
-        '
-        'Label12
-        '
-        Me.Label12.AutoSize = True
-        Me.Label12.BackColor = System.Drawing.Color.Transparent
-        Me.Label12.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(16, 439)
-        Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(220, 13)
-        Me.Label12.TabIndex = 24
-        Me.Label12.Text = "Change Current Slide Background Colour"
         '
         'SaveFileDialog
         '
@@ -661,26 +708,6 @@ Partial Class MainProgram
         Me.UpdateTitle.Text = "Update Title"
         Me.UpdateTitle.UseVisualStyleBackColor = False
         '
-        'ShowVerses
-        '
-        Me.ShowVerses.Appearance = System.Windows.Forms.Appearance.Button
-        Me.ShowVerses.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ShowVerses.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ShowVerses.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ShowVerses.ForeColor = System.Drawing.Color.Black
-        Me.ShowVerses.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_holy_bible_16__1_
-        Me.ShowVerses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ShowVerses.Location = New System.Drawing.Point(175, 103)
-        Me.ShowVerses.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShowVerses.Name = "ShowVerses"
-        Me.ShowVerses.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.ShowVerses.Size = New System.Drawing.Size(140, 27)
-        Me.ShowVerses.TabIndex = 17
-        Me.ShowVerses.TabStop = False
-        Me.ShowVerses.Text = "Show Bible Verses"
-        Me.ShowVerses.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.ShowVerses.UseVisualStyleBackColor = True
-        '
         'Label11
         '
         Me.Label11.AutoSize = True
@@ -720,17 +747,15 @@ Partial Class MainProgram
         'Title
         '
         Me.Title.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
-        Me.Title.Controls.Add(Me.ShowHymnal)
+        Me.Title.Controls.Add(Me.Panel1)
         Me.Title.Controls.Add(Me.clearbtn)
         Me.Title.Controls.Add(Me.moveChineseDown)
         Me.Title.Controls.Add(Me.moveChineseUp)
-        Me.Title.Controls.Add(Me.ShowSermonHymns)
         Me.Title.Controls.Add(Me.Label16)
         Me.Title.Controls.Add(Me.ServiceTypeFontBtn)
         Me.Title.Controls.Add(Me.ServiceTypeColorBtn)
         Me.Title.Controls.Add(Me.ServiceType)
         Me.Title.Controls.Add(Me.Label11)
-        Me.Title.Controls.Add(Me.ShowVerses)
         Me.Title.Controls.Add(Me.UpdateTitle)
         Me.Title.Controls.Add(Me.EnglishTitle)
         Me.Title.Controls.Add(Me.ChineseTitle)
@@ -748,26 +773,6 @@ Partial Class MainProgram
         Me.Title.TabIndex = 14
         Me.Title.TabStop = False
         Me.Title.Text = "Titles"
-        '
-        'ShowHymnal
-        '
-        Me.ShowHymnal.Appearance = System.Windows.Forms.Appearance.Button
-        Me.ShowHymnal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ShowHymnal.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ShowHymnal.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ShowHymnal.ForeColor = System.Drawing.Color.Black
-        Me.ShowHymnal.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_music_161
-        Me.ShowHymnal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ShowHymnal.Location = New System.Drawing.Point(319, 103)
-        Me.ShowHymnal.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShowHymnal.Name = "ShowHymnal"
-        Me.ShowHymnal.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.ShowHymnal.Size = New System.Drawing.Size(160, 27)
-        Me.ShowHymnal.TabIndex = 40
-        Me.ShowHymnal.TabStop = False
-        Me.ShowHymnal.Text = "Show Hymnal Hymns"
-        Me.ShowHymnal.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.ShowHymnal.UseVisualStyleBackColor = True
         '
         'moveChineseDown
         '
@@ -792,25 +797,6 @@ Partial Class MainProgram
         Me.moveChineseUp.TabIndex = 38
         Me.moveChineseUp.TabStop = False
         Me.moveChineseUp.UseVisualStyleBackColor = True
-        '
-        'ShowSermonHymns
-        '
-        Me.ShowSermonHymns.Appearance = System.Windows.Forms.Appearance.Button
-        Me.ShowSermonHymns.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ShowSermonHymns.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ShowSermonHymns.ForeColor = System.Drawing.Color.Black
-        Me.ShowSermonHymns.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_musical_notes_16
-        Me.ShowSermonHymns.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ShowSermonHymns.Location = New System.Drawing.Point(5, 103)
-        Me.ShowSermonHymns.Margin = New System.Windows.Forms.Padding(0)
-        Me.ShowSermonHymns.Name = "ShowSermonHymns"
-        Me.ShowSermonHymns.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.ShowSermonHymns.Size = New System.Drawing.Size(165, 27)
-        Me.ShowSermonHymns.TabIndex = 35
-        Me.ShowSermonHymns.TabStop = False
-        Me.ShowSermonHymns.Text = "Show Sermon Hymns"
-        Me.ShowSermonHymns.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.ShowSermonHymns.UseVisualStyleBackColor = True
         '
         'ServiceTypeFontBtn
         '
@@ -1007,18 +993,6 @@ Partial Class MainProgram
         Me.TJCLogo.TabIndex = 2
         Me.TJCLogo.TabStop = False
         '
-        'BGColor
-        '
-        Me.BGColor.BackgroundImage = CType(resources.GetObject("BGColor.BackgroundImage"), System.Drawing.Image)
-        Me.BGColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.BGColor.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BGColor.Location = New System.Drawing.Point(248, 434)
-        Me.BGColor.Name = "BGColor"
-        Me.BGColor.Size = New System.Drawing.Size(25, 25)
-        Me.BGColor.TabIndex = 23
-        Me.BGColor.TabStop = False
-        Me.BGColor.UseVisualStyleBackColor = True
-        '
         'ImageList1
         '
         Me.ImageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit
@@ -1072,8 +1046,6 @@ Partial Class MainProgram
         Me.Controls.Add(Me.edtHC)
         Me.Controls.Add(Me.edtPrayerImg)
         Me.Controls.Add(Me.Show_AN)
-        Me.Controls.Add(Me.Label12)
-        Me.Controls.Add(Me.BGColor)
         Me.Controls.Add(Me.OpenFolder)
         Me.Controls.Add(Me.ExitBtn)
         Me.Controls.Add(Me.OpenPrayerRequestsWindow)
@@ -1092,6 +1064,8 @@ Partial Class MainProgram
         Me.Text = "True Jesus Church PowerPoint"
         Me.BibleVerse.ResumeLayout(False)
         Me.BibleVerse.PerformLayout()
+        Me.Panel1.ResumeLayout(False)
+        Me.Panel1.PerformLayout()
         Me.Title.ResumeLayout(False)
         Me.Title.PerformLayout()
         Me.topNavBar.ResumeLayout(False)
@@ -1125,8 +1099,6 @@ Partial Class MainProgram
     Friend WithEvents OpenPrayerRequestsWindow As Button
     Friend WithEvents ExitBtn As Button
     Friend WithEvents OpenFolder As Button
-    Friend WithEvents BGColor As Button
-    Friend WithEvents Label12 As Label
     Friend WithEvents SaveFileDialog As SaveFileDialog
     Friend WithEvents Label13 As Label
     Friend WithEvents Label14 As Label
@@ -1152,14 +1124,12 @@ Partial Class MainProgram
     Friend WithEvents ChineseTitle As TextBox
     Friend WithEvents EnglishTitle As TextBox
     Friend WithEvents UpdateTitle As Button
-    Friend WithEvents ShowVerses As CheckBox
     Friend WithEvents Label11 As Label
     Friend WithEvents ServiceType As TextBox
     Friend WithEvents ServiceTypeColorBtn As Button
     Friend WithEvents ServiceTypeFontBtn As Button
     Friend WithEvents Label16 As Label
     Friend WithEvents Title As GroupBox
-    Friend WithEvents ShowSermonHymns As CheckBox
     Friend WithEvents topNavBar As FlowLayoutPanel
     Friend WithEvents closeForm As Button
     Friend WithEvents minForm As Button
@@ -1167,11 +1137,14 @@ Partial Class MainProgram
     Friend WithEvents moveChineseDown As Button
     Friend WithEvents moveChineseUp As Button
     Friend WithEvents ImageList1 As ImageList
-    Friend WithEvents ShowHymnal As CheckBox
     Friend WithEvents HymnsSelectionBox As ListBox
     Friend WithEvents prevHymn As Button
     Friend WithEvents nextHymn As Button
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label3 As Label
     Friend WithEvents delHymnBtn As Button
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents ShowHymnal As RadioButton
+    Friend WithEvents ShowVerses As RadioButton
+    Friend WithEvents ShowSermonHymns As RadioButton
 End Class

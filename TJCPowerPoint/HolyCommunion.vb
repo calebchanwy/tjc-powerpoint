@@ -19,7 +19,6 @@ Public Class HolyCommunion
         End If
 
         Me.aeroEnabled = False
-        Me.FormBorderStyle = FormBorderStyle.None
         slideNumber = 7
         highlightedParagraph = 1
     End Sub
@@ -58,7 +57,7 @@ Public Class HolyCommunion
         Dim count = HymnsSelectionBox.Items.Count
         Dim index = HymnsSelectionBox.SelectedIndex
         If count < 4 Then
-            hymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
+            hymns = String.Join(vbCrLf, HymnsSelectionBox.Items.Cast(Of String))
         Else
             If count >= 3 Then
                 'if selected index less than total items -4 then insert selected hymn and 2 hymns after
@@ -120,26 +119,34 @@ Public Class HolyCommunion
         ''resetting fonts to highlight selected hymn
         If HymnsSelectionBox.Items.Count = 0 Then
             'if no hymns currently in list box do nothing
-            textBox.Font.Size = 40
-            textBox.Font.Bold = Office.Core.MsoTriState.msoFalse
-            textBox.Font.Color.TintAndShade = 0.05
             Return
         End If
         If HymnsSelectionBox.Items.Count = 1 Then
-            'if only one hymn, no need to reset styles
-            textBox.Paragraphs(1).Font.Size = 56
-            textBox.Paragraphs(1).Font.Bold = Office.Core.MsoTriState.msoTrue
-            textBox.Paragraphs(1).Font.Color.TintAndShade = 0
+            'if only one hymn, no need to reset style
+            highlightParagraph(textBox, 1)
             Return
         End If
-        'resetting styles
-        textBox.Font.Color.TintAndShade = 0.05
-        textBox.Font.Size = 40
-        textBox.Font.Bold = Office.Core.MsoTriState.msoFalse
         'highlighting paragraph
-        textBox.Paragraphs(highlightedParagraph).Font.Color.TintAndShade = 0
-        textBox.Paragraphs(highlightedParagraph).Font.Size = 56
-        textBox.Paragraphs(highlightedParagraph).Font.Bold = Office.Core.MsoTriState.msoTrue
+        highlightParagraph(textBox, highlightedParagraph)
+        'resetting styles of non highlighted paragraphs
+        If highlightedParagraph - 1 >= 1 Then
+            resetParagraph(textBox, highlightedParagraph - 1)
+        End If
+        If highlightedParagraph + 1 <= textBox.Paragraphs.Count Then
+            resetParagraph(textBox, highlightedParagraph + 1)
+        End If
+    End Sub
+
+    Private Sub resetParagraph(textbox As PowerPoint.TextRange, paragraph As Integer)
+        textbox.Paragraphs(paragraph).Font.Color.TintAndShade = 0.05
+        textbox.Paragraphs(paragraph).Font.Size = 40
+        textbox.Paragraphs(paragraph).Font.Bold = Office.Core.MsoTriState.msoFalse
+    End Sub
+
+    Private Sub highlightParagraph(textbox As PowerPoint.TextRange, paragraph As Integer)
+        textbox.Paragraphs(paragraph).Font.Color.TintAndShade = 0
+        textbox.Paragraphs(paragraph).Font.Size = 56
+        textbox.Paragraphs(paragraph).Font.Bold = Office.Core.MsoTriState.msoTrue
     End Sub
 
     Private Sub delHymnBtn_Click(sender As Object, e As EventArgs) Handles delHymnBtn.Click
@@ -172,6 +179,8 @@ Public Class HolyCommunion
             ElseIf HymnsSelectionBox.SelectedIndex = HymnsSelectionBox.Items.Count - 3 Then
                 highlightedParagraph = 1
             End If
+        Else
+            highlightedParagraph = HymnsSelectionBox.SelectedIndex + 1
         End If
         updateHymns()
     End Sub
