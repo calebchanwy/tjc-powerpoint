@@ -149,6 +149,7 @@ Partial Class HolyCommunion
         '
         'closeForm
         '
+        Me.closeForm.AutoSize = True
         Me.closeForm.BackColor = System.Drawing.Color.Transparent
         Me.closeForm.BackgroundImage = CType(resources.GetObject("closeForm.BackgroundImage"), System.Drawing.Image)
         Me.closeForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
@@ -166,6 +167,7 @@ Partial Class HolyCommunion
         '
         'minForm
         '
+        Me.minForm.AutoSize = True
         Me.minForm.BackColor = System.Drawing.Color.Transparent
         Me.minForm.BackgroundImage = CType(resources.GetObject("minForm.BackgroundImage"), System.Drawing.Image)
         Me.minForm.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
@@ -315,8 +317,8 @@ Partial Class HolyCommunion
         '
         'HolyCommunion
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoSize = True
         Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border2
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
@@ -341,6 +343,7 @@ Partial Class HolyCommunion
         Me.Name = "HolyCommunion"
         Me.Text = "Holy Communion"
         Me.navBar.ResumeLayout(False)
+        Me.navBar.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
