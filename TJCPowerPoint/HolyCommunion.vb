@@ -4,6 +4,8 @@ Imports TJCPowerPoint.NativeConstants, TJCPowerPoint.NativeMethods, TJCPowerPoin
 Public Class HolyCommunion
     Private slideNumber As Integer
     Private highlightedParagraph As Integer
+    Private prevHighlightedPar As Integer
+    Private hymnTextBox As PowerPoint.TextRange
 
     'Method called when the form is initially created
     Private Sub onCreate(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -21,6 +23,7 @@ Public Class HolyCommunion
         Me.aeroEnabled = False
         slideNumber = 7
         highlightedParagraph = 1
+        hymnTextBox = MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange
     End Sub
 
     'Method handling when form is closed
@@ -52,26 +55,10 @@ Public Class HolyCommunion
 
 
     'HYMN SELECTION --------------------------------------------
-    Private Sub updateHymns()
+    Private Sub updateHymns(textBox As PowerPoint.TextRange)
         Dim hymns As String = ""
         Dim count = HymnsSelectionBox.Items.Count
         Dim index = HymnsSelectionBox.SelectedIndex
-        'changing highlighted paragraph, depending on selection
-        'handling how selected index changes the highlighted pargarph
-        If count >= 3 Then
-            If HymnsSelectionBox.SelectedIndex = HymnsSelectionBox.Items.Count - 1 Then
-                highlightedParagraph = 3
-            ElseIf HymnsSelectionBox.SelectedIndex = HymnsSelectionBox.Items.Count - 2 Then
-                highlightedParagraph = 2
-            ElseIf HymnsSelectionBox.SelectedIndex = HymnsSelectionBox.Items.Count - 3 Then
-                highlightedParagraph = 1
-            Else
-                highlightedParagraph = 1
-            End If
-        Else
-            highlightedParagraph = HymnsSelectionBox.SelectedIndex + 1
-        End If
-
         If count >= 3 Then
             'if selected index less than total items -4 then insert selected hymn and 2 hymns after
             If index < count - 3 Then
@@ -85,16 +72,28 @@ Public Class HolyCommunion
             hymns = String.Join(vbCrLf, HymnsSelectionBox.Items.Cast(Of String))
         End If
         'updating hymns on holy communion slide maximum of first three hymn
-        If highlightedParagraph = 2 Or highlightedParagraph = 1 Then
+        If prevHighlightedPar = 1 Or highlightedParagraph = 1 Then
             'Issue of when changing text, powerpoint assumes formatting of first paragraph for all
             'if highlghted paragraph second paragraph reset styles of first paragraph then change text
-            resetParagraph(MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange, 1)
+            resetParagraph(textBox, 1)
         End If
-        MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange.Text = hymns
-        highlightCurrentHymn(MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange)
-    End Sub
-    Private Sub UpdateHymn_Click(sender As Object, e As EventArgs)
-        updateHymns()
+        textBox.Text = hymns
+
+        'changing highlighted paragraph, depending on selection
+        'handling how selected index changes the highlighted pargarph
+        If count >= 3 Then
+            If HymnsSelectionBox.SelectedIndex = HymnsSelectionBox.Items.Count - 1 Then
+                highlightedParagraph = 3
+            ElseIf HymnsSelectionBox.SelectedIndex = HymnsSelectionBox.Items.Count - 2 Then
+                highlightedParagraph = 2
+            Else
+                highlightedParagraph = 1
+            End If
+        Else
+            highlightedParagraph = HymnsSelectionBox.SelectedIndex + 1
+        End If
+        highlightCurrentHymn(textBox)
+        prevHighlightedPar = highlightedParagraph
     End Sub
     Private Sub nextHymn_Click(sender As Object, e As EventArgs) Handles nextHymn.Click
         If HymnsSelectionBox.SelectedIndex = HymnsSelectionBox.Items.Count - 1 Then
@@ -118,19 +117,16 @@ Public Class HolyCommunion
         End If
         If size = 1 Then
             'only one hymn in selection box no need to find new selected hymn
-            textBox.Delete()
             HymnsSelectionBox.Items.Clear()
             Return
         End If
         If selectedIndex = size - 1 Then
             'if hymn is last hymn selected, reselect last hymn
-            textBox.Paragraphs(selectedIndex + 1).Delete()
             HymnsSelectionBox.Items.RemoveAt(selectedIndex)
             HymnsSelectionBox.SelectedIndex = size - 2
             Return
         End If
         'for all other cases, select the next hymn at the same index
-        textBox.Paragraphs(selectedIndex + 1).Delete()
         HymnsSelectionBox.Items.RemoveAt(selectedIndex)
         HymnsSelectionBox.SelectedIndex = selectedIndex
     End Sub
@@ -146,31 +142,21 @@ Public Class HolyCommunion
             highlightParagraph(textBox, 1)
             Return
         End If
-        'resetting styles of non highlighted paragraphs
-        Select Case highlightedParagraph
-            Case 1
-                resetParagraph(textBox, 2)
-                resetParagraph(textBox, 3)
-            Case 2
-                resetParagraph(textBox, 1)
-                resetParagraph(textBox, 3)
-            Case 3
-                resetParagraph(textBox, 1)
-                resetParagraph(textBox, 2)
-        End Select
+        'resetting styles of previous highlighted paragraph
+        resetParagraph(textBox, prevHighlightedPar)
         'highlighting paragraph
         highlightParagraph(textBox, highlightedParagraph)
     End Sub
     Private Sub resetParagraph(textbox As PowerPoint.TextRange, paragraph As Integer)
-        If paragraph <= textbox.Paragraphs.Count Then
-            textbox.Paragraphs(paragraph).Font.Color.TintAndShade = 0.05
+        If paragraph <= textbox.Paragraphs.Count And textbox.Paragraphs(paragraph).Font.Bold Then
+            textbox.Paragraphs(paragraph).Font.Color.TintAndShade = 0.1
             textbox.Paragraphs(paragraph).Font.Size = 40
             textbox.Paragraphs(paragraph).Font.Bold = Office.Core.MsoTriState.msoFalse
         End If
     End Sub
 
     Private Sub highlightParagraph(textbox As PowerPoint.TextRange, paragraph As Integer)
-        If paragraph <= textbox.Paragraphs.Count Then
+        If paragraph <= textbox.Paragraphs.Count And textbox.Paragraphs(paragraph).Font.Bold <> Office.Core.MsoTriState.msoTrue Then
             textbox.Paragraphs(paragraph).Font.Color.TintAndShade = 0
             textbox.Paragraphs(paragraph).Font.Size = 56
             textbox.Paragraphs(paragraph).Font.Bold = Office.Core.MsoTriState.msoTrue
@@ -178,7 +164,10 @@ Public Class HolyCommunion
     End Sub
 
     Private Sub delHymnBtn_Click(sender As Object, e As EventArgs) Handles delHymnBtn.Click
-        removeCurrentHymn(MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange)
+        'handles deleting 
+        'updating hymns on holy communion slide
+        removeCurrentHymn(hymnTextBox)
+        updateHymns(hymnTextBox)
     End Sub
     Private Sub HymnColorBtn_Click(sender As Object, e As EventArgs) Handles HymnColorBtn.Click
         MainProgram.ChangeColor(slideNumber, 2)
@@ -192,12 +181,16 @@ Public Class HolyCommunion
         If e.KeyCode = Keys.Back Or e.KeyCode = Keys.Delete Then
             'handles deleting 
             'updating hymns on holy communion slide
-            removeCurrentHymn(MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange)
+            removeCurrentHymn(hymnTextBox)
+            updateHymns(hymnTextBox)
         End If
     End Sub
     Private Sub HymnsSelectionBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles HymnsSelectionBox.SelectedIndexChanged
+        If HymnsSelectionBox.SelectedIndex = -1 Then
+            Return
+        End If
         'updating hymns on holy communion slide
-        updateHymns()
+        updateHymns(hymnTextBox)
     End Sub
 
     Private Sub HymnNos_KeyDown(sender As Object, e As KeyEventArgs) Handles HymnNos.KeyDown
@@ -216,7 +209,7 @@ Public Class HolyCommunion
             End If
             'only update hymns if selected index one of last three hymns
             If HymnsSelectionBox.SelectedIndex >= HymnsSelectionBox.Items.Count - 3 Then
-                updateHymns()
+                updateHymns(hymnTextBox)
             End If
         End If
     End Sub

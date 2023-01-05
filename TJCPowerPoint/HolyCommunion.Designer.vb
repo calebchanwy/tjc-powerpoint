@@ -37,11 +37,11 @@ Partial Class HolyCommunion
         Me.prevHymn = New System.Windows.Forms.Button()
         Me.nextHymn = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.delHymnBtn = New System.Windows.Forms.Button()
         Me.HymnColorBtn = New System.Windows.Forms.Button()
         Me.HymnFontBtn = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.delHymnBtn = New System.Windows.Forms.Button()
         Me.navBar.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -245,6 +245,18 @@ Partial Class HolyCommunion
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Hymn(s)"
         '
+        'delHymnBtn
+        '
+        Me.delHymnBtn.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.icons8_delete_trash_20
+        Me.delHymnBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.delHymnBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.delHymnBtn.Location = New System.Drawing.Point(104, 179)
+        Me.delHymnBtn.Name = "delHymnBtn"
+        Me.delHymnBtn.Size = New System.Drawing.Size(25, 25)
+        Me.delHymnBtn.TabIndex = 45
+        Me.delHymnBtn.TabStop = False
+        Me.delHymnBtn.UseVisualStyleBackColor = True
+        '
         'HymnColorBtn
         '
         Me.HymnColorBtn.BackgroundImage = CType(resources.GetObject("HymnColorBtn.BackgroundImage"), System.Drawing.Image)
@@ -293,22 +305,11 @@ Partial Class HolyCommunion
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Cup"
         '
-        'delHymnBtn
-        '
-        Me.delHymnBtn.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.icons8_delete_trash_20
-        Me.delHymnBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.delHymnBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.delHymnBtn.Location = New System.Drawing.Point(104, 179)
-        Me.delHymnBtn.Name = "delHymnBtn"
-        Me.delHymnBtn.Size = New System.Drawing.Size(25, 25)
-        Me.delHymnBtn.TabIndex = 45
-        Me.delHymnBtn.TabStop = False
-        Me.delHymnBtn.UseVisualStyleBackColor = True
-        '
         'HolyCommunion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.AutoSize = True
         Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border2
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(750, 450)

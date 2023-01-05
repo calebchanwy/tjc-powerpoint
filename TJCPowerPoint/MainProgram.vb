@@ -387,6 +387,19 @@ Public Class MainProgram
             ShowSermonHymns.Checked = True
         End If
     End Sub
+
+    Private Sub reinsertHymns(hymns As String)
+        'clear hymns from selection box
+        HymnsSelectionBox.Items.Clear()
+        'reinsert sermon hymns from previous
+        Dim hymnsArr As String()
+        hymnsArr = Split(hymns, vbNewLine)
+        For Each hymn As String In hymnsArr
+            If hymn IsNot "" Then
+                HymnsSelectionBox.Items.Add(hymn)
+            End If
+        Next
+    End Sub
     Private Sub nextHymn_Click(sender As Object, e As EventArgs) Handles nextHymn.Click
         If HymnsSelectionBox.SelectedIndex = HymnsSelectionBox.Items.Count - 1 Then
             Return
@@ -426,18 +439,7 @@ Public Class MainProgram
         HymnsSelectionBox.SelectedIndex = selectedIndex
     End Sub
 
-    Private Sub reinsertHymns(hymns As String)
-        'clear hymns from selection box
-        HymnsSelectionBox.Items.Clear()
-        'reinsert sermon hymns from previous
-        Dim hymnsArr As String()
-        hymnsArr = Split(hymns, vbNewLine)
-        For Each hymn As String In hymnsArr
-            If hymn IsNot "" Then
-                HymnsSelectionBox.Items.Add(hymn)
-            End If
-        Next
-    End Sub
+
     Public Sub highlightCurrentHymn(textBox As PowerPoint.TextRange)
         ''resetting fonts to highlight selected hymn
         If HymnsSelectionBox.Items.Count = 0 Or HymnsSelectionBox.SelectedIndex = -1 Then
@@ -631,7 +633,8 @@ Public Class MainProgram
         GetFontAndColor(5, 1) & vbCrLf &
         GetFontAndColor(5, 2) & vbCrLf &
         GetFontAndColor(6, 1) & vbCrLf &
-        GetFontAndColor(6, 2)
+        GetFontAndColor(6, 2) & vbCrLf &
+        GetFontAndColor(7, 2)
         Try
             My.Computer.FileSystem.WriteAllText(CurrentDirectory + "\Files\Settings.ini", CurrentSettings, False)
             MessageBox.Show("Save Successful", "Save Successful")
