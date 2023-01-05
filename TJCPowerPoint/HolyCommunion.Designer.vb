@@ -96,6 +96,7 @@ Partial Class HolyCommunion
         '
         'updateHC
         '
+        Me.updateHC.AutoSize = True
         Me.updateHC.Cursor = System.Windows.Forms.Cursors.Hand
         Me.updateHC.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.updateHC.ForeColor = System.Drawing.Color.Navy
@@ -108,22 +109,24 @@ Partial Class HolyCommunion
         '
         'HCClose
         '
+        Me.HCClose.AutoSize = True
         Me.HCClose.BackColor = System.Drawing.Color.White
         Me.HCClose.Cursor = System.Windows.Forms.Cursors.Hand
         Me.HCClose.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.HCClose.ForeColor = System.Drawing.Color.Maroon
-        Me.HCClose.Location = New System.Drawing.Point(669, 395)
+        Me.HCClose.Location = New System.Drawing.Point(669, 391)
         Me.HCClose.Name = "HCClose"
-        Me.HCClose.Size = New System.Drawing.Size(63, 32)
+        Me.HCClose.Size = New System.Drawing.Size(63, 36)
         Me.HCClose.TabIndex = 4
         Me.HCClose.Text = "Close"
         Me.HCClose.UseVisualStyleBackColor = False
         '
         'goToHCSlide
         '
+        Me.goToHCSlide.AutoSize = True
         Me.goToHCSlide.Cursor = System.Windows.Forms.Cursors.Hand
         Me.goToHCSlide.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.goToHCSlide.Location = New System.Drawing.Point(250, 392)
+        Me.goToHCSlide.Location = New System.Drawing.Point(250, 391)
         Me.goToHCSlide.Name = "goToHCSlide"
         Me.goToHCSlide.Size = New System.Drawing.Size(196, 36)
         Me.goToHCSlide.TabIndex = 7
@@ -132,6 +135,7 @@ Partial Class HolyCommunion
         '
         'navBar
         '
+        Me.navBar.AutoSize = True
         Me.navBar.BackColor = System.Drawing.Color.Transparent
         Me.navBar.Controls.Add(Me.closeForm)
         Me.navBar.Controls.Add(Me.minForm)
@@ -229,6 +233,7 @@ Partial Class HolyCommunion
         '
         'GroupBox1
         '
+        Me.GroupBox1.AutoSize = True
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox1.Controls.Add(Me.delHymnBtn)
         Me.GroupBox1.Controls.Add(Me.HymnColorBtn)
@@ -283,6 +288,7 @@ Partial Class HolyCommunion
         '
         'GroupBox2
         '
+        Me.GroupBox2.AutoSize = True
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox2.Controls.Add(Me.breadTxt)
         Me.GroupBox2.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -295,6 +301,7 @@ Partial Class HolyCommunion
         '
         'GroupBox3
         '
+        Me.GroupBox3.AutoSize = True
         Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
         Me.GroupBox3.Controls.Add(Me.cupTxt)
         Me.GroupBox3.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
