@@ -14,6 +14,10 @@ Public Class MainProgram
     Dim sermonHymns As String = ""
     Dim hymnalHymns As String = ""
     Dim prevSelectedIndex As Integer = -1
+    Dim prevSermonHymnSelectedIndex = -1
+    Private highlightedParagraph As Integer
+    Private prevHighlightedPar As Integer
+    Private hymnTextBox As PowerPoint.TextRange ' keep track of which hymn text box is changing
 
     'Method dealing with what the form will do when it initially opens
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -78,8 +82,9 @@ Public Class MainProgram
         HandleSettings()
         ResetServiceDetails()
         ppPres.SlideShowSettings.Run()
-        'by default go to break slide
+        'by default go to break slide and hymntextbox set to service hymns
         SlideTrack.SelectedIndex = 0
+        hymnTextBox = ppPres.Slides(2).Shapes(4).TextFrame.TextRange
         'ORDER OF SLIDES:
         ' 1 - Break slide
         ' 2 - Service Hymns
@@ -259,6 +264,26 @@ Public Class MainProgram
         FontDialog.Font = New Font(ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Name.ToString, ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Size)
         If FontDialog.ShowDialog = DialogResult.OK Then
             'Handle cases for where text boxes are same but on separate slides
+            Select Case True
+                Case i = 2 And j = 1
+                    ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
+                    ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
+                    ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
+                    ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
+                    Return
+                Case i = 2 And j = 2
+                    ppPres.Slides(2).Shapes(2).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
+                    ppPres.Slides(2).Shapes(2).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
+                    ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
+                    ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
+                    Return
+                Case i = 2 And j = 5
+                    ppPres.Slides(2).Shapes(5).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
+                    ppPres.Slides(2).Shapes(5).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
+                    ppPres.Slides(3).Shapes(7).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
+                    ppPres.Slides(3).Shapes(7).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
+                    Return
+            End Select
             ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
             ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
         End If
@@ -268,7 +293,22 @@ Public Class MainProgram
             Dim Red As Integer = Convert.ToInt32(ColorDialog.Color.R)
             Dim Green As Integer = Convert.ToInt32(ColorDialog.Color.G)
             Dim Blue As Integer = Convert.ToInt32(ColorDialog.Color.B)
-            ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Color.RGB = Color.FromArgb(255, Blue, Green, Red).ToArgb
+            Dim acolor = Color.FromArgb(255, Blue, Green, Red).ToArgb
+            Select Case True
+                Case i = 2 And j = 1
+                    ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Font.Color.RGB = acolor
+                    ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Font.Color.RGB = acolor
+                    Return
+                Case i = 2 And j = 2
+                    ppPres.Slides(2).Shapes(2).TextFrame.TextRange.Font.Color.RGB = acolor
+                    ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Font.Color.RGB = acolor
+                    Return
+                Case i = 2 And j = 5
+                    ppPres.Slides(2).Shapes(5).TextFrame.TextRange.Font.Color.RGB = acolor
+                    ppPres.Slides(3).Shapes(7).TextFrame.TextRange.Font.Color.RGB = acolor
+                    Return
+            End Select
+            ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Color.RGB = acolor
         End If
     End Sub
     Public Function GetFontAndColor(i As Integer, j As Integer)
@@ -284,13 +324,15 @@ Public Class MainProgram
             'navigate to service slide
             SlideTrack.SelectedIndex = 1
             ppPres.SlideShowWindow.View.GotoSlide(2)
-            updateHymns()
+            hymnTextBox = ppPres.Slides(2).Shapes(4).TextFrame.TextRange
+            updateHymns(hymnTextBox)
             'remove memory of hymnal hymns
             hymnalHymns = ""
         Else
             'when sermon hymns is unchecked
-            'take note of sermon hymns in memory
+            'take note of sermon hymns and selected index in memory
             sermonHymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
+            prevSermonHymnSelectedIndex = HymnsSelectionBox.SelectedIndex
         End If
     End Sub
     Private Sub ShowVerses_CheckedChanged(sender As Object, e As EventArgs) Handles ShowVerses.CheckedChanged
@@ -310,14 +352,16 @@ Public Class MainProgram
     Private Sub ShowHymnal_CheckedChanged(sender As Object, e As EventArgs) Handles ShowHymnal.CheckedChanged
         If ShowHymnal.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(4)
-            reinsertHymns(hymnalHymns)
-            updateHymns()
+            hymnTextBox = ppPres.Slides(4).Shapes(1).TextFrame.TextRange
+            HymnsSelectionBox.Items.Clear()
+            updateHymns(hymnTextBox)
         Else
             'when hymnal is unchecked
             'take note of hymnal hymns
             hymnalHymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
             'clear hymnal hymns
             reinsertHymns(sermonHymns)
+            HymnsSelectionBox.SelectedIndex = prevSermonHymnSelectedIndex
             ppPres.Slides(4).Shapes(1).TextFrame.TextRange.Text = ""
         End If
     End Sub
@@ -372,20 +416,45 @@ Public Class MainProgram
 
 
     'HYMN SELECTION --------------------------------------------
-    Private Sub updateHymns()
+    Private Sub updateHymns(textBox As PowerPoint.TextRange)
         Dim hymns As String = ""
-        hymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
-        If ShowSermonHymns.Checked Then
-            'if showing sermon hymns
-            ppPres.Slides(2).Shapes(4).TextFrame.TextRange.Text = hymns
-            highlightCurrentHymn(ppPres.Slides(2).Shapes(4).TextFrame.TextRange)
-        ElseIf ShowHymnal.Checked Then
-            'if showing hymnal hymns
-            ppPres.Slides(4).Shapes(1).TextFrame.TextRange.Text = hymns
-            highlightCurrentHymn(ppPres.Slides(4).Shapes(1).TextFrame.TextRange)
-        ElseIf ShowVerses.Checked Then
-            ShowSermonHymns.Checked = True
+        Dim count = HymnsSelectionBox.Items.Count
+        Dim index = HymnsSelectionBox.SelectedIndex
+        If count >= 3 Then
+            'if selected index less than total items -4 then insert selected hymn and 2 hymns after
+            If index < count - 3 Then
+                hymns = HymnsSelectionBox.Items(index) + vbCrLf + HymnsSelectionBox.Items(index + 1) + vbCrLf + HymnsSelectionBox.Items(index + 2)
+            Else
+                'insert last three hymns
+                hymns = HymnsSelectionBox.Items(count - 3) + vbCrLf + HymnsSelectionBox.Items(count - 2) + vbCrLf + HymnsSelectionBox.Items(count - 1)
+            End If
+        Else
+            'if there are two or less hymns
+            hymns = String.Join(vbCrLf, HymnsSelectionBox.Items.Cast(Of String))
         End If
+        'updating hymns on holy communion slide maximum of first three hymn
+        If prevHighlightedPar = 1 Or highlightedParagraph = 1 Then
+            'Issue of when changing text, powerpoint assumes formatting of first paragraph for all
+            'if highlghted paragraph second paragraph reset styles of first paragraph then change text
+            resetParagraph(textBox, 1)
+        End If
+        textBox.Text = hymns
+
+        'changing highlighted paragraph, depending on selection
+        'handling how selected index changes the highlighted pargarph
+        If count >= 3 Then
+            If HymnsSelectionBox.SelectedIndex = HymnsSelectionBox.Items.Count - 1 Then
+                highlightedParagraph = 3
+            ElseIf HymnsSelectionBox.SelectedIndex = HymnsSelectionBox.Items.Count - 2 Then
+                highlightedParagraph = 2
+            Else
+                highlightedParagraph = 1
+            End If
+        Else
+            highlightedParagraph = HymnsSelectionBox.SelectedIndex + 1
+        End If
+        highlightCurrentHymn(textBox)
+        prevHighlightedPar = highlightedParagraph
     End Sub
 
     Private Sub reinsertHymns(hymns As String)
@@ -399,6 +468,38 @@ Public Class MainProgram
                 HymnsSelectionBox.Items.Add(hymn)
             End If
         Next
+    End Sub
+
+    Private Sub highlightCurrentHymn(textBox As PowerPoint.TextRange)
+        ''resetting fonts to highlight selected hymn
+        If HymnsSelectionBox.Items.Count = 0 Then
+            'if no hymns currently in list box do nothing
+            Return
+        End If
+        If HymnsSelectionBox.Items.Count = 1 Then
+            'if only one hymn, no need to reset style
+            highlightParagraph(textBox, 1)
+            Return
+        End If
+        'resetting styles of previous highlighted paragraph
+        resetParagraph(textBox, prevHighlightedPar)
+        'highlighting paragraph
+        highlightParagraph(textBox, highlightedParagraph)
+    End Sub
+    Private Sub resetParagraph(textbox As PowerPoint.TextRange, paragraph As Integer)
+        If paragraph <= textbox.Paragraphs.Count And textbox.Paragraphs(paragraph).Font.Bold Then
+            textbox.Paragraphs(paragraph).Font.Color.TintAndShade = 0.1
+            textbox.Paragraphs(paragraph).Font.Size = 40
+            textbox.Paragraphs(paragraph).Font.Bold = Office.MsoTriState.msoFalse
+        End If
+    End Sub
+
+    Private Sub highlightParagraph(textbox As PowerPoint.TextRange, paragraph As Integer)
+        If paragraph <= textbox.Paragraphs.Count And textbox.Paragraphs(paragraph).Font.Bold <> Office.MsoTriState.msoTrue Then
+            textbox.Paragraphs(paragraph).Font.Color.TintAndShade = 0
+            textbox.Paragraphs(paragraph).Font.Size = 60
+            textbox.Paragraphs(paragraph).Font.Bold = Office.MsoTriState.msoTrue
+        End If
     End Sub
     Private Sub nextHymn_Click(sender As Object, e As EventArgs) Handles nextHymn.Click
         If HymnsSelectionBox.SelectedIndex = HymnsSelectionBox.Items.Count - 1 Then
@@ -440,68 +541,24 @@ Public Class MainProgram
     End Sub
 
 
-    Public Sub highlightCurrentHymn(textBox As PowerPoint.TextRange)
-        ''resetting fonts to highlight selected hymn
-        If HymnsSelectionBox.Items.Count = 0 Or HymnsSelectionBox.SelectedIndex = -1 Then
-            textBox.Font.Size = 40
-            textBox.Font.Bold = Office.MsoTriState.msoFalse
-            textBox.Font.Color.TintAndShade = 0.05
-            Return
-        End If
-        If HymnsSelectionBox.Items.Count = 1 Then
-            'if only one hymn, no need to reset styles
-            textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Size = 56
-            textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Bold = Office.MsoTriState.msoTrue
-            textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Color.TintAndShade = 0
-            Return
-        End If
-        If prevSelectedIndex <> -1 Then
-            'resetting styles of previously selected index
-            textBox.Paragraphs(prevSelectedIndex + 1).Font.Size = 40
-            textBox.Paragraphs(prevSelectedIndex + 1).Font.Bold = Office.MsoTriState.msoFalse
-            textBox.Paragraphs(prevSelectedIndex + 1).Font.Color.TintAndShade = 0.05
-        End If
-        'highlighting paragraph
-        textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Size = 56
-        textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Bold = Office.MsoTriState.msoTrue
-        textBox.Paragraphs(HymnsSelectionBox.SelectedIndex + 1).Font.Color.TintAndShade = 0
-    End Sub
-
     'handles deleting from button
     Private Sub delHymnBtn_Click(sender As Object, e As EventArgs) Handles delHymnBtn.Click
-        If ShowHymnal.Checked Then
-            'if showing hymnal hymns
-            removeCurrentHymn(ppPres.Slides(4).Shapes(1).TextFrame.TextRange)
-            Return
-        End If
-        'assumes wanting to remove hymns from sermon hymns
-        removeCurrentHymn(ppPres.Slides(2).Shapes(4).TextFrame.TextRange)
+        removeCurrentHymn(hymnTextBox)
+        updateHymns(hymnTextBox)
     End Sub
 
     'Handles deleting hymns from selection box
     Private Sub HymnsSelectionBox_KeyDown(sender As Object, e As KeyEventArgs) Handles HymnsSelectionBox.KeyDown
         If e.KeyCode = Keys.Back Or e.KeyCode = Keys.Delete Then
-            If ShowHymnal.Checked Then
-                'if showing hymnal hymns
-                removeCurrentHymn(ppPres.Slides(4).Shapes(1).TextFrame.TextRange)
-                Return
-            End If
-            'assumes wanting to remove hymns from sermon hymns
-            removeCurrentHymn(ppPres.Slides(2).Shapes(4).TextFrame.TextRange)
+            removeCurrentHymn(hymnTextBox)
+            updateHymns(hymnTextBox)
         End If
     End Sub
     Private Sub HymnsSelectionBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles HymnsSelectionBox.SelectedIndexChanged
-        If ShowSermonHymns.Checked Then
-            'if showing sermon hymns
-            highlightCurrentHymn(ppPres.Slides(2).Shapes(4).TextFrame.TextRange)
-        ElseIf ShowHymnal.Checked Then
-            'if showing hymnal hymns
-            highlightCurrentHymn(ppPres.Slides(4).Shapes(1).TextFrame.TextRange)
+        If HymnsSelectionBox.SelectedIndex = -1 Then
+            Return
         End If
-        If HymnsSelectionBox.SelectedIndex <> -1 Then
-            'only save previous index if new index is not -1
-            prevSelectedIndex = HymnsSelectionBox.SelectedIndex
-        End If
+        updateHymns(hymnTextBox)
     End Sub
 
     Private Sub HymnNos_KeyDown(sender As Object, e As KeyEventArgs) Handles HymnNos.KeyDown
@@ -514,46 +571,33 @@ Public Class MainProgram
             End If
             HymnsSelectionBox.Items.Add(HymnNos.Text.Replace(vbNewLine, ""))
             HymnNos.Text = ""
-            'if first hymn, by default select first hymn
-            If HymnsSelectionBox.Items.Count = 1 Then
+            'if first hymn added, select hymn
+            If HymnsSelectionBox.Items.Count.Equals(1) Then
                 HymnsSelectionBox.SelectedIndex = 0
             End If
-            updateHymns()
+            'only update hymns if selected index one of last three hymns
+            If HymnsSelectionBox.SelectedIndex >= HymnsSelectionBox.Items.Count - 3 Then
+                updateHymns(hymnTextBox)
+            End If
         End If
     End Sub
 
     Private Sub EnglishFontBtn_Click(sender As Object, e As EventArgs) Handles EnglishFontBtn.Click
-        'Handle changing font of english title
-        'must change font of all occurences of english title: slide 2.1, 3.1 
         ChangeFont(2, 1)
-        ChangeFont(3, 1)
     End Sub
     Private Sub EnglishColorBtn_Click(sender As Object, e As EventArgs) Handles EnglishColorBtn.Click
-        'Handle changing color of english title
-        'must change color of all occurences of english title: slide 2.1, 3.1 
         ChangeColor(2, 1)
-        ChangeColor(3, 1)
     End Sub
     Private Sub ChineseFontBtn_Click(sender As Object, e As EventArgs) Handles ChineseFontBtn.Click
-        'Handle changing font of chinese title
-        'must change font of all occurences of chinese title: slide 2.2, 3.2 
         ChangeFont(2, 2)
-        ChangeFont(3, 2)
     End Sub
     Private Sub ChineseColorBtn_Click(sender As Object, e As EventArgs) Handles ChineseColorBtn.Click
-        'Handle changing color of chinese title
-        'must change color of all occurences of chinese title: slide 2.2, 3.2 
         ChangeColor(2, 2)
-        ChangeColor(3, 2)
     End Sub
     Private Sub ServiceTypeFontBtn_Click(sender As Object, e As EventArgs) Handles ServiceTypeFontBtn.Click
-        'Handle changing font of service type
-        'must change color of all occurences of service type: slide 2.5, 3.7
         ChangeFont(2, 5)
     End Sub
     Private Sub ServiceTypeColorBtn_Click(sender As Object, e As EventArgs) Handles ServiceTypeColorBtn.Click
-        'Handle changing color of service type
-        'must change color of all occurences of service type: slide 2.5, 3.7
         ChangeColor(2, 5)
     End Sub
     Private Sub HymnHDFont_Click(sender As Object, e As EventArgs) Handles HymnHDFont.Click
@@ -602,10 +646,7 @@ Public Class MainProgram
                 'Prayer Requests, announcements, holy communion,off devices,how to pray, service times
                 ppPres.SlideShowWindow.View.GotoSlide(SlideTrack.SelectedIndex + 3)
         End Select
-        If SlideTrack.SelectedIndex = 4 Then
-            'updating hymns on holy communion slide
-            updateHymns()
-        ElseIf SlideTrack.SelectedIndex = 1 Then
+        If SlideTrack.SelectedIndex = 1 Then
             'enable show sermon hymns
             ShowSermonHymns.Checked = True
         End If

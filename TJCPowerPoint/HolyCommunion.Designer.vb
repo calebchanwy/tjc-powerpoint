@@ -193,7 +193,6 @@ Partial Class HolyCommunion
         Me.HymnsSelectionBox.Location = New System.Drawing.Point(11, 55)
         Me.HymnsSelectionBox.Name = "HymnsSelectionBox"
         Me.HymnsSelectionBox.ScrollAlwaysVisible = True
-        Me.HymnsSelectionBox.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended
         Me.HymnsSelectionBox.Size = New System.Drawing.Size(89, 256)
         Me.HymnsSelectionBox.TabIndex = 44
         Me.HymnsSelectionBox.TabStop = False
