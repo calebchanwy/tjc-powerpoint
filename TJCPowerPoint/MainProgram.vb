@@ -268,24 +268,31 @@ Public Class MainProgram
                 Case i = 2 And j = 1
                     ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
                     ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
+                    ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Font.Bold = FontDialog.Font.Bold
                     ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
                     ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
+                    ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Font.Bold = FontDialog.Font.Bold
                     Return
                 Case i = 2 And j = 2
                     ppPres.Slides(2).Shapes(2).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
                     ppPres.Slides(2).Shapes(2).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
+                    ppPres.Slides(2).Shapes(2).TextFrame.TextRange.Font.Bold = FontDialog.Font.Bold
                     ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
                     ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
+                    ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Font.Bold = FontDialog.Font.Bold
                     Return
                 Case i = 2 And j = 5
                     ppPres.Slides(2).Shapes(5).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
                     ppPres.Slides(2).Shapes(5).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
+                    ppPres.Slides(2).Shapes(5).TextFrame.TextRange.Font.Bold = FontDialog.Font.Bold
                     ppPres.Slides(3).Shapes(7).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
                     ppPres.Slides(3).Shapes(7).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
+                    ppPres.Slides(3).Shapes(7).TextFrame.TextRange.Font.Bold = FontDialog.Font.Bold
                     Return
             End Select
             ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
             ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
+            ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Bold = FontDialog.Font.Bold
         End If
     End Sub
     Public Sub ChangeColor(i As Integer, j As Integer)
