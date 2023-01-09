@@ -29,7 +29,7 @@
     <AutorunEnabled>true</AutorunEnabled>
     <DisallowUrlActivation>true</DisallowUrlActivation>
     <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -126,6 +126,12 @@
     <Compile Include="Announcements.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="LoadingScreen.Designer.vb">
+      <DependentUpon>LoadingScreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="LoadingScreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HolyCommunion.Designer.vb">
       <DependentUpon>HolyCommunion.vb</DependentUpon>
     </Compile>
@@ -167,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HolyCommunion.resx">
       <DependentUpon>HolyCommunion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoadingScreen.resx">
+      <DependentUpon>LoadingScreen.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainProgram.resx">
       <DependentUpon>MainProgram.vb</DependentUpon>
@@ -247,6 +256,7 @@
     <None Include="Resources\XML" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Book.gif" />
     <Content Include="Resources\border.png" />
     <Content Include="Resources\close.png" />
     <Content Include="Resources\icons8-announcement-20.png" />
@@ -262,6 +272,7 @@
     <Content Include="Resources\minimize-sign.png" />
     <Content Include="Resources\tjcbirdlogo.ico" />
     <Content Include="Resources\tjcbirdlogoTransparent.png" />
+    <Content Include="Resources\TJCPowerPointLogo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

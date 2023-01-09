@@ -691,8 +691,12 @@
         9orLigAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="ServiceWidescreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ServiceWidescreen.pptx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="icons8-holy-bible-16 (1)" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAGFJREFUOE9j
+        GHSgFYh/AvF/AhgnAGkWgjBxArwGoEs2QDEyINqAciDeDcUgNgwQbUAHEB+BYhAbBog2AAQo8gIIDLwB
+        2ABBA35BaXwYJwAlJFUIEyfAa0ALEFOUlOkNGBgAJq838tFmpiYAAAAASUVORK5CYII=
+</value>
   </data>
   <data name="Settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Settings;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -1066,6 +1070,9 @@
         EQAArJttBAAA62YbAQDAutlGAACwbrYRAACsm20EAADrZhsBAMC62UYAALBmP/ul/x/x+dfLc53pPwAA
         AABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="TJCPowerPointLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TJCPowerPointLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-music-48" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1490,6 +1497,9 @@
         YII=
 </value>
   </data>
+  <data name="icons8_delete_trash_20" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons8-delete-trash-20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="border1" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABQAAAALQCAYAAADPfd1WAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -1609,48 +1619,19 @@
         AShJkiRJkiSFMwAlSZIkSZKkbPfzAlFG6FWxv8u1AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="minimize-sign" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="icons8-restart-243" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAhsSURBVHhe7d1p
-        yOVTAMfxv33Nlixll1CWyPpCKcULW0LKHhLZyk62V8oMCdlSE5IkSrK8kFKKhEKMCWWyZAmTfRnb7ww9
-        7phjzLPf/7mfT33fnOe/nP+8mefe+9xzOgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIB/bJkOSqeni9O1aU66W5KkHnZjui5dks5IB6dt
-        0sppZG2Ujkq3plfTd+kPSZJGoB/T6+mudFzaNDVt83RheiX9lmr/KJIkjWJvpKvS1qkJ5W2Oo9PT6ddU
-        e2hJkvRXv6fn0klptdQ7ZdInp/mp9oCSJGn5LUwXpLVSLxyT3k+1h5EkSePrk3RaWikNpe3TU6k2eUmS
-        NLleTnunoVF+I7k0/ZRqE5YkSVPT4nR9WjXNqo3Tk6k2SUmSND29lLZNs2K/9GGqTUySJE1vX6RD0ow6
-        LH2fahOSJEkzU/mKfVlBd0acmH5JtYlIkqSZrawdUJYcnlZnpnKj2gQkSdLsVfbQmRZHJqv5SZI0vJWF
-        g6bUgalsXlC7mSRJGo7KXjvHpimxXVqUajeSJEnDVXnBvmealLKm/4updgNJkjScvZfWTxN2S6pdWJIk
-        DXcPpwk5OPmLf0mS+lvZVnhcVk8LUu1ikiSpH32aNkgr7JpUu5AkSepXt6UVsnX6IdUuIkmS+lVZw2f3
-        9L9uT7ULSJKkfvZIWq5Nk1f/kiS1Vfmj/l3Sf5qTaidKkqR+d3+qWjNZ8U+SpDYrO/lukpZxXKqdIEmS
-        2uj8tIwnUu1gSZLURi+npZS3BBan2sGSJKmddk5jylKBtYMkSVJbXZTGzEu1gyRJUluVj/zHvJ9qB0mS
-        pLb6JpXt/rtt/h6QJEmj0b6pO3xgQJIktd8Zqbt4YECSJLXf3NTdMzAgSZLa7/HUPTcwIEmS2m9B6t4c
-        GJAkSe33ReoWDgxIkqT2+zl1Xw0MSJKk0WjJ9oC1H0iSpHazCZAkSSNYt+hfA5Ikqf26D/41IEmS2q58
-        /N/NHxiQJEnt92Xqnh8YkCRJ7fdu6uYNDEiSpPZ7MnWXDwxIkqT2uzl1Rw0MSJKk9jsrdTsMDEiSpPY7
-        IC3xUaodIEmS2ur7tEZa4oFUO0iSJLXVM2nM6al2kCRJaqsr05gt0m+pdqAkSWqnPdJSnk21AyVJUhu9
-        lZZxaqodLEmS2uiytIx10repdoIkSep35aP+LVPVHal2kiRJ6nePpv+0Vfo51U6UJEn9ba+0XPem2omS
-        JKmfPZ3+147pl1S7gCRJ6le/p/3TCpmbaheRJEn96r60wtZOC1PtQpIkqR99nTZP43J0ql1MkiT1o3PS
-        hJS3DWoXlCRJw11Z4XflNCFlcaD5qXZhSZI0nH2aNkuTsksqewfXbiBJkoarsuLfQWlKHJEWp9qNJEnS
-        8HRemlJnptqNJEnScHRtmhZXp9oNJUnS7HZnmlYXpLKqUO3mkiRp5rslTfgv/sfjpGS5YEmSZrfygvy6
-        NKMOTYtSbUKSJGl6K9/QOyHNirJ98AupNjFJkjQ9vZ12S7Nq9XRTKt87rE1SkiRNXfNSWahvaOyZXkq1
-        yUqSpMn1TjokDaVV0rnpy1SbvCRJGl/fpitSecd96K2bytcFP061h5EkScvvm1S+3jfpNf1nw1qpbEX4
-        Wqo9nCRJWroF6dK0XmrCrmlO+iDVHliSpFHts3Rb2ic1bad0dno4+ZhAkjRqfZ4eS+Xj8vICeaU0ksrb
-        HHul41PZb+CGdHd6MJVfEiRJ6lsPpfJ/2dxUNuk5Je2bNkwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAqOu6PwFYJ30/t+Y+qwAAAABJ
-        RU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAVlJREFUSEvd
+        lEdOBDEQAEekC+EhwC/gTJAQrwCRPsAN9hukD5HDJ1bLBQ5A1YiWRpPWWOKyJZW0xnb3YLu7mChO8bvD
+        Ku/4hDe4i3OYTFeSKvW5N9zGZNqSVJnHFTzAW4w1A5zCsZxhNbh2MY17+IGRpJctdOEnXvz+7ksQrGEk
+        MUYrs/iKLvKrJI4rhX10rTGM1WAHXXCH/uuBSVJwj3uNYawG1+ikl5fLERrjqhzV8G07uVyO8lhFYxir
+        wQidXChHeSyiMYzVIBK4KJclNMawHNV4Rif/7Yjikg/LUR4naAxrqIGNy8n6M03FPfdojNZnale0cbkg
+        Cu0v+Lzd+4KthSZ2RRdZ9pZ/Kutoe/nCDf/Qhw0rklj+fcc1g365wd1joxyLLTeSqHdihfpCrBH19zHG
+        mfvl55jUrgO7YjS/Pj3zTczCy/JF2Fse0WLUB7xE5zovdBIoih/X9XpcaBZutgAAAABJRU5ErkJggg==
 </value>
+  </data>
+  <data name="ServiceWidescreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ServiceWidescreen.pptx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="icons8-musical-notes-16" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -1883,11 +1864,47 @@
         iVsZAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="icons8-holy-bible-16 (1)" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="minimize-sign" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        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
+        iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wgAADsIBFShKgAAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAhsSURBVHhe7d1p
+        yOVTAMfxv33Nlixll1CWyPpCKcULW0LKHhLZyk62V8oMCdlSE5IkSrK8kFKKhEKMCWWyZAmTfRnb7ww9
+        7phjzLPf/7mfT33fnOe/nP+8mefe+9xzOgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIB/bJkOSqeni9O1aU66W5KkHnZjui5dks5IB6dt
+        0sppZG2Ujkq3plfTd+kPSZJGoB/T6+mudFzaNDVt83RheiX9lmr/KJIkjWJvpKvS1qkJ5W2Oo9PT6ddU
+        e2hJkvRXv6fn0klptdQ7ZdInp/mp9oCSJGn5LUwXpLVSLxyT3k+1h5EkSePrk3RaWikNpe3TU6k2eUmS
+        NLleTnunoVF+I7k0/ZRqE5YkSVPT4nR9WjXNqo3Tk6k2SUmSND29lLZNs2K/9GGqTUySJE1vX6RD0ow6
+        LH2fahOSJEkzU/mKfVlBd0acmH5JtYlIkqSZrawdUJYcnlZnpnKj2gQkSdLsVfbQmRZHJqv5SZI0vJWF
+        g6bUgalsXlC7mSRJGo7KXjvHpimxXVqUajeSJEnDVXnBvmealLKm/4updgNJkjScvZfWTxN2S6pdWJIk
+        DXcPpwk5OPmLf0mS+lvZVnhcVk8LUu1ikiSpH32aNkgr7JpUu5AkSepXt6UVsnX6IdUuIkmS+lVZw2f3
+        9L9uT7ULSJKkfvZIWq5Nk1f/kiS1Vfmj/l3Sf5qTaidKkqR+d3+qWjNZ8U+SpDYrO/lukpZxXKqdIEmS
+        2uj8tIwnUu1gSZLURi+npZS3BBan2sGSJKmddk5jylKBtYMkSVJbXZTGzEu1gyRJUluVj/zHvJ9qB0mS
+        pLb6JpXt/rtt/h6QJEmj0b6pO3xgQJIktd8Zqbt4YECSJLXf3NTdMzAgSZLa7/HUPTcwIEmS2m9B6t4c
+        GJAkSe33ReoWDgxIkqT2+zl1Xw0MSJKk0WjJ9oC1H0iSpHazCZAkSSNYt+hfA5Ikqf26D/41IEmS2q58
+        /N/NHxiQJEnt92Xqnh8YkCRJ7fdu6uYNDEiSpPZ7MnWXDwxIkqT2uzl1Rw0MSJKk9jsrdTsMDEiSpPY7
+        IC3xUaodIEmS2ur7tEZa4oFUO0iSJLXVM2nM6al2kCRJaqsr05gt0m+pdqAkSWqnPdJSnk21AyVJUhu9
+        lZZxaqodLEmS2uiytIx10repdoIkSep35aP+LVPVHal2kiRJ6nePpv+0Vfo51U6UJEn9ba+0XPem2omS
+        JKmfPZ3+147pl1S7gCRJ6le/p/3TCpmbaheRJEn96r60wtZOC1PtQpIkqR99nTZP43J0ql1MkiT1o3PS
+        hJS3DWoXlCRJw11Z4XflNCFlcaD5qXZhSZI0nH2aNkuTsksqewfXbiBJkoarsuLfQWlKHJEWp9qNJEnS
+        8HRemlJnptqNJEnScHRtmhZXp9oNJUnS7HZnmlYXpLKqUO3mkiRp5rslTfgv/sfjpGS5YEmSZrfygvy6
+        NKMOTYtSbUKSJGl6K9/QOyHNirJ98AupNjFJkjQ9vZ12S7Nq9XRTKt87rE1SkiRNXfNSWahvaOyZXkq1
+        yUqSpMn1TjokDaVV0rnpy1SbvCRJGl/fpitSecd96K2bytcFP061h5EkScvvm1S+3jfpNf1nw1qpbEX4
+        Wqo9nCRJWroF6dK0XmrCrmlO+iDVHliSpFHts3Rb2ic1bad0dno4+ZhAkjRqfZ4eS+Xj8vICeaU0ksrb
+        HHul41PZb+CGdHd6MJVfEiRJ6lsPpfJ/2dxUNuk5Je2bNkwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAqOu6PwFYJ30/t+Y+qwAAAABJ
+        RU5ErkJggg==
 </value>
   </data>
   <data name="tjcbirdlogo" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -2779,18 +2796,7 @@
         mfvl55jUrgO7YjS/Pj3zTczCy/JF2Fse0WLUB7xE5zovdBIoih/X9XpcaBZutgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="icons8-restart-243" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAVlJREFUSEvd
-        lEdOBDEQAEekC+EhwC/gTJAQrwCRPsAN9hukD5HDJ1bLBQ5A1YiWRpPWWOKyJZW0xnb3YLu7mChO8bvD
-        Ku/4hDe4i3OYTFeSKvW5N9zGZNqSVJnHFTzAW4w1A5zCsZxhNbh2MY17+IGRpJctdOEnXvz+7ksQrGEk
-        MUYrs/iKLvKrJI4rhX10rTGM1WAHXXCH/uuBSVJwj3uNYawG1+ikl5fLERrjqhzV8G07uVyO8lhFYxir
-        wQidXChHeSyiMYzVIBK4KJclNMawHNV4Rif/7Yjikg/LUR4naAxrqIGNy8n6M03FPfdojNZnale0cbkg
-        Cu0v+Lzd+4KthSZ2RRdZ9pZ/Kutoe/nCDf/Qhw0rklj+fcc1g365wd1joxyLLTeSqHdihfpCrBH19zHG
-        mfvl55jUrgO7YjS/Pj3zTczCy/JF2Fse0WLUB7xE5zovdBIoih/X9XpcaBZutgAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="icons8_delete_trash_20" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\icons8-delete-trash-20.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Book" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Book.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

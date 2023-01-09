@@ -115,3 +115,4 @@ C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPo
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.exe
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.xml
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.pdb
+C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.SplashScreen.resources

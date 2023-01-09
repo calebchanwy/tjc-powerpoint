@@ -510,11 +510,11 @@ Partial Class MainProgram
         '
         Me.SlideTrack.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.SlideTrack.FlatStyle = System.Windows.Forms.FlatStyle.System
-        Me.SlideTrack.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SlideTrack.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SlideTrack.FormattingEnabled = True
-        Me.SlideTrack.Location = New System.Drawing.Point(113, 402)
+        Me.SlideTrack.Location = New System.Drawing.Point(19, 428)
         Me.SlideTrack.Name = "SlideTrack"
-        Me.SlideTrack.Size = New System.Drawing.Size(160, 21)
+        Me.SlideTrack.Size = New System.Drawing.Size(180, 25)
         Me.SlideTrack.TabIndex = 4
         Me.SlideTrack.TabStop = False
         '
@@ -523,7 +523,7 @@ Partial Class MainProgram
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.Transparent
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(15, 402)
+        Me.Label10.Location = New System.Drawing.Point(15, 405)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(91, 20)
         Me.Label10.TabIndex = 19
