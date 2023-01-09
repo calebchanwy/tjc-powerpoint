@@ -22,6 +22,8 @@ Public Class MainProgram
     'Method dealing with what the form will do when it initially opens
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
+            LoadingScreen.Show()
+            LoadingScreen.Activate()
             MakeFolder()
             LoadPres()
             HandleAnnouncements()
@@ -31,8 +33,12 @@ Public Class MainProgram
             LoadTimetableImg()
         Catch ex As Exception
             Me.Close()
+            LoadingScreen.Hide()
         End Try
+        LoadingScreen.Hide()
     End Sub
+
+
 
     'Method to deal with the form closing
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -753,6 +759,7 @@ Public Class MainProgram
 
     Private Sub Show_AN_Click(sender As Object, e As EventArgs) Handles Show_AN.Click
         Announcements.Show()
+
     End Sub
 
     Private Sub edtPrayerImg_Click(sender As Object, e As EventArgs) Handles edtPrayerImg.Click
