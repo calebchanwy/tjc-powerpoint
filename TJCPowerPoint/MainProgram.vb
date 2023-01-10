@@ -11,6 +11,7 @@ Public Class MainProgram
     Dim PrayerRequests As New PrayerRequests
     Dim Writer As XmlTextWriter = Nothing
     Dim RecentFile As String
+
     Dim sermonHymns As String = ""
     Dim hymnalHymns As String = ""
     Dim prevSelectedIndex As Integer = -1
@@ -18,6 +19,11 @@ Public Class MainProgram
     Private highlightedParagraph As Integer
     Private prevHighlightedPar As Integer
     Private hymnTextBox As PowerPoint.TextRange ' keep track of which hymn text box is changing
+
+    'Use of a dictionary to easily change slide numbers and shape numbers
+    Public slideDictionary As Dictionary(Of String, PowerPoint.Slide)
+    Public textBoxDictionary As Dictionary(Of String, PowerPoint.TextRange)
+
 
     'Method dealing with what the form will do when it initially opens
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -60,7 +66,7 @@ Public Class MainProgram
     End Sub
 
     'Method called to create a folder for the files and resources
-    Public Sub MakeFolder()
+    Private Sub MakeFolder()
         If Directory.Exists("\Files") = False Then
             My.Computer.FileSystem.CreateDirectory(CurrentDirectory + "\Files")
         End If
@@ -69,28 +75,8 @@ Public Class MainProgram
         End If
     End Sub
 
-    'Method to load up the presentation and instantiate slide text boxes
-    Public Sub LoadPres()
-        ppApp = CreateObject("PowerPoint.Application")
-        ppPres = ppApp.Presentations.Open(CurrentDirectory + "\Files\ServiceWidescreen.pptx", [ReadOnly]:=Office.MsoTriState.msoFalse, WithWindow:=Office.MsoTriState.msoFalse)
-        ppPres.Slides(1).Name = "Break"
-        ppPres.Slides(2).Name = "Service"
-        ppPres.Slides(5).Name = "Prayer Requests"
-        ppPres.Slides(6).Name = "Announcements"
-        ppPres.Slides(7).Name = "Holy Communion"
-        ppPres.Slides(8).Name = "How To Pray"
-        ppPres.Slides(9).Name = "Turn Off All Devices"
-        ppPres.Slides(10).Name = "Service Timetable"
-        Dim included() As Integer = {1, 2, 5, 6, 7, 8, 9, 10}
-        For Each num As Integer In included
-            SlideTrack.Items.Add(ppPres.Slides(num).Name)
-        Next
-        HandleSettings()
-        ResetServiceDetails()
-        ppPres.SlideShowSettings.Run()
-        'by default go to break slide and hymntextbox set to service hymns
-        SlideTrack.SelectedIndex = 0
-        hymnTextBox = ppPres.Slides(2).Shapes(4).TextFrame.TextRange
+    'Method to instantiate dictionaries, for edits in powerpoint arrangements and slides CHANGE HERE
+    Private Sub MakeDictionary()
         'ORDER OF SLIDES:
         ' 1 - Break slide
         ' 2 - Service Hymns
@@ -110,7 +96,9 @@ Public Class MainProgram
         ' 4 - Hymnal
         '   4.1 Hymn Nos
         ' 5 - Prayer Requests
+        ' 5.1 Prayer Requests Text
         '6 - Announcements
+        ' 6.1 Announcements Text
         '7 - Holy Communion
         '   7.2 Hymn
         '   7.3 Bread
@@ -119,47 +107,111 @@ Public Class MainProgram
         '9 - Turn off devices
         '10 - Service Timetable
 
+        'ADD all slides as appears in powerpoint with key as slide name
+        slideDictionary = New Dictionary(Of String, PowerPoint.Slide)
+        slideDictionary.Add("break", ppPres.Slides(1))
+        slideDictionary.Add("sermonHymnsSlide", ppPres.Slides(2))
+        slideDictionary.Add("bibleVersesSlide", ppPres.Slides(3))
+        slideDictionary.Add("hymnalHymnsSlide", ppPres.Slides(4))
+        slideDictionary.Add("prayerRequests", ppPres.Slides(5))
+        slideDictionary.Add("announcements", ppPres.Slides(6))
+        slideDictionary.Add("holyCommunion", ppPres.Slides(7))
+        slideDictionary.Add("howToPray", ppPres.Slides(8))
+        slideDictionary.Add("turnOffDevices", ppPres.Slides(9))
+        slideDictionary.Add("serviceTimes", ppPres.Slides(10))
+        'ADD all shapes as appears in powerpoint with key as shappe name
+        textBoxDictionary = New Dictionary(Of String, PowerPoint.TextRange)
+        textBoxDictionary.Add("time", slideDictionary.Item("break").Shapes(1).TextFrame.TextRange)
+        'sermon hymns slide
+        textBoxDictionary.Add("englishTitle1", slideDictionary.Item("sermonHymnsSlide").Shapes(1).TextFrame.TextRange)
+        textBoxDictionary.Add("chineseTitle1", slideDictionary.Item("sermonHymnsSlide").Shapes(2).TextFrame.TextRange)
+        textBoxDictionary.Add("hymnHeader", slideDictionary.Item("sermonHymnsSlide").Shapes(3).TextFrame.TextRange)
+        textBoxDictionary.Add("sermonHymns", slideDictionary.Item("sermonHymnsSlide").Shapes(4).TextFrame.TextRange)
+        textBoxDictionary.Add("serviceType1", slideDictionary.Item("sermonHymnsSlide").Shapes(5).TextFrame.TextRange)
+        'bible verse slide
+        textBoxDictionary.Add("englishTitle2", slideDictionary.Item("bibleVersesSlide").Shapes(1).TextFrame.TextRange)
+        textBoxDictionary.Add("chineseTitle2", slideDictionary.Item("bibleVersesSlide").Shapes(2).TextFrame.TextRange)
+        textBoxDictionary.Add("bibleHeader", slideDictionary.Item("bibleVersesSlide").Shapes(3).TextFrame.TextRange)
+        textBoxDictionary.Add("englishBook", slideDictionary.Item("bibleVersesSlide").Shapes(4).TextFrame.TextRange)
+        textBoxDictionary.Add("chineseBook", slideDictionary.Item("bibleVersesSlide").Shapes(5).TextFrame.TextRange)
+        textBoxDictionary.Add("chapterAndVerse", slideDictionary.Item("bibleVersesSlide").Shapes(6).TextFrame.TextRange)
+        textBoxDictionary.Add("serviceType2", slideDictionary.Item("bibleVersesSlide").Shapes(7).TextFrame.TextRange)
+        'hymnal hymn slide
+        textBoxDictionary.Add("hymnalHymns", slideDictionary.Item("hymnalHymnsSlide").Shapes(1).TextFrame.TextRange)
+        'prayer requests slide
+        textBoxDictionary.Add("prayerRequestsTxt", slideDictionary.Item("prayerRequests").Shapes(1).TextFrame.TextRange)
+        'announcements slide
+        textBoxDictionary.Add("announcementsTxt", slideDictionary.Item("announcements").Shapes(1).TextFrame.TextRange)
+        'holy communion slide
+        textBoxDictionary.Add("HChymns", slideDictionary.Item("holyCommunion").Shapes(2).TextFrame.TextRange)
+        textBoxDictionary.Add("bread", slideDictionary.Item("holyCommunion").Shapes(3).TextFrame.TextRange)
+        textBoxDictionary.Add("cup", slideDictionary.Item("holyCommunion").Shapes(4).TextFrame.TextRange)
+    End Sub
+    'Method to load up the presentation and instantiate slide text boxes
+    Private Sub LoadPres()
+        ppApp = CreateObject("PowerPoint.Application")
+        ppPres = ppApp.Presentations.Open(CurrentDirectory + "\Files\ServiceWidescreen.pptx", [ReadOnly]:=Office.MsoTriState.msoFalse, WithWindow:=Office.MsoTriState.msoFalse)
+        ppPres.Slides(1).Name = "Break"
+        ppPres.Slides(2).Name = "Service"
+        ppPres.Slides(5).Name = "Prayer Requests"
+        ppPres.Slides(6).Name = "Announcements"
+        ppPres.Slides(7).Name = "Holy Communion"
+        ppPres.Slides(8).Name = "How To Pray"
+        ppPres.Slides(9).Name = "Turn Off All Devices"
+        ppPres.Slides(10).Name = "Service Timetable"
+        Dim included() As Integer = {1, 2, 5, 6, 7, 8, 9, 10}
+        For Each num As Integer In included
+            SlideTrack.Items.Add(ppPres.Slides(num).Name)
+        Next
+        MakeDictionary()
+        HandleSettings()
+        ResetServiceDetails()
+        ppPres.SlideShowSettings.Run()
+        'by default go to break slide and hymntextbox set to service hymns
+        SlideTrack.SelectedIndex = 0
+        hymnTextBox = textBoxDictionary.Item("sermonHymns")
+
     End Sub
 
     'Method that will reset the program to the initial running state
-    Public Sub ResetServiceDetails()
-        'service slide
-        ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Text = ""
-        ppPres.Slides(2).Shapes(2).TextFrame.TextRange.Text = ""
-        ppPres.Slides(2).Shapes(4).TextFrame.TextRange.Text = ""
-        ppPres.Slides(2).Shapes(5).TextFrame.TextRange.Text = ""
-        'bible verse slide
-        ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = ""
-        ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Text = ""
-        ppPres.Slides(3).Shapes(4).TextFrame.TextRange.Text = ""
-        ppPres.Slides(3).Shapes(5).TextFrame.TextRange.Text = ""
-        ppPres.Slides(3).Shapes(6).TextFrame.TextRange.Text = ""
-        ppPres.Slides(3).Shapes(7).TextFrame.TextRange.Text = ""
-        'holy communion slide
-        ppPres.Slides(7).Shapes(2).TextFrame.TextRange.Text = ""
+    Private Sub ResetServiceDetails()
+        HymnNos.Text = ""
+        HymnsSelectionBox.Items.Clear()
         BookBox.Text = ""
         VerseTxt.Text = ""
         ChapterTxt.Text = ""
-        'Hymnal Slide
-        ppPres.Slides(4).Shapes(1).TextFrame.TextRange.Text = ""
         EnglishTitle.Text = "English Sermon Title"
         ChineseTitle.Text = "中文講道題目"
-        HymnNos.Text = ""
-        HymnsSelectionBox.Items.Clear()
+        'service slide
+        textBoxDictionary.Item("englishTitle1").Text = " "
+        textBoxDictionary.Item("chineseTitle1").Text = " "
+        textBoxDictionary.Item("sermonHymns").Text = " "
+        textBoxDictionary.Item("serviceType1").Text = " "
+        'bible verse slide
+        textBoxDictionary.Item("englishTitle2").Text = " "
+        textBoxDictionary.Item("chineseTitle2").Text = " "
+        textBoxDictionary.Item("chapterAndVerse").Text = " "
+        textBoxDictionary.Item("englishBook").Text = " "
+        textBoxDictionary.Item("chineseBook").Text = " "
+        textBoxDictionary.Item("serviceType2").Text = " "
+        'holy communion slide
+        textBoxDictionary.Item("HChymns").Text = " "
+        'Hymnal Slide
+        textBoxDictionary.Item("hymnalHymns").Text = " "
     End Sub
 
     'Method to deal with loading the Holy Communion slide with details from the text files
     'If no text file exists, then no names will be displayed
-    Public Sub LoadHC()
+    Private Sub LoadHC()
         Dim bread As String
         Dim cup As String
         If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\bread.txt") = True Then
             bread = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\bread.txt")
-            ppPres.Slides(7).Shapes(3).TextFrame.TextRange.Text = bread
+            textBoxDictionary.Item("bread").Text = bread
         End If
         If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\cup.txt") = True Then
             cup = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\cup.txt")
-            ppPres.Slides(7).Shapes(4).TextFrame.TextRange.Text = cup
+            textBoxDictionary.Item("cup").Text = cup
         End If
     End Sub
 
@@ -172,7 +224,7 @@ Public Class MainProgram
             Dim directory As String
             directory = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\prayerImgDir.txt")
             If My.Computer.FileSystem.FileExists(directory) = True Then
-                ppPres.Slides(5).Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
+                slideDictionary.Item("prayerRequests").Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
             End If
         End If
     End Sub
@@ -186,7 +238,7 @@ Public Class MainProgram
             Dim directory As String
             directory = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\timetableDir.txt")
             If My.Computer.FileSystem.FileExists(directory) = True Then
-                ppPres.Slides(10).Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
+                slideDictionary.Item("serviceTimes").Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
             End If
         End If
     End Sub
@@ -205,20 +257,20 @@ Public Class MainProgram
             If str(3) <> "]" Then
                 Dim FontColor As String = Mid(str, InStr(str, "=") + 1, Len(str) - InStr(str, "="))
                 ppPres.Slides(two).Shapes(three).TextFrame.TextRange.Font.Color.RGB = Color.FromArgb(Convert.ToInt32(FontColor)).ToArgb
-                If two = "5" Then
+                If two = slideDictionary.Item("prayerRequests").SlideNumber.ToString() Then
                     PrayerRequests.PrayerRequestTxt.ForeColor = Color.FromArgb(Convert.ToInt32(FontColor))
-                ElseIf two = "6" Then
+                ElseIf two = slideDictionary.Item("announcements").SlideNumber.ToString() Then
                     Announcements.AnnouncementTxt.ForeColor = Color.FromArgb(Convert.ToInt32(FontColor))
                 End If
             Else
                 Dim BGColor As String = Mid(str, InStr(str, "=") + 1, Len(str) - InStr(str, "="))
                 ppPres.Slides(two).Background.Fill.ForeColor.RGB = Color.FromArgb(Convert.ToInt32(BGColor)).ToArgb
-                If two = "5" Then
+                If two = slideDictionary.Item("prayerRequests").SlideNumber.ToString() Then
                     Dim R As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).R
                     Dim G As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).G
                     Dim B As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).B
                     PrayerRequests.PrayerRequestTxt.BackColor = Color.FromArgb(255, B, G, R)
-                ElseIf two = "6" Then
+                ElseIf two = slideDictionary.Item("prayerRequests").SlideNumber.ToString() Then
                     Dim R As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).R
                     Dim G As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).G
                     Dim B As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).B
@@ -245,25 +297,25 @@ Public Class MainProgram
     Public Sub HandleAnnouncements()
         If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\Announcements.txt") Then
             Announcements.AnnouncementTxt.Text = File.ReadAllText(CurrentDirectory + "\Files\Announcements.txt", System.Text.Encoding.UTF32)
-            ppPres.Slides(6).Shapes(1).TextFrame.TextRange.Text = Announcements.AnnouncementTxt.Text
+            textBoxDictionary.Item("announcementsTxt").Text = Announcements.AnnouncementTxt.Text
         Else
             Using sw As StreamWriter = File.CreateText(CurrentDirectory + "\Files\Announcements.txt")
                 sw.WriteLine(" ")
             End Using
             Announcements.AnnouncementTxt.Text = File.ReadAllText(CurrentDirectory + "\Files\Announcements.txt", System.Text.Encoding.UTF32)
-            ppPres.Slides(6).Shapes(1).TextFrame.TextRange.Text = Announcements.AnnouncementTxt.Text
+            textBoxDictionary.Item("announcementsTxt").Text = Announcements.AnnouncementTxt.Text
         End If
     End Sub
     Public Sub HandlePrayerRequests()
         If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\PrayerRequests.txt") Then
             PrayerRequests.PrayerRequestTxt.Text = File.ReadAllText(CurrentDirectory + "\Files\PrayerRequests.txt", System.Text.Encoding.UTF32)
-            ppPres.Slides(5).Shapes(1).TextFrame.TextRange.Text = PrayerRequests.PrayerRequestTxt.Text
+            textBoxDictionary.Item("prayerRequestsTxt").Text = PrayerRequests.PrayerRequestTxt.Text
         Else
             Using sw As StreamWriter = File.CreateText(CurrentDirectory + "\Files\PrayerRequests.txt")
                 sw.WriteLine(" ")
             End Using
             PrayerRequests.PrayerRequestTxt.Text = File.ReadAllText(CurrentDirectory + "\Files\PrayerRequests.txt", System.Text.Encoding.UTF32)
-            ppPres.Slides(5).Shapes(1).TextFrame.TextRange.Text = PrayerRequests.PrayerRequestTxt.Text
+           textBoxDictionary.Item("prayerRequestsTxt").Text = PrayerRequests.PrayerRequestTxt.Text
         End If
     End Sub
     Public Sub ChangeFont(i As Integer, j As Integer)
@@ -271,29 +323,29 @@ Public Class MainProgram
         If FontDialog.ShowDialog = DialogResult.OK Then
             'Handle cases for where text boxes are same but on separate slides
             Select Case True
-                Case i = 2 And j = 1
-                    ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
-                    ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
-                    ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Font.Bold = FontDialog.Font.Bold
-                    ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
-                    ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
-                    ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Font.Bold = FontDialog.Font.Bold
+                Case ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Text.Equals(textBoxDictionary.Item("englishTitle1").Text)
+                    textBoxDictionary.Item("englishTitle1").Font.Name = FontDialog.Font.Name
+                    textBoxDictionary.Item("englishTitle1").Font.Size = FontDialog.Font.Size
+                    textBoxDictionary.Item("englishTitle1").Font.Bold = FontDialog.Font.Bold
+                    textBoxDictionary.Item("englishTitle2").Font.Name = FontDialog.Font.Name
+                    textBoxDictionary.Item("englishTitle2").Font.Size = FontDialog.Font.Size
+                    textBoxDictionary.Item("englishTitle2").Font.Bold = FontDialog.Font.Bold
                     Return
-                Case i = 2 And j = 2
-                    ppPres.Slides(2).Shapes(2).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
-                    ppPres.Slides(2).Shapes(2).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
-                    ppPres.Slides(2).Shapes(2).TextFrame.TextRange.Font.Bold = FontDialog.Font.Bold
-                    ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
-                    ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
-                    ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Font.Bold = FontDialog.Font.Bold
+                Case ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Text.Equals(textBoxDictionary.Item("chineseTitle1").Text)
+                    textBoxDictionary.Item("chineseTitle1").Font.Name = FontDialog.Font.Name
+                    textBoxDictionary.Item("chineseTitle1").Font.Size = FontDialog.Font.Size
+                    textBoxDictionary.Item("chineseTitle1").Font.Bold = FontDialog.Font.Bold
+                    textBoxDictionary.Item("chineseTitle2").Font.Name = FontDialog.Font.Name
+                    textBoxDictionary.Item("chineseTitle2").Font.Size = FontDialog.Font.Size
+                    textBoxDictionary.Item("chineseTitle2").Font.Bold = FontDialog.Font.Bold
                     Return
-                Case i = 2 And j = 5
-                    ppPres.Slides(2).Shapes(5).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
-                    ppPres.Slides(2).Shapes(5).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
-                    ppPres.Slides(2).Shapes(5).TextFrame.TextRange.Font.Bold = FontDialog.Font.Bold
-                    ppPres.Slides(3).Shapes(7).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
-                    ppPres.Slides(3).Shapes(7).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
-                    ppPres.Slides(3).Shapes(7).TextFrame.TextRange.Font.Bold = FontDialog.Font.Bold
+                Case ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Text.Equals(textBoxDictionary.Item("serviceType1").Text)
+                    textBoxDictionary.Item("serviceType1").Font.Name = FontDialog.Font.Name
+                    textBoxDictionary.Item("serviceType1").Font.Size = FontDialog.Font.Size
+                    textBoxDictionary.Item("serviceType1").Font.Bold = FontDialog.Font.Bold
+                    textBoxDictionary.Item("serviceType2").Font.Name = FontDialog.Font.Name
+                    textBoxDictionary.Item("serviceType2").Font.Size = FontDialog.Font.Size
+                    textBoxDictionary.Item("serviceType2").Font.Bold = FontDialog.Font.Bold
                     Return
             End Select
             ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
@@ -308,17 +360,17 @@ Public Class MainProgram
             Dim Blue As Integer = Convert.ToInt32(ColorDialog.Color.B)
             Dim acolor = Color.FromArgb(255, Blue, Green, Red).ToArgb
             Select Case True
-                Case i = 2 And j = 1
-                    ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Font.Color.RGB = acolor
-                    ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Font.Color.RGB = acolor
+                Case ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Text.Equals(textBoxDictionary.Item("englishTitle1").Text)
+                    textBoxDictionary.Item("englishTitle1").Font.Color.RGB = acolor
+                    textBoxDictionary.Item("englishTitle2").Font.Color.RGB = acolor
                     Return
-                Case i = 2 And j = 2
-                    ppPres.Slides(2).Shapes(2).TextFrame.TextRange.Font.Color.RGB = acolor
-                    ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Font.Color.RGB = acolor
+                Case ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Text.Equals(textBoxDictionary.Item("chineseTitle1").Text)
+                    textBoxDictionary.Item("chineseTitle1").Font.Color.RGB = acolor
+                    textBoxDictionary.Item("chineseTitle2").Font.Color.RGB = acolor
                     Return
-                Case i = 2 And j = 5
-                    ppPres.Slides(2).Shapes(5).TextFrame.TextRange.Font.Color.RGB = acolor
-                    ppPres.Slides(3).Shapes(7).TextFrame.TextRange.Font.Color.RGB = acolor
+                Case ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Text.Equals(textBoxDictionary.Item("serviceType1").Text)
+                    textBoxDictionary.Item("serviceType1").Font.Color.RGB = acolor
+                    textBoxDictionary.Item("serviceType2").Font.Color.RGB = acolor
                     Return
             End Select
             ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Color.RGB = acolor
@@ -354,9 +406,9 @@ Public Class MainProgram
         Else
             'when show verses is unchecked
             'clearing bible verses
-            ppPres.Slides(3).Shapes(4).TextFrame.TextRange.Text = " "
-            ppPres.Slides(3).Shapes(5).TextFrame.TextRange.Text = " "
-            ppPres.Slides(3).Shapes(6).TextFrame.TextRange.Text = " "
+            textBoxDictionary.Item("englishBook").Text = " "
+            textBoxDictionary.Item("chineseBook").Text = " "
+            textBoxDictionary.Item("chapterAndVerse").Text = " "
             BookBox.Text = ""
             VerseTxt.Text = ""
             ChapterTxt.Text = ""
@@ -365,7 +417,7 @@ Public Class MainProgram
     Private Sub ShowHymnal_CheckedChanged(sender As Object, e As EventArgs) Handles ShowHymnal.CheckedChanged
         If ShowHymnal.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(4)
-            hymnTextBox = ppPres.Slides(4).Shapes(1).TextFrame.TextRange
+            hymnTextBox = textBoxDictionary.Item("hymnalHymns")
             HymnsSelectionBox.Items.Clear()
             updateHymns(hymnTextBox)
         Else
@@ -375,13 +427,13 @@ Public Class MainProgram
             'clear hymnal hymns
             reinsertHymns(sermonHymns)
             HymnsSelectionBox.SelectedIndex = prevSermonHymnSelectedIndex
-            ppPres.Slides(4).Shapes(1).TextFrame.TextRange.Text = ""
+            textBoxDictionary.Item("hymnalHymns").Text = ""
         End If
     End Sub
 
     Private Sub UpdateVerse_Click(sender As Object, e As EventArgs) Handles UpdateVerse.Click
         If VerseTxt.Text = "" And BookBox.Text = "" And ChapterTxt.Text = "" Then
-            ppPres.Slides(3).Shapes(6).TextFrame.TextRange.Text = ""
+            textBoxDictionary.Item("chapterAndVerse").Text = ""
         ElseIf BookBox.SelectedIndex <> -1 Then
             'if selected proper book update text boxes
             Dim commaPos As Integer
@@ -433,6 +485,14 @@ Public Class MainProgram
         Dim hymns As String = ""
         Dim count = HymnsSelectionBox.Items.Count
         Dim index = HymnsSelectionBox.SelectedIndex
+        If count = 0 Then
+            textBox.Text = " "
+            hideHymnHeader()
+            Return
+        Else
+            showHymnHeader()
+        End If
+
         If count >= 3 Then
             'if selected index less than total items -4 then insert selected hymn and 2 hymns after
             If index < count - 3 Then
@@ -593,6 +653,15 @@ Public Class MainProgram
                 updateHymns(hymnTextBox)
             End If
         End If
+    End Sub
+
+    Private Sub hideHymnHeader()
+        textBoxDictionary.Item("hymnHeader").Text = " "
+    End Sub
+
+    Private Sub showHymnHeader()
+        textBoxDictionary.Item("hymnHeader").Text = "HYMNS 詩"
+
     End Sub
 
     Private Sub EnglishFontBtn_Click(sender As Object, e As EventArgs) Handles EnglishFontBtn.Click
@@ -820,34 +889,47 @@ Public Class MainProgram
     End Sub
 
 
-    'Following two methods deal with moving the chinese title up or down to create more/less spacing
+    'Following 5 methods deal with moving the chinese and english title up or down to create more/less spacing
     'Needed when English title takes two or more lines
-    Private Sub moveChineseUp_Click(sender As Object, e As EventArgs) Handles moveChineseUp.Click
-        Dim textbox As PowerPoint.Shape
+    Private Sub moveUp(textBox As PowerPoint.Shape)
+        If textBox.Top >= 10 Then
+            textBox.Top = textBox.Top - 10
+        End If
+    End Sub
+
+    Private Sub moveDown(textBox As PowerPoint.Shape)
+        If textBox.Top <= 200 Then
+            textBox.Top = textBox.Top + 10
+        End If
+    End Sub
+
+    Private Sub moveEnglishDown_Click(sender As Object, e As EventArgs) Handles moveEnglishDown.Click
         If ShowSermonHymns.Checked Then
-            textbox = ppPres.Slides(2).Shapes(2)
-            If textbox.Top >= 10 Then
-                textbox.Top = textbox.Top - 10
-            End If
+            moveDown(ppPres.Slides(2).Shapes(1))
         ElseIf ShowVerses.Checked Then
-            textbox = ppPres.Slides(3).Shapes(2)
-            If textbox.Top >= 10 Then
-                textbox.Top = textbox.Top - 10
-            End If
+            moveDown(ppPres.Slides(3).Shapes(1))
+        End If
+    End Sub
+
+    Private Sub moveEnglishUp_Click(sender As Object, e As EventArgs) Handles moveEnglishUp.Click
+        If ShowSermonHymns.Checked Then
+            moveUp(ppPres.Slides(2).Shapes(1))
+        ElseIf ShowVerses.Checked Then
+            moveUp(ppPres.Slides(3).Shapes(1))
+        End If
+    End Sub
+    Private Sub moveChineseUp_Click(sender As Object, e As EventArgs) Handles moveChineseUp.Click
+        If ShowSermonHymns.Checked Then
+            moveUp(ppPres.Slides(2).Shapes(2))
+        ElseIf ShowVerses.Checked Then
+            moveUp(ppPres.Slides(3).Shapes(2))
         End If
     End Sub
     Private Sub moveChineseDown_Click(sender As Object, e As EventArgs) Handles moveChineseDown.Click
-        Dim textbox As PowerPoint.Shape
         If ShowSermonHymns.Checked Then
-            textbox = ppPres.Slides(2).Shapes(2)
-            If textbox.Top >= 10 Then
-                textbox.Top = textbox.Top + 10
-            End If
+            moveDown(ppPres.Slides(2).Shapes(2))
         ElseIf ShowVerses.Checked Then
-            textbox = ppPres.Slides(3).Shapes(2)
-            If textbox.Top >= 10 Then
-                textbox.Top = textbox.Top + 10
-            End If
+            moveDown(ppPres.Slides(3).Shapes(2))
         End If
     End Sub
 

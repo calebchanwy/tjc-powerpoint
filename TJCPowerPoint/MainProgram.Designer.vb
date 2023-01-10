@@ -95,6 +95,8 @@ Partial Class MainProgram
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.delHymnBtn = New System.Windows.Forms.Button()
+        Me.moveEnglishDown = New System.Windows.Forms.Button()
+        Me.moveEnglishUp = New System.Windows.Forms.Button()
         Me.BibleVerse.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.Title.SuspendLayout()
@@ -686,7 +688,7 @@ Partial Class MainProgram
         Me.EnglishTitle.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EnglishTitle.Location = New System.Drawing.Point(6, 26)
         Me.EnglishTitle.Name = "EnglishTitle"
-        Me.EnglishTitle.Size = New System.Drawing.Size(568, 33)
+        Me.EnglishTitle.Size = New System.Drawing.Size(506, 33)
         Me.EnglishTitle.TabIndex = 0
         Me.EnglishTitle.TabStop = False
         Me.EnglishTitle.WordWrap = False
@@ -747,6 +749,8 @@ Partial Class MainProgram
         'Title
         '
         Me.Title.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.Title.Controls.Add(Me.moveEnglishUp)
+        Me.Title.Controls.Add(Me.moveEnglishDown)
         Me.Title.Controls.Add(Me.Panel1)
         Me.Title.Controls.Add(Me.clearbtn)
         Me.Title.Controls.Add(Me.moveChineseDown)
@@ -827,7 +831,7 @@ Partial Class MainProgram
         Me.EnglishColorBtn.BackgroundImage = CType(resources.GetObject("EnglishColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.EnglishColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.EnglishColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.EnglishColorBtn.Location = New System.Drawing.Point(580, 27)
+        Me.EnglishColorBtn.Location = New System.Drawing.Point(580, 31)
         Me.EnglishColorBtn.Name = "EnglishColorBtn"
         Me.EnglishColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.EnglishColorBtn.TabIndex = 5
@@ -839,7 +843,7 @@ Partial Class MainProgram
         Me.EnglishFontBtn.BackgroundImage = CType(resources.GetObject("EnglishFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.EnglishFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.EnglishFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.EnglishFontBtn.Location = New System.Drawing.Point(611, 27)
+        Me.EnglishFontBtn.Location = New System.Drawing.Point(610, 31)
         Me.EnglishFontBtn.Name = "EnglishFontBtn"
         Me.EnglishFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.EnglishFontBtn.TabIndex = 6
@@ -1029,6 +1033,30 @@ Partial Class MainProgram
         Me.delHymnBtn.TabStop = False
         Me.delHymnBtn.UseVisualStyleBackColor = True
         '
+        'moveEnglishDown
+        '
+        Me.moveEnglishDown.BackgroundImage = CType(resources.GetObject("moveEnglishDown.BackgroundImage"), System.Drawing.Image)
+        Me.moveEnglishDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.moveEnglishDown.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.moveEnglishDown.Location = New System.Drawing.Point(518, 31)
+        Me.moveEnglishDown.Name = "moveEnglishDown"
+        Me.moveEnglishDown.Size = New System.Drawing.Size(25, 25)
+        Me.moveEnglishDown.TabIndex = 40
+        Me.moveEnglishDown.TabStop = False
+        Me.moveEnglishDown.UseVisualStyleBackColor = True
+        '
+        'moveEnglishUp
+        '
+        Me.moveEnglishUp.BackgroundImage = CType(resources.GetObject("moveEnglishUp.BackgroundImage"), System.Drawing.Image)
+        Me.moveEnglishUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.moveEnglishUp.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.moveEnglishUp.Location = New System.Drawing.Point(549, 31)
+        Me.moveEnglishUp.Name = "moveEnglishUp"
+        Me.moveEnglishUp.Size = New System.Drawing.Size(25, 25)
+        Me.moveEnglishUp.TabIndex = 41
+        Me.moveEnglishUp.TabStop = False
+        Me.moveEnglishUp.UseVisualStyleBackColor = True
+        '
         'MainProgram
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
@@ -1147,4 +1175,6 @@ Partial Class MainProgram
     Friend WithEvents ShowHymnal As RadioButton
     Friend WithEvents ShowVerses As RadioButton
     Friend WithEvents ShowSermonHymns As RadioButton
+    Friend WithEvents moveEnglishUp As Button
+    Friend WithEvents moveEnglishDown As Button
 End Class

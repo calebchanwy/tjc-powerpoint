@@ -14,7 +14,7 @@ Public Class PrayerRequests
         End If
 
         'slide number according to order of powerpoint slide
-        slideNumber = 5
+        slideNumber = MainProgram.slideDictionary.Item("prayerRequests").SlideNumber
     End Sub
 
     'Method handling when form is closed

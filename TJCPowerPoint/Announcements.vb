@@ -11,7 +11,7 @@ Public Class Announcements
         Me.FormBorderStyle = FormBorderStyle.None
         AnnouncementTxt.Focus()
         'HERE INITALISE THE ANNOUNCEMENT SLIDE NUMBER ACCORDING TO ORDER ON POWERPOINT
-        slideNumber = 6
+        slideNumber = MainProgram.slideDictionary.Item("announcements").SlideNumber()
     End Sub
 
     Private Sub CloseAnnouncements_Click(sender As Object, e As EventArgs) Handles CloseAnnouncements.Click, closeForm.Click
