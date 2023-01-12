@@ -170,11 +170,11 @@ Public Class HolyCommunion
         updateHymns(hymnTextBox)
     End Sub
     Private Sub HymnColorBtn_Click(sender As Object, e As EventArgs) Handles HymnColorBtn.Click
-        MainProgram.ChangeColor(slideNumber, 2)
+        MainProgram.ChangeColor(MainProgram.textBoxDictionary.Item("HChymns"))
     End Sub
 
     Private Sub HymnFontBtn_Click(sender As Object, e As EventArgs) Handles HymnFontBtn.Click
-        MainProgram.ChangeFont(slideNumber, 2)
+        MainProgram.ChangeFont(MainProgram.textBoxDictionary.Item("HChymns"))
     End Sub
 
     Private Sub HymnsSelectionBox_KeyDown(sender As Object, e As KeyEventArgs) Handles HymnsSelectionBox.KeyDown

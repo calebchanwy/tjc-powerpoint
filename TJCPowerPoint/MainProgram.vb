@@ -140,8 +140,10 @@ Public Class MainProgram
         textBoxDictionary.Add("hymnalHymns", slideDictionary.Item("hymnalHymnsSlide").Shapes(1).TextFrame.TextRange)
         'prayer requests slide
         textBoxDictionary.Add("prayerRequestsTxt", slideDictionary.Item("prayerRequests").Shapes(1).TextFrame.TextRange)
+        textBoxDictionary.Add("prayerRequestsTitle", slideDictionary.Item("prayerRequests").Shapes(2).TextFrame.TextRange)
         'announcements slide
         textBoxDictionary.Add("announcementsTxt", slideDictionary.Item("announcements").Shapes(1).TextFrame.TextRange)
+        textBoxDictionary.Add("announcementsTitle", slideDictionary.Item("announcements").Shapes(2).TextFrame.TextRange)
         'holy communion slide
         textBoxDictionary.Add("HChymns", slideDictionary.Item("holyCommunion").Shapes(2).TextFrame.TextRange)
         textBoxDictionary.Add("bread", slideDictionary.Item("holyCommunion").Shapes(3).TextFrame.TextRange)
@@ -318,12 +320,12 @@ Public Class MainProgram
            textBoxDictionary.Item("prayerRequestsTxt").Text = PrayerRequests.PrayerRequestTxt.Text
         End If
     End Sub
-    Public Sub ChangeFont(i As Integer, j As Integer)
-        FontDialog.Font = New Font(ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Name.ToString, ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Size)
+    Public Sub ChangeFont(textBox As PowerPoint.TextRange)
+        FontDialog.Font = New Font(textBox.Font.Name.ToString, textBox.Font.Size)
         If FontDialog.ShowDialog = DialogResult.OK Then
             'Handle cases for where text boxes are same but on separate slides
             Select Case True
-                Case ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Text.Equals(textBoxDictionary.Item("englishTitle1").Text)
+                Case textBox.Equals(textBoxDictionary.Item("englishTitle1"))
                     textBoxDictionary.Item("englishTitle1").Font.Name = FontDialog.Font.Name
                     textBoxDictionary.Item("englishTitle1").Font.Size = FontDialog.Font.Size
                     textBoxDictionary.Item("englishTitle1").Font.Bold = FontDialog.Font.Bold
@@ -331,7 +333,7 @@ Public Class MainProgram
                     textBoxDictionary.Item("englishTitle2").Font.Size = FontDialog.Font.Size
                     textBoxDictionary.Item("englishTitle2").Font.Bold = FontDialog.Font.Bold
                     Return
-                Case ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Text.Equals(textBoxDictionary.Item("chineseTitle1").Text)
+                Case textBox.Text.Equals(textBoxDictionary.Item("chineseTitle1").Text)
                     textBoxDictionary.Item("chineseTitle1").Font.Name = FontDialog.Font.Name
                     textBoxDictionary.Item("chineseTitle1").Font.Size = FontDialog.Font.Size
                     textBoxDictionary.Item("chineseTitle1").Font.Bold = FontDialog.Font.Bold
@@ -339,7 +341,7 @@ Public Class MainProgram
                     textBoxDictionary.Item("chineseTitle2").Font.Size = FontDialog.Font.Size
                     textBoxDictionary.Item("chineseTitle2").Font.Bold = FontDialog.Font.Bold
                     Return
-                Case ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Text.Equals(textBoxDictionary.Item("serviceType1").Text)
+                Case textBox.Text.Equals(textBoxDictionary.Item("serviceType1").Text)
                     textBoxDictionary.Item("serviceType1").Font.Name = FontDialog.Font.Name
                     textBoxDictionary.Item("serviceType1").Font.Size = FontDialog.Font.Size
                     textBoxDictionary.Item("serviceType1").Font.Bold = FontDialog.Font.Bold
@@ -348,32 +350,32 @@ Public Class MainProgram
                     textBoxDictionary.Item("serviceType2").Font.Bold = FontDialog.Font.Bold
                     Return
             End Select
-            ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Name = FontDialog.Font.Name
-            ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Size = FontDialog.Font.Size
-            ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Bold = FontDialog.Font.Bold
+            textBox.Font.Name = FontDialog.Font.Name
+            textBox.Font.Size = FontDialog.Font.Size
+            textBox.Font.Bold = FontDialog.Font.Bold
         End If
     End Sub
-    Public Sub ChangeColor(i As Integer, j As Integer)
+    Public Sub ChangeColor(textBox As PowerPoint.TextRange)
         If ColorDialog.ShowDialog = DialogResult.OK Then
             Dim Red As Integer = Convert.ToInt32(ColorDialog.Color.R)
             Dim Green As Integer = Convert.ToInt32(ColorDialog.Color.G)
             Dim Blue As Integer = Convert.ToInt32(ColorDialog.Color.B)
             Dim acolor = Color.FromArgb(255, Blue, Green, Red).ToArgb
             Select Case True
-                Case ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Text.Equals(textBoxDictionary.Item("englishTitle1").Text)
+                Case textBox.Text.Equals(textBoxDictionary.Item("englishTitle1").Text)
                     textBoxDictionary.Item("englishTitle1").Font.Color.RGB = acolor
                     textBoxDictionary.Item("englishTitle2").Font.Color.RGB = acolor
                     Return
-                Case ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Text.Equals(textBoxDictionary.Item("chineseTitle1").Text)
+                Case textBox.Text.Equals(textBoxDictionary.Item("chineseTitle1").Text)
                     textBoxDictionary.Item("chineseTitle1").Font.Color.RGB = acolor
                     textBoxDictionary.Item("chineseTitle2").Font.Color.RGB = acolor
                     Return
-                Case ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Text.Equals(textBoxDictionary.Item("serviceType1").Text)
+                Case textBox.Text.Equals(textBoxDictionary.Item("serviceType1").Text)
                     textBoxDictionary.Item("serviceType1").Font.Color.RGB = acolor
                     textBoxDictionary.Item("serviceType2").Font.Color.RGB = acolor
                     Return
             End Select
-            ppPres.Slides(i).Shapes(j).TextFrame.TextRange.Font.Color.RGB = acolor
+            textBox.Font.Color.RGB = acolor
         End If
     End Sub
     Public Function GetFontAndColor(i As Integer, j As Integer)
@@ -388,8 +390,8 @@ Public Class MainProgram
         If ShowSermonHymns.Checked Then
             'navigate to service slide
             SlideTrack.SelectedIndex = 1
-            ppPres.SlideShowWindow.View.GotoSlide(2)
-            hymnTextBox = ppPres.Slides(2).Shapes(4).TextFrame.TextRange
+            ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("sermonHymnsSlide").SlideIndex)
+            hymnTextBox = textBoxDictionary.Item("sermonHymns")
             updateHymns(hymnTextBox)
             'remove memory of hymnal hymns
             hymnalHymns = ""
@@ -402,7 +404,7 @@ Public Class MainProgram
     End Sub
     Private Sub ShowVerses_CheckedChanged(sender As Object, e As EventArgs) Handles ShowVerses.CheckedChanged
         If ShowVerses.Checked Then
-            ppPres.SlideShowWindow.View.GotoSlide(3)
+            ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("bibleVersesSlide").SlideIndex)
         Else
             'when show verses is unchecked
             'clearing bible verses
@@ -416,7 +418,7 @@ Public Class MainProgram
     End Sub
     Private Sub ShowHymnal_CheckedChanged(sender As Object, e As EventArgs) Handles ShowHymnal.CheckedChanged
         If ShowHymnal.Checked Then
-            ppPres.SlideShowWindow.View.GotoSlide(4)
+            ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("hymnalHymnsSlide").SlideIndex)
             hymnTextBox = textBoxDictionary.Item("hymnalHymns")
             HymnsSelectionBox.Items.Clear()
             updateHymns(hymnTextBox)
@@ -438,9 +440,9 @@ Public Class MainProgram
             'if selected proper book update text boxes
             Dim commaPos As Integer
             commaPos = InStr(BookBox.Text, ",")
-            ppPres.Slides(3).Shapes(4).TextFrame.TextRange.Text = Mid(BookBox.Text, 1, commaPos - 1)
-            ppPres.Slides(3).Shapes(5).TextFrame.TextRange.Text = Mid(BookBox.Text, commaPos + 1)
-            ppPres.Slides(3).Shapes(6).TextFrame.TextRange.Text = ChapterTxt.Text + " : " + VerseTxt.Text
+            textBoxDictionary.Item("englishBook").Text = Mid(BookBox.Text, 1, commaPos - 1)
+            textBoxDictionary.Item("chineseBook").Text = Mid(BookBox.Text, commaPos + 1)
+            textBoxDictionary.Item("chapterAndVerse").Text = ChapterTxt.Text + " : " + VerseTxt.Text
         End If
         'if called when show hymns is checked
         'automatically change to show verses
@@ -467,11 +469,11 @@ Public Class MainProgram
             End While
         End If
         'update on sermon slide
-        ppPres.Slides(2).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
-        ppPres.Slides(2).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
+        textBoxDictionary.Item("englishTitle1").Text = EnglishTitle.Text
+        textBoxDictionary.Item("chineseTitle1").Text = ChineseTitle.Text
         'update on bible verse slide
-        ppPres.Slides(3).Shapes(1).TextFrame.TextRange.Text = EnglishTitle.Text
-        ppPres.Slides(3).Shapes(2).TextFrame.TextRange.Text = ChineseTitle.Text
+        textBoxDictionary.Item("englishTitle2").Text = EnglishTitle.Text
+        textBoxDictionary.Item("chineseTitle2").Text = ChineseTitle.Text
         If ShowHymnal.Checked Then
             'If updated titles during hymnal, return to service hymns
             ShowSermonHymns.Checked = True
@@ -661,63 +663,62 @@ Public Class MainProgram
 
     Private Sub showHymnHeader()
         textBoxDictionary.Item("hymnHeader").Text = "HYMNS 詩"
-
     End Sub
 
     Private Sub EnglishFontBtn_Click(sender As Object, e As EventArgs) Handles EnglishFontBtn.Click
-        ChangeFont(2, 1)
+        ChangeFont(textBoxDictionary.Item("englishTitle1"))
     End Sub
     Private Sub EnglishColorBtn_Click(sender As Object, e As EventArgs) Handles EnglishColorBtn.Click
-        ChangeColor(2, 1)
+        ChangeColor(textBoxDictionary.Item("englishTitle1"))
     End Sub
     Private Sub ChineseFontBtn_Click(sender As Object, e As EventArgs) Handles ChineseFontBtn.Click
-        ChangeFont(2, 2)
+        ChangeFont(textBoxDictionary.Item("chineseTitle1"))
     End Sub
     Private Sub ChineseColorBtn_Click(sender As Object, e As EventArgs) Handles ChineseColorBtn.Click
-        ChangeColor(2, 2)
+        ChangeColor(textBoxDictionary.Item("chineseTitle1"))
     End Sub
     Private Sub ServiceTypeFontBtn_Click(sender As Object, e As EventArgs) Handles ServiceTypeFontBtn.Click
-        ChangeFont(2, 5)
+        ChangeFont(textBoxDictionary.Item("serviceType1"))
     End Sub
     Private Sub ServiceTypeColorBtn_Click(sender As Object, e As EventArgs) Handles ServiceTypeColorBtn.Click
-        ChangeColor(2, 5)
+        ChangeColor(textBoxDictionary.Item("serviceType1"))
     End Sub
     Private Sub HymnHDFont_Click(sender As Object, e As EventArgs) Handles HymnHDFont.Click
-        ChangeFont(2, 3)
+        ChangeFont(textBoxDictionary.Item("hymnHeader"))
     End Sub
     Private Sub HymnHDColor_Click(sender As Object, e As EventArgs) Handles HymnHDColor.Click
-        ChangeColor(2, 3)
+        ChangeColor(textBoxDictionary.Item("hymnHeader"))
     End Sub
     Private Sub HymnFontBtn_Click(sender As Object, e As EventArgs) Handles HymnFontBtn.Click
-        ChangeFont(2, 4)
+        ChangeFont(textBoxDictionary.Item("sermonHymns"))
     End Sub
     Private Sub HymnColorBtn_Click(sender As Object, e As EventArgs) Handles HymnColorBtn.Click
-        ChangeColor(2, 4)
+        ChangeColor(textBoxDictionary.Item("sermonHymns"))
     End Sub
     Private Sub BBibleHDFont_Click(sender As Object, e As EventArgs) Handles BibleHDFont.Click
-        ChangeFont(3, 3)
+        ChangeFont(textBoxDictionary.Item("bibleHeader"))
     End Sub
 
     Private Sub BibleHDColor_Click(sender As Object, e As EventArgs) Handles BibleHDColor.Click
-        ChangeColor(3, 3)
+        ChangeColor(textBoxDictionary.Item("bibleHeader"))
     End Sub
     Private Sub EnglishBookFontBtn_Click(sender As Object, e As EventArgs) Handles EnglishBookFontBtn.Click
-        ChangeFont(3, 4)
+        ChangeFont(textBoxDictionary.Item("englishBook"))
     End Sub
     Private Sub EnglishBookColorBtn_Click(sender As Object, e As EventArgs) Handles EnglishBookColorBtn.Click
-        ChangeColor(3, 4)
+        ChangeColor(textBoxDictionary.Item("englishBook"))
     End Sub
     Private Sub ChineseBookFontBtn_Click(sender As Object, e As EventArgs) Handles ChineseBookFontBtn.Click
-        ChangeFont(3, 5)
+        ChangeFont(textBoxDictionary.Item("chineseBook"))
     End Sub
     Private Sub ChineseBookColorBtn_Click(sender As Object, e As EventArgs) Handles ChineseBookColorBtn.Click
-        ChangeColor(3, 5)
+        ChangeColor(textBoxDictionary.Item("chineseBook"))
     End Sub
     Private Sub CVFontBtn_Click(sender As Object, e As EventArgs) Handles CVFontBtn.Click
-        ChangeFont(3, 6)
+        ChangeFont(textBoxDictionary.Item("chapterAndVerse"))
     End Sub
     Private Sub CVColorBtn_Click(sender As Object, e As EventArgs) Handles CVColorBtn.Click
-        ChangeColor(3, 6)
+        ChangeColor(textBoxDictionary.Item("chapterAndVerse"))
     End Sub
     Private Sub SlideTrack_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SlideTrack.SelectedIndexChanged
         Select Case SlideTrack.SelectedIndex
@@ -806,17 +807,17 @@ Public Class MainProgram
 
     Private Sub ServiceType_KeyDown(sender As Object, e As KeyEventArgs) Handles ServiceType.KeyDown
         If e.KeyCode = Keys.Enter Then
-            ppPres.Slides(2).Shapes(5).TextFrame.TextRange.Text = ServiceType.Text
-            ppPres.Slides(3).Shapes(7).TextFrame.TextRange.Text = ServiceType.Text
+            textBoxDictionary.Item("serviceType1").Text = ServiceType.Text
+            textBoxDictionary.Item("serviceType2").Text = ServiceType.Text
         End If
     End Sub
 
     Private Sub BookBox_KeyDown(sender As Object, e As KeyEventArgs) Handles BookBox.KeyDown
         ' handles when book box is empty, assumes that no verse or chapter should be shown
         If BookBox.Text Is "" And e.KeyCode = Keys.Enter Then
-            ppPres.Slides(3).Shapes(4).TextFrame.TextRange.Text = ""
-            ppPres.Slides(3).Shapes(5).TextFrame.TextRange.Text = ""
-            ppPres.Slides(3).Shapes(6).TextFrame.TextRange.Text = ""
+            textBoxDictionary.Item("englishBook").Text = " "
+            textBoxDictionary.Item("chineseBook").Text = " "
+            textBoxDictionary.Item("chapterAndVerse").Text = " "
             VerseTxt.Text = ""
             ChapterTxt.Text = ""
         ElseIf e.KeyCode = Keys.Enter Then
@@ -856,8 +857,8 @@ Public Class MainProgram
 
     'removing prayer image if exists on slide
     Public Sub deletePrayerImage()
-        If ppPres.Slides(5).Shapes.Count >= 6 Then
-            ppPres.Slides(5).Shapes(6).Delete()
+        If slideDictionary.Item("prayerRequests").Shapes.Count >= 6 Then
+            slideDictionary.Item("prayerRequests").Shapes(6).Delete()
             System.IO.File.WriteAllText(CurrentDirectory + "\Files\prayerImgDir.txt", "")
         End If
     End Sub
@@ -877,7 +878,7 @@ Public Class MainProgram
             ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Downloads"
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*"
             If ofd.ShowDialog = DialogResult.OK Then
-                ppPres.Slides(10).Shapes.AddPicture(ofd.FileName, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
+                slideDictionary.Item("serviceTimes").Shapes.AddPicture(ofd.FileName, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
                 System.IO.File.WriteAllText(CurrentDirectory + "\Files\timetableDir.txt", ofd.FileName)
                 MessageBox.Show("Service Timetable Was Successfully Updated", "Success")
             Else
@@ -905,31 +906,31 @@ Public Class MainProgram
 
     Private Sub moveEnglishDown_Click(sender As Object, e As EventArgs) Handles moveEnglishDown.Click
         If ShowSermonHymns.Checked Then
-            moveDown(ppPres.Slides(2).Shapes(1))
+            moveDown(slideDictionary.Item("sermonHymnsSlide").Shapes(1))
         ElseIf ShowVerses.Checked Then
-            moveDown(ppPres.Slides(3).Shapes(1))
+            moveDown(slideDictionary.Item("bibleVersesSlide").Shapes(1))
         End If
     End Sub
 
     Private Sub moveEnglishUp_Click(sender As Object, e As EventArgs) Handles moveEnglishUp.Click
         If ShowSermonHymns.Checked Then
-            moveUp(ppPres.Slides(2).Shapes(1))
+            moveUp(slideDictionary.Item("sermonHymnsSlide").Shapes(1))
         ElseIf ShowVerses.Checked Then
-            moveUp(ppPres.Slides(3).Shapes(1))
+            moveUp(slideDictionary.Item("bibleVersesSlide").Shapes(1))
         End If
     End Sub
     Private Sub moveChineseUp_Click(sender As Object, e As EventArgs) Handles moveChineseUp.Click
         If ShowSermonHymns.Checked Then
-            moveUp(ppPres.Slides(2).Shapes(2))
+            moveUp(slideDictionary.Item("sermonHymnsSlide").Shapes(2))
         ElseIf ShowVerses.Checked Then
-            moveUp(ppPres.Slides(3).Shapes(2))
+            moveUp(slideDictionary.Item("bibleVersesSlide").Shapes(2))
         End If
     End Sub
     Private Sub moveChineseDown_Click(sender As Object, e As EventArgs) Handles moveChineseDown.Click
         If ShowSermonHymns.Checked Then
-            moveDown(ppPres.Slides(2).Shapes(2))
+            moveDown(slideDictionary.Item("sermonHymnsSlide").Shapes(2))
         ElseIf ShowVerses.Checked Then
-            moveDown(ppPres.Slides(3).Shapes(2))
+            moveDown(slideDictionary.Item("bibleVersesSlide").Shapes(2))
         End If
     End Sub
 

@@ -37,16 +37,16 @@ Public Class PrayerRequests
 
     End Sub
     Private Sub PRFontBtn_Click(sender As Object, e As EventArgs) Handles PRFontBtn.Click
-        MainProgram.ChangeFont(slideNumber, 1)
+        MainProgram.ChangeFont(MainProgram.textBoxDictionary.Item("prayerRequestsTxt"))
     End Sub
     Private Sub PRColorBtn_Click(sender As Object, e As EventArgs) Handles PRColorBtn.Click
-        MainProgram.ChangeColor(slideNumber, 1)
+        MainProgram.ChangeColor(MainProgram.textBoxDictionary.Item("prayerRequestsTxt"))
     End Sub
     Private Sub PRTitleFontBtn_Click(sender As Object, e As EventArgs) Handles PRTitleFontBtn.Click
-        MainProgram.ChangeFont(slideNumber, 2)
+        MainProgram.ChangeFont(MainProgram.textBoxDictionary.Item("prayerRequestsTitle"))
     End Sub
     Private Sub PRTitleColorBtn_Click(sender As Object, e As EventArgs) Handles PRTitleColorBtn.Click
-        MainProgram.ChangeColor(slideNumber, 2)
+        MainProgram.ChangeColor(MainProgram.textBoxDictionary.Item("prayerRequestsTitle"))
     End Sub
 
     Private Sub editPrayerImage_Click(sender As Object, e As EventArgs) Handles editPrayerImage.Click

@@ -29,13 +29,13 @@ Partial Class Announcements
         Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.PRColorBtn = New System.Windows.Forms.Button()
-        Me.PRFontBtn = New System.Windows.Forms.Button()
+        Me.AnnouncementsColorBtn = New System.Windows.Forms.Button()
+        Me.AnnouncementsFontBtn = New System.Windows.Forms.Button()
         Me.AnnouncementTxt = New System.Windows.Forms.TextBox()
         Me.header = New System.Windows.Forms.Label()
-        Me.PRTitleFontBtn = New System.Windows.Forms.Button()
+        Me.AnnouncementsTitleFontBtn = New System.Windows.Forms.Button()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.PRTitleColorBtn = New System.Windows.Forms.Button()
+        Me.AnnouncementsTitleColorBtn = New System.Windows.Forms.Button()
         Me.goToAnnouncements = New System.Windows.Forms.Button()
         Me.navBar = New System.Windows.Forms.FlowLayoutPanel()
         Me.closeForm = New System.Windows.Forms.Button()
@@ -105,29 +105,29 @@ Partial Class Announcements
         Me.Label1.TabIndex = 11
         Me.Label1.Text = "Body"
         '
-        'PRColorBtn
+        'AnnouncementsColorBtn
         '
-        Me.PRColorBtn.BackgroundImage = CType(resources.GetObject("PRColorBtn.BackgroundImage"), System.Drawing.Image)
-        Me.PRColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PRColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PRColorBtn.Location = New System.Drawing.Point(680, 146)
-        Me.PRColorBtn.Name = "PRColorBtn"
-        Me.PRColorBtn.Size = New System.Drawing.Size(25, 25)
-        Me.PRColorBtn.TabIndex = 7
-        Me.PRColorBtn.TabStop = False
-        Me.PRColorBtn.UseVisualStyleBackColor = True
+        Me.AnnouncementsColorBtn.BackgroundImage = CType(resources.GetObject("AnnouncementsColorBtn.BackgroundImage"), System.Drawing.Image)
+        Me.AnnouncementsColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.AnnouncementsColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.AnnouncementsColorBtn.Location = New System.Drawing.Point(680, 146)
+        Me.AnnouncementsColorBtn.Name = "AnnouncementsColorBtn"
+        Me.AnnouncementsColorBtn.Size = New System.Drawing.Size(25, 25)
+        Me.AnnouncementsColorBtn.TabIndex = 7
+        Me.AnnouncementsColorBtn.TabStop = False
+        Me.AnnouncementsColorBtn.UseVisualStyleBackColor = True
         '
-        'PRFontBtn
+        'AnnouncementsFontBtn
         '
-        Me.PRFontBtn.BackgroundImage = CType(resources.GetObject("PRFontBtn.BackgroundImage"), System.Drawing.Image)
-        Me.PRFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PRFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PRFontBtn.Location = New System.Drawing.Point(711, 146)
-        Me.PRFontBtn.Name = "PRFontBtn"
-        Me.PRFontBtn.Size = New System.Drawing.Size(25, 25)
-        Me.PRFontBtn.TabIndex = 8
-        Me.PRFontBtn.TabStop = False
-        Me.PRFontBtn.UseVisualStyleBackColor = True
+        Me.AnnouncementsFontBtn.BackgroundImage = CType(resources.GetObject("AnnouncementsFontBtn.BackgroundImage"), System.Drawing.Image)
+        Me.AnnouncementsFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.AnnouncementsFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.AnnouncementsFontBtn.Location = New System.Drawing.Point(711, 146)
+        Me.AnnouncementsFontBtn.Name = "AnnouncementsFontBtn"
+        Me.AnnouncementsFontBtn.Size = New System.Drawing.Size(25, 25)
+        Me.AnnouncementsFontBtn.TabIndex = 8
+        Me.AnnouncementsFontBtn.TabStop = False
+        Me.AnnouncementsFontBtn.UseVisualStyleBackColor = True
         '
         'AnnouncementTxt
         '
@@ -160,17 +160,17 @@ Partial Class Announcements
         Me.header.TabIndex = 16
         Me.header.Text = "Announcements"
         '
-        'PRTitleFontBtn
+        'AnnouncementsTitleFontBtn
         '
-        Me.PRTitleFontBtn.BackgroundImage = CType(resources.GetObject("PRTitleFontBtn.BackgroundImage"), System.Drawing.Image)
-        Me.PRTitleFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PRTitleFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PRTitleFontBtn.Location = New System.Drawing.Point(711, 83)
-        Me.PRTitleFontBtn.Name = "PRTitleFontBtn"
-        Me.PRTitleFontBtn.Size = New System.Drawing.Size(25, 25)
-        Me.PRTitleFontBtn.TabIndex = 10
-        Me.PRTitleFontBtn.TabStop = False
-        Me.PRTitleFontBtn.UseVisualStyleBackColor = True
+        Me.AnnouncementsTitleFontBtn.BackgroundImage = CType(resources.GetObject("AnnouncementsTitleFontBtn.BackgroundImage"), System.Drawing.Image)
+        Me.AnnouncementsTitleFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.AnnouncementsTitleFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.AnnouncementsTitleFontBtn.Location = New System.Drawing.Point(711, 83)
+        Me.AnnouncementsTitleFontBtn.Name = "AnnouncementsTitleFontBtn"
+        Me.AnnouncementsTitleFontBtn.Size = New System.Drawing.Size(25, 25)
+        Me.AnnouncementsTitleFontBtn.TabIndex = 10
+        Me.AnnouncementsTitleFontBtn.TabStop = False
+        Me.AnnouncementsTitleFontBtn.UseVisualStyleBackColor = True
         '
         'Label2
         '
@@ -183,17 +183,17 @@ Partial Class Announcements
         Me.Label2.TabIndex = 12
         Me.Label2.Text = "Title"
         '
-        'PRTitleColorBtn
+        'AnnouncementsTitleColorBtn
         '
-        Me.PRTitleColorBtn.BackgroundImage = CType(resources.GetObject("PRTitleColorBtn.BackgroundImage"), System.Drawing.Image)
-        Me.PRTitleColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.PRTitleColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PRTitleColorBtn.Location = New System.Drawing.Point(680, 83)
-        Me.PRTitleColorBtn.Name = "PRTitleColorBtn"
-        Me.PRTitleColorBtn.Size = New System.Drawing.Size(25, 25)
-        Me.PRTitleColorBtn.TabIndex = 9
-        Me.PRTitleColorBtn.TabStop = False
-        Me.PRTitleColorBtn.UseVisualStyleBackColor = True
+        Me.AnnouncementsTitleColorBtn.BackgroundImage = CType(resources.GetObject("AnnouncementsTitleColorBtn.BackgroundImage"), System.Drawing.Image)
+        Me.AnnouncementsTitleColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.AnnouncementsTitleColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.AnnouncementsTitleColorBtn.Location = New System.Drawing.Point(680, 83)
+        Me.AnnouncementsTitleColorBtn.Name = "AnnouncementsTitleColorBtn"
+        Me.AnnouncementsTitleColorBtn.Size = New System.Drawing.Size(25, 25)
+        Me.AnnouncementsTitleColorBtn.TabIndex = 9
+        Me.AnnouncementsTitleColorBtn.TabStop = False
+        Me.AnnouncementsTitleColorBtn.UseVisualStyleBackColor = True
         '
         'goToAnnouncements
         '
@@ -281,10 +281,10 @@ Partial Class Announcements
         Me.Controls.Add(Me.header)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.PRTitleColorBtn)
-        Me.Controls.Add(Me.PRTitleFontBtn)
-        Me.Controls.Add(Me.PRColorBtn)
-        Me.Controls.Add(Me.PRFontBtn)
+        Me.Controls.Add(Me.AnnouncementsTitleColorBtn)
+        Me.Controls.Add(Me.AnnouncementsTitleFontBtn)
+        Me.Controls.Add(Me.AnnouncementsColorBtn)
+        Me.Controls.Add(Me.AnnouncementsFontBtn)
         Me.Controls.Add(Me.CloseAnnouncements)
         Me.Controls.Add(Me.LoadAnnouncements)
         Me.Controls.Add(Me.navBar)
@@ -307,16 +307,16 @@ Partial Class Announcements
     Friend WithEvents UpdateAnnouncements As Button
     Friend WithEvents LoadAnnouncements As Button
     Friend WithEvents CloseAnnouncements As Button
-    Friend WithEvents PRColorBtn As Button
-    Friend WithEvents PRFontBtn As Button
+    Friend WithEvents AnnouncementsColorBtn As Button
+    Friend WithEvents AnnouncementsFontBtn As Button
     Friend WithEvents SaveFileDialog As SaveFileDialog
     Friend WithEvents OpenFileDialog As OpenFileDialog
     Friend WithEvents Label1 As Label
     Public WithEvents AnnouncementTxt As TextBox
     Friend WithEvents header As Label
-    Friend WithEvents PRTitleFontBtn As Button
+    Friend WithEvents AnnouncementsTitleFontBtn As Button
     Friend WithEvents Label2 As Label
-    Friend WithEvents PRTitleColorBtn As Button
+    Friend WithEvents AnnouncementsTitleColorBtn As Button
     Friend WithEvents goToAnnouncements As Button
     Friend WithEvents navBar As FlowLayoutPanel
     Friend WithEvents closeForm As Button

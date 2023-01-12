@@ -31,17 +31,17 @@ Public Class Announcements
         End Try
 
     End Sub
-    Private Sub PRFontBtn_Click(sender As Object, e As EventArgs) Handles PRFontBtn.Click
-        MainProgram.ChangeFont(slideNumber, 1)
+    Private Sub AnnouncementsFontBtn_Click(sender As Object, e As EventArgs) Handles AnnouncementsFontBtn.Click
+        MainProgram.ChangeFont(MainProgram.textBoxDictionary.Item("announcementsTxt"))
     End Sub
-    Private Sub PRColorBtn_Click(sender As Object, e As EventArgs) Handles PRColorBtn.Click
-        MainProgram.ChangeColor(slideNumber, 1)
+    Private Sub PRColorBtn_Click(sender As Object, e As EventArgs) Handles AnnouncementsColorBtn.Click
+        MainProgram.ChangeColor(MainProgram.textBoxDictionary.Item("announcementsTxt"))
     End Sub
-    Private Sub PRTitleFontBtn_Click(sender As Object, e As EventArgs) Handles PRTitleFontBtn.Click
-        MainProgram.ChangeFont(slideNumber, 2)
+    Private Sub PRTitleFontBtn_Click(sender As Object, e As EventArgs) Handles AnnouncementsTitleFontBtn.Click
+        MainProgram.ChangeFont(MainProgram.textBoxDictionary.Item("announcementsTitle"))
     End Sub
-    Private Sub PRTitleColorBtn_Click(sender As Object, e As EventArgs) Handles PRTitleColorBtn.Click
-        MainProgram.ChangeColor(slideNumber, 2)
+    Private Sub PRTitleColorBtn_Click(sender As Object, e As EventArgs) Handles AnnouncementsTitleColorBtn.Click
+        MainProgram.ChangeColor(MainProgram.textBoxDictionary.Item("announcementsTitle"))
     End Sub
 
     Private Sub LoadAnnouncements_Click(sender As Object, e As EventArgs) Handles LoadAnnouncements.Click
