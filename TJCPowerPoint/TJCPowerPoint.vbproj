@@ -209,7 +209,6 @@
     <None Include="Resources\bible" />
     <None Include="Resources\Service4to3.pptx" />
     <None Include="Resources\ServiceWidescreen.pptx" />
-    <None Include="Resources\Settings" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
@@ -259,15 +258,21 @@
     <Content Include="Resources\Book.gif" />
     <Content Include="Resources\border.png" />
     <Content Include="Resources\close.png" />
+    <Content Include="Resources\icons8-announcement-16.png" />
     <Content Include="Resources\icons8-announcement-20.png" />
     <Content Include="Resources\icons8-close-24.png" />
     <Content Include="Resources\icons8-close-48.png" />
+    <Content Include="Resources\icons8-cup-16.png" />
     <Content Include="Resources\icons8-delete-trash-20.png" />
     <Content Include="Resources\icons8-folder-20.png" />
     <Content Include="Resources\icons8-holy-bible-16 %281%29.png" />
+    <Content Include="Resources\icons8-justify-paragraph-16.png" />
     <Content Include="Resources\icons8-music-16.png" />
     <Content Include="Resources\icons8-musical-notes-16.png" />
+    <Content Include="Resources\icons8-no-mobile-16.png" />
+    <Content Include="Resources\icons8-question-mark-16.png" />
     <Content Include="Resources\icons8-save-20.png" />
+    <Content Include="Resources\icons8-schedule-16.png" />
     <Content Include="Resources\icons8-schedule-20.png" />
     <Content Include="Resources\minimize-sign.png" />
     <Content Include="Resources\tjcbirdlogo.ico" />

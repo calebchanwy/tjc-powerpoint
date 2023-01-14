@@ -153,32 +153,21 @@ Public Class MainProgram
     Private Sub LoadPres()
         ppApp = CreateObject("PowerPoint.Application")
         ppPres = ppApp.Presentations.Open(CurrentDirectory + "\Files\ServiceWidescreen.pptx", [ReadOnly]:=Office.MsoTriState.msoFalse, WithWindow:=Office.MsoTriState.msoFalse)
-        ppPres.Slides(1).Name = "Break"
-        ppPres.Slides(2).Name = "Service"
-        ppPres.Slides(5).Name = "Prayer Requests"
-        ppPres.Slides(6).Name = "Announcements"
-        ppPres.Slides(7).Name = "Holy Communion"
-        ppPres.Slides(8).Name = "How To Pray"
-        ppPres.Slides(9).Name = "Turn Off All Devices"
-        ppPres.Slides(10).Name = "Service Timetable"
-        Dim included() As Integer = {1, 2, 5, 6, 7, 8, 9, 10}
-        For Each num As Integer In included
-            SlideTrack.Items.Add(ppPres.Slides(num).Name)
-        Next
+        ppPres.SlideShowSettings.ShowPresenterView = False
+        ppPres.PageSetup.FirstSlideNumber = 1
         MakeDictionary()
-        HandleSettings()
         ResetServiceDetails()
         ppPres.SlideShowSettings.Run()
         'by default go to break slide and hymntextbox set to service hymns
-        SlideTrack.SelectedIndex = 0
+        goToBreakBtn.Checked = True
         hymnTextBox = textBoxDictionary.Item("sermonHymns")
-
     End Sub
 
     'Method that will reset the program to the initial running state
     Private Sub ResetServiceDetails()
         HymnNos.Text = ""
         HymnsSelectionBox.Items.Clear()
+        hideHymnHeader()
         BookBox.Text = ""
         VerseTxt.Text = ""
         ChapterTxt.Text = ""
@@ -245,57 +234,8 @@ Public Class MainProgram
         End If
     End Sub
 
-    'Function that deals with taking the settings saved in the xml file
-    'Applies the colours and fonts of each textbox
-    Public Sub LoadSettings(str As String)
-        Dim two As Integer = Val(str(2))
-        Dim three As Integer = Val(str(3))
-        If str(1) = "F" Then
-            Dim FontName As String = Mid(str, InStr(str, "=") + 1, InStr(str, ",") - InStr(str, "=") - 1)
-            Dim FontSize As String = Mid(str, InStr(str, ",") + 1, Len(str) - InStr(str, ","))
-            ppPres.Slides(two).Shapes(three).TextFrame.TextRange.Font.Name = FontName
-            ppPres.Slides(two).Shapes(three).TextFrame.TextRange.Font.Size = Convert.ToSingle(FontSize)
-        Else
-            If str(3) <> "]" Then
-                Dim FontColor As String = Mid(str, InStr(str, "=") + 1, Len(str) - InStr(str, "="))
-                ppPres.Slides(two).Shapes(three).TextFrame.TextRange.Font.Color.RGB = Color.FromArgb(Convert.ToInt32(FontColor)).ToArgb
-                If two = slideDictionary.Item("prayerRequests").SlideNumber.ToString() Then
-                    PrayerRequests.PrayerRequestTxt.ForeColor = Color.FromArgb(Convert.ToInt32(FontColor))
-                ElseIf two = slideDictionary.Item("announcements").SlideNumber.ToString() Then
-                    Announcements.AnnouncementTxt.ForeColor = Color.FromArgb(Convert.ToInt32(FontColor))
-                End If
-            Else
-                Dim BGColor As String = Mid(str, InStr(str, "=") + 1, Len(str) - InStr(str, "="))
-                ppPres.Slides(two).Background.Fill.ForeColor.RGB = Color.FromArgb(Convert.ToInt32(BGColor)).ToArgb
-                If two = slideDictionary.Item("prayerRequests").SlideNumber.ToString() Then
-                    Dim R As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).R
-                    Dim G As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).G
-                    Dim B As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).B
-                    PrayerRequests.PrayerRequestTxt.BackColor = Color.FromArgb(255, B, G, R)
-                ElseIf two = slideDictionary.Item("prayerRequests").SlideNumber.ToString() Then
-                    Dim R As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).R
-                    Dim G As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).G
-                    Dim B As Integer = Color.FromArgb(Convert.ToInt32(BGColor)).B
-                    Announcements.AnnouncementTxt.BackColor = Color.FromArgb(255, B, G, R)
-                End If
-            End If
-        End If
-    End Sub
 
-    Public Sub HandleSettings()
-        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\Settings.ini") Then
-            Dim Settings As Array = File.ReadAllLines(CurrentDirectory + "\Files\Settings.ini")
-            For Each str As String In Settings
-                LoadSettings(str)
-            Next
-        Else
-            File.WriteAllBytes(CurrentDirectory + "\Files\Settings.ini", My.Resources.Settings)
-            Dim Settings As Array = File.ReadAllLines(CurrentDirectory + "\Files\Settings.ini")
-            For Each str As String In Settings
-                LoadSettings(str)
-            Next
-        End If
-    End Sub
+
     Public Sub HandleAnnouncements()
         If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\Announcements.txt") Then
             Announcements.AnnouncementTxt.Text = File.ReadAllText(CurrentDirectory + "\Files\Announcements.txt", System.Text.Encoding.UTF32)
@@ -389,7 +329,6 @@ Public Class MainProgram
     Private Sub ShowSermonHymns_CheckedChanged(sender As Object, e As EventArgs) Handles ShowSermonHymns.CheckedChanged
         If ShowSermonHymns.Checked Then
             'navigate to service slide
-            SlideTrack.SelectedIndex = 1
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("sermonHymnsSlide").SlideIndex)
             hymnTextBox = textBoxDictionary.Item("sermonHymns")
             updateHymns(hymnTextBox)
@@ -482,7 +421,7 @@ Public Class MainProgram
 
 
 
-    'HYMN SELECTION --------------------------------------------
+    '-------------------------------------------HYMN SELECTION --------------------------------------------
     Private Sub updateHymns(textBox As PowerPoint.TextRange)
         Dim hymns As String = ""
         Dim count = HymnsSelectionBox.Items.Count
@@ -657,6 +596,37 @@ Public Class MainProgram
         End If
     End Sub
 
+
+    '-----------------------------------------------------------------------------BUTTONS----------------------------------------
+
+    'Project slide radio group
+    Private Sub goToBreakBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToBreakBtn.CheckedChanged
+        ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("break").SlideNumber)
+    End Sub
+
+    Private Sub goToTimetableBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToTimetableBtn.CheckedChanged
+        ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("serviceTimes").SlideNumber)
+    End Sub
+
+    Private Sub goToPRBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToPRBtn.CheckedChanged
+        ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("prayerRequests").SlideNumber)
+    End Sub
+
+    Private Sub goToHowToPrayBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToHowToPrayBtn.CheckedChanged
+        ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("howToPray").SlideNumber)
+    End Sub
+
+    Private Sub goToTurnOffDevicesBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToTurnOffDevicesBtn.CheckedChanged
+        ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("turnOffDevices").SlideNumber)
+    End Sub
+
+    Private Sub goToAnnouncementsBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToAnnouncementsBtn.CheckedChanged
+        ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("announcements").SlideNumber)
+    End Sub
+
+    Private Sub goToHCBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToHCBtn.CheckedChanged
+        ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("holyCommunion").SlideNumber)
+    End Sub
     Private Sub hideHymnHeader()
         textBoxDictionary.Item("hymnHeader").Text = " "
     End Sub
@@ -720,26 +690,12 @@ Public Class MainProgram
     Private Sub CVColorBtn_Click(sender As Object, e As EventArgs) Handles CVColorBtn.Click
         ChangeColor(textBoxDictionary.Item("chapterAndVerse"))
     End Sub
-    Private Sub SlideTrack_SelectedIndexChanged(sender As Object, e As EventArgs) Handles SlideTrack.SelectedIndexChanged
-        Select Case SlideTrack.SelectedIndex
-            Case 0 To 1
-                'Break slide and main service slide
-                ppPres.SlideShowWindow.View.GotoSlide(SlideTrack.SelectedIndex + 1)
-            Case 2 To 8
-                'Prayer Requests, announcements, holy communion,off devices,how to pray, service times
-                ppPres.SlideShowWindow.View.GotoSlide(SlideTrack.SelectedIndex + 3)
-        End Select
-        If SlideTrack.SelectedIndex = 1 Then
-            'enable show sermon hymns
-            ShowSermonHymns.Checked = True
-        End If
-    End Sub
 
     Private Sub OpenPrayerRequestsWindow_Click(sender As Object, e As EventArgs) Handles OpenPrayerRequestsWindow.Click
         PrayerRequests.Show()
     End Sub
 
-    Private Sub SaveSettings_Click(sender As Object, e As EventArgs) Handles SaveSettings.Click
+    Private Sub SaveSettings_Click(sender As Object, e As EventArgs)
         Dim CurrentSettings As String
         CurrentSettings =
         GetFontAndColor(2, 1) & vbCrLf &
@@ -775,7 +731,7 @@ Public Class MainProgram
     End Sub
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
-        If SlideTrack.SelectedIndex = 0 Then
+        If goToBreakBtn.Checked Then
             'update time on break slide
             ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = DateTime.Now.ToString("HH:mm:ss")
         End If
@@ -832,7 +788,7 @@ Public Class MainProgram
 
     End Sub
 
-    Private Sub edtPrayerImg_Click(sender As Object, e As EventArgs) Handles edtPrayerImg.Click
+    Private Sub edtPrayerImg_Click(sender As Object, e As EventArgs)
         insertPrayerImage()
     End Sub
 

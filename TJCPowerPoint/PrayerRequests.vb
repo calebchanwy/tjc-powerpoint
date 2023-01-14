@@ -57,8 +57,8 @@ Public Class PrayerRequests
         Call MainProgram.deletePrayerImage()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles goToPRSlide.Click
-        MainProgram.SlideTrack.SelectedIndex = slideNumber - 3
+    Private Sub goToPRSLide_Click(sender As Object, e As EventArgs) Handles goToPRSlide.Click
+        MainProgram.goToPRBtn.Checked = True
     End Sub
 
 

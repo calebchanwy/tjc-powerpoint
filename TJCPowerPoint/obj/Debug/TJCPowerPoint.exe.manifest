@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TJCPowerPoint.exe" size="3720704">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TJCPowerPoint.exe" size="3722752">
       <assemblyIdentity name="TJCPowerPoint" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>PbsuZxQUiYJaS2msIVnYRhUMqL4xzDGPsk8Dl+tRmds=</dsig:DigestValue>
+        <dsig:DigestValue>h3a82t60fRV3eVNEUPoXNp/MinWblodAqJrXBWmLG78=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -81,6 +81,15 @@
       <dsig:DigestValue>y7njPEoDCJIPYc0BjNIvzt76i/Etl7+oiAkS6FhYCEs=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Resources\icons8-announcement-16.png" size="277">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>NMCopVhiwQ/6tp5v0LW/vlLTfWNT8mVtk1ozGl12fLc=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Resources\icons8-announcement-20.png" size="398">
     <hash>
       <dsig:Transforms>
@@ -106,6 +115,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>SKZixk1lOBOfeK+yLTIKOYCaJ3Vl5KdmNs6LARrpt7I=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\icons8-cup-16.png" size="236">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>oO3LI+LvpwdQ3/42DsJDJkUr01C1boYHz2RN1II9Oxs=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\icons8-delete-trash-20.png" size="314">
@@ -135,6 +153,15 @@
       <dsig:DigestValue>zIUnW9E1G2VyeZXre5ke07BVtmvIT1xba527isGdD84=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Resources\icons8-justify-paragraph-16.png" size="114">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>yo1parH4fK7zerFtELZQlq8EBYI+F22T99zVDW8tG5U=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Resources\icons8-music-16.png" size="220">
     <hash>
       <dsig:Transforms>
@@ -153,6 +180,24 @@
       <dsig:DigestValue>kpOCdAIT1iscCa41oBYNNrpFUxICjgwDHWZqAmA2qOI=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Resources\icons8-no-mobile-16.png" size="303">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>NiH8ucsbk/ygZ1gHkZW3+/TE4sJMlVgglqTNw4Bk2Kk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\icons8-question-mark-16.png" size="262">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>u7tXxtkayw9IohJpANg2eHwxwjFks4SaP4X9eR9N4AY=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Resources\icons8-save-20.png" size="357">
     <hash>
       <dsig:Transforms>
@@ -160,6 +205,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>zGxlx1+maSvm/qYBXgLa1s2af885UBcLus31EGbq5IM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\icons8-schedule-16.png" size="301">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>3DIMFgujL7QhAXEBSRDCEhNXQb8nsdht/BOKGHQy6JA=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\icons8-schedule-20.png" size="409">

@@ -77,7 +77,17 @@ TJCPowerPoint
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.icons8_announcement_16">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:TJCPowerPoint.My.Resources.Resources.icons8_announcement_20">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.icons8_announcement_201">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -93,6 +103,11 @@ TJCPowerPoint
 </summary>
 </member>
 <member name="P:TJCPowerPoint.My.Resources.Resources.icons8_close_48">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.icons8_cup_16">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -122,6 +137,11 @@ TJCPowerPoint
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.icons8_justify_paragraph_16">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:TJCPowerPoint.My.Resources.Resources.icons8_music_16">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -143,6 +163,16 @@ TJCPowerPoint
 </summary>
 </member>
 <member name="P:TJCPowerPoint.My.Resources.Resources.icons8_musical_notes_16">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.icons8_no_mobile_16">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.icons8_question_mark_16">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
@@ -172,6 +202,11 @@ TJCPowerPoint
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.icons8_schedule_16">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:TJCPowerPoint.My.Resources.Resources.icons8_schedule_20">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -183,11 +218,6 @@ TJCPowerPoint
 </summary>
 </member>
 <member name="P:TJCPowerPoint.My.Resources.Resources.ServiceWidescreen">
-<summary>
-  Looks up a localized resource of type System.Byte[].
-</summary>
-</member>
-<member name="P:TJCPowerPoint.My.Resources.Resources.Settings">
 <summary>
   Looks up a localized resource of type System.Byte[].
 </summary>

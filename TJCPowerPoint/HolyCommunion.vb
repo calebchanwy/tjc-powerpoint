@@ -21,7 +21,7 @@ Public Class HolyCommunion
         End If
 
         Me.aeroEnabled = False
-        slideNumber = 7
+        slideNumber = MainProgram.slideDictionary.Item("holyCommunion").SlideNumber
         highlightedParagraph = 1
         hymnTextBox = MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange
     End Sub
@@ -50,7 +50,7 @@ Public Class HolyCommunion
     End Sub
 
     Private Sub goToHCSlide_Click(sender As Object, e As EventArgs) Handles goToHCSlide.Click
-        MainProgram.SlideTrack.SelectedIndex = slideNumber - 3
+        MainProgram.goToHCBtn.Checked = True
     End Sub
 
 

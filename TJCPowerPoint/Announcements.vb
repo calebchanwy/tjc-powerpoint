@@ -53,8 +53,7 @@ Public Class Announcements
     End Sub
 
     Private Sub goToAnnouncements_Click(sender As Object, e As EventArgs) Handles goToAnnouncements.Click
-        MainProgram.ppPres.SlideShowWindow.View.GotoSlide(slideNumber)
-        MainProgram.SlideTrack.SelectedIndex = slideNumber - 3
+        MainProgram.goToAnnouncementsBtn.Checked = True
     End Sub
 
 
