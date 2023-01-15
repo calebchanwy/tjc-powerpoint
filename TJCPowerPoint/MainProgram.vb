@@ -339,8 +339,8 @@ Public Class MainProgram
         End If
     End Sub
 
-
     Private Sub ShowSermonHymns_CheckedChanged(sender As Object, e As EventArgs) Handles ShowSermonHymns.CheckedChanged
+        ShowSermonHymns.TabStop = False
         If ShowSermonHymns.Checked Then
             'navigate to service slide
             hymnTextBox = textBoxDictionary.Item("sermonHymns")
@@ -355,6 +355,7 @@ Public Class MainProgram
         End If
     End Sub
     Private Sub ShowVerses_CheckedChanged(sender As Object, e As EventArgs) Handles ShowVerses.CheckedChanged
+        ShowVerses.TabStop = False
         If ShowVerses.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("bibleVersesSlide").SlideIndex)
         Else
@@ -369,6 +370,7 @@ Public Class MainProgram
         End If
     End Sub
     Private Sub ShowHymnal_CheckedChanged(sender As Object, e As EventArgs) Handles ShowHymnal.CheckedChanged
+        ShowHymnal.TabStop = False
         If ShowHymnal.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("hymnalHymnsSlide").SlideIndex)
             hymnTextBox = textBoxDictionary.Item("hymnalHymns")
@@ -626,43 +628,71 @@ Public Class MainProgram
     '-----------------------------------------------------------------------------BUTTONS----------------------------------------
 
     'Project slide radio group
-    Private Sub goToBreakBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToBreakBtn.CheckedChanged
+    Private Sub goToBreakBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToBreakBtn.CheckedChanged, goToBreakBtn.Click
+        goToBreakBtn.TabStop = False
+        If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("break").SlideIndex Then
+            Return
+        End If
         If goToBreakBtn.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("break").SlideNumber)
         End If
     End Sub
 
-    Private Sub goToTimetableBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToTimetableBtn.CheckedChanged
+    Private Sub goToTimetableBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToTimetableBtn.CheckedChanged, goToTimetableBtn.Click
+        goToTimetableBtn.TabStop = False
+        If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("serviceTimes").SlideIndex Then
+            Return
+        End If
         If goToTimetableBtn.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("serviceTimes").SlideNumber)
         End If
     End Sub
 
-    Private Sub goToPRBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToPRBtn.CheckedChanged
+    Private Sub goToPRBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToPRBtn.CheckedChanged, goToPRBtn.Click
+        goToPRBtn.TabStop = False
+        If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("prayerRequests").SlideIndex Then
+            Return
+        End If
         If goToPRBtn.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("prayerRequests").SlideNumber)
         End If
     End Sub
 
-    Private Sub goToHowToPrayBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToHowToPrayBtn.CheckedChanged
+    Private Sub goToHowToPrayBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToHowToPrayBtn.CheckedChanged, goToHowToPrayBtn.Click
+        goToHowToPrayBtn.TabStop = False
+        If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("howToPray").SlideIndex Then
+            Return
+        End If
         If goToHowToPrayBtn.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("howToPray").SlideNumber)
         End If
     End Sub
 
-    Private Sub goToTurnOffDevicesBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToTurnOffDevicesBtn.CheckedChanged
+    Private Sub goToTurnOffDevicesBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToTurnOffDevicesBtn.CheckedChanged, goToTurnOffDevicesBtn.Click
+        goToTurnOffDevicesBtn.TabStop = False
+        If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("turnOffDevices").SlideIndex Then
+            Return
+        End If
         If goToTurnOffDevicesBtn.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("turnOffDevices").SlideNumber)
         End If
     End Sub
 
-    Private Sub goToAnnouncementsBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToAnnouncementsBtn.CheckedChanged
+    Private Sub goToAnnouncementsBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToAnnouncementsBtn.CheckedChanged, goToAnnouncementsBtn.Click
+        goToAnnouncementsBtn.TabStop = False
+        If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("announcements").SlideIndex Then
+            Return
+        End If
         If goToAnnouncementsBtn.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("announcements").SlideNumber)
         End If
     End Sub
 
-    Private Sub goToHCBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToHCBtn.CheckedChanged
+    Private Sub goToHCBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToHCBtn.CheckedChanged, goToHCBtn.Click
+        goToHCBtn.TabStop = False
+        If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("holyCommunion").SlideIndex Then
+            Return
+        End If
         If goToHCBtn.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("holyCommunion").SlideNumber)
         End If
