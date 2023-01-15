@@ -344,7 +344,6 @@ Public Class MainProgram
         If ShowSermonHymns.Checked Then
             'navigate to service slide
             hymnTextBox = textBoxDictionary.Item("sermonHymns")
-            updateHymns(hymnTextBox)
             'remove memory of hymnal hymns
             hymnalHymns = ""
         Else
@@ -375,15 +374,34 @@ Public Class MainProgram
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("hymnalHymnsSlide").SlideIndex)
             hymnTextBox = textBoxDictionary.Item("hymnalHymns")
             HymnsSelectionBox.Items.Clear()
-            updateHymns(hymnTextBox)
         Else
             'when hymnal is unchecked
-            'take note of hymnal hymns
-            hymnalHymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
             'clear hymnal hymns
+            textBoxDictionary.Item("hymnalHymns").Text = " "
+            hymnTextBox = textBoxDictionary.Item("sermonHymns")
             reinsertHymns(sermonHymns)
             HymnsSelectionBox.SelectedIndex = prevSermonHymnSelectedIndex
-            textBoxDictionary.Item("hymnalHymns").Text = ""
+        End If
+    End Sub
+
+    'On click methods
+    Private Sub ShowSermonHymns_Click(sender As Object, e As EventArgs) Handles ShowSermonHymns.Click
+        If ShowSermonHymns.Checked And HymnsSelectionBox.Items.Count = 0 Then
+            showTitlesOnly()
+        ElseIf ShowSermonHymns.Checked Then
+            ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("sermonHymnsSlide").SlideIndex)
+        End If
+    End Sub
+
+    Private Sub ShowHymnal_Click(sender As Object, e As EventArgs) Handles ShowHymnal.Click
+        If ShowHymnal.Checked Then
+            ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("hymnalHymnsSlide").SlideIndex)
+        End If
+    End Sub
+
+    Private Sub ShowVerses_Click(sender As Object, e As EventArgs) Handles ShowVerses.Click
+        If ShowVerses.Checked Then
+            ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("bibleVersesSlide").SlideIndex)
         End If
     End Sub
 
@@ -405,6 +423,8 @@ Public Class MainProgram
         End If
         ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("bibleVersesSlide").SlideIndex)
     End Sub
+
+
 
     Private Sub UpdateTitle_Click(sender As Object, e As EventArgs) Handles UpdateTitle.Click
         'Removing blank tabs from titles to force centred titles
@@ -445,18 +465,14 @@ Public Class MainProgram
         Dim hymns As String = ""
         Dim count = HymnsSelectionBox.Items.Count
         Dim index = HymnsSelectionBox.SelectedIndex
+        If ShowSermonHymns.Checked Then
+            ShowSermonHymns.PerformClick()
+        ElseIf ShowHymnal.Checked Then
+            ShowHymnal.PerformClick()
+        End If
         If count = 0 Then
             textBox.Text = " "
-            If ShowSermonHymns.Checked Then
-                showTitlesOnly()
-            End If
-            Return
-        Else
-            If ShowSermonHymns.Checked Then
-                ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("sermonHymnsSlide").SlideIndex)
-            End If
         End If
-
         If count >= 3 Then
             'if selected index less than total items -4 then insert selected hymn and 2 hymns after
             If index < count - 3 Then

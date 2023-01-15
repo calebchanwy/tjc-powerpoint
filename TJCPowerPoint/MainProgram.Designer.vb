@@ -437,7 +437,7 @@ Partial Class MainProgram
         Me.ShowHymnal.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
         Me.ShowHymnal.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_music_16
         Me.ShowHymnal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ShowHymnal.Location = New System.Drawing.Point(311, 3)
+        Me.ShowHymnal.Location = New System.Drawing.Point(0, 3)
         Me.ShowHymnal.Name = "ShowHymnal"
         Me.ShowHymnal.Size = New System.Drawing.Size(161, 27)
         Me.ShowHymnal.TabIndex = 2
@@ -453,7 +453,7 @@ Partial Class MainProgram
         Me.ShowVerses.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
         Me.ShowVerses.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_holy_bible_16
         Me.ShowVerses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ShowVerses.Location = New System.Drawing.Point(167, 3)
+        Me.ShowVerses.Location = New System.Drawing.Point(334, 3)
         Me.ShowVerses.Name = "ShowVerses"
         Me.ShowVerses.Size = New System.Drawing.Size(138, 27)
         Me.ShowVerses.TabIndex = 1
@@ -469,7 +469,7 @@ Partial Class MainProgram
         Me.ShowSermonHymns.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
         Me.ShowSermonHymns.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_musical_notes_16
         Me.ShowSermonHymns.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ShowSermonHymns.Location = New System.Drawing.Point(0, 3)
+        Me.ShowSermonHymns.Location = New System.Drawing.Point(167, 3)
         Me.ShowSermonHymns.Name = "ShowSermonHymns"
         Me.ShowSermonHymns.Size = New System.Drawing.Size(161, 27)
         Me.ShowSermonHymns.TabIndex = 0
