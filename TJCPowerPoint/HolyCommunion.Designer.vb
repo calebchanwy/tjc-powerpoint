@@ -36,14 +36,14 @@ Partial Class HolyCommunion
         Me.HymnNos = New System.Windows.Forms.TextBox()
         Me.prevHymn = New System.Windows.Forms.Button()
         Me.nextHymn = New System.Windows.Forms.Button()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.hymnsGroupBox = New System.Windows.Forms.GroupBox()
         Me.delHymnBtn = New System.Windows.Forms.Button()
         Me.HymnColorBtn = New System.Windows.Forms.Button()
         Me.HymnFontBtn = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.navBar.SuspendLayout()
-        Me.GroupBox1.SuspendLayout()
+        Me.hymnsGroupBox.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
@@ -233,24 +233,24 @@ Partial Class HolyCommunion
         Me.nextHymn.TabStop = False
         Me.nextHymn.UseVisualStyleBackColor = True
         '
-        'GroupBox1
+        'hymnsGroupBox
         '
-        Me.GroupBox1.AutoSize = True
-        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox1.Controls.Add(Me.delHymnBtn)
-        Me.GroupBox1.Controls.Add(Me.HymnColorBtn)
-        Me.GroupBox1.Controls.Add(Me.HymnFontBtn)
-        Me.GroupBox1.Controls.Add(Me.prevHymn)
-        Me.GroupBox1.Controls.Add(Me.HymnNos)
-        Me.GroupBox1.Controls.Add(Me.nextHymn)
-        Me.GroupBox1.Controls.Add(Me.HymnsSelectionBox)
-        Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 55)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(135, 343)
-        Me.GroupBox1.TabIndex = 48
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "Hymn(s)"
+        Me.hymnsGroupBox.AutoSize = True
+        Me.hymnsGroupBox.BackColor = System.Drawing.Color.Transparent
+        Me.hymnsGroupBox.Controls.Add(Me.delHymnBtn)
+        Me.hymnsGroupBox.Controls.Add(Me.HymnColorBtn)
+        Me.hymnsGroupBox.Controls.Add(Me.HymnFontBtn)
+        Me.hymnsGroupBox.Controls.Add(Me.prevHymn)
+        Me.hymnsGroupBox.Controls.Add(Me.HymnNos)
+        Me.hymnsGroupBox.Controls.Add(Me.nextHymn)
+        Me.hymnsGroupBox.Controls.Add(Me.HymnsSelectionBox)
+        Me.hymnsGroupBox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.hymnsGroupBox.Location = New System.Drawing.Point(12, 55)
+        Me.hymnsGroupBox.Name = "hymnsGroupBox"
+        Me.hymnsGroupBox.Size = New System.Drawing.Size(135, 343)
+        Me.hymnsGroupBox.TabIndex = 48
+        Me.hymnsGroupBox.TabStop = False
+        Me.hymnsGroupBox.Text = "Hymn(s)"
         '
         'delHymnBtn
         '
@@ -325,7 +325,7 @@ Partial Class HolyCommunion
         Me.ControlBox = False
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.hymnsGroupBox)
         Me.Controls.Add(Me.goToHCSlide)
         Me.Controls.Add(Me.HCClose)
         Me.Controls.Add(Me.updateHC)
@@ -343,8 +343,8 @@ Partial Class HolyCommunion
         Me.Text = "Holy Communion"
         Me.navBar.ResumeLayout(False)
         Me.navBar.PerformLayout()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
+        Me.hymnsGroupBox.ResumeLayout(False)
+        Me.hymnsGroupBox.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
@@ -367,7 +367,7 @@ Partial Class HolyCommunion
     Friend WithEvents HymnNos As TextBox
     Friend WithEvents prevHymn As Button
     Friend WithEvents nextHymn As Button
-    Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents hymnsGroupBox As GroupBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents HymnColorBtn As Button

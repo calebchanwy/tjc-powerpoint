@@ -256,7 +256,7 @@ Partial Class PrayerRequests
         Me.PrayerRequestTxt.BackColor = System.Drawing.SystemColors.Control
         Me.PrayerRequestTxt.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.PrayerRequestTxt.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PrayerRequestTxt.ForeColor = System.Drawing.Color.White
+        Me.PrayerRequestTxt.ForeColor = System.Drawing.Color.Black
         Me.PrayerRequestTxt.Location = New System.Drawing.Point(6, 26)
         Me.PrayerRequestTxt.Multiline = True
         Me.PrayerRequestTxt.Name = "PrayerRequestTxt"

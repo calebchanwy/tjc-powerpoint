@@ -23,7 +23,7 @@ Public Class HolyCommunion
         Me.aeroEnabled = False
         slideNumber = MainProgram.slideDictionary.Item("holyCommunion").SlideNumber
         highlightedParagraph = 1
-        hymnTextBox = MainProgram.ppPres.Slides(7).Shapes(2).TextFrame.TextRange
+        hymnTextBox = MainProgram.textBoxDictionary.Item("HChymns")
     End Sub
 
     'Method handling when form is closed
@@ -36,8 +36,8 @@ Public Class HolyCommunion
     End Sub
 
     Private Sub updateHC_Click(sender As Object, e As EventArgs) Handles updateHC.Click
-        MainProgram.ppPres.Slides(slideNumber).Shapes(3).TextFrame.TextRange.Text = breadTxt.Text
-        MainProgram.ppPres.Slides(slideNumber).Shapes(4).TextFrame.TextRange.Text = cupTxt.Text
+        MainProgram.textBoxDictionary.Item("bread").Text = breadTxt.Text
+        MainProgram.textBoxDictionary.Item("cup").Text = cupTxt.Text
         Try
             My.Computer.FileSystem.WriteAllText(MainProgram.CurrentDirectory + "\Files\bread.txt", breadTxt.Text, False)
             My.Computer.FileSystem.WriteAllText(MainProgram.CurrentDirectory + "\Files\cup.txt", cupTxt.Text, False)
@@ -167,7 +167,9 @@ Public Class HolyCommunion
         'handles deleting 
         'updating hymns on holy communion slide
         removeCurrentHymn(hymnTextBox)
-        updateHymns(hymnTextBox)
+        If HymnsSelectionBox.Items.Count = 0 Then
+            hymnTextBox.Text = " "
+        End If
     End Sub
     Private Sub HymnColorBtn_Click(sender As Object, e As EventArgs) Handles HymnColorBtn.Click
         MainProgram.ChangeColor(MainProgram.textBoxDictionary.Item("HChymns"))
@@ -182,7 +184,9 @@ Public Class HolyCommunion
             'handles deleting 
             'updating hymns on holy communion slide
             removeCurrentHymn(hymnTextBox)
-            updateHymns(hymnTextBox)
+            If HymnsSelectionBox.Items.Count = 0 Then
+                hymnTextBox.Text = " "
+            End If
         End If
     End Sub
     Private Sub HymnsSelectionBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles HymnsSelectionBox.SelectedIndexChanged

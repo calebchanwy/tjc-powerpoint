@@ -207,7 +207,6 @@
     </None>
     <None Include="App.config" />
     <None Include="Resources\bible" />
-    <None Include="Resources\Service4to3.pptx" />
     <None Include="Resources\ServiceWidescreen.pptx" />
   </ItemGroup>
   <ItemGroup>
