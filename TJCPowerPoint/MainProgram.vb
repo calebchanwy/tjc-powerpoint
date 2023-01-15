@@ -269,10 +269,10 @@ Public Class MainProgram
         End If
     End Sub
     Public Sub ChangeFont(textBox As PowerPoint.TextRange)
+        If textBox.Font.Name IsNot Nothing Then
+            FontDialog.Font = New Font(textBox.Font.Name.ToString(), textBox.Font.Size)
+        End If
         If FontDialog.ShowDialog = DialogResult.OK Then
-            If textBox.Font.Name IsNot Nothing Then
-                FontDialog.Font = New Font(textBox.Font.Name.ToString(), textBox.Font.Size)
-            End If
             'Handle cases for where text boxes are same but on separate slides
             Select Case True
                 Case textBox.Equals(textBoxDictionary.Item("englishTitle1"))
