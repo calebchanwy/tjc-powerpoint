@@ -59,26 +59,21 @@ Public Class HolyCommunion
         Dim hymns As String = ""
         Dim count = HymnsSelectionBox.Items.Count
         Dim index = HymnsSelectionBox.SelectedIndex
+        If count = 0 Then
+            textBox.Text = " "
+        End If
         If count >= 3 Then
             'if selected index less than total items -4 then insert selected hymn and 2 hymns after
             If index < count - 3 Then
-                hymns = HymnsSelectionBox.Items(index) + vbCrLf + HymnsSelectionBox.Items(index + 1) + vbCrLf + HymnsSelectionBox.Items(index + 2)
+                hymns = HymnsSelectionBox.Items(index) + vbCr + HymnsSelectionBox.Items(index + 1) + vbCr + HymnsSelectionBox.Items(index + 2)
             Else
                 'insert last three hymns
-                hymns = HymnsSelectionBox.Items(count - 3) + vbCrLf + HymnsSelectionBox.Items(count - 2) + vbCrLf + HymnsSelectionBox.Items(count - 1)
+                hymns = HymnsSelectionBox.Items(count - 3) + vbCr + HymnsSelectionBox.Items(count - 2) + vbCr + HymnsSelectionBox.Items(count - 1)
             End If
         Else
             'if there are two or less hymns
-            hymns = String.Join(vbCrLf, HymnsSelectionBox.Items.Cast(Of String))
+            hymns = String.Join(vbCr, HymnsSelectionBox.Items.Cast(Of String))
         End If
-        'updating hymns on holy communion slide maximum of first three hymn
-        If prevHighlightedPar = 1 Or highlightedParagraph = 1 Then
-            'Issue of when changing text, powerpoint assumes formatting of first paragraph for all
-            'if highlghted paragraph second paragraph reset styles of first paragraph then change text
-            resetParagraph(textBox, 1)
-        End If
-        textBox.Text = hymns
-
         'changing highlighted paragraph, depending on selection
         'handling how selected index changes the highlighted pargarph
         If count >= 3 Then
@@ -92,6 +87,17 @@ Public Class HolyCommunion
         Else
             highlightedParagraph = HymnsSelectionBox.SelectedIndex + 1
         End If
+        'return if no change in hymns and highlighted paragraph
+        If textBox.Text.ToString().Equals(hymns) And prevHighlightedPar = highlightedParagraph Then
+            Return
+        End If
+        'updating hymns on holy communion slide maximum of first three hymn
+        If prevHighlightedPar = 1 Or highlightedParagraph = 1 Then
+            'Issue of when changing text, powerpoint assumes formatting of first paragraph for all
+            'if highlghted paragraph second paragraph reset styles of first paragraph then change text
+            resetParagraph(textBox, 1)
+        End If
+        textBox.Text = hymns
         highlightCurrentHymn(textBox)
         prevHighlightedPar = highlightedParagraph
     End Sub

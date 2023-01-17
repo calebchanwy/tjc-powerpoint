@@ -395,13 +395,13 @@ Public Class MainProgram
     Private Sub ShowSermonHymns_Click(sender As Object, e As EventArgs) Handles ShowSermonHymns.Click
         If ShowSermonHymns.Checked And HymnsSelectionBox.Items.Count = 0 Then
             showTitlesOnly()
-        ElseIf ShowSermonHymns.Checked Then
+        ElseIf ShowSermonHymns.Checked And ppPres.SlideShowWindow.View.Slide.SlideIndex <> slideDictionary.Item("sermonHymnsSlide").SlideIndex Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("sermonHymnsSlide").SlideIndex)
         End If
     End Sub
 
     Private Sub ShowHymnal_Click(sender As Object, e As EventArgs) Handles ShowHymnal.Click
-        If ShowHymnal.Checked Then
+        If ShowHymnal.Checked And ppPres.SlideShowWindow.View.Slide.SlideIndex <> slideDictionary.Item("hymnalHymnsSlide").SlideIndex Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("hymnalHymnsSlide").SlideIndex)
         End If
     End Sub
@@ -409,7 +409,7 @@ Public Class MainProgram
     Private Sub ShowVerses_Click(sender As Object, e As EventArgs) Handles ShowVerses.Click
         If ShowVerses.Checked And BookBox.Text = "" Then
             showTitlesOnly()
-        ElseIf ShowVerses.Checked Then
+        ElseIf ShowVerses.Checked And ppPres.SlideShowWindow.View.Slide.SlideIndex <> slideDictionary.Item("bibleVersesSlide").SlideIndexThen Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("bibleVersesSlide").SlideIndex)
         End If
     End Sub
@@ -487,23 +487,15 @@ Public Class MainProgram
         If count >= 3 Then
             'if selected index less than total items -4 then insert selected hymn and 2 hymns after
             If index < count - 3 Then
-                hymns = HymnsSelectionBox.Items(index) + vbCrLf + HymnsSelectionBox.Items(index + 1) + vbCrLf + HymnsSelectionBox.Items(index + 2)
+                hymns = HymnsSelectionBox.Items(index) + vbCr + HymnsSelectionBox.Items(index + 1) + vbCr + HymnsSelectionBox.Items(index + 2)
             Else
                 'insert last three hymns
-                hymns = HymnsSelectionBox.Items(count - 3) + vbCrLf + HymnsSelectionBox.Items(count - 2) + vbCrLf + HymnsSelectionBox.Items(count - 1)
+                hymns = HymnsSelectionBox.Items(count - 3) + vbCr + HymnsSelectionBox.Items(count - 2) + vbCr + HymnsSelectionBox.Items(count - 1)
             End If
         Else
             'if there are two or less hymns
-            hymns = String.Join(vbCrLf, HymnsSelectionBox.Items.Cast(Of String))
+            hymns = String.Join(vbCr, HymnsSelectionBox.Items.Cast(Of String))
         End If
-        'updating hymns on holy communion slide maximum of first three hymn
-        If prevHighlightedPar = 1 Or highlightedParagraph = 1 Then
-            'Issue of when changing text, powerpoint assumes formatting of first paragraph for all
-            'if highlghted paragraph second paragraph reset styles of first paragraph then change text
-            resetParagraph(textBox, 1)
-        End If
-        textBox.Text = hymns
-
         'changing highlighted paragraph, depending on selection
         'handling how selected index changes the highlighted pargarph
         If count >= 3 Then
@@ -517,6 +509,17 @@ Public Class MainProgram
         Else
             highlightedParagraph = HymnsSelectionBox.SelectedIndex + 1
         End If
+        'return if no change in hymns and highlighted paragraph
+        If textBox.Text.ToString().Equals(hymns) And prevHighlightedPar = highlightedParagraph Then
+            Return
+        End If
+        'updating hymns on holy communion slide maximum of first three hymn
+        If prevHighlightedPar = 1 Or highlightedParagraph = 1 Then
+            'Issue of when changing text, powerpoint assumes formatting of first paragraph for all
+            'if highlghted paragraph second paragraph reset styles of first paragraph then change text
+            resetParagraph(textBox, 1)
+        End If
+        textBox.Text = hymns
         highlightCurrentHymn(textBox)
         prevHighlightedPar = highlightedParagraph
     End Sub
@@ -555,6 +558,7 @@ Public Class MainProgram
             textbox.Paragraphs(paragraph).Font.Color.TintAndShade = 0.1
             textbox.Paragraphs(paragraph).Font.Size = 40
             textbox.Paragraphs(paragraph).Font.Bold = Office.MsoTriState.msoFalse
+
         End If
     End Sub
 
@@ -594,13 +598,11 @@ Public Class MainProgram
         End If
         If selectedIndex = size - 1 Then
             'if hymn is last hymn selected, reselect last hymn
-            textBox.Paragraphs(selectedIndex + 1).Delete()
             HymnsSelectionBox.Items.RemoveAt(selectedIndex)
             HymnsSelectionBox.SelectedIndex = size - 2
             Return
         End If
         'for all other cases, select the next hymn at the same index
-        textBox.Paragraphs(selectedIndex + 1).Delete()
         HymnsSelectionBox.Items.RemoveAt(selectedIndex)
         HymnsSelectionBox.SelectedIndex = selectedIndex
     End Sub
@@ -643,6 +645,7 @@ Public Class MainProgram
             'if first hymn added, select hymn
             If HymnsSelectionBox.Items.Count.Equals(1) Then
                 HymnsSelectionBox.SelectedIndex = 0
+                Return
             End If
             'only update hymns if selected index one of last three hymns
             If HymnsSelectionBox.SelectedIndex >= HymnsSelectionBox.Items.Count - 3 Then
@@ -946,13 +949,15 @@ Public Class MainProgram
     End Sub
 
     Private Sub moveDown(textBox As PowerPoint.Shape)
-        If textBox.Top <= 200 Then
+        If textBox.Top <= 400 Then
             textBox.Top = textBox.Top + 10
         End If
     End Sub
 
     Private Sub moveEnglishDown_Click(sender As Object, e As EventArgs) Handles moveEnglishDown.Click
-        If ShowSermonHymns.Checked Then
+        If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonTitle").SlideIndex Then
+            moveDown(slideDictionary.Item("sermonTitle").Shapes(1))
+        ElseIf ShowSermonHymns.Checked Then
             moveDown(slideDictionary.Item("sermonHymnsSlide").Shapes(1))
         ElseIf ShowVerses.Checked Then
             moveDown(slideDictionary.Item("bibleVersesSlide").Shapes(1))
@@ -960,21 +965,27 @@ Public Class MainProgram
     End Sub
 
     Private Sub moveEnglishUp_Click(sender As Object, e As EventArgs) Handles moveEnglishUp.Click
-        If ShowSermonHymns.Checked Then
+        If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonTitle").SlideIndex Then
+            moveUp(slideDictionary.Item("sermonTitle").Shapes(1))
+        ElseIf ShowSermonHymns.Checked Then
             moveUp(slideDictionary.Item("sermonHymnsSlide").Shapes(1))
         ElseIf ShowVerses.Checked Then
             moveUp(slideDictionary.Item("bibleVersesSlide").Shapes(1))
         End If
     End Sub
     Private Sub moveChineseUp_Click(sender As Object, e As EventArgs) Handles moveChineseUp.Click
-        If ShowSermonHymns.Checked Then
+        If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonTitle").SlideIndex Then
+            moveDown(slideDictionary.Item("sermonTitle").Shapes(2))
+        ElseIf ShowSermonHymns.Checked Then
             moveUp(slideDictionary.Item("sermonHymnsSlide").Shapes(2))
         ElseIf ShowVerses.Checked Then
             moveUp(slideDictionary.Item("bibleVersesSlide").Shapes(2))
         End If
     End Sub
     Private Sub moveChineseDown_Click(sender As Object, e As EventArgs) Handles moveChineseDown.Click
-        If ShowSermonHymns.Checked Then
+        If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonTitle").SlideIndex Then
+            moveDown(slideDictionary.Item("sermonTitle").Shapes(2))
+        ElseIf ShowSermonHymns.Checked Then
             moveDown(slideDictionary.Item("sermonHymnsSlide").Shapes(2))
         ElseIf ShowVerses.Checked Then
             moveDown(slideDictionary.Item("bibleVersesSlide").Shapes(2))
