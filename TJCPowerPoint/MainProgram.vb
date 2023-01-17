@@ -14,8 +14,10 @@ Public Class MainProgram
 
     Dim sermonHymns As String = ""
     Dim hymnalHymns As String = ""
-    Dim prevSelectedIndex As Integer = -1
+
+    'keeping track of which index hymn was last selected for sermon
     Dim prevSermonHymnSelectedIndex = -1
+    'keeping track of which paragraph to highlight
     Private highlightedParagraph As Integer
     Private prevHighlightedPar As Integer
     Private hymnTextBox As PowerPoint.TextRange ' keep track of which hymn text box is changing
@@ -358,13 +360,16 @@ Public Class MainProgram
     Private Sub ShowVerses_CheckedChanged(sender As Object, e As EventArgs) Handles ShowVerses.CheckedChanged
         ShowVerses.TabStop = False
         If ShowVerses.Checked Then
-            ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("bibleVersesSlide").SlideIndex)
+            Call UpdateVerse_Click(sender, e)
         Else
-            'when show verses is unchecked
             'clearing bible verses
             textBoxDictionary.Item("englishBook").Text = " "
             textBoxDictionary.Item("chineseBook").Text = " "
             textBoxDictionary.Item("chapterAndVerse").Text = " "
+            'when show verses is unchecked
+            'take note of sermon hymns and selected index in memory
+            sermonHymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
+            prevSermonHymnSelectedIndex = HymnsSelectionBox.SelectedIndex
             BookBox.Text = ""
             VerseTxt.Text = ""
             ChapterTxt.Text = ""
@@ -402,7 +407,9 @@ Public Class MainProgram
     End Sub
 
     Private Sub ShowVerses_Click(sender As Object, e As EventArgs) Handles ShowVerses.Click
-        If ShowVerses.Checked Then
+        If ShowVerses.Checked And BookBox.Text = "" Then
+            showTitlesOnly()
+        ElseIf ShowVerses.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("bibleVersesSlide").SlideIndex)
         End If
     End Sub
@@ -410,20 +417,22 @@ Public Class MainProgram
     Private Sub UpdateVerse_Click(sender As Object, e As EventArgs) Handles UpdateVerse.Click
         If VerseTxt.Text.Equals("") And BookBox.Text.Equals("") And ChapterTxt.Text.Equals("") Then
             textBoxDictionary.Item("chapterAndVerse").Text = " "
-        ElseIf BookBox.SelectedIndex <> -1 Then
+        ElseIf BookBox.Text = "" Then
+            showTitlesOnly()
+        Else
             'if selected proper book update text boxes
             Dim commaPos As Integer
             commaPos = InStr(BookBox.Text, ",")
             textBoxDictionary.Item("englishBook").Text = Mid(BookBox.Text, 1, commaPos - 1)
             textBoxDictionary.Item("chineseBook").Text = Mid(BookBox.Text, commaPos + 1)
             textBoxDictionary.Item("chapterAndVerse").Text = ChapterTxt.Text + " : " + VerseTxt.Text
+            ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("bibleVersesSlide").SlideIndex)
+            'if called when show hymns is checked
+            'automatically change to show verses
+            If ShowVerses.Checked = False Then
+                ShowVerses.Checked = True
+            End If
         End If
-        'if called when show hymns is checked
-        'automatically change to show verses
-        If ShowVerses.Checked = False Then
-            ShowVerses.Checked = True
-        End If
-        ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("bibleVersesSlide").SlideIndex)
     End Sub
 
 
@@ -542,7 +551,7 @@ Public Class MainProgram
         highlightParagraph(textBox, highlightedParagraph)
     End Sub
     Private Sub resetParagraph(textbox As PowerPoint.TextRange, paragraph As Integer)
-        If paragraph <= textbox.Paragraphs.Count And textbox.Paragraphs(paragraph).Font.Bold Then
+        If paragraph <= textbox.Paragraphs.Count And textbox.Paragraphs(paragraph).Font.Bold = Office.MsoTriState.msoTrue Then
             textbox.Paragraphs(paragraph).Font.Color.TintAndShade = 0.1
             textbox.Paragraphs(paragraph).Font.Size = 40
             textbox.Paragraphs(paragraph).Font.Bold = Office.MsoTriState.msoFalse
@@ -798,6 +807,9 @@ Public Class MainProgram
     Private Sub Titles_KeyDown(sender As Object, e As KeyEventArgs) Handles EnglishTitle.KeyDown, ChineseTitle.KeyDown
         If e.KeyCode = Keys.Enter Then
             UpdateTitle_Click(sender, e)
+            'Mute ding sound from windows
+            e.Handled = True
+            e.SuppressKeyPress = True
         End If
     End Sub
 
@@ -807,6 +819,9 @@ Public Class MainProgram
             Call UpdateVerse_Click(sender, e)
             If VerseTxt.Text IsNot "" Then
                 SelectNextControl(sender, True, True, True, True)
+                'Mute ding sound from windows
+                e.Handled = True
+                e.SuppressKeyPress = True
             End If
         End If
     End Sub
@@ -815,6 +830,9 @@ Public Class MainProgram
         If e.KeyCode = Keys.Enter Then
             If ChapterTxt.Text IsNot "" Then
                 SelectNextControl(sender, True, True, True, True)
+                'Mute ding sound from windows
+                e.Handled = True
+                e.SuppressKeyPress = True
             End If
         End If
     End Sub
@@ -824,22 +842,33 @@ Public Class MainProgram
             textBoxDictionary.Item("serviceType").Text = ServiceType.Text
             textBoxDictionary.Item("serviceType1").Text = ServiceType.Text
             textBoxDictionary.Item("serviceType2").Text = ServiceType.Text
+            'Mute ding sound from windows
+            e.Handled = True
+            e.SuppressKeyPress = True
         End If
     End Sub
 
     Private Sub BookBox_KeyDown(sender As Object, e As KeyEventArgs) Handles BookBox.KeyDown
         ' handles when book box is empty, assumes that no verse or chapter should be shown
         If BookBox.Text Is "" And e.KeyCode = Keys.Enter Then
+            showTitlesOnly()
             textBoxDictionary.Item("englishBook").Text = " "
             textBoxDictionary.Item("chineseBook").Text = " "
             textBoxDictionary.Item("chapterAndVerse").Text = " "
             VerseTxt.Text = ""
             ChapterTxt.Text = ""
+            'Mute ding sound from windows
+            e.Handled = True
+            e.SuppressKeyPress = True
         ElseIf e.KeyCode = Keys.Enter Then
             If BookBox.SelectedIndex Then
                 SelectNextControl(sender, True, True, True, True)
+                'Mute ding sound from windows
+                e.Handled = True
+                e.SuppressKeyPress = True
             End If
         End If
+
     End Sub
 
     Private Sub Show_AN_Click(sender As Object, e As EventArgs) Handles Show_AN.Click
@@ -884,7 +913,9 @@ Public Class MainProgram
 
     Private Sub clearbtn_Click(sender As Object, e As EventArgs) Handles clearbtn.Click
         ResetServiceDetails()
+        showTitlesOnly()
         ShowSermonHymns.Checked = True
+
     End Sub
 
     'Inserting service times as an image, and inserting into powerpoint slide
