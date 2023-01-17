@@ -68,9 +68,9 @@ Partial Class MainProgram
         Me.EnglishTitle = New System.Windows.Forms.TextBox()
         Me.UpdateTitle = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
-        Me.ServiceType = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Title = New System.Windows.Forms.GroupBox()
+        Me.ServiceType = New System.Windows.Forms.ComboBox()
         Me.moveEnglishUp = New System.Windows.Forms.Button()
         Me.moveEnglishDown = New System.Windows.Forms.Button()
         Me.moveChineseDown = New System.Windows.Forms.Button()
@@ -665,19 +665,6 @@ Partial Class MainProgram
         Me.Label11.TabIndex = 19
         Me.Label11.Text = "Service Type"
         '
-        'ServiceType
-        '
-        Me.ServiceType.AutoCompleteCustomSource.AddRange(New String() {"Friday Evening Service", "Bible Study", "Main Service", "Sabbath Service", "End of Year Services", "African Ministry Training Course", "AMTC", "NSSC", "YTTC", "Spiritual Convocation"})
-        Me.ServiceType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Append
-        Me.ServiceType.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.ServiceType.Font = New System.Drawing.Font("Century Gothic", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ServiceType.Location = New System.Drawing.Point(6, 160)
-        Me.ServiceType.Name = "ServiceType"
-        Me.ServiceType.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
-        Me.ServiceType.Size = New System.Drawing.Size(214, 22)
-        Me.ServiceType.TabIndex = 6
-        Me.ServiceType.TabStop = False
-        '
         'Label16
         '
         Me.Label16.AutoSize = True
@@ -694,6 +681,7 @@ Partial Class MainProgram
         'Title
         '
         Me.Title.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.Title.Controls.Add(Me.ServiceType)
         Me.Title.Controls.Add(Me.moveEnglishUp)
         Me.Title.Controls.Add(Me.moveEnglishDown)
         Me.Title.Controls.Add(Me.Panel1)
@@ -703,7 +691,6 @@ Partial Class MainProgram
         Me.Title.Controls.Add(Me.Label16)
         Me.Title.Controls.Add(Me.ServiceTypeFontBtn)
         Me.Title.Controls.Add(Me.ServiceTypeColorBtn)
-        Me.Title.Controls.Add(Me.ServiceType)
         Me.Title.Controls.Add(Me.Label11)
         Me.Title.Controls.Add(Me.UpdateTitle)
         Me.Title.Controls.Add(Me.EnglishTitle)
@@ -722,6 +709,27 @@ Partial Class MainProgram
         Me.Title.TabIndex = 14
         Me.Title.TabStop = False
         Me.Title.Text = "Titles"
+        '
+        'ServiceType
+        '
+        Me.ServiceType.AutoCompleteCustomSource.AddRange(New String() {"Sabbath Bible Study", "Sabbath Afternoon Service", "Afternoon Service", "Bible Study", "End of Year Services", "Spiritual Convocation", "AMTC", "Evangelistic Service", "Special Service", "Fellowship"})
+        Me.ServiceType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
+        Me.ServiceType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
+        Me.ServiceType.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.ServiceType.DropDownHeight = 100
+        Me.ServiceType.FlatStyle = System.Windows.Forms.FlatStyle.System
+        Me.ServiceType.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ServiceType.ForeColor = System.Drawing.SystemColors.WindowText
+        Me.ServiceType.FormattingEnabled = True
+        Me.ServiceType.ImeMode = System.Windows.Forms.ImeMode.[On]
+        Me.ServiceType.IntegralHeight = False
+        Me.ServiceType.Items.AddRange(New Object() {"Sabbath Bible Study", "Sabbath Afternoon Service", "Afternoon Service", "Bible Study", "End of Year Services", "Spiritual Convocation", "AMTC", "Evangelistic Service", "Special Service", "Fellowship"})
+        Me.ServiceType.Location = New System.Drawing.Point(6, 159)
+        Me.ServiceType.MaxDropDownItems = 5
+        Me.ServiceType.Name = "ServiceType"
+        Me.ServiceType.Size = New System.Drawing.Size(214, 25)
+        Me.ServiceType.TabIndex = 33
+        Me.ServiceType.TabStop = False
         '
         'moveEnglishUp
         '
@@ -776,7 +784,7 @@ Partial Class MainProgram
         Me.ServiceTypeFontBtn.BackgroundImage = CType(resources.GetObject("ServiceTypeFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.ServiceTypeFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ServiceTypeFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ServiceTypeFontBtn.Location = New System.Drawing.Point(257, 157)
+        Me.ServiceTypeFontBtn.Location = New System.Drawing.Point(257, 159)
         Me.ServiceTypeFontBtn.Name = "ServiceTypeFontBtn"
         Me.ServiceTypeFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.ServiceTypeFontBtn.TabIndex = 15
@@ -788,7 +796,7 @@ Partial Class MainProgram
         Me.ServiceTypeColorBtn.BackgroundImage = CType(resources.GetObject("ServiceTypeColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.ServiceTypeColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ServiceTypeColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ServiceTypeColorBtn.Location = New System.Drawing.Point(226, 157)
+        Me.ServiceTypeColorBtn.Location = New System.Drawing.Point(226, 159)
         Me.ServiceTypeColorBtn.Name = "ServiceTypeColorBtn"
         Me.ServiceTypeColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.ServiceTypeColorBtn.TabIndex = 14
@@ -1224,7 +1232,6 @@ Partial Class MainProgram
     Friend WithEvents EnglishTitle As TextBox
     Friend WithEvents UpdateTitle As Button
     Friend WithEvents Label11 As Label
-    Friend WithEvents ServiceType As TextBox
     Friend WithEvents ServiceTypeColorBtn As Button
     Friend WithEvents ServiceTypeFontBtn As Button
     Friend WithEvents Label16 As Label
@@ -1256,4 +1263,5 @@ Partial Class MainProgram
     Friend WithEvents goToHowToPrayBtn As RadioButton
     Friend WithEvents goToAnnouncementsBtn As RadioButton
     Friend WithEvents goToHCBtn As RadioButton
+    Friend WithEvents ServiceType As ComboBox
 End Class

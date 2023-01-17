@@ -417,7 +417,7 @@ Public Class MainProgram
     Private Sub UpdateVerse_Click(sender As Object, e As EventArgs) Handles UpdateVerse.Click
         If VerseTxt.Text.Equals("") And BookBox.Text.Equals("") And ChapterTxt.Text.Equals("") Then
             textBoxDictionary.Item("chapterAndVerse").Text = " "
-        ElseIf BookBox.Text = "" Then
+        ElseIf BookBox.Text = "" Or BookBox.SelectedIndex = -1 Then
             showTitlesOnly()
         Else
             'if selected proper book update text boxes
@@ -581,14 +581,14 @@ Public Class MainProgram
     Private Sub removeCurrentHymn(textBox As PowerPoint.TextRange)
         Dim selectedIndex As Integer = HymnsSelectionBox.SelectedIndex
         Dim size As Integer = HymnsSelectionBox.Items.Count
-        If size = 0 Then
+        If size = 0 And ShowVerses.Checked = False Then
             'if there are new hymns to be removed return
             showTitlesOnly()
             Return
         End If
         If size = 1 Then
             'only one hymn in selection box no need to find new selected hymn
-            textBox.Delete()
+            textBox.Text = " "
             HymnsSelectionBox.Items.Clear()
             Return
         End If
@@ -819,10 +819,10 @@ Public Class MainProgram
             Call UpdateVerse_Click(sender, e)
             If VerseTxt.Text IsNot "" Then
                 SelectNextControl(sender, True, True, True, True)
-                'Mute ding sound from windows
-                e.Handled = True
-                e.SuppressKeyPress = True
             End If
+            'Mute ding sound from windows
+            e.Handled = True
+            e.SuppressKeyPress = True
         End If
     End Sub
     Private Sub Chapter_KeyDown(sender As Object, e As KeyEventArgs) Handles ChapterTxt.KeyDown
@@ -830,10 +830,10 @@ Public Class MainProgram
         If e.KeyCode = Keys.Enter Then
             If ChapterTxt.Text IsNot "" Then
                 SelectNextControl(sender, True, True, True, True)
-                'Mute ding sound from windows
-                e.Handled = True
-                e.SuppressKeyPress = True
             End If
+            'Mute ding sound from windows
+            e.Handled = True
+            e.SuppressKeyPress = True
         End If
     End Sub
 
