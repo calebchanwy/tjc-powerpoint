@@ -409,7 +409,7 @@ Public Class MainProgram
     Private Sub ShowVerses_Click(sender As Object, e As EventArgs) Handles ShowVerses.Click
         If ShowVerses.Checked And BookBox.Text = "" Then
             showTitlesOnly()
-        ElseIf ShowVerses.Checked And ppPres.SlideShowWindow.View.Slide.SlideIndex <> slideDictionary.Item("bibleVersesSlide").SlideIndexThen Then
+        ElseIf ShowVerses.Checked And ppPres.SlideShowWindow.View.Slide.SlideIndex <> slideDictionary.Item("bibleVersesSlide").SlideIndex Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("bibleVersesSlide").SlideIndex)
         End If
     End Sub
