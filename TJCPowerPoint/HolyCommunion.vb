@@ -167,7 +167,7 @@ Public Class HolyCommunion
     Private Sub resetParagraph(textbox As PowerPoint.TextRange, paragraph As Integer)
         If paragraph <= textbox.Paragraphs.Count And textbox.Paragraphs(paragraph).Font.Bold Then
             textbox.Paragraphs(paragraph).Font.Color.TintAndShade = 0.1
-            textbox.Paragraphs(paragraph).Font.Size = 40
+            textbox.Paragraphs(paragraph).Font.Size = 45
             textbox.Paragraphs(paragraph).Font.Bold = Office.Core.MsoTriState.msoFalse
         End If
     End Sub
@@ -175,7 +175,7 @@ Public Class HolyCommunion
     Private Sub highlightParagraph(textbox As PowerPoint.TextRange, paragraph As Integer)
         If paragraph <= textbox.Paragraphs.Count And textbox.Paragraphs(paragraph).Font.Bold <> Office.Core.MsoTriState.msoTrue Then
             textbox.Paragraphs(paragraph).Font.Color.TintAndShade = 0
-            textbox.Paragraphs(paragraph).Font.Size = 60
+            textbox.Paragraphs(paragraph).Font.Size = 75
             textbox.Paragraphs(paragraph).Font.Bold = Office.Core.MsoTriState.msoTrue
         End If
     End Sub

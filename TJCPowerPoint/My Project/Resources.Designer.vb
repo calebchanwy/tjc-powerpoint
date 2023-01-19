@@ -471,6 +471,106 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property SourceSansPro_Bold() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("SourceSansPro_Bold", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property SourceSansPro_BoldItalic() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("SourceSansPro_BoldItalic", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property SourceSansPro_ExtraLight() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("SourceSansPro_ExtraLight", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property SourceSansPro_ExtraLightItalic() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("SourceSansPro_ExtraLightItalic", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property SourceSansPro_Italic() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("SourceSansPro_Italic", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property SourceSansPro_Light() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("SourceSansPro_Light", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property SourceSansPro_LightItalic() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("SourceSansPro_LightItalic", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property SourceSansPro_Regular() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("SourceSansPro_Regular", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property SourceSansPro_SemiBold() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("SourceSansPro_SemiBold", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property SourceSansPro_SemiBoldItalic() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("SourceSansPro_SemiBoldItalic", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property tjcbirdlogo() As System.Drawing.Bitmap

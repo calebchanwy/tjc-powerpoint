@@ -3,6 +3,7 @@ Imports PowerPoint = Microsoft.Office.Interop.PowerPoint
 Imports System.Runtime.InteropServices
 Imports System.IO
 Imports System.Xml
+Imports System.Drawing.Text
 'This class is part of the TJC PowerPoint project.
 'The TJC PowerPoint is a simple program displaying bible verses, hymns
 'to a projector using Microsoft PowerPoint.
@@ -86,6 +87,24 @@ Public Class MainProgram
         If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\ServiceWidescreen.pptx") = False Then
             System.IO.File.WriteAllBytes(CurrentDirectory + "\Files\ServiceWidescreen.pptx", My.Resources.ServiceWidescreen)
         End If
+        DownloadFonts()
+    End Sub
+
+    Private Sub DownloadFonts()
+        Dim pfc As New PrivateFontCollection()
+        If Directory.Exists("\File\Fonts") = False Then
+            My.Computer.FileSystem.CreateDirectory(CurrentDirectory + "\Files\Fonts")
+            System.IO.File.WriteAllBytes(CurrentDirectory + "\Files\Fonts\SourceSansPro-Bold.ttf", My.Resources.SourceSansPro_Bold)
+            System.IO.File.WriteAllBytes(CurrentDirectory + "\Files\Fonts\SourceSansPro-BoldItalic.ttf", My.Resources.SourceSansPro_BoldItalic)
+            System.IO.File.WriteAllBytes(CurrentDirectory + "\Files\Fonts\SourceSansPro-ExtraLight.ttf", My.Resources.SourceSansPro_ExtraLight)
+            System.IO.File.WriteAllBytes(CurrentDirectory + "\Files\Fonts\SourceSansPro-ExtraLightItalic.ttf", My.Resources.SourceSansPro_ExtraLightItalic)
+            System.IO.File.WriteAllBytes(CurrentDirectory + "\Files\Fonts\SourceSansPro-Italic.ttf", My.Resources.SourceSansPro_Italic)
+            System.IO.File.WriteAllBytes(CurrentDirectory + "\Files\Fonts\SourceSansPro-Light.ttf", My.Resources.SourceSansPro_Light)
+            System.IO.File.WriteAllBytes(CurrentDirectory + "\Files\Fonts\SourceSansPro-LightItalic.ttf", My.Resources.SourceSansPro_LightItalic)
+            System.IO.File.WriteAllBytes(CurrentDirectory + "\Files\Fonts\SourceSansPro-Regular.ttf", My.Resources.SourceSansPro_Regular)
+            System.IO.File.WriteAllBytes(CurrentDirectory + "\Files\Fonts\SourceSansPro-SemiBold.ttf", My.Resources.SourceSansPro_SemiBold)
+            System.IO.File.WriteAllBytes(CurrentDirectory + "\Files\Fonts\SourceSansPro-SemiBoldItalic.ttf", My.Resources.SourceSansPro_SemiBoldItalic)
+        End If
     End Sub
 
     'Method to instantiate dictionaries, for edits in powerpoint arrangements and slides CHANGE HERE
@@ -113,9 +132,9 @@ Public Class MainProgram
         '6 - Announcements
         ' 6.1 Announcements Text
         '7 - Holy Communion
-        '   7.2 Hymn
-        '   7.3 Bread
-        '   7.4 Cup
+        '   7.1 Hymn
+        '   7.2 Bread
+        '   7.3 Cup
         '8 - How to pray
         '9 - Turn off devices
         '10 - Service Timetable
@@ -156,6 +175,7 @@ Public Class MainProgram
         textBoxDictionary.Add("serviceType2", slideDictionary.Item("bibleVersesSlide").Shapes(7).TextFrame.TextRange)
         'hymnal hymn slide
         textBoxDictionary.Add("hymnalHymns", slideDictionary.Item("hymnalHymnsSlide").Shapes(1).TextFrame.TextRange)
+        textBoxDictionary.Add("serviceType3", slideDictionary.Item("hymnalHymnsSlide").Shapes(3).TextFrame.TextRange)
         'prayer requests slide
         textBoxDictionary.Add("prayerRequestsTxt", slideDictionary.Item("prayerRequests").Shapes(1).TextFrame.TextRange)
         textBoxDictionary.Add("prayerRequestsTitle", slideDictionary.Item("prayerRequests").Shapes(2).TextFrame.TextRange)
@@ -163,9 +183,9 @@ Public Class MainProgram
         textBoxDictionary.Add("announcementsTxt", slideDictionary.Item("announcements").Shapes(1).TextFrame.TextRange)
         textBoxDictionary.Add("announcementsTitle", slideDictionary.Item("announcements").Shapes(2).TextFrame.TextRange)
         'holy communion slide
-        textBoxDictionary.Add("HChymns", slideDictionary.Item("holyCommunion").Shapes(2).TextFrame.TextRange)
-        textBoxDictionary.Add("bread", slideDictionary.Item("holyCommunion").Shapes(3).TextFrame.TextRange)
-        textBoxDictionary.Add("cup", slideDictionary.Item("holyCommunion").Shapes(4).TextFrame.TextRange)
+        textBoxDictionary.Add("HChymns", slideDictionary.Item("holyCommunion").Shapes(1).TextFrame.TextRange)
+        textBoxDictionary.Add("bread", slideDictionary.Item("holyCommunion").Shapes(2).TextFrame.TextRange)
+        textBoxDictionary.Add("cup", slideDictionary.Item("holyCommunion").Shapes(3).TextFrame.TextRange)
     End Sub
     'Method to load up the presentation and instantiate slide text boxes
     Private Sub LoadPres()
@@ -210,6 +230,7 @@ Public Class MainProgram
         textBoxDictionary.Item("HChymns").Text = " "
         'Hymnal Slide
         textBoxDictionary.Item("hymnalHymns").Text = " "
+        textBoxDictionary.Item("serviceType3").Text = " "
     End Sub
 
     'Method to deal with loading the Holy Communion slide with details from the text files
@@ -289,43 +310,64 @@ Public Class MainProgram
             'Handle cases for where text boxes are same but on separate slides
             Select Case True
                 Case textBox.Equals(textBoxDictionary.Item("englishTitle1"))
-                    textBoxDictionary.Item("englishTitle").Font.Name = FontDialog.Font.Name
-                    textBoxDictionary.Item("englishTitle").Font.Size = FontDialog.Font.Size
-                    textBoxDictionary.Item("englishTitle").Font.Bold = FontDialog.Font.Bold
-                    textBoxDictionary.Item("englishTitle1").Font.Name = FontDialog.Font.Name
-                    textBoxDictionary.Item("englishTitle1").Font.Size = FontDialog.Font.Size
-                    textBoxDictionary.Item("englishTitle1").Font.Bold = FontDialog.Font.Bold
-                    textBoxDictionary.Item("englishTitle2").Font.Name = FontDialog.Font.Name
-                    textBoxDictionary.Item("englishTitle2").Font.Size = FontDialog.Font.Size
-                    textBoxDictionary.Item("englishTitle2").Font.Bold = FontDialog.Font.Bold
+                    'if changing font on sermon title slide
+                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonTitle").SlideIndex Then
+                        setFontOfTextbox(textBoxDictionary.Item("englishTitle"))
+                        Return
+                    End If
+                    'if changing font on sermon hymns slide
+                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonHymnsSlide").SlideIndex Then
+                        setFontOfTextbox(textBoxDictionary.Item("englishTitle1"))
+                        Return
+                    End If
+                    'if changing font on bible verses slide
+                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("bibleVersesSlide").SlideIndex Then
+                        setFontOfTextbox(textBoxDictionary.Item("englishTitle2"))
+                        Return
+                    End If
                     Return
                 Case textBox.Text.Equals(textBoxDictionary.Item("chineseTitle1").Text)
-                    textBoxDictionary.Item("chineseTitle").Font.Name = FontDialog.Font.Name
-                    textBoxDictionary.Item("chineseTitle").Font.Size = FontDialog.Font.Size
-                    textBoxDictionary.Item("chineseTitle").Font.Bold = FontDialog.Font.Bold
-                    textBoxDictionary.Item("chineseTitle1").Font.Name = FontDialog.Font.Name
-                    textBoxDictionary.Item("chineseTitle1").Font.Size = FontDialog.Font.Size
-                    textBoxDictionary.Item("chineseTitle1").Font.Bold = FontDialog.Font.Bold
-                    textBoxDictionary.Item("chineseTitle2").Font.Name = FontDialog.Font.Name
-                    textBoxDictionary.Item("chineseTitle2").Font.Size = FontDialog.Font.Size
-                    textBoxDictionary.Item("chineseTitle2").Font.Bold = FontDialog.Font.Bold
+                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonTitle").SlideIndex Then
+                        setFontOfTextbox(textBoxDictionary.Item("chineseTitle"))
+                        Return
+                    End If
+                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonHymnsSlide").SlideIndex Then
+                        setFontOfTextbox(textBoxDictionary.Item("chineseTitle1"))
+                        Return
+                    End If
+                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("bibleVersesSlide").SlideIndex Then
+                        setFontOfTextbox(textBoxDictionary.Item("chineseTitle2"))
+                        Return
+                    End If
                     Return
                 Case textBox.Text.Equals(textBoxDictionary.Item("serviceType1").Text)
-                    textBoxDictionary.Item("serviceType").Font.Name = FontDialog.Font.Name
-                    textBoxDictionary.Item("serviceType").Font.Size = FontDialog.Font.Size
-                    textBoxDictionary.Item("serviceType").Font.Bold = FontDialog.Font.Bold
-                    textBoxDictionary.Item("serviceType1").Font.Name = FontDialog.Font.Name
-                    textBoxDictionary.Item("serviceType1").Font.Size = FontDialog.Font.Size
-                    textBoxDictionary.Item("serviceType1").Font.Bold = FontDialog.Font.Bold
-                    textBoxDictionary.Item("serviceType2").Font.Name = FontDialog.Font.Name
-                    textBoxDictionary.Item("serviceType2").Font.Size = FontDialog.Font.Size
-                    textBoxDictionary.Item("serviceType2").Font.Bold = FontDialog.Font.Bold
+                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonTitle").SlideIndex Then
+                        setFontOfTextbox(textBoxDictionary.Item("serviceType1"))
+                        Return
+                    End If
+                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonHymnsSlide").SlideIndex Then
+                        setFontOfTextbox(textBoxDictionary.Item("serviceType1"))
+                        Return
+                    End If
+                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("bibleVersesSlide").SlideIndex Then
+                        setFontOfTextbox(textBoxDictionary.Item("serviceType2"))
+                        Return
+                    End If
+                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("hymnalHymnsSlide").SlideIndex Then
+                        setFontOfTextbox(textBoxDictionary.Item("serviceType3"))
+                        Return
+                    End If
                     Return
             End Select
             textBox.Font.Name = FontDialog.Font.Name
             textBox.Font.Size = FontDialog.Font.Size
             textBox.Font.Bold = FontDialog.Font.Bold
         End If
+    End Sub
+    Private Sub setFontOfTextbox(textBox As PowerPoint.TextRange)
+        textBox.Font.Name = FontDialog.Font.Name
+        textBox.Font.Size = FontDialog.Font.Size
+        textBox.Font.Bold = FontDialog.Font.Bold
     End Sub
     Public Sub ChangeColor(textBox As PowerPoint.TextRange)
         If ColorDialog.ShowDialog = DialogResult.OK Then
@@ -348,6 +390,7 @@ Public Class MainProgram
                     textBoxDictionary.Item("serviceType").Font.Color.RGB = acolor
                     textBoxDictionary.Item("serviceType1").Font.Color.RGB = acolor
                     textBoxDictionary.Item("serviceType2").Font.Color.RGB = acolor
+                    textBoxDictionary.Item("serviceType3").Font.Color.RGB = acolor
                     Return
             End Select
             textBox.Font.Color.RGB = acolor
@@ -566,8 +609,8 @@ Public Class MainProgram
     End Sub
     Private Sub resetParagraph(textbox As PowerPoint.TextRange, paragraph As Integer)
         If paragraph <= textbox.Paragraphs.Count And textbox.Paragraphs(paragraph).Font.Bold = Office.MsoTriState.msoTrue Then
-            textbox.Paragraphs(paragraph).Font.Color.TintAndShade = 0.1
-            textbox.Paragraphs(paragraph).Font.Size = 40
+            textbox.Paragraphs(paragraph).Font.Color.TintAndShade = 0.05
+            textbox.Paragraphs(paragraph).Font.Size = 50
             textbox.Paragraphs(paragraph).Font.Bold = Office.MsoTriState.msoFalse
 
         End If
@@ -576,7 +619,7 @@ Public Class MainProgram
     Private Sub highlightParagraph(textbox As PowerPoint.TextRange, paragraph As Integer)
         If paragraph <= textbox.Paragraphs.Count And textbox.Paragraphs(paragraph).Font.Bold <> Office.MsoTriState.msoTrue Then
             textbox.Paragraphs(paragraph).Font.Color.TintAndShade = 0
-            textbox.Paragraphs(paragraph).Font.Size = 60
+            textbox.Paragraphs(paragraph).Font.Size = 75
             textbox.Paragraphs(paragraph).Font.Bold = Office.MsoTriState.msoTrue
         End If
     End Sub
@@ -856,6 +899,7 @@ Public Class MainProgram
             textBoxDictionary.Item("serviceType").Text = ServiceType.Text
             textBoxDictionary.Item("serviceType1").Text = ServiceType.Text
             textBoxDictionary.Item("serviceType2").Text = ServiceType.Text
+            textBoxDictionary.Item("serviceType3").Text = ServiceType.Text
             'Mute ding sound from windows
             e.Handled = True
             e.SuppressKeyPress = True
@@ -915,8 +959,8 @@ Public Class MainProgram
 
     'removing prayer image if exists on slide
     Public Sub deletePrayerImage()
-        If slideDictionary.Item("prayerRequests").Shapes.Count >= 5 Then
-            slideDictionary.Item("prayerRequests").Shapes(5).Delete()
+        If slideDictionary.Item("prayerRequests").Shapes.Count >= 6 Then
+            slideDictionary.Item("prayerRequests").Shapes(6).Delete()
             System.IO.File.WriteAllText(CurrentDirectory + "\Files\prayerImgDir.txt", "")
         End If
     End Sub

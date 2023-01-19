@@ -227,6 +227,56 @@ TJCPowerPoint
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.SourceSansPro_Bold">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.SourceSansPro_BoldItalic">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.SourceSansPro_ExtraLight">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.SourceSansPro_ExtraLightItalic">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.SourceSansPro_Italic">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.SourceSansPro_Light">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.SourceSansPro_LightItalic">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.SourceSansPro_Regular">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.SourceSansPro_SemiBold">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.SourceSansPro_SemiBoldItalic">
+<summary>
+  Looks up a localized resource of type System.Byte[].
+</summary>
+</member>
 <member name="P:TJCPowerPoint.My.Resources.Resources.tjcbirdlogo">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.

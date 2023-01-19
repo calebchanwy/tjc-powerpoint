@@ -207,6 +207,16 @@
     </None>
     <None Include="App.config" />
     <None Include="Resources\bible" />
+    <None Include="Resources\Fonts\SourceSansPro-Bold.ttf" />
+    <None Include="Resources\Fonts\SourceSansPro-BoldItalic.ttf" />
+    <None Include="Resources\Fonts\SourceSansPro-ExtraLight.ttf" />
+    <None Include="Resources\Fonts\SourceSansPro-ExtraLightItalic.ttf" />
+    <None Include="Resources\Fonts\SourceSansPro-Italic.ttf" />
+    <None Include="Resources\Fonts\SourceSansPro-Light.ttf" />
+    <None Include="Resources\Fonts\SourceSansPro-LightItalic.ttf" />
+    <None Include="Resources\Fonts\SourceSansPro-Regular.ttf" />
+    <None Include="Resources\Fonts\SourceSansPro-SemiBold.ttf" />
+    <None Include="Resources\Fonts\SourceSansPro-SemiBoldItalic.ttf" />
     <None Include="Resources\ServiceWidescreen.pptx" />
   </ItemGroup>
   <ItemGroup>
