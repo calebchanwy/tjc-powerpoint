@@ -919,12 +919,21 @@ Public Class MainProgram
             e.Handled = True
             e.SuppressKeyPress = True
         ElseIf e.KeyCode = Keys.Enter Then
-            If BookBox.SelectedIndex Then
+            If BookBox.SelectedIndex <> -1 Then
                 SelectNextControl(sender, True, True, True, True)
+                ChapterTxt.SelectAll()
                 'Mute ding sound from windows
                 e.Handled = True
                 e.SuppressKeyPress = True
             End If
+        End If
+
+    End Sub
+
+    Private Sub ChapterTxt_KeyDown(sender As Object, e As KeyEventArgs) Handles ChapterTxt.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            ChapterTxt.DeselectAll()
+            VerseTxt.SelectAll()
         End If
 
     End Sub
