@@ -35,6 +35,7 @@ Public Class HolyCommunion
         slideNumber = MainProgram.slideDictionary.Item("holyCommunion").SlideNumber
         highlightedParagraph = 1
         hymnTextBox = MainProgram.textBoxDictionary.Item("HChymns")
+        HymnNos.Text = "Enter Hymn"
     End Sub
 
     'Method handling when form is closed
@@ -233,6 +234,12 @@ Public Class HolyCommunion
                 updateHymns(hymnTextBox)
             End If
         End If
+    End Sub
+    Private Sub HymnNos_GotFocus(sender As Object, e As EventArgs) Handles HymnNos.GotFocus
+        HymnNos.Text = ""
+    End Sub
+    Private Sub HymnNos_LostFocus(sender As Object, e As EventArgs) Handles HymnNos.LostFocus
+        HymnNos.Text = "Enter Hymn"
     End Sub
 
 

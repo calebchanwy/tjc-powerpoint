@@ -203,7 +203,7 @@ Public Class MainProgram
 
     'Method that will reset the program to the initial running state
     Private Sub ResetServiceDetails()
-        HymnNos.Text = ""
+        HymnNos.Text = "Enter Hymn"
         HymnsSelectionBox.Items.Clear()
         BookBox.Text = ""
         VerseTxt.Text = ""
@@ -1137,6 +1137,12 @@ Public Class MainProgram
         aeroEnabled = (enabled = 1)
     End Sub
 
+    Private Sub HymnNos_GotFocus(sender As Object, e As EventArgs) Handles HymnNos.GotFocus
+        HymnNos.Text = ""
+    End Sub
+    Private Sub HymnNos_LostFocus(sender As Object, e As EventArgs) Handles HymnNos.LostFocus
+        HymnNos.Text = "Enter Hymn"
+    End Sub
 End Class
 
 Public Class NativeStructs
