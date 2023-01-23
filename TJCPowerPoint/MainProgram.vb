@@ -1143,6 +1143,16 @@ Public Class MainProgram
     Private Sub HymnNos_LostFocus(sender As Object, e As EventArgs) Handles HymnNos.LostFocus
         HymnNos.Text = "Enter Hymn"
     End Sub
+
+    Private Sub toggleEditHymns_Click(sender As Object, e As EventArgs) Handles toggleEditHymns.Click
+        If toggleEditHymns.Text.Equals("Edit Hymnal Hymns") Then
+            toggleEditHymns.Text = "Edit Sermon Hymns"
+            hymnTextBox = textBoxDictionary.Item("sermonHymns")
+        ElseIf toggleEditHymns.Text.Equals("Edit Sermon Hymns") Then
+            toggleEditHymns.Text = "Edit Hymnal Hymns"
+            hymnTextBox = textBoxDictionary.Item("hymnalHymns")
+        End If
+    End Sub
 End Class
 
 Public Class NativeStructs
