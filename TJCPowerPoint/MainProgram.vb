@@ -75,7 +75,7 @@ Public Class MainProgram
         End Try
     End Sub
     'Method dealing when the exit button is clicked
-    Private Sub ExitBtn_Click(sender As Object, e As EventArgs) Handles ExitBtn.Click, closeForm.Click
+    Private Sub ExitBtn_Click(sender As Object, e As EventArgs) Handles closeForm.Click
         Me.Close()
     End Sub
 
@@ -847,7 +847,7 @@ Public Class MainProgram
         PrayerRequests.Show()
     End Sub
 
-    Private Sub OpenFolder_Click(sender As Object, e As EventArgs) Handles OpenFolder.Click
+    Private Sub OpenFolder_Click(sender As Object, e As EventArgs)
         openFilesFolder()
     End Sub
     Public Sub openFilesFolder()
