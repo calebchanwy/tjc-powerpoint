@@ -402,8 +402,7 @@ Public Class MainProgram
         If ShowSermonHymns.Checked Then
             'navigate to service slide
             hymnTextBox = textBoxDictionary.Item("sermonHymns")
-            'remove memory of hymnal hymns
-            hymnalHymns = ""
+            toggleEditHymns.Text = "Edit Hymnal Hymns"
         Else
             'when sermon hymns is unchecked
             'take note of sermon hymns and selected index in memory
@@ -434,12 +433,14 @@ Public Class MainProgram
         If ShowHymnal.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("hymnalHymnsSlide").SlideIndex)
             hymnTextBox = textBoxDictionary.Item("hymnalHymns")
-            HymnsSelectionBox.Items.Clear()
+            toggleEditHymns.Text = "Edit Sermon Hymns"
+            reinsertHymns(hymnalHymns)
         Else
             'when hymnal is unchecked
             'clear hymnal hymns
-            textBoxDictionary.Item("hymnalHymns").Text = " "
+            hymnalHymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
             hymnTextBox = textBoxDictionary.Item("sermonHymns")
+            toggleEditHymns.Text = "Edit Hymnal Hymns"
             reinsertHymns(sermonHymns)
             HymnsSelectionBox.SelectedIndex = prevSermonHymnSelectedIndex
         End If
@@ -1147,10 +1148,14 @@ Public Class MainProgram
     Private Sub toggleEditHymns_Click(sender As Object, e As EventArgs) Handles toggleEditHymns.Click
         If toggleEditHymns.Text.Equals("Edit Hymnal Hymns") Then
             toggleEditHymns.Text = "Edit Sermon Hymns"
-            hymnTextBox = textBoxDictionary.Item("sermonHymns")
+            hymnTextBox = textBoxDictionary.Item("hymnalHymns")
+            sermonHymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
+            reinsertHymns(hymnalHymns)
         ElseIf toggleEditHymns.Text.Equals("Edit Sermon Hymns") Then
             toggleEditHymns.Text = "Edit Hymnal Hymns"
-            hymnTextBox = textBoxDictionary.Item("hymnalHymns")
+            hymnTextBox = textBoxDictionary.Item("sermonHymns")
+            hymnalHymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
+            reinsertHymns(sermonHymns)
         End If
     End Sub
 End Class
