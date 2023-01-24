@@ -205,6 +205,7 @@ Public Class MainProgram
     Private Sub ResetServiceDetails()
         HymnNos.Text = "Enter Hymn"
         HymnsSelectionBox.Items.Clear()
+        ServiceType.Text = ""
         BookBox.Text = ""
         VerseTxt.Text = ""
         ChapterTxt.Text = ""
@@ -402,7 +403,6 @@ Public Class MainProgram
         If ShowSermonHymns.Checked Then
             'navigate to service slide
             hymnTextBox = textBoxDictionary.Item("sermonHymns")
-            toggleEditHymns.Text = "Edit Hymnal Hymns"
         Else
             'when sermon hymns is unchecked
             'take note of sermon hymns and selected index in memory
@@ -433,14 +433,12 @@ Public Class MainProgram
         If ShowHymnal.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("hymnalHymnsSlide").SlideIndex)
             hymnTextBox = textBoxDictionary.Item("hymnalHymns")
-            toggleEditHymns.Text = "Edit Sermon Hymns"
             reinsertHymns(hymnalHymns)
         Else
             'when hymnal is unchecked
             'clear hymnal hymns
             hymnalHymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
             hymnTextBox = textBoxDictionary.Item("sermonHymns")
-            toggleEditHymns.Text = "Edit Hymnal Hymns"
             reinsertHymns(sermonHymns)
             HymnsSelectionBox.SelectedIndex = prevSermonHymnSelectedIndex
         End If
@@ -786,7 +784,12 @@ Public Class MainProgram
         'navigate to title slide
         ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("sermonTitle").SlideIndex)
     End Sub
-
+    Private Sub HymnNos_GotFocus(sender As Object, e As EventArgs) Handles HymnNos.GotFocus
+        HymnNos.Text = ""
+    End Sub
+    Private Sub HymnNos_LostFocus(sender As Object, e As EventArgs) Handles HymnNos.LostFocus
+        HymnNos.Text = "Enter Hymn"
+    End Sub
 
     Private Sub EnglishFontBtn_Click(sender As Object, e As EventArgs) Handles EnglishFontBtn.Click
         ChangeFont(textBoxDictionary.Item("englishTitle1"))
@@ -1138,26 +1141,9 @@ Public Class MainProgram
         aeroEnabled = (enabled = 1)
     End Sub
 
-    Private Sub HymnNos_GotFocus(sender As Object, e As EventArgs) Handles HymnNos.GotFocus
-        HymnNos.Text = ""
-    End Sub
-    Private Sub HymnNos_LostFocus(sender As Object, e As EventArgs) Handles HymnNos.LostFocus
-        HymnNos.Text = "Enter Hymn"
-    End Sub
 
-    Private Sub toggleEditHymns_Click(sender As Object, e As EventArgs) Handles toggleEditHymns.Click
-        If toggleEditHymns.Text.Equals("Edit Hymnal Hymns") Then
-            toggleEditHymns.Text = "Edit Sermon Hymns"
-            hymnTextBox = textBoxDictionary.Item("hymnalHymns")
-            sermonHymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
-            reinsertHymns(hymnalHymns)
-        ElseIf toggleEditHymns.Text.Equals("Edit Sermon Hymns") Then
-            toggleEditHymns.Text = "Edit Hymnal Hymns"
-            hymnTextBox = textBoxDictionary.Item("sermonHymns")
-            hymnalHymns = String.Join(vbNewLine, HymnsSelectionBox.Items.Cast(Of String))
-            reinsertHymns(sermonHymns)
-        End If
-    End Sub
+
+
 End Class
 
 Public Class NativeStructs
