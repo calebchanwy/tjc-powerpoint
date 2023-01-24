@@ -94,18 +94,7 @@ Partial Class MainProgram
         Me.editSlideGroupBox = New System.Windows.Forms.GroupBox()
         Me.hymnsTabControl = New System.Windows.Forms.TabControl()
         Me.hymnalTab = New System.Windows.Forms.TabPage()
-        Me.sermonHymnsTab = New System.Windows.Forms.TabPage()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.delHymnBtn = New System.Windows.Forms.Button()
-        Me.prevHymn = New System.Windows.Forms.Button()
-        Me.HymnNos = New System.Windows.Forms.TextBox()
-        Me.nextHymn = New System.Windows.Forms.Button()
-        Me.HymnsSelectionBox = New System.Windows.Forms.ListBox()
-        Me.HymnColorBtn = New System.Windows.Forms.Button()
-        Me.HymnFontBtn = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
+        Me.clearHymnsBtn = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
@@ -113,6 +102,15 @@ Partial Class MainProgram
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.Button8 = New System.Windows.Forms.Button()
         Me.Button9 = New System.Windows.Forms.Button()
+        Me.sermonHymnsTab = New System.Windows.Forms.TabPage()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.delHymnBtn = New System.Windows.Forms.Button()
+        Me.prevHymn = New System.Windows.Forms.Button()
+        Me.HymnNos = New System.Windows.Forms.TextBox()
+        Me.nextHymn = New System.Windows.Forms.Button()
+        Me.sermonHymnsSelectionBox = New System.Windows.Forms.ListBox()
+        Me.HymnColorBtn = New System.Windows.Forms.Button()
+        Me.HymnFontBtn = New System.Windows.Forms.Button()
         Me.BibleVerse.SuspendLayout()
         Me.Title.SuspendLayout()
         Me.topNavBar.SuspendLayout()
@@ -838,10 +836,10 @@ Partial Class MainProgram
         Me.closeForm.FlatAppearance.BorderSize = 0
         Me.closeForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.closeForm.ForeColor = System.Drawing.Color.Transparent
-        Me.closeForm.Location = New System.Drawing.Point(786, 7)
+        Me.closeForm.Location = New System.Drawing.Point(781, 7)
         Me.closeForm.Margin = New System.Windows.Forms.Padding(7)
         Me.closeForm.Name = "closeForm"
-        Me.closeForm.Size = New System.Drawing.Size(15, 15)
+        Me.closeForm.Size = New System.Drawing.Size(20, 20)
         Me.closeForm.TabIndex = 0
         Me.closeForm.TabStop = False
         Me.closeForm.UseVisualStyleBackColor = False
@@ -855,11 +853,11 @@ Partial Class MainProgram
         Me.minForm.FlatAppearance.BorderSize = 0
         Me.minForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.minForm.ForeColor = System.Drawing.Color.Transparent
-        Me.minForm.Location = New System.Drawing.Point(758, 8)
+        Me.minForm.Location = New System.Drawing.Point(748, 8)
         Me.minForm.Margin = New System.Windows.Forms.Padding(8)
         Me.minForm.Name = "minForm"
         Me.minForm.Padding = New System.Windows.Forms.Padding(3)
-        Me.minForm.Size = New System.Drawing.Size(13, 13)
+        Me.minForm.Size = New System.Drawing.Size(18, 18)
         Me.minForm.TabIndex = 1
         Me.minForm.TabStop = False
         Me.minForm.UseVisualStyleBackColor = False
@@ -1037,7 +1035,7 @@ Partial Class MainProgram
         Me.hymnsTabControl.Controls.Add(Me.hymnalTab)
         Me.hymnsTabControl.Controls.Add(Me.sermonHymnsTab)
         Me.hymnsTabControl.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.hymnsTabControl.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.hymnsTabControl.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.hymnsTabControl.Location = New System.Drawing.Point(15, 47)
         Me.hymnsTabControl.Name = "hymnsTabControl"
         Me.hymnsTabControl.SelectedIndex = 0
@@ -1048,8 +1046,7 @@ Partial Class MainProgram
         'hymnalTab
         '
         Me.hymnalTab.BackColor = System.Drawing.Color.FloralWhite
-        Me.hymnalTab.Controls.Add(Me.Button3)
-        Me.hymnalTab.Controls.Add(Me.Button4)
+        Me.hymnalTab.Controls.Add(Me.clearHymnsBtn)
         Me.hymnalTab.Controls.Add(Me.Button5)
         Me.hymnalTab.Controls.Add(Me.Button6)
         Me.hymnalTab.Controls.Add(Me.TextBox1)
@@ -1058,187 +1055,29 @@ Partial Class MainProgram
         Me.hymnalTab.Controls.Add(Me.Button8)
         Me.hymnalTab.Controls.Add(Me.Button9)
         Me.hymnalTab.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.hymnalTab.Location = New System.Drawing.Point(4, 26)
+        Me.hymnalTab.Location = New System.Drawing.Point(4, 24)
         Me.hymnalTab.Name = "hymnalTab"
         Me.hymnalTab.Padding = New System.Windows.Forms.Padding(3)
-        Me.hymnalTab.Size = New System.Drawing.Size(217, 168)
+        Me.hymnalTab.Size = New System.Drawing.Size(217, 170)
         Me.hymnalTab.TabIndex = 0
         Me.hymnalTab.Text = "Hymnal Hymns"
         '
-        'sermonHymnsTab
+        'clearHymnsBtn
         '
-        Me.sermonHymnsTab.BackColor = System.Drawing.Color.MintCream
-        Me.sermonHymnsTab.Controls.Add(Me.Button2)
-        Me.sermonHymnsTab.Controls.Add(Me.Button1)
-        Me.sermonHymnsTab.Controls.Add(Me.delHymnBtn)
-        Me.sermonHymnsTab.Controls.Add(Me.prevHymn)
-        Me.sermonHymnsTab.Controls.Add(Me.HymnNos)
-        Me.sermonHymnsTab.Controls.Add(Me.nextHymn)
-        Me.sermonHymnsTab.Controls.Add(Me.HymnsSelectionBox)
-        Me.sermonHymnsTab.Controls.Add(Me.HymnColorBtn)
-        Me.sermonHymnsTab.Controls.Add(Me.HymnFontBtn)
-        Me.sermonHymnsTab.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sermonHymnsTab.Location = New System.Drawing.Point(4, 26)
-        Me.sermonHymnsTab.Name = "sermonHymnsTab"
-        Me.sermonHymnsTab.Padding = New System.Windows.Forms.Padding(3)
-        Me.sermonHymnsTab.Size = New System.Drawing.Size(217, 168)
-        Me.sermonHymnsTab.TabIndex = 1
-        Me.sermonHymnsTab.Text = "Sermon Hymns"
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.Maroon
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.Location = New System.Drawing.Point(112, 105)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(0)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(102, 29)
-        Me.Button2.TabIndex = 52
-        Me.Button2.TabStop = False
-        Me.Button2.Text = "Clear Hymns"
-        Me.Button2.UseVisualStyleBackColor = False
-        '
-        'Button1
-        '
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Navy
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(112, 136)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(102, 29)
-        Me.Button1.TabIndex = 51
-        Me.Button1.TabStop = False
-        Me.Button1.Text = "Update Hymns"
-        Me.Button1.UseVisualStyleBackColor = False
-        '
-        'delHymnBtn
-        '
-        Me.delHymnBtn.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.icons8_delete_trash_20
-        Me.delHymnBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.delHymnBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.delHymnBtn.Location = New System.Drawing.Point(143, 37)
-        Me.delHymnBtn.Name = "delHymnBtn"
-        Me.delHymnBtn.Size = New System.Drawing.Size(25, 25)
-        Me.delHymnBtn.TabIndex = 50
-        Me.delHymnBtn.TabStop = False
-        Me.delHymnBtn.UseVisualStyleBackColor = True
-        '
-        'prevHymn
-        '
-        Me.prevHymn.BackgroundImage = CType(resources.GetObject("prevHymn.BackgroundImage"), System.Drawing.Image)
-        Me.prevHymn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.prevHymn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.prevHymn.Location = New System.Drawing.Point(112, 37)
-        Me.prevHymn.Name = "prevHymn"
-        Me.prevHymn.Size = New System.Drawing.Size(25, 25)
-        Me.prevHymn.TabIndex = 49
-        Me.prevHymn.TabStop = False
-        Me.prevHymn.UseVisualStyleBackColor = True
-        '
-        'HymnNos
-        '
-        Me.HymnNos.AcceptsReturn = True
-        Me.HymnNos.Cursor = System.Windows.Forms.Cursors.IBeam
-        Me.HymnNos.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HymnNos.Location = New System.Drawing.Point(6, 6)
-        Me.HymnNos.Multiline = True
-        Me.HymnNos.Name = "HymnNos"
-        Me.HymnNos.Size = New System.Drawing.Size(100, 25)
-        Me.HymnNos.TabIndex = 44
-        Me.HymnNos.TabStop = False
-        '
-        'nextHymn
-        '
-        Me.nextHymn.BackgroundImage = CType(resources.GetObject("nextHymn.BackgroundImage"), System.Drawing.Image)
-        Me.nextHymn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.nextHymn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.nextHymn.Location = New System.Drawing.Point(112, 68)
-        Me.nextHymn.Name = "nextHymn"
-        Me.nextHymn.Size = New System.Drawing.Size(25, 25)
-        Me.nextHymn.TabIndex = 48
-        Me.nextHymn.TabStop = False
-        Me.nextHymn.UseVisualStyleBackColor = True
-        '
-        'HymnsSelectionBox
-        '
-        Me.HymnsSelectionBox.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.HymnsSelectionBox.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HymnsSelectionBox.FormatString = "N0"
-        Me.HymnsSelectionBox.FormattingEnabled = True
-        Me.HymnsSelectionBox.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.HymnsSelectionBox.ItemHeight = 18
-        Me.HymnsSelectionBox.Location = New System.Drawing.Point(6, 37)
-        Me.HymnsSelectionBox.Name = "HymnsSelectionBox"
-        Me.HymnsSelectionBox.ScrollAlwaysVisible = True
-        Me.HymnsSelectionBox.Size = New System.Drawing.Size(100, 130)
-        Me.HymnsSelectionBox.TabIndex = 47
-        Me.HymnsSelectionBox.TabStop = False
-        '
-        'HymnColorBtn
-        '
-        Me.HymnColorBtn.BackgroundImage = CType(resources.GetObject("HymnColorBtn.BackgroundImage"), System.Drawing.Image)
-        Me.HymnColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.HymnColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.HymnColorBtn.Location = New System.Drawing.Point(112, 6)
-        Me.HymnColorBtn.Name = "HymnColorBtn"
-        Me.HymnColorBtn.Size = New System.Drawing.Size(25, 25)
-        Me.HymnColorBtn.TabIndex = 45
-        Me.HymnColorBtn.TabStop = False
-        Me.HymnColorBtn.UseVisualStyleBackColor = True
-        '
-        'HymnFontBtn
-        '
-        Me.HymnFontBtn.BackgroundImage = CType(resources.GetObject("HymnFontBtn.BackgroundImage"), System.Drawing.Image)
-        Me.HymnFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.HymnFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.HymnFontBtn.Location = New System.Drawing.Point(143, 6)
-        Me.HymnFontBtn.Name = "HymnFontBtn"
-        Me.HymnFontBtn.Size = New System.Drawing.Size(25, 25)
-        Me.HymnFontBtn.TabIndex = 46
-        Me.HymnFontBtn.TabStop = False
-        Me.HymnFontBtn.UseVisualStyleBackColor = True
-        '
-        'Button3
-        '
-        Me.Button3.BackColor = System.Drawing.Color.Transparent
-        Me.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.Maroon
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.Location = New System.Drawing.Point(112, 105)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(0)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(102, 29)
-        Me.Button3.TabIndex = 61
-        Me.Button3.TabStop = False
-        Me.Button3.Text = "Clear Hymns"
-        Me.Button3.UseVisualStyleBackColor = False
-        '
-        'Button4
-        '
-        Me.Button4.BackColor = System.Drawing.Color.Transparent
-        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.Button4.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.Color.Navy
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.Location = New System.Drawing.Point(112, 136)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(0)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(102, 29)
-        Me.Button4.TabIndex = 60
-        Me.Button4.TabStop = False
-        Me.Button4.Text = "Update Hymns"
-        Me.Button4.UseVisualStyleBackColor = False
+        Me.clearHymnsBtn.BackColor = System.Drawing.Color.Transparent
+        Me.clearHymnsBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.clearHymnsBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.clearHymnsBtn.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.clearHymnsBtn.ForeColor = System.Drawing.Color.Maroon
+        Me.clearHymnsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.clearHymnsBtn.Location = New System.Drawing.Point(112, 96)
+        Me.clearHymnsBtn.Margin = New System.Windows.Forms.Padding(0)
+        Me.clearHymnsBtn.Name = "clearHymnsBtn"
+        Me.clearHymnsBtn.Size = New System.Drawing.Size(102, 29)
+        Me.clearHymnsBtn.TabIndex = 61
+        Me.clearHymnsBtn.TabStop = False
+        Me.clearHymnsBtn.Text = "Clear Hymns"
+        Me.clearHymnsBtn.UseVisualStyleBackColor = False
         '
         'Button5
         '
@@ -1326,6 +1165,129 @@ Partial Class MainProgram
         Me.Button9.TabIndex = 55
         Me.Button9.TabStop = False
         Me.Button9.UseVisualStyleBackColor = True
+        '
+        'sermonHymnsTab
+        '
+        Me.sermonHymnsTab.BackColor = System.Drawing.Color.Honeydew
+        Me.sermonHymnsTab.Controls.Add(Me.Button2)
+        Me.sermonHymnsTab.Controls.Add(Me.delHymnBtn)
+        Me.sermonHymnsTab.Controls.Add(Me.prevHymn)
+        Me.sermonHymnsTab.Controls.Add(Me.HymnNos)
+        Me.sermonHymnsTab.Controls.Add(Me.nextHymn)
+        Me.sermonHymnsTab.Controls.Add(Me.sermonHymnsSelectionBox)
+        Me.sermonHymnsTab.Controls.Add(Me.HymnColorBtn)
+        Me.sermonHymnsTab.Controls.Add(Me.HymnFontBtn)
+        Me.sermonHymnsTab.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.sermonHymnsTab.Location = New System.Drawing.Point(4, 24)
+        Me.sermonHymnsTab.Name = "sermonHymnsTab"
+        Me.sermonHymnsTab.Padding = New System.Windows.Forms.Padding(3)
+        Me.sermonHymnsTab.Size = New System.Drawing.Size(217, 170)
+        Me.sermonHymnsTab.TabIndex = 1
+        Me.sermonHymnsTab.Text = "Sermon Hymns"
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Transparent
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.ForeColor = System.Drawing.Color.Maroon
+        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button2.Location = New System.Drawing.Point(112, 96)
+        Me.Button2.Margin = New System.Windows.Forms.Padding(0)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(102, 29)
+        Me.Button2.TabIndex = 52
+        Me.Button2.TabStop = False
+        Me.Button2.Text = "Clear Hymns"
+        Me.Button2.UseVisualStyleBackColor = False
+        '
+        'delHymnBtn
+        '
+        Me.delHymnBtn.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.icons8_delete_trash_20
+        Me.delHymnBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.delHymnBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.delHymnBtn.Location = New System.Drawing.Point(143, 37)
+        Me.delHymnBtn.Name = "delHymnBtn"
+        Me.delHymnBtn.Size = New System.Drawing.Size(25, 25)
+        Me.delHymnBtn.TabIndex = 50
+        Me.delHymnBtn.TabStop = False
+        Me.delHymnBtn.UseVisualStyleBackColor = True
+        '
+        'prevHymn
+        '
+        Me.prevHymn.BackgroundImage = CType(resources.GetObject("prevHymn.BackgroundImage"), System.Drawing.Image)
+        Me.prevHymn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.prevHymn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.prevHymn.Location = New System.Drawing.Point(112, 37)
+        Me.prevHymn.Name = "prevHymn"
+        Me.prevHymn.Size = New System.Drawing.Size(25, 25)
+        Me.prevHymn.TabIndex = 49
+        Me.prevHymn.TabStop = False
+        Me.prevHymn.UseVisualStyleBackColor = True
+        '
+        'HymnNos
+        '
+        Me.HymnNos.AcceptsReturn = True
+        Me.HymnNos.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.HymnNos.Font = New System.Drawing.Font("Century Gothic", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HymnNos.Location = New System.Drawing.Point(6, 6)
+        Me.HymnNos.Multiline = True
+        Me.HymnNos.Name = "HymnNos"
+        Me.HymnNos.Size = New System.Drawing.Size(100, 25)
+        Me.HymnNos.TabIndex = 44
+        Me.HymnNos.TabStop = False
+        '
+        'nextHymn
+        '
+        Me.nextHymn.BackgroundImage = CType(resources.GetObject("nextHymn.BackgroundImage"), System.Drawing.Image)
+        Me.nextHymn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.nextHymn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.nextHymn.Location = New System.Drawing.Point(112, 68)
+        Me.nextHymn.Name = "nextHymn"
+        Me.nextHymn.Size = New System.Drawing.Size(25, 25)
+        Me.nextHymn.TabIndex = 48
+        Me.nextHymn.TabStop = False
+        Me.nextHymn.UseVisualStyleBackColor = True
+        '
+        'sermonHymnsSelectionBox
+        '
+        Me.sermonHymnsSelectionBox.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.sermonHymnsSelectionBox.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.sermonHymnsSelectionBox.FormatString = "N0"
+        Me.sermonHymnsSelectionBox.FormattingEnabled = True
+        Me.sermonHymnsSelectionBox.ImeMode = System.Windows.Forms.ImeMode.NoControl
+        Me.sermonHymnsSelectionBox.ItemHeight = 18
+        Me.sermonHymnsSelectionBox.Location = New System.Drawing.Point(6, 37)
+        Me.sermonHymnsSelectionBox.Name = "sermonHymnsSelectionBox"
+        Me.sermonHymnsSelectionBox.ScrollAlwaysVisible = True
+        Me.sermonHymnsSelectionBox.Size = New System.Drawing.Size(100, 130)
+        Me.sermonHymnsSelectionBox.TabIndex = 47
+        Me.sermonHymnsSelectionBox.TabStop = False
+        '
+        'HymnColorBtn
+        '
+        Me.HymnColorBtn.BackgroundImage = CType(resources.GetObject("HymnColorBtn.BackgroundImage"), System.Drawing.Image)
+        Me.HymnColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.HymnColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.HymnColorBtn.Location = New System.Drawing.Point(112, 6)
+        Me.HymnColorBtn.Name = "HymnColorBtn"
+        Me.HymnColorBtn.Size = New System.Drawing.Size(25, 25)
+        Me.HymnColorBtn.TabIndex = 45
+        Me.HymnColorBtn.TabStop = False
+        Me.HymnColorBtn.UseVisualStyleBackColor = True
+        '
+        'HymnFontBtn
+        '
+        Me.HymnFontBtn.BackgroundImage = CType(resources.GetObject("HymnFontBtn.BackgroundImage"), System.Drawing.Image)
+        Me.HymnFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.HymnFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.HymnFontBtn.Location = New System.Drawing.Point(143, 6)
+        Me.HymnFontBtn.Name = "HymnFontBtn"
+        Me.HymnFontBtn.Size = New System.Drawing.Size(25, 25)
+        Me.HymnFontBtn.TabIndex = 46
+        Me.HymnFontBtn.TabStop = False
+        Me.HymnFontBtn.UseVisualStyleBackColor = True
         '
         'MainProgram
         '
@@ -1441,17 +1403,14 @@ Partial Class MainProgram
     Friend WithEvents sermonHymnsTab As TabPage
     Friend WithEvents Label2 As Label
     Friend WithEvents Label1 As Label
-    Friend WithEvents Button1 As Button
     Friend WithEvents delHymnBtn As Button
     Friend WithEvents prevHymn As Button
     Friend WithEvents HymnNos As TextBox
     Friend WithEvents nextHymn As Button
-    Friend WithEvents HymnsSelectionBox As ListBox
+    Friend WithEvents sermonHymnsSelectionBox As ListBox
     Friend WithEvents HymnColorBtn As Button
     Friend WithEvents HymnFontBtn As Button
     Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
     Friend WithEvents Button6 As Button
     Friend WithEvents TextBox1 As TextBox
@@ -1459,4 +1418,5 @@ Partial Class MainProgram
     Friend WithEvents ListBox1 As ListBox
     Friend WithEvents Button8 As Button
     Friend WithEvents Button9 As Button
+    Friend WithEvents clearHymnsBtn As Button
 End Class
