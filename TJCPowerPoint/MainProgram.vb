@@ -27,8 +27,6 @@ Public Class MainProgram
     Dim sermonHymns As String = ""
     Dim hymnalHymns As String = ""
 
-    'keeping track of which index hymn was last selected for sermon
-    Dim prevSermonHymnSelectedIndex = -1
     'keeping track of which paragraph to highlight
     Private highlightedParagraph As Integer
     Private prevHighlightedPar As Integer
@@ -203,8 +201,9 @@ Public Class MainProgram
 
     'Method that will reset the program to the initial running state
     Private Sub ResetServiceDetails()
-        HymnNos.Text = "Enter Hymn"
-        sermonHymnsSelectionBox.Items.Clear()
+        sermonHymnNo.Text = "Enter Hymn"
+        hymnalHymnNo.Text = "Enter Hymn"
+        sermonHymnsListBox.Items.Clear()
         ServiceType.Text = ""
         BookBox.Text = ""
         VerseTxt.Text = ""
@@ -403,11 +402,6 @@ Public Class MainProgram
         If ShowSermonHymns.Checked Then
             'navigate to service slide
             hymnTextBox = textBoxDictionary.Item("sermonHymns")
-        Else
-            'when sermon hymns is unchecked
-            'take note of sermon hymns and selected index in memory
-            sermonHymns = String.Join(vbNewLine, sermonHymnsSelectionBox.Items.Cast(Of String))
-            prevSermonHymnSelectedIndex = sermonHymnsSelectionBox.SelectedIndex
         End If
     End Sub
     Private Sub ShowVerses_CheckedChanged(sender As Object, e As EventArgs) Handles ShowVerses.CheckedChanged
@@ -420,9 +414,6 @@ Public Class MainProgram
             textBoxDictionary.Item("chineseBook").Text = " "
             textBoxDictionary.Item("chapterAndVerse").Text = " "
             'when show verses is unchecked
-            'take note of sermon hymns and selected index in memory
-            sermonHymns = String.Join(vbNewLine, sermonHymnsSelectionBox.Items.Cast(Of String))
-            prevSermonHymnSelectedIndex = sermonHymnsSelectionBox.SelectedIndex
             BookBox.Text = ""
             VerseTxt.Text = ""
             ChapterTxt.Text = ""
@@ -433,20 +424,12 @@ Public Class MainProgram
         If ShowHymnal.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("hymnalHymnsSlide").SlideIndex)
             hymnTextBox = textBoxDictionary.Item("hymnalHymns")
-            reinsertHymns(hymnalHymns)
-        Else
-            'when hymnal is unchecked
-            'clear hymnal hymns
-            hymnalHymns = String.Join(vbNewLine, sermonHymnsSelectionBox.Items.Cast(Of String))
-            hymnTextBox = textBoxDictionary.Item("sermonHymns")
-            reinsertHymns(sermonHymns)
-            sermonHymnsSelectionBox.SelectedIndex = prevSermonHymnSelectedIndex
         End If
     End Sub
 
     'On click methods
     Private Sub ShowSermonHymns_Click(sender As Object, e As EventArgs) Handles ShowSermonHymns.Click
-        If ShowSermonHymns.Checked And sermonHymnsSelectionBox.Items.Count = 0 Then
+        If ShowSermonHymns.Checked And sermonHymnsListBox.Items.Count = 0 Then
             showTitlesOnly()
         ElseIf ShowSermonHymns.Checked And ppPres.SlideShowWindow.View.Slide.SlideIndex <> slideDictionary.Item("sermonHymnsSlide").SlideIndex Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("sermonHymnsSlide").SlideIndex)
@@ -525,10 +508,10 @@ Public Class MainProgram
 
 
     '-------------------------------------------HYMN SELECTION --------------------------------------------
-    Private Sub updateHymns(textBox As PowerPoint.TextRange)
+    Private Sub updateHymns(textBox As PowerPoint.TextRange, listBox As ListBox)
         Dim hymns As String = ""
-        Dim count = sermonHymnsSelectionBox.Items.Count
-        Dim index = sermonHymnsSelectionBox.SelectedIndex
+        Dim count = listBox.Items.Count
+        Dim index = listBox.SelectedIndex
         If ShowSermonHymns.Checked Then
             ShowSermonHymns.PerformClick()
         ElseIf ShowHymnal.Checked Then
@@ -540,63 +523,49 @@ Public Class MainProgram
         If count >= 3 Then
             'if selected index less than total items -4 then insert selected hymn and 2 hymns after
             If index < count - 3 Then
-                hymns = sermonHymnsSelectionBox.Items(index) + vbCr + sermonHymnsSelectionBox.Items(index + 1) + vbCr + sermonHymnsSelectionBox.Items(index + 2)
+                hymns = listBox.Items(index) + vbCr + listBox.Items(index + 1) + vbCr + listBox.Items(index + 2)
             Else
                 'insert last three hymns
-                hymns = sermonHymnsSelectionBox.Items(count - 3) + vbCr + sermonHymnsSelectionBox.Items(count - 2) + vbCr + sermonHymnsSelectionBox.Items(count - 1)
+                hymns = listBox.Items(count - 3) + vbCr + listBox.Items(count - 2) + vbCr + listBox.Items(count - 1)
             End If
         Else
             'if there are two or less hymns
-            hymns = String.Join(vbCr, sermonHymnsSelectionBox.Items.Cast(Of String))
+            hymns = String.Join(vbCr, listBox.Items.Cast(Of String))
         End If
         'changing highlighted paragraph, depending on selection
         'handling how selected index changes the highlighted pargarph
         If count >= 3 Then
-            If sermonHymnsSelectionBox.SelectedIndex = sermonHymnsSelectionBox.Items.Count - 1 Then
+            If listBox.SelectedIndex = listBox.Items.Count - 1 Then
                 highlightedParagraph = 3
-            ElseIf sermonHymnsSelectionBox.SelectedIndex = sermonHymnsSelectionBox.Items.Count - 2 Then
+            ElseIf listBox.SelectedIndex = listBox.Items.Count - 2 Then
                 highlightedParagraph = 2
             Else
                 highlightedParagraph = 1
             End If
         Else
-            highlightedParagraph = sermonHymnsSelectionBox.SelectedIndex + 1
+            highlightedParagraph = listBox.SelectedIndex + 1
         End If
         'return if no change in hymns and highlighted paragraph
         If textBox.Text.ToString().Equals(hymns) And prevHighlightedPar = highlightedParagraph Then
             Return
         End If
-        'updating hymns on holy communion slide maximum of first three hymn
         If prevHighlightedPar = 1 Or highlightedParagraph = 1 Then
             'Issue of when changing text, powerpoint assumes formatting of first paragraph for all
             'if highlghted paragraph second paragraph reset styles of first paragraph then change text
             resetParagraph(textBox, 1)
         End If
         textBox.Text = hymns
-        highlightCurrentHymn(textBox)
+        highlightCurrentHymn(textBox, listBox)
         prevHighlightedPar = highlightedParagraph
     End Sub
 
-    Private Sub reinsertHymns(hymns As String)
-        'clear hymns from selection box
-        sermonHymnsSelectionBox.Items.Clear()
-        'reinsert sermon hymns from previous
-        Dim hymnsArr As String()
-        hymnsArr = Split(hymns, vbNewLine)
-        For Each hymn As String In hymnsArr
-            If hymn IsNot "" Then
-                sermonHymnsSelectionBox.Items.Add(hymn)
-            End If
-        Next
-    End Sub
-
-    Private Sub highlightCurrentHymn(textBox As PowerPoint.TextRange)
+    Private Sub highlightCurrentHymn(textBox As PowerPoint.TextRange, listBox As ListBox)
         ''resetting fonts to highlight selected hymn
-        If sermonHymnsSelectionBox.Items.Count = 0 Then
+        If listBox.Items.Count = 0 Then
             'if no hymns currently in list box do nothing
             Return
         End If
-        If sermonHymnsSelectionBox.Items.Count = 1 Then
+        If listBox.Items.Count = 1 Then
             'if only one hymn, no need to reset style
             highlightParagraph(textBox, 1)
             Return
@@ -611,7 +580,6 @@ Public Class MainProgram
             textbox.Paragraphs(paragraph).Font.Color.TintAndShade = 0.05
             textbox.Paragraphs(paragraph).Font.Size = 50
             textbox.Paragraphs(paragraph).Font.Bold = Office.MsoTriState.msoFalse
-
         End If
     End Sub
 
@@ -623,21 +591,21 @@ Public Class MainProgram
         End If
     End Sub
     Private Sub nextHymn_Click(sender As Object, e As EventArgs) Handles nextHymn.Click
-        If sermonHymnsSelectionBox.SelectedIndex = sermonHymnsSelectionBox.Items.Count - 1 Then
+        If sermonHymnsListBox.SelectedIndex = sermonHymnsListBox.Items.Count - 1 Then
             Return
         End If
-        sermonHymnsSelectionBox.SelectedIndex += 1
+        sermonHymnsListBox.SelectedIndex += 1
     End Sub
 
     Private Sub prevHymn_Click(sender As Object, e As EventArgs) Handles prevHymn.Click
-        If sermonHymnsSelectionBox.SelectedIndex = 0 Then
+        If sermonHymnsListBox.SelectedIndex = 0 Or sermonHymnsListBox.SelectedIndex = -1 Then
             Return
         End If
-        sermonHymnsSelectionBox.SelectedIndex -= 1
+        sermonHymnsListBox.SelectedIndex -= 1
     End Sub
-    Private Sub removeCurrentHymn(textBox As PowerPoint.TextRange)
-        Dim selectedIndex As Integer = sermonHymnsSelectionBox.SelectedIndex
-        Dim size As Integer = sermonHymnsSelectionBox.Items.Count
+    Private Sub removeCurrentHymn(textBox As PowerPoint.TextRange, listBox As ListBox)
+        Dim selectedIndex As Integer = listBox.SelectedIndex
+        Dim size As Integer = listBox.Items.Count
         If size = 0 And ShowVerses.Checked = False Then
             'if there are new hymns to be removed return
             showTitlesOnly()
@@ -646,66 +614,107 @@ Public Class MainProgram
         If size = 1 Then
             'only one hymn in selection box no need to find new selected hymn
             textBox.Text = " "
-            sermonHymnsSelectionBox.Items.Clear()
+            listBox.Items.Clear()
             Return
         End If
         If selectedIndex = size - 1 Then
             'if hymn is last hymn selected, reselect last hymn
-            sermonHymnsSelectionBox.Items.RemoveAt(selectedIndex)
-            sermonHymnsSelectionBox.SelectedIndex = size - 2
+            listBox.Items.RemoveAt(selectedIndex)
+            listBox.SelectedIndex = size - 2
             Return
         End If
         'for all other cases, select the next hymn at the same index
-        sermonHymnsSelectionBox.Items.RemoveAt(selectedIndex)
-        sermonHymnsSelectionBox.SelectedIndex = selectedIndex
+        listBox.Items.RemoveAt(selectedIndex)
+        listBox.SelectedIndex = selectedIndex
     End Sub
-
+    Private Sub clearSermonHymnsBtn_Click(sender As Object, e As EventArgs) Handles clearSermonHymnsBtn.Click
+        sermonHymnsListBox.Items.Clear()
+        updateHymns(textBoxDictionary.Item("sermonHymns"), sermonHymnsListBox)
+    End Sub
+    Private Sub clearHymnalHymnsBtn_Click(sender As Object, e As EventArgs) Handles clearHymnalHymns.Click
+        hymnalHymnsListBox.Items.Clear()
+        updateHymns(textBoxDictionary.Item("hymnalHymns"), hymnalHymnsListBox)
+    End Sub
 
     'handles deleting from button
     Private Sub delHymnBtn_Click(sender As Object, e As EventArgs) Handles delHymnBtn.Click
-        removeCurrentHymn(hymnTextBox)
-        If sermonHymnsSelectionBox.Items.Count = 0 And Not ShowHymnal.Checked Then
+        removeCurrentHymn(hymnTextBox, sermonHymnsListBox)
+        If sermonHymnsListBox.Items.Count = 0 And Not ShowHymnal.Checked Then
             showTitlesOnly()
         End If
     End Sub
 
     'Handles deleting hymns from selection box
-    Private Sub HymnsSelectionBox_KeyDown(sender As Object, e As KeyEventArgs) Handles sermonHymnsSelectionBox.KeyDown
+    Private Sub HymnsSelectionBox_KeyDown(sender As Object, e As KeyEventArgs) Handles sermonHymnsListBox.KeyDown
         If e.KeyCode = Keys.Back Or e.KeyCode = Keys.Delete Then
-            removeCurrentHymn(hymnTextBox)
-            If sermonHymnsSelectionBox.Items.Count = 0 And Not ShowHymnal.Checked Then
+            removeCurrentHymn(textBoxDictionary.Item("sermonHymns"), sermonHymnsListBox)
+            If sermonHymnsListBox.Items.Count = 0 And Not ShowHymnal.Checked Then
                 showTitlesOnly()
             End If
         End If
     End Sub
-    Private Sub HymnsSelectionBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles sermonHymnsSelectionBox.SelectedIndexChanged
-        If sermonHymnsSelectionBox.SelectedIndex = -1 Then
+    Private Sub hymnalHymnsListBox_KeyDown(sender As Object, e As KeyEventArgs) Handles hymnalHymnsListBox.KeyDown
+        If e.KeyCode = Keys.Back Or e.KeyCode = Keys.Delete Then
+            removeCurrentHymn(textBoxDictionary.Item("hymnalHymns"), hymnalHymnsListBox)
+        End If
+    End Sub
+    Private Sub sermonHymnsListBox_IndexChanged(sender As Object, e As EventArgs) Handles sermonHymnsListBox.SelectedIndexChanged
+        If sermonHymnsListBox.SelectedIndex = -1 Then
             Return
         End If
-        updateHymns(hymnTextBox)
+        updateHymns(textBoxDictionary.Item("sermonHymns"), sermonHymnsListBox)
+    End Sub
+    Private Sub hymnalHymnListBox_IndexChanged(sender As Object, e As EventArgs) Handles hymnalHymnsListBox.SelectedIndexChanged
+        If hymnalHymnsListBox.SelectedIndex = -1 Then
+            Return
+        End If
+        updateHymns(textBoxDictionary.Item("hymnalHymns"), hymnalHymnsListBox)
     End Sub
 
-    Private Sub HymnNos_KeyDown(sender As Object, e As KeyEventArgs) Handles HymnNos.KeyDown
+    Private Sub sermonHymnNo_KeyDown(sender As Object, e As KeyEventArgs) Handles sermonHymnNo.KeyDown
         If e.KeyCode = Keys.Enter Then
             'user pressed enter to submit hymn
-            If HymnNos.Text = vbNewLine Or HymnNos.Text = "" Then
+            If sermonHymnNo.Text = vbNewLine Or sermonHymnNo.Text = "" Then
                 'user tried to enter empty line
-                HymnNos.Text = ""
+                sermonHymnNo.Text = ""
                 Return
             End If
-            sermonHymnsSelectionBox.Items.Add(HymnNos.Text.Replace(vbNewLine, ""))
-            HymnNos.Text = ""
+            sermonHymnsListBox.Items.Add(sermonHymnNo.Text.Replace(vbNewLine, ""))
+            sermonHymnNo.Text = ""
             'if first hymn added, select hymn
-            If sermonHymnsSelectionBox.Items.Count.Equals(1) Then
-                sermonHymnsSelectionBox.SelectedIndex = 0
+            If sermonHymnsListBox.Items.Count.Equals(1) Then
+                sermonHymnsListBox.SelectedIndex = 0
                 Return
             End If
             'only update hymns if selected index one of last three hymns
-            If sermonHymnsSelectionBox.SelectedIndex >= sermonHymnsSelectionBox.Items.Count - 3 Then
-                updateHymns(hymnTextBox)
+            If sermonHymnsListBox.SelectedIndex >= sermonHymnsListBox.Items.Count - 3 Then
+                updateHymns(textBoxDictionary.Item("sermonHymns"), sermonHymnsListBox)
             End If
         End If
     End Sub
+    Private Sub hymnalHymnNo_KeyDown(sender As Object, e As KeyEventArgs) Handles hymnalHymnNo.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            'user pressed enter to submit hymn
+            If hymnalHymnNo.Text = vbNewLine Or hymnalHymnNo.Text = "" Then
+                'user tried to enter empty line
+                hymnalHymnNo.Text = ""
+                Return
+            End If
+            hymnalHymnsListBox.Items.Add(hymnalHymnNo.Text.Replace(vbNewLine, ""))
+            hymnalHymnNo.Text = ""
+            'if first hymn added, select hymn
+            If hymnalHymnsListBox.Items.Count.Equals(1) Then
+                hymnalHymnsListBox.SelectedIndex = 0
+                Return
+            End If
+            'only update hymns if selected index one of last three hymns
+            If hymnalHymnsListBox.SelectedIndex >= hymnalHymnsListBox.Items.Count - 3 Then
+                updateHymns(textBoxDictionary.Item("hymnalHymns"), hymnalHymnsListBox)
+            End If
+        End If
+    End Sub
+
+
 
 
     '-----------------------------------------------------------------------------BUTTONS----------------------------------------
@@ -784,11 +793,17 @@ Public Class MainProgram
         'navigate to title slide
         ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("sermonTitle").SlideIndex)
     End Sub
-    Private Sub HymnNos_GotFocus(sender As Object, e As EventArgs) Handles HymnNos.GotFocus
-        HymnNos.Text = ""
+    Private Sub HymnNos_GotFocus(sender As Object, e As EventArgs) Handles sermonHymnNo.GotFocus
+        sermonHymnNo.Text = ""
     End Sub
-    Private Sub HymnNos_LostFocus(sender As Object, e As EventArgs) Handles HymnNos.LostFocus
-        HymnNos.Text = "Enter Hymn"
+    Private Sub HymnNos_LostFocus(sender As Object, e As EventArgs) Handles sermonHymnNo.LostFocus
+        sermonHymnNo.Text = "Enter Hymn"
+    End Sub
+    Private Sub hymnalHymnNos_GotFocus(sender As Object, e As EventArgs) Handles hymnalHymnNo.GotFocus
+        hymnalHymnNo.Text = ""
+    End Sub
+    Private Sub hymnalHymnNos_LostFocus(sender As Object, e As EventArgs) Handles hymnalHymnNo.LostFocus
+        hymnalHymnNo.Text = "Enter Hymn"
     End Sub
 
     Private Sub EnglishFontBtn_Click(sender As Object, e As EventArgs) Handles EnglishFontBtn.Click
