@@ -27,10 +27,9 @@ Public Class MainProgram
     Dim sermonHymns As String = ""
     Dim hymnalHymns As String = ""
 
-    'keeping track of which paragraph to highlight
-    Private highlightedParagraph As Integer
-    Private prevHighlightedPar As Integer
-    Private hymnTextBox As PowerPoint.TextRange ' keep track of which hymn text box is changing
+    'keeping track of which paragraph was last highlighted
+    Private prevSermonHymnsHighlightedPar As Integer
+    Private prevHymnalHymnsHighlightedPar As Integer
 
     'Use of a dictionary to easily change slide numbers and shape numbers
     Public slideDictionary As Dictionary(Of String, PowerPoint.Slide)
@@ -196,7 +195,6 @@ Public Class MainProgram
         ResetServiceDetails()
         'by default go to break slide and hymntextbox set to service hymns
         goToBreakBtn.Checked = True
-        hymnTextBox = textBoxDictionary.Item("sermonHymns")
     End Sub
 
     'Method that will reset the program to the initial running state
@@ -399,10 +397,6 @@ Public Class MainProgram
 
     Private Sub ShowSermonHymns_CheckedChanged(sender As Object, e As EventArgs) Handles ShowSermonHymns.CheckedChanged
         ShowSermonHymns.TabStop = False
-        If ShowSermonHymns.Checked Then
-            'navigate to service slide
-            hymnTextBox = textBoxDictionary.Item("sermonHymns")
-        End If
     End Sub
     Private Sub ShowVerses_CheckedChanged(sender As Object, e As EventArgs) Handles ShowVerses.CheckedChanged
         ShowVerses.TabStop = False
@@ -423,7 +417,6 @@ Public Class MainProgram
         ShowHymnal.TabStop = False
         If ShowHymnal.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("hymnalHymnsSlide").SlideIndex)
-            hymnTextBox = textBoxDictionary.Item("hymnalHymns")
         End If
     End Sub
 
@@ -471,8 +464,6 @@ Public Class MainProgram
         End If
     End Sub
 
-
-
     Private Sub UpdateTitle_Click(sender As Object, e As EventArgs) Handles UpdateTitle.Click
         'Removing blank tabs from titles to force centred titles
         If EnglishTitle.Text.Length > 1 And ChineseTitle.Text.Length > 1 Then
@@ -503,6 +494,8 @@ Public Class MainProgram
             'If updated titles during hymnal, return to service hymns
             ShowSermonHymns.Checked = True
         End If
+        'update service types
+        updateServiceTypes()
     End Sub
 
 
@@ -512,13 +505,21 @@ Public Class MainProgram
         Dim hymns As String = ""
         Dim count = listBox.Items.Count
         Dim index = listBox.SelectedIndex
+        Dim highlightedParagraph = -1
+        Dim prevHighlightedPar = -1
+        If hymnTabControl.SelectedIndex = 0 Then
+            'has seleted sermon hymns
+            prevHighlightedPar = prevSermonHymnsHighlightedPar
+        ElseIf hymnTabControl.SelectedIndex = 1 Then
+            prevHighlightedPar = prevHymnalHymnsHighlightedPar
+        End If
+        'ensure that proper slide is selected from showing hymns
         If ShowSermonHymns.Checked Then
             ShowSermonHymns.PerformClick()
-        ElseIf ShowHymnal.Checked Then
-            ShowHymnal.PerformClick()
         End If
         If count = 0 Then
             textBox.Text = " "
+            Return
         End If
         If count >= 3 Then
             'if selected index less than total items -4 then insert selected hymn and 2 hymns after
@@ -555,11 +556,16 @@ Public Class MainProgram
             resetParagraph(textBox, 1)
         End If
         textBox.Text = hymns
-        highlightCurrentHymn(textBox, listBox)
-        prevHighlightedPar = highlightedParagraph
+        highlightCurrentHymn(textBox, listBox, highlightedParagraph, prevHighlightedPar)
+        If hymnTabControl.SelectedIndex = 0 Then
+            'has seleted sermon hymns
+            prevSermonHymnsHighlightedPar = highlightedParagraph
+        ElseIf hymnTabControl.SelectedIndex = 1 Then
+            prevHymnalHymnsHighlightedPar = highlightedParagraph
+        End If
     End Sub
 
-    Private Sub highlightCurrentHymn(textBox As PowerPoint.TextRange, listBox As ListBox)
+    Private Sub highlightCurrentHymn(textBox As PowerPoint.TextRange, listBox As ListBox, highlightedParagraph As Integer, prevHighlighted As Integer)
         ''resetting fonts to highlight selected hymn
         If listBox.Items.Count = 0 Then
             'if no hymns currently in list box do nothing
@@ -571,7 +577,7 @@ Public Class MainProgram
             Return
         End If
         'resetting styles of previous highlighted paragraph
-        resetParagraph(textBox, prevHighlightedPar)
+        resetParagraph(textBox, prevHighlighted)
         'highlighting paragraph
         highlightParagraph(textBox, highlightedParagraph)
     End Sub
@@ -596,12 +602,24 @@ Public Class MainProgram
         End If
         sermonHymnsListBox.SelectedIndex += 1
     End Sub
+    Private Sub hymnalNextHymn_Click(sender As Object, e As EventArgs) Handles hymnalNextHymn.Click
+        If hymnalHymnsListBox.SelectedIndex = hymnalHymnsListBox.Items.Count - 1 Then
+            Return
+        End If
+        hymnalHymnsListBox.SelectedIndex += 1
+    End Sub
 
     Private Sub prevHymn_Click(sender As Object, e As EventArgs) Handles prevHymn.Click
         If sermonHymnsListBox.SelectedIndex = 0 Or sermonHymnsListBox.SelectedIndex = -1 Then
             Return
         End If
         sermonHymnsListBox.SelectedIndex -= 1
+    End Sub
+    Private Sub hymnalPrevHymn_Click(sender As Object, e As EventArgs) Handles hymnalPrevHymn.Click
+        If hymnalHymnsListBox.SelectedIndex = 0 Or hymnalHymnsListBox.SelectedIndex = -1 Then
+            Return
+        End If
+        hymnalHymnsListBox.SelectedIndex -= 1
     End Sub
     Private Sub removeCurrentHymn(textBox As PowerPoint.TextRange, listBox As ListBox)
         Dim selectedIndex As Integer = listBox.SelectedIndex
@@ -636,12 +654,16 @@ Public Class MainProgram
         updateHymns(textBoxDictionary.Item("hymnalHymns"), hymnalHymnsListBox)
     End Sub
 
-    'handles deleting from button
+    'handles deleting from button (sermon hymn)
     Private Sub delHymnBtn_Click(sender As Object, e As EventArgs) Handles delHymnBtn.Click
-        removeCurrentHymn(hymnTextBox, sermonHymnsListBox)
+        removeCurrentHymn(textBoxDictionary.Item("sermonHymns"), sermonHymnsListBox)
         If sermonHymnsListBox.Items.Count = 0 And Not ShowHymnal.Checked Then
             showTitlesOnly()
         End If
+    End Sub
+    'handles deleting from button (hymnal hymn)
+    Private Sub delHymnalHymnBtn_Click(sender As Object, e As EventArgs) Handles hymnalDelHymn.Click
+        removeCurrentHymn(textBoxDictionary.Item("sermonHymns"), hymnalHymnsListBox)
     End Sub
 
     'Handles deleting hymns from selection box
@@ -836,6 +858,13 @@ Public Class MainProgram
     Private Sub HymnColorBtn_Click(sender As Object, e As EventArgs) Handles HymnColorBtn.Click
         ChangeColor(textBoxDictionary.Item("sermonHymns"))
     End Sub
+    Private Sub hymnalHymnColor_Click(sender As Object, e As EventArgs) Handles hymnalHymnColor.Click
+        ChangeColor(textBoxDictionary.Item("hymnalHymns"))
+    End Sub
+    Private Sub hymnalHymnFontBtn_Click(sender As Object, e As EventArgs) Handles hymnalHymnFont.Click
+        ChangeFont(textBoxDictionary.Item("hymnalHymns"))
+    End Sub
+
     Private Sub BBibleHDFont_Click(sender As Object, e As EventArgs) Handles BibleHDFont.Click
         ChangeFont(textBoxDictionary.Item("bibleHeader"))
     End Sub
@@ -915,14 +944,17 @@ Public Class MainProgram
 
     Private Sub ServiceType_KeyDown(sender As Object, e As KeyEventArgs) Handles ServiceType.KeyDown
         If e.KeyCode = Keys.Enter Then
-            textBoxDictionary.Item("serviceType").Text = ServiceType.Text
-            textBoxDictionary.Item("serviceType1").Text = ServiceType.Text
-            textBoxDictionary.Item("serviceType2").Text = ServiceType.Text
-            textBoxDictionary.Item("serviceType3").Text = ServiceType.Text
+            updateServiceTypes()
             'Mute ding sound from windows
             e.Handled = True
             e.SuppressKeyPress = True
         End If
+    End Sub
+    Private Sub updateServiceTypes()
+        textBoxDictionary.Item("serviceType").Text = ServiceType.Text
+        textBoxDictionary.Item("serviceType1").Text = ServiceType.Text
+        textBoxDictionary.Item("serviceType2").Text = ServiceType.Text
+        textBoxDictionary.Item("serviceType3").Text = ServiceType.Text
     End Sub
 
     Private Sub BookBox_KeyDown(sender As Object, e As KeyEventArgs) Handles BookBox.KeyDown
@@ -959,7 +991,6 @@ Public Class MainProgram
 
     Private Sub Show_AN_Click(sender As Object, e As EventArgs) Handles Show_AN.Click
         Announcements.Show()
-
     End Sub
 
     Private Sub edtPrayerImg_Click(sender As Object, e As EventArgs)
