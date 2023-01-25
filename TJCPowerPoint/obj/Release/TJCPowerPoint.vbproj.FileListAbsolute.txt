@@ -107,3 +107,4 @@ C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Release\TJC
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Release\TJCPowerPoint.vbproj.AssemblyReference.cache
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Release\TJCPowerPoint.vbproj.SuggestedBindingRedirects.cache
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Release\TJCPowerPoint.HolyCommunion.resources
+C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Release\TJCPowerPoint.LoadingScreen.resources
