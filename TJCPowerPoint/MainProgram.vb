@@ -202,6 +202,7 @@ Public Class MainProgram
         sermonHymnNo.Text = "Enter Hymn"
         hymnalHymnNo.Text = "Enter Hymn"
         sermonHymnsListBox.Items.Clear()
+        hymnalHymnsListBox.Items.Clear()
         ServiceType.Text = ""
         BookBox.Text = ""
         VerseTxt.Text = ""
