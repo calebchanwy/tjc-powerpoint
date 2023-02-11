@@ -625,9 +625,11 @@ Public Class MainProgram
     Private Sub removeCurrentHymn(textBox As PowerPoint.TextRange, listBox As ListBox)
         Dim selectedIndex As Integer = listBox.SelectedIndex
         Dim size As Integer = listBox.Items.Count
-        If size = 0 And ShowVerses.Checked = False Then
+        If size = 0 Then
             'if there are new hymns to be removed return
-            showTitlesOnly()
+            If ShowSermonHymns.Checked Then
+                showTitlesOnly()
+            End If
             Return
         End If
         If size = 1 Then
@@ -664,7 +666,7 @@ Public Class MainProgram
     End Sub
     'handles deleting from button (hymnal hymn)
     Private Sub delHymnalHymnBtn_Click(sender As Object, e As EventArgs) Handles hymnalDelHymn.Click
-        removeCurrentHymn(textBoxDictionary.Item("sermonHymns"), hymnalHymnsListBox)
+        removeCurrentHymn(textBoxDictionary.Item("hymnalHymns"), hymnalHymnsListBox)
     End Sub
 
     'Handles deleting hymns from selection box
@@ -973,7 +975,6 @@ Public Class MainProgram
         ElseIf e.KeyCode = Keys.Enter Then
             If BookBox.SelectedIndex <> -1 Then
                 SelectNextControl(sender, True, True, True, True)
-                ChapterTxt.SelectAll()
                 'Mute ding sound from windows
                 e.Handled = True
                 e.SuppressKeyPress = True
@@ -985,10 +986,16 @@ Public Class MainProgram
     Private Sub ChapterTxt_KeyDown(sender As Object, e As KeyEventArgs) Handles ChapterTxt.KeyDown
         If e.KeyCode = Keys.Enter Then
             ChapterTxt.DeselectAll()
-            VerseTxt.SelectAll()
         End If
-
     End Sub
+    Private Sub VerseTxt_GotFocus(sender As Object, e As EventArgs) Handles VerseTxt.GotFocus
+        ChapterTxt.DeselectAll()
+        VerseTxt.SelectAll()
+    End Sub
+    Private Sub ChapterTxt_GotFocus(sender As Object, e As EventArgs) Handles ChapterTxt.GotFocus
+        ChapterTxt.SelectAll()
+    End Sub
+
 
     Private Sub Show_AN_Click(sender As Object, e As EventArgs) Handles Show_AN.Click
         Announcements.Show()
@@ -1187,6 +1194,7 @@ Public Class MainProgram
         Dim response As Integer = NativeMethods.DwmIsCompositionEnabled(enabled)
         aeroEnabled = (enabled = 1)
     End Sub
+
 
 End Class
 

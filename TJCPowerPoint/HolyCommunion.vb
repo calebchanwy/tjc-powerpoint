@@ -64,7 +64,10 @@ Public Class HolyCommunion
     Private Sub goToHCSlide_Click(sender As Object, e As EventArgs) Handles goToHCSlide.Click
         MainProgram.goToHCBtn.Checked = True
     End Sub
-
+    Private Sub clearHymnsBtn_Click(sender As Object, e As EventArgs) Handles clearHymnsBtn.Click
+        HymnsSelectionBox.Items.Clear()
+        updateHymns(hymnTextBox)
+    End Sub
 
     'HYMN SELECTION --------------------------------------------
     Private Sub updateHymns(textBox As PowerPoint.TextRange)
@@ -320,5 +323,6 @@ Public Class HolyCommunion
             aeroEnabled = False
         End If
     End Sub
+
 
 End Class

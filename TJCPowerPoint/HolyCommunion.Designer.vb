@@ -37,6 +37,7 @@ Partial Class HolyCommunion
         Me.prevHymn = New System.Windows.Forms.Button()
         Me.nextHymn = New System.Windows.Forms.Button()
         Me.hymnsGroupBox = New System.Windows.Forms.GroupBox()
+        Me.clearHymnsBtn = New System.Windows.Forms.Button()
         Me.delHymnBtn = New System.Windows.Forms.Button()
         Me.HymnColorBtn = New System.Windows.Forms.Button()
         Me.HymnFontBtn = New System.Windows.Forms.Button()
@@ -193,7 +194,7 @@ Partial Class HolyCommunion
         Me.HymnsSelectionBox.Location = New System.Drawing.Point(11, 55)
         Me.HymnsSelectionBox.Name = "HymnsSelectionBox"
         Me.HymnsSelectionBox.ScrollAlwaysVisible = True
-        Me.HymnsSelectionBox.Size = New System.Drawing.Size(89, 256)
+        Me.HymnsSelectionBox.Size = New System.Drawing.Size(89, 235)
         Me.HymnsSelectionBox.TabIndex = 44
         Me.HymnsSelectionBox.TabStop = False
         '
@@ -235,8 +236,8 @@ Partial Class HolyCommunion
         '
         'hymnsGroupBox
         '
-        Me.hymnsGroupBox.AutoSize = True
         Me.hymnsGroupBox.BackColor = System.Drawing.Color.Transparent
+        Me.hymnsGroupBox.Controls.Add(Me.clearHymnsBtn)
         Me.hymnsGroupBox.Controls.Add(Me.delHymnBtn)
         Me.hymnsGroupBox.Controls.Add(Me.HymnColorBtn)
         Me.hymnsGroupBox.Controls.Add(Me.HymnFontBtn)
@@ -247,10 +248,27 @@ Partial Class HolyCommunion
         Me.hymnsGroupBox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.hymnsGroupBox.Location = New System.Drawing.Point(12, 55)
         Me.hymnsGroupBox.Name = "hymnsGroupBox"
-        Me.hymnsGroupBox.Size = New System.Drawing.Size(135, 343)
+        Me.hymnsGroupBox.Size = New System.Drawing.Size(135, 342)
         Me.hymnsGroupBox.TabIndex = 48
         Me.hymnsGroupBox.TabStop = False
         Me.hymnsGroupBox.Text = "Hymn(s)"
+        '
+        'clearHymnsBtn
+        '
+        Me.clearHymnsBtn.BackColor = System.Drawing.Color.Transparent
+        Me.clearHymnsBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.clearHymnsBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.clearHymnsBtn.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.clearHymnsBtn.ForeColor = System.Drawing.Color.Maroon
+        Me.clearHymnsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.clearHymnsBtn.Location = New System.Drawing.Point(11, 301)
+        Me.clearHymnsBtn.Margin = New System.Windows.Forms.Padding(0)
+        Me.clearHymnsBtn.Name = "clearHymnsBtn"
+        Me.clearHymnsBtn.Size = New System.Drawing.Size(118, 29)
+        Me.clearHymnsBtn.TabIndex = 53
+        Me.clearHymnsBtn.TabStop = False
+        Me.clearHymnsBtn.Text = "Clear All"
+        Me.clearHymnsBtn.UseVisualStyleBackColor = False
         '
         'delHymnBtn
         '
@@ -373,4 +391,5 @@ Partial Class HolyCommunion
     Friend WithEvents HymnColorBtn As Button
     Friend WithEvents HymnFontBtn As Button
     Friend WithEvents delHymnBtn As Button
+    Friend WithEvents clearHymnsBtn As Button
 End Class
