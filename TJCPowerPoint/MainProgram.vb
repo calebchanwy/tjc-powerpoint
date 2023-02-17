@@ -309,7 +309,7 @@ Public Class MainProgram
     End Sub
     Public Sub ChangeFont(textBox As PowerPoint.TextRange)
         If textBox.Font.Name IsNot Nothing Then
-            FontDialog.Font = New Font(textBox.Font.Name.ToString(), textBox.Font.Size)
+            FontDialog.Font = New Font(textBox.Font.Name, textBox.Font.Size)
         End If
         If FontDialog.ShowDialog = DialogResult.OK Then
             'Handle cases for where text boxes are same but on separate slides
@@ -902,6 +902,7 @@ Public Class MainProgram
 
     Private Sub OpenPrayerRequestsWindow_Click(sender As Object, e As EventArgs) Handles OpenPrayerRequestsWindow.Click
         PrayerRequests.Show()
+        PrayerRequests.Focus()
     End Sub
 
     Private Sub OpenFolder_Click(sender As Object, e As EventArgs)
@@ -1005,6 +1006,7 @@ Public Class MainProgram
 
     Private Sub Show_AN_Click(sender As Object, e As EventArgs) Handles Show_AN.Click
         Announcements.Show()
+        Announcements.Focus()
     End Sub
 
     Private Sub edtPrayerImg_Click(sender As Object, e As EventArgs)
@@ -1040,6 +1042,7 @@ Public Class MainProgram
 
     Private Sub edtHC_Click(sender As Object, e As EventArgs) Handles edtHC.Click
         HolyCommunion.Show()
+        HolyCommunion.Focus()
     End Sub
 
     Private Sub clearbtn_Click(sender As Object, e As EventArgs) Handles clearbtn.Click
