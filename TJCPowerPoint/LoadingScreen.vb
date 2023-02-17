@@ -18,8 +18,10 @@ Public Class LoadingScreen
         Get
             CheckAeroEnabled()
             Dim cp As CreateParams = MyBase.CreateParams
+            cp.ExStyle = NativeConstants.WS_EX_COMPOSITED
             If Not aeroEnabled Then
                 cp.ClassStyle = NativeConstants.CS_DROPSHADOW
+
                 Return cp
             Else
                 Return cp
@@ -35,9 +37,9 @@ Public Class LoadingScreen
                     Dim bla As New NativeStructs.MARGINS()
                     With bla
                         .bottomHeight = 1
-                        .leftWidth = 1
-                        .rightWidth = 1
-                        .topHeight = 1
+                        .leftWidth = 0
+                        .rightWidth = 0
+                        .topHeight = 0
                     End With
                     NativeMethods.DwmExtendFrameIntoClientArea(Handle, bla)
                 End If

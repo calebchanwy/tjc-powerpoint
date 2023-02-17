@@ -74,6 +74,7 @@ Public Class Announcements
         Get
             CheckAeroEnabled()
             Dim cp As CreateParams = MyBase.CreateParams
+            cp.ExStyle = NativeConstants.WS_EX_COMPOSITED
             If Not aeroEnabled Then
                 cp.ClassStyle = NativeConstants.CS_DROPSHADOW
                 Return cp

@@ -35,8 +35,14 @@ Public Class MainProgram
     Public slideDictionary As Dictionary(Of String, PowerPoint.Slide)
     Public textBoxDictionary As Dictionary(Of String, PowerPoint.TextRange)
 
+    Public Sub MainProgram()
+        'Method dealing with what the form will do when it initially opens
+        InitializeComponent()
+        aeroEnabled = False
 
-    'Method dealing with what the form will do when it initially opens
+    End Sub
+
+
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             LoadingScreen.Show()
@@ -1161,6 +1167,7 @@ Public Class MainProgram
         Get
             CheckAeroEnabled()
             Dim cp As CreateParams = MyBase.CreateParams
+            cp.ExStyle = NativeConstants.WS_EX_COMPOSITED
             If Not aeroEnabled Then
                 cp.ClassStyle = NativeConstants.CS_DROPSHADOW
                 Return cp
@@ -1178,9 +1185,9 @@ Public Class MainProgram
                     Dim bla As New NativeStructs.MARGINS()
                     With bla
                         .bottomHeight = 1
-                        .leftWidth = 1
-                        .rightWidth = 1
-                        .topHeight = 1
+                        .leftWidth = 0
+                        .rightWidth = 0
+                        .topHeight = 0
                     End With
                     NativeMethods.DwmExtendFrameIntoClientArea(Handle, bla)
                 End If
@@ -1189,11 +1196,15 @@ Public Class MainProgram
         MyBase.WndProc(m)
     End Sub
     Private Sub CheckAeroEnabled()
-        'assume that OS is above windows 6
-        Dim enabled As Integer = 0
-        Dim response As Integer = NativeMethods.DwmIsCompositionEnabled(enabled)
-        aeroEnabled = (enabled = 1)
+        If Environment.OSVersion.Version.Major >= 6 Then
+            Dim enabled As Integer = 0
+            Dim response As Integer = NativeMethods.DwmIsCompositionEnabled(enabled)
+            aeroEnabled = (enabled = 1)
+        Else
+            aeroEnabled = False
+        End If
     End Sub
+
 
 
 End Class
@@ -1220,6 +1231,8 @@ End Class
 Public Class NativeConstants
     Public Const CS_DROPSHADOW As Integer = &H20000
     Public Const WM_NCPAINT As Integer = &H85
+    Public Const WM_ACTIVATEAPP As Integer = &H1C
+    Public Const WS_EX_COMPOSITED As Integer = &H2000000
 End Class
 
 

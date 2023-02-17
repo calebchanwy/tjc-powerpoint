@@ -1,6 +1,4 @@
-﻿Imports TJCPowerPoint.NativeConstants, TJCPowerPoint.NativeMethods, TJCPowerPoint.NativeStructs
-
-'This class is part of the TJC PowerPoint project.
+﻿'This class is part of the TJC PowerPoint project.
 'The TJC PowerPoint is a simple program displaying bible verses, hymns
 'to a projector using Microsoft PowerPoint.
 'It also has other purporses to help display usesful information to the projector
@@ -10,6 +8,8 @@
 '
 'Initially developed by Joshi Chan (TJC Lecieseter), from V2 onwards developed by Caleb Chan (TJC London)
 '© Copyright 2023 True Jesus Church London 
+
+Imports System.Runtime.InteropServices
 
 Public Class PrayerRequests
     Private directory As String
@@ -83,6 +83,7 @@ Public Class PrayerRequests
         Get
             CheckAeroEnabled()
             Dim cp As CreateParams = MyBase.CreateParams
+            cp.ExStyle = NativeConstants.WS_EX_COMPOSITED
             If Not aeroEnabled Then
                 cp.ClassStyle = NativeConstants.CS_DROPSHADOW
                 Return cp
@@ -100,9 +101,9 @@ Public Class PrayerRequests
                     Dim bla As New NativeStructs.MARGINS()
                     With bla
                         .bottomHeight = 1
-                        .leftWidth = 1
-                        .rightWidth = 1
-                        .topHeight = 1
+                        .leftWidth = 0
+                        .rightWidth = 0
+                        .topHeight = 0
                     End With
                     NativeMethods.DwmExtendFrameIntoClientArea(Handle, bla)
                 End If
@@ -151,5 +152,4 @@ Public Class PrayerRequests
             temp = Nothing
         End If
     End Sub
-
 End Class
