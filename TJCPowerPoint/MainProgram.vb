@@ -310,6 +310,9 @@ Public Class MainProgram
     Public Sub ChangeFont(textBox As PowerPoint.TextRange)
         If textBox.Font.Name IsNot Nothing Then
             FontDialog.Font = New Font(textBox.Font.Name, textBox.Font.Size)
+            If textBox.Font.Bold Then
+                FontDialog.Font = New Font(textBox.Font.Name, textBox.Font.Size, FontStyle.Bold)
+            End If
         End If
         If FontDialog.ShowDialog = DialogResult.OK Then
             'Handle cases for where text boxes are same but on separate slides
@@ -364,9 +367,6 @@ Public Class MainProgram
                     End If
                     Return
             End Select
-            textBox.Font.Name = FontDialog.Font.Name
-            textBox.Font.Size = FontDialog.Font.Size
-            textBox.Font.Bold = FontDialog.Font.Bold
         End If
     End Sub
     Private Sub setFontOfTextbox(textBox As PowerPoint.TextRange)
