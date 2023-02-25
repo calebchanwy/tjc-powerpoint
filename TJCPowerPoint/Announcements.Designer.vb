@@ -25,7 +25,6 @@ Partial Class Announcements
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Announcements))
         Me.UpdateAnnouncements = New System.Windows.Forms.Button()
         Me.LoadAnnouncements = New System.Windows.Forms.Button()
-        Me.CloseAnnouncements = New System.Windows.Forms.Button()
         Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -69,18 +68,6 @@ Partial Class Announcements
         Me.LoadAnnouncements.TabStop = False
         Me.LoadAnnouncements.Text = "Insert Announcements"
         Me.LoadAnnouncements.UseVisualStyleBackColor = True
-        '
-        'CloseAnnouncements
-        '
-        Me.CloseAnnouncements.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.CloseAnnouncements.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CloseAnnouncements.ForeColor = System.Drawing.Color.Maroon
-        Me.CloseAnnouncements.Location = New System.Drawing.Point(657, 388)
-        Me.CloseAnnouncements.Name = "CloseAnnouncements"
-        Me.CloseAnnouncements.Size = New System.Drawing.Size(76, 41)
-        Me.CloseAnnouncements.TabIndex = 4
-        Me.CloseAnnouncements.Text = "Close"
-        Me.CloseAnnouncements.UseVisualStyleBackColor = True
         '
         'SaveFileDialog
         '
@@ -285,7 +272,6 @@ Partial Class Announcements
         Me.Controls.Add(Me.AnnouncementsTitleFontBtn)
         Me.Controls.Add(Me.AnnouncementsColorBtn)
         Me.Controls.Add(Me.AnnouncementsFontBtn)
-        Me.Controls.Add(Me.CloseAnnouncements)
         Me.Controls.Add(Me.LoadAnnouncements)
         Me.Controls.Add(Me.navBar)
         Me.DoubleBuffered = True
@@ -306,7 +292,6 @@ Partial Class Announcements
     End Sub
     Friend WithEvents UpdateAnnouncements As Button
     Friend WithEvents LoadAnnouncements As Button
-    Friend WithEvents CloseAnnouncements As Button
     Friend WithEvents AnnouncementsColorBtn As Button
     Friend WithEvents AnnouncementsFontBtn As Button
     Friend WithEvents SaveFileDialog As SaveFileDialog

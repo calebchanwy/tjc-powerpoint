@@ -27,7 +27,6 @@ Partial Class HolyCommunion
         Me.cupTxt = New System.Windows.Forms.TextBox()
         Me.header = New System.Windows.Forms.Label()
         Me.updateHC = New System.Windows.Forms.Button()
-        Me.HCClose = New System.Windows.Forms.Button()
         Me.goToHCSlide = New System.Windows.Forms.Button()
         Me.navBar = New System.Windows.Forms.FlowLayoutPanel()
         Me.closeForm = New System.Windows.Forms.Button()
@@ -107,20 +106,6 @@ Partial Class HolyCommunion
         Me.updateHC.TabIndex = 3
         Me.updateHC.Text = "Update Holy Communion Slide"
         Me.updateHC.UseVisualStyleBackColor = True
-        '
-        'HCClose
-        '
-        Me.HCClose.AutoSize = True
-        Me.HCClose.BackColor = System.Drawing.Color.White
-        Me.HCClose.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.HCClose.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.HCClose.ForeColor = System.Drawing.Color.Maroon
-        Me.HCClose.Location = New System.Drawing.Point(669, 404)
-        Me.HCClose.Name = "HCClose"
-        Me.HCClose.Size = New System.Drawing.Size(63, 36)
-        Me.HCClose.TabIndex = 4
-        Me.HCClose.Text = "Close"
-        Me.HCClose.UseVisualStyleBackColor = False
         '
         'goToHCSlide
         '
@@ -345,7 +330,6 @@ Partial Class HolyCommunion
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.hymnsGroupBox)
         Me.Controls.Add(Me.goToHCSlide)
-        Me.Controls.Add(Me.HCClose)
         Me.Controls.Add(Me.updateHC)
         Me.Controls.Add(Me.header)
         Me.Controls.Add(Me.navBar)
@@ -376,7 +360,6 @@ Partial Class HolyCommunion
     Friend WithEvents cupTxt As TextBox
     Friend WithEvents header As Label
     Friend WithEvents updateHC As Button
-    Friend WithEvents HCClose As Button
     Friend WithEvents goToHCSlide As Button
     Friend WithEvents navBar As FlowLayoutPanel
     Friend WithEvents closeForm As Button

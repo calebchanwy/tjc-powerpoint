@@ -1086,9 +1086,7 @@ Public Class MainProgram
     End Sub
 
     Private Sub moveEnglishDown_Click(sender As Object, e As EventArgs) Handles moveEnglishDown.Click
-        If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonTitle").SlideIndex Then
-            moveDown(slideDictionary.Item("sermonTitle").Shapes(1))
-        ElseIf ShowSermonHymns.Checked Then
+        If ShowSermonHymns.Checked Then
             moveDown(slideDictionary.Item("sermonHymnsSlide").Shapes(1))
         ElseIf ShowVerses.Checked Then
             moveDown(slideDictionary.Item("bibleVersesSlide").Shapes(1))
@@ -1096,27 +1094,21 @@ Public Class MainProgram
     End Sub
 
     Private Sub moveEnglishUp_Click(sender As Object, e As EventArgs) Handles moveEnglishUp.Click
-        If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonTitle").SlideIndex Then
-            moveUp(slideDictionary.Item("sermonTitle").Shapes(1))
-        ElseIf ShowSermonHymns.Checked Then
+        If ShowSermonHymns.Checked Then
             moveUp(slideDictionary.Item("sermonHymnsSlide").Shapes(1))
         ElseIf ShowVerses.Checked Then
             moveUp(slideDictionary.Item("bibleVersesSlide").Shapes(1))
         End If
     End Sub
     Private Sub moveChineseUp_Click(sender As Object, e As EventArgs) Handles moveChineseUp.Click
-        If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonTitle").SlideIndex Then
-            moveDown(slideDictionary.Item("sermonTitle").Shapes(2))
-        ElseIf ShowSermonHymns.Checked Then
+        If ShowSermonHymns.Checked Then
             moveUp(slideDictionary.Item("sermonHymnsSlide").Shapes(2))
         ElseIf ShowVerses.Checked Then
             moveUp(slideDictionary.Item("bibleVersesSlide").Shapes(2))
         End If
     End Sub
     Private Sub moveChineseDown_Click(sender As Object, e As EventArgs) Handles moveChineseDown.Click
-        If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonTitle").SlideIndex Then
-            moveDown(slideDictionary.Item("sermonTitle").Shapes(2))
-        ElseIf ShowSermonHymns.Checked Then
+        If ShowSermonHymns.Checked Then
             moveDown(slideDictionary.Item("sermonHymnsSlide").Shapes(2))
         ElseIf ShowVerses.Checked Then
             moveDown(slideDictionary.Item("bibleVersesSlide").Shapes(2))

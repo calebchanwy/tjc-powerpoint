@@ -39,7 +39,7 @@ Public Class HolyCommunion
     End Sub
 
     'Method handling when form is closed
-    Private Sub HCClose_Click(sender As Object, e As EventArgs) Handles HCClose.Click, closeForm.Click
+    Private Sub HCClose_Click(sender As Object, e As EventArgs) Handles  closeForm.Click
         Me.Hide()
     End Sub
 

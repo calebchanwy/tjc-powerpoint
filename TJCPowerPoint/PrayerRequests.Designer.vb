@@ -24,7 +24,6 @@ Partial Class PrayerRequests
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(PrayerRequests))
         Me.UpdatePrayerRequests = New System.Windows.Forms.Button()
-        Me.ClosePrayerRequests = New System.Windows.Forms.Button()
         Me.SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
         Me.OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -57,18 +56,6 @@ Partial Class PrayerRequests
         Me.UpdatePrayerRequests.TabIndex = 3
         Me.UpdatePrayerRequests.Text = "Update Prayer Requests"
         Me.UpdatePrayerRequests.UseVisualStyleBackColor = True
-        '
-        'ClosePrayerRequests
-        '
-        Me.ClosePrayerRequests.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ClosePrayerRequests.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ClosePrayerRequests.ForeColor = System.Drawing.Color.Maroon
-        Me.ClosePrayerRequests.Location = New System.Drawing.Point(659, 395)
-        Me.ClosePrayerRequests.Name = "ClosePrayerRequests"
-        Me.ClosePrayerRequests.Size = New System.Drawing.Size(79, 43)
-        Me.ClosePrayerRequests.TabIndex = 4
-        Me.ClosePrayerRequests.Text = "Close"
-        Me.ClosePrayerRequests.UseVisualStyleBackColor = True
         '
         'SaveFileDialog
         '
@@ -172,7 +159,7 @@ Partial Class PrayerRequests
         Me.goToPRSlide.Name = "goToPRSlide"
         Me.goToPRSlide.Size = New System.Drawing.Size(141, 42)
         Me.goToPRSlide.TabIndex = 17
-        Me.goToPRSlide.Text = "Go To Prayer Requests"
+        Me.goToPRSlide.Text = "Project Prayer Requests"
         Me.goToPRSlide.UseVisualStyleBackColor = True
         '
         'header
@@ -299,7 +286,6 @@ Partial Class PrayerRequests
         Me.Controls.Add(Me.PRTitleFontBtn)
         Me.Controls.Add(Me.PRColorBtn)
         Me.Controls.Add(Me.PRFontBtn)
-        Me.Controls.Add(Me.ClosePrayerRequests)
         Me.Controls.Add(Me.UpdatePrayerRequests)
         Me.Controls.Add(Me.navBar)
         Me.DoubleBuffered = True
@@ -319,7 +305,6 @@ Partial Class PrayerRequests
 
     End Sub
     Friend WithEvents UpdatePrayerRequests As Button
-    Friend WithEvents ClosePrayerRequests As Button
     Friend WithEvents PRColorBtn As Button
     Friend WithEvents PRFontBtn As Button
     Friend WithEvents SaveFileDialog As SaveFileDialog

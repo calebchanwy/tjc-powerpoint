@@ -30,7 +30,7 @@ Public Class PrayerRequests
     End Sub
 
     'Method handling when form is closed
-    Private Sub ClosePrayerRequests_Click(sender As Object, e As EventArgs) Handles ClosePrayerRequests.Click, closeForm.Click
+    Private Sub ClosePrayerRequests_Click(sender As Object, e As EventArgs) Handles closeForm.Click
         Me.Hide()
     End Sub
     Private Sub minForm_Click(sender As Object, e As EventArgs) Handles minForm.Click

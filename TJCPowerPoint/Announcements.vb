@@ -25,7 +25,7 @@ Public Class Announcements
         slideNumber = MainProgram.slideDictionary.Item("announcements").SlideNumber()
     End Sub
 
-    Private Sub CloseAnnouncements_Click(sender As Object, e As EventArgs) Handles CloseAnnouncements.Click, closeForm.Click
+    Private Sub CloseAnnouncements_Click(sender As Object, e As EventArgs) Handles closeForm.Click
         Me.Hide()
     End Sub
     Private Sub minForm_Click(sender As Object, e As EventArgs) Handles minForm.Click
