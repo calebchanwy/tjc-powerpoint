@@ -17,32 +17,35 @@ Imports System.Drawing.Text
 
 
 Public Class MainProgram
-    Dim ppApp As New PowerPoint.Application
-    Public ppPres As PowerPoint.Presentation
-    Public CurrentDirectory As String = Directory.GetCurrentDirectory()
-    Dim PrayerRequests As New PrayerRequests
-    Dim Writer As XmlTextWriter = Nothing
-    Dim RecentFile As String
+    Private ppApp As New PowerPoint.Application
+    Private ppPres As PowerPoint.Presentation
+    Private CurrentDirectory As String = Directory.GetCurrentDirectory()
+    Private Writer As XmlTextWriter = Nothing
+    Private RecentFile As String
 
-    Dim sermonHymns As String = ""
-    Dim hymnalHymns As String = ""
+    'keep track of sermon hymns and hymnal hymns
+    Private sermonHymns As HymnSelector
+    Private hymnalHymns As HymnSelector
 
     'keeping track of which paragraph was last highlighted
     Private prevSermonHymnsHighlightedPar As Integer
     Private prevHymnalHymnsHighlightedPar As Integer
 
     'Use of a dictionary to easily change slide numbers and shape numbers
-    Public slideDictionary As Dictionary(Of String, PowerPoint.Slide)
-    Public textBoxDictionary As Dictionary(Of String, PowerPoint.TextRange)
+    Private slideDictionary As Dictionary(Of String, PowerPoint.Slide)
+    Private textBoxDictionary As Dictionary(Of String, PowerPoint.TextRange)
 
-    Public Sub MainProgram()
+    Private prayerRequestsWindow As BaseSlideEdit
+    Private announcementsWindow As BaseSlideEdit
+    Private serviceTimesWindow As BaseSlideEdit
+
+    'CONSTSRUCTOR
+    Public Sub New()
         'Method dealing with what the form will do when it initially opens
         InitializeComponent()
-        aeroEnabled = False
-
     End Sub
 
-
+    'MAIN LOADER
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             LoadingScreen.Show()
@@ -50,19 +53,16 @@ Public Class MainProgram
             MakeFolder()
             LoadPres()
             HandleAnnouncements()
+            HandleServiceTimes()
             HandlePrayerRequests()
             LoadHC()
-            LoadPrayerImage()
-            LoadTimetableImg()
+
         Catch ex As Exception
             Me.Close()
             LoadingScreen.Hide()
         End Try
         LoadingScreen.Hide()
     End Sub
-
-
-
     'Method to deal with the form closing
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
@@ -77,10 +77,35 @@ Public Class MainProgram
         Catch ex As Exception
         End Try
     End Sub
-    'Method dealing when the exit button is clicked
-    Private Sub ExitBtn_Click(sender As Object, e As EventArgs) Handles closeForm.Click
-        Me.Close()
-    End Sub
+
+
+    'GETTERS AND SETTERS'
+    Public Function getCurrentDirectory()
+        Return CurrentDirectory
+    End Function
+
+    Public Function getTextBox(textBox As String)
+        Return textBoxDictionary.Item(textBox)
+    End Function
+
+    Public Function getSlide(slideName As String)
+        Return slideDictionary.Item(slideName)
+    End Function
+
+    Public Function getTextFile(fileName As String)
+        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\" + fileName) Then
+            Dim text As String
+            text = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\" + fileName, System.Text.Encoding.UTF8)
+            Console.Write(text)
+            Return text
+        Else
+            Using sw As StreamWriter = File.CreateText(CurrentDirectory + "\Files\" + fileName)
+                sw.WriteLine(" ")
+            End Using
+            Return ""
+        End If
+    End Function
+
 
     'Method called to create a folder for the files and resources
     Private Sub MakeFolder()
@@ -110,86 +135,7 @@ Public Class MainProgram
         End If
     End Sub
 
-    'Method to instantiate dictionaries, for edits in powerpoint arrangements and slides CHANGE HERE
-    Private Sub MakeDictionary()
-        'ORDER OF SLIDES:
-        ' 1 - Break slide
-        ' 2 - Service Hymns
-        '   2.1 English Title
-        '   2.2 Chinese Title
-        '   2.3 Hymn Header
-        '   2.4 Hymn No
-        '   2.5 Service Type
-        ' 3 - Bible Verses
-        '   3.1 English Title
-        '   3.2 Chinese Title
-        '   3.3 Bible Verse Header
-        '   3.4 English Book
-        '   3.5 Chinese Book
-        '   3.6 Chapter and Verses
-        '   3.7 Service Type
-        ' 4 - Hymnal
-        '   4.1 Hymn Nos
-        ' 5 - Prayer Requests
-        ' 5.1 Prayer Requests Text
-        '6 - Announcements
-        ' 6.1 Announcements Text
-        '7 - Holy Communion
-        '   7.1 Hymn
-        '   7.2 Bread
-        '   7.3 Cup
-        '8 - How to pray
-        '9 - Turn off devices
-        '10 - Service Timetable
 
-        'ADD all slides as appears in powerpoint with key as slide name
-        slideDictionary = New Dictionary(Of String, PowerPoint.Slide)
-        slideDictionary.Add("break", ppPres.Slides(1))
-        slideDictionary.Add("sermonTitle", ppPres.Slides(2))
-        slideDictionary.Add("sermonHymnsSlide", ppPres.Slides(3))
-        slideDictionary.Add("bibleVersesSlide", ppPres.Slides(4))
-        slideDictionary.Add("hymnalHymnsSlide", ppPres.Slides(5))
-        slideDictionary.Add("prayerRequests", ppPres.Slides(6))
-        slideDictionary.Add("announcements", ppPres.Slides(7))
-        slideDictionary.Add("holyCommunion", ppPres.Slides(8))
-        slideDictionary.Add("howToPray", ppPres.Slides(9))
-        slideDictionary.Add("turnOffDevices", ppPres.Slides(10))
-        slideDictionary.Add("serviceTimes", ppPres.Slides(11))
-        'ADD all shapes as appears in powerpoint with key as shappe name
-        textBoxDictionary = New Dictionary(Of String, PowerPoint.TextRange)
-        textBoxDictionary.Add("time", slideDictionary.Item("break").Shapes(1).TextFrame.TextRange)
-        'title slide
-        textBoxDictionary.Add("englishTitle", slideDictionary.Item("sermonTitle").Shapes(1).TextFrame.TextRange)
-        textBoxDictionary.Add("chineseTitle", slideDictionary.Item("sermonTitle").Shapes(2).TextFrame.TextRange)
-        textBoxDictionary.Add("serviceType", slideDictionary.Item("sermonTitle").Shapes(3).TextFrame.TextRange)
-        'sermon hymns slide
-        textBoxDictionary.Add("englishTitle1", slideDictionary.Item("sermonHymnsSlide").Shapes(1).TextFrame.TextRange)
-        textBoxDictionary.Add("chineseTitle1", slideDictionary.Item("sermonHymnsSlide").Shapes(2).TextFrame.TextRange)
-        textBoxDictionary.Add("hymnHeader", slideDictionary.Item("sermonHymnsSlide").Shapes(3).TextFrame.TextRange)
-        textBoxDictionary.Add("sermonHymns", slideDictionary.Item("sermonHymnsSlide").Shapes(4).TextFrame.TextRange)
-        textBoxDictionary.Add("serviceType1", slideDictionary.Item("sermonHymnsSlide").Shapes(5).TextFrame.TextRange)
-        'bible verse slide
-        textBoxDictionary.Add("englishTitle2", slideDictionary.Item("bibleVersesSlide").Shapes(1).TextFrame.TextRange)
-        textBoxDictionary.Add("chineseTitle2", slideDictionary.Item("bibleVersesSlide").Shapes(2).TextFrame.TextRange)
-        textBoxDictionary.Add("bibleHeader", slideDictionary.Item("bibleVersesSlide").Shapes(3).TextFrame.TextRange)
-        textBoxDictionary.Add("englishBook", slideDictionary.Item("bibleVersesSlide").Shapes(4).TextFrame.TextRange)
-        textBoxDictionary.Add("chineseBook", slideDictionary.Item("bibleVersesSlide").Shapes(5).TextFrame.TextRange)
-        textBoxDictionary.Add("chapterAndVerse", slideDictionary.Item("bibleVersesSlide").Shapes(6).TextFrame.TextRange)
-        textBoxDictionary.Add("serviceType2", slideDictionary.Item("bibleVersesSlide").Shapes(7).TextFrame.TextRange)
-        'hymnal hymn slide
-        textBoxDictionary.Add("hymnalHymns", slideDictionary.Item("hymnalHymnsSlide").Shapes(1).TextFrame.TextRange)
-        textBoxDictionary.Add("serviceType3", slideDictionary.Item("hymnalHymnsSlide").Shapes(3).TextFrame.TextRange)
-        'prayer requests slide
-        textBoxDictionary.Add("prayerRequestsTxt", slideDictionary.Item("prayerRequests").Shapes(1).TextFrame.TextRange)
-        textBoxDictionary.Add("prayerRequestsTitle", slideDictionary.Item("prayerRequests").Shapes(2).TextFrame.TextRange)
-        'announcements slide
-        textBoxDictionary.Add("announcementsTxt", slideDictionary.Item("announcements").Shapes(1).TextFrame.TextRange)
-        textBoxDictionary.Add("announcementsTitle", slideDictionary.Item("announcements").Shapes(2).TextFrame.TextRange)
-        'holy communion slide
-        textBoxDictionary.Add("HChymns", slideDictionary.Item("holyCommunion").Shapes(1).TextFrame.TextRange)
-        textBoxDictionary.Add("bread", slideDictionary.Item("holyCommunion").Shapes(2).TextFrame.TextRange)
-        textBoxDictionary.Add("cup", slideDictionary.Item("holyCommunion").Shapes(3).TextFrame.TextRange)
-    End Sub
     'Method to load up the presentation and instantiate slide text boxes
     Private Sub LoadPres()
         ppApp = CreateObject("PowerPoint.Application")
@@ -197,10 +143,17 @@ Public Class MainProgram
         ppPres.SlideShowSettings.ShowPresenterView = False
         ppPres.PageSetup.FirstSlideNumber = 1
         ppPres.SlideShowSettings.Run()
-        MakeDictionary()
+        Dim dict As DictionairyFactory = New DictionairyFactory(ppPres)
+        slideDictionary = dict.getSlideDictionairy()
+        textBoxDictionary = dict.getTextBoxDictionairy()
+
         ResetServiceDetails()
         'by default go to break slide and hymntextbox set to service hymns
         goToBreakBtn.Checked = True
+    End Sub
+
+    Public Sub goToSlide(num As Integer)
+        ppPres.SlideShowWindow.View.GotoSlide(num)
     End Sub
 
     'Method that will reset the program to the initial running state
@@ -253,59 +206,34 @@ Public Class MainProgram
         End If
     End Sub
 
-    'Method to deal with loading the prayer requests image using directory listed out in text file
-    'If no text file exists, then no prayer request image will be loaded
-    Public Sub LoadPrayerImage()
-        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\prayerImgDir.txt") = False Then
-            System.IO.File.WriteAllText(CurrentDirectory + "\Files\prayerImgDir.txt", "")
-        Else
-            Dim directory As String
-            directory = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\prayerImgDir.txt")
-            If My.Computer.FileSystem.FileExists(directory) = True Then
-                slideDictionary.Item("prayerRequests").Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
-            End If
-        End If
-    End Sub
-
-    'Method to deal with loading the timetable image using directory listed out in text file
-    'If no text file exists, then no prayer request image will be loaded
-    Public Sub LoadTimetableImg()
-        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\timetableDir.txt") = False Then
-            System.IO.File.WriteAllText(CurrentDirectory + "\Files\timetableDir.txt", "")
-        Else
-            Dim directory As String
-            directory = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\timetableDir.txt")
-            If My.Computer.FileSystem.FileExists(directory) = True Then
-                slideDictionary.Item("serviceTimes").Shapes.AddPicture(directory, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
-            End If
-        End If
-    End Sub
-
-
-
     Public Sub HandleAnnouncements()
-        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\Announcements.txt") Then
-            Announcements.AnnouncementTxt.Text = File.ReadAllText(CurrentDirectory + "\Files\Announcements.txt", System.Text.Encoding.UTF32)
-            textBoxDictionary.Item("announcementsTxt").Text = Announcements.AnnouncementTxt.Text
-        Else
-            Using sw As StreamWriter = File.CreateText(CurrentDirectory + "\Files\Announcements.txt")
-                sw.WriteLine(" ")
-            End Using
-            Announcements.AnnouncementTxt.Text = File.ReadAllText(CurrentDirectory + "\Files\Announcements.txt", System.Text.Encoding.UTF32)
-            textBoxDictionary.Item("announcementsTxt").Text = Announcements.AnnouncementTxt.Text
-        End If
+        Dim announcementsTxt As String = getTextFile("Announcements.txt")
+        textBoxDictionary.Item("AnnouncementsTxt").Text = announcementsTxt
+        announcementsWindow = New BaseSlideEdit("Announcements", slideDictionary.Item("announcements"))
+        announcementsWindow.setInput(announcementsTxt)
+        announcementsWindow.setBodyTB(textBoxDictionary.Item("AnnouncementsTxt"))
+        announcementsWindow.setTitleTB(textBoxDictionary.Item("AnnouncementsTitle"))
+        announcementsWindow.loadImage(getTextFile("AnnouncementsDir.txt"))
     End Sub
+
+    Public Sub HandleServiceTimes()
+        Dim serviceTxt As String = getTextFile("ServiceTimes.txt")
+        textBoxDictionary.Item("ServiceTimesTxt").Text = serviceTxt
+        serviceTimesWindow = New BaseSlideEdit("Service Times", slideDictionary.Item("serviceTimes"))
+        serviceTimesWindow.setInput(serviceTxt)
+        serviceTimesWindow.setBodyTB(textBoxDictionary.Item("ServiceTimesTxt"))
+        serviceTimesWindow.setTitleTB(textBoxDictionary.Item("ServiceTimesTitle"))
+        serviceTimesWindow.loadImage(getTextFile("ServiceTimesDir.txt"))
+    End Sub
+
     Public Sub HandlePrayerRequests()
-        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\PrayerRequests.txt") Then
-            PrayerRequests.PrayerRequestTxt.Text = File.ReadAllText(CurrentDirectory + "\Files\PrayerRequests.txt", System.Text.Encoding.UTF32)
-            textBoxDictionary.Item("prayerRequestsTxt").Text = PrayerRequests.PrayerRequestTxt.Text
-        Else
-            Using sw As StreamWriter = File.CreateText(CurrentDirectory + "\Files\PrayerRequests.txt")
-                sw.WriteLine(" ")
-            End Using
-            PrayerRequests.PrayerRequestTxt.Text = File.ReadAllText(CurrentDirectory + "\Files\PrayerRequests.txt", System.Text.Encoding.UTF32)
-            textBoxDictionary.Item("prayerRequestsTxt").Text = PrayerRequests.PrayerRequestTxt.Text
-        End If
+        Dim prayerRequestsTxt As String = getTextFile("PrayerRequests.txt")
+        textBoxDictionary.Item("PrayerRequestsTxt").Text = prayerRequestsTxt
+        prayerRequestsWindow = New BaseSlideEdit("Prayer Requests", slideDictionary.Item("prayerRequests"))
+        prayerRequestsWindow.setInput(prayerRequestsTxt)
+        prayerRequestsWindow.setBodyTB(textBoxDictionary.Item("PrayerRequestsTxt"))
+        prayerRequestsWindow.setTitleTB(textBoxDictionary.Item("PrayerRequestsTitle"))
+        prayerRequestsWindow.loadImage(getTextFile("PrayerRequestsDir.txt"))
     End Sub
     Public Sub ChangeFont(textBox As PowerPoint.TextRange)
         If textBox.Font.Name IsNot Nothing Then
@@ -316,57 +244,7 @@ Public Class MainProgram
         End If
         If FontDialog.ShowDialog = DialogResult.OK Then
             'Handle cases for where text boxes are same but on separate slides
-            Select Case True
-                Case textBox.Equals(textBoxDictionary.Item("englishTitle1"))
-                    'if changing font on sermon title slide
-                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonTitle").SlideIndex Then
-                        setFontOfTextbox(textBoxDictionary.Item("englishTitle"))
-                        Return
-                    End If
-                    'if changing font on sermon hymns slide
-                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonHymnsSlide").SlideIndex Then
-                        setFontOfTextbox(textBoxDictionary.Item("englishTitle1"))
-                        Return
-                    End If
-                    'if changing font on bible verses slide
-                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("bibleVersesSlide").SlideIndex Then
-                        setFontOfTextbox(textBoxDictionary.Item("englishTitle2"))
-                        Return
-                    End If
-                    Return
-                Case textBox.Text.Equals(textBoxDictionary.Item("chineseTitle1").Text)
-                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonTitle").SlideIndex Then
-                        setFontOfTextbox(textBoxDictionary.Item("chineseTitle"))
-                        Return
-                    End If
-                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonHymnsSlide").SlideIndex Then
-                        setFontOfTextbox(textBoxDictionary.Item("chineseTitle1"))
-                        Return
-                    End If
-                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("bibleVersesSlide").SlideIndex Then
-                        setFontOfTextbox(textBoxDictionary.Item("chineseTitle2"))
-                        Return
-                    End If
-                    Return
-                Case textBox.Text.Equals(textBoxDictionary.Item("serviceType1").Text)
-                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonTitle").SlideIndex Then
-                        setFontOfTextbox(textBoxDictionary.Item("serviceType1"))
-                        Return
-                    End If
-                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("sermonHymnsSlide").SlideIndex Then
-                        setFontOfTextbox(textBoxDictionary.Item("serviceType1"))
-                        Return
-                    End If
-                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("bibleVersesSlide").SlideIndex Then
-                        setFontOfTextbox(textBoxDictionary.Item("serviceType2"))
-                        Return
-                    End If
-                    If ppPres.SlideShowWindow.View.Slide.SlideIndex = slideDictionary.Item("hymnalHymnsSlide").SlideIndex Then
-                        setFontOfTextbox(textBoxDictionary.Item("serviceType3"))
-                        Return
-                    End If
-                    Return
-            End Select
+            setFontOfTextbox(textBox)
         End If
     End Sub
     Private Sub setFontOfTextbox(textBox As PowerPoint.TextRange)
@@ -400,6 +278,11 @@ Public Class MainProgram
             End Select
             textBox.Font.Color.RGB = acolor
         End If
+    End Sub
+
+    'Method dealing when the exit button is clicked
+    Private Sub ExitBtn_Click(sender As Object, e As EventArgs) Handles closeForm.Click
+        Me.Close()
     End Sub
 
     Private Sub ShowSermonHymns_CheckedChanged(sender As Object, e As EventArgs) Handles ShowSermonHymns.CheckedChanged
@@ -809,6 +692,8 @@ Public Class MainProgram
         If goToAnnouncementsBtn.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("announcements").SlideNumber)
         End If
+
+
     End Sub
 
     Private Sub goToHCBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToHCBtn.CheckedChanged, goToHCBtn.Click
@@ -837,20 +722,55 @@ Public Class MainProgram
         hymnalHymnNo.Text = "Enter Hymn"
     End Sub
 
+    '----------------------------------------FONT AND COLOUR BUTTONS------------------------------------------------------------------------------
+
     Private Sub EnglishFontBtn_Click(sender As Object, e As EventArgs) Handles EnglishFontBtn.Click
-        ChangeFont(textBoxDictionary.Item("englishTitle1"))
+        'change text box depending on slide curretly on
+        Dim textBox As String
+        Dim currentSlideIndex = ppPres.SlideShowWindow.View.Slide.SlideIndex
+        If currentSlideIndex = slideDictionary.Item("sermonHymnsSlide").SlideIndex Then
+            textBox = "englishTitle1"
+        ElseIf currentSlideIndex = slideDictionary.Item("bibleVersesSlide").SlideIndex Then
+            textBox = "englishTitle2"
+        Else
+            'by default change one on sermon title slide
+            textBox = "englishTitle"
+        End If
+        ChangeFont(textBoxDictionary.Item(textBox))
     End Sub
     Private Sub EnglishColorBtn_Click(sender As Object, e As EventArgs) Handles EnglishColorBtn.Click
         ChangeColor(textBoxDictionary.Item("englishTitle1"))
     End Sub
     Private Sub ChineseFontBtn_Click(sender As Object, e As EventArgs) Handles ChineseFontBtn.Click
-        ChangeFont(textBoxDictionary.Item("chineseTitle1"))
+        'change text box depending on slide curretly on
+        Dim textBox As String
+        Dim currentSlideIndex = ppPres.SlideShowWindow.View.Slide.SlideIndex
+        If currentSlideIndex = slideDictionary.Item("sermonHymnsSlide").SlideIndex Then
+            textBox = "chineseTitle1"
+        ElseIf currentSlideIndex = slideDictionary.Item("bibleVersesSlide").SlideIndex Then
+            textBox = "chineseTitle2"
+        Else
+            'by default change one on sermon title slide
+            textBox = "chineseTitle"
+        End If
+        ChangeFont(textBoxDictionary.Item(textBox))
     End Sub
     Private Sub ChineseColorBtn_Click(sender As Object, e As EventArgs) Handles ChineseColorBtn.Click
         ChangeColor(textBoxDictionary.Item("chineseTitle1"))
     End Sub
     Private Sub ServiceTypeFontBtn_Click(sender As Object, e As EventArgs) Handles ServiceTypeFontBtn.Click
-        ChangeFont(textBoxDictionary.Item("serviceType1"))
+        'change text box depending on slide curretly on
+        Dim textBox As String
+        Dim currentSlideIndex = ppPres.SlideShowWindow.View.Slide.SlideIndex
+        If currentSlideIndex = slideDictionary.Item("sermonHymnsSlide").SlideIndex Then
+            textBox = "serviceType1"
+        ElseIf currentSlideIndex = slideDictionary.Item("bibleVersesSlide").SlideIndex Then
+            textBox = "serviceType2"
+        Else
+            'by default change one on sermon title slide
+            textBox = "serviceType"
+        End If
+        ChangeFont(textBoxDictionary.Item(textBox))
     End Sub
     Private Sub ServiceTypeColorBtn_Click(sender As Object, e As EventArgs) Handles ServiceTypeColorBtn.Click
         ChangeColor(textBoxDictionary.Item("serviceType1"))
@@ -901,8 +821,7 @@ Public Class MainProgram
     End Sub
 
     Private Sub OpenPrayerRequestsWindow_Click(sender As Object, e As EventArgs) Handles OpenPrayerRequestsWindow.Click
-        PrayerRequests.Show()
-        PrayerRequests.Focus()
+        prayerRequestsWindow.Show()
     End Sub
 
     Private Sub OpenFolder_Click(sender As Object, e As EventArgs)
@@ -1005,8 +924,7 @@ Public Class MainProgram
 
 
     Private Sub Show_AN_Click(sender As Object, e As EventArgs) Handles Show_AN.Click
-        Announcements.Show()
-        Announcements.Focus()
+        announcementsWindow.Show()
     End Sub
 
     Private Sub edtPrayerImg_Click(sender As Object, e As EventArgs)
@@ -1054,20 +972,7 @@ Public Class MainProgram
 
     'Inserting service times as an image, and inserting into powerpoint slide
     Private Sub ServiceTimesBtn_Click(sender As Object, e As EventArgs) Handles ServiceTimesBtn.Click
-        Try
-            Dim ofd = New OpenFileDialog()
-            ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Downloads"
-            ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*"
-            If ofd.ShowDialog = DialogResult.OK Then
-                slideDictionary.Item("serviceTimes").Shapes.AddPicture(ofd.FileName, False, True, 0, 0, ppPres.PageSetup.SlideWidth, ppPres.PageSetup.SlideHeight)
-                System.IO.File.WriteAllText(CurrentDirectory + "\Files\timetableDir.txt", ofd.FileName)
-                MessageBox.Show("Service Timetable Was Successfully Updated", "Success")
-            Else
-                MessageBox.Show("Service Timetable Was Not Successfully Updated. Please Try Again", "Error")
-            End If
-        Catch ex As Exception
-            MessageBox.Show("Service Timetable Was Not Successfully Updated. Please Try Again", "Error")
-        End Try
+        serviceTimesWindow.Show()
     End Sub
 
 
@@ -1154,80 +1059,5 @@ Public Class MainProgram
     End Sub
 
 
-    'Following Code below will enable the windows form to have shadow and similar effects to a windows 7 application
-    'Taken from stack overflow post in the following link:
-    'https://stackoverflow.com/questions/16493698/drop-shadow-on-a-borderless-winform#:~:text=1)%20Create%20an%20image%20having,4)%20You%20are%20done!
-    Private aeroEnabled As Boolean
-    Protected Overrides ReadOnly Property CreateParams() As CreateParams
-        Get
-            CheckAeroEnabled()
-            Dim cp As CreateParams = MyBase.CreateParams
-            cp.ExStyle = NativeConstants.WS_EX_COMPOSITED
-            If Not aeroEnabled Then
-                cp.ClassStyle = NativeConstants.CS_DROPSHADOW
-                Return cp
-            Else
-                Return cp
-            End If
-        End Get
-    End Property
-    Protected Overrides Sub WndProc(ByRef m As Message)
-        Select Case m.Msg
-            Case NativeConstants.WM_NCPAINT
-                Dim val = 2
-                If aeroEnabled Then
-                    NativeMethods.DwmSetWindowAttribute(Handle, 2, val, 4)
-                    Dim bla As New NativeStructs.MARGINS()
-                    With bla
-                        .bottomHeight = 1
-                        .leftWidth = 0
-                        .rightWidth = 0
-                        .topHeight = 0
-                    End With
-                    NativeMethods.DwmExtendFrameIntoClientArea(Handle, bla)
-                End If
-                Exit Select
-        End Select
-        MyBase.WndProc(m)
-    End Sub
-    Private Sub CheckAeroEnabled()
-        If Environment.OSVersion.Version.Major >= 6 Then
-            Dim enabled As Integer = 0
-            Dim response As Integer = NativeMethods.DwmIsCompositionEnabled(enabled)
-            aeroEnabled = (enabled = 1)
-        Else
-            aeroEnabled = False
-        End If
-    End Sub
-
-
-
 End Class
-
-Public Class NativeStructs
-    Public Structure MARGINS
-        Public leftWidth As Integer
-        Public rightWidth As Integer
-        Public topHeight As Integer
-        Public bottomHeight As Integer
-    End Structure
-End Class
-Public Class NativeMethods
-    <DllImport("dwmapi")>
-    Public Shared Function DwmExtendFrameIntoClientArea(ByVal hWnd As IntPtr, ByRef pMarInset As NativeStructs.MARGINS) As Integer
-    End Function
-    <DllImport("dwmapi")>
-    Friend Shared Function DwmSetWindowAttribute(ByVal hwnd As IntPtr, ByVal attr As Integer, ByRef attrValue As Integer, ByVal attrSize As Integer) As Integer
-    End Function
-    <DllImport("dwmapi.dll")>
-    Public Shared Function DwmIsCompositionEnabled(ByRef pfEnabled As Integer) As Integer
-    End Function
-End Class
-Public Class NativeConstants
-    Public Const CS_DROPSHADOW As Integer = &H20000
-    Public Const WM_NCPAINT As Integer = &H85
-    Public Const WM_ACTIVATEAPP As Integer = &H1C
-    Public Const WS_EX_COMPOSITED As Integer = &H2000000
-End Class
-
 

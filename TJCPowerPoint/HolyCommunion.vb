@@ -1,6 +1,5 @@
 ﻿Imports Microsoft
 Imports Microsoft.Office.Interop
-Imports TJCPowerPoint.NativeConstants, TJCPowerPoint.NativeMethods, TJCPowerPoint.NativeStructs
 'This class is part of the TJC PowerPoint project.
 'The TJC PowerPoint is a simple program displaying bible verses, hymns
 'to a projector using Microsoft PowerPoint.
@@ -22,19 +21,18 @@ Public Class HolyCommunion
     Private Sub onCreate(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim bread As String
         Dim cup As String
-        If My.Computer.FileSystem.FileExists(MainProgram.CurrentDirectory + "\Files\bread.txt") = True Then
-            bread = My.Computer.FileSystem.ReadAllText(MainProgram.CurrentDirectory + "\Files\bread.txt")
+        If My.Computer.FileSystem.FileExists(MainProgram.getCurrentDirectory() + "\Files\bread.txt") = True Then
+            bread = My.Computer.FileSystem.ReadAllText(MainProgram.getCurrentDirectory() + "\Files\bread.txt")
             breadTxt.Text = bread
         End If
-        If My.Computer.FileSystem.FileExists(MainProgram.CurrentDirectory + "\Files\cup.txt") = True Then
-            cup = My.Computer.FileSystem.ReadAllText(MainProgram.CurrentDirectory + "\Files\cup.txt")
+        If My.Computer.FileSystem.FileExists(MainProgram.getCurrentDirectory() + "\Files\cup.txt") = True Then
+            cup = My.Computer.FileSystem.ReadAllText(MainProgram.getCurrentDirectory() + "\Files\cup.txt")
             cupTxt.Text = cup
         End If
 
-        Me.aeroEnabled = False
-        slideNumber = MainProgram.slideDictionary.Item("holyCommunion").SlideNumber
+        slideNumber = MainProgram.getSlide("holyCommunion").SlideNumber
         highlightedParagraph = 1
-        hymnTextBox = MainProgram.textBoxDictionary.Item("HChymns")
+        hymnTextBox = MainProgram.getTextBox("HChymns")
         HymnNos.Text = "Enter Hymn"
     End Sub
 
@@ -48,11 +46,11 @@ Public Class HolyCommunion
     End Sub
 
     Private Sub updateHC_Click(sender As Object, e As EventArgs) Handles updateHC.Click
-        MainProgram.textBoxDictionary.Item("bread").Text = breadTxt.Text
-        MainProgram.textBoxDictionary.Item("cup").Text = cupTxt.Text
+        MainProgram.getTextBox("bread").Text = breadTxt.Text
+        MainProgram.getTextBox("cup").Text = cupTxt.Text
         Try
-            My.Computer.FileSystem.WriteAllText(MainProgram.CurrentDirectory + "\Files\bread.txt", breadTxt.Text, False)
-            My.Computer.FileSystem.WriteAllText(MainProgram.CurrentDirectory + "\Files\cup.txt", cupTxt.Text, False)
+            My.Computer.FileSystem.WriteAllText(MainProgram.getCurrentDirectory() + "\Files\bread.txt", breadTxt.Text, False)
+            My.Computer.FileSystem.WriteAllText(MainProgram.getCurrentDirectory() + "\Files\cup.txt", cupTxt.Text, False)
             MessageBox.Show("Update Successful", "Update Successful")
 
         Catch ex As Exception
@@ -193,11 +191,11 @@ Public Class HolyCommunion
         End If
     End Sub
     Private Sub HymnColorBtn_Click(sender As Object, e As EventArgs) Handles HymnColorBtn.Click
-        MainProgram.ChangeColor(MainProgram.textBoxDictionary.Item("HChymns"))
+        MainProgram.ChangeColor(MainProgram.getTextBox("HChymns"))
     End Sub
 
     Private Sub HymnFontBtn_Click(sender As Object, e As EventArgs) Handles HymnFontBtn.Click
-        MainProgram.ChangeFont(MainProgram.textBoxDictionary.Item("HChymns"))
+        MainProgram.ChangeFont(MainProgram.getTextBox("HChymns"))
     End Sub
 
     Private Sub HymnsSelectionBox_KeyDown(sender As Object, e As KeyEventArgs) Handles HymnsSelectionBox.KeyDown
@@ -276,54 +274,5 @@ Public Class HolyCommunion
             temp = Nothing
         End If
     End Sub
-
-
-
-
-    'FOLLOWING METHODS DEAL WITH CREATING WINDOW AS A BORDERLESS DROP SHADOW WINDOWS FORM
-    'https://stackoverflow.com/questions/16493698/drop-shadow-on-a-borderless-winform#:~:text=1)%20Create%20an%20image%20having,4)%20You%20are%20done!
-    Private aeroEnabled As Boolean
-    Protected Overrides ReadOnly Property CreateParams() As CreateParams
-        Get
-            CheckAeroEnabled()
-            Dim cp As CreateParams = MyBase.CreateParams
-            cp.ExStyle = NativeConstants.WS_EX_COMPOSITED
-            If Not aeroEnabled Then
-                cp.ClassStyle = NativeConstants.CS_DROPSHADOW
-                Return cp
-            Else
-                Return cp
-            End If
-        End Get
-    End Property
-    Protected Overrides Sub WndProc(ByRef m As Message)
-        Select Case m.Msg
-            Case NativeConstants.WM_NCPAINT
-                Dim val = 2
-                If aeroEnabled Then
-                    NativeMethods.DwmSetWindowAttribute(Handle, 2, val, 4)
-                    Dim bla As New NativeStructs.MARGINS()
-                    With bla
-                        .bottomHeight = 1
-                        .leftWidth = 0
-                        .rightWidth = 0
-                        .topHeight = 0
-                    End With
-                    NativeMethods.DwmExtendFrameIntoClientArea(Handle, bla)
-                End If
-                Exit Select
-        End Select
-        MyBase.WndProc(m)
-    End Sub
-    Private Sub CheckAeroEnabled()
-        If Environment.OSVersion.Version.Major >= 6 Then
-            Dim enabled As Integer = 0
-            Dim response As Integer = NativeMethods.DwmIsCompositionEnabled(enabled)
-            aeroEnabled = (enabled = 1)
-        Else
-            aeroEnabled = False
-        End If
-    End Sub
-
 
 End Class
