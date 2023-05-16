@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class MainProgram
-    Inherits System.Windows.Forms.Form
+    Inherits DraggableForm
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()>
@@ -31,7 +31,7 @@ Partial Class MainProgram
         Me.HymnHDFont = New System.Windows.Forms.Button()
         Me.BibleHDColor = New System.Windows.Forms.Button()
         Me.BibleHDFont = New System.Windows.Forms.Button()
-        Me.UpdateVerse = New System.Windows.Forms.Button()
+        Me.updateVerseBtn = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.ChineseBookColorBtn = New System.Windows.Forms.Button()
@@ -77,10 +77,10 @@ Partial Class MainProgram
         Me.EnglishFontBtn = New System.Windows.Forms.Button()
         Me.ChineseFontBtn = New System.Windows.Forms.Button()
         Me.ChineseColorBtn = New System.Windows.Forms.Button()
-        Me.topNavBar = New System.Windows.Forms.FlowLayoutPanel()
+        Me.navBar = New System.Windows.Forms.FlowLayoutPanel()
         Me.closeForm = New System.Windows.Forms.Button()
         Me.minForm = New System.Windows.Forms.Button()
-        Me.TJCLogo = New System.Windows.Forms.PictureBox()
+        Me.header = New System.Windows.Forms.PictureBox()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.projectSlideGroupBox = New System.Windows.Forms.GroupBox()
         Me.goToHCBtn = New System.Windows.Forms.RadioButton()
@@ -114,8 +114,8 @@ Partial Class MainProgram
         Me.hymnalHymnsListBox = New System.Windows.Forms.ListBox()
         Me.BibleVerse.SuspendLayout()
         Me.Title.SuspendLayout()
-        Me.topNavBar.SuspendLayout()
-        CType(Me.TJCLogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.navBar.SuspendLayout()
+        CType(Me.header, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.projectSlideGroupBox.SuspendLayout()
         Me.editSlideGroupBox.SuspendLayout()
         Me.hymnTabControl.SuspendLayout()
@@ -134,7 +134,7 @@ Partial Class MainProgram
         Me.BibleVerse.Controls.Add(Me.HymnHDFont)
         Me.BibleVerse.Controls.Add(Me.BibleHDColor)
         Me.BibleVerse.Controls.Add(Me.BibleHDFont)
-        Me.BibleVerse.Controls.Add(Me.UpdateVerse)
+        Me.BibleVerse.Controls.Add(Me.updateVerseBtn)
         Me.BibleVerse.Controls.Add(Me.Label5)
         Me.BibleVerse.Controls.Add(Me.Label3)
         Me.BibleVerse.Controls.Add(Me.ChineseBookColorBtn)
@@ -228,20 +228,20 @@ Partial Class MainProgram
         Me.BibleHDFont.TabStop = False
         Me.BibleHDFont.UseVisualStyleBackColor = True
         '
-        'UpdateVerse
+        'updateVerseBtn
         '
-        Me.UpdateVerse.BackColor = System.Drawing.Color.Transparent
-        Me.UpdateVerse.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.UpdateVerse.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UpdateVerse.ForeColor = System.Drawing.Color.Navy
-        Me.UpdateVerse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.UpdateVerse.Location = New System.Drawing.Point(470, 83)
-        Me.UpdateVerse.Name = "UpdateVerse"
-        Me.UpdateVerse.Size = New System.Drawing.Size(309, 41)
-        Me.UpdateVerse.TabIndex = 3
-        Me.UpdateVerse.TabStop = False
-        Me.UpdateVerse.Text = "Update Chapter and Verse"
-        Me.UpdateVerse.UseVisualStyleBackColor = False
+        Me.updateVerseBtn.BackColor = System.Drawing.Color.Transparent
+        Me.updateVerseBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.updateVerseBtn.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.updateVerseBtn.ForeColor = System.Drawing.Color.Navy
+        Me.updateVerseBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.updateVerseBtn.Location = New System.Drawing.Point(470, 83)
+        Me.updateVerseBtn.Name = "updateVerseBtn"
+        Me.updateVerseBtn.Size = New System.Drawing.Size(309, 41)
+        Me.updateVerseBtn.TabIndex = 3
+        Me.updateVerseBtn.TabStop = False
+        Me.updateVerseBtn.Text = "Update Chapter and Verse"
+        Me.updateVerseBtn.UseVisualStyleBackColor = False
         '
         'Label5
         '
@@ -804,17 +804,17 @@ Partial Class MainProgram
         Me.ChineseColorBtn.TabStop = False
         Me.ChineseColorBtn.UseVisualStyleBackColor = True
         '
-        'topNavBar
+        'navBar
         '
-        Me.topNavBar.BackColor = System.Drawing.Color.Transparent
-        Me.topNavBar.Controls.Add(Me.closeForm)
-        Me.topNavBar.Controls.Add(Me.minForm)
-        Me.topNavBar.Cursor = System.Windows.Forms.Cursors.Default
-        Me.topNavBar.Location = New System.Drawing.Point(2, 4)
-        Me.topNavBar.Name = "topNavBar"
-        Me.topNavBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.topNavBar.Size = New System.Drawing.Size(808, 40)
-        Me.topNavBar.TabIndex = 30
+        Me.navBar.BackColor = System.Drawing.Color.Transparent
+        Me.navBar.Controls.Add(Me.closeForm)
+        Me.navBar.Controls.Add(Me.minForm)
+        Me.navBar.Cursor = System.Windows.Forms.Cursors.Default
+        Me.navBar.Location = New System.Drawing.Point(749, 4)
+        Me.navBar.Name = "navBar"
+        Me.navBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.navBar.Size = New System.Drawing.Size(61, 33)
+        Me.navBar.TabIndex = 30
         '
         'closeForm
         '
@@ -825,10 +825,10 @@ Partial Class MainProgram
         Me.closeForm.FlatAppearance.BorderSize = 0
         Me.closeForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.closeForm.ForeColor = System.Drawing.Color.Transparent
-        Me.closeForm.Location = New System.Drawing.Point(781, 7)
+        Me.closeForm.Location = New System.Drawing.Point(38, 7)
         Me.closeForm.Margin = New System.Windows.Forms.Padding(7)
         Me.closeForm.Name = "closeForm"
-        Me.closeForm.Size = New System.Drawing.Size(20, 20)
+        Me.closeForm.Size = New System.Drawing.Size(16, 16)
         Me.closeForm.TabIndex = 0
         Me.closeForm.TabStop = False
         Me.closeForm.UseVisualStyleBackColor = False
@@ -842,27 +842,27 @@ Partial Class MainProgram
         Me.minForm.FlatAppearance.BorderSize = 0
         Me.minForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.minForm.ForeColor = System.Drawing.Color.Transparent
-        Me.minForm.Location = New System.Drawing.Point(748, 8)
+        Me.minForm.Location = New System.Drawing.Point(8, 8)
         Me.minForm.Margin = New System.Windows.Forms.Padding(8)
         Me.minForm.Name = "minForm"
         Me.minForm.Padding = New System.Windows.Forms.Padding(3)
-        Me.minForm.Size = New System.Drawing.Size(18, 18)
+        Me.minForm.Size = New System.Drawing.Size(15, 15)
         Me.minForm.TabIndex = 1
         Me.minForm.TabStop = False
         Me.minForm.UseVisualStyleBackColor = False
         '
-        'TJCLogo
+        'header
         '
-        Me.TJCLogo.BackColor = System.Drawing.Color.Transparent
-        Me.TJCLogo.Cursor = System.Windows.Forms.Cursors.Default
-        Me.TJCLogo.Image = CType(resources.GetObject("TJCLogo.Image"), System.Drawing.Image)
-        Me.TJCLogo.InitialImage = Nothing
-        Me.TJCLogo.Location = New System.Drawing.Point(17, 4)
-        Me.TJCLogo.Name = "TJCLogo"
-        Me.TJCLogo.Size = New System.Drawing.Size(312, 40)
-        Me.TJCLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.TJCLogo.TabIndex = 2
-        Me.TJCLogo.TabStop = False
+        Me.header.BackColor = System.Drawing.Color.Transparent
+        Me.header.Cursor = System.Windows.Forms.Cursors.Default
+        Me.header.Image = CType(resources.GetObject("header.Image"), System.Drawing.Image)
+        Me.header.InitialImage = Nothing
+        Me.header.Location = New System.Drawing.Point(17, 11)
+        Me.header.Name = "header"
+        Me.header.Size = New System.Drawing.Size(313, 26)
+        Me.header.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.header.TabIndex = 2
+        Me.header.TabStop = False
         '
         'ImageList1
         '
@@ -1312,8 +1312,8 @@ Partial Class MainProgram
         Me.Controls.Add(Me.editSlideGroupBox)
         Me.Controls.Add(Me.projectSlideGroupBox)
         Me.Controls.Add(Me.Title)
-        Me.Controls.Add(Me.TJCLogo)
-        Me.Controls.Add(Me.topNavBar)
+        Me.Controls.Add(Me.header)
+        Me.Controls.Add(Me.navBar)
         Me.Controls.Add(Me.BibleVerse)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -1328,8 +1328,8 @@ Partial Class MainProgram
         Me.BibleVerse.PerformLayout()
         Me.Title.ResumeLayout(False)
         Me.Title.PerformLayout()
-        Me.topNavBar.ResumeLayout(False)
-        CType(Me.TJCLogo, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.navBar.ResumeLayout(False)
+        CType(Me.header, System.ComponentModel.ISupportInitialize).EndInit()
         Me.projectSlideGroupBox.ResumeLayout(False)
         Me.projectSlideGroupBox.PerformLayout()
         Me.editSlideGroupBox.ResumeLayout(False)
@@ -1360,7 +1360,7 @@ Partial Class MainProgram
     Friend WithEvents Label5 As Label
     Friend WithEvents ChineseBookColorBtn As Button
     Friend WithEvents ChineseBookFontBtn As Button
-    Friend WithEvents UpdateVerse As Button
+    Friend WithEvents updateVerseBtn As Button
     Friend WithEvents OpenPrayerRequestsWindow As Button
     Friend WithEvents SaveFileDialog As SaveFileDialog
     Friend WithEvents Label13 As Label
@@ -1386,10 +1386,10 @@ Partial Class MainProgram
     Friend WithEvents ServiceTypeColorBtn As Button
     Friend WithEvents ServiceTypeFontBtn As Button
     Friend WithEvents Title As GroupBox
-    Friend WithEvents topNavBar As FlowLayoutPanel
+    Friend WithEvents navBar As FlowLayoutPanel
     Friend WithEvents closeForm As Button
     Friend WithEvents minForm As Button
-    Friend WithEvents TJCLogo As PictureBox
+    Friend WithEvents header As PictureBox
     Friend WithEvents moveChineseDown As Button
     Friend WithEvents moveChineseUp As Button
     Friend WithEvents ImageList1 As ImageList

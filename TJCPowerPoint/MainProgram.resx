@@ -5218,7 +5218,7 @@
         RU5ErkJggg==
 </value>
   </data>
-  <data name="TJCLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="header.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABA8AAABYCAYAAACahN6HAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
         DAAACwwBP0AiyAAAMcBJREFUeF7tna2SLsfVpc8l2Hfg8BUownSAgNCYiJgLGYuZOmKIiSNEzUTHSNzE

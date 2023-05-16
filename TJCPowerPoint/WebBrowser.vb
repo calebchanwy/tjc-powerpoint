@@ -1,7 +1,7 @@
 ﻿Public Class WebBrowser
     Private src As String
 
-    Private Sub refresh()
+    Private Sub refreshBrowser()
         Try
             webView.Source = New Uri(src)
         Catch ex As Exception
@@ -11,7 +11,7 @@
 
     Public Sub setSource(source As String)
         src = source
-        refresh()
+        refreshBrowser()
     End Sub
 
 End Class

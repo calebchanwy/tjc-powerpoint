@@ -2,6 +2,7 @@
 Imports System.Runtime.InteropServices
 Imports System.IO
 Public Class BaseSlideEdit
+    Inherits DraggableForm
     Private slideName As String
     Private slideNumber As Integer
     Private aeroEnabled As Boolean
@@ -18,7 +19,6 @@ Public Class BaseSlideEdit
         slideName = nm
         slide = s
         header.Text = slideName
-        aeroEnabled = False
     End Sub
     'Method that updates form's own internal text box
     Public Sub setInput(txt As String)
@@ -49,27 +49,44 @@ Public Class BaseSlideEdit
 
     Private Sub insertImage_Click(sender As Object, e As EventArgs) Handles insertImage.Click
         Try
-            Dim ofd = New OpenFileDialog()
-            ofd.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\Downloads"
+            Dim ofd As New OpenFileDialog()
+            ofd.InitialDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads")
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*"
-            If ofd.ShowDialog = DialogResult.OK Then
-                slide.Shapes.AddPicture(ofd.FileName, False, True, 0, 0, slide.Master.Width, slide.Master.Height)
-                System.IO.File.WriteAllText(Directory.GetCurrentDirectory() + "\Files\" + slideName.Replace(" ", "") + "Dir.txt", ofd.FileName)
-                MessageBox.Show("Image Was Successfully Updated", "Success")
+
+            If ofd.ShowDialog() = DialogResult.OK Then
+                Dim imageFilePath As String = ofd.FileName
+                slide.Shapes.AddPicture(imageFilePath, False, True, 0, 0, slide.Master.Width, slide.Master.Height)
+
+                Dim imageDirPath As String = Path.Combine(Directory.GetCurrentDirectory(), "Files", slideName.Replace(" ", "") + "Dir.txt")
+                File.WriteAllText(imageDirPath, imageFilePath)
+
+                MessageBox.Show("Image was successfully updated.", "Success")
             Else
-                MessageBox.Show("Image Was Not Successfully Updated. Please Try Again", "Error")
+                MessageBox.Show("No image file was selected. Please try again.", "Error")
             End If
         Catch ex As Exception
-            MessageBox.Show("Image Was Not Successfully Updated. Please Try Again", "Error")
+            MessageBox.Show("An error occurred while updating the image. Please try again.", "Error")
         End Try
     End Sub
 
+
     Private Sub delImage_Click(sender As Object, e As EventArgs) Handles delImage.Click
-        If slide.Shapes.Count >= 6 Then
-            slide.Shapes(6).Delete()
-            System.IO.File.WriteAllText(Directory.GetCurrentDirectory() + "\Files\" + slideName.Replace(" ", "") + "Dir.txt", "")
-        End If
+        Try
+            If slide.Shapes.Count >= 6 Then
+                slide.Shapes(6).Delete()
+
+                Dim imageDirPath As String = Path.Combine(Directory.GetCurrentDirectory(), "Files", slideName.Replace(" ", "") + "Dir.txt")
+                File.WriteAllText(imageDirPath, "")
+
+                MessageBox.Show("Image was successfully deleted.", "Success")
+            Else
+                MessageBox.Show("No image is currently inserted.", "Error")
+            End If
+        Catch ex As Exception
+            MessageBox.Show("An error occurred while deleting the image. Please try again.", "Error")
+        End Try
     End Sub
+
 
     Private Sub TitleColorBtn_Click(sender As Object, e As EventArgs) Handles TitleColorBtn.Click
         MainProgram.ChangeColor(titleTB)
@@ -113,42 +130,7 @@ Public Class BaseSlideEdit
     End Sub
 
     Private Sub goToSlideBtn_Click(sender As Object, e As EventArgs) Handles goToSlideBtn.Click
-        MainProgram.goToSlide(slide.SlideNumber)
-    End Sub
-
-
-
-
-    'DEALING WITH FORM MOVEMENT
-    'https://stackoverflow.com/questions/17392088/allow-a-user-to-move-a-borderless-window
-    Private IsFormBeingDragged As Boolean = False
-    Private MouseDownX As Integer
-    Private MouseDownY As Integer
-
-    Private Sub Form1_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles navBar.MouseDown, header.MouseDown
-
-        If e.Button = MouseButtons.Left Then
-            IsFormBeingDragged = True
-            MouseDownX = e.X
-            MouseDownY = e.Y
-        End If
-    End Sub
-    Private Sub Form1_MouseUp(ByVal sender As Object, ByVal e As MouseEventArgs) Handles navBar.MouseUp, header.MouseUp
-
-        If e.Button = MouseButtons.Left Then
-            IsFormBeingDragged = False
-        End If
-    End Sub
-    Private Sub Form1_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles navBar.MouseMove, header.MouseMove
-
-        If IsFormBeingDragged Then
-            Dim temp As Point = New Point()
-
-            temp.X = Me.Location.X + (e.X - MouseDownX)
-            temp.Y = Me.Location.Y + (e.Y - MouseDownY)
-            Me.Location = temp
-            temp = Nothing
-        End If
+        MainProgram.GoToSlide(slide.SlideNumber)
     End Sub
 
 End Class

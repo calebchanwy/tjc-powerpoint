@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class HolyCommunion
-    Inherits System.Windows.Forms.Form
+    Inherits DraggableForm
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()>
@@ -127,10 +127,10 @@ Partial Class HolyCommunion
         Me.navBar.Controls.Add(Me.minForm)
         Me.navBar.Cursor = System.Windows.Forms.Cursors.Default
         Me.navBar.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.navBar.Location = New System.Drawing.Point(0, -2)
+        Me.navBar.Location = New System.Drawing.Point(681, -2)
         Me.navBar.Name = "navBar"
         Me.navBar.Padding = New System.Windows.Forms.Padding(5)
-        Me.navBar.Size = New System.Drawing.Size(749, 51)
+        Me.navBar.Size = New System.Drawing.Size(68, 39)
         Me.navBar.TabIndex = 8
         '
         'closeForm
@@ -143,7 +143,7 @@ Partial Class HolyCommunion
         Me.closeForm.FlatAppearance.BorderSize = 0
         Me.closeForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.closeForm.ForeColor = System.Drawing.Color.Transparent
-        Me.closeForm.Location = New System.Drawing.Point(717, 12)
+        Me.closeForm.Location = New System.Drawing.Point(36, 12)
         Me.closeForm.Margin = New System.Windows.Forms.Padding(7)
         Me.closeForm.Name = "closeForm"
         Me.closeForm.Size = New System.Drawing.Size(15, 15)
@@ -161,7 +161,7 @@ Partial Class HolyCommunion
         Me.minForm.FlatAppearance.BorderSize = 0
         Me.minForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.minForm.ForeColor = System.Drawing.Color.Transparent
-        Me.minForm.Location = New System.Drawing.Point(689, 13)
+        Me.minForm.Location = New System.Drawing.Point(8, 13)
         Me.minForm.Margin = New System.Windows.Forms.Padding(8)
         Me.minForm.Name = "minForm"
         Me.minForm.Padding = New System.Windows.Forms.Padding(3)

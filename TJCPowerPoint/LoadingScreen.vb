@@ -10,5 +10,14 @@
 '© Copyright 2023 True Jesus Church London 
 
 Public Class LoadingScreen
+    Inherits DraggableForm
 
+    Public Sub New()
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+
+    End Sub
 End Class

@@ -131,6 +131,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationEvents.vb" />
     <Compile Include="BaseSlideEdit.Designer.vb">
       <DependentUpon>BaseSlideEdit.vb</DependentUpon>
     </Compile>
@@ -139,6 +140,12 @@
     </Compile>
     <Compile Include="Definition.vb" />
     <Compile Include="DictionairyFactory.vb" />
+    <Compile Include="DraggableForm.Designer.vb">
+      <DependentUpon>DraggableForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DraggableForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HymnSelector.vb" />
     <Compile Include="LoadingScreen.Designer.vb">
       <DependentUpon>LoadingScreen.vb</DependentUpon>
@@ -222,16 +229,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
     <None Include="Resources\bible" />
-    <None Include="Resources\Fonts\SourceSansPro-Bold.ttf" />
-    <None Include="Resources\Fonts\SourceSansPro-BoldItalic.ttf" />
-    <None Include="Resources\Fonts\SourceSansPro-ExtraLight.ttf" />
-    <None Include="Resources\Fonts\SourceSansPro-ExtraLightItalic.ttf" />
-    <None Include="Resources\Fonts\SourceSansPro-Italic.ttf" />
-    <None Include="Resources\Fonts\SourceSansPro-Light.ttf" />
-    <None Include="Resources\Fonts\SourceSansPro-LightItalic.ttf" />
-    <None Include="Resources\Fonts\SourceSansPro-Regular.ttf" />
-    <None Include="Resources\Fonts\SourceSansPro-SemiBold.ttf" />
-    <None Include="Resources\Fonts\SourceSansPro-SemiBoldItalic.ttf" />
     <None Include="Resources\ServiceWidescreen.pptx" />
   </ItemGroup>
   <ItemGroup>
