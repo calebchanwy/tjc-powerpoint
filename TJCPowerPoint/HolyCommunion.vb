@@ -1,4 +1,5 @@
-﻿Imports Microsoft
+﻿Imports System.IO
+Imports Microsoft
 Imports Microsoft.Office.Interop
 'This class is part of the TJC PowerPoint project.
 'The TJC PowerPoint is a simple program displaying bible verses, hymns
@@ -20,14 +21,18 @@ Public Class HolyCommunion
 
     'Method called when the form is initially created
     Private Sub onCreate(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim bread As String
-        Dim cup As String
-        If My.Computer.FileSystem.FileExists(MainProgram.getCurrentDirectory() + "\Files\bread.txt") = True Then
-            bread = My.Computer.FileSystem.ReadAllText(MainProgram.getCurrentDirectory() + "\Files\bread.txt")
+        Dim bread As String = ""
+        Dim cup As String = ""
+
+        Dim breadFilePath As String = Path.Combine(MainProgram.getCurrentDirectory(), "Files\bread.txt")
+        If File.Exists(breadFilePath) Then
+            bread = File.ReadAllText(breadFilePath)
             breadTxt.Text = bread
         End If
-        If My.Computer.FileSystem.FileExists(MainProgram.getCurrentDirectory() + "\Files\cup.txt") = True Then
-            cup = My.Computer.FileSystem.ReadAllText(MainProgram.getCurrentDirectory() + "\Files\cup.txt")
+
+        Dim cupFilePath As String = Path.Combine(MainProgram.getCurrentDirectory(), "Files\cup.txt")
+        If File.Exists(cupFilePath) Then
+            cup = File.ReadAllText(cupFilePath)
             cupTxt.Text = cup
         End If
 
@@ -35,6 +40,7 @@ Public Class HolyCommunion
         highlightedParagraph = 1
         hymnTextBox = MainProgram.getTextBox("HChymns")
         HymnNos.Text = "Enter Hymn"
+
     End Sub
 
     'Method handling when form is closed
@@ -244,7 +250,19 @@ Public Class HolyCommunion
         HymnNos.Text = "Enter Hymn"
     End Sub
 
+    Private Sub colorBreadBtn_Click(sender As Object, e As EventArgs) Handles colorBreadBtn.Click
+        MainProgram.ChangeColor(MainProgram.getTextBox("bread"))
+    End Sub
 
+    Private Sub fontBreadBtn_Click(sender As Object, e As EventArgs) Handles fontBreadBtn.Click
+        MainProgram.ChangeFont(MainProgram.getTextBox("bread"))
+    End Sub
 
+    Private Sub colorCupBtn_Click(sender As Object, e As EventArgs) Handles colorCupBtn.Click
+        MainProgram.ChangeColor(MainProgram.getTextBox("cup"))
+    End Sub
 
+    Private Sub fontCupBtn_Click(sender As Object, e As EventArgs) Handles fontCupBtn.Click
+        MainProgram.ChangeFont(MainProgram.getTextBox("cup"))
+    End Sub
 End Class

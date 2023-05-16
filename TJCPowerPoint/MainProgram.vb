@@ -50,9 +50,11 @@ Public Class MainProgram
 
     'MAIN LOADER
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        LoadingScreen.Show()
+        LoadingScreen.Refresh()
         Try
-            LoadingScreen.Show()
-            MakeFolder()
+
+        MakeFolder()
             LoadPres()
             HandleAnnouncements()
             HandleServiceTimes()
@@ -60,9 +62,7 @@ Public Class MainProgram
             LoadHC()
         Catch ex As Exception
             Close()
-            LoadingScreen.Hide()
         End Try
-        LoadingScreen.Hide()
     End Sub
     'Method to deal with the form closing
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -103,7 +103,6 @@ Public Class MainProgram
         End If
     End Function
 
-
     'Method called to create a folder for the files and resources
     Private Sub MakeFolder()
         If Directory.Exists("\Files") = False Then
@@ -120,7 +119,6 @@ Public Class MainProgram
 
         ' Create a new instance of PowerPoint application
         ppApp = New PowerPoint.Application
-
 
         ' Open the presentation file
         ppPres = ppApp.Presentations.Open(CurrentDirectory & "\Files\ServiceWidescreen.pptx", ReadOnly:=Office.MsoTriState.msoFalse, WithWindow:=Office.MsoTriState.msoFalse)
@@ -141,10 +139,7 @@ Public Class MainProgram
 
         ' Set the default state of the button
         goToBreakBtn.Checked = True
-
     End Sub
-
-
 
     'Method that will reset the program to the initial running state
     Private Sub ResetServiceDetails()
@@ -191,15 +186,12 @@ Public Class MainProgram
             textBoxDictionary.Item("cup").Text = cup
         End If
     End Sub
-
     Public Sub HandleAnnouncements()
         HandleData("Announcements", "announcements", "AnnouncementsTxt", "AnnouncementsTitle", "AnnouncementsDir", announcementsWindow)
     End Sub
-
     Public Sub HandleServiceTimes()
         HandleData("Service Times", "serviceTimes", "ServiceTimesTxt", "ServiceTimesTitle", "ServiceTimesDir", serviceTimesWindow)
     End Sub
-
     Public Sub HandlePrayerRequests()
         HandleData("Prayer Requests", "prayerRequests", "PrayerRequestsTxt", "PrayerRequestsTitle", "PrayerRequestsDir", prayerRequestsWindow)
     End Sub
@@ -250,14 +242,11 @@ Public Class MainProgram
         textBox.Font.Underline = font.Underline
     End Sub
 
-
-
     Public Sub ChangeColor(textBox As PowerPoint.TextRange)
         Dim dialog = New ColorDialog()
         dialog.FullOpen = True
         If dialog.ShowDialog() = DialogResult.OK Then
-            Dim color = ColorDialog.Color
-
+            Dim color = dialog.Color
             Select Case textBox.Text
                 Case textBoxDictionary.Item("englishTitle1").Text
                     ApplyColorToTextBoxes(color, "englishTitle", "englishTitle1", "englishTitle2")
@@ -282,7 +271,7 @@ Public Class MainProgram
     End Sub
 
     Private Function ColorToRGB(color As Color) As Integer
-        Return Color.FromArgb(255, color.B, color.G, color.R).ToArgb()
+        Return Color.FromArgb(255, color.B, color.G, color.R).ToArgb
     End Function
 
 

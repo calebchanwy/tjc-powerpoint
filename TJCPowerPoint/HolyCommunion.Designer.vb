@@ -41,7 +41,11 @@ Partial Class HolyCommunion
         Me.HymnColorBtn = New System.Windows.Forms.Button()
         Me.HymnFontBtn = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.colorBreadBtn = New System.Windows.Forms.Button()
+        Me.fontBreadBtn = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.colorCupBtn = New System.Windows.Forms.Button()
+        Me.fontCupBtn = New System.Windows.Forms.Button()
         Me.navBar.SuspendLayout()
         Me.hymnsGroupBox.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -60,7 +64,7 @@ Partial Class HolyCommunion
         Me.breadTxt.Multiline = True
         Me.breadTxt.Name = "breadTxt"
         Me.breadTxt.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.breadTxt.Size = New System.Drawing.Size(274, 297)
+        Me.breadTxt.Size = New System.Drawing.Size(274, 265)
         Me.breadTxt.TabIndex = 0
         Me.breadTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -76,7 +80,7 @@ Partial Class HolyCommunion
         Me.cupTxt.Multiline = True
         Me.cupTxt.Name = "cupTxt"
         Me.cupTxt.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.cupTxt.Size = New System.Drawing.Size(274, 297)
+        Me.cupTxt.Size = New System.Drawing.Size(274, 266)
         Me.cupTxt.TabIndex = 1
         Me.cupTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -295,19 +299,47 @@ Partial Class HolyCommunion
         '
         Me.GroupBox2.AutoSize = True
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox2.Controls.Add(Me.colorBreadBtn)
+        Me.GroupBox2.Controls.Add(Me.fontBreadBtn)
         Me.GroupBox2.Controls.Add(Me.breadTxt)
         Me.GroupBox2.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(153, 55)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(286, 343)
+        Me.GroupBox2.Size = New System.Drawing.Size(286, 342)
         Me.GroupBox2.TabIndex = 49
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Bread"
+        '
+        'colorBreadBtn
+        '
+        Me.colorBreadBtn.BackgroundImage = CType(resources.GetObject("colorBreadBtn.BackgroundImage"), System.Drawing.Image)
+        Me.colorBreadBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.colorBreadBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.colorBreadBtn.Location = New System.Drawing.Point(6, 292)
+        Me.colorBreadBtn.Name = "colorBreadBtn"
+        Me.colorBreadBtn.Size = New System.Drawing.Size(25, 25)
+        Me.colorBreadBtn.TabIndex = 54
+        Me.colorBreadBtn.TabStop = False
+        Me.colorBreadBtn.UseVisualStyleBackColor = True
+        '
+        'fontBreadBtn
+        '
+        Me.fontBreadBtn.BackgroundImage = CType(resources.GetObject("fontBreadBtn.BackgroundImage"), System.Drawing.Image)
+        Me.fontBreadBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.fontBreadBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.fontBreadBtn.Location = New System.Drawing.Point(37, 292)
+        Me.fontBreadBtn.Name = "fontBreadBtn"
+        Me.fontBreadBtn.Size = New System.Drawing.Size(25, 25)
+        Me.fontBreadBtn.TabIndex = 55
+        Me.fontBreadBtn.TabStop = False
+        Me.fontBreadBtn.UseVisualStyleBackColor = True
         '
         'GroupBox3
         '
         Me.GroupBox3.AutoSize = True
         Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox3.Controls.Add(Me.colorCupBtn)
+        Me.GroupBox3.Controls.Add(Me.fontCupBtn)
         Me.GroupBox3.Controls.Add(Me.cupTxt)
         Me.GroupBox3.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox3.Location = New System.Drawing.Point(446, 55)
@@ -316,6 +348,30 @@ Partial Class HolyCommunion
         Me.GroupBox3.TabIndex = 50
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Cup"
+        '
+        'colorCupBtn
+        '
+        Me.colorCupBtn.BackgroundImage = CType(resources.GetObject("colorCupBtn.BackgroundImage"), System.Drawing.Image)
+        Me.colorCupBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.colorCupBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.colorCupBtn.Location = New System.Drawing.Point(6, 292)
+        Me.colorCupBtn.Name = "colorCupBtn"
+        Me.colorCupBtn.Size = New System.Drawing.Size(25, 25)
+        Me.colorCupBtn.TabIndex = 56
+        Me.colorCupBtn.TabStop = False
+        Me.colorCupBtn.UseVisualStyleBackColor = True
+        '
+        'fontCupBtn
+        '
+        Me.fontCupBtn.BackgroundImage = CType(resources.GetObject("fontCupBtn.BackgroundImage"), System.Drawing.Image)
+        Me.fontCupBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.fontCupBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.fontCupBtn.Location = New System.Drawing.Point(37, 292)
+        Me.fontCupBtn.Name = "fontCupBtn"
+        Me.fontCupBtn.Size = New System.Drawing.Size(25, 25)
+        Me.fontCupBtn.TabIndex = 57
+        Me.fontCupBtn.TabStop = False
+        Me.fontCupBtn.UseVisualStyleBackColor = True
         '
         'HolyCommunion
         '
@@ -375,4 +431,8 @@ Partial Class HolyCommunion
     Friend WithEvents HymnFontBtn As Button
     Friend WithEvents delHymnBtn As Button
     Friend WithEvents clearHymnsBtn As Button
+    Friend WithEvents colorBreadBtn As Button
+    Friend WithEvents fontBreadBtn As Button
+    Friend WithEvents colorCupBtn As Button
+    Friend WithEvents fontCupBtn As Button
 End Class
