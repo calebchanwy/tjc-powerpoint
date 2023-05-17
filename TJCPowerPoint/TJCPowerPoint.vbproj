@@ -276,7 +276,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\XML" />
+    <Content Include="Resources\config.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Book.gif" />

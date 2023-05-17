@@ -151,6 +151,20 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-32&quot; standalone=&quot;yes&quot;?&gt;
+        '''&lt;googleSlides&gt;
+        '''	&lt;announcements&gt;&lt;/announcements&gt;
+        '''	&lt;prayerRequests&gt;&lt;/prayerRequests&gt;
+        '''	&lt;serviceTimes&gt;&lt;/serviceTimes&gt;
+        '''&lt;/googleSlides&gt;.
+        '''</summary>
+        Friend ReadOnly Property config() As String
+            Get
+                Return ResourceManager.GetString("config", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Friend ReadOnly Property Dropper() As System.Drawing.Bitmap
@@ -517,16 +531,6 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("TJCPowerPointLogo", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Byte[].
-        '''</summary>
-        Friend ReadOnly Property XML() As Byte()
-            Get
-                Dim obj As Object = ResourceManager.GetObject("XML", resourceCulture)
-                Return CType(obj,Byte())
             End Get
         End Property
     End Module

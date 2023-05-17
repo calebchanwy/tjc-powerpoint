@@ -111,6 +111,9 @@ Public Class MainProgram
         If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\ServiceWidescreen.pptx") = False Then
             System.IO.File.WriteAllBytes(CurrentDirectory + "\Files\ServiceWidescreen.pptx", My.Resources.ServiceWidescreen)
         End If
+        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\config.xml") = False Then
+            System.IO.File.WriteAllText(CurrentDirectory + "\Files\config.xml", My.Resources.config)
+        End If
     End Sub
 
     Private Sub LoadPres()
@@ -199,12 +202,19 @@ Public Class MainProgram
     Private Sub HandleData(title As String, slideKey As String, bodyTextboxKey As String, titleTextboxKey As String, dirKey As String, ByRef slideWindow As BaseSlideEdit)
         Dim dataTxt As String = getTextFile($"{title}.txt")
         textBoxDictionary.Item(bodyTextboxKey).Text = dataTxt
-        slideWindow = New BaseSlideEdit(title, slideDictionary.Item(slideKey))
+        slideWindow = New BaseSlideEdit(title, slideKey, slideDictionary.Item(slideKey))
         slideWindow.setInput(dataTxt)
         slideWindow.setBodyTB(textBoxDictionary.Item(bodyTextboxKey))
         slideWindow.setTitleTB(textBoxDictionary.Item(titleTextboxKey))
-        slideWindow.loadImage(getTextFile($"{title.Replace(" ", "")}Dir.txt"))
+        Dim xmlDoc As XDocument = XDocument.Load(getCurrentDirectory() + "\Files\config.xml")
+        ' Extract google slides link from xml file
+        Dim googleSlidesLink As String = xmlDoc.Element("root")?.Element("googleSlides")?.Element(slideKey)?.Value
+        slideWindow.setGSLink(googleSlidesLink)
+        'Extract image directory from xml file
+        Dim imageDirectory As String = xmlDoc.Element("root")?.Element("imageDirectories")?.Element(slideKey)?.Value
+        slideWindow.loadImage(imageDirectory)
     End Sub
+
 
     Public Sub ChangeFont(textBox As PowerPoint.TextRange)
         Dim dialog = New FontDialog()
@@ -958,7 +968,6 @@ Public Class MainProgram
         Me.WindowState = FormWindowState.Minimized
     End Sub
 
-    Private Sub MaterialButton1_Click(sender As Object, e As EventArgs)
 
-    End Sub
+
 End Class

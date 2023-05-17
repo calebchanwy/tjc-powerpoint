@@ -67,6 +67,16 @@ TJCPowerPoint
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.config">
+<summary>
+  Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-32&quot; standalone=&quot;yes&quot;?&gt;
+&lt;googleSlides&gt;
+	&lt;announcements&gt;&lt;/announcements&gt;
+	&lt;prayerRequests&gt;&lt;/prayerRequests&gt;
+	&lt;serviceTimes&gt;&lt;/serviceTimes&gt;
+&lt;/googleSlides&gt;.
+</summary>
+</member>
 <member name="P:TJCPowerPoint.My.Resources.Resources.Dropper">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -250,11 +260,6 @@ TJCPowerPoint
 <member name="P:TJCPowerPoint.My.Resources.Resources.TJCPowerPointLogo">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
-<member name="P:TJCPowerPoint.My.Resources.Resources.XML">
-<summary>
-  Looks up a localized resource of type System.Byte[].
 </summary>
 </member>
 </members>

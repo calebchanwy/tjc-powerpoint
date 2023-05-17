@@ -4,19 +4,21 @@ Imports System.Threading
 Public Class BaseSlideEdit
     Inherits DraggableForm
     Private slideName As String
-    Private slideNumber As Integer
+    Private slideKey As String
     Private aeroEnabled As Boolean
     'Text boxes
     Private slide As PowerPoint.Slide
     Private titleTB As PowerPoint.TextRange
     Private bodyTB As PowerPoint.TextRange
+    Private GSlink As String
 
-    Public Sub New(nm As String, s As PowerPoint.Slide)
+    Public Sub New(nm As String, key As String, s As PowerPoint.Slide)
         ' This call is required by the designer.
         InitializeComponent()
 
         ' Add any initialization after the InitializeComponent() call.
         slideName = nm
+        slideKey = key
         slide = s
         header.Text = slideName
         updatePreview()
@@ -26,6 +28,14 @@ Public Class BaseSlideEdit
         txtInput.Text = txt
     End Sub
 
+    Public Sub setGSLink(link As String)
+        GSlink = link
+        googleSlidesLink.Text = GSlink
+    End Sub
+
+    Public Function getGSLink()
+        Return GSlink
+    End Function
     Public Sub setTitleTB(tb As PowerPoint.TextRange)
         titleTB = tb
     End Sub
@@ -46,6 +56,7 @@ Public Class BaseSlideEdit
         If My.Computer.FileSystem.FileExists(dir) = True Then
             slide.Shapes.AddPicture(dir, False, True, 0, 0, slide.Master.Width, slide.Master.Height)
         End If
+        updatePreview()
     End Sub
 
     Private Sub insertImage_Click(sender As Object, e As EventArgs) Handles insertImage.Click
@@ -58,8 +69,7 @@ Public Class BaseSlideEdit
                 Dim imageFilePath As String = ofd.FileName
                 slide.Shapes.AddPicture(imageFilePath, False, True, 0, 0, slide.Master.Width, slide.Master.Height)
 
-                Dim imageDirPath As String = Path.Combine(Directory.GetCurrentDirectory(), "Files", slideName.Replace(" ", "") + "Dir.txt")
-                File.WriteAllText(imageDirPath, imageFilePath)
+                updateDirXML(MainProgram.getCurrentDirectory() + "\Files\config.xml", imageFilePath)
 
                 MessageBox.Show("Image was successfully updated.", "Success")
             Else
@@ -68,6 +78,7 @@ Public Class BaseSlideEdit
         Catch ex As Exception
             MessageBox.Show("An error occurred while updating the image. Please try again.", "Error")
         End Try
+        updatePreview()
     End Sub
 
 
@@ -77,12 +88,13 @@ Public Class BaseSlideEdit
                 slide.Shapes(6).Delete()
 
                 Dim imageDirPath As String = Path.Combine(Directory.GetCurrentDirectory(), "Files", slideName.Replace(" ", "") + "Dir.txt")
-                File.WriteAllText(imageDirPath, "")
+                UpdateDirXML(MainProgram.getCurrentDirectory() + "\Files\config.xml", "")
 
                 MessageBox.Show("Image was successfully deleted.", "Success")
             Else
                 MessageBox.Show("No image is currently inserted.", "Error")
             End If
+            updatePreview()
         Catch ex As Exception
             MessageBox.Show("An error occurred while deleting the image. Please try again.", "Error")
         End Try
@@ -114,11 +126,36 @@ Public Class BaseSlideEdit
         Try
             updatePreview()
             My.Computer.FileSystem.WriteAllText(MainProgram.getCurrentDirectory() + "\Files\" + slideName.Replace(" ", "") + ".txt", txtInput.Text, False)
+            updateGSLinkXML(MainProgram.getCurrentDirectory() + "\Files\config.xml", googleSlidesLink.Text)
             MessageBox.Show("Save Successful", "Save Successful")
+
         Catch ex As Exception
             MessageBox.Show("Save Unsuccessful", "Save Unsuccessful")
         End Try
     End Sub
+
+    Private Sub UpdateXmlElement(xmlFilePath As String, parentElementName As String, elementName As String, newData As String)
+        Dim xmlDoc As XDocument = XDocument.Load(xmlFilePath)
+
+        Dim parentElement As XElement = xmlDoc.Root.Element(parentElementName)
+        If parentElement IsNot Nothing Then
+            Dim element As XElement = parentElement.Element(elementName)
+            If element IsNot Nothing Then
+                Dim updatedElement As New XElement(element.Name, element.Attributes(), newData)
+                element.ReplaceWith(updatedElement)
+                xmlDoc.Save(xmlFilePath)
+            End If
+        End If
+    End Sub
+
+    Private Sub UpdateGSLinkXML(xmlFilePath As String, newData As String)
+        UpdateXmlElement(xmlFilePath, "googleSlides", slideKey, newData)
+    End Sub
+
+    Private Sub UpdateDirXML(xmlFilePath As String, newData As String)
+        UpdateXmlElement(xmlFilePath, "imageDirectories", slideKey, newData)
+    End Sub
+
 
     Private Sub loadTxtBtn_Click(sender As Object, e As EventArgs) Handles loadTxtBtn.Click
         OpenFileDialog.InitialDirectory = MainProgram.getCurrentDirectory() + "\Files\"
@@ -160,6 +197,7 @@ Public Class BaseSlideEdit
         DeleteFileWithRetry(copiedImagePath, 3, 500)
     End Sub
 
+
     Private Sub DeleteFileWithRetry(filePath As String, maxRetries As Integer, delayMilliseconds As Integer)
         Dim retries As Integer = 0
         While retries < maxRetries
@@ -176,7 +214,4 @@ Public Class BaseSlideEdit
         ' Handle the failure case here
     End Sub
 
-    Private Sub previewBox_Click(sender As Object, e As EventArgs) Handles previewBox.Click
-        updatePreview()
-    End Sub
 End Class
