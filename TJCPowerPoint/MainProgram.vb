@@ -416,11 +416,7 @@ Public Class MainProgram
         Dim highlightedParagraph As Integer = -1
         Dim prevHighlightedPar As Integer = -1
 
-        If hymnTabControl.SelectedIndex = 0 Then
-            prevHighlightedPar = prevSermonHymnsHighlightedPar
-        ElseIf hymnTabControl.SelectedIndex = 1 Then
-            prevHighlightedPar = prevHymnalHymnsHighlightedPar
-        End If
+        prevHighlightedPar = If(hymnTabControl.SelectedIndex = 0, prevSermonHymnsHighlightedPar, prevHymnalHymnsHighlightedPar)
 
         If count = 0 Then
             textBox.Text = " "
@@ -456,6 +452,7 @@ Public Class MainProgram
             prevHymnalHymnsHighlightedPar = highlightedParagraph
         End If
     End Sub
+
 
     Private Sub HighlightCurrentHymn(textBox As PowerPoint.TextRange, listBox As ListBox, highlightedParagraph As Integer, prevHighlighted As Integer)
         If listBox.Items.Count = 0 OrElse listBox.Items.Count = 1 Then
@@ -961,4 +958,7 @@ Public Class MainProgram
         Me.WindowState = FormWindowState.Minimized
     End Sub
 
+    Private Sub MaterialButton1_Click(sender As Object, e As EventArgs)
+
+    End Sub
 End Class
