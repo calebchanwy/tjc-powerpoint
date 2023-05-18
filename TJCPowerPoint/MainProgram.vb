@@ -2,6 +2,8 @@
 Imports PowerPoint = Microsoft.Office.Interop.PowerPoint
 Imports System.IO
 Imports System.Xml
+Imports System.Threading
+
 
 'This class is part of the TJC PowerPoint project.
 'The TJC PowerPoint is a simple program displaying bible verses, hymns
@@ -41,25 +43,39 @@ Public Class MainProgram
 
     'CONSTSRUCTOR
     Public Sub New()
+        LoadingScreen.Show()
         'Method dealing with what the form will do when it initially opens
         InitializeComponent()
 
         sermonHymns = New HymnSelector("sermon")
         hymnalHymns = New HymnSelector("hymnal")
+
+        ' Add the event handler for unhandled exceptions
+        AddHandler Application.ThreadException, AddressOf Application_ThreadException
+        AddHandler AppDomain.CurrentDomain.UnhandledException, AddressOf CurrentDomain_UnhandledException
+    End Sub
+    Private Sub Application_ThreadException(sender As Object, e As ThreadExceptionEventArgs)
+        ' Handle the exception here
+        MessageBox.Show("An error occurred. Please restart the application")
+        Me.Close()
     End Sub
 
+    Private Sub CurrentDomain_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs)
+        ' Handle the exception here
+        MessageBox.Show("An error occurred. Please restart the application")
+        Me.Close()
+    End Sub
     'MAIN LOADER
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        LoadingScreen.Show()
-        LoadingScreen.Refresh()
-        Try
 
-        MakeFolder()
+        Try
+            MakeFolder()
             LoadPres()
             HandleAnnouncements()
             HandleServiceTimes()
             HandlePrayerRequests()
             LoadHC()
+            LoadingScreen.Hide()
         Catch ex As Exception
             Close()
         End Try

@@ -857,9 +857,9 @@ Partial Class MainProgram
         Me.header.Cursor = System.Windows.Forms.Cursors.Default
         Me.header.Image = CType(resources.GetObject("header.Image"), System.Drawing.Image)
         Me.header.InitialImage = Nothing
-        Me.header.Location = New System.Drawing.Point(17, 11)
+        Me.header.Location = New System.Drawing.Point(15, 11)
         Me.header.Name = "header"
-        Me.header.Size = New System.Drawing.Size(313, 26)
+        Me.header.Size = New System.Drawing.Size(300, 26)
         Me.header.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.header.TabIndex = 2
         Me.header.TabStop = False
