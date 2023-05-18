@@ -204,16 +204,16 @@ Public Class MainProgram
         End If
     End Sub
     Public Sub HandleAnnouncements()
-        HandleData("Announcements", "announcements", "AnnouncementsTxt", "AnnouncementsTitle", "AnnouncementsDir", announcementsWindow)
+        HandleData("Announcements", "announcements", "AnnouncementsTxt", "AnnouncementsTitle", announcementsWindow)
     End Sub
     Public Sub HandleServiceTimes()
-        HandleData("Service Times", "serviceTimes", "ServiceTimesTxt", "ServiceTimesTitle", "ServiceTimesDir", serviceTimesWindow)
+        HandleData("Service Times", "serviceTimes", "ServiceTimesTxt", "ServiceTimesTitle", serviceTimesWindow)
     End Sub
     Public Sub HandlePrayerRequests()
-        HandleData("Prayer Requests", "prayerRequests", "PrayerRequestsTxt", "PrayerRequestsTitle", "PrayerRequestsDir", prayerRequestsWindow)
+        HandleData("Prayer Requests", "prayerRequests", "PrayerRequestsTxt", "PrayerRequestsTitle", prayerRequestsWindow)
     End Sub
 
-    Private Sub HandleData(title As String, slideKey As String, bodyTextboxKey As String, titleTextboxKey As String, dirKey As String, ByRef slideWindow As BaseSlideEdit)
+    Private Sub HandleData(title As String, slideKey As String, bodyTextboxKey As String, titleTextboxKey As String, ByRef slideWindow As BaseSlideEdit)
         Dim dataTxt As String = getTextFile($"{title}.txt")
         textBoxDictionary.Item(bodyTextboxKey).Text = dataTxt
         slideWindow = New BaseSlideEdit(title, slideKey, slideDictionary.Item(slideKey))

@@ -1,13 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <root>
-  <googleSlides>
-    <announcements></announcements>
-    <prayerRequests></prayerRequests>
-    <serviceTimes></serviceTimes>
-  </googleSlides>
-  <imageDirectories>
-    <announcements></announcements>
-    <prayerRequests></prayerRequests>
-    <serviceTimes>S:\Downloads\Pre-Stream Thumbnails.pptx (8).png</serviceTimes>
-  </imageDirectories>
+	<googleSlides>
+		<Announcements></Announcements>
+		<PrayerRequests></PrayerRequests>
+		<ServiceTimes></ServiceTimes>
+	</googleSlides>
+	<imageDirectories>
+		<Announcements></Announcements>
+		<PrayerRequests></PrayerRequests>
+		<ServiceTimes></ServiceTimes>
+	</imageDirectories>
 </root>

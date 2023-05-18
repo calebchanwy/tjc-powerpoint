@@ -86,7 +86,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>/xuz+v+2P9of1NCRy88mQmJ8gA3p1zkvzZHIMc/jPRw=</dsig:DigestValue>
+        <dsig:DigestValue>FeX/0Zbtw8vZv30HLreLeu1jJkh4mCZd2mSLtNZLioY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -123,7 +123,7 @@
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>qmP83DYR1UAegOuSKLp6j+u7WUqCzsmtWmC5UTZ70Ug=</dsig:DigestValue>
+      <dsig:DigestValue>f9HIfOqLChogVZ9bClvS0nDBsSD/x609Mee5WdsUrYQ=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\icons8-announcement-16.png" size="277">
