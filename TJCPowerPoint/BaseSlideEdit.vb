@@ -1,6 +1,8 @@
 ﻿Imports Microsoft.Office.Interop
 Imports System.IO
 Imports System.Threading
+Imports System.Drawing
+Imports System.Windows.Forms
 Public Class BaseSlideEdit
     Inherits DraggableForm
     Private slideName As String
@@ -11,8 +13,21 @@ Public Class BaseSlideEdit
     Private titleTB As PowerPoint.TextRange
     Private bodyTB As PowerPoint.TextRange
     Private GSlink As String
+    'Borders
+    Private Const BorderSize As Integer = 5
+    Private ReadOnly borderColor As Color = Color.SteelBlue
     'Image Viewer
     Private iv As ImageViewer
+
+    Protected Overrides Sub OnPaint(e As PaintEventArgs)
+        MyBase.OnPaint(e)
+
+        ' Draw the custom border
+        Dim g As Graphics = e.Graphics
+        Dim borderRect As Rectangle = New Rectangle(0, 0, Width - 1, Height - 1)
+        Dim pen As Pen = New Pen(borderColor, BorderSize)
+        g.DrawRectangle(pen, borderRect)
+    End Sub
 
     Public Sub New(nm As String, key As String, s As PowerPoint.Slide)
         ' This call is required by the designer.
