@@ -124,3 +124,4 @@ C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\Micro
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.CopyComplete
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.WebBrowser.resources
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.BaseSlideEdit.resources
+C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.ImageViewer.resources

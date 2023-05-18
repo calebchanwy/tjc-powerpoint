@@ -57,13 +57,13 @@ Public Class MainProgram
     Private Sub Application_ThreadException(sender As Object, e As ThreadExceptionEventArgs)
         ' Handle the exception here
         MessageBox.Show("An error occurred. Please restart the application")
-        Me.Close()
+        Close()
     End Sub
 
     Private Sub CurrentDomain_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs)
         ' Handle the exception here
         MessageBox.Show("An error occurred. Please restart the application")
-        Me.Close()
+        Close()
     End Sub
     'MAIN LOADER
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -71,6 +71,10 @@ Public Class MainProgram
         Try
             MakeFolder()
             LoadPres()
+            ' Reset service details
+            ResetServiceDetails()
+            ' Set the default state of the button
+            goToBreakBtn.Checked = True
             HandleAnnouncements()
             HandleServiceTimes()
             HandlePrayerRequests()
@@ -152,12 +156,6 @@ Public Class MainProgram
         dict = New DictionairyFactory(ppPres)
         slideDictionary = dict.getSlideDictionairy
         textBoxDictionary = dict.getTextBoxDictionairy()
-
-        ' Reset service details
-        ResetServiceDetails()
-
-        ' Set the default state of the button
-        goToBreakBtn.Checked = True
     End Sub
 
     'Method that will reset the program to the initial running state

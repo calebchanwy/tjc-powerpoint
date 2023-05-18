@@ -150,6 +150,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HymnSelector.vb" />
+    <Compile Include="ImageViewer.Designer.vb">
+      <DependentUpon>ImageViewer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ImageViewer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="LoadingScreen.Designer.vb">
       <DependentUpon>LoadingScreen.vb</DependentUpon>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="HolyCommunion.resx">
       <DependentUpon>HolyCommunion.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ImageViewer.resx">
+      <DependentUpon>ImageViewer.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoadingScreen.resx">
       <DependentUpon>LoadingScreen.vb</DependentUpon>
@@ -289,6 +298,8 @@
     <Content Include="Resources\icons8-cup-16.png" />
     <Content Include="Resources\icons8-delete-trash-20.png" />
     <Content Include="Resources\icons8-folder-20.png" />
+    <Content Include="Resources\icons8-full-screen-16.png" />
+    <Content Include="Resources\icons8-full-screen-30.png" />
     <Content Include="Resources\icons8-holy-bible-16 %281%29.png" />
     <Content Include="Resources\icons8-justify-paragraph-16.png" />
     <Content Include="Resources\icons8-music-16.png" />

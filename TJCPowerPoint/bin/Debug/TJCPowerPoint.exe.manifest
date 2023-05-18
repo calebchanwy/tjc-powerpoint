@@ -79,14 +79,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TJCPowerPoint.exe" size="2279424">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TJCPowerPoint.exe" size="2488320">
       <assemblyIdentity name="TJCPowerPoint" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zgBM8RkJb+Q6NIiirwRlLHRRA2nf0m9Y8my+geJfF7Q=</dsig:DigestValue>
+        <dsig:DigestValue>/xuz+v+2P9of1NCRy88mQmJ8gA3p1zkvzZHIMc/jPRw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -187,6 +187,24 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>A/N2zo0T+s7fxw+uw7dH7Cnq1d7sR+//VhyI/OsWMZc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\icons8-full-screen-16.png" size="218">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>wmzJMMJq6e4cJqWA4jnEKFsyOQFJcSz/gtYJh7f2OJ4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\icons8-full-screen-30.png" size="255">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>/XGuQ0i4BtZtbCYk7ZOtZC+7zkd47bQ7rYNz2hdLXl8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\icons8-holy-bible-16 (1).png" size="181">

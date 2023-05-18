@@ -49,6 +49,7 @@ Partial Class BaseSlideEdit
         Me.delImage = New System.Windows.Forms.Button()
         Me.previewBox = New System.Windows.Forms.PictureBox()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.enlargePreviewBtn = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.navBar.SuspendLayout()
@@ -366,13 +367,28 @@ Partial Class BaseSlideEdit
         Me.Label4.TabIndex = 38
         Me.Label4.Text = "Slide Preview"
         '
+        'enlargePreviewBtn
+        '
+        Me.enlargePreviewBtn.BackColor = System.Drawing.Color.Transparent
+        Me.enlargePreviewBtn.BackgroundImage = CType(resources.GetObject("enlargePreviewBtn.BackgroundImage"), System.Drawing.Image)
+        Me.enlargePreviewBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.enlargePreviewBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.enlargePreviewBtn.FlatAppearance.BorderSize = 0
+        Me.enlargePreviewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.enlargePreviewBtn.Location = New System.Drawing.Point(710, 339)
+        Me.enlargePreviewBtn.Name = "enlargePreviewBtn"
+        Me.enlargePreviewBtn.Size = New System.Drawing.Size(25, 25)
+        Me.enlargePreviewBtn.TabIndex = 39
+        Me.enlargePreviewBtn.TabStop = False
+        Me.enlargePreviewBtn.UseVisualStyleBackColor = False
+        '
         'BaseSlideEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border5
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(750, 450)
+        Me.Controls.Add(Me.enlargePreviewBtn)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.previewBox)
         Me.Controls.Add(Me.delImage)
@@ -432,4 +448,5 @@ Partial Class BaseSlideEdit
     Friend WithEvents delImage As Button
     Friend WithEvents previewBox As PictureBox
     Friend WithEvents Label4 As Label
+    Friend WithEvents enlargePreviewBtn As Button
 End Class

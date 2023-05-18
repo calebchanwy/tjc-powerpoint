@@ -11,6 +11,8 @@ Public Class BaseSlideEdit
     Private titleTB As PowerPoint.TextRange
     Private bodyTB As PowerPoint.TextRange
     Private GSlink As String
+    'Image Viewer
+    Private iv As ImageViewer
 
     Public Sub New(nm As String, key As String, s As PowerPoint.Slide)
         ' This call is required by the designer.
@@ -21,6 +23,7 @@ Public Class BaseSlideEdit
         slideKey = key
         slide = s
         header.Text = slideName
+        iv = New ImageViewer()
         updatePreview()
     End Sub
     'Method that updates form's own internal text box
@@ -179,7 +182,7 @@ Public Class BaseSlideEdit
     Private Sub updatePreview()
         ' Export the slide as an image
         Dim imagePath As String = Path.Combine(Path.GetTempPath(), "slide_preview.png")
-        slide.Export(imagePath, "PNG", previewBox.Width, previewBox.Height)
+        slide.Export(imagePath, "PNG", 800, 450)
 
         Dim copiedImagePath As String = Path.GetTempFileName() ' Generate a unique temporary file name
         copiedImagePath = Path.ChangeExtension(copiedImagePath, ".png") ' Change the file extension to .png if needed
@@ -190,6 +193,7 @@ Public Class BaseSlideEdit
         ' Display the slide preview from the copied image file
         Using image As Image = Image.FromFile(copiedImagePath)
             previewBox.Image = New Bitmap(image)
+            iv.updateImage(previewBox.Image)
         End Using
 
         ' Clean up temporary files
@@ -214,4 +218,7 @@ Public Class BaseSlideEdit
         ' Handle the failure case here
     End Sub
 
+    Private Sub previewBox_Click(sender As Object, e As EventArgs) Handles previewBox.Click, enlargePreviewBtn.Click
+        iv.Show()
+    End Sub
 End Class
