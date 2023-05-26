@@ -1,13 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <root>
-	<googleSlides>
-		<Announcements></Announcements>
-		<PrayerRequests></PrayerRequests>
-		<ServiceTimes></ServiceTimes>
-	</googleSlides>
-	<imageDirectories>
-		<Announcements></Announcements>
-		<PrayerRequests></PrayerRequests>
-		<ServiceTimes></ServiceTimes>
-	</imageDirectories>
+  <googleSlides>
+    <announcements>https://www.youtube.com</announcements>
+    <prayerRequests>https://www.tjc.org</prayerRequests>
+    <serviceTimes></serviceTimes>
+  </googleSlides>
+  <imageDirectories>
+    <announcements></announcements>
+    <prayerRequests></prayerRequests>
+    <serviceTimes></serviceTimes>
+  </imageDirectories>
+  <showBrowser>
+    <announcements>True</announcements>
+    <prayerRequests>True</prayerRequests>
+    <serviceTimes>False</serviceTimes>
+  </showBrowser>
 </root>

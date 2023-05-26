@@ -1,5 +1,4 @@
 ﻿Imports System.Runtime.InteropServices
-Imports System.Windows.Forms
 
 Public Class DraggableForm
     Inherits Form
@@ -42,6 +41,5 @@ Public Class DraggableForm
         Dim pen As Pen = New Pen(borderColor, BorderSize)
         g.DrawRectangle(pen, borderRect)
     End Sub
-
 
 End Class

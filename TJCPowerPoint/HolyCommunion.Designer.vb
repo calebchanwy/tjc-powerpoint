@@ -27,7 +27,6 @@ Partial Class HolyCommunion
         Me.cupTxt = New System.Windows.Forms.TextBox()
         Me.header = New System.Windows.Forms.Label()
         Me.updateHC = New System.Windows.Forms.Button()
-        Me.goToHCSlide = New System.Windows.Forms.Button()
         Me.navBar = New System.Windows.Forms.FlowLayoutPanel()
         Me.closeForm = New System.Windows.Forms.Button()
         Me.minForm = New System.Windows.Forms.Button()
@@ -56,7 +55,7 @@ Partial Class HolyCommunion
         '
         Me.breadTxt.AcceptsReturn = True
         Me.breadTxt.AcceptsTab = True
-        Me.breadTxt.BackColor = System.Drawing.SystemColors.Control
+        Me.breadTxt.BackColor = System.Drawing.Color.White
         Me.breadTxt.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.breadTxt.ForeColor = System.Drawing.Color.Black
         Me.breadTxt.Location = New System.Drawing.Point(6, 20)
@@ -72,7 +71,7 @@ Partial Class HolyCommunion
         '
         Me.cupTxt.AcceptsReturn = True
         Me.cupTxt.AcceptsTab = True
-        Me.cupTxt.BackColor = System.Drawing.SystemColors.Control
+        Me.cupTxt.BackColor = System.Drawing.Color.White
         Me.cupTxt.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cupTxt.ForeColor = System.Drawing.Color.Black
         Me.cupTxt.Location = New System.Drawing.Point(6, 19)
@@ -110,18 +109,6 @@ Partial Class HolyCommunion
         Me.updateHC.TabIndex = 3
         Me.updateHC.Text = "Update Holy Communion Slide"
         Me.updateHC.UseVisualStyleBackColor = True
-        '
-        'goToHCSlide
-        '
-        Me.goToHCSlide.AutoSize = True
-        Me.goToHCSlide.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.goToHCSlide.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.goToHCSlide.Location = New System.Drawing.Point(250, 404)
-        Me.goToHCSlide.Name = "goToHCSlide"
-        Me.goToHCSlide.Size = New System.Drawing.Size(196, 36)
-        Me.goToHCSlide.TabIndex = 7
-        Me.goToHCSlide.Text = "Go To Holy Communion Slide"
-        Me.goToHCSlide.UseVisualStyleBackColor = True
         '
         'navBar
         '
@@ -384,7 +371,6 @@ Partial Class HolyCommunion
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.hymnsGroupBox)
-        Me.Controls.Add(Me.goToHCSlide)
         Me.Controls.Add(Me.updateHC)
         Me.Controls.Add(Me.header)
         Me.Controls.Add(Me.navBar)
@@ -415,7 +401,6 @@ Partial Class HolyCommunion
     Friend WithEvents cupTxt As TextBox
     Friend WithEvents header As Label
     Friend WithEvents updateHC As Button
-    Friend WithEvents goToHCSlide As Button
     Friend WithEvents navBar As FlowLayoutPanel
     Friend WithEvents closeForm As Button
     Friend WithEvents minForm As Button

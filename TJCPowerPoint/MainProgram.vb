@@ -47,12 +47,38 @@ Public Class MainProgram
         'Method dealing with what the form will do when it initially opens
         InitializeComponent()
 
-        sermonHymns = New HymnSelector("sermon")
-        hymnalHymns = New HymnSelector("hymnal")
 
         ' Add the event handler for unhandled exceptions
         AddHandler Application.ThreadException, AddressOf Application_ThreadException
         AddHandler AppDomain.CurrentDomain.UnhandledException, AddressOf CurrentDomain_UnhandledException
+    End Sub
+
+    Private Sub MainLoad() Handles MyBase.Load
+        Try
+            MakeFolder()
+            LoadPres()
+
+            ' Reset service details
+            ResetServiceDetails()
+
+            'Handlers of slides
+            HandleAnnouncements()
+            HandleServiceTimes()
+            HandlePrayerRequests()
+            HandleHC()
+
+            'hymn selector objects
+            sermonHymns = New HymnSelector("sermon", getTextBox(Definition.sermonHymns.ToString()), sermonHymnsListBox, 2)
+            hymnalHymns = New HymnSelector("hymnal", getTextBox(Definition.hymnalHymns.ToString()), hymnalHymnsListBox, 3)
+
+            ' Set the default slide when loading up
+            goToBreakBtn.Checked = True
+
+            LoadingScreen.Hide()
+        Catch ex As Exception
+            MessageBox.Show("An error occurred while loading the application. Please try again.", "Error")
+            Close()
+        End Try
     End Sub
     Private Sub Application_ThreadException(sender As Object, e As ThreadExceptionEventArgs)
         ' Handle the exception here
@@ -65,25 +91,7 @@ Public Class MainProgram
         MessageBox.Show("An error occurred. Please restart the application")
         Close()
     End Sub
-    'MAIN LOADER
-    Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Try
-            MakeFolder()
-            LoadPres()
-            ' Reset service details
-            ResetServiceDetails()
-            ' Set the default state of the button
-            goToBreakBtn.Checked = True
-            HandleAnnouncements()
-            HandleServiceTimes()
-            HandlePrayerRequests()
-            LoadHC()
-            LoadingScreen.Hide()
-        Catch ex As Exception
-            Close()
-        End Try
-    End Sub
     'Method to deal with the form closing
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
@@ -191,7 +199,7 @@ Public Class MainProgram
 
     'Method to deal with loading the Holy Communion slide with details from the text files
     'If no text file exists, then no names will be displayed
-    Private Sub LoadHC()
+    Private Sub HandleHC()
         Dim bread As String
         Dim cup As String
         If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\bread.txt") = True Then
@@ -220,13 +228,6 @@ Public Class MainProgram
         slideWindow.setInput(dataTxt)
         slideWindow.setBodyTB(textBoxDictionary.Item(bodyTextboxKey))
         slideWindow.setTitleTB(textBoxDictionary.Item(titleTextboxKey))
-        Dim xmlDoc As XDocument = XDocument.Load(getCurrentDirectory() + "\Files\config.xml")
-        ' Extract google slides link from xml file
-        Dim googleSlidesLink As String = xmlDoc.Element("root")?.Element("googleSlides")?.Element(slideKey)?.Value
-        slideWindow.setGSLink(googleSlidesLink)
-        'Extract image directory from xml file
-        Dim imageDirectory As String = xmlDoc.Element("root")?.Element("imageDirectories")?.Element(slideKey)?.Value
-        slideWindow.loadImage(imageDirectory)
     End Sub
 
 
@@ -381,7 +382,7 @@ Public Class MainProgram
         End If
     End Sub
 
-    Private Function IsCurrentSlideIndex(slideIndex As Integer) As Boolean
+    Public Function IsCurrentSlideIndex(slideIndex As Integer) As Boolean
         Return ppPres.SlideShowWindow.View.Slide.SlideIndex = slideIndex
     End Function
 
@@ -433,81 +434,6 @@ Public Class MainProgram
     End Sub
 
     '-------------------------------------------HYMN SELECTION --------------------------------------------
-    Private Sub UpdateHymns(textBox As PowerPoint.TextRange, listBox As ListBox)
-        Dim hymns As String = ""
-        Dim count As Integer = listBox.Items.Count
-        Dim index As Integer = listBox.SelectedIndex
-        Dim highlightedParagraph As Integer = -1
-        Dim prevHighlightedPar As Integer = -1
-
-        prevHighlightedPar = If(hymnTabControl.SelectedIndex = 0, prevSermonHymnsHighlightedPar, prevHymnalHymnsHighlightedPar)
-
-        If count = 0 Then
-            textBox.Text = " "
-            Return
-        End If
-
-        If count >= 3 Then
-            If index < count - 3 Then
-                hymns = $"{listBox.Items(index)}{vbCr}{listBox.Items(index + 1)}{vbCr}{listBox.Items(index + 2)}"
-            Else
-                hymns = $"{listBox.Items(count - 3)}{vbCr}{listBox.Items(count - 2)}{vbCr}{listBox.Items(count - 1)}"
-            End If
-        Else
-            hymns = String.Join(vbCr, listBox.Items.Cast(Of String))
-        End If
-
-        highlightedParagraph = If(count >= 3, If(listBox.SelectedIndex = listBox.Items.Count - 1, 3, If(listBox.SelectedIndex = listBox.Items.Count - 2, 2, 1)), listBox.SelectedIndex + 1)
-
-        If textBox.Text = hymns AndAlso prevHighlightedPar = highlightedParagraph Then
-            Return
-        End If
-
-        If prevHighlightedPar = 1 OrElse highlightedParagraph = 1 Then
-            ResetParagraph(textBox, 1)
-        End If
-
-        textBox.Text = hymns
-        HighlightCurrentHymn(textBox, listBox, highlightedParagraph, prevHighlightedPar)
-
-        If hymnTabControl.SelectedIndex = 0 Then
-            prevSermonHymnsHighlightedPar = highlightedParagraph
-        ElseIf hymnTabControl.SelectedIndex = 1 Then
-            prevHymnalHymnsHighlightedPar = highlightedParagraph
-        End If
-    End Sub
-
-
-    Private Sub HighlightCurrentHymn(textBox As PowerPoint.TextRange, listBox As ListBox, highlightedParagraph As Integer, prevHighlighted As Integer)
-        If listBox.Items.Count = 0 OrElse listBox.Items.Count = 1 Then
-            HighlightParagraph(textBox, 1)
-            Return
-        End If
-
-        ResetParagraph(textBox, prevHighlighted)
-        HighlightParagraph(textBox, highlightedParagraph)
-    End Sub
-    Private Sub ResetParagraph(textbox As PowerPoint.TextRange, paragraphIndex As Integer)
-        If paragraphIndex > textbox.Paragraphs.Count OrElse textbox.Paragraphs(paragraphIndex).Font.Bold <> Office.MsoTriState.msoTrue Then
-            Return
-        End If
-
-        Dim paragraph = textbox.Paragraphs(paragraphIndex)
-        paragraph.Font.Color.TintAndShade = 0.05
-        paragraph.Font.Size = 50
-        paragraph.Font.Bold = Office.MsoTriState.msoFalse
-    End Sub
-
-    Private Sub HighlightParagraph(textbox As PowerPoint.TextRange, paragraphIndex As Integer)
-        If paragraphIndex > textbox.Paragraphs.Count OrElse textbox.Paragraphs(paragraphIndex).Font.Bold = Office.MsoTriState.msoTrue Then
-            Return
-        End If
-
-        Dim paragraph = textbox.Paragraphs(paragraphIndex)
-        paragraph.Font.Color.TintAndShade = 0
-        paragraph.Font.Size = 75
-        paragraph.Font.Bold = Office.MsoTriState.msoTrue
-    End Sub
 
     Private Sub nextHymn_Click(sender As Object, e As EventArgs) Handles nextHymn.Click
         If sermonHymnsListBox.SelectedIndex = sermonHymnsListBox.Items.Count - 1 Then
@@ -534,60 +460,32 @@ Public Class MainProgram
         End If
         hymnalHymnsListBox.SelectedIndex -= 1
     End Sub
-    Private Sub removeCurrentHymn(textBox As PowerPoint.TextRange, listBox As ListBox)
-        Dim selectedIndex As Integer = listBox.SelectedIndex
-        Dim size As Integer = listBox.Items.Count
 
-        If size = 0 Then
-            'if there are new hymns to be removed return
-            If ShowSermonHymns.Checked Then
-                showTitlesOnly()
-            End If
-            Return
-        End If
-
-        If size = 1 Then
-            'only one hymn in selection box no need to find new selected hymn
-            textBox.Text = " "
-            listBox.Items.Clear()
-            Return
-        End If
-
-        If selectedIndex = size - 1 Then
-            'if hymn is last hymn selected, reselect last hymn
-            listBox.Items.RemoveAt(selectedIndex)
-            listBox.SelectedIndex = size - 2
-            Return
-        End If
-        'for all other cases, select the next hymn at the same index
-        listBox.Items.RemoveAt(selectedIndex)
-        listBox.SelectedIndex = selectedIndex
-    End Sub
     Private Sub clearSermonHymnsBtn_Click(sender As Object, e As EventArgs) Handles clearSermonHymnsBtn.Click
         sermonHymnsListBox.Items.Clear()
-        UpdateHymns(textBoxDictionary.Item("sermonHymns"), sermonHymnsListBox)
+        sermonHymns.UpdateHymns()
     End Sub
     Private Sub clearHymnalHymnsBtn_Click(sender As Object, e As EventArgs) Handles clearHymnalHymns.Click
         hymnalHymnsListBox.Items.Clear()
-        UpdateHymns(textBoxDictionary.Item("hymnalHymns"), hymnalHymnsListBox)
+        hymnalHymns.UpdateHymns()
     End Sub
 
     'handles deleting from button (sermon hymn)
     Private Sub delHymnBtn_Click(sender As Object, e As EventArgs) Handles delHymnBtn.Click
-        removeCurrentHymn(textBoxDictionary.Item("sermonHymns"), sermonHymnsListBox)
+        sermonHymns.removeCurrentHymn()
         If sermonHymnsListBox.Items.Count = 0 And Not ShowHymnal.Checked Then
             showTitlesOnly()
         End If
     End Sub
     'handles deleting from button (hymnal hymn)
     Private Sub delHymnalHymnBtn_Click(sender As Object, e As EventArgs) Handles hymnalDelHymn.Click
-        removeCurrentHymn(textBoxDictionary.Item("hymnalHymns"), hymnalHymnsListBox)
+        hymnalHymns.removeCurrentHymn()
     End Sub
 
     'Handles deleting hymns from selection box
     Private Sub HymnsSelectionBox_KeyDown(sender As Object, e As KeyEventArgs) Handles sermonHymnsListBox.KeyDown
         If e.KeyCode = Keys.Back Or e.KeyCode = Keys.Delete Then
-            removeCurrentHymn(textBoxDictionary.Item("sermonHymns"), sermonHymnsListBox)
+            sermonHymns.removeCurrentHymn()
             If sermonHymnsListBox.Items.Count = 0 And Not ShowHymnal.Checked Then
                 showTitlesOnly()
             End If
@@ -595,59 +493,34 @@ Public Class MainProgram
     End Sub
     Private Sub hymnalHymnsListBox_KeyDown(sender As Object, e As KeyEventArgs) Handles hymnalHymnsListBox.KeyDown
         If e.KeyCode = Keys.Back Or e.KeyCode = Keys.Delete Then
-            removeCurrentHymn(textBoxDictionary.Item("hymnalHymns"), hymnalHymnsListBox)
+            hymnalHymns.removeCurrentHymn()
         End If
     End Sub
     Private Sub sermonHymnsListBox_IndexChanged(sender As Object, e As EventArgs) Handles sermonHymnsListBox.SelectedIndexChanged
         If sermonHymnsListBox.SelectedIndex = -1 Then
             Return
         End If
-        UpdateHymns(textBoxDictionary.Item("sermonHymns"), sermonHymnsListBox)
+        If ShowSermonHymns.Checked And sermonHymnsListBox.Items.Count > 0 Then
+            ShowSermonHymns.PerformClick()
+        End If
+        sermonHymns.UpdateHymns()
     End Sub
     Private Sub hymnalHymnListBox_IndexChanged(sender As Object, e As EventArgs) Handles hymnalHymnsListBox.SelectedIndexChanged
         If hymnalHymnsListBox.SelectedIndex = -1 Then
             Return
         End If
-        UpdateHymns(textBoxDictionary.Item("hymnalHymns"), hymnalHymnsListBox)
+        hymnalHymns.UpdateHymns()
     End Sub
 
     Private Sub sermonHymnNo_KeyDown(sender As Object, e As KeyEventArgs) Handles sermonHymnNo.KeyDown
-        HandleHymnTextBoxKeyDown(e, sermonHymnNo, sermonHymnsListBox, "sermonHymns")
+        sermonHymns.HandleHymnTextBoxKeyDown(e, sermonHymnNo)
     End Sub
 
     Private Sub hymnalHymnNo_KeyDown(sender As Object, e As KeyEventArgs) Handles hymnalHymnNo.KeyDown
-        HandleHymnTextBoxKeyDown(e, hymnalHymnNo, hymnalHymnsListBox, "hymnalHymns")
-    End Sub
-
-    Private Sub HandleHymnTextBoxKeyDown(e As KeyEventArgs, textBox As TextBox, listBox As ListBox, textBoxKey As String)
-        If e.KeyCode = Keys.Enter Then
-            ' User pressed Enter to submit hymn
-            Dim hymnText As String = textBox.Text.Replace(vbNewLine, "").Trim()
-
-            If String.IsNullOrEmpty(hymnText) Then
-                ' User tried to enter an empty line
-                textBox.Text = ""
-                Return
-            End If
-
-            listBox.Items.Add(hymnText)
-            textBox.Text = ""
-
-            ' If first hymn added, select hymn
-            If listBox.Items.Count = 1 Then
-                listBox.SelectedIndex = 0
-                Return
-            End If
-
-            ' Only update hymns if selected index is one of the last three hymns
-            If listBox.SelectedIndex >= listBox.Items.Count - 3 Then
-                UpdateHymns(textBoxDictionary.Item(textBoxKey), listBox)
-            End If
-        End If
+        hymnalHymns.HandleHymnTextBoxKeyDown(e, hymnalHymnNo)
     End Sub
 
     '-----------------------------------------------------------------------------BUTTONS----------------------------------------
-
     'Project slide radio group
 
     Private Sub GoToSlideIfNotAlreadyChecked(sender As Object, targetSlideName As String)
@@ -666,10 +539,20 @@ Public Class MainProgram
 
     Private Sub goToTimetableBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToTimetableBtn.CheckedChanged, goToTimetableBtn.Click
         GoToSlideIfNotAlreadyChecked(sender, "serviceTimes")
+        If goToTimetableBtn.Checked = False Then
+            serviceTimesWindow.HideBrowser()
+        Else
+            serviceTimesWindow.ShowBrowser()
+        End If
     End Sub
 
     Private Sub goToPRBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToPRBtn.CheckedChanged, goToPRBtn.Click
         GoToSlideIfNotAlreadyChecked(sender, "prayerRequests")
+        If goToPRBtn.Checked = False Then
+            prayerRequestsWindow.HideBrowser()
+        Else
+            prayerRequestsWindow.ShowBrowser()
+        End If
     End Sub
 
     Private Sub goToHowToPrayBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToHowToPrayBtn.CheckedChanged, goToHowToPrayBtn.Click
@@ -682,6 +565,11 @@ Public Class MainProgram
 
     Private Sub goToAnnouncementsBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToAnnouncementsBtn.CheckedChanged, goToAnnouncementsBtn.Click
         GoToSlideIfNotAlreadyChecked(sender, Definition.announcements.ToString())
+        If goToAnnouncementsBtn.Checked = False Then
+            announcementsWindow.HideBrowser()
+        Else
+            announcementsWindow.ShowBrowser()
+        End If
     End Sub
 
     Private Sub goToHCBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToHCBtn.CheckedChanged, goToHCBtn.Click
@@ -870,31 +758,26 @@ Public Class MainProgram
             End If
         Next
     End Sub
-
-
     Private Sub BookBox_KeyDown(sender As Object, e As KeyEventArgs) Handles BookBox.KeyDown
-        ' handles when book box is empty, assumes that no verse or chapter should be shown
-        If BookBox.Text Is "" And e.KeyCode = Keys.Enter Then
-            showTitlesOnly()
-            textBoxDictionary.Item("englishBook").Text = " "
-            textBoxDictionary.Item("chineseBook").Text = " "
-            textBoxDictionary.Item("chapterAndVerse").Text = " "
-            VerseTxt.Text = ""
-            ChapterTxt.Text = ""
-            'Mute ding sound from windows
-            e.Handled = True
-            e.SuppressKeyPress = True
-        ElseIf e.KeyCode = Keys.Enter Then
-            If BookBox.SelectedIndex <> -1 Then
+        If e.KeyCode = Keys.Enter Then
+            If BookBox.Text = "" Then
+                ' Handles when book box is empty
+                showTitlesOnly()
+                textBoxDictionary.Item("englishBook").Text = " "
+                textBoxDictionary.Item("chineseBook").Text = " "
+                textBoxDictionary.Item("chapterAndVerse").Text = " "
+                VerseTxt.Text = ""
+                ChapterTxt.Text = ""
+                ' Mute ding sound from Windows
+                e.SuppressKeyPress = True
+            ElseIf BookBox.SelectedIndex <> -1 Then
+                ' Perform action when a book is selected
                 SelectNextControl(sender, True, True, True, True)
-                'Mute ding sound from windows
-                e.Handled = True
+                ' Mute ding sound from Windows
                 e.SuppressKeyPress = True
             End If
         End If
-
     End Sub
-
     Private Sub ChapterTxt_KeyDown(sender As Object, e As KeyEventArgs) Handles ChapterTxt.KeyDown
         If e.KeyCode = Keys.Enter Then
             ChapterTxt.DeselectAll()
@@ -907,7 +790,6 @@ Public Class MainProgram
     Private Sub ChapterTxt_GotFocus(sender As Object, e As EventArgs) Handles ChapterTxt.GotFocus
         ChapterTxt.SelectAll()
     End Sub
-
     Private Sub Show_AN_Click(sender As Object, e As EventArgs) Handles Show_AN.Click
         announcementsWindow.Show()
     End Sub
@@ -975,13 +857,9 @@ Public Class MainProgram
         MoveShapeByOffset(2, 1)
     End Sub
 
-
     'NAVIGATION BAR
     'Methods dealing with when the close/minimise button are pressed
     Private Sub minForm_Click(sender As Object, e As EventArgs) Handles minForm.Click
         Me.WindowState = FormWindowState.Minimized
     End Sub
-
-
-
 End Class

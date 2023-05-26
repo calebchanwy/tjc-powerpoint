@@ -201,6 +201,9 @@
     <EmbeddedResource Include="BaseSlideEdit.resx">
       <DependentUpon>BaseSlideEdit.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DraggableForm.resx">
+      <DependentUpon>DraggableForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HolyCommunion.resx">
       <DependentUpon>HolyCommunion.vb</DependentUpon>
     </EmbeddedResource>

@@ -34,7 +34,6 @@ Partial Class BaseSlideEdit
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.updateBtn = New System.Windows.Forms.Button()
         Me.TitleFontBtn = New System.Windows.Forms.Button()
-        Me.goToSlideBtn = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TitleColorBtn = New System.Windows.Forms.Button()
         Me.BodyColorBtn = New System.Windows.Forms.Button()
@@ -59,7 +58,7 @@ Partial Class BaseSlideEdit
         'useTxtFile
         '
         Me.useTxtFile.AutoSize = True
-        Me.useTxtFile.Location = New System.Drawing.Point(90, 5)
+        Me.useTxtFile.Location = New System.Drawing.Point(92, 5)
         Me.useTxtFile.Name = "useTxtFile"
         Me.useTxtFile.Size = New System.Drawing.Size(102, 17)
         Me.useTxtFile.TabIndex = 1
@@ -69,12 +68,10 @@ Partial Class BaseSlideEdit
         'useGoogleSlides
         '
         Me.useGoogleSlides.AutoSize = True
-        Me.useGoogleSlides.Checked = True
-        Me.useGoogleSlides.Location = New System.Drawing.Point(0, 5)
+        Me.useGoogleSlides.Location = New System.Drawing.Point(2, 5)
         Me.useGoogleSlides.Name = "useGoogleSlides"
         Me.useGoogleSlides.Size = New System.Drawing.Size(90, 17)
         Me.useGoogleSlides.TabIndex = 0
-        Me.useGoogleSlides.TabStop = True
         Me.useGoogleSlides.Text = "Google Slides"
         Me.useGoogleSlides.UseVisualStyleBackColor = True
         '
@@ -198,17 +195,6 @@ Partial Class BaseSlideEdit
         Me.TitleFontBtn.TabIndex = 27
         Me.TitleFontBtn.TabStop = False
         Me.TitleFontBtn.UseVisualStyleBackColor = True
-        '
-        'goToSlideBtn
-        '
-        Me.goToSlideBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.goToSlideBtn.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.goToSlideBtn.Location = New System.Drawing.Point(577, 391)
-        Me.goToSlideBtn.Name = "goToSlideBtn"
-        Me.goToSlideBtn.Size = New System.Drawing.Size(161, 41)
-        Me.goToSlideBtn.TabIndex = 31
-        Me.goToSlideBtn.Text = "Go To Slide"
-        Me.goToSlideBtn.UseVisualStyleBackColor = True
         '
         'Label1
         '
@@ -397,7 +383,6 @@ Partial Class BaseSlideEdit
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.updateBtn)
         Me.Controls.Add(Me.TitleFontBtn)
-        Me.Controls.Add(Me.goToSlideBtn)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.TitleColorBtn)
         Me.Controls.Add(Me.BodyColorBtn)
@@ -433,7 +418,6 @@ Partial Class BaseSlideEdit
     Friend WithEvents Panel1 As Panel
     Friend WithEvents updateBtn As Button
     Friend WithEvents TitleFontBtn As Button
-    Friend WithEvents goToSlideBtn As Button
     Friend WithEvents Label1 As Label
     Friend WithEvents TitleColorBtn As Button
     Friend WithEvents BodyColorBtn As Button

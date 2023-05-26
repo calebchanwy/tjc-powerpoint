@@ -1,13 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <root>
 	<googleSlides>
-		<Announcements></Announcements>
-		<PrayerRequests></PrayerRequests>
-		<ServiceTimes></ServiceTimes>
+		<announcements></announcements>
+		<prayerRequests></prayerRequests>
+		<serviceTimes></serviceTimes>
 	</googleSlides>
 	<imageDirectories>
-		<Announcements></Announcements>
-		<PrayerRequests></PrayerRequests>
-		<ServiceTimes></ServiceTimes>
+		<announcements></announcements>
+		<prayerRequests></prayerRequests>
+		<serviceTimes></serviceTimes>
 	</imageDirectories>
+	<showBrowser>
+		<announcements>False</announcements>
+		<prayerRequests>False</prayerRequests>
+		<serviceTimes>False</serviceTimes>
+	</showBrowser>
 </root>

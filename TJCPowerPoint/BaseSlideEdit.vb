@@ -8,37 +8,30 @@ Public Class BaseSlideEdit
     Private slideName As String
     Private slideKey As String
     Private aeroEnabled As Boolean
+    Private IsUsingBrowser As Boolean
     'Text boxes
     Private slide As PowerPoint.Slide
     Private titleTB As PowerPoint.TextRange
     Private bodyTB As PowerPoint.TextRange
     Private GSlink As String
-    'Borders
-    Private Const BorderSize As Integer = 5
-    Private ReadOnly borderColor As Color = Color.SteelBlue
     'Image Viewer
     Private iv As ImageViewer
-
-    Protected Overrides Sub OnPaint(e As PaintEventArgs)
-        MyBase.OnPaint(e)
-
-        ' Draw the custom border
-        Dim g As Graphics = e.Graphics
-        Dim borderRect As Rectangle = New Rectangle(0, 0, Width - 1, Height - 1)
-        Dim pen As Pen = New Pen(borderColor, BorderSize)
-        g.DrawRectangle(pen, borderRect)
-    End Sub
+    'Web Browser
+    Private webBrowser As WebBrowser
 
     Public Sub New(nm As String, key As String, s As PowerPoint.Slide)
-        ' This call is required by the designer.
-        InitializeComponent()
-
-        ' Add any initialization after the InitializeComponent() call.
+        iv = New ImageViewer()
+        webBrowser = New WebBrowser()
         slideName = nm
         slideKey = key
         slide = s
+
+        ' This call is required by the designer.
+        InitializeComponent()
+        ' Add any initialization after the InitializeComponent() call.
+        loadData()
         header.Text = slideName
-        iv = New ImageViewer()
+        Text = slideName
         updatePreview()
     End Sub
     'Method that updates form's own internal text box
@@ -46,11 +39,71 @@ Public Class BaseSlideEdit
         txtInput.Text = txt
     End Sub
 
+    Private Sub loadData()
+        Dim xmlDoc As XDocument = XDocument.Load(MainProgram.getCurrentDirectory() + "\Files\config.xml")
+        ' Extract google slides link from xml file
+        Dim googleSlidesLink As String = xmlDoc.Element("root")?.Element("googleSlides")?.Element(slideKey)?.Value
+        setGSLink(googleSlidesLink)
+        'Extract image directory from xml file
+        Dim imageDirectory As String = xmlDoc.Element("root")?.Element("imageDirectories")?.Element(slideKey)?.Value
+        loadImage(imageDirectory)
+        'Extract if using google slides or not
+        Dim bool As String = xmlDoc.Element("root")?.Element("showBrowser")?.Element(slideKey)?.Value
+        setBrowserBool(bool)
+    End Sub
+
     Public Sub setGSLink(link As String)
+        If link.Equals("") Then
+            useTxtFile.Checked = True
+        End If
         GSlink = link
         googleSlidesLink.Text = GSlink
     End Sub
 
+    Public Sub setBrowserBool(bool As String)
+        IsUsingBrowser = Boolean.Parse(bool)
+        If IsUsingBrowser Then
+            useGoogleSlides.Checked = True
+        Else
+            useTxtFile.Checked = True
+        End If
+    End Sub
+
+    Public Sub ShowBrowser()
+        'check if using browser or not
+        If useGoogleSlides.Checked Then
+            webBrowser.refreshBrowser(GSlink)
+            webBrowser.Show()
+        End If
+    End Sub
+
+    Public Sub HideBrowser()
+        webBrowser.Hide()
+    End Sub
+
+    Private Sub DeleteFileWithRetry(filePath As String, maxRetries As Integer, delayMilliseconds As Integer)
+        Dim retries As Integer = 0
+        While retries < maxRetries
+            Try
+                File.Delete(filePath)
+                Exit Sub ' File deleted successfully, exit the loop
+            Catch ex As IOException
+                retries += 1
+                Thread.Sleep(delayMilliseconds) ' Introduce a delay before the next retry
+            End Try
+        End While
+
+        ' File deletion failed even after retries
+        ' Handle the failure case here
+    End Sub
+    Private Sub updateLink()
+        'update in xml file
+        GSlink = googleSlidesLink.Text
+        UpdateGSLinkXML(MainProgram.getCurrentDirectory() + "\Files\config.xml", GSlink)
+
+        'update in web browser
+        webBrowser.refreshBrowser(GSlink)
+    End Sub
     Public Function getGSLink()
         Return GSlink
     End Function
@@ -62,13 +115,6 @@ Public Class BaseSlideEdit
         bodyTB = tb
     End Sub
 
-    Public Function getName()
-        Return slideName
-    End Function
-
-    Public Function getSlide()
-        Return slide
-    End Function
 
     Public Sub loadImage(dir As String)
         If My.Computer.FileSystem.FileExists(dir) = True Then
@@ -118,6 +164,30 @@ Public Class BaseSlideEdit
         End Try
     End Sub
 
+    Private Sub UpdateXmlElement(xmlFilePath As String, parentElementName As String, elementName As String, newData As String)
+        Dim xmlDoc As XDocument = XDocument.Load(xmlFilePath)
+
+        Dim parentElement As XElement = xmlDoc.Root.Element(parentElementName)
+        If parentElement IsNot Nothing Then
+            Dim element As XElement = parentElement.Element(elementName)
+            If element IsNot Nothing Then
+                Dim updatedElement As New XElement(element.Name, element.Attributes(), newData)
+                element.ReplaceWith(updatedElement)
+                xmlDoc.Save(xmlFilePath)
+            End If
+        End If
+    End Sub
+
+    Private Sub UpdateGSLinkXML(xmlFilePath As String, newData As String)
+        UpdateXmlElement(xmlFilePath, "googleSlides", slideKey, newData)
+    End Sub
+
+    Private Sub UpdateDirXML(xmlFilePath As String, newData As String)
+        UpdateXmlElement(xmlFilePath, "imageDirectories", slideKey, newData)
+    End Sub
+    Private Sub UpdateShowBrowserXML(xmlFilePath As String, newData As String)
+        UpdateXmlElement(xmlFilePath, "showBrowser", slideKey, newData)
+    End Sub
 
     Private Sub TitleColorBtn_Click(sender As Object, e As EventArgs) Handles TitleColorBtn.Click
         MainProgram.ChangeColor(titleTB)
@@ -143,8 +213,9 @@ Public Class BaseSlideEdit
         bodyTB.Text = txtInput.Text
         Try
             updatePreview()
+            updateLink()
             My.Computer.FileSystem.WriteAllText(MainProgram.getCurrentDirectory() + "\Files\" + slideName.Replace(" ", "") + ".txt", txtInput.Text, False)
-            updateGSLinkXML(MainProgram.getCurrentDirectory() + "\Files\config.xml", googleSlidesLink.Text)
+
             MessageBox.Show("Save Successful", "Save Successful")
 
         Catch ex As Exception
@@ -152,27 +223,6 @@ Public Class BaseSlideEdit
         End Try
     End Sub
 
-    Private Sub UpdateXmlElement(xmlFilePath As String, parentElementName As String, elementName As String, newData As String)
-        Dim xmlDoc As XDocument = XDocument.Load(xmlFilePath)
-
-        Dim parentElement As XElement = xmlDoc.Root.Element(parentElementName)
-        If parentElement IsNot Nothing Then
-            Dim element As XElement = parentElement.Element(elementName)
-            If element IsNot Nothing Then
-                Dim updatedElement As New XElement(element.Name, element.Attributes(), newData)
-                element.ReplaceWith(updatedElement)
-                xmlDoc.Save(xmlFilePath)
-            End If
-        End If
-    End Sub
-
-    Private Sub UpdateGSLinkXML(xmlFilePath As String, newData As String)
-        UpdateXmlElement(xmlFilePath, "googleSlides", slideKey, newData)
-    End Sub
-
-    Private Sub UpdateDirXML(xmlFilePath As String, newData As String)
-        UpdateXmlElement(xmlFilePath, "imageDirectories", slideKey, newData)
-    End Sub
 
 
     Private Sub loadTxtBtn_Click(sender As Object, e As EventArgs) Handles loadTxtBtn.Click
@@ -190,9 +240,6 @@ Public Class BaseSlideEdit
         Me.WindowState = FormWindowState.Minimized
     End Sub
 
-    Private Sub goToSlideBtn_Click(sender As Object, e As EventArgs) Handles goToSlideBtn.Click
-        MainProgram.GoToSlide(slide.SlideNumber)
-    End Sub
 
     Private Sub updatePreview()
         ' Export the slide as an image
@@ -216,24 +263,30 @@ Public Class BaseSlideEdit
         DeleteFileWithRetry(copiedImagePath, 3, 500)
     End Sub
 
-
-    Private Sub DeleteFileWithRetry(filePath As String, maxRetries As Integer, delayMilliseconds As Integer)
-        Dim retries As Integer = 0
-        While retries < maxRetries
-            Try
-                File.Delete(filePath)
-                Exit Sub ' File deleted successfully, exit the loop
-            Catch ex As IOException
-                retries += 1
-                Thread.Sleep(delayMilliseconds) ' Introduce a delay before the next retry
-            End Try
-        End While
-
-        ' File deletion failed even after retries
-        ' Handle the failure case here
-    End Sub
-
     Private Sub previewBox_Click(sender As Object, e As EventArgs) Handles previewBox.Click, enlargePreviewBtn.Click
         iv.Show()
+    End Sub
+
+
+    Private Sub googleSlidesLink_KeyDown(sender As Object, e As KeyEventArgs) Handles googleSlidesLink.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            setGSLink(googleSlidesLink.Text)
+            updateLink()
+        End If
+    End Sub
+
+    Private Sub useTxtFile_CheckedChanged(sender As Object, e As EventArgs) Handles useTxtFile.CheckedChanged
+        If useTxtFile.Checked Then
+            UpdateShowBrowserXML(MainProgram.getCurrentDirectory() + "\Files\config.xml", "False")
+            HideBrowser()
+        End If
+
+    End Sub
+
+    Private Sub useGoogleSlides_CheckedChanged(sender As Object, e As EventArgs) Handles useGoogleSlides.CheckedChanged
+        If useGoogleSlides.Checked And MainProgram.IsCurrentSlideIndex(slide.SlideIndex) Then
+            UpdateShowBrowserXML(MainProgram.getCurrentDirectory() + "\Files\config.xml", "True")
+            ShowBrowser()
+        End If
     End Sub
 End Class
