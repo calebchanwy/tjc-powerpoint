@@ -365,6 +365,7 @@ Partial Class HolyCommunion
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoSize = True
+        Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border33
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(750, 450)
         Me.ControlBox = False
@@ -374,7 +375,6 @@ Partial Class HolyCommunion
         Me.Controls.Add(Me.updateHC)
         Me.Controls.Add(Me.header)
         Me.Controls.Add(Me.navBar)
-        Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Century Gothic", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.HelpButton = True

@@ -114,7 +114,7 @@ Partial Class BaseSlideEdit
         Me.txtInput.AcceptsReturn = True
         Me.txtInput.AcceptsTab = True
         Me.txtInput.AllowDrop = True
-        Me.txtInput.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.txtInput.BackColor = System.Drawing.Color.White
         Me.txtInput.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtInput.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtInput.ForeColor = System.Drawing.Color.Black
@@ -372,6 +372,7 @@ Partial Class BaseSlideEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border32
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(750, 450)
         Me.Controls.Add(Me.enlargePreviewBtn)
@@ -391,7 +392,6 @@ Partial Class BaseSlideEdit
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.loadTxtBtn)
         Me.Controls.Add(Me.navBar)
-        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "BaseSlideEdit"

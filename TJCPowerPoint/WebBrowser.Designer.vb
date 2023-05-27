@@ -35,9 +35,7 @@ Partial Class WebBrowser
         Me.webView.Location = New System.Drawing.Point(0, 0)
         Me.webView.Name = "webView"
         Me.webView.Size = New System.Drawing.Size(1920, 1080)
-        Me.webView.Source = New System.Uri("https://docs.google.com/presentation/d/e/2PACX-1vQdqmBkOapEfRZU9074vKARALl_krONIh" &
-        "KbFSGzGkPx77mDHlqA62WBA7ludUJhXr5oewgqU5tGmGq-/pub?start=false&loop=false&delaym" &
-        "s=3000", System.UriKind.Absolute)
+        Me.webView.Source = New System.Uri("https://tjc.org", System.UriKind.Absolute)
         Me.webView.TabIndex = 0
         Me.webView.ZoomFactor = 1.0R
         '

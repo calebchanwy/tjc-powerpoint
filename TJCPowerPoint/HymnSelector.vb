@@ -32,9 +32,6 @@ Public Class HymnSelector
         Return nameCollection
     End Function
 
-
-    'HYMN SELECTION --------------------------------------------
-
     Public Sub updateHymns()
         Dim hymnsAsString As String = ""
         Dim hymnsAsArray As New ArrayList

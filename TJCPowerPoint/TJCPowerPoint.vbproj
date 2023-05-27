@@ -288,6 +288,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\border3.png" />
     <Content Include="Resources\config.xml" />
   </ItemGroup>
   <ItemGroup>

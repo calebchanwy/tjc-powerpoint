@@ -52,6 +52,21 @@ TJCPowerPoint
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.border31">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.border32">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:TJCPowerPoint.My.Resources.Resources.border33">
+<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member>
 <member name="P:TJCPowerPoint.My.Resources.Resources.border4">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -69,12 +84,24 @@ TJCPowerPoint
 </member>
 <member name="P:TJCPowerPoint.My.Resources.Resources.config">
 <summary>
-  Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-32&quot; standalone=&quot;yes&quot;?&gt;
-&lt;googleSlides&gt;
-	&lt;announcements&gt;&lt;/announcements&gt;
-	&lt;prayerRequests&gt;&lt;/prayerRequests&gt;
-	&lt;serviceTimes&gt;&lt;/serviceTimes&gt;
-&lt;/googleSlides&gt;.
+  Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;yes&quot;?&gt;
+&lt;root&gt;
+	&lt;googleSlides&gt;
+		&lt;announcements&gt;&lt;/announcements&gt;
+		&lt;prayerRequests&gt;&lt;/prayerRequests&gt;
+		&lt;serviceTimes&gt;&lt;/serviceTimes&gt;
+	&lt;/googleSlides&gt;
+	&lt;imageDirectories&gt;
+		&lt;announcements&gt;&lt;/announcements&gt;
+		&lt;prayerRequests&gt;&lt;/prayerRequests&gt;
+		&lt;serviceTimes&gt;&lt;/serviceTimes&gt;
+	&lt;/imageDirectories&gt;
+	&lt;showBrowser&gt;
+		&lt;announcements&gt;False&lt;/announcements&gt;
+		&lt;prayerRequests&gt;False&lt;/prayerRequests&gt;
+		&lt;serviceTimes&gt;False&lt;/serviceTimes&gt;
+	&lt;/showBrowser&gt;
+&lt;/root [rest of string was truncated]&quot;;.
 </summary>
 </member>
 <member name="P:TJCPowerPoint.My.Resources.Resources.Dropper">

@@ -123,6 +123,36 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property border31() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("border31", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property border32() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("border32", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property border33() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("border33", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property border4() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("border4", resourceCulture)
@@ -151,12 +181,24 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-32&quot; standalone=&quot;yes&quot;?&gt;
-        '''&lt;googleSlides&gt;
-        '''	&lt;announcements&gt;&lt;/announcements&gt;
-        '''	&lt;prayerRequests&gt;&lt;/prayerRequests&gt;
-        '''	&lt;serviceTimes&gt;&lt;/serviceTimes&gt;
-        '''&lt;/googleSlides&gt;.
+        '''  Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; standalone=&quot;yes&quot;?&gt;
+        '''&lt;root&gt;
+        '''	&lt;googleSlides&gt;
+        '''		&lt;announcements&gt;&lt;/announcements&gt;
+        '''		&lt;prayerRequests&gt;&lt;/prayerRequests&gt;
+        '''		&lt;serviceTimes&gt;&lt;/serviceTimes&gt;
+        '''	&lt;/googleSlides&gt;
+        '''	&lt;imageDirectories&gt;
+        '''		&lt;announcements&gt;&lt;/announcements&gt;
+        '''		&lt;prayerRequests&gt;&lt;/prayerRequests&gt;
+        '''		&lt;serviceTimes&gt;&lt;/serviceTimes&gt;
+        '''	&lt;/imageDirectories&gt;
+        '''	&lt;showBrowser&gt;
+        '''		&lt;announcements&gt;False&lt;/announcements&gt;
+        '''		&lt;prayerRequests&gt;False&lt;/prayerRequests&gt;
+        '''		&lt;serviceTimes&gt;False&lt;/serviceTimes&gt;
+        '''	&lt;/showBrowser&gt;
+        '''&lt;/root [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property config() As String
             Get

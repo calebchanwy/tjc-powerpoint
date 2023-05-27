@@ -1307,7 +1307,7 @@ Partial Class MainProgram
         Me.BackColor = System.Drawing.SystemColors.Control
         Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border5
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(815, 490)
+        Me.ClientSize = New System.Drawing.Size(799, 451)
         Me.Controls.Add(Me.hymnTabControl)
         Me.Controls.Add(Me.editSlideGroupBox)
         Me.Controls.Add(Me.projectSlideGroupBox)
@@ -1315,7 +1315,6 @@ Partial Class MainProgram
         Me.Controls.Add(Me.header)
         Me.Controls.Add(Me.navBar)
         Me.Controls.Add(Me.BibleVerse)
-        Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)

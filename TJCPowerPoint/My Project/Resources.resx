@@ -234,6 +234,9 @@
         vxUh31pqa1op5e6WAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="config" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\config.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-32</value>
+  </data>
   <data name="tjcbirdlogoTransparent" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAyAAAAMgCAYAAADbcAZoAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
@@ -1068,6 +1071,9 @@
         AABJRU5ErkJggg==
 </value>
   </data>
+  <data name="border31" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\border3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="TJCPowerPointLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TJCPowerPointLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -1644,6 +1650,17 @@
         1ogeAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="icons8-restart-24" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAVlJREFUSEvd
+        lEdOBDEQAEekC+EhwC/gTJAQrwCRPsAN9hukD5HDJ1bLBQ5A1YiWRpPWWOKyJZW0xnb3YLu7mChO8bvD
+        Ku/4hDe4i3OYTFeSKvW5N9zGZNqSVJnHFTzAW4w1A5zCsZxhNbh2MY17+IGRpJctdOEnXvz+7ksQrGEk
+        MUYrs/iKLvKrJI4rhX10rTGM1WAHXXCH/uuBSVJwj3uNYawG1+ikl5fLERrjqhzV8G07uVyO8lhFYxir
+        wQidXChHeSyiMYzVIBK4KJclNMawHNV4Rif/7Yjikg/LUR4naAxrqIGNy8n6M03FPfdojNZnale0cbkg
+        Cu0v+Lzd+4KthSZ2RRdZ9pZ/Kutoe/nCDf/Qhw0rklj+fcc1g365wd1joxyLLTeSqHdihfpCrBH19zHG
+        mfvl55jUrgO7YjS/Pj3zTczCy/JF2Fse0WLUB7xE5zovdBIoih/X9XpcaBZutgAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="icons8-folder-20" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAINJREFUOE9j
@@ -1909,6 +1926,9 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAqOu6PwFYJ30/t+Y+qwAAAABJ
         RU5ErkJggg==
 </value>
+  </data>
+  <data name="icons8-justify-paragraph-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-justify-paragraph-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="tjcbirdlogo" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2197,8 +2217,8 @@
         AABJRU5ErkJggg==
 </value>
   </data>
-  <data name="icons8-cup-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-cup-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="border32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\border3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-schedule-20" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2330,16 +2350,8 @@
         gJIkSZIkSVI4A1CSJEmSJEnKdj8vw5YFhp6QO80AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="icons8-restart-24" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAVlJREFUSEvd
-        lEdOBDEQAEekC+EhwC/gTJAQrwCRPsAN9hukD5HDJ1bLBQ5A1YiWRpPWWOKyJZW0xnb3YLu7mChO8bvD
-        Ku/4hDe4i3OYTFeSKvW5N9zGZNqSVJnHFTzAW4w1A5zCsZxhNbh2MY17+IGRpJctdOEnXvz+7ksQrGEk
-        MUYrs/iKLvKrJI4rhX10rTGM1WAHXXCH/uuBSVJwj3uNYawG1+ikl5fLERrjqhzV8G07uVyO8lhFYxir
-        wQidXChHeSyiMYzVIBK4KJclNMawHNV4Rif/7Yjikg/LUR4naAxrqIGNy8n6M03FPfdojNZnale0cbkg
-        Cu0v+Lzd+4KthSZ2RRdZ9pZ/Kutoe/nCDf/Qhw0rklj+fcc1g365wd1joxyLLTeSqHdihfpCrBH19zHG
-        mfvl55jUrgO7YjS/Pj3zTczCy/JF2Fse0WLUB7xE5zovdBIoih/X9XpcaBZutgAAAABJRU5ErkJggg==
-</value>
+  <data name="icons8-cup-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icons8-cup-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="icons8-music-161" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -2811,10 +2823,7 @@
         mfvl55jUrgO7YjS/Pj3zTczCy/JF2Fse0WLUB7xE5zovdBIoih/X9XpcaBZutgAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="icons8-justify-paragraph-16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icons8-justify-paragraph-16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="config" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\config.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-32</value>
+  <data name="border33" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\border3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
