@@ -190,6 +190,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="SettingsForm.Designer.vb">
+      <DependentUpon>SettingsForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="WebBrowser.Designer.vb">
       <DependentUpon>WebBrowser.vb</DependentUpon>
     </Compile>
@@ -222,6 +228,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WebBrowser.resx">
       <DependentUpon>WebBrowser.vb</DependentUpon>
@@ -313,6 +322,7 @@
     <Content Include="Resources\icons8-save-20.png" />
     <Content Include="Resources\icons8-schedule-16.png" />
     <Content Include="Resources\icons8-schedule-20.png" />
+    <Content Include="Resources\icons8-settings-24.png" />
     <Content Include="Resources\minimize-sign.png" />
     <Content Include="Resources\tjcbirdlogo.ico" />
     <Content Include="Resources\tjcbirdlogoTransparent.png" />

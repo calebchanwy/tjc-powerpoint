@@ -79,14 +79,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TJCPowerPoint.exe" size="2503680">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TJCPowerPoint.exe" size="2715136">
       <assemblyIdentity name="TJCPowerPoint" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zvEFsKtdhpzDIN5jKDsDRKwMFVH30oxKEtZegNrfY/Q=</dsig:DigestValue>
+        <dsig:DigestValue>Cwvr/5tJzP8pZP8s5W7v7bwpfTzkgv/gOa9cP/re59U=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -288,6 +288,15 @@
       <dsig:DigestValue>cEgZVYZjd2LJaocRQgqEsrMQC+SrxQdHsdPwQqMcJX4=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Resources\icons8-settings-24.png" size="347">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>4vcTEpSKXprMqaKbowDeHGl/ff7YnYcgbGJp4UgbsMw=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Resources\minimize-sign.png" size="2664">
     <hash>
       <dsig:Transforms>
@@ -333,13 +342,13 @@
       <dsig:DigestValue>/BTcJ1Am2rpIxAFKDeD04igEP6iZya4DCPbqLCOa8fE=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="TJCPowerPoint.exe.config" size="220">
+  <file name="TJCPowerPoint.exe.config" size="854">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>izReS3RVASV+RGfZ+cGZXWodHUGSfDB0wKbOH+C3dVQ=</dsig:DigestValue>
+      <dsig:DigestValue>bhldKexV/3anlfg2HkR1Mynun3J7l1XxTEZKPcetNvI=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

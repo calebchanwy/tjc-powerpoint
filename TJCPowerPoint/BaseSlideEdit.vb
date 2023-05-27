@@ -71,7 +71,7 @@ Public Class BaseSlideEdit
 
     Public Sub ShowBrowser()
         'check if using browser or not
-        If useGoogleSlides.Checked Then
+        If IsUsingBrowser Then
             webBrowser.refreshBrowser(GSlink)
             webBrowser.Show()
         End If

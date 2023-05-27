@@ -47,7 +47,6 @@ Public Class MainProgram
         'Method dealing with what the form will do when it initially opens
         InitializeComponent()
 
-
         ' Add the event handler for unhandled exceptions
         AddHandler Application.ThreadException, AddressOf Application_ThreadException
         AddHandler AppDomain.CurrentDomain.UnhandledException, AddressOf CurrentDomain_UnhandledException
@@ -861,5 +860,9 @@ Public Class MainProgram
     'Methods dealing with when the close/minimise button are pressed
     Private Sub minForm_Click(sender As Object, e As EventArgs) Handles minForm.Click
         Me.WindowState = FormWindowState.Minimized
+    End Sub
+
+    Private Sub settingsBtn_Click(sender As Object, e As EventArgs) Handles settingsBtn.Click
+        SettingsForm.Show()
     End Sub
 End Class

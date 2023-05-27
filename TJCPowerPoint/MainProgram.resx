@@ -5218,10 +5218,21 @@
         RU5ErkJggg==
 </value>
   </data>
+  <data name="settingsBtn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DgAACw4BQL7hQQAAAShJREFUSEvl1U0uBFEUhuFi7Cf0LphbBxGmbAC7YANMsQG9BqzCTEIkFkDP/Lxv
+        opKbU+dWp5Iy4UueSdc551ZuVd9q/k1O8BUcY7RcIy5whVGyiUfEBfxtA4OygDtMsY8LfCIOb3nNGmvt
+        ucciqjlENmgIZ6RZwguypiFesYJOTpE16Am7WP6xjQdktXJWJzt4Ryx2+Dpi1uC1WO8MZ6XZwgxlg3de
+        yx7KWnud0Zs3lE1uSS3udVlr79wMWWAVZe3cBbIt8oHW4vtf1vZukYOyh+zb4gONmeAZsd4Z6U2dIRa3
+        fFt8oO65vPNseMtZnfz6H80cIGsawhnVeNjd4gZuwzk+kA2S16yx1h4Pyt7DLotH8mjHdS1+XOIClxgt
+        fh7jAkf482mab9/H2GDZv3hbAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="header.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAucAAABBCAYAAABy3QoSAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DwAACw8BkvkDpQAAHxpJREFUeF7tnTHS9LaRhp1vYt9A5RO4ai+gwPGWEtc6VORYmVNVbeJoS+E6U7ir
+        DAAACwwBP0AiyAAAHxpJREFUeF7tnTHS9LaRhp1vYt9A5RO4ai+gwPGWEtc6VORYmVNVbeJoS+E6U7ir
         SPE60QEc6AKu0gm8Cp1pn3c0+NzT0wABEuRwZjp4/v8boBsEAZB82QTBX/z000/JAfziP/7nU/gCvoLv
         DN/CJ5FPkiRJkiRJ8l6Eicl2JLhBYlwC/KcKyvtl5J8kSZIkSZK8H2Fish7EtiLkioZHYtzyZeSfJEmS
         JEmSvC9hYjIOYvsz+MGI7xo/wmdRGUmSJEmSJMl7EyYm/SC0fwOtqSsWCfPfROUkSZIkSZIkSZiY9IHQ

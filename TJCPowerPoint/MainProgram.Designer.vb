@@ -80,6 +80,7 @@ Partial Class MainProgram
         Me.navBar = New System.Windows.Forms.FlowLayoutPanel()
         Me.closeForm = New System.Windows.Forms.Button()
         Me.minForm = New System.Windows.Forms.Button()
+        Me.settingsBtn = New System.Windows.Forms.Button()
         Me.header = New System.Windows.Forms.PictureBox()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.projectSlideGroupBox = New System.Windows.Forms.GroupBox()
@@ -428,7 +429,7 @@ Partial Class MainProgram
         Me.ShowHymnal.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ShowHymnal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ShowHymnal.ForeColor = System.Drawing.Color.Black
-        Me.ShowHymnal.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_music_16
+        Me.ShowHymnal.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_musical_notes_16
         Me.ShowHymnal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ShowHymnal.Location = New System.Drawing.Point(126, 22)
         Me.ShowHymnal.Name = "ShowHymnal"
@@ -445,7 +446,7 @@ Partial Class MainProgram
         Me.ShowVerses.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ShowVerses.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ShowVerses.ForeColor = System.Drawing.Color.Black
-        Me.ShowVerses.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_holy_bible_16
+        Me.ShowVerses.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_holy_bible_16__1_
         Me.ShowVerses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ShowVerses.Location = New System.Drawing.Point(206, 22)
         Me.ShowVerses.Name = "ShowVerses"
@@ -462,7 +463,7 @@ Partial Class MainProgram
         Me.ShowSermonHymns.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ShowSermonHymns.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ShowSermonHymns.ForeColor = System.Drawing.Color.Black
-        Me.ShowSermonHymns.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_musical_notes_16
+        Me.ShowSermonHymns.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_music_16
         Me.ShowSermonHymns.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ShowSermonHymns.Location = New System.Drawing.Point(6, 22)
         Me.ShowSermonHymns.Name = "ShowSermonHymns"
@@ -495,6 +496,7 @@ Partial Class MainProgram
         '
         Me.OpenPrayerRequestsWindow.AutoSize = True
         Me.OpenPrayerRequestsWindow.BackColor = System.Drawing.Color.Transparent
+        Me.OpenPrayerRequestsWindow.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border2
         Me.OpenPrayerRequestsWindow.Cursor = System.Windows.Forms.Cursors.Hand
         Me.OpenPrayerRequestsWindow.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OpenPrayerRequestsWindow.Location = New System.Drawing.Point(126, 22)
@@ -809,11 +811,12 @@ Partial Class MainProgram
         Me.navBar.BackColor = System.Drawing.Color.Transparent
         Me.navBar.Controls.Add(Me.closeForm)
         Me.navBar.Controls.Add(Me.minForm)
+        Me.navBar.Controls.Add(Me.settingsBtn)
         Me.navBar.Cursor = System.Windows.Forms.Cursors.Default
-        Me.navBar.Location = New System.Drawing.Point(749, 4)
+        Me.navBar.Location = New System.Drawing.Point(716, 4)
         Me.navBar.Name = "navBar"
         Me.navBar.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.navBar.Size = New System.Drawing.Size(61, 33)
+        Me.navBar.Size = New System.Drawing.Size(94, 33)
         Me.navBar.TabIndex = 30
         '
         'closeForm
@@ -825,7 +828,7 @@ Partial Class MainProgram
         Me.closeForm.FlatAppearance.BorderSize = 0
         Me.closeForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.closeForm.ForeColor = System.Drawing.Color.Transparent
-        Me.closeForm.Location = New System.Drawing.Point(38, 7)
+        Me.closeForm.Location = New System.Drawing.Point(71, 7)
         Me.closeForm.Margin = New System.Windows.Forms.Padding(7)
         Me.closeForm.Name = "closeForm"
         Me.closeForm.Size = New System.Drawing.Size(16, 16)
@@ -842,7 +845,7 @@ Partial Class MainProgram
         Me.minForm.FlatAppearance.BorderSize = 0
         Me.minForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.minForm.ForeColor = System.Drawing.Color.Transparent
-        Me.minForm.Location = New System.Drawing.Point(8, 8)
+        Me.minForm.Location = New System.Drawing.Point(41, 8)
         Me.minForm.Margin = New System.Windows.Forms.Padding(8)
         Me.minForm.Name = "minForm"
         Me.minForm.Padding = New System.Windows.Forms.Padding(3)
@@ -850,6 +853,24 @@ Partial Class MainProgram
         Me.minForm.TabIndex = 1
         Me.minForm.TabStop = False
         Me.minForm.UseVisualStyleBackColor = False
+        '
+        'settingsBtn
+        '
+        Me.settingsBtn.BackColor = System.Drawing.Color.Transparent
+        Me.settingsBtn.BackgroundImage = CType(resources.GetObject("settingsBtn.BackgroundImage"), System.Drawing.Image)
+        Me.settingsBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.settingsBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.settingsBtn.FlatAppearance.BorderSize = 0
+        Me.settingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.settingsBtn.ForeColor = System.Drawing.Color.Transparent
+        Me.settingsBtn.Location = New System.Drawing.Point(8, 7)
+        Me.settingsBtn.Margin = New System.Windows.Forms.Padding(7)
+        Me.settingsBtn.Name = "settingsBtn"
+        Me.settingsBtn.Padding = New System.Windows.Forms.Padding(3)
+        Me.settingsBtn.Size = New System.Drawing.Size(18, 18)
+        Me.settingsBtn.TabIndex = 2
+        Me.settingsBtn.TabStop = False
+        Me.settingsBtn.UseVisualStyleBackColor = False
         '
         'header
         '
@@ -1157,7 +1178,7 @@ Partial Class MainProgram
         '
         'PictureBox2
         '
-        Me.PictureBox2.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.icons8_musical_notes_16
+        Me.PictureBox2.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.icons8_music_16
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.PictureBox2.Location = New System.Drawing.Point(161, 111)
         Me.PictureBox2.Name = "PictureBox2"
@@ -1187,7 +1208,7 @@ Partial Class MainProgram
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.icons8_music_24
+        Me.PictureBox1.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.icons8_musical_notes_16
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.PictureBox1.Location = New System.Drawing.Point(164, 104)
         Me.PictureBox1.Name = "PictureBox1"
@@ -1304,10 +1325,10 @@ Partial Class MainProgram
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.BackColor = System.Drawing.SystemColors.Control
-        Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border5
+        Me.BackColor = System.Drawing.Color.White
+        Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border2
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(799, 451)
+        Me.ClientSize = New System.Drawing.Size(815, 490)
         Me.Controls.Add(Me.hymnTabControl)
         Me.Controls.Add(Me.editSlideGroupBox)
         Me.Controls.Add(Me.projectSlideGroupBox)
@@ -1431,4 +1452,5 @@ Partial Class MainProgram
     Friend WithEvents hymnalHymnsListBox As ListBox
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox2 As PictureBox
+    Friend WithEvents settingsBtn As Button
 End Class
