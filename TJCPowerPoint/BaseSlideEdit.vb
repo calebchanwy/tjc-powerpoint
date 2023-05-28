@@ -20,8 +20,8 @@ Public Class BaseSlideEdit
     Private webBrowser As WebBrowser
 
     Public Sub New(nm As String, key As String, s As PowerPoint.Slide)
-        iv = New ImageViewer()
-        webBrowser = New WebBrowser()
+        iv = New ImageViewer(s)
+        webBrowser = New WebBrowser(nm)
         slideName = nm
         slideKey = key
         slide = s
@@ -32,7 +32,8 @@ Public Class BaseSlideEdit
         loadData()
         header.Text = slideName
         Text = slideName
-        updatePreview()
+        iv.addPreviewBox(previewBox)
+        iv.updatePreviews()
     End Sub
     'Method that updates form's own internal text box
     Public Sub setInput(txt As String)
@@ -82,21 +83,7 @@ Public Class BaseSlideEdit
         webBrowser.Hide()
     End Sub
 
-    Private Sub DeleteFileWithRetry(filePath As String, maxRetries As Integer, delayMilliseconds As Integer)
-        Dim retries As Integer = 0
-        While retries < maxRetries
-            Try
-                File.Delete(filePath)
-                Exit Sub ' File deleted successfully, exit the loop
-            Catch ex As IOException
-                retries += 1
-                Thread.Sleep(delayMilliseconds) ' Introduce a delay before the next retry
-            End Try
-        End While
 
-        ' File deletion failed even after retries
-        ' Handle the failure case here
-    End Sub
     Private Sub updateLink()
         'update in xml file
         GSlink = googleSlidesLink.Text
@@ -121,7 +108,7 @@ Public Class BaseSlideEdit
         If My.Computer.FileSystem.FileExists(dir) = True Then
             slide.Shapes.AddPicture(dir, False, True, 0, 0, slide.Master.Width, slide.Master.Height)
         End If
-        updatePreview()
+        iv.updatePreviews()
     End Sub
 
     Private Sub insertImage_Click(sender As Object, e As EventArgs) Handles insertImage.Click
@@ -143,7 +130,7 @@ Public Class BaseSlideEdit
         Catch ex As Exception
             MessageBox.Show("An error occurred while updating the image. Please try again.", "Error")
         End Try
-        updatePreview()
+        iv.updatePreviews()
     End Sub
 
 
@@ -159,7 +146,7 @@ Public Class BaseSlideEdit
             Else
                 MessageBox.Show("No image is currently inserted.", "Error")
             End If
-            updatePreview()
+            iv.updatePreviews()
         Catch ex As Exception
             MessageBox.Show("An error occurred while deleting the image. Please try again.", "Error")
         End Try
@@ -192,28 +179,28 @@ Public Class BaseSlideEdit
 
     Private Sub TitleColorBtn_Click(sender As Object, e As EventArgs) Handles TitleColorBtn.Click
         MainProgram.ChangeColor(titleTB)
-        updatePreview()
+        iv.updatePreviews()
     End Sub
 
     Private Sub TitleFontBtn_Click(sender As Object, e As EventArgs) Handles TitleFontBtn.Click
         MainProgram.ChangeFont(titleTB)
-        updatePreview()
+        iv.updatePreviews()
     End Sub
 
     Private Sub BodyColorBtn_Click(sender As Object, e As EventArgs) Handles BodyColorBtn.Click
         MainProgram.ChangeColor(bodyTB)
-        updatePreview()
+        iv.updatePreviews()
     End Sub
 
     Private Sub BodyFontBtn_Click(sender As Object, e As EventArgs) Handles BodyFontBtn.Click
         MainProgram.ChangeFont(bodyTB)
-        updatePreview()
+        iv.updatePreviews()
     End Sub
 
     Private Sub updateBtn_Click(sender As Object, e As EventArgs) Handles updateBtn.Click
         bodyTB.Text = txtInput.Text
         Try
-            updatePreview()
+            iv.updatePreviews()
             updateLink()
             My.Computer.FileSystem.WriteAllText(MainProgram.getCurrentDirectory() + "\Files\" + slideName.Replace(" ", "") + ".txt", txtInput.Text, False)
 
@@ -239,29 +226,6 @@ Public Class BaseSlideEdit
     End Sub
     Private Sub minForm_Click(sender As Object, e As EventArgs) Handles minForm.Click
         Me.WindowState = FormWindowState.Minimized
-    End Sub
-
-
-    Private Sub updatePreview()
-        ' Export the slide as an image
-        Dim imagePath As String = Path.Combine(Path.GetTempPath(), "slide_preview.png")
-        slide.Export(imagePath, "PNG", 800, 450)
-
-        Dim copiedImagePath As String = Path.GetTempFileName() ' Generate a unique temporary file name
-        copiedImagePath = Path.ChangeExtension(copiedImagePath, ".png") ' Change the file extension to .png if needed
-
-        ' Make a copy of the image file
-        File.Copy(imagePath, copiedImagePath, True)
-
-        ' Display the slide preview from the copied image file
-        Using image As Image = Image.FromFile(copiedImagePath)
-            previewBox.Image = New Bitmap(image)
-            iv.updateImage(previewBox.Image)
-        End Using
-
-        ' Clean up temporary files
-        DeleteFileWithRetry(imagePath, 3, 500) ' Retry 3 times with a delay of 500 milliseconds between each attempt
-        DeleteFileWithRetry(copiedImagePath, 3, 500)
     End Sub
 
     Private Sub previewBox_Click(sender As Object, e As EventArgs) Handles previewBox.Click, enlargePreviewBtn.Click

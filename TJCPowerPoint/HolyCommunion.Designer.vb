@@ -60,7 +60,7 @@ Partial Class HolyCommunion
         Me.breadTxt.AcceptsReturn = True
         Me.breadTxt.AcceptsTab = True
         Me.breadTxt.BackColor = System.Drawing.Color.White
-        Me.breadTxt.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.breadTxt.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.breadTxt.ForeColor = System.Drawing.Color.Black
         Me.breadTxt.Location = New System.Drawing.Point(6, 20)
         Me.breadTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
@@ -109,9 +109,9 @@ Partial Class HolyCommunion
         Me.updateHC.ForeColor = System.Drawing.Color.Navy
         Me.updateHC.Location = New System.Drawing.Point(12, 404)
         Me.updateHC.Name = "updateHC"
-        Me.updateHC.Size = New System.Drawing.Size(232, 36)
+        Me.updateHC.Size = New System.Drawing.Size(135, 36)
         Me.updateHC.TabIndex = 3
-        Me.updateHC.Text = "Update Holy Communion Slide"
+        Me.updateHC.Text = "Update"
         Me.updateHC.UseVisualStyleBackColor = True
         '
         'navBar
@@ -226,7 +226,7 @@ Partial Class HolyCommunion
         Me.hymnsGroupBox.Controls.Add(Me.nextHymn)
         Me.hymnsGroupBox.Controls.Add(Me.HymnsSelectionBox)
         Me.hymnsGroupBox.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.hymnsGroupBox.Location = New System.Drawing.Point(12, 55)
+        Me.hymnsGroupBox.Location = New System.Drawing.Point(12, 56)
         Me.hymnsGroupBox.Name = "hymnsGroupBox"
         Me.hymnsGroupBox.Size = New System.Drawing.Size(135, 342)
         Me.hymnsGroupBox.TabIndex = 48

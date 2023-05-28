@@ -82,10 +82,11 @@ Partial Class ImageViewer
         '
         'pictureBox
         '
+        Me.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pictureBox.Location = New System.Drawing.Point(12, 47)
         Me.pictureBox.Name = "pictureBox"
-        Me.pictureBox.Size = New System.Drawing.Size(773, 391)
+        Me.pictureBox.Size = New System.Drawing.Size(775, 390)
         Me.pictureBox.TabIndex = 34
         Me.pictureBox.TabStop = False
         '
@@ -106,12 +107,12 @@ Partial Class ImageViewer
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border33
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(800, 450)
         Me.Controls.Add(Me.header)
         Me.Controls.Add(Me.pictureBox)
         Me.Controls.Add(Me.navBar)
-        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "ImageViewer"

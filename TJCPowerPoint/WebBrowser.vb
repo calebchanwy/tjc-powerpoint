@@ -1,5 +1,16 @@
 ﻿Public Class WebBrowser
     Private src As String
+    Private name As String
+
+    Public Sub New(name As String)
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+        Text = name + " - Web Browser"
+    End Sub
+
 
     Public Sub refreshBrowser(src As String)
         Me.src = src

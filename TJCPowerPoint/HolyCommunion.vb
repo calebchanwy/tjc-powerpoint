@@ -14,10 +14,16 @@ Imports Microsoft.Office.Interop
 
 Public Class HolyCommunion
     Inherits DraggableForm
-    Private slideNumber As Integer
+    Private slide As PowerPoint.Slide
     Private HCHymns As HymnSelector
+    Private iv As ImageViewer
 
-    Private Sub Form_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Public Sub New()
+
+        ' This call is required by the designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
         ' File paths
         Dim breadFilePath As String = Path.Combine(MainProgram.getCurrentDirectory(), "Files\bread.txt")
         Dim cupFilePath As String = Path.Combine(MainProgram.getCurrentDirectory(), "Files\cup.txt")
@@ -33,16 +39,19 @@ Public Class HolyCommunion
         End If
 
         ' Set slide number for holyCommunion
-        Dim holyCommunionSlide = MainProgram.getSlide("holyCommunion")
-        If holyCommunionSlide IsNot Nothing Then
-            slideNumber = holyCommunionSlide.SlideNumber
-        End If
+        slide = MainProgram.getSlide("holyCommunion")
 
         ' Initialize HCHymns
         HCHymns = New HymnSelector("HCHymns", MainProgram.getTextBox(Definition.HCHymns.ToString()), HymnsSelectionBox, 3)
 
+        'Initialise image viewer for slide preview
+        iv = New ImageViewer(slide)
+        iv.addPreviewBox(previewBox)
+        iv.updatePreviews()
+
         ' Set default text for HymnNos
         HymnNos.Text = "Enter Hymn"
+
     End Sub
 
 
@@ -62,7 +71,7 @@ Public Class HolyCommunion
             My.Computer.FileSystem.WriteAllText(MainProgram.getCurrentDirectory() + "\Files\bread.txt", breadTxt.Text, False)
             My.Computer.FileSystem.WriteAllText(MainProgram.getCurrentDirectory() + "\Files\cup.txt", cupTxt.Text, False)
             MessageBox.Show("Update Successful", "Update Successful")
-
+            iv.updatePreviews()
         Catch ex As Exception
             MessageBox.Show("Update Unsuccessful. Please try again", "Update Unsuccessful")
         End Try
@@ -71,6 +80,7 @@ Public Class HolyCommunion
     Private Sub clearHymnsBtn_Click(sender As Object, e As EventArgs) Handles clearHymnsBtn.Click
         HymnsSelectionBox.Items.Clear()
         HCHymns.updateHymns()
+        iv.updatePreviews()
     End Sub
 
 
@@ -79,6 +89,7 @@ Public Class HolyCommunion
             Return
         End If
         HymnsSelectionBox.SelectedIndex += 1
+
     End Sub
 
     Private Sub prevHymn_Click(sender As Object, e As EventArgs) Handles prevHymn.Click
@@ -93,13 +104,16 @@ Public Class HolyCommunion
         'handles deleting 
         'updating hymns on holy communion slide
         HCHymns.removeCurrentHymn()
+        iv.updatePreviews()
     End Sub
     Private Sub HymnColorBtn_Click(sender As Object, e As EventArgs) Handles HymnColorBtn.Click
         MainProgram.ChangeColor(MainProgram.getTextBox("HChymns"))
+        iv.updatePreviews()
     End Sub
 
     Private Sub HymnFontBtn_Click(sender As Object, e As EventArgs) Handles HymnFontBtn.Click
         MainProgram.ChangeFont(MainProgram.getTextBox("HChymns"))
+        iv.updatePreviews()
     End Sub
 
     Private Sub HymnsSelectionBox_KeyDown(sender As Object, e As KeyEventArgs) Handles HymnsSelectionBox.KeyDown
@@ -107,6 +121,7 @@ Public Class HolyCommunion
             'handles deleting 
             'updating hymns on holy communion slide
             HCHymns.removeCurrentHymn()
+            iv.updatePreviews()
         End If
     End Sub
     Private Sub HymnsSelectionBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles HymnsSelectionBox.SelectedIndexChanged
@@ -115,10 +130,12 @@ Public Class HolyCommunion
         End If
         'updating hymns on holy communion slide
         HCHymns.updateHymns()
+        iv.updatePreviews()
     End Sub
 
     Private Sub HymnNos_KeyDown(sender As Object, e As KeyEventArgs) Handles HymnNos.KeyDown
         HCHymns.HandleHymnTextBoxKeyDown(e, HymnNos)
+        iv.updatePreviews()
     End Sub
     Private Sub HymnNos_GotFocus(sender As Object, e As EventArgs) Handles HymnNos.GotFocus
         HymnNos.Text = ""
@@ -129,17 +146,25 @@ Public Class HolyCommunion
 
     Private Sub colorBreadBtn_Click(sender As Object, e As EventArgs) Handles colorBreadBtn.Click
         MainProgram.ChangeColor(MainProgram.getTextBox("bread"))
+        iv.updatePreviews()
     End Sub
 
     Private Sub fontBreadBtn_Click(sender As Object, e As EventArgs) Handles fontBreadBtn.Click
         MainProgram.ChangeFont(MainProgram.getTextBox("bread"))
+        iv.updatePreviews()
     End Sub
 
     Private Sub colorCupBtn_Click(sender As Object, e As EventArgs) Handles colorCupBtn.Click
         MainProgram.ChangeColor(MainProgram.getTextBox("cup"))
+        iv.updatePreviews()
     End Sub
 
     Private Sub fontCupBtn_Click(sender As Object, e As EventArgs) Handles fontCupBtn.Click
         MainProgram.ChangeFont(MainProgram.getTextBox("cup"))
+        iv.updatePreviews()
+    End Sub
+
+    Private Sub enlargePreviewBtn_Click(sender As Object, e As EventArgs) Handles enlargePreviewBtn.Click
+        iv.Show()
     End Sub
 End Class
