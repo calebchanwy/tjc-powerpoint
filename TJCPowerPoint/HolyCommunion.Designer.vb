@@ -45,10 +45,14 @@ Partial Class HolyCommunion
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.colorCupBtn = New System.Windows.Forms.Button()
         Me.fontCupBtn = New System.Windows.Forms.Button()
+        Me.enlargePreviewBtn = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.previewBox = New System.Windows.Forms.PictureBox()
         Me.navBar.SuspendLayout()
         Me.hymnsGroupBox.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
+        CType(Me.previewBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'breadTxt
@@ -56,14 +60,14 @@ Partial Class HolyCommunion
         Me.breadTxt.AcceptsReturn = True
         Me.breadTxt.AcceptsTab = True
         Me.breadTxt.BackColor = System.Drawing.Color.White
-        Me.breadTxt.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.breadTxt.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.breadTxt.ForeColor = System.Drawing.Color.Black
         Me.breadTxt.Location = New System.Drawing.Point(6, 20)
         Me.breadTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.breadTxt.Multiline = True
         Me.breadTxt.Name = "breadTxt"
         Me.breadTxt.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.breadTxt.Size = New System.Drawing.Size(274, 265)
+        Me.breadTxt.Size = New System.Drawing.Size(180, 266)
         Me.breadTxt.TabIndex = 0
         Me.breadTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -72,14 +76,14 @@ Partial Class HolyCommunion
         Me.cupTxt.AcceptsReturn = True
         Me.cupTxt.AcceptsTab = True
         Me.cupTxt.BackColor = System.Drawing.Color.White
-        Me.cupTxt.Font = New System.Drawing.Font("Century Gothic", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cupTxt.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cupTxt.ForeColor = System.Drawing.Color.Black
         Me.cupTxt.Location = New System.Drawing.Point(6, 19)
         Me.cupTxt.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.cupTxt.Multiline = True
         Me.cupTxt.Name = "cupTxt"
         Me.cupTxt.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.cupTxt.Size = New System.Drawing.Size(274, 266)
+        Me.cupTxt.Size = New System.Drawing.Size(180, 266)
         Me.cupTxt.TabIndex = 1
         Me.cupTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
@@ -292,7 +296,7 @@ Partial Class HolyCommunion
         Me.GroupBox2.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.Location = New System.Drawing.Point(153, 55)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(286, 342)
+        Me.GroupBox2.Size = New System.Drawing.Size(192, 342)
         Me.GroupBox2.TabIndex = 49
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Bread"
@@ -329,9 +333,9 @@ Partial Class HolyCommunion
         Me.GroupBox3.Controls.Add(Me.fontCupBtn)
         Me.GroupBox3.Controls.Add(Me.cupTxt)
         Me.GroupBox3.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox3.Location = New System.Drawing.Point(446, 55)
+        Me.GroupBox3.Location = New System.Drawing.Point(351, 55)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(286, 342)
+        Me.GroupBox3.Size = New System.Drawing.Size(192, 342)
         Me.GroupBox3.TabIndex = 50
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Cup"
@@ -360,6 +364,43 @@ Partial Class HolyCommunion
         Me.fontCupBtn.TabStop = False
         Me.fontCupBtn.UseVisualStyleBackColor = True
         '
+        'enlargePreviewBtn
+        '
+        Me.enlargePreviewBtn.BackColor = System.Drawing.Color.Transparent
+        Me.enlargePreviewBtn.BackgroundImage = CType(resources.GetObject("enlargePreviewBtn.BackgroundImage"), System.Drawing.Image)
+        Me.enlargePreviewBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.enlargePreviewBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.enlargePreviewBtn.FlatAppearance.BorderSize = 0
+        Me.enlargePreviewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.enlargePreviewBtn.Location = New System.Drawing.Point(718, 369)
+        Me.enlargePreviewBtn.Name = "enlargePreviewBtn"
+        Me.enlargePreviewBtn.Size = New System.Drawing.Size(25, 25)
+        Me.enlargePreviewBtn.TabIndex = 53
+        Me.enlargePreviewBtn.TabStop = False
+        Me.enlargePreviewBtn.UseVisualStyleBackColor = False
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.BackColor = System.Drawing.Color.Transparent
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(549, 258)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(87, 17)
+        Me.Label4.TabIndex = 52
+        Me.Label4.Text = "Slide Preview"
+        '
+        'previewBox
+        '
+        Me.previewBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.previewBox.Image = Global.TJCPowerPoint.My.Resources.Resources.border1
+        Me.previewBox.Location = New System.Drawing.Point(549, 278)
+        Me.previewBox.Name = "previewBox"
+        Me.previewBox.Size = New System.Drawing.Size(197, 119)
+        Me.previewBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
+        Me.previewBox.TabIndex = 51
+        Me.previewBox.TabStop = False
+        '
         'HolyCommunion
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
@@ -369,6 +410,9 @@ Partial Class HolyCommunion
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(750, 450)
         Me.ControlBox = False
+        Me.Controls.Add(Me.enlargePreviewBtn)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.previewBox)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.hymnsGroupBox)
@@ -392,6 +436,7 @@ Partial Class HolyCommunion
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        CType(Me.previewBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -419,4 +464,7 @@ Partial Class HolyCommunion
     Friend WithEvents fontBreadBtn As Button
     Friend WithEvents colorCupBtn As Button
     Friend WithEvents fontCupBtn As Button
+    Friend WithEvents enlargePreviewBtn As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents previewBox As PictureBox
 End Class

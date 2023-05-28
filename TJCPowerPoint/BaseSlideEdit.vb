@@ -72,6 +72,7 @@ Public Class BaseSlideEdit
     Public Sub ShowBrowser()
         'check if using browser or not
         If IsUsingBrowser Then
+            webBrowser.MaximizeOnScreen(SettingsForm.getScreen())
             webBrowser.refreshBrowser(GSlink)
             webBrowser.Show()
         End If

@@ -649,7 +649,7 @@ Partial Class MainProgram
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(182, 153)
+        Me.Label2.Location = New System.Drawing.Point(194, 153)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(74, 15)
         Me.Label2.TabIndex = 42
@@ -659,7 +659,7 @@ Partial Class MainProgram
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(35, 153)
+        Me.Label1.Location = New System.Drawing.Point(45, 153)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(70, 15)
         Me.Label1.TabIndex = 33
@@ -667,10 +667,10 @@ Partial Class MainProgram
         '
         'ServiceType
         '
-        Me.ServiceType.AutoCompleteCustomSource.AddRange(New String() {"Sabbath Bible Study", "Sabbath Afternoon Service", "Friday Evening Service", "Wednesday Evening Service", "Afternoon Service", "Bible Study", "End of Year Services", "Spiritual Convocation", "AMTC", "Evangelistic Service", "Special Service", "Fellowship", "Autumn Spiritual Convocation", "Spring Spiritual Convocation", "NSSC", "YTTC"})
+        Me.ServiceType.AutoCompleteCustomSource.AddRange(New String() {"Sabbath Service", "Sabbath Bible Study", "Sabbath Afternoon Service", "Friday Evening Service", "Wednesday Evening Service", "Afternoon Service", "Bible Study", "End of Year Services", "Spiritual Convocation", "AMTC", "Evangelistic Service", "Special Service", "Fellowship", "Autumn Spiritual Convocation", "Spring Spiritual Convocation", "NSSC", "YTTC"})
         Me.ServiceType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.ServiceType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.ServiceType.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.ServiceType.Cursor = System.Windows.Forms.Cursors.Default
         Me.ServiceType.DropDownHeight = 100
         Me.ServiceType.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.ServiceType.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -682,7 +682,7 @@ Partial Class MainProgram
         Me.ServiceType.Location = New System.Drawing.Point(6, 120)
         Me.ServiceType.MaxDropDownItems = 5
         Me.ServiceType.Name = "ServiceType"
-        Me.ServiceType.Size = New System.Drawing.Size(214, 25)
+        Me.ServiceType.Size = New System.Drawing.Size(242, 25)
         Me.ServiceType.TabIndex = 33
         Me.ServiceType.TabStop = False
         '
@@ -691,7 +691,7 @@ Partial Class MainProgram
         Me.moveEnglishUp.BackgroundImage = CType(resources.GetObject("moveEnglishUp.BackgroundImage"), System.Drawing.Image)
         Me.moveEnglishUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.moveEnglishUp.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.moveEnglishUp.Location = New System.Drawing.Point(105, 169)
+        Me.moveEnglishUp.Location = New System.Drawing.Point(115, 169)
         Me.moveEnglishUp.Name = "moveEnglishUp"
         Me.moveEnglishUp.Size = New System.Drawing.Size(25, 25)
         Me.moveEnglishUp.TabIndex = 41
@@ -703,7 +703,7 @@ Partial Class MainProgram
         Me.moveEnglishDown.BackgroundImage = CType(resources.GetObject("moveEnglishDown.BackgroundImage"), System.Drawing.Image)
         Me.moveEnglishDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.moveEnglishDown.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.moveEnglishDown.Location = New System.Drawing.Point(74, 169)
+        Me.moveEnglishDown.Location = New System.Drawing.Point(84, 169)
         Me.moveEnglishDown.Name = "moveEnglishDown"
         Me.moveEnglishDown.Size = New System.Drawing.Size(25, 25)
         Me.moveEnglishDown.TabIndex = 40
@@ -715,7 +715,7 @@ Partial Class MainProgram
         Me.moveChineseDown.BackgroundImage = CType(resources.GetObject("moveChineseDown.BackgroundImage"), System.Drawing.Image)
         Me.moveChineseDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.moveChineseDown.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.moveChineseDown.Location = New System.Drawing.Point(228, 169)
+        Me.moveChineseDown.Location = New System.Drawing.Point(240, 169)
         Me.moveChineseDown.Name = "moveChineseDown"
         Me.moveChineseDown.Size = New System.Drawing.Size(25, 25)
         Me.moveChineseDown.TabIndex = 39
@@ -727,7 +727,7 @@ Partial Class MainProgram
         Me.moveChineseUp.BackgroundImage = CType(resources.GetObject("moveChineseUp.BackgroundImage"), System.Drawing.Image)
         Me.moveChineseUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.moveChineseUp.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.moveChineseUp.Location = New System.Drawing.Point(259, 168)
+        Me.moveChineseUp.Location = New System.Drawing.Point(271, 168)
         Me.moveChineseUp.Name = "moveChineseUp"
         Me.moveChineseUp.Size = New System.Drawing.Size(25, 25)
         Me.moveChineseUp.TabIndex = 38
@@ -739,7 +739,7 @@ Partial Class MainProgram
         Me.ServiceTypeFontBtn.BackgroundImage = CType(resources.GetObject("ServiceTypeFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.ServiceTypeFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ServiceTypeFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ServiceTypeFontBtn.Location = New System.Drawing.Point(257, 120)
+        Me.ServiceTypeFontBtn.Location = New System.Drawing.Point(285, 120)
         Me.ServiceTypeFontBtn.Name = "ServiceTypeFontBtn"
         Me.ServiceTypeFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.ServiceTypeFontBtn.TabIndex = 15
@@ -751,7 +751,7 @@ Partial Class MainProgram
         Me.ServiceTypeColorBtn.BackgroundImage = CType(resources.GetObject("ServiceTypeColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.ServiceTypeColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ServiceTypeColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ServiceTypeColorBtn.Location = New System.Drawing.Point(226, 120)
+        Me.ServiceTypeColorBtn.Location = New System.Drawing.Point(254, 120)
         Me.ServiceTypeColorBtn.Name = "ServiceTypeColorBtn"
         Me.ServiceTypeColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.ServiceTypeColorBtn.TabIndex = 14
@@ -763,7 +763,7 @@ Partial Class MainProgram
         Me.EnglishColorBtn.BackgroundImage = CType(resources.GetObject("EnglishColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.EnglishColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.EnglishColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.EnglishColorBtn.Location = New System.Drawing.Point(12, 169)
+        Me.EnglishColorBtn.Location = New System.Drawing.Point(22, 169)
         Me.EnglishColorBtn.Name = "EnglishColorBtn"
         Me.EnglishColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.EnglishColorBtn.TabIndex = 5
@@ -775,7 +775,7 @@ Partial Class MainProgram
         Me.EnglishFontBtn.BackgroundImage = CType(resources.GetObject("EnglishFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.EnglishFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.EnglishFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.EnglishFontBtn.Location = New System.Drawing.Point(43, 169)
+        Me.EnglishFontBtn.Location = New System.Drawing.Point(53, 169)
         Me.EnglishFontBtn.Name = "EnglishFontBtn"
         Me.EnglishFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.EnglishFontBtn.TabIndex = 6
@@ -787,7 +787,7 @@ Partial Class MainProgram
         Me.ChineseFontBtn.BackgroundImage = CType(resources.GetObject("ChineseFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.ChineseFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ChineseFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ChineseFontBtn.Location = New System.Drawing.Point(197, 168)
+        Me.ChineseFontBtn.Location = New System.Drawing.Point(209, 168)
         Me.ChineseFontBtn.Name = "ChineseFontBtn"
         Me.ChineseFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.ChineseFontBtn.TabIndex = 8
@@ -799,7 +799,7 @@ Partial Class MainProgram
         Me.ChineseColorBtn.BackgroundImage = CType(resources.GetObject("ChineseColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.ChineseColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ChineseColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ChineseColorBtn.Location = New System.Drawing.Point(166, 169)
+        Me.ChineseColorBtn.Location = New System.Drawing.Point(178, 169)
         Me.ChineseColorBtn.Name = "ChineseColorBtn"
         Me.ChineseColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.ChineseColorBtn.TabIndex = 7

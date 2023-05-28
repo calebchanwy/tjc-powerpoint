@@ -27,6 +27,13 @@
         End If
     End Sub
 
+    Public Function getScreen()
+        ' Get the selected screen
+        Dim selectedScreen As Screen = Screen.AllScreens(DisplayComboBox.SelectedIndex)
+        Return selectedScreen
+    End Function
+
+
     Private Sub closeForm_Click(sender As Object, e As EventArgs) Handles closeForm.Click
         Me.Hide()
     End Sub

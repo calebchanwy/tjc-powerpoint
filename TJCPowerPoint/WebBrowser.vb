@@ -18,4 +18,6 @@
         Size = screen.Bounds.Size
         WindowState = FormWindowState.Maximized
     End Sub
+
+
 End Class

@@ -32,9 +32,10 @@ Partial Class WebBrowser
         Me.webView.AllowExternalDrop = True
         Me.webView.CreationProperties = Nothing
         Me.webView.DefaultBackgroundColor = System.Drawing.Color.White
+        Me.webView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.webView.Location = New System.Drawing.Point(0, 0)
         Me.webView.Name = "webView"
-        Me.webView.Size = New System.Drawing.Size(1920, 1080)
+        Me.webView.Size = New System.Drawing.Size(1904, 1041)
         Me.webView.Source = New System.Uri("https://tjc.org", System.UriKind.Absolute)
         Me.webView.TabIndex = 0
         Me.webView.ZoomFactor = 1.0R

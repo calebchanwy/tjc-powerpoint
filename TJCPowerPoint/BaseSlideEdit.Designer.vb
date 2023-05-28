@@ -93,7 +93,7 @@ Partial Class BaseSlideEdit
         Me.googleSlidesLink.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
         Me.googleSlidesLink.Size = New System.Drawing.Size(497, 23)
         Me.googleSlidesLink.TabIndex = 3
-        Me.googleSlidesLink.Text = "docs.google.com"
+        Me.googleSlidesLink.Text = "https://"
         '
         'GroupBox1
         '
@@ -116,7 +116,7 @@ Partial Class BaseSlideEdit
         Me.txtInput.AllowDrop = True
         Me.txtInput.BackColor = System.Drawing.Color.White
         Me.txtInput.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.txtInput.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtInput.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtInput.ForeColor = System.Drawing.Color.Black
         Me.txtInput.Location = New System.Drawing.Point(10, 63)
         Me.txtInput.Multiline = True

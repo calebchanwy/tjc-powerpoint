@@ -35,10 +35,12 @@ Partial Class SettingsForm
         '
         'DisplayComboBox
         '
+        Me.DisplayComboBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.DisplayComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.DisplayComboBox.FormattingEnabled = True
-        Me.DisplayComboBox.Location = New System.Drawing.Point(6, 28)
+        Me.DisplayComboBox.Location = New System.Drawing.Point(5, 27)
         Me.DisplayComboBox.Name = "DisplayComboBox"
-        Me.DisplayComboBox.Size = New System.Drawing.Size(434, 29)
+        Me.DisplayComboBox.Size = New System.Drawing.Size(324, 29)
         Me.DisplayComboBox.TabIndex = 0
         '
         'header
@@ -48,7 +50,7 @@ Partial Class SettingsForm
         Me.header.Cursor = System.Windows.Forms.Cursors.Default
         Me.header.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.header.ForeColor = System.Drawing.Color.SteelBlue
-        Me.header.Location = New System.Drawing.Point(12, 9)
+        Me.header.Location = New System.Drawing.Point(12, 12)
         Me.header.Name = "header"
         Me.header.Size = New System.Drawing.Size(93, 30)
         Me.header.TabIndex = 33
@@ -61,10 +63,10 @@ Partial Class SettingsForm
         Me.navBar.Controls.Add(Me.minForm)
         Me.navBar.Cursor = System.Windows.Forms.Cursors.Default
         Me.navBar.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.navBar.Location = New System.Drawing.Point(664, 0)
+        Me.navBar.Location = New System.Drawing.Point(662, 0)
         Me.navBar.Name = "navBar"
         Me.navBar.Padding = New System.Windows.Forms.Padding(5)
-        Me.navBar.Size = New System.Drawing.Size(73, 32)
+        Me.navBar.Size = New System.Drawing.Size(75, 36)
         Me.navBar.TabIndex = 34
         '
         'closeForm
@@ -76,7 +78,7 @@ Partial Class SettingsForm
         Me.closeForm.FlatAppearance.BorderSize = 0
         Me.closeForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.closeForm.ForeColor = System.Drawing.Color.Transparent
-        Me.closeForm.Location = New System.Drawing.Point(41, 12)
+        Me.closeForm.Location = New System.Drawing.Point(43, 12)
         Me.closeForm.Margin = New System.Windows.Forms.Padding(7)
         Me.closeForm.Name = "closeForm"
         Me.closeForm.Size = New System.Drawing.Size(15, 15)
@@ -93,7 +95,7 @@ Partial Class SettingsForm
         Me.minForm.FlatAppearance.BorderSize = 0
         Me.minForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.minForm.ForeColor = System.Drawing.Color.Transparent
-        Me.minForm.Location = New System.Drawing.Point(13, 13)
+        Me.minForm.Location = New System.Drawing.Point(15, 13)
         Me.minForm.Margin = New System.Windows.Forms.Padding(8)
         Me.minForm.Name = "minForm"
         Me.minForm.Padding = New System.Windows.Forms.Padding(3)
@@ -107,13 +109,15 @@ Partial Class SettingsForm
         Me.GroupBox1.Controls.Add(Me.DisplayComboBox)
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.Location = New System.Drawing.Point(12, 57)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(10)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(710, 65)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(5)
+        Me.GroupBox1.Size = New System.Drawing.Size(334, 62)
         Me.GroupBox1.TabIndex = 35
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Projector Display"
         '
-        'Settings
+        'SettingsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -121,11 +125,12 @@ Partial Class SettingsForm
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(734, 411)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.header)
         Me.Controls.Add(Me.navBar)
+        Me.Controls.Add(Me.header)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Settings"
+        Me.Name = "SettingsForm"
+        Me.Padding = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Text = "Settings"
         Me.navBar.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)

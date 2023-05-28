@@ -2123,6 +2123,15 @@
         AABJRU5ErkJggg==
 </value>
   </data>
+  <data name="enlargePreviewBtn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
+        DAAACwwBP0AiyAAAAMRJREFUSEvtlUsKwkAQBSPeRRE9jJ8rqHeLuHDjnfxsPIFaLzCb0N0YHAmYKSjI
+        QLrfZnq6KvTFDPeOO5ygxwKtuqR6u+iHV+AFLcb4QKsmqd4uUfATa/Q4o1WX/Dg4FyXYpLfgLeonXaRc
+        qJd6ahxdNKcamej2duWEdwznuFD4P0a4wXlzyoPW5RrV22WFGvZrc8rDDdVz2ZwchvdWDztY322jh36K
+        2kDtms7BltFt11azapJfBR/R44Bp91qGwYUfUVVvO3aEjwM6wKQAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAgAICAAAAEAIACoEAAAhgAAADAwAAABACAAqCUAAC4RAABAQAAAAQAgAChCAADWNgAASEgAAAEA

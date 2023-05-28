@@ -41,6 +41,8 @@ Public Class MainProgram
     Private announcementsWindow As BaseSlideEdit
     Private serviceTimesWindow As BaseSlideEdit
 
+    Private settingsForm As SettingsForm
+
     'CONSTSRUCTOR
     Public Sub New()
         LoadingScreen.Show()
@@ -69,7 +71,7 @@ Public Class MainProgram
             'hymn selector objects
             sermonHymns = New HymnSelector("sermon", getTextBox(Definition.sermonHymns.ToString()), sermonHymnsListBox, 2)
             hymnalHymns = New HymnSelector("hymnal", getTextBox(Definition.hymnalHymns.ToString()), hymnalHymnsListBox, 3)
-
+            settingsForm = New SettingsForm()
             ' Set the default slide when loading up
             goToBreakBtn.Checked = True
 
@@ -532,11 +534,10 @@ Public Class MainProgram
             ppPres.SlideShowWindow.View.GotoSlide(targetSlide.SlideNumber)
         End If
     End Sub
-    Private Sub goToBreakBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToBreakBtn.CheckedChanged, goToBreakBtn.Click
-        GoToSlideIfNotAlreadyChecked(sender, "break")
+    Private Sub goToBreakBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToBreakBtn.CheckedChanged
     End Sub
 
-    Private Sub goToTimetableBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToTimetableBtn.CheckedChanged, goToTimetableBtn.Click
+    Private Sub goToTimetableBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToTimetableBtn.CheckedChanged
         GoToSlideIfNotAlreadyChecked(sender, "serviceTimes")
         If goToTimetableBtn.Checked = False Then
             serviceTimesWindow.HideBrowser()
@@ -545,7 +546,7 @@ Public Class MainProgram
         End If
     End Sub
 
-    Private Sub goToPRBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToPRBtn.CheckedChanged, goToPRBtn.Click
+    Private Sub goToPRBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToPRBtn.CheckedChanged
         GoToSlideIfNotAlreadyChecked(sender, "prayerRequests")
         If goToPRBtn.Checked = False Then
             prayerRequestsWindow.HideBrowser()
@@ -554,15 +555,15 @@ Public Class MainProgram
         End If
     End Sub
 
-    Private Sub goToHowToPrayBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToHowToPrayBtn.CheckedChanged, goToHowToPrayBtn.Click
+    Private Sub goToHowToPrayBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToHowToPrayBtn.CheckedChanged
         GoToSlideIfNotAlreadyChecked(sender, "howToPray")
     End Sub
 
-    Private Sub goToTurnOffDevicesBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToTurnOffDevicesBtn.CheckedChanged, goToTurnOffDevicesBtn.Click
+    Private Sub goToTurnOffDevicesBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToTurnOffDevicesBtn.CheckedChanged
         GoToSlideIfNotAlreadyChecked(sender, Definition.turnOffDevices.ToString())
     End Sub
 
-    Private Sub goToAnnouncementsBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToAnnouncementsBtn.CheckedChanged, goToAnnouncementsBtn.Click
+    Private Sub goToAnnouncementsBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToAnnouncementsBtn.CheckedChanged
         GoToSlideIfNotAlreadyChecked(sender, Definition.announcements.ToString())
         If goToAnnouncementsBtn.Checked = False Then
             announcementsWindow.HideBrowser()
@@ -571,7 +572,7 @@ Public Class MainProgram
         End If
     End Sub
 
-    Private Sub goToHCBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToHCBtn.CheckedChanged, goToHCBtn.Click
+    Private Sub goToHCBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToHCBtn.CheckedChanged
         GoToSlideIfNotAlreadyChecked(sender, Definition.holyCommunion.ToString())
     End Sub
     Private Sub showTitlesOnly()
@@ -863,6 +864,6 @@ Public Class MainProgram
     End Sub
 
     Private Sub settingsBtn_Click(sender As Object, e As EventArgs) Handles settingsBtn.Click
-        SettingsForm.Show()
+        settingsForm.Show()
     End Sub
 End Class
