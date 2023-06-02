@@ -81,7 +81,7 @@ Public Class HymnSelector
             Return My.Settings.maxSermonHymns
         ElseIf nameCollection.Equals("hymnal") Then
             Return My.Settings.maxHymnalHymns
-        ElseIf nameCollection.Equals("HChymns") Then
+        ElseIf nameCollection.Equals("HCHymns") Then
             Return My.Settings.maxHCHymns
         Else
             Return ""
