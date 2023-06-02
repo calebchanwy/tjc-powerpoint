@@ -242,6 +242,7 @@ Public Class BaseSlideEdit
 
     Private Sub useTxtFile_CheckedChanged(sender As Object, e As EventArgs) Handles useTxtFile.CheckedChanged
         If useTxtFile.Checked Then
+            IsUsingBrowser = False
             UpdateShowBrowserXML(MainProgram.getCurrentDirectory() + "\Files\config.xml", "False")
             HideBrowser()
         End If
@@ -250,6 +251,7 @@ Public Class BaseSlideEdit
 
     Private Sub useGoogleSlides_CheckedChanged(sender As Object, e As EventArgs) Handles useGoogleSlides.CheckedChanged
         If useGoogleSlides.Checked And MainProgram.IsCurrentSlideIndex(slide.SlideIndex) Then
+            IsUsingBrowser = True
             UpdateShowBrowserXML(MainProgram.getCurrentDirectory() + "\Files\config.xml", "True")
             ShowBrowser()
         End If

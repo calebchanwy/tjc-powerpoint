@@ -42,7 +42,7 @@ Public Class HolyCommunion
         slide = MainProgram.getSlide("holyCommunion")
 
         ' Initialize HCHymns
-        HCHymns = New HymnSelector("HCHymns", MainProgram.getTextBox(Definition.HCHymns.ToString()), HymnsSelectionBox, 3)
+        HCHymns = New HymnSelector("HCHymns", MainProgram.getTextBox(Definition.HCHymns.ToString()), HymnsSelectionBox)
 
         'Initialise image viewer for slide preview
         iv = New ImageViewer(slide)

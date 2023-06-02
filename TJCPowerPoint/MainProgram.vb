@@ -69,8 +69,8 @@ Public Class MainProgram
             HandleHC()
 
             'hymn selector objects
-            sermonHymns = New HymnSelector("sermon", getTextBox(Definition.sermonHymns.ToString()), sermonHymnsListBox, 2)
-            hymnalHymns = New HymnSelector("hymnal", getTextBox(Definition.hymnalHymns.ToString()), hymnalHymnsListBox, 3)
+            sermonHymns = New HymnSelector("sermon", getTextBox(Definition.sermonHymns.ToString()), sermonHymnsListBox)
+            hymnalHymns = New HymnSelector("hymnal", getTextBox(Definition.hymnalHymns.ToString()), hymnalHymnsListBox)
             settingsForm = New SettingsForm()
             ' Set the default slide when loading up
             goToBreakBtn.Checked = True
@@ -535,10 +535,11 @@ Public Class MainProgram
         End If
     End Sub
     Private Sub goToBreakBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToBreakBtn.CheckedChanged
+        GoToSlideIfNotAlreadyChecked(sender, Definition.break.ToString())
     End Sub
 
     Private Sub goToTimetableBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToTimetableBtn.CheckedChanged
-        GoToSlideIfNotAlreadyChecked(sender, "serviceTimes")
+        GoToSlideIfNotAlreadyChecked(sender, Definition.serviceTimes.ToString())
         If goToTimetableBtn.Checked = False Then
             serviceTimesWindow.HideBrowser()
         Else
@@ -547,7 +548,7 @@ Public Class MainProgram
     End Sub
 
     Private Sub goToPRBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToPRBtn.CheckedChanged
-        GoToSlideIfNotAlreadyChecked(sender, "prayerRequests")
+        GoToSlideIfNotAlreadyChecked(sender, Definition.prayerRequests.ToString())
         If goToPRBtn.Checked = False Then
             prayerRequestsWindow.HideBrowser()
         Else
@@ -556,7 +557,7 @@ Public Class MainProgram
     End Sub
 
     Private Sub goToHowToPrayBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToHowToPrayBtn.CheckedChanged
-        GoToSlideIfNotAlreadyChecked(sender, "howToPray")
+        GoToSlideIfNotAlreadyChecked(sender, Definition.howToPray.ToString())
     End Sub
 
     Private Sub goToTurnOffDevicesBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToTurnOffDevicesBtn.CheckedChanged
@@ -577,7 +578,7 @@ Public Class MainProgram
     End Sub
     Private Sub showTitlesOnly()
         'navigate to title slide
-        ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("sermonTitle").SlideIndex)
+        ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item(Definition.sermonTitle.ToString()).SlideIndex)
     End Sub
     Private Sub HymnNos_GotFocus(sender As Object, e As EventArgs) Handles sermonHymnNo.GotFocus
         sermonHymnNo.Text = ""
@@ -865,5 +866,9 @@ Public Class MainProgram
 
     Private Sub settingsBtn_Click(sender As Object, e As EventArgs) Handles settingsBtn.Click
         settingsForm.Show()
+    End Sub
+
+    Private Sub ServiceType_SelectedValueChanged(sender As Object, e As EventArgs) Handles ServiceType.SelectedValueChanged
+        updateServiceTypes()
     End Sub
 End Class

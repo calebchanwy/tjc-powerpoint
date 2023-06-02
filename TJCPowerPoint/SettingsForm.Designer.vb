@@ -29,8 +29,16 @@ Partial Class SettingsForm
         Me.closeForm = New System.Windows.Forms.Button()
         Me.minForm = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.maxHCHymns = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.maxHymnalHymns = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.maxSermonHymns = New System.Windows.Forms.TextBox()
         Me.navBar.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
         '
         'DisplayComboBox
@@ -117,6 +125,75 @@ Partial Class SettingsForm
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Projector Display"
         '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.Label3)
+        Me.GroupBox2.Controls.Add(Me.maxHCHymns)
+        Me.GroupBox2.Controls.Add(Me.Label2)
+        Me.GroupBox2.Controls.Add(Me.maxHymnalHymns)
+        Me.GroupBox2.Controls.Add(Me.Label1)
+        Me.GroupBox2.Controls.Add(Me.maxSermonHymns)
+        Me.GroupBox2.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 126)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(10)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(5)
+        Me.GroupBox2.Size = New System.Drawing.Size(334, 146)
+        Me.GroupBox2.TabIndex = 36
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Set Maximum Number Of Hymns"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Location = New System.Drawing.Point(8, 110)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(177, 20)
+        Me.Label3.TabIndex = 5
+        Me.Label3.Text = "Holy Communion Hymns:"
+        '
+        'maxHCHymns
+        '
+        Me.maxHCHymns.Location = New System.Drawing.Point(188, 106)
+        Me.maxHCHymns.Name = "maxHCHymns"
+        Me.maxHCHymns.Size = New System.Drawing.Size(100, 29)
+        Me.maxHCHymns.TabIndex = 4
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(8, 69)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(112, 20)
+        Me.Label2.TabIndex = 3
+        Me.Label2.Text = "Hymnal Hymns:"
+        '
+        'maxHymnalHymns
+        '
+        Me.maxHymnalHymns.Location = New System.Drawing.Point(188, 65)
+        Me.maxHymnalHymns.Name = "maxHymnalHymns"
+        Me.maxHymnalHymns.Size = New System.Drawing.Size(100, 29)
+        Me.maxHymnalHymns.TabIndex = 2
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(8, 31)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(112, 20)
+        Me.Label1.TabIndex = 1
+        Me.Label1.Text = "Sermon Hymns:"
+        '
+        'maxSermonHymns
+        '
+        Me.maxSermonHymns.Location = New System.Drawing.Point(188, 27)
+        Me.maxSermonHymns.Name = "maxSermonHymns"
+        Me.maxSermonHymns.Size = New System.Drawing.Size(100, 29)
+        Me.maxSermonHymns.TabIndex = 0
+        '
         'SettingsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -124,6 +201,7 @@ Partial Class SettingsForm
         Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border33
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(734, 411)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.navBar)
         Me.Controls.Add(Me.header)
@@ -134,6 +212,8 @@ Partial Class SettingsForm
         Me.Text = "Settings"
         Me.navBar.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -145,4 +225,11 @@ Partial Class SettingsForm
     Friend WithEvents closeForm As Button
     Friend WithEvents minForm As Button
     Friend WithEvents GroupBox1 As GroupBox
+    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents Label3 As Label
+    Friend WithEvents maxHCHymns As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents maxHymnalHymns As TextBox
+    Friend WithEvents Label1 As Label
+    Friend WithEvents maxSermonHymns As TextBox
 End Class

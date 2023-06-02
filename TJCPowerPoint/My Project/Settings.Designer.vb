@@ -65,6 +65,42 @@ Namespace My
                 Me("SelectedDisplay") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("2")>  _
+        Public Property maxSermonHymns() As Integer
+            Get
+                Return CType(Me("maxSermonHymns"),Integer)
+            End Get
+            Set
+                Me("maxSermonHymns") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("3")>  _
+        Public Property maxHymnalHymns() As Integer
+            Get
+                Return CType(Me("maxHymnalHymns"),Integer)
+            End Get
+            Set
+                Me("maxHymnalHymns") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("3")>  _
+        Public Property maxHCHymns() As Integer
+            Get
+                Return CType(Me("maxHCHymns"),Integer)
+            End Get
+            Set
+                Me("maxHCHymns") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

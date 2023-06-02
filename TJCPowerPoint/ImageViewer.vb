@@ -6,6 +6,8 @@ Imports System.Threading
 Public Class ImageViewer
     Inherits DraggableForm
 
+    Private Const imageWidth = 775
+    Private Const imageHeight = 390
     Private previewBoxes As ArrayList
     Private slide As Slide
 
@@ -24,7 +26,7 @@ Public Class ImageViewer
     Public Sub updatePreviews()
         ' Export the slide as an image
         Dim imagePath As String = Path.Combine(Path.GetTempPath(), "slide_preview.png")
-        slide.Export(imagePath, "PNG", 775, 390)
+        slide.Export(imagePath, "PNG", imageWidth, imageHeight)
 
         Dim copiedImagePath As String = Path.GetTempFileName() ' Generate a unique temporary file name
         copiedImagePath = Path.ChangeExtension(copiedImagePath, ".png") ' Change the file extension to .png if needed

@@ -11,9 +11,6 @@ Public Class HymnSelector
     Private Const HighlightedColorTint As Single = 0
     Private Const DefaultColorTint As Single = 0.05
 
-    'MAXIMUM HYMNS DISPLAYED
-    Private maxHymns As Integer
-
     'Text box in powerpoint
     Private hymnTextBox As PowerPoint.TextRange
     'list box in windows form
@@ -22,11 +19,10 @@ Public Class HymnSelector
     Private prevHighlightedPar As Integer
     Private highlightedParagraph As Integer
     'DEFAULT CONSTRUCTOR
-    Public Sub New(name As String, textBox As PowerPoint.TextRange, listBox As ListBox, maxHymns As Integer)
+    Public Sub New(name As String, textBox As PowerPoint.TextRange, listBox As ListBox)
         Me.nameCollection = name
         Me.hymnTextBox = textBox
         Me.hymnListBox = listBox
-        Me.maxHymns = maxHymns
     End Sub
     Public Function getName()
         Return nameCollection
@@ -37,6 +33,7 @@ Public Class HymnSelector
         Dim hymnsAsArray As New ArrayList
         Dim count = hymnListBox.Items.Count
         Dim index = hymnListBox.SelectedIndex
+        Dim maxHymns = getMaxHymns()
         If count = 0 Then
             hymnTextBox.Text = " "
         End If
@@ -79,7 +76,17 @@ Public Class HymnSelector
         highlightCurrentHymn()
         prevHighlightedPar = highlightedParagraph
     End Sub
-
+    Private Function getMaxHymns()
+        If nameCollection.Equals("sermon") Then
+            Return My.Settings.maxSermonHymns
+        ElseIf nameCollection.Equals("hymnal") Then
+            Return My.Settings.maxHymnalHymns
+        ElseIf nameCollection.Equals("HChymns") Then
+            Return My.Settings.maxHCHymns
+        Else
+            Return ""
+        End If
+    End Function
     Private Sub highlightCurrentHymn()
         ''resetting fonts to highlight selected hymn
         If hymnListBox.Items.Count = 0 Then

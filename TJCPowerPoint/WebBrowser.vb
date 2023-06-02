@@ -1,6 +1,5 @@
 ﻿Public Class WebBrowser
     Private src As String
-    Private name As String
 
     Public Sub New(name As String)
 

@@ -8,11 +8,11 @@
   <imageDirectories>
     <announcements></announcements>
     <prayerRequests></prayerRequests>
-    <serviceTimes>S:\Downloads\Post-Stream Thumbnails.pptx.png</serviceTimes>
+    <serviceTimes></serviceTimes>
   </imageDirectories>
   <showBrowser>
     <announcements>True</announcements>
-    <prayerRequests>True</prayerRequests>
+    <prayerRequests>False</prayerRequests>
     <serviceTimes>False</serviceTimes>
   </showBrowser>
 </root>
