@@ -53,6 +53,8 @@
 
         If DisplayComboBox.SelectedIndex >= 0 Then
             selectedScreen = Screen.AllScreens(DisplayComboBox.SelectedIndex)
+        Else
+            selectedScreen = Screen.AllScreens(0)
         End If
 
         Return selectedScreen

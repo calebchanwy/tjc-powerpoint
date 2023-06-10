@@ -1,3 +1,2 @@
-2023/06/02-22:28:15.314 4e70 Reusing MANIFEST C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.WebView2\EBWebView\Default\Service Worker\Database/MANIFEST-000001
-2023/06/02-22:28:15.314 4e70 Recovering log #3
-2023/06/02-22:28:15.315 4e70 Reusing old log C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.WebView2\EBWebView\Default\Service Worker\Database/000003.log 
+2023/06/10-22:15:21.344 ac4 Creating DB C:\Users\caleb\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.WebView2\EBWebView\Default\Service Worker\Database since it was missing.
+2023/06/10-22:15:21.350 ac4 Reusing MANIFEST C:\Users\caleb\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.WebView2\EBWebView\Default\Service Worker\Database/MANIFEST-000001

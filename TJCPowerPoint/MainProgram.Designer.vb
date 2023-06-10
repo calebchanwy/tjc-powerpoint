@@ -167,7 +167,7 @@ Partial Class MainProgram
         Me.Label13.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.Location = New System.Drawing.Point(321, 79)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(88, 15)
+        Me.Label13.Size = New System.Drawing.Size(132, 25)
         Me.Label13.TabIndex = 32
         Me.Label13.Text = "Hymn Heading"
         '
@@ -177,7 +177,7 @@ Partial Class MainProgram
         Me.Label14.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.Location = New System.Drawing.Point(233, 79)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(81, 15)
+        Me.Label14.Size = New System.Drawing.Size(122, 25)
         Me.Label14.TabIndex = 31
         Me.Label14.Text = "Bible Heading"
         '
@@ -250,7 +250,7 @@ Partial Class MainProgram
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(101, 78)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(79, 15)
+        Me.Label5.Size = New System.Drawing.Size(119, 25)
         Me.Label5.TabIndex = 26
         Me.Label5.Text = "Chinese Book"
         '
@@ -260,7 +260,7 @@ Partial Class MainProgram
         Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(8, 78)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(75, 15)
+        Me.Label3.Size = New System.Drawing.Size(114, 25)
         Me.Label3.TabIndex = 25
         Me.Label3.Text = "English Book"
         '
@@ -305,7 +305,7 @@ Partial Class MainProgram
         Me.BookBox.Location = New System.Drawing.Point(10, 48)
         Me.BookBox.MaxDropDownItems = 5
         Me.BookBox.Name = "BookBox"
-        Me.BookBox.Size = New System.Drawing.Size(392, 29)
+        Me.BookBox.Size = New System.Drawing.Size(392, 40)
         Me.BookBox.TabIndex = 0
         '
         'EnglishBookColorBtn
@@ -339,7 +339,7 @@ Partial Class MainProgram
         Me.Label9.ForeColor = System.Drawing.Color.Black
         Me.Label9.Location = New System.Drawing.Point(576, 26)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(54, 17)
+        Me.Label9.Size = New System.Drawing.Size(85, 28)
         Me.Label9.TabIndex = 18
         Me.Label9.Text = "Verse(s)"
         '
@@ -350,7 +350,7 @@ Partial Class MainProgram
         Me.Label8.ForeColor = System.Drawing.Color.Black
         Me.Label8.Location = New System.Drawing.Point(472, 26)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(56, 17)
+        Me.Label8.Size = New System.Drawing.Size(83, 28)
         Me.Label8.TabIndex = 17
         Me.Label8.Text = "Chapter"
         '
@@ -362,7 +362,7 @@ Partial Class MainProgram
         Me.Label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.Label7.Location = New System.Drawing.Point(547, 43)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(22, 32)
+        Me.Label7.Size = New System.Drawing.Size(31, 47)
         Me.Label7.TabIndex = 16
         Me.Label7.Text = ":"
         '
@@ -373,7 +373,7 @@ Partial Class MainProgram
         Me.VerseTxt.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.VerseTxt.Location = New System.Drawing.Point(573, 46)
         Me.VerseTxt.Name = "VerseTxt"
-        Me.VerseTxt.Size = New System.Drawing.Size(144, 31)
+        Me.VerseTxt.Size = New System.Drawing.Size(144, 42)
         Me.VerseTxt.TabIndex = 2
         '
         'Label6
@@ -383,7 +383,7 @@ Partial Class MainProgram
         Me.Label6.ForeColor = System.Drawing.Color.Black
         Me.Label6.Location = New System.Drawing.Point(7, 26)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(44, 20)
+        Me.Label6.Size = New System.Drawing.Size(68, 31)
         Me.Label6.TabIndex = 10
         Me.Label6.Text = "Book"
         '
@@ -407,7 +407,7 @@ Partial Class MainProgram
         Me.ChapterTxt.HideSelection = False
         Me.ChapterTxt.Location = New System.Drawing.Point(470, 45)
         Me.ChapterTxt.Name = "ChapterTxt"
-        Me.ChapterTxt.Size = New System.Drawing.Size(71, 31)
+        Me.ChapterTxt.Size = New System.Drawing.Size(71, 42)
         Me.ChapterTxt.TabIndex = 1
         '
         'CVFontBtn
@@ -433,7 +433,7 @@ Partial Class MainProgram
         Me.ShowHymnal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ShowHymnal.Location = New System.Drawing.Point(126, 22)
         Me.ShowHymnal.Name = "ShowHymnal"
-        Me.ShowHymnal.Size = New System.Drawing.Size(74, 25)
+        Me.ShowHymnal.Size = New System.Drawing.Size(113, 35)
         Me.ShowHymnal.TabIndex = 2
         Me.ShowHymnal.Text = "    Hymnal "
         Me.ShowHymnal.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -450,7 +450,7 @@ Partial Class MainProgram
         Me.ShowVerses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ShowVerses.Location = New System.Drawing.Point(206, 22)
         Me.ShowVerses.Name = "ShowVerses"
-        Me.ShowVerses.Size = New System.Drawing.Size(96, 25)
+        Me.ShowVerses.Size = New System.Drawing.Size(144, 35)
         Me.ShowVerses.TabIndex = 1
         Me.ShowVerses.Text = "    Bible Verses"
         Me.ShowVerses.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -467,7 +467,7 @@ Partial Class MainProgram
         Me.ShowSermonHymns.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ShowSermonHymns.Location = New System.Drawing.Point(6, 22)
         Me.ShowSermonHymns.Name = "ShowSermonHymns"
-        Me.ShowSermonHymns.Size = New System.Drawing.Size(114, 25)
+        Me.ShowSermonHymns.Size = New System.Drawing.Size(171, 35)
         Me.ShowSermonHymns.TabIndex = 0
         Me.ShowSermonHymns.Text = "    Sermon Hymns"
         Me.ShowSermonHymns.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -502,7 +502,7 @@ Partial Class MainProgram
         Me.OpenPrayerRequestsWindow.Location = New System.Drawing.Point(126, 22)
         Me.OpenPrayerRequestsWindow.Name = "OpenPrayerRequestsWindow"
         Me.OpenPrayerRequestsWindow.Padding = New System.Windows.Forms.Padding(5, 0, 3, 0)
-        Me.OpenPrayerRequestsWindow.Size = New System.Drawing.Size(114, 25)
+        Me.OpenPrayerRequestsWindow.Size = New System.Drawing.Size(164, 35)
         Me.OpenPrayerRequestsWindow.TabIndex = 20
         Me.OpenPrayerRequestsWindow.TabStop = False
         Me.OpenPrayerRequestsWindow.Text = "Prayer Requests"
@@ -529,7 +529,7 @@ Partial Class MainProgram
         Me.Show_AN.Location = New System.Drawing.Point(6, 22)
         Me.Show_AN.Name = "Show_AN"
         Me.Show_AN.Padding = New System.Windows.Forms.Padding(5, 0, 3, 0)
-        Me.Show_AN.Size = New System.Drawing.Size(114, 25)
+        Me.Show_AN.Size = New System.Drawing.Size(167, 35)
         Me.Show_AN.TabIndex = 26
         Me.Show_AN.TabStop = False
         Me.Show_AN.Text = "Announcements"
@@ -544,7 +544,7 @@ Partial Class MainProgram
         Me.edtHC.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.edtHC.Location = New System.Drawing.Point(94, 53)
         Me.edtHC.Name = "edtHC"
-        Me.edtHC.Size = New System.Drawing.Size(119, 25)
+        Me.edtHC.Size = New System.Drawing.Size(172, 34)
         Me.edtHC.TabIndex = 28
         Me.edtHC.TabStop = False
         Me.edtHC.Text = "Holy Communion"
@@ -559,7 +559,7 @@ Partial Class MainProgram
         Me.ServiceTimesBtn.Location = New System.Drawing.Point(6, 53)
         Me.ServiceTimesBtn.Name = "ServiceTimesBtn"
         Me.ServiceTimesBtn.Padding = New System.Windows.Forms.Padding(5, 0, 3, 0)
-        Me.ServiceTimesBtn.Size = New System.Drawing.Size(82, 25)
+        Me.ServiceTimesBtn.Size = New System.Drawing.Size(113, 35)
         Me.ServiceTimesBtn.TabIndex = 29
         Me.ServiceTimesBtn.TabStop = False
         Me.ServiceTimesBtn.Text = "Timetable"
@@ -571,7 +571,7 @@ Partial Class MainProgram
         Me.ChineseTitle.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChineseTitle.Location = New System.Drawing.Point(6, 65)
         Me.ChineseTitle.Name = "ChineseTitle"
-        Me.ChineseTitle.Size = New System.Drawing.Size(563, 33)
+        Me.ChineseTitle.Size = New System.Drawing.Size(563, 45)
         Me.ChineseTitle.TabIndex = 1
         Me.ChineseTitle.TabStop = False
         '
@@ -581,7 +581,7 @@ Partial Class MainProgram
         Me.EnglishTitle.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EnglishTitle.Location = New System.Drawing.Point(6, 26)
         Me.EnglishTitle.Name = "EnglishTitle"
-        Me.EnglishTitle.Size = New System.Drawing.Size(563, 33)
+        Me.EnglishTitle.Size = New System.Drawing.Size(563, 45)
         Me.EnglishTitle.TabIndex = 0
         Me.EnglishTitle.TabStop = False
         Me.EnglishTitle.WordWrap = False
@@ -609,7 +609,7 @@ Partial Class MainProgram
         Me.Label11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.Location = New System.Drawing.Point(6, 100)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(85, 17)
+        Me.Label11.Size = New System.Drawing.Size(132, 28)
         Me.Label11.TabIndex = 19
         Me.Label11.Text = "Service Type"
         '
@@ -651,7 +651,7 @@ Partial Class MainProgram
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(194, 153)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(74, 15)
+        Me.Label2.Size = New System.Drawing.Size(110, 25)
         Me.Label2.TabIndex = 42
         Me.Label2.Text = "Chinese Title"
         '
@@ -661,7 +661,7 @@ Partial Class MainProgram
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(45, 153)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(70, 15)
+        Me.Label1.Size = New System.Drawing.Size(105, 25)
         Me.Label1.TabIndex = 33
         Me.Label1.Text = "English Title"
         '
@@ -682,7 +682,7 @@ Partial Class MainProgram
         Me.ServiceType.Location = New System.Drawing.Point(6, 120)
         Me.ServiceType.MaxDropDownItems = 5
         Me.ServiceType.Name = "ServiceType"
-        Me.ServiceType.Size = New System.Drawing.Size(242, 25)
+        Me.ServiceType.Size = New System.Drawing.Size(242, 36)
         Me.ServiceType.TabIndex = 33
         Me.ServiceType.TabStop = False
         '
@@ -923,7 +923,7 @@ Partial Class MainProgram
         Me.goToHCBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.goToHCBtn.Location = New System.Drawing.Point(316, 53)
         Me.goToHCBtn.Name = "goToHCBtn"
-        Me.goToHCBtn.Size = New System.Drawing.Size(124, 25)
+        Me.goToHCBtn.Size = New System.Drawing.Size(188, 35)
         Me.goToHCBtn.TabIndex = 10
         Me.goToHCBtn.Text = "    Holy Communion"
         Me.goToHCBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -939,7 +939,7 @@ Partial Class MainProgram
         Me.goToTimetableBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.goToTimetableBtn.Location = New System.Drawing.Point(446, 53)
         Me.goToTimetableBtn.Name = "goToTimetableBtn"
-        Me.goToTimetableBtn.Size = New System.Drawing.Size(82, 25)
+        Me.goToTimetableBtn.Size = New System.Drawing.Size(125, 35)
         Me.goToTimetableBtn.TabIndex = 9
         Me.goToTimetableBtn.Text = "    Timetable"
         Me.goToTimetableBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -955,7 +955,7 @@ Partial Class MainProgram
         Me.goToTurnOffDevicesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.goToTurnOffDevicesBtn.Location = New System.Drawing.Point(70, 53)
         Me.goToTurnOffDevicesBtn.Name = "goToTurnOffDevicesBtn"
-        Me.goToTurnOffDevicesBtn.Size = New System.Drawing.Size(117, 25)
+        Me.goToTurnOffDevicesBtn.Size = New System.Drawing.Size(179, 35)
         Me.goToTurnOffDevicesBtn.TabIndex = 8
         Me.goToTurnOffDevicesBtn.Text = "    Turn Off Devices"
         Me.goToTurnOffDevicesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -971,7 +971,7 @@ Partial Class MainProgram
         Me.goToHowToPrayBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.goToHowToPrayBtn.Location = New System.Drawing.Point(426, 22)
         Me.goToHowToPrayBtn.Name = "goToHowToPrayBtn"
-        Me.goToHowToPrayBtn.Size = New System.Drawing.Size(96, 25)
+        Me.goToHowToPrayBtn.Size = New System.Drawing.Size(145, 35)
         Me.goToHowToPrayBtn.TabIndex = 7
         Me.goToHowToPrayBtn.Text = "    How To Pray"
         Me.goToHowToPrayBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -987,7 +987,7 @@ Partial Class MainProgram
         Me.goToAnnouncementsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.goToAnnouncementsBtn.Location = New System.Drawing.Point(193, 53)
         Me.goToAnnouncementsBtn.Name = "goToAnnouncementsBtn"
-        Me.goToAnnouncementsBtn.Size = New System.Drawing.Size(117, 25)
+        Me.goToAnnouncementsBtn.Size = New System.Drawing.Size(179, 35)
         Me.goToAnnouncementsBtn.TabIndex = 6
         Me.goToAnnouncementsBtn.Text = "    Announcements"
         Me.goToAnnouncementsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1003,7 +1003,7 @@ Partial Class MainProgram
         Me.goToBreakBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.goToBreakBtn.Location = New System.Drawing.Point(6, 53)
         Me.goToBreakBtn.Name = "goToBreakBtn"
-        Me.goToBreakBtn.Size = New System.Drawing.Size(58, 25)
+        Me.goToBreakBtn.Size = New System.Drawing.Size(88, 35)
         Me.goToBreakBtn.TabIndex = 5
         Me.goToBreakBtn.Text = "    Break"
         Me.goToBreakBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1019,7 +1019,7 @@ Partial Class MainProgram
         Me.goToPRBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.goToPRBtn.Location = New System.Drawing.Point(308, 22)
         Me.goToPRBtn.Name = "goToPRBtn"
-        Me.goToPRBtn.Size = New System.Drawing.Size(112, 25)
+        Me.goToPRBtn.Size = New System.Drawing.Size(176, 35)
         Me.goToPRBtn.TabIndex = 4
         Me.goToPRBtn.Text = "    Prayer Requests"
         Me.goToPRBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1112,11 +1112,11 @@ Partial Class MainProgram
         Me.sermonHymnsListBox.FormatString = "N0"
         Me.sermonHymnsListBox.FormattingEnabled = True
         Me.sermonHymnsListBox.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.sermonHymnsListBox.ItemHeight = 18
+        Me.sermonHymnsListBox.ItemHeight = 27
         Me.sermonHymnsListBox.Location = New System.Drawing.Point(6, 37)
         Me.sermonHymnsListBox.Name = "sermonHymnsListBox"
         Me.sermonHymnsListBox.ScrollAlwaysVisible = True
-        Me.sermonHymnsListBox.Size = New System.Drawing.Size(100, 130)
+        Me.sermonHymnsListBox.Size = New System.Drawing.Size(100, 112)
         Me.sermonHymnsListBox.TabIndex = 47
         Me.sermonHymnsListBox.TabStop = False
         '
@@ -1168,10 +1168,10 @@ Partial Class MainProgram
         Me.TabPage1.Controls.Add(Me.delHymnBtn)
         Me.TabPage1.Controls.Add(Me.HymnColorBtn)
         Me.TabPage1.Controls.Add(Me.sermonHymnsListBox)
-        Me.TabPage1.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage1.Location = New System.Drawing.Point(4, 34)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(192, 171)
+        Me.TabPage1.Size = New System.Drawing.Size(192, 161)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Sermon Hymns"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -1198,10 +1198,10 @@ Partial Class MainProgram
         Me.TabPage2.Controls.Add(Me.hymnalDelHymn)
         Me.TabPage2.Controls.Add(Me.hymnalHymnColor)
         Me.TabPage2.Controls.Add(Me.hymnalHymnsListBox)
-        Me.TabPage2.Location = New System.Drawing.Point(4, 24)
+        Me.TabPage2.Location = New System.Drawing.Point(4, 34)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(192, 171)
+        Me.TabPage2.Size = New System.Drawing.Size(192, 161)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Hymnal Hymns"
         '
@@ -1312,19 +1312,18 @@ Partial Class MainProgram
         Me.hymnalHymnsListBox.FormatString = "N0"
         Me.hymnalHymnsListBox.FormattingEnabled = True
         Me.hymnalHymnsListBox.ImeMode = System.Windows.Forms.ImeMode.NoControl
-        Me.hymnalHymnsListBox.ItemHeight = 18
+        Me.hymnalHymnsListBox.ItemHeight = 27
         Me.hymnalHymnsListBox.Location = New System.Drawing.Point(6, 37)
         Me.hymnalHymnsListBox.Name = "hymnalHymnsListBox"
         Me.hymnalHymnsListBox.ScrollAlwaysVisible = True
-        Me.hymnalHymnsListBox.Size = New System.Drawing.Size(100, 130)
+        Me.hymnalHymnsListBox.Size = New System.Drawing.Size(100, 112)
         Me.hymnalHymnsListBox.TabIndex = 56
         Me.hymnalHymnsListBox.TabStop = False
         '
         'MainProgram
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
-        Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 23.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border2
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
