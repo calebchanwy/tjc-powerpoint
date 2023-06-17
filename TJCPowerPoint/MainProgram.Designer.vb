@@ -588,6 +588,7 @@ Partial Class MainProgram
         '
         'UpdateTitle
         '
+        Me.UpdateTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.UpdateTitle.BackColor = System.Drawing.Color.Transparent
         Me.UpdateTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.UpdateTitle.Cursor = System.Windows.Forms.Cursors.Hand
@@ -615,6 +616,7 @@ Partial Class MainProgram
         '
         'Title
         '
+        Me.Title.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Title.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.Title.Controls.Add(Me.Label2)
         Me.Title.Controls.Add(Me.Label1)
@@ -1338,8 +1340,6 @@ Partial Class MainProgram
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MaximumSize = New System.Drawing.Size(815, 490)
-        Me.MinimumSize = New System.Drawing.Size(815, 490)
         Me.Name = "MainProgram"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Text = "True Jesus Church PowerPoint"

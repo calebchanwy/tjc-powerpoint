@@ -256,4 +256,5 @@ Public Class BaseSlideEdit
             ShowBrowser()
         End If
     End Sub
+
 End Class

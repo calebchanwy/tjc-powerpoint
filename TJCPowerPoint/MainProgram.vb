@@ -800,9 +800,14 @@ Public Class MainProgram
     End Sub
 
     Private Sub clearbtn_Click(sender As Object, e As EventArgs) Handles clearbtn.Click
-        ResetServiceDetails()
-        showTitlesOnly()
-        ShowSermonHymns.Checked = True
+        Dim result As DialogResult
+        result = MessageBox.Show("Are you sure you want to reset all sermon details?", "Reset cancelled", MessageBoxButtons.OKCancel)
+        If result = DialogResult.Yes Then
+            ResetServiceDetails()
+            showTitlesOnly()
+            ShowSermonHymns.Checked = True
+        End If
+
     End Sub
 
     Private Sub ServiceTimesBtn_Click(sender As Object, e As EventArgs) Handles ServiceTimesBtn.Click
