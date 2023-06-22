@@ -307,6 +307,7 @@ Partial Class MainProgram
         Me.BookBox.Name = "BookBox"
         Me.BookBox.Size = New System.Drawing.Size(392, 40)
         Me.BookBox.TabIndex = 0
+        Me.BookBox.TabStop = False
         '
         'EnglishBookColorBtn
         '
@@ -375,6 +376,7 @@ Partial Class MainProgram
         Me.VerseTxt.Name = "VerseTxt"
         Me.VerseTxt.Size = New System.Drawing.Size(144, 42)
         Me.VerseTxt.TabIndex = 2
+        Me.VerseTxt.TabStop = False
         '
         'Label6
         '
@@ -409,6 +411,7 @@ Partial Class MainProgram
         Me.ChapterTxt.Name = "ChapterTxt"
         Me.ChapterTxt.Size = New System.Drawing.Size(71, 42)
         Me.ChapterTxt.TabIndex = 1
+        Me.ChapterTxt.TabStop = False
         '
         'CVFontBtn
         '

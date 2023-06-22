@@ -306,12 +306,7 @@ Public Class MainProgram
         Me.Close()
     End Sub
 
-    Private Sub ShowSermonHymns_CheckedChanged(sender As Object, e As EventArgs) Handles ShowSermonHymns.CheckedChanged
-        ShowSermonHymns.TabStop = False
-    End Sub
     Private Sub ShowVerses_CheckedChanged(sender As Object, e As EventArgs) Handles ShowVerses.CheckedChanged
-        ShowVerses.TabStop = False
-
         If ShowVerses.Checked Then
             UpdateVerse()
         Else
@@ -348,7 +343,6 @@ Public Class MainProgram
     End Sub
 
     Private Sub ShowHymnal_CheckedChanged(sender As Object, e As EventArgs) Handles ShowHymnal.CheckedChanged
-        ShowHymnal.TabStop = False
         If ShowHymnal.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("hymnalHymnsSlide").SlideIndex)
         End If
@@ -526,7 +520,6 @@ Public Class MainProgram
 
     Private Sub GoToSlideIfNotAlreadyChecked(sender As Object, targetSlideName As String)
         Dim radioButton As RadioButton = DirectCast(sender, RadioButton)
-        radioButton.TabStop = False
 
         Dim targetSlide As PowerPoint.Slide = slideDictionary.Item(targetSlideName)
 
@@ -713,7 +706,6 @@ Public Class MainProgram
         If e.KeyCode = Keys.Enter Then
             UpdateTitle_Click(sender, e)
             'Mute ding sound from windows
-            e.Handled = True
             e.SuppressKeyPress = True
         End If
     End Sub
@@ -723,10 +715,9 @@ Public Class MainProgram
         If e.KeyCode = Keys.Enter Then
             Call updateVerseBtn_Click(sender, e)
             If VerseTxt.Text IsNot "" Then
-                SelectNextControl(sender, True, True, True, True)
+                BookBox.Focus()
             End If
             'Mute ding sound from windows
-            e.Handled = True
             e.SuppressKeyPress = True
         End If
     End Sub
@@ -737,7 +728,6 @@ Public Class MainProgram
                 SelectNextControl(sender, True, True, True, True)
             End If
             'Mute ding sound from windows
-            e.Handled = True
             e.SuppressKeyPress = True
         End If
     End Sub
@@ -746,7 +736,7 @@ Public Class MainProgram
         If e.KeyCode = Keys.Enter Then
             updateServiceTypes()
             'Mute ding sound from windows
-            e.Handled = True
+
             e.SuppressKeyPress = True
         End If
     End Sub
@@ -759,6 +749,11 @@ Public Class MainProgram
             End If
         Next
     End Sub
+
+    'Method that handles the key down event on the BookBox text box
+    'When key is etner, handles empty string or incorrect input
+    'If tab, next control is focused
+
     Private Sub BookBox_KeyDown(sender As Object, e As KeyEventArgs) Handles BookBox.KeyDown
         If e.KeyCode = Keys.Enter Then
             If BookBox.Text = "" Then
@@ -769,19 +764,16 @@ Public Class MainProgram
                 textBoxDictionary.Item("chapterAndVerse").Text = " "
                 VerseTxt.Text = ""
                 ChapterTxt.Text = ""
-                ' Mute ding sound from Windows
-                e.SuppressKeyPress = True
             ElseIf BookBox.SelectedIndex <> -1 Then
-                ' Perform action when a book is selected
-                SelectNextControl(sender, True, True, True, True)
-                ' Mute ding sound from Windows
-                e.SuppressKeyPress = True
+                'Focus onto chapter text box
+                ChapterTxt.Focus()
             End If
         End If
     End Sub
     Private Sub ChapterTxt_KeyDown(sender As Object, e As KeyEventArgs) Handles ChapterTxt.KeyDown
         If e.KeyCode = Keys.Enter Then
             ChapterTxt.DeselectAll()
+            VerseTxt.Focus()
         End If
     End Sub
     Private Sub VerseTxt_GotFocus(sender As Object, e As EventArgs) Handles VerseTxt.GotFocus
