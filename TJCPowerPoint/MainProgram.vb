@@ -231,7 +231,9 @@ Public Class MainProgram
         slideWindow.setTitleTB(textBoxDictionary.Item(titleTextboxKey))
     End Sub
 
-
+    'Method that changes the font of a given PowerPoint text range object
+    'Opens a dialog that allows user to select a style and font, and applies font
+    'to text box
     Public Sub ChangeFont(textBox As PowerPoint.TextRange)
         Dim dialog = New FontDialog()
 
@@ -245,6 +247,8 @@ Public Class MainProgram
         End If
     End Sub
 
+    'Adapter method that translates font styles from powerpoint text boxes (TextRange object)
+    'to the corresponding FontStyle object in the windows form Drawing library
     Private Function GetFontStyleFromTextBox(textBox As PowerPoint.TextRange) As FontStyle
         Dim style As FontStyle = FontStyle.Regular
 
@@ -315,6 +319,9 @@ Public Class MainProgram
         End If
     End Sub
 
+    'Method that updates the verses in the powerpoint slides
+    'Handles if the contents are empty or not
+    'Also handles when no book is selected, to reset and show titles only
     Private Sub UpdateVerse()
         If String.IsNullOrWhiteSpace(VerseTxt.Text) AndAlso String.IsNullOrWhiteSpace(BookBox.Text) AndAlso String.IsNullOrWhiteSpace(ChapterTxt.Text) Then
             textBoxDictionary.Item("chapterAndVerse").Text = " "
@@ -329,19 +336,18 @@ Public Class MainProgram
             ShowVerses.Checked = True
         End If
     End Sub
-
+    'Method that clears the PowerPoint text box text
     Private Sub ClearBibleVerses()
         textBoxDictionary.Item("englishBook").Text = ""
         textBoxDictionary.Item("chineseBook").Text = ""
         textBoxDictionary.Item("chapterAndVerse").Text = ""
     End Sub
-
+    'Method that clears the windows form input fields
     Private Sub ClearInputFields()
         BookBox.Text = ""
         VerseTxt.Text = ""
         ChapterTxt.Text = ""
     End Sub
-
     Private Sub ShowHymnal_CheckedChanged(sender As Object, e As EventArgs) Handles ShowHymnal.CheckedChanged
         If ShowHymnal.Checked Then
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("hymnalHymnsSlide").SlideIndex)
@@ -458,11 +464,11 @@ Public Class MainProgram
 
     Private Sub clearSermonHymnsBtn_Click(sender As Object, e As EventArgs) Handles clearSermonHymnsBtn.Click
         sermonHymnsListBox.Items.Clear()
-        sermonHymns.UpdateHymns()
+        sermonHymns.updateHymns()
     End Sub
     Private Sub clearHymnalHymnsBtn_Click(sender As Object, e As EventArgs) Handles clearHymnalHymns.Click
         hymnalHymnsListBox.Items.Clear()
-        hymnalHymns.UpdateHymns()
+        hymnalHymns.updateHymns()
     End Sub
 
     'handles deleting from button (sermon hymn)
@@ -498,13 +504,13 @@ Public Class MainProgram
         If ShowSermonHymns.Checked And sermonHymnsListBox.Items.Count > 0 Then
             ShowSermonHymns.PerformClick()
         End If
-        sermonHymns.UpdateHymns()
+        sermonHymns.updateHymns()
     End Sub
     Private Sub hymnalHymnListBox_IndexChanged(sender As Object, e As EventArgs) Handles hymnalHymnsListBox.SelectedIndexChanged
         If hymnalHymnsListBox.SelectedIndex = -1 Then
             Return
         End If
-        hymnalHymns.UpdateHymns()
+        hymnalHymns.updateHymns()
     End Sub
 
     Private Sub sermonHymnNo_KeyDown(sender As Object, e As KeyEventArgs) Handles sermonHymnNo.KeyDown
@@ -710,7 +716,7 @@ Public Class MainProgram
         End If
     End Sub
 
-    Private Sub Verse_KeyDown(sender As Object, e As KeyEventArgs) Handles VerseTxt.KeyDown
+    Private Sub VerseTxt_KeyDown(sender As Object, e As KeyEventArgs) Handles VerseTxt.KeyDown
         'handling both when chapter and verse enter key pressed
         If e.KeyCode = Keys.Enter Then
             Call updateVerseBtn_Click(sender, e)
@@ -752,8 +758,6 @@ Public Class MainProgram
 
     'Method that handles the key down event on the BookBox text box
     'When key is etner, handles empty string or incorrect input
-    'If tab, next control is focused
-
     Private Sub BookBox_KeyDown(sender As Object, e As KeyEventArgs) Handles BookBox.KeyDown
         If e.KeyCode = Keys.Enter Then
             If BookBox.Text = "" Then
@@ -868,4 +872,5 @@ Public Class MainProgram
     Private Sub ServiceType_SelectedValueChanged(sender As Object, e As EventArgs) Handles ServiceType.SelectedValueChanged
         updateServiceTypes()
     End Sub
+
 End Class
