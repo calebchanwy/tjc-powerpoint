@@ -6,7 +6,7 @@ Public Class DraggableForm
     Private MouseDownX As Integer
     Private MouseDownY As Integer
 
-    Private Sub Form1_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles MyBase.MouseDown
+    Protected Sub Form1_MouseDown(ByVal sender As Object, ByVal e As MouseEventArgs) Handles MyBase.MouseDown
 
         If e.Button = MouseButtons.Left Then
             IsFormBeingDragged = True
@@ -15,14 +15,14 @@ Public Class DraggableForm
         End If
     End Sub
 
-    Private Sub Form1_MouseUp(ByVal sender As Object, ByVal e As MouseEventArgs) Handles MyBase.MouseUp
+    Protected Sub Form1_MouseUp(ByVal sender As Object, ByVal e As MouseEventArgs) Handles MyBase.MouseUp
 
         If e.Button = MouseButtons.Left Then
             IsFormBeingDragged = False
         End If
     End Sub
 
-    Private Sub Form1_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles MyBase.MouseMove
+    Protected Sub Form1_MouseMove(ByVal sender As Object, ByVal e As MouseEventArgs) Handles MyBase.MouseMove
 
         If IsFormBeingDragged Then
             Dim temp As Point = New Point()

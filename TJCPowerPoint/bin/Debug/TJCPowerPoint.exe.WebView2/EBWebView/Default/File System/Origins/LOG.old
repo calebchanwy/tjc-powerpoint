@@ -1,3 +1,5 @@
-2023/06/02-16:00:14.808 3bd0 Reusing MANIFEST C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.WebView2\EBWebView\Default\File System\Origins/MANIFEST-000001
-2023/06/02-16:00:14.809 3bd0 Recovering log #3
-2023/06/02-16:00:14.809 3bd0 Reusing old log C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.WebView2\EBWebView\Default\File System\Origins/000003.log 
+2023/06/23-22:35:03.960 2940 Log #3: 3 ops saved to Table #4 OK
+2023/06/23-22:35:03.961 2940 Archiving C:\Users\caleb\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.WebView2\EBWebView\Default\File System\Origins/000003.log: OK
+2023/06/23-22:35:03.961 2940 Table #4: 3 entries OK
+2023/06/23-22:35:03.963 2940 Archiving C:\Users\caleb\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.WebView2\EBWebView\Default\File System\Origins/MANIFEST-000001: OK
+2023/06/23-22:35:03.970 2940 **** Repaired leveldb C:\Users\caleb\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.WebView2\EBWebView\Default\File System\Origins; recovered 1 files; 179 bytes. Some data may have been lost. ****

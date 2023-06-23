@@ -873,4 +873,13 @@ Public Class MainProgram
         updateServiceTypes()
     End Sub
 
+    Private Sub navBar_MouseDown(sender As Object, e As MouseEventArgs) Handles navBar.MouseDown, header.MouseDown
+        MyBase.Form1_MouseDown(sender, e)
+    End Sub
+    Private Sub navBar_MouseUp(sender As Object, e As MouseEventArgs) Handles navBar.MouseUp, header.MouseUp
+        MyBase.Form1_MouseUp(sender, e)
+    End Sub
+    Private Sub navBar_MouseMove(sender As Object, e As MouseEventArgs) Handles navBar.MouseMove, header.MouseMove
+        MyBase.Form1_MouseMove(sender, e)
+    End Sub
 End Class
