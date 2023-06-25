@@ -54,6 +54,7 @@ Public Class MainProgram
         AddHandler AppDomain.CurrentDomain.UnhandledException, AddressOf CurrentDomain_UnhandledException
     End Sub
 
+    '
     Private Sub MainLoad() Handles MyBase.Load
         Try
             MakeFolder()
@@ -797,7 +798,7 @@ Public Class MainProgram
 
     Private Sub clearbtn_Click(sender As Object, e As EventArgs) Handles clearbtn.Click
         Dim result As DialogResult
-        result = MessageBox.Show("Are you sure you want to reset all sermon details?", "Reset cancelled", MessageBoxButtons.OKCancel)
+        result = MessageBox.Show("Are you sure you want to reset all sermon details?", "Confirm Reset", MessageBoxButtons.OKCancel)
         If result = DialogResult.Yes Then
             ResetServiceDetails()
             showTitlesOnly()
@@ -859,8 +860,6 @@ Public Class MainProgram
         MoveShapeByOffset(2, 1)
     End Sub
 
-    'NAVIGATION BAR
-    'Methods dealing with when the close/minimise button are pressed
     Private Sub minForm_Click(sender As Object, e As EventArgs) Handles minForm.Click
         Me.WindowState = FormWindowState.Minimized
     End Sub
@@ -873,6 +872,8 @@ Public Class MainProgram
         updateServiceTypes()
     End Sub
 
+    'Add handlers to specific controls, passing objects back to superclass
+    'All passed controls will allow the window to move as the mouse is dragged on it
     Private Sub navBar_MouseDown(sender As Object, e As MouseEventArgs) Handles navBar.MouseDown, header.MouseDown
         MyBase.Form1_MouseDown(sender, e)
     End Sub
