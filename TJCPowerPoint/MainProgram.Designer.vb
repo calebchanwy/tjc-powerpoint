@@ -25,8 +25,9 @@ Partial Class MainProgram
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainProgram))
         Me.BibleVerse = New System.Windows.Forms.GroupBox()
-        Me.BookBox = New System.Windows.Forms.ComboBox()
+        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label8 = New System.Windows.Forms.Label()
+        Me.BookBox = New System.Windows.Forms.ComboBox()
         Me.ChapterTxt = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
@@ -123,8 +124,8 @@ Partial Class MainProgram
         Me.FlowLayoutPanel5 = New System.Windows.Forms.FlowLayoutPanel()
         Me.projectSlideGroupBox = New System.Windows.Forms.GroupBox()
         Me.editSlideGroupBox = New System.Windows.Forms.GroupBox()
-        Me.Panel2 = New System.Windows.Forms.Panel()
         Me.BibleVerse.SuspendLayout()
+        Me.Panel2.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.FlowLayoutPanel7.SuspendLayout()
         CType(Me.header, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -143,7 +144,6 @@ Partial Class MainProgram
         Me.FlowLayoutPanel5.SuspendLayout()
         Me.projectSlideGroupBox.SuspendLayout()
         Me.editSlideGroupBox.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'BibleVerse
@@ -168,6 +168,35 @@ Partial Class MainProgram
         Me.BibleVerse.TabStop = False
         Me.BibleVerse.Text = "Bible Verse(s)"
         '
+        'Panel2
+        '
+        Me.Panel2.AutoSize = True
+        Me.Panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Panel2.Controls.Add(Me.Label8)
+        Me.Panel2.Controls.Add(Me.BookBox)
+        Me.Panel2.Controls.Add(Me.ChapterTxt)
+        Me.Panel2.Controls.Add(Me.Label6)
+        Me.Panel2.Controls.Add(Me.Label7)
+        Me.Panel2.Controls.Add(Me.Label9)
+        Me.Panel2.Controls.Add(Me.VerseTxt)
+        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Panel2.Location = New System.Drawing.Point(5, 25)
+        Me.Panel2.Name = "Panel2"
+        Me.Panel2.Size = New System.Drawing.Size(764, 44)
+        Me.Panel2.TabIndex = 34
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Dock = System.Windows.Forms.DockStyle.Right
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.ForeColor = System.Drawing.Color.Black
+        Me.Label8.Location = New System.Drawing.Point(373, 0)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(56, 17)
+        Me.Label8.TabIndex = 17
+        Me.Label8.Text = "Chapter"
+        '
         'BookBox
         '
         Me.BookBox.AutoCompleteCustomSource.AddRange(New String() {"Genesis,創 世 紀", "Exodus,出 埃 及 記", "Leviticus,利 未 記", "Numbers,民 數 記", "Deuteronomy,申 命 記", "Joshua,約 書 亞 記", "Judges,士 師 記", "Ruth,路 得 記", "1 Samuel,撒 母 耳 記 上", "2 Samuel,撒 母 耳 記 下", "1 Kings,列 王 紀 上", "2 Kings,列 王 紀 下", "1 Chronicles,歷 代 志 上", "2 Chronicles,歷 代 志 下", "Ezra,以 斯 拉 記", "Nehemiah,尼 希 米 記", "Esther,以 斯 帖 記", "Job,約 伯 記", "Psalms,詩 篇", "Proverbs,箴 言", "Ecclesiastes,傳 道 書", "Song of Songs,雅 歌", "Isaiah,以 賽 亞 書", "Jeremiah,耶 利 米 書", "Lamentations,耶 利 米 哀 歌", "Ezekiel,以 西 結 書", "Daniel,但 以 理 書", "Hosea,何 西 阿 書", "Joel,約 珥 書", "Amos,阿 摩 司 書", "Obadiah,俄 巴 底 亞 書", "Jonah,約 拿 書", "Micah,彌 迦 書", "Nahum,那 鴻 書", "Habakkuk,哈 巴 谷 書", "Zephaniah,西 番 雅 書", "Haggai,哈 該 書", "Zechariah,撒 迦 利 亞", "Malachi,瑪 拉 基 書", "Matthew,馬 太 福 音", "Mark,馬 可 福 音", "Luke,路 加 福 音", "John,約 翰 福 音", "Acts,使 徒 行 傳", "Romans,羅 馬 書", "1 Corinthians,哥 林 多 前 書", "2 Corinthians,哥 林 多 後 書", "Galatians,加 拉 太 書", "Ephesians,以 弗 所 書", "Philippians,腓 立 比 書", "Colossians,歌 羅 西 書", "1 Thessalonians,帖 撒 羅 尼 迦 前 書", "2 Thessalonians,帖 撒 羅 尼 迦 後 書", "1 Timothy,提 摩 太 前 書", "2 Timothy,提 摩 太 後 書", "Titus,提 多 書", "Philemon,腓 利 門 書", "Hebrews,希 伯 來 書", "James,雅 各 書", "1 Peter,彼 得 前 書", "2 Peter,彼 得 後 書", "1 John,約 翰 一 書", "2 John,約 翰 二 書", "3 John,約 翰 三 書", "Jude,猶 大 書", "Revelation,啟 示 錄"})
@@ -188,18 +217,6 @@ Partial Class MainProgram
         Me.BookBox.Name = "BookBox"
         Me.BookBox.Size = New System.Drawing.Size(323, 29)
         Me.BookBox.TabIndex = 1
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Dock = System.Windows.Forms.DockStyle.Right
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.ForeColor = System.Drawing.Color.Black
-        Me.Label8.Location = New System.Drawing.Point(373, 0)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(56, 17)
-        Me.Label8.TabIndex = 17
-        Me.Label8.Text = "Chapter"
         '
         'ChapterTxt
         '
@@ -1546,26 +1563,10 @@ Partial Class MainProgram
         Me.editSlideGroupBox.TabStop = False
         Me.editSlideGroupBox.Text = "Edit Slide:"
         '
-        'Panel2
-        '
-        Me.Panel2.AutoSize = True
-        Me.Panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Panel2.Controls.Add(Me.Label8)
-        Me.Panel2.Controls.Add(Me.BookBox)
-        Me.Panel2.Controls.Add(Me.ChapterTxt)
-        Me.Panel2.Controls.Add(Me.Label6)
-        Me.Panel2.Controls.Add(Me.Label7)
-        Me.Panel2.Controls.Add(Me.Label9)
-        Me.Panel2.Controls.Add(Me.VerseTxt)
-        Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel2.Location = New System.Drawing.Point(5, 25)
-        Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(764, 44)
-        Me.Panel2.TabIndex = 34
-        '
         'MainProgram
         '
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White
@@ -1586,6 +1587,8 @@ Partial Class MainProgram
         Me.Text = "True Jesus Church PowerPoint"
         Me.BibleVerse.ResumeLayout(False)
         Me.BibleVerse.PerformLayout()
+        Me.Panel2.ResumeLayout(False)
+        Me.Panel2.PerformLayout()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.PerformLayout()
         Me.FlowLayoutPanel7.ResumeLayout(False)
@@ -1618,8 +1621,6 @@ Partial Class MainProgram
         Me.projectSlideGroupBox.PerformLayout()
         Me.editSlideGroupBox.ResumeLayout(False)
         Me.editSlideGroupBox.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

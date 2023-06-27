@@ -250,11 +250,14 @@ Public Class BaseSlideEdit
     End Sub
 
     Private Sub useGoogleSlides_CheckedChanged(sender As Object, e As EventArgs) Handles useGoogleSlides.CheckedChanged
-        If useGoogleSlides.Checked And MainProgram.IsCurrentSlideIndex(slide.SlideIndex) Then
+        If useGoogleSlides.Checked Then
             IsUsingBrowser = True
             UpdateShowBrowserXML(MainProgram.getCurrentDirectory() + "\Files\config.xml", "True")
-            ShowBrowser()
+            If MainProgram.IsCurrentSlideIndex(slide.SlideIndex) Then
+                ShowBrowser()
+            End If
         End If
+
     End Sub
 
 End Class
