@@ -875,5 +875,4 @@ Public Class MainProgram
     Private Sub navBar_MouseMove(sender As Object, e As MouseEventArgs) Handles navBar.MouseMove, header.MouseMove
         MyBase.Form1_MouseMove(sender, e)
     End Sub
-
 End Class
