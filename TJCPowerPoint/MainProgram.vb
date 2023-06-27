@@ -695,12 +695,6 @@ Public Class MainProgram
         prayerRequestsWindow.Show()
     End Sub
 
-    Private Sub OpenFolder_Click(sender As Object, e As EventArgs)
-        openFilesFolder()
-    End Sub
-    Public Sub openFilesFolder()
-        Process.Start(CurrentDirectory + "\Files")
-    End Sub
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
         If goToBreakBtn.Checked Then
@@ -743,13 +737,11 @@ Public Class MainProgram
         If e.KeyCode = Keys.Enter Then
             updateServiceTypes()
             'Mute ding sound from windows
-
             e.SuppressKeyPress = True
         End If
     End Sub
     Private Sub updateServiceTypes()
         Dim textBoxKeys As String() = {"serviceType", "serviceType1", "serviceType2", "serviceType3"}
-
         For Each textBoxKey As String In textBoxKeys
             If textBoxDictionary.ContainsKey(textBoxKey) Then
                 textBoxDictionary(textBoxKey).Text = ServiceType.Text
@@ -883,4 +875,5 @@ Public Class MainProgram
     Private Sub navBar_MouseMove(sender As Object, e As MouseEventArgs) Handles navBar.MouseMove, header.MouseMove
         MyBase.Form1_MouseMove(sender, e)
     End Sub
+
 End Class
