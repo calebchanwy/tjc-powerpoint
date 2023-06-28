@@ -163,7 +163,7 @@ Partial Class MainProgram
         Me.BibleVerse.MinimumSize = New System.Drawing.Size(0, 130)
         Me.BibleVerse.Name = "BibleVerse"
         Me.BibleVerse.Padding = New System.Windows.Forms.Padding(5)
-        Me.BibleVerse.Size = New System.Drawing.Size(774, 137)
+        Me.BibleVerse.Size = New System.Drawing.Size(774, 176)
         Me.BibleVerse.TabIndex = 16
         Me.BibleVerse.TabStop = False
         Me.BibleVerse.Text = "Bible Verse(s)"
@@ -182,7 +182,7 @@ Partial Class MainProgram
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(5, 25)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(764, 44)
+        Me.Panel2.Size = New System.Drawing.Size(764, 83)
         Me.Panel2.TabIndex = 34
         '
         'Label8
@@ -296,7 +296,7 @@ Partial Class MainProgram
         Me.FlowLayoutPanel1.Controls.Add(Me.CVColorBtn)
         Me.FlowLayoutPanel1.Controls.Add(Me.CVFontBtn)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(5, 69)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(5, 108)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(764, 33)
         Me.FlowLayoutPanel1.TabIndex = 33
@@ -486,7 +486,7 @@ Partial Class MainProgram
         Me.updateVerseBtn.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.updateVerseBtn.ForeColor = System.Drawing.Color.Navy
         Me.updateVerseBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.updateVerseBtn.Location = New System.Drawing.Point(5, 102)
+        Me.updateVerseBtn.Location = New System.Drawing.Point(5, 141)
         Me.updateVerseBtn.Margin = New System.Windows.Forms.Padding(3, 10, 3, 10)
         Me.updateVerseBtn.Name = "updateVerseBtn"
         Me.updateVerseBtn.Size = New System.Drawing.Size(764, 30)
@@ -757,8 +757,8 @@ Partial Class MainProgram
         Me.FlowLayoutPanel3.Controls.Add(Me.ChineseColorBtn)
         Me.FlowLayoutPanel3.Controls.Add(Me.moveChineseDown)
         Me.FlowLayoutPanel3.Controls.Add(Me.moveChineseUp)
-        Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(5, 144)
+        Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(5, 164)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
         Me.FlowLayoutPanel3.Size = New System.Drawing.Size(545, 31)
         Me.FlowLayoutPanel3.TabIndex = 34
@@ -986,9 +986,9 @@ Partial Class MainProgram
         Me.UpdateTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.UpdateTitle.Location = New System.Drawing.Point(380, 3)
         Me.UpdateTitle.Margin = New System.Windows.Forms.Padding(0)
-        Me.UpdateTitle.MinimumSize = New System.Drawing.Size(0, 30)
+        Me.UpdateTitle.MinimumSize = New System.Drawing.Size(160, 30)
         Me.UpdateTitle.Name = "UpdateTitle"
-        Me.UpdateTitle.Size = New System.Drawing.Size(124, 30)
+        Me.UpdateTitle.Size = New System.Drawing.Size(160, 30)
         Me.UpdateTitle.TabIndex = 3
         Me.UpdateTitle.TabStop = False
         Me.UpdateTitle.Text = "Update Title(s)"
@@ -1332,8 +1332,8 @@ Partial Class MainProgram
         Me.FlowLayoutPanel4.AutoSize = True
         Me.FlowLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.FlowLayoutPanel4.Controls.Add(Me.ShowSermonHymns)
-        Me.FlowLayoutPanel4.Controls.Add(Me.ShowHymnal)
         Me.FlowLayoutPanel4.Controls.Add(Me.ShowVerses)
+        Me.FlowLayoutPanel4.Controls.Add(Me.ShowHymnal)
         Me.FlowLayoutPanel4.Controls.Add(Me.goToHowToPrayBtn)
         Me.FlowLayoutPanel4.Controls.Add(Me.goToPRBtn)
         Me.FlowLayoutPanel4.Controls.Add(Me.goToBreakBtn)
@@ -1376,7 +1376,7 @@ Partial Class MainProgram
         Me.ShowHymnal.ForeColor = System.Drawing.Color.MidnightBlue
         Me.ShowHymnal.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_musical_notes_16
         Me.ShowHymnal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ShowHymnal.Location = New System.Drawing.Point(121, 3)
+        Me.ShowHymnal.Location = New System.Drawing.Point(218, 3)
         Me.ShowHymnal.Name = "ShowHymnal"
         Me.ShowHymnal.Size = New System.Drawing.Size(74, 25)
         Me.ShowHymnal.TabIndex = 2
@@ -1393,7 +1393,7 @@ Partial Class MainProgram
         Me.ShowVerses.ForeColor = System.Drawing.Color.MidnightBlue
         Me.ShowVerses.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_holy_bible_16__1_
         Me.ShowVerses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ShowVerses.Location = New System.Drawing.Point(201, 3)
+        Me.ShowVerses.Location = New System.Drawing.Point(121, 3)
         Me.ShowVerses.Name = "ShowVerses"
         Me.ShowVerses.Size = New System.Drawing.Size(91, 25)
         Me.ShowVerses.TabIndex = 1
@@ -1521,7 +1521,7 @@ Partial Class MainProgram
         Me.FlowLayoutPanel5.Controls.Add(Me.editSlideGroupBox)
         Me.FlowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.FlowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.FlowLayoutPanel5.Location = New System.Drawing.Point(5, 392)
+        Me.FlowLayoutPanel5.Location = New System.Drawing.Point(5, 431)
         Me.FlowLayoutPanel5.Name = "FlowLayoutPanel5"
         Me.FlowLayoutPanel5.Size = New System.Drawing.Size(774, 84)
         Me.FlowLayoutPanel5.TabIndex = 34
@@ -1572,7 +1572,7 @@ Partial Class MainProgram
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border2
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(784, 481)
+        Me.ClientSize = New System.Drawing.Size(784, 520)
         Me.Controls.Add(Me.BibleVerse)
         Me.Controls.Add(Me.FlowLayoutPanel5)
         Me.Controls.Add(Me.Panel1)

@@ -48,6 +48,7 @@ Public Class MainProgram
         LoadingScreen.Show()
         'Method dealing with what the form will do when it initially opens
         InitializeComponent()
+        FormBorderStyle = FormBorderStyle.None
 
         ' Add the event handler for unhandled exceptions
         AddHandler Application.ThreadException, AddressOf Application_ThreadException
