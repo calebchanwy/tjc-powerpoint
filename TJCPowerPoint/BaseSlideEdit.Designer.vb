@@ -161,7 +161,7 @@ Partial Class BaseSlideEdit
         Me.minForm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.minForm.ForeColor = System.Drawing.Color.Transparent
         Me.minForm.Location = New System.Drawing.Point(20, 20)
-        Me.minForm.Margin = New System.Windows.Forms.Padding(12, 12, 12, 12)
+        Me.minForm.Margin = New System.Windows.Forms.Padding(12)
         Me.minForm.Name = "minForm"
         Me.minForm.Padding = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.minForm.Size = New System.Drawing.Size(20, 20)
@@ -185,12 +185,12 @@ Partial Class BaseSlideEdit
         Me.updateBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.updateBtn.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
         Me.updateBtn.ForeColor = System.Drawing.Color.Navy
-        Me.updateBtn.Location = New System.Drawing.Point(26, 598)
+        Me.updateBtn.Location = New System.Drawing.Point(26, 616)
         Me.updateBtn.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.updateBtn.Name = "updateBtn"
-        Me.updateBtn.Size = New System.Drawing.Size(150, 63)
+        Me.updateBtn.Size = New System.Drawing.Size(403, 47)
         Me.updateBtn.TabIndex = 22
-        Me.updateBtn.Text = "Update"
+        Me.updateBtn.Text = "Update Slide"
         Me.updateBtn.UseVisualStyleBackColor = True
         '
         'TitleFontBtn
@@ -267,7 +267,7 @@ Partial Class BaseSlideEdit
         Me.navBar.Location = New System.Drawing.Point(1016, 2)
         Me.navBar.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.navBar.Name = "navBar"
-        Me.navBar.Padding = New System.Windows.Forms.Padding(8, 8, 8, 8)
+        Me.navBar.Padding = New System.Windows.Forms.Padding(8)
         Me.navBar.Size = New System.Drawing.Size(110, 49)
         Me.navBar.TabIndex = 32
         '
@@ -314,10 +314,10 @@ Partial Class BaseSlideEdit
         Me.loadTxtBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.loadTxtBtn.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.loadTxtBtn.ForeColor = System.Drawing.Color.Navy
-        Me.loadTxtBtn.Location = New System.Drawing.Point(441, 598)
+        Me.loadTxtBtn.Location = New System.Drawing.Point(693, 616)
         Me.loadTxtBtn.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.loadTxtBtn.Name = "loadTxtBtn"
-        Me.loadTxtBtn.Size = New System.Drawing.Size(248, 65)
+        Me.loadTxtBtn.Size = New System.Drawing.Size(248, 47)
         Me.loadTxtBtn.TabIndex = 23
         Me.loadTxtBtn.TabStop = False
         Me.loadTxtBtn.Text = "Insert as .txt file"
@@ -328,10 +328,10 @@ Partial Class BaseSlideEdit
         Me.insertImage.Cursor = System.Windows.Forms.Cursors.Hand
         Me.insertImage.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.insertImage.ForeColor = System.Drawing.Color.Navy
-        Me.insertImage.Location = New System.Drawing.Point(184, 597)
+        Me.insertImage.Location = New System.Drawing.Point(437, 616)
         Me.insertImage.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.insertImage.Name = "insertImage"
-        Me.insertImage.Size = New System.Drawing.Size(248, 65)
+        Me.insertImage.Size = New System.Drawing.Size(248, 47)
         Me.insertImage.TabIndex = 35
         Me.insertImage.TabStop = False
         Me.insertImage.Text = "Insert as Image"
@@ -342,10 +342,10 @@ Partial Class BaseSlideEdit
         Me.delImage.Cursor = System.Windows.Forms.Cursors.Hand
         Me.delImage.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.delImage.ForeColor = System.Drawing.Color.DarkRed
-        Me.delImage.Location = New System.Drawing.Point(698, 600)
+        Me.delImage.Location = New System.Drawing.Point(949, 616)
         Me.delImage.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.delImage.Name = "delImage"
-        Me.delImage.Size = New System.Drawing.Size(159, 65)
+        Me.delImage.Size = New System.Drawing.Size(159, 47)
         Me.delImage.TabIndex = 36
         Me.delImage.TabStop = False
         Me.delImage.Text = "Delete Image"
