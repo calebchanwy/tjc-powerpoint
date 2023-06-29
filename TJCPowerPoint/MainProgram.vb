@@ -307,7 +307,7 @@ Public Class MainProgram
 
 
     'Method dealing when the exit button is clicked
-    Private Sub ExitBtn_Click(sender As Object, e As EventArgs) Handles closeForm.Click
+    Private Sub ExitBtn_Click(sender As Object, e As EventArgs)
         Me.Close()
     End Sub
 
@@ -856,7 +856,7 @@ Public Class MainProgram
         MoveShapeByOffset(2, 1)
     End Sub
 
-    Private Sub minForm_Click(sender As Object, e As EventArgs) Handles minForm.Click
+    Private Sub minForm_Click(sender As Object, e As EventArgs)
         Me.WindowState = FormWindowState.Minimized
     End Sub
 
