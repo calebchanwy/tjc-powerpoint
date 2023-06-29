@@ -48,7 +48,6 @@ Public Class MainProgram
         LoadingScreen.Show()
         'Method dealing with what the form will do when it initially opens
         InitializeComponent()
-        FormBorderStyle = FormBorderStyle.None
 
         ' Add the event handler for unhandled exceptions
         AddHandler Application.ThreadException, AddressOf Application_ThreadException
@@ -412,7 +411,6 @@ Public Class MainProgram
         Dim englishTitles() As String = {"englishTitle", "englishTitle1", "englishTitle2"}
         For Each textBox In englishTitles
             textBoxDictionary.Item(textBox).Text = EnglishTitle.Text
-            ResizeTextToFitTextboxWidth(textBoxDictionary.Item(textBox))
         Next
 
         Dim chineseTitles() As String = {"chineseTitle", "chineseTitle1", "chineseTitle2"}
@@ -428,9 +426,6 @@ Public Class MainProgram
         ' Update service types
         updateServiceTypes()
     End Sub
-    Private Sub ResizeTextToFitTextboxWidth(textBox As PowerPoint.TextRange)
-    End Sub
-
 
     Private Sub TrimTitleText(titleTextBox As TextBox)
         titleTextBox.Text = titleTextBox.Text.Trim()
@@ -465,12 +460,20 @@ Public Class MainProgram
     End Sub
 
     Private Sub clearSermonHymnsBtn_Click(sender As Object, e As EventArgs) Handles clearSermonHymnsBtn.Click
-        sermonHymnsListBox.Items.Clear()
-        sermonHymns.updateHymns()
+        Dim result As DialogResult
+        result = MessageBox.Show("Are you sure you want to clear all hymns?", "Confirm Clear", MessageBoxButtons.OKCancel)
+        If result = DialogResult.Yes Then
+            sermonHymnsListBox.Items.Clear()
+            sermonHymns.updateHymns()
+        End If
     End Sub
     Private Sub clearHymnalHymnsBtn_Click(sender As Object, e As EventArgs) Handles clearHymnalHymns.Click
-        hymnalHymnsListBox.Items.Clear()
-        hymnalHymns.updateHymns()
+        Dim result As DialogResult
+        result = MessageBox.Show("Are you sure you want to clear all hymns?", "Confirm Clear", MessageBoxButtons.OKCancel)
+        If result = DialogResult.Yes Then
+            hymnalHymnsListBox.Items.Clear()
+            hymnalHymns.updateHymns()
+        End If
     End Sub
 
     'handles deleting from button (sermon hymn)
@@ -792,7 +795,7 @@ Public Class MainProgram
     Private Sub clearbtn_Click(sender As Object, e As EventArgs) Handles clearbtn.Click
         Dim result As DialogResult
         result = MessageBox.Show("Are you sure you want to reset all sermon details?", "Confirm Reset", MessageBoxButtons.OKCancel)
-        If result = DialogResult.Yes Then
+        If result = DialogResult.OK Then
             ResetServiceDetails()
             showTitlesOnly()
             ShowSermonHymns.Checked = True

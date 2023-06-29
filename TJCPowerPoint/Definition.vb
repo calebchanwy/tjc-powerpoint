@@ -21,6 +21,7 @@ Public Class Definition
     'text box definitions as string keys
     Public Shared ReadOnly time As Definition = New Definition("time")
     Public Shared ReadOnly englishTitle As Definition = New Definition("englishTitle")
+    Public Shared ReadOnly chineseTitle As Definition = New Definition("chineseTitle")
     Public Shared ReadOnly sermonHymns As Definition = New Definition("sermonHymns")
     Public Shared ReadOnly hymnalHymns As Definition = New Definition("hymnalHymns")
     Public Shared ReadOnly HCHymns As Definition = New Definition("HChymns")

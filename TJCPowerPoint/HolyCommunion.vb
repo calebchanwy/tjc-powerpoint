@@ -78,9 +78,14 @@ Public Class HolyCommunion
     End Sub
 
     Private Sub clearHymnsBtn_Click(sender As Object, e As EventArgs) Handles clearHymnsBtn.Click
-        HymnsSelectionBox.Items.Clear()
-        HCHymns.updateHymns()
-        iv.updatePreviews()
+        Dim result As DialogResult
+        result = MessageBox.Show("Are you sure you want to clear all hymns?", "Confirm Clear", MessageBoxButtons.OKCancel)
+        If result = DialogResult.Yes Then
+            HymnsSelectionBox.Items.Clear()
+            HCHymns.updateHymns()
+            iv.updatePreviews()
+        End If
+
     End Sub
 
 

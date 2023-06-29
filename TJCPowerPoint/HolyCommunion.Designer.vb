@@ -50,6 +50,8 @@ Partial Class HolyCommunion
         Me.Label4 = New System.Windows.Forms.Label()
         Me.previewBox = New System.Windows.Forms.PictureBox()
         Me.navBar = New System.Windows.Forms.Panel()
+        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.navBarControls.SuspendLayout()
         Me.hymnsGroupBox.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -57,6 +59,8 @@ Partial Class HolyCommunion
         Me.GroupBox3.SuspendLayout()
         CType(Me.previewBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.navBar.SuspendLayout()
+        Me.FlowLayoutPanel2.SuspendLayout()
+        Me.FlowLayoutPanel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'breadTxt
@@ -211,7 +215,7 @@ Partial Class HolyCommunion
         Me.prevHymn.BackgroundImage = CType(resources.GetObject("prevHymn.BackgroundImage"), System.Drawing.Image)
         Me.prevHymn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.prevHymn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.prevHymn.Location = New System.Drawing.Point(3, 65)
+        Me.prevHymn.Location = New System.Drawing.Point(3, 3)
         Me.prevHymn.Name = "prevHymn"
         Me.prevHymn.Size = New System.Drawing.Size(25, 25)
         Me.prevHymn.TabIndex = 47
@@ -252,9 +256,9 @@ Partial Class HolyCommunion
         '
         Me.FlowLayoutPanel1.AutoSize = True
         Me.FlowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.FlowLayoutPanel1.Controls.Add(Me.HymnFontBtn)
-        Me.FlowLayoutPanel1.Controls.Add(Me.nextHymn)
         Me.FlowLayoutPanel1.Controls.Add(Me.prevHymn)
+        Me.FlowLayoutPanel1.Controls.Add(Me.nextHymn)
+        Me.FlowLayoutPanel1.Controls.Add(Me.HymnFontBtn)
         Me.FlowLayoutPanel1.Controls.Add(Me.HymnColorBtn)
         Me.FlowLayoutPanel1.Controls.Add(Me.delHymnBtn)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right
@@ -269,7 +273,7 @@ Partial Class HolyCommunion
         Me.HymnFontBtn.BackgroundImage = CType(resources.GetObject("HymnFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.HymnFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.HymnFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.HymnFontBtn.Location = New System.Drawing.Point(3, 3)
+        Me.HymnFontBtn.Location = New System.Drawing.Point(3, 65)
         Me.HymnFontBtn.Name = "HymnFontBtn"
         Me.HymnFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.HymnFontBtn.TabIndex = 52
@@ -325,8 +329,7 @@ Partial Class HolyCommunion
         Me.GroupBox2.AutoSize = True
         Me.GroupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.GroupBox2.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox2.Controls.Add(Me.colorBreadBtn)
-        Me.GroupBox2.Controls.Add(Me.fontBreadBtn)
+        Me.GroupBox2.Controls.Add(Me.FlowLayoutPanel2)
         Me.GroupBox2.Controls.Add(Me.breadTxt)
         Me.GroupBox2.Dock = System.Windows.Forms.DockStyle.Left
         Me.GroupBox2.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -343,7 +346,7 @@ Partial Class HolyCommunion
         Me.colorBreadBtn.BackgroundImage = CType(resources.GetObject("colorBreadBtn.BackgroundImage"), System.Drawing.Image)
         Me.colorBreadBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.colorBreadBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.colorBreadBtn.Location = New System.Drawing.Point(6, 324)
+        Me.colorBreadBtn.Location = New System.Drawing.Point(3, 3)
         Me.colorBreadBtn.Name = "colorBreadBtn"
         Me.colorBreadBtn.Size = New System.Drawing.Size(25, 25)
         Me.colorBreadBtn.TabIndex = 54
@@ -355,7 +358,7 @@ Partial Class HolyCommunion
         Me.fontBreadBtn.BackgroundImage = CType(resources.GetObject("fontBreadBtn.BackgroundImage"), System.Drawing.Image)
         Me.fontBreadBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.fontBreadBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.fontBreadBtn.Location = New System.Drawing.Point(37, 325)
+        Me.fontBreadBtn.Location = New System.Drawing.Point(34, 3)
         Me.fontBreadBtn.Name = "fontBreadBtn"
         Me.fontBreadBtn.Size = New System.Drawing.Size(25, 25)
         Me.fontBreadBtn.TabIndex = 55
@@ -367,8 +370,7 @@ Partial Class HolyCommunion
         Me.GroupBox3.AutoSize = True
         Me.GroupBox3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.GroupBox3.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox3.Controls.Add(Me.colorCupBtn)
-        Me.GroupBox3.Controls.Add(Me.fontCupBtn)
+        Me.GroupBox3.Controls.Add(Me.FlowLayoutPanel3)
         Me.GroupBox3.Controls.Add(Me.cupTxt)
         Me.GroupBox3.Dock = System.Windows.Forms.DockStyle.Left
         Me.GroupBox3.Font = New System.Drawing.Font("Century Gothic", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -385,7 +387,7 @@ Partial Class HolyCommunion
         Me.colorCupBtn.BackgroundImage = CType(resources.GetObject("colorCupBtn.BackgroundImage"), System.Drawing.Image)
         Me.colorCupBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.colorCupBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.colorCupBtn.Location = New System.Drawing.Point(6, 323)
+        Me.colorCupBtn.Location = New System.Drawing.Point(3, 3)
         Me.colorCupBtn.Name = "colorCupBtn"
         Me.colorCupBtn.Size = New System.Drawing.Size(25, 25)
         Me.colorCupBtn.TabIndex = 56
@@ -397,7 +399,7 @@ Partial Class HolyCommunion
         Me.fontCupBtn.BackgroundImage = CType(resources.GetObject("fontCupBtn.BackgroundImage"), System.Drawing.Image)
         Me.fontCupBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.fontCupBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.fontCupBtn.Location = New System.Drawing.Point(37, 323)
+        Me.fontCupBtn.Location = New System.Drawing.Point(34, 3)
         Me.fontCupBtn.Name = "fontCupBtn"
         Me.fontCupBtn.Size = New System.Drawing.Size(25, 25)
         Me.fontCupBtn.TabIndex = 57
@@ -424,7 +426,7 @@ Partial Class HolyCommunion
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(559, 268)
+        Me.Label4.Location = New System.Drawing.Point(552, 258)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(87, 17)
         Me.Label4.TabIndex = 52
@@ -453,6 +455,30 @@ Partial Class HolyCommunion
         Me.navBar.Padding = New System.Windows.Forms.Padding(5)
         Me.navBar.Size = New System.Drawing.Size(730, 44)
         Me.navBar.TabIndex = 54
+        '
+        'FlowLayoutPanel2
+        '
+        Me.FlowLayoutPanel2.AutoSize = True
+        Me.FlowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.FlowLayoutPanel2.Controls.Add(Me.colorBreadBtn)
+        Me.FlowLayoutPanel2.Controls.Add(Me.fontBreadBtn)
+        Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 325)
+        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(194, 31)
+        Me.FlowLayoutPanel2.TabIndex = 56
+        '
+        'FlowLayoutPanel3
+        '
+        Me.FlowLayoutPanel3.AutoSize = True
+        Me.FlowLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.FlowLayoutPanel3.Controls.Add(Me.colorCupBtn)
+        Me.FlowLayoutPanel3.Controls.Add(Me.fontCupBtn)
+        Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(3, 325)
+        Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(194, 31)
+        Me.FlowLayoutPanel3.TabIndex = 58
         '
         'HolyCommunion
         '
@@ -493,6 +519,8 @@ Partial Class HolyCommunion
         CType(Me.previewBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.navBar.ResumeLayout(False)
         Me.navBar.PerformLayout()
+        Me.FlowLayoutPanel2.ResumeLayout(False)
+        Me.FlowLayoutPanel3.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -525,4 +553,6 @@ Partial Class HolyCommunion
     Friend WithEvents previewBox As PictureBox
     Friend WithEvents navBar As Panel
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
+    Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
+    Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
 End Class

@@ -78,20 +78,17 @@ Partial Class MainProgram
         Me.ChineseColorBtn = New System.Windows.Forms.Button()
         Me.moveChineseDown = New System.Windows.Forms.Button()
         Me.moveChineseUp = New System.Windows.Forms.Button()
-        Me.FlowLayoutPanel6 = New System.Windows.Forms.FlowLayoutPanel()
         Me.ServiceType = New System.Windows.Forms.ComboBox()
         Me.ServiceTypeFontBtn = New System.Windows.Forms.Button()
         Me.ServiceTypeColorBtn = New System.Windows.Forms.Button()
-        Me.clearbtn = New System.Windows.Forms.Button()
-        Me.UpdateTitle = New System.Windows.Forms.Button()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.ChineseTitle = New System.Windows.Forms.TextBox()
         Me.EnglishTitle = New System.Windows.Forms.TextBox()
         Me.hymnTabControl = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.FlowLayoutPanel8 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.nextHymn = New System.Windows.Forms.Button()
         Me.prevHymn = New System.Windows.Forms.Button()
+        Me.nextHymn = New System.Windows.Forms.Button()
         Me.delHymnBtn = New System.Windows.Forms.Button()
         Me.HymnFontBtn = New System.Windows.Forms.Button()
         Me.HymnColorBtn = New System.Windows.Forms.Button()
@@ -122,9 +119,13 @@ Partial Class MainProgram
         Me.goToAnnouncementsBtn = New System.Windows.Forms.RadioButton()
         Me.goToHCBtn = New System.Windows.Forms.RadioButton()
         Me.goToTurnOffDevicesBtn = New System.Windows.Forms.RadioButton()
-        Me.FlowLayoutPanel5 = New System.Windows.Forms.FlowLayoutPanel()
         Me.projectSlideGroupBox = New System.Windows.Forms.GroupBox()
         Me.editSlideGroupBox = New System.Windows.Forms.GroupBox()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.clearbtn = New System.Windows.Forms.Button()
+        Me.UpdateTitle = New System.Windows.Forms.Button()
+        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
         Me.BibleVerse.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         Me.Panel2.SuspendLayout()
@@ -134,7 +135,6 @@ Partial Class MainProgram
         Me.navBar.SuspendLayout()
         Me.Title.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
-        Me.FlowLayoutPanel6.SuspendLayout()
         Me.hymnTabControl.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         Me.FlowLayoutPanel8.SuspendLayout()
@@ -144,9 +144,10 @@ Partial Class MainProgram
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.FlowLayoutPanel4.SuspendLayout()
-        Me.FlowLayoutPanel5.SuspendLayout()
         Me.projectSlideGroupBox.SuspendLayout()
         Me.editSlideGroupBox.SuspendLayout()
+        Me.TableLayoutPanel1.SuspendLayout()
+        Me.TableLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'BibleVerse
@@ -161,11 +162,11 @@ Partial Class MainProgram
         Me.BibleVerse.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BibleVerse.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BibleVerse.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.BibleVerse.Location = New System.Drawing.Point(5, 255)
+        Me.BibleVerse.Location = New System.Drawing.Point(5, 245)
         Me.BibleVerse.Margin = New System.Windows.Forms.Padding(0)
         Me.BibleVerse.Name = "BibleVerse"
         Me.BibleVerse.Padding = New System.Windows.Forms.Padding(5)
-        Me.BibleVerse.Size = New System.Drawing.Size(790, 121)
+        Me.BibleVerse.Size = New System.Drawing.Size(820, 121)
         Me.BibleVerse.TabIndex = 16
         Me.BibleVerse.TabStop = False
         Me.BibleVerse.Text = "Bible Verse(s)"
@@ -183,7 +184,7 @@ Partial Class MainProgram
         Me.updateVerseBtn.Location = New System.Drawing.Point(5, 86)
         Me.updateVerseBtn.Margin = New System.Windows.Forms.Padding(3, 10, 3, 10)
         Me.updateVerseBtn.Name = "updateVerseBtn"
-        Me.updateVerseBtn.Size = New System.Drawing.Size(780, 30)
+        Me.updateVerseBtn.Size = New System.Drawing.Size(810, 30)
         Me.updateVerseBtn.TabIndex = 3
         Me.updateVerseBtn.TabStop = False
         Me.updateVerseBtn.Text = "Update Chapter and Verse"
@@ -211,7 +212,7 @@ Partial Class MainProgram
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(5, 55)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(780, 31)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(810, 31)
         Me.FlowLayoutPanel1.TabIndex = 33
         '
         'Label3
@@ -404,7 +405,7 @@ Partial Class MainProgram
         Me.Panel2.Location = New System.Drawing.Point(5, 25)
         Me.Panel2.MinimumSize = New System.Drawing.Size(0, 30)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(780, 30)
+        Me.Panel2.Size = New System.Drawing.Size(810, 30)
         Me.Panel2.TabIndex = 34
         '
         'Label8
@@ -413,7 +414,7 @@ Partial Class MainProgram
         Me.Label8.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.Black
-        Me.Label8.Location = New System.Drawing.Point(389, 0)
+        Me.Label8.Location = New System.Drawing.Point(419, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(56, 17)
         Me.Label8.TabIndex = 17
@@ -424,7 +425,7 @@ Partial Class MainProgram
         Me.BookBox.AutoCompleteCustomSource.AddRange(New String() {"Genesis,創 世 紀", "Exodus,出 埃 及 記", "Leviticus,利 未 記", "Numbers,民 數 記", "Deuteronomy,申 命 記", "Joshua,約 書 亞 記", "Judges,士 師 記", "Ruth,路 得 記", "1 Samuel,撒 母 耳 記 上", "2 Samuel,撒 母 耳 記 下", "1 Kings,列 王 紀 上", "2 Kings,列 王 紀 下", "1 Chronicles,歷 代 志 上", "2 Chronicles,歷 代 志 下", "Ezra,以 斯 拉 記", "Nehemiah,尼 希 米 記", "Esther,以 斯 帖 記", "Job,約 伯 記", "Psalms,詩 篇", "Proverbs,箴 言", "Ecclesiastes,傳 道 書", "Song of Songs,雅 歌", "Isaiah,以 賽 亞 書", "Jeremiah,耶 利 米 書", "Lamentations,耶 利 米 哀 歌", "Ezekiel,以 西 結 書", "Daniel,但 以 理 書", "Hosea,何 西 阿 書", "Joel,約 珥 書", "Amos,阿 摩 司 書", "Obadiah,俄 巴 底 亞 書", "Jonah,約 拿 書", "Micah,彌 迦 書", "Nahum,那 鴻 書", "Habakkuk,哈 巴 谷 書", "Zephaniah,西 番 雅 書", "Haggai,哈 該 書", "Zechariah,撒 迦 利 亞", "Malachi,瑪 拉 基 書", "Matthew,馬 太 福 音", "Mark,馬 可 福 音", "Luke,路 加 福 音", "John,約 翰 福 音", "Acts,使 徒 行 傳", "Romans,羅 馬 書", "1 Corinthians,哥 林 多 前 書", "2 Corinthians,哥 林 多 後 書", "Galatians,加 拉 太 書", "Ephesians,以 弗 所 書", "Philippians,腓 立 比 書", "Colossians,歌 羅 西 書", "1 Thessalonians,帖 撒 羅 尼 迦 前 書", "2 Thessalonians,帖 撒 羅 尼 迦 後 書", "1 Timothy,提 摩 太 前 書", "2 Timothy,提 摩 太 後 書", "Titus,提 多 書", "Philemon,腓 利 門 書", "Hebrews,希 伯 來 書", "James,雅 各 書", "1 Peter,彼 得 前 書", "2 Peter,彼 得 後 書", "1 John,約 翰 一 書", "2 John,約 翰 二 書", "3 John,約 翰 三 書", "Jude,猶 大 書", "Revelation,啟 示 錄"})
         Me.BookBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend
         Me.BookBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.BookBox.Cursor = System.Windows.Forms.Cursors.IBeam
+        Me.BookBox.Cursor = System.Windows.Forms.Cursors.Default
         Me.BookBox.Dock = System.Windows.Forms.DockStyle.Left
         Me.BookBox.DropDownHeight = 100
         Me.BookBox.FlatStyle = System.Windows.Forms.FlatStyle.System
@@ -445,11 +446,11 @@ Partial Class MainProgram
         Me.ChapterTxt.AcceptsReturn = True
         Me.ChapterTxt.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.ChapterTxt.Dock = System.Windows.Forms.DockStyle.Right
-        Me.ChapterTxt.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ChapterTxt.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChapterTxt.HideSelection = False
-        Me.ChapterTxt.Location = New System.Drawing.Point(445, 0)
+        Me.ChapterTxt.Location = New System.Drawing.Point(475, 0)
         Me.ChapterTxt.Name = "ChapterTxt"
-        Me.ChapterTxt.Size = New System.Drawing.Size(115, 31)
+        Me.ChapterTxt.Size = New System.Drawing.Size(115, 27)
         Me.ChapterTxt.TabIndex = 2
         '
         'Label6
@@ -471,7 +472,7 @@ Partial Class MainProgram
         Me.Label7.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label7.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label7.Location = New System.Drawing.Point(560, 0)
+        Me.Label7.Location = New System.Drawing.Point(590, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(22, 32)
         Me.Label7.TabIndex = 16
@@ -483,7 +484,7 @@ Partial Class MainProgram
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label9.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.Black
-        Me.Label9.Location = New System.Drawing.Point(582, 0)
+        Me.Label9.Location = New System.Drawing.Point(612, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(54, 17)
         Me.Label9.TabIndex = 18
@@ -494,10 +495,10 @@ Partial Class MainProgram
         Me.VerseTxt.AcceptsReturn = True
         Me.VerseTxt.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.VerseTxt.Dock = System.Windows.Forms.DockStyle.Right
-        Me.VerseTxt.Font = New System.Drawing.Font("Century Gothic", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.VerseTxt.Location = New System.Drawing.Point(636, 0)
+        Me.VerseTxt.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.VerseTxt.Location = New System.Drawing.Point(666, 0)
         Me.VerseTxt.Name = "VerseTxt"
-        Me.VerseTxt.Size = New System.Drawing.Size(144, 31)
+        Me.VerseTxt.Size = New System.Drawing.Size(144, 27)
         Me.VerseTxt.TabIndex = 3
         '
         'FontDialog
@@ -603,7 +604,6 @@ Partial Class MainProgram
         Me.FlowLayoutPanel7.Controls.Add(Me.OpenPrayerRequestsWindow)
         Me.FlowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel7.Location = New System.Drawing.Point(0, 16)
-        Me.FlowLayoutPanel7.MaximumSize = New System.Drawing.Size(300, 0)
         Me.FlowLayoutPanel7.Name = "FlowLayoutPanel7"
         Me.FlowLayoutPanel7.Size = New System.Drawing.Size(233, 62)
         Me.FlowLayoutPanel7.TabIndex = 30
@@ -634,7 +634,7 @@ Partial Class MainProgram
         Me.navBtnPanel.Cursor = System.Windows.Forms.Cursors.Default
         Me.navBtnPanel.Dock = System.Windows.Forms.DockStyle.Right
         Me.navBtnPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.navBtnPanel.Location = New System.Drawing.Point(688, 5)
+        Me.navBtnPanel.Location = New System.Drawing.Point(718, 5)
         Me.navBtnPanel.Name = "navBtnPanel"
         Me.navBtnPanel.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.navBtnPanel.Size = New System.Drawing.Size(97, 30)
@@ -708,7 +708,7 @@ Partial Class MainProgram
         Me.navBar.Margin = New System.Windows.Forms.Padding(0)
         Me.navBar.Name = "navBar"
         Me.navBar.Padding = New System.Windows.Forms.Padding(5)
-        Me.navBar.Size = New System.Drawing.Size(790, 40)
+        Me.navBar.Size = New System.Drawing.Size(820, 40)
         Me.navBar.TabIndex = 0
         '
         'Title
@@ -717,7 +717,7 @@ Partial Class MainProgram
         Me.Title.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Title.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
         Me.Title.Controls.Add(Me.FlowLayoutPanel3)
-        Me.Title.Controls.Add(Me.FlowLayoutPanel6)
+        Me.Title.Controls.Add(Me.TableLayoutPanel1)
         Me.Title.Controls.Add(Me.Label11)
         Me.Title.Controls.Add(Me.ChineseTitle)
         Me.Title.Controls.Add(Me.EnglishTitle)
@@ -730,7 +730,7 @@ Partial Class MainProgram
         Me.Title.MinimumSize = New System.Drawing.Size(550, 0)
         Me.Title.Name = "Title"
         Me.Title.Padding = New System.Windows.Forms.Padding(5)
-        Me.Title.Size = New System.Drawing.Size(571, 200)
+        Me.Title.Size = New System.Drawing.Size(601, 190)
         Me.Title.TabIndex = 14
         Me.Title.TabStop = False
         Me.Title.Text = "Sermon Titles"
@@ -749,10 +749,13 @@ Partial Class MainProgram
         Me.FlowLayoutPanel3.Controls.Add(Me.ChineseColorBtn)
         Me.FlowLayoutPanel3.Controls.Add(Me.moveChineseDown)
         Me.FlowLayoutPanel3.Controls.Add(Me.moveChineseUp)
-        Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(5, 164)
+        Me.FlowLayoutPanel3.Controls.Add(Me.Label10)
+        Me.FlowLayoutPanel3.Controls.Add(Me.ServiceTypeFontBtn)
+        Me.FlowLayoutPanel3.Controls.Add(Me.ServiceTypeColorBtn)
+        Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(5, 139)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(561, 31)
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(591, 31)
         Me.FlowLayoutPanel3.TabIndex = 34
         '
         'Label1
@@ -882,28 +885,13 @@ Partial Class MainProgram
         Me.moveChineseUp.TabStop = False
         Me.moveChineseUp.UseVisualStyleBackColor = True
         '
-        'FlowLayoutPanel6
-        '
-        Me.FlowLayoutPanel6.AutoSize = True
-        Me.FlowLayoutPanel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.FlowLayoutPanel6.Controls.Add(Me.ServiceType)
-        Me.FlowLayoutPanel6.Controls.Add(Me.ServiceTypeFontBtn)
-        Me.FlowLayoutPanel6.Controls.Add(Me.ServiceTypeColorBtn)
-        Me.FlowLayoutPanel6.Controls.Add(Me.clearbtn)
-        Me.FlowLayoutPanel6.Controls.Add(Me.UpdateTitle)
-        Me.FlowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.FlowLayoutPanel6.Location = New System.Drawing.Point(5, 108)
-        Me.FlowLayoutPanel6.Name = "FlowLayoutPanel6"
-        Me.FlowLayoutPanel6.Size = New System.Drawing.Size(561, 36)
-        Me.FlowLayoutPanel6.TabIndex = 35
-        '
         'ServiceType
         '
-        Me.ServiceType.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ServiceType.AutoCompleteCustomSource.AddRange(New String() {"Sabbath Service", "Sabbath Bible Study", "Sabbath Afternoon Service", "Friday Evening Service", "Wednesday Evening Service", "Afternoon Service", "Bible Study", "End of Year Services", "Spiritual Convocation", "AMTC", "Evangelistic Service", "Special Service", "Fellowship", "Autumn Spiritual Convocation", "Spring Spiritual Convocation", "NSSC", "YTTC"})
         Me.ServiceType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.ServiceType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.ServiceType.Cursor = System.Windows.Forms.Cursors.Default
+        Me.ServiceType.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ServiceType.DropDownHeight = 100
         Me.ServiceType.FlatStyle = System.Windows.Forms.FlatStyle.System
         Me.ServiceType.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -912,7 +900,7 @@ Partial Class MainProgram
         Me.ServiceType.ImeMode = System.Windows.Forms.ImeMode.[On]
         Me.ServiceType.IntegralHeight = False
         Me.ServiceType.Items.AddRange(New Object() {"Sabbath Service", "Sabbath Bible Study", "Sabbath Afternoon Service", "Friday Evening Service", "Wednesday Evening Service", "Afternoon Service", "Bible Study", "End of Year Services", "Spiritual Convocation", "AMTC", "Evangelistic Service", "Special Service", "Fellowship", "Autumn Spiritual Convocation", "Spring Spiritual Convocation", "NSSC", "YTTC"})
-        Me.ServiceType.Location = New System.Drawing.Point(3, 5)
+        Me.ServiceType.Location = New System.Drawing.Point(3, 3)
         Me.ServiceType.MaxDropDownItems = 5
         Me.ServiceType.Name = "ServiceType"
         Me.ServiceType.Size = New System.Drawing.Size(242, 25)
@@ -926,7 +914,7 @@ Partial Class MainProgram
         Me.ServiceTypeFontBtn.BackgroundImage = CType(resources.GetObject("ServiceTypeFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.ServiceTypeFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ServiceTypeFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ServiceTypeFontBtn.Location = New System.Drawing.Point(251, 5)
+        Me.ServiceTypeFontBtn.Location = New System.Drawing.Point(484, 3)
         Me.ServiceTypeFontBtn.Name = "ServiceTypeFontBtn"
         Me.ServiceTypeFontBtn.Size = New System.Drawing.Size(24, 25)
         Me.ServiceTypeFontBtn.TabIndex = 15
@@ -939,52 +927,12 @@ Partial Class MainProgram
         Me.ServiceTypeColorBtn.BackgroundImage = CType(resources.GetObject("ServiceTypeColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.ServiceTypeColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ServiceTypeColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ServiceTypeColorBtn.Location = New System.Drawing.Point(281, 5)
+        Me.ServiceTypeColorBtn.Location = New System.Drawing.Point(514, 3)
         Me.ServiceTypeColorBtn.Name = "ServiceTypeColorBtn"
         Me.ServiceTypeColorBtn.Size = New System.Drawing.Size(24, 25)
         Me.ServiceTypeColorBtn.TabIndex = 14
         Me.ServiceTypeColorBtn.TabStop = False
         Me.ServiceTypeColorBtn.UseVisualStyleBackColor = True
-        '
-        'clearbtn
-        '
-        Me.clearbtn.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.clearbtn.AutoSize = True
-        Me.clearbtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.clearbtn.BackColor = System.Drawing.Color.Transparent
-        Me.clearbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.clearbtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.clearbtn.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.clearbtn.ForeColor = System.Drawing.Color.Maroon
-        Me.clearbtn.Location = New System.Drawing.Point(311, 3)
-        Me.clearbtn.MinimumSize = New System.Drawing.Size(50, 30)
-        Me.clearbtn.Name = "clearbtn"
-        Me.clearbtn.Size = New System.Drawing.Size(66, 30)
-        Me.clearbtn.TabIndex = 33
-        Me.clearbtn.TabStop = False
-        Me.clearbtn.Text = "Reset All"
-        Me.clearbtn.UseVisualStyleBackColor = False
-        '
-        'UpdateTitle
-        '
-        Me.UpdateTitle.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.UpdateTitle.AutoSize = True
-        Me.UpdateTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.UpdateTitle.BackColor = System.Drawing.Color.Transparent
-        Me.UpdateTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.UpdateTitle.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.UpdateTitle.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UpdateTitle.ForeColor = System.Drawing.Color.Navy
-        Me.UpdateTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.UpdateTitle.Location = New System.Drawing.Point(380, 3)
-        Me.UpdateTitle.Margin = New System.Windows.Forms.Padding(0)
-        Me.UpdateTitle.MinimumSize = New System.Drawing.Size(160, 30)
-        Me.UpdateTitle.Name = "UpdateTitle"
-        Me.UpdateTitle.Size = New System.Drawing.Size(160, 30)
-        Me.UpdateTitle.TabIndex = 3
-        Me.UpdateTitle.TabStop = False
-        Me.UpdateTitle.Text = "Update Title(s)"
-        Me.UpdateTitle.UseVisualStyleBackColor = False
         '
         'Label11
         '
@@ -1004,7 +952,7 @@ Partial Class MainProgram
         Me.ChineseTitle.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChineseTitle.Location = New System.Drawing.Point(5, 58)
         Me.ChineseTitle.Name = "ChineseTitle"
-        Me.ChineseTitle.Size = New System.Drawing.Size(561, 33)
+        Me.ChineseTitle.Size = New System.Drawing.Size(591, 33)
         Me.ChineseTitle.TabIndex = 1
         Me.ChineseTitle.TabStop = False
         '
@@ -1015,7 +963,7 @@ Partial Class MainProgram
         Me.EnglishTitle.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.EnglishTitle.Location = New System.Drawing.Point(5, 25)
         Me.EnglishTitle.Name = "EnglishTitle"
-        Me.EnglishTitle.Size = New System.Drawing.Size(561, 33)
+        Me.EnglishTitle.Size = New System.Drawing.Size(591, 33)
         Me.EnglishTitle.TabIndex = 0
         Me.EnglishTitle.TabStop = False
         Me.EnglishTitle.WordWrap = False
@@ -1027,12 +975,12 @@ Partial Class MainProgram
         Me.hymnTabControl.Cursor = System.Windows.Forms.Cursors.Hand
         Me.hymnTabControl.Dock = System.Windows.Forms.DockStyle.Right
         Me.hymnTabControl.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.hymnTabControl.Location = New System.Drawing.Point(571, 5)
+        Me.hymnTabControl.Location = New System.Drawing.Point(601, 5)
         Me.hymnTabControl.Multiline = True
         Me.hymnTabControl.Name = "hymnTabControl"
         Me.hymnTabControl.Padding = New System.Drawing.Point(0, 0)
         Me.hymnTabControl.SelectedIndex = 0
-        Me.hymnTabControl.Size = New System.Drawing.Size(219, 200)
+        Me.hymnTabControl.Size = New System.Drawing.Size(219, 190)
         Me.hymnTabControl.TabIndex = 34
         Me.hymnTabControl.TabStop = False
         '
@@ -1045,7 +993,7 @@ Partial Class MainProgram
         Me.TabPage1.Location = New System.Drawing.Point(4, 24)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(211, 172)
+        Me.TabPage1.Size = New System.Drawing.Size(211, 162)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Sermon Hymns"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -1061,20 +1009,8 @@ Partial Class MainProgram
         Me.FlowLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel8.Location = New System.Drawing.Point(103, 28)
         Me.FlowLayoutPanel8.Name = "FlowLayoutPanel8"
-        Me.FlowLayoutPanel8.Size = New System.Drawing.Size(105, 116)
+        Me.FlowLayoutPanel8.Size = New System.Drawing.Size(105, 106)
         Me.FlowLayoutPanel8.TabIndex = 54
-        '
-        'nextHymn
-        '
-        Me.nextHymn.BackgroundImage = CType(resources.GetObject("nextHymn.BackgroundImage"), System.Drawing.Image)
-        Me.nextHymn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.nextHymn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.nextHymn.Location = New System.Drawing.Point(34, 3)
-        Me.nextHymn.Name = "nextHymn"
-        Me.nextHymn.Size = New System.Drawing.Size(25, 25)
-        Me.nextHymn.TabIndex = 48
-        Me.nextHymn.TabStop = False
-        Me.nextHymn.UseVisualStyleBackColor = True
         '
         'prevHymn
         '
@@ -1087,6 +1023,18 @@ Partial Class MainProgram
         Me.prevHymn.TabIndex = 49
         Me.prevHymn.TabStop = False
         Me.prevHymn.UseVisualStyleBackColor = True
+        '
+        'nextHymn
+        '
+        Me.nextHymn.BackgroundImage = CType(resources.GetObject("nextHymn.BackgroundImage"), System.Drawing.Image)
+        Me.nextHymn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.nextHymn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.nextHymn.Location = New System.Drawing.Point(34, 3)
+        Me.nextHymn.Name = "nextHymn"
+        Me.nextHymn.Size = New System.Drawing.Size(25, 25)
+        Me.nextHymn.TabIndex = 48
+        Me.nextHymn.TabStop = False
+        Me.nextHymn.UseVisualStyleBackColor = True
         '
         'delHymnBtn
         '
@@ -1158,7 +1106,7 @@ Partial Class MainProgram
         Me.clearSermonHymnsBtn.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.clearSermonHymnsBtn.ForeColor = System.Drawing.Color.Maroon
         Me.clearSermonHymnsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.clearSermonHymnsBtn.Location = New System.Drawing.Point(103, 144)
+        Me.clearSermonHymnsBtn.Location = New System.Drawing.Point(103, 134)
         Me.clearSermonHymnsBtn.Margin = New System.Windows.Forms.Padding(0)
         Me.clearSermonHymnsBtn.Name = "clearSermonHymnsBtn"
         Me.clearSermonHymnsBtn.Size = New System.Drawing.Size(105, 25)
@@ -1179,7 +1127,7 @@ Partial Class MainProgram
         Me.sermonHymnsListBox.Location = New System.Drawing.Point(3, 3)
         Me.sermonHymnsListBox.Name = "sermonHymnsListBox"
         Me.sermonHymnsListBox.ScrollAlwaysVisible = True
-        Me.sermonHymnsListBox.Size = New System.Drawing.Size(100, 166)
+        Me.sermonHymnsListBox.Size = New System.Drawing.Size(100, 156)
         Me.sermonHymnsListBox.TabIndex = 47
         Me.sermonHymnsListBox.TabStop = False
         '
@@ -1340,10 +1288,10 @@ Partial Class MainProgram
         Me.Panel1.Controls.Add(Me.hymnTabControl)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel1.Location = New System.Drawing.Point(5, 45)
-        Me.Panel1.MinimumSize = New System.Drawing.Size(0, 210)
+        Me.Panel1.MinimumSize = New System.Drawing.Size(0, 200)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Padding = New System.Windows.Forms.Padding(0, 5, 0, 5)
-        Me.Panel1.Size = New System.Drawing.Size(790, 210)
+        Me.Panel1.Size = New System.Drawing.Size(820, 200)
         Me.Panel1.TabIndex = 37
         '
         'FlowLayoutPanel4
@@ -1363,10 +1311,8 @@ Partial Class MainProgram
         Me.FlowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel4.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.FlowLayoutPanel4.Location = New System.Drawing.Point(0, 16)
-        Me.FlowLayoutPanel4.MaximumSize = New System.Drawing.Size(570, 0)
-        Me.FlowLayoutPanel4.MinimumSize = New System.Drawing.Size(550, 0)
         Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
-        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(550, 62)
+        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(530, 84)
         Me.FlowLayoutPanel4.TabIndex = 11
         '
         'ShowSermonHymns
@@ -1532,35 +1478,21 @@ Partial Class MainProgram
         Me.goToTurnOffDevicesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.goToTurnOffDevicesBtn.UseVisualStyleBackColor = True
         '
-        'FlowLayoutPanel5
-        '
-        Me.FlowLayoutPanel5.AutoSize = True
-        Me.FlowLayoutPanel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.FlowLayoutPanel5.Controls.Add(Me.projectSlideGroupBox)
-        Me.FlowLayoutPanel5.Controls.Add(Me.editSlideGroupBox)
-        Me.FlowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Top
-        Me.FlowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.TopDown
-        Me.FlowLayoutPanel5.Location = New System.Drawing.Point(5, 376)
-        Me.FlowLayoutPanel5.Name = "FlowLayoutPanel5"
-        Me.FlowLayoutPanel5.Size = New System.Drawing.Size(790, 84)
-        Me.FlowLayoutPanel5.TabIndex = 34
-        '
         'projectSlideGroupBox
         '
         Me.projectSlideGroupBox.AutoSize = True
         Me.projectSlideGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.projectSlideGroupBox.BackColor = System.Drawing.Color.Transparent
         Me.projectSlideGroupBox.Controls.Add(Me.FlowLayoutPanel4)
-        Me.projectSlideGroupBox.Dock = System.Windows.Forms.DockStyle.Left
+        Me.projectSlideGroupBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.projectSlideGroupBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.FlowLayoutPanel5.SetFlowBreak(Me.projectSlideGroupBox, True)
         Me.projectSlideGroupBox.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.projectSlideGroupBox.ImeMode = System.Windows.Forms.ImeMode.Off
         Me.projectSlideGroupBox.Location = New System.Drawing.Point(3, 3)
-        Me.projectSlideGroupBox.MaximumSize = New System.Drawing.Size(530, 0)
+        Me.projectSlideGroupBox.MinimumSize = New System.Drawing.Size(0, 100)
         Me.projectSlideGroupBox.Name = "projectSlideGroupBox"
         Me.projectSlideGroupBox.Padding = New System.Windows.Forms.Padding(0)
-        Me.projectSlideGroupBox.Size = New System.Drawing.Size(530, 78)
+        Me.projectSlideGroupBox.Size = New System.Drawing.Size(530, 100)
         Me.projectSlideGroupBox.TabIndex = 32
         Me.projectSlideGroupBox.TabStop = False
         Me.projectSlideGroupBox.Text = "Project Slide:"
@@ -1571,8 +1503,7 @@ Partial Class MainProgram
         Me.editSlideGroupBox.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.editSlideGroupBox.BackColor = System.Drawing.Color.Transparent
         Me.editSlideGroupBox.Controls.Add(Me.FlowLayoutPanel7)
-        Me.editSlideGroupBox.Dock = System.Windows.Forms.DockStyle.Right
-        Me.FlowLayoutPanel5.SetFlowBreak(Me.editSlideGroupBox, True)
+        Me.editSlideGroupBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.editSlideGroupBox.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.editSlideGroupBox.Location = New System.Drawing.Point(539, 3)
         Me.editSlideGroupBox.Name = "editSlideGroupBox"
@@ -1581,6 +1512,95 @@ Partial Class MainProgram
         Me.editSlideGroupBox.TabIndex = 33
         Me.editSlideGroupBox.TabStop = False
         Me.editSlideGroupBox.Text = "Edit Slide:"
+        '
+        'Label10
+        '
+        Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label10.AutoSize = True
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(407, 8)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(71, 15)
+        Me.Label10.TabIndex = 43
+        Me.Label10.Text = "Service Type"
+        '
+        'TableLayoutPanel1
+        '
+        Me.TableLayoutPanel1.AutoSize = True
+        Me.TableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.TableLayoutPanel1.ColumnCount = 3
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.ServiceType, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.UpdateTitle, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.clearbtn, 1, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(5, 108)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 2
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(591, 31)
+        Me.TableLayoutPanel1.TabIndex = 37
+        '
+        'clearbtn
+        '
+        Me.clearbtn.AutoSize = True
+        Me.clearbtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.clearbtn.BackColor = System.Drawing.Color.Transparent
+        Me.clearbtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.clearbtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.clearbtn.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.clearbtn.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.clearbtn.ForeColor = System.Drawing.Color.Maroon
+        Me.clearbtn.Location = New System.Drawing.Point(248, 0)
+        Me.clearbtn.Margin = New System.Windows.Forms.Padding(0)
+        Me.clearbtn.MinimumSize = New System.Drawing.Size(50, 30)
+        Me.clearbtn.Name = "clearbtn"
+        Me.clearbtn.Size = New System.Drawing.Size(66, 31)
+        Me.clearbtn.TabIndex = 33
+        Me.clearbtn.TabStop = False
+        Me.clearbtn.Text = "Reset All"
+        Me.clearbtn.UseVisualStyleBackColor = False
+        '
+        'UpdateTitle
+        '
+        Me.UpdateTitle.AutoSize = True
+        Me.UpdateTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.UpdateTitle.BackColor = System.Drawing.Color.Transparent
+        Me.UpdateTitle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.UpdateTitle.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.UpdateTitle.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.UpdateTitle.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UpdateTitle.ForeColor = System.Drawing.Color.Navy
+        Me.UpdateTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.UpdateTitle.Location = New System.Drawing.Point(314, 0)
+        Me.UpdateTitle.Margin = New System.Windows.Forms.Padding(0)
+        Me.UpdateTitle.MinimumSize = New System.Drawing.Size(160, 30)
+        Me.UpdateTitle.Name = "UpdateTitle"
+        Me.UpdateTitle.Size = New System.Drawing.Size(277, 31)
+        Me.UpdateTitle.TabIndex = 3
+        Me.UpdateTitle.TabStop = False
+        Me.UpdateTitle.Text = "Update Title(s)"
+        Me.UpdateTitle.UseVisualStyleBackColor = False
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.AutoSize = True
+        Me.TableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70.0!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30.0!))
+        Me.TableLayoutPanel2.Controls.Add(Me.projectSlideGroupBox, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.editSlideGroupBox, 1, 0)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(5, 366)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 1
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(820, 106)
+        Me.TableLayoutPanel2.TabIndex = 12
         '
         'MainProgram
         '
@@ -1591,15 +1611,15 @@ Partial Class MainProgram
         Me.BackColor = System.Drawing.Color.White
         Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border2
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(800, 480)
-        Me.Controls.Add(Me.FlowLayoutPanel5)
+        Me.ClientSize = New System.Drawing.Size(830, 490)
+        Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.BibleVerse)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.navBar)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MinimumSize = New System.Drawing.Size(800, 480)
+        Me.MinimumSize = New System.Drawing.Size(830, 490)
         Me.Name = "MainProgram"
         Me.Padding = New System.Windows.Forms.Padding(5)
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
@@ -1621,8 +1641,6 @@ Partial Class MainProgram
         Me.Title.PerformLayout()
         Me.FlowLayoutPanel3.ResumeLayout(False)
         Me.FlowLayoutPanel3.PerformLayout()
-        Me.FlowLayoutPanel6.ResumeLayout(False)
-        Me.FlowLayoutPanel6.PerformLayout()
         Me.hymnTabControl.ResumeLayout(False)
         Me.TabPage1.ResumeLayout(False)
         Me.TabPage1.PerformLayout()
@@ -1636,12 +1654,14 @@ Partial Class MainProgram
         Me.Panel1.PerformLayout()
         Me.FlowLayoutPanel4.ResumeLayout(False)
         Me.FlowLayoutPanel4.PerformLayout()
-        Me.FlowLayoutPanel5.ResumeLayout(False)
-        Me.FlowLayoutPanel5.PerformLayout()
         Me.projectSlideGroupBox.ResumeLayout(False)
         Me.projectSlideGroupBox.PerformLayout()
         Me.editSlideGroupBox.ResumeLayout(False)
         Me.editSlideGroupBox.PerformLayout()
+        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TableLayoutPanel1.PerformLayout()
+        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.TableLayoutPanel2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1701,9 +1721,7 @@ Partial Class MainProgram
     Friend WithEvents ChineseColorBtn As Button
     Friend WithEvents moveChineseDown As Button
     Friend WithEvents moveChineseUp As Button
-    Friend WithEvents clearbtn As Button
     Friend WithEvents Label11 As Label
-    Friend WithEvents UpdateTitle As Button
     Friend WithEvents ChineseTitle As TextBox
     Friend WithEvents EnglishTitle As TextBox
     Friend WithEvents hymnTabControl As TabControl
@@ -1728,7 +1746,6 @@ Partial Class MainProgram
     Friend WithEvents hymnalHymnColor As Button
     Friend WithEvents hymnalHymnsListBox As ListBox
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents FlowLayoutPanel6 As FlowLayoutPanel
     Friend WithEvents FlowLayoutPanel7 As FlowLayoutPanel
     Friend WithEvents FlowLayoutPanel4 As FlowLayoutPanel
     Friend WithEvents goToTimetableBtn As RadioButton
@@ -1741,10 +1758,14 @@ Partial Class MainProgram
     Friend WithEvents goToAnnouncementsBtn As RadioButton
     Friend WithEvents goToBreakBtn As RadioButton
     Friend WithEvents goToPRBtn As RadioButton
-    Friend WithEvents FlowLayoutPanel5 As FlowLayoutPanel
     Friend WithEvents projectSlideGroupBox As GroupBox
     Friend WithEvents editSlideGroupBox As GroupBox
     Friend WithEvents Panel2 As Panel
     Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
     Friend WithEvents FlowLayoutPanel8 As FlowLayoutPanel
+    Friend WithEvents Label10 As Label
+    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents UpdateTitle As Button
+    Friend WithEvents clearbtn As Button
+    Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
 End Class

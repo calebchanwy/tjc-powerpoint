@@ -36,6 +36,7 @@ Partial Class SettingsForm
         Me.maxHymnalHymns = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.maxSermonHymns = New System.Windows.Forms.TextBox()
+        Me.saveBtn = New System.Windows.Forms.Button()
         Me.navBar.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -58,7 +59,7 @@ Partial Class SettingsForm
         Me.header.Cursor = System.Windows.Forms.Cursors.Default
         Me.header.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.header.ForeColor = System.Drawing.Color.SteelBlue
-        Me.header.Location = New System.Drawing.Point(12, 12)
+        Me.header.Location = New System.Drawing.Point(13, 13)
         Me.header.Name = "header"
         Me.header.Size = New System.Drawing.Size(93, 30)
         Me.header.TabIndex = 33
@@ -194,6 +195,20 @@ Partial Class SettingsForm
         Me.maxSermonHymns.Size = New System.Drawing.Size(100, 29)
         Me.maxSermonHymns.TabIndex = 0
         '
+        'saveBtn
+        '
+        Me.saveBtn.AutoSize = True
+        Me.saveBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.saveBtn.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.saveBtn.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.saveBtn.ForeColor = System.Drawing.Color.DarkBlue
+        Me.saveBtn.Location = New System.Drawing.Point(10, 370)
+        Me.saveBtn.Name = "saveBtn"
+        Me.saveBtn.Size = New System.Drawing.Size(714, 31)
+        Me.saveBtn.TabIndex = 37
+        Me.saveBtn.Text = "Save Settings"
+        Me.saveBtn.UseVisualStyleBackColor = True
+        '
         'SettingsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -201,6 +216,7 @@ Partial Class SettingsForm
         Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border33
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(734, 411)
+        Me.Controls.Add(Me.saveBtn)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.navBar)
@@ -208,7 +224,7 @@ Partial Class SettingsForm
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "SettingsForm"
-        Me.Padding = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Padding = New System.Windows.Forms.Padding(10)
         Me.Text = "Settings"
         Me.navBar.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
@@ -232,4 +248,5 @@ Partial Class SettingsForm
     Friend WithEvents maxHymnalHymns As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents maxSermonHymns As TextBox
+    Friend WithEvents saveBtn As Button
 End Class
