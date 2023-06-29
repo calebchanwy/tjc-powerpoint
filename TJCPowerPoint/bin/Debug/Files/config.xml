@@ -3,7 +3,7 @@
   <googleSlides>
     <announcements>https://www.tjc.org</announcements>
     <prayerRequests>https://www.tjc.org</prayerRequests>
-    <serviceTimes></serviceTimes>
+    <serviceTimes>https://www.google.com</serviceTimes>
   </googleSlides>
   <imageDirectories>
     <announcements></announcements>
@@ -13,6 +13,6 @@
   <showBrowser>
     <announcements>True</announcements>
     <prayerRequests>False</prayerRequests>
-    <serviceTimes>False</serviceTimes>
+    <serviceTimes>True</serviceTimes>
   </showBrowser>
 </root>

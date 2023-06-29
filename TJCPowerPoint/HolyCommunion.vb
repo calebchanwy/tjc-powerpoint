@@ -56,11 +56,11 @@ Public Class HolyCommunion
 
 
     'Method handling when form is closed
-    Private Sub HCClose_Click(sender As Object, e As EventArgs) Handles closeForm.Click
+    Private Sub HCClose_Click(sender As Object, e As EventArgs)
         Me.Hide()
     End Sub
 
-    Private Sub minForm_Click(sender As Object, e As EventArgs) Handles minForm.Click
+    Private Sub minForm_Click(sender As Object, e As EventArgs)
         Me.WindowState = FormWindowState.Minimized
     End Sub
 
@@ -184,5 +184,10 @@ Public Class HolyCommunion
     End Sub
     Private Sub navBar_MouseMove(sender As Object, e As MouseEventArgs) Handles navBar.MouseMove, header.MouseMove
         MyBase.Form1_MouseMove(sender, e)
+    End Sub
+
+    Private Sub HolyCommunion_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.Closing
+        Hide()
+        e.Cancel = True
     End Sub
 End Class

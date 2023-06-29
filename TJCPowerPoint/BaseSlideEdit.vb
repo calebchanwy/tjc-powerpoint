@@ -221,10 +221,10 @@ Public Class BaseSlideEdit
         End If
     End Sub
 
-    Private Sub closeForm_Click(sender As Object, e As EventArgs) Handles closeForm.Click
+    Private Sub closeForm_Click(sender As Object, e As EventArgs)
         Me.Hide()
     End Sub
-    Private Sub minForm_Click(sender As Object, e As EventArgs) Handles minForm.Click
+    Private Sub minForm_Click(sender As Object, e As EventArgs)
         Me.WindowState = FormWindowState.Minimized
     End Sub
 
@@ -258,6 +258,11 @@ Public Class BaseSlideEdit
             End If
         End If
 
+    End Sub
+
+    Private Sub BaseSlideEdit_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.Closing
+        Hide()
+        e.Cancel = True
     End Sub
 
 End Class
