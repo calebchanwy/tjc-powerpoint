@@ -149,6 +149,12 @@
     <Compile Include="DraggableForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="HolyCommunion.Designer.vb">
+      <DependentUpon>HolyCommunion.vb</DependentUpon>
+    </Compile>
+    <Compile Include="HolyCommunion.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="HymnSelector.vb" />
     <Compile Include="ImageViewer.Designer.vb">
       <DependentUpon>ImageViewer.vb</DependentUpon>
@@ -162,23 +168,17 @@
     <Compile Include="LoadingScreen.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HolyCommunion.Designer.vb">
-      <DependentUpon>HolyCommunion.vb</DependentUpon>
-    </Compile>
-    <Compile Include="HolyCommunion.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MainProgram.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="MainProgram.Designer.vb">
       <DependentUpon>MainProgram.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainProgram.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -221,7 +221,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainProgram.resx">
       <DependentUpon>MainProgram.vb</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
