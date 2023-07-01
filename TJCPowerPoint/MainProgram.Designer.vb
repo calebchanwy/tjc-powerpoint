@@ -692,7 +692,7 @@ Partial Class MainProgram
         Me.FlowLayoutPanel3.Controls.Add(Me.ServiceTypeFontBtn)
         Me.FlowLayoutPanel3.Controls.Add(Me.ServiceTypeColorBtn)
         Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(5, 139)
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(5, 140)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
         Me.FlowLayoutPanel3.Size = New System.Drawing.Size(591, 31)
         Me.FlowLayoutPanel3.TabIndex = 34
@@ -869,7 +869,7 @@ Partial Class MainProgram
         Me.TableLayoutPanel1.ColumnCount = 3
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 277.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 281.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.ServiceType, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.UpdateTitle, 2, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.clearbtn, 1, 0)
@@ -880,7 +880,7 @@ Partial Class MainProgram
         Me.TableLayoutPanel1.RowCount = 2
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(591, 31)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(591, 32)
         Me.TableLayoutPanel1.TabIndex = 37
         '
         'ServiceType
@@ -898,7 +898,8 @@ Partial Class MainProgram
         Me.ServiceType.ImeMode = System.Windows.Forms.ImeMode.[On]
         Me.ServiceType.IntegralHeight = False
         Me.ServiceType.Items.AddRange(New Object() {"Sabbath Service", "Sabbath Bible Study", "Sabbath Afternoon Service", "Friday Evening Service", "Wednesday Evening Service", "Afternoon Service", "Bible Study", "End of Year Services", "Spiritual Convocation", "AMTC", "Evangelistic Service", "Special Service", "Fellowship", "Autumn Spiritual Convocation", "Spring Spiritual Convocation", "NSSC", "YTTC"})
-        Me.ServiceType.Location = New System.Drawing.Point(3, 3)
+        Me.ServiceType.Location = New System.Drawing.Point(0, 3)
+        Me.ServiceType.Margin = New System.Windows.Forms.Padding(0, 3, 0, 0)
         Me.ServiceType.MaxDropDownItems = 5
         Me.ServiceType.Name = "ServiceType"
         Me.ServiceType.Size = New System.Drawing.Size(242, 25)
@@ -916,10 +917,10 @@ Partial Class MainProgram
         Me.UpdateTitle.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UpdateTitle.ForeColor = System.Drawing.Color.Navy
         Me.UpdateTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.UpdateTitle.Location = New System.Drawing.Point(314, 0)
-        Me.UpdateTitle.Margin = New System.Windows.Forms.Padding(0)
+        Me.UpdateTitle.Location = New System.Drawing.Point(311, 1)
+        Me.UpdateTitle.Margin = New System.Windows.Forms.Padding(1)
         Me.UpdateTitle.Name = "UpdateTitle"
-        Me.UpdateTitle.Size = New System.Drawing.Size(277, 31)
+        Me.UpdateTitle.Size = New System.Drawing.Size(279, 30)
         Me.UpdateTitle.TabIndex = 3
         Me.UpdateTitle.TabStop = False
         Me.UpdateTitle.Text = "Update Title(s)"
@@ -935,11 +936,11 @@ Partial Class MainProgram
         Me.clearbtn.Dock = System.Windows.Forms.DockStyle.Fill
         Me.clearbtn.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.clearbtn.ForeColor = System.Drawing.Color.Maroon
-        Me.clearbtn.Location = New System.Drawing.Point(248, 0)
-        Me.clearbtn.Margin = New System.Windows.Forms.Padding(0)
+        Me.clearbtn.Location = New System.Drawing.Point(243, 1)
+        Me.clearbtn.Margin = New System.Windows.Forms.Padding(1)
         Me.clearbtn.MinimumSize = New System.Drawing.Size(50, 30)
         Me.clearbtn.Name = "clearbtn"
-        Me.clearbtn.Size = New System.Drawing.Size(66, 31)
+        Me.clearbtn.Size = New System.Drawing.Size(66, 30)
         Me.clearbtn.TabIndex = 33
         Me.clearbtn.TabStop = False
         Me.clearbtn.Text = "Reset All"
@@ -1543,8 +1544,8 @@ Partial Class MainProgram
         '
         'MainProgram
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
-        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.White

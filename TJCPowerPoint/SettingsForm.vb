@@ -39,12 +39,7 @@
                 End If
             Next
 
-            If selectedIndex >= 2 Then
-                'by default select the second display
-                DisplayComboBox.SelectedIndex = 1
-            ElseIf selectedIndex >= 0 Then
-                DisplayComboBox.SelectedIndex = selectedIndex
-            End If
+            DisplayComboBox.SelectedIndex = selectedIndex
         End If
     End Sub
     Public Function getScreen() As Screen
@@ -52,19 +47,24 @@
         Dim selectedScreen As Screen = Nothing
 
         If DisplayComboBox.SelectedIndex >= 0 Then
-            selectedScreen = Screen.AllScreens(DisplayComboBox.SelectedIndex)
+            Dim displayAsString = DisplayComboBox.SelectedItem
+            For Each screen As Screen In Screen.AllScreens()
+                If screen.ToString().Equals(displayAsString) Then
+                    Return screen
+                End If
+            Next
+            Return Screen.AllScreens().GetValue(0)
         Else
-            selectedScreen = Screen.AllScreens(0)
+            Return Screen.AllScreens().GetValue(0)
         End If
 
-        Return selectedScreen
     End Function
 
 
-    Private Sub closeForm_Click(sender As Object, e As EventArgs) Handles closeForm.Click
+    Private Sub closeForm_Click(sender As Object, e As EventArgs)
         Me.Hide()
     End Sub
-    Private Sub minForm_Click(sender As Object, e As EventArgs) Handles minForm.Click
+    Private Sub minForm_Click(sender As Object, e As EventArgs)
         Me.WindowState = FormWindowState.Minimized
     End Sub
 
@@ -116,5 +116,11 @@
         ' Save the selected display
         My.Settings.SelectedDisplay = selectedScreen.DeviceName
         My.Settings.Save()
+    End Sub
+
+    'Ensures that upon closing, the form state is still saved
+    Private Sub SettingsForm_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.Closing
+        Hide()
+        e.Cancel = True
     End Sub
 End Class

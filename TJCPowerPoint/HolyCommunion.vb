@@ -169,7 +169,7 @@ Public Class HolyCommunion
         iv.updatePreviews()
     End Sub
 
-    Private Sub enlargePreviewBtn_Click(sender As Object, e As EventArgs) Handles enlargePreviewBtn.Click
+    Private Sub enlargePreviewBtn_Click(sender As Object, e As EventArgs) Handles enlargePreviewBtn.Click, previewBox.Click
         iv.Show()
     End Sub
 
@@ -188,6 +188,7 @@ Public Class HolyCommunion
 
     Private Sub HolyCommunion_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.Closing
         Hide()
+        iv.Hide()
         e.Cancel = True
     End Sub
 End Class

@@ -57,11 +57,14 @@ Partial Class LoadingScreen
         '
         'Label1
         '
+        Me.Label1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(182, 189)
+        Me.Label1.Location = New System.Drawing.Point(202, 189)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(136, 32)
+        Me.Label1.Size = New System.Drawing.Size(92, 21)
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "LOADING..."
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -72,7 +75,7 @@ Partial Class LoadingScreen
         '
         'LoadingScreen
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(144.0!, 144.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(96.0!, 96.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.White

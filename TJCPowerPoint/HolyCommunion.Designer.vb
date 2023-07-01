@@ -119,7 +119,7 @@ Partial Class HolyCommunion
         Me.updateHC.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.updateHC.ForeColor = System.Drawing.Color.Navy
         Me.updateHC.Location = New System.Drawing.Point(10, 374)
-        Me.updateHC.Margin = New System.Windows.Forms.Padding(10)
+        Me.updateHC.Margin = New System.Windows.Forms.Padding(0)
         Me.updateHC.Name = "updateHC"
         Me.updateHC.Size = New System.Drawing.Size(764, 27)
         Me.updateHC.TabIndex = 3
@@ -381,7 +381,7 @@ Partial Class HolyCommunion
         Me.enlargePreviewBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.enlargePreviewBtn.FlatAppearance.BorderSize = 0
         Me.enlargePreviewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.enlargePreviewBtn.Location = New System.Drawing.Point(743, 346)
+        Me.enlargePreviewBtn.Location = New System.Drawing.Point(743, 337)
         Me.enlargePreviewBtn.Name = "enlargePreviewBtn"
         Me.enlargePreviewBtn.Size = New System.Drawing.Size(25, 25)
         Me.enlargePreviewBtn.TabIndex = 53
@@ -393,7 +393,7 @@ Partial Class HolyCommunion
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(552, 215)
+        Me.Label4.Location = New System.Drawing.Point(552, 206)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(87, 17)
         Me.Label4.TabIndex = 52
@@ -403,7 +403,7 @@ Partial Class HolyCommunion
         '
         Me.previewBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.previewBox.Image = Global.TJCPowerPoint.My.Resources.Resources.border1
-        Me.previewBox.Location = New System.Drawing.Point(552, 235)
+        Me.previewBox.Location = New System.Drawing.Point(552, 226)
         Me.previewBox.Name = "previewBox"
         Me.previewBox.Size = New System.Drawing.Size(219, 139)
         Me.previewBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage

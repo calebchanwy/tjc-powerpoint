@@ -260,8 +260,10 @@ Public Class BaseSlideEdit
 
     End Sub
 
+    'Ensures that upon closing, the form state is still saved
     Private Sub BaseSlideEdit_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.Closing
         Hide()
+        iv.Hide()
         e.Cancel = True
     End Sub
 
