@@ -151,7 +151,7 @@ Partial Class MainProgram
         Me.TableLayoutPanel1.ColumnCount = 3
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 281.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 295.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.ServiceType, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.UpdateTitle, 2, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.clearbtn, 1, 0)
@@ -789,7 +789,7 @@ Partial Class MainProgram
         Me.Label8.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label8.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.Black
-        Me.Label8.Location = New System.Drawing.Point(356, 0)
+        Me.Label8.Location = New System.Drawing.Point(361, 0)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(56, 35)
         Me.Label8.TabIndex = 17
@@ -802,10 +802,10 @@ Partial Class MainProgram
         Me.ChapterTxt.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ChapterTxt.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ChapterTxt.HideSelection = False
-        Me.ChapterTxt.Location = New System.Drawing.Point(418, 3)
+        Me.ChapterTxt.Location = New System.Drawing.Point(423, 3)
         Me.ChapterTxt.Name = "ChapterTxt"
-        Me.ChapterTxt.Size = New System.Drawing.Size(142, 27)
-        Me.ChapterTxt.TabIndex = 2
+        Me.ChapterTxt.Size = New System.Drawing.Size(144, 27)
+        Me.ChapterTxt.TabIndex = 1
         '
         'BookBox
         '
@@ -825,8 +825,8 @@ Partial Class MainProgram
         Me.BookBox.Location = New System.Drawing.Point(53, 3)
         Me.BookBox.MaxDropDownItems = 5
         Me.BookBox.Name = "BookBox"
-        Me.BookBox.Size = New System.Drawing.Size(297, 29)
-        Me.BookBox.TabIndex = 1
+        Me.BookBox.Size = New System.Drawing.Size(302, 29)
+        Me.BookBox.TabIndex = 0
         '
         'Label6
         '
@@ -847,7 +847,7 @@ Partial Class MainProgram
         Me.Label7.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label7.Font = New System.Drawing.Font("Century Gothic", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.Label7.Location = New System.Drawing.Point(566, 0)
+        Me.Label7.Location = New System.Drawing.Point(573, 0)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(22, 35)
         Me.Label7.TabIndex = 16
@@ -859,7 +859,7 @@ Partial Class MainProgram
         Me.Label9.Dock = System.Windows.Forms.DockStyle.Right
         Me.Label9.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.ForeColor = System.Drawing.Color.Black
-        Me.Label9.Location = New System.Drawing.Point(603, 0)
+        Me.Label9.Location = New System.Drawing.Point(601, 0)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(54, 35)
         Me.Label9.TabIndex = 18
@@ -1021,7 +1021,7 @@ Partial Class MainProgram
         Me.CVColorBtn.BackgroundImage = CType(resources.GetObject("CVColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.CVColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CVColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.CVColorBtn.Location = New System.Drawing.Point(685, 3)
+        Me.CVColorBtn.Location = New System.Drawing.Point(716, 3)
         Me.CVColorBtn.Name = "CVColorBtn"
         Me.CVColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.CVColorBtn.TabIndex = 4
@@ -1033,7 +1033,7 @@ Partial Class MainProgram
         Me.CVFontBtn.BackgroundImage = CType(resources.GetObject("CVFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.CVFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CVFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.CVFontBtn.Location = New System.Drawing.Point(716, 3)
+        Me.CVFontBtn.Location = New System.Drawing.Point(685, 3)
         Me.CVFontBtn.Name = "CVFontBtn"
         Me.CVFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.CVFontBtn.TabIndex = 6
@@ -1076,8 +1076,8 @@ Partial Class MainProgram
         Me.FlowLayoutPanel1.Controls.Add(Me.HymnHDFont)
         Me.FlowLayoutPanel1.Controls.Add(Me.HymnHDColor)
         Me.FlowLayoutPanel1.Controls.Add(Me.Label4)
-        Me.FlowLayoutPanel1.Controls.Add(Me.CVColorBtn)
         Me.FlowLayoutPanel1.Controls.Add(Me.CVFontBtn)
+        Me.FlowLayoutPanel1.Controls.Add(Me.CVColorBtn)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(5, 60)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
@@ -1111,12 +1111,12 @@ Partial Class MainProgram
         Me.TableLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.TableLayoutPanel4.ColumnCount = 7
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.95413!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.17065!))
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.01835!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.57338!))
         Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.24465!))
-        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 22.62997!))
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle())
+        Me.TableLayoutPanel4.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.25597!))
         Me.TableLayoutPanel4.Controls.Add(Me.Label8, 2, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.BookBox, 1, 0)
         Me.TableLayoutPanel4.Controls.Add(Me.ChapterTxt, 2, 0)
@@ -1138,10 +1138,10 @@ Partial Class MainProgram
         Me.VerseTxt.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.VerseTxt.Dock = System.Windows.Forms.DockStyle.Fill
         Me.VerseTxt.Font = New System.Drawing.Font("Century Gothic", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.VerseTxt.Location = New System.Drawing.Point(663, 3)
+        Me.VerseTxt.Location = New System.Drawing.Point(661, 3)
         Me.VerseTxt.Name = "VerseTxt"
-        Me.VerseTxt.Size = New System.Drawing.Size(148, 27)
-        Me.VerseTxt.TabIndex = 3
+        Me.VerseTxt.Size = New System.Drawing.Size(150, 27)
+        Me.VerseTxt.TabIndex = 2
         '
         'settingsBtn
         '
@@ -1407,7 +1407,7 @@ Partial Class MainProgram
         Me.TabPage2.Location = New System.Drawing.Point(4, 24)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(187, 162)
+        Me.TabPage2.Size = New System.Drawing.Size(192, 162)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Hymnal Hymns"
         '
@@ -1422,7 +1422,7 @@ Partial Class MainProgram
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(103, 28)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(81, 106)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(86, 106)
         Me.FlowLayoutPanel2.TabIndex = 62
         '
         'hymnalPrevHymn
@@ -1505,7 +1505,7 @@ Partial Class MainProgram
         Me.hymnalHymnNo.Location = New System.Drawing.Point(103, 3)
         Me.hymnalHymnNo.Multiline = True
         Me.hymnalHymnNo.Name = "hymnalHymnNo"
-        Me.hymnalHymnNo.Size = New System.Drawing.Size(81, 25)
+        Me.hymnalHymnNo.Size = New System.Drawing.Size(86, 25)
         Me.hymnalHymnNo.TabIndex = 53
         Me.hymnalHymnNo.TabStop = False
         '
@@ -1523,7 +1523,7 @@ Partial Class MainProgram
         Me.clearHymnalHymns.Location = New System.Drawing.Point(103, 134)
         Me.clearHymnalHymns.Margin = New System.Windows.Forms.Padding(0)
         Me.clearHymnalHymns.Name = "clearHymnalHymns"
-        Me.clearHymnalHymns.Size = New System.Drawing.Size(81, 25)
+        Me.clearHymnalHymns.Size = New System.Drawing.Size(86, 25)
         Me.clearHymnalHymns.TabIndex = 60
         Me.clearHymnalHymns.TabStop = False
         Me.clearHymnalHymns.Text = "Clear All"

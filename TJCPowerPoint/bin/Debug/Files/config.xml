@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <root>
   <googleSlides>
-    <announcements>https://www.tjc.org</announcements>
-    <prayerRequests>https://www.tjc.org</prayerRequests>
-    <serviceTimes>https://www.google.com</serviceTimes>
+    <announcements></announcements>
+    <prayerRequests></prayerRequests>
+    <serviceTimes></serviceTimes>
   </googleSlides>
   <imageDirectories>
     <announcements></announcements>
@@ -13,6 +13,6 @@
   <showBrowser>
     <announcements>True</announcements>
     <prayerRequests>False</prayerRequests>
-    <serviceTimes>True</serviceTimes>
+    <serviceTimes>False</serviceTimes>
   </showBrowser>
 </root>

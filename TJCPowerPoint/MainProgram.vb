@@ -43,6 +43,18 @@ Public Class MainProgram
 
     Private settingsForm As SettingsForm
 
+    'Exception handlers
+    Private Sub Application_ThreadException(sender As Object, e As ThreadExceptionEventArgs)
+        ' Handle the exception here
+        MessageBox.Show("An error occurred. Please restart the application" + e.ToString())
+        Close()
+    End Sub
+    Private Sub CurrentDomain_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs)
+        ' Handle the exception here
+        MessageBox.Show("An error occurred. Please restart the application" + e.ToString())
+        Close()
+    End Sub
+
     'CONSTSRUCTOR
     Public Sub New()
         LoadingScreen.Show()
@@ -54,7 +66,7 @@ Public Class MainProgram
         AddHandler AppDomain.CurrentDomain.UnhandledException, AddressOf CurrentDomain_UnhandledException
     End Sub
 
-    '
+    'Method that handles the initial load of the main application
     Private Sub MainLoad() Handles MyBase.Load
         Try
             MakeFolder()
@@ -82,17 +94,6 @@ Public Class MainProgram
             Close()
         End Try
     End Sub
-    Private Sub Application_ThreadException(sender As Object, e As ThreadExceptionEventArgs)
-        ' Handle the exception here
-        MessageBox.Show("An error occurred. Please restart the application")
-        Close()
-    End Sub
-
-    Private Sub CurrentDomain_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs)
-        ' Handle the exception here
-        MessageBox.Show("An error occurred. Please restart the application")
-        Close()
-    End Sub
 
     'Method to deal with the form closing
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -108,18 +109,20 @@ Public Class MainProgram
         Catch ex As Exception
         End Try
     End Sub
+    'returns the current directory that the application is located in
     Public Function getCurrentDirectory()
         Return CurrentDirectory
     End Function
-
+    'returns a text box object from textbox dictionairy
     Public Function getTextBox(textBox As String)
         Return textBoxDictionary.Item(textBox)
     End Function
-
+    'returns PowerPoint slide object from slide dictionary
     Public Function getSlide(slideName As String)
         Return slideDictionary.Item(slideName)
     End Function
-
+    'reads a text file of a given text file name in the same directory
+    'returns string object containing its contents
     Public Function getTextFile(fileName As String)
         If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\" + fileName) Then
             Dim text As String
@@ -145,7 +148,7 @@ Public Class MainProgram
             System.IO.File.WriteAllText(CurrentDirectory + "\Files\config.xml", My.Resources.config)
         End If
     End Sub
-
+    'loads the presentation and initaites PowerPoint app
     Private Sub LoadPres()
         Dim ppApp As PowerPoint.Application
         Dim dict As DictionairyFactory
@@ -167,7 +170,6 @@ Public Class MainProgram
         slideDictionary = dict.getSlideDictionairy
         textBoxDictionary = dict.getTextBoxDictionairy()
     End Sub
-
     'Method that will reset the program to the initial running state
     Private Sub ResetServiceDetails()
         ' Clearing controls individually
@@ -198,7 +200,6 @@ Public Class MainProgram
             textBoxDictionary.Item(textBoxKey).Text = " "
         Next
     End Sub
-
     'Method to deal with loading the Holy Communion slide with details from the text files
     'If no text file exists, then no names will be displayed
     Private Sub HandleHC()
@@ -222,7 +223,7 @@ Public Class MainProgram
     Public Sub HandlePrayerRequests()
         HandleData("Prayer Requests", "prayerRequests", "PrayerRequestsTxt", "PrayerRequestsTitle", prayerRequestsWindow)
     End Sub
-
+    'method takes in name, slide key, text box key and title name, creating new BaseSlideEdit form
     Private Sub HandleData(title As String, slideKey As String, bodyTextboxKey As String, titleTextboxKey As String, ByRef slideWindow As BaseSlideEdit)
         Dim dataTxt As String = getTextFile($"{title}.txt")
         textBoxDictionary.Item(bodyTextboxKey).Text = dataTxt
@@ -407,7 +408,7 @@ Public Class MainProgram
         TrimTitleText(ChineseTitle)
 
 
-        ' Update on title slide, sermon slide, and bible verse slide
+        ' Update text on title slide, sermon slide, and bible verse slide
         Dim englishTitles() As String = {"englishTitle", "englishTitle1", "englishTitle2"}
         For Each textBox In englishTitles
             textBoxDictionary.Item(textBox).Text = EnglishTitle.Text
@@ -417,6 +418,11 @@ Public Class MainProgram
         For Each textBox In chineseTitles
             textBoxDictionary.Item(textBox).Text = ChineseTitle.Text
         Next
+        'Resize following text to fit on one line
+        Dim resizeTextboxes() As String = {"englishTitle1", "englishTitle2", "chineseTitle1", "chineseTitle2"}
+        For Each textBox In resizeTextboxes
+            ResizeToFit(getTextBox(textBox))
+        Next
 
         If ShowHymnal.Checked Then
             ' If updated titles during hymnal, return to service hymns
@@ -425,6 +431,12 @@ Public Class MainProgram
 
         ' Update service types
         updateServiceTypes()
+    End Sub
+    Private Sub ResizeToFit(textBox As PowerPoint.TextRange)
+        While textBox.Lines.Count >= 2
+            textBox.Font.Size -= 1
+        End While
+        Return
     End Sub
 
     Private Sub TrimTitleText(titleTextBox As TextBox)
@@ -730,7 +742,7 @@ Public Class MainProgram
         'handling both when chapter and verse enter key pressed
         If e.KeyCode = Keys.Enter Then
             If ChapterTxt.Text IsNot "" Then
-                SelectNextControl(sender, True, True, True, True)
+                VerseTxt.Focus()
             End If
             'Mute ding sound from windows
             e.SuppressKeyPress = True

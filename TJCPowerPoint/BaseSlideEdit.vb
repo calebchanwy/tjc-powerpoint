@@ -237,6 +237,7 @@ Public Class BaseSlideEdit
         If e.KeyCode = Keys.Enter Then
             setGSLink(googleSlidesLink.Text)
             updateLink()
+            MessageBox.Show("Google link saved", "Save Successful")
         End If
     End Sub
 

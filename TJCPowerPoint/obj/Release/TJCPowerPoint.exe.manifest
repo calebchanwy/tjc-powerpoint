@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TJCPowerPoint.exe" size="4078592">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TJCPowerPoint.exe" size="2704896">
       <assemblyIdentity name="TJCPowerPoint" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>YgBJqzY8rIuarGt/XecWuaOmzxI954Vc3JFQqI2hAqY=</dsig:DigestValue>
+        <dsig:DigestValue>Li94z2VSDE5/LyzTolW8exMYCdq6j0EEduKfQg6jkjo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -79,6 +79,15 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>y7njPEoDCJIPYc0BjNIvzt76i/Etl7+oiAkS6FhYCEs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\config.xml" size="518" writeableType="applicationData">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>p8zNnVWyyTczSBXMBSxkBXrhfNDDm51MNprIryikTB0=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\icons8-announcement-16.png" size="277">
@@ -142,6 +151,24 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>A/N2zo0T+s7fxw+uw7dH7Cnq1d7sR+//VhyI/OsWMZc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\icons8-full-screen-16.png" size="218">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>wmzJMMJq6e4cJqWA4jnEKFsyOQFJcSz/gtYJh7f2OJ4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\icons8-full-screen-30.png" size="255">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>/XGuQ0i4BtZtbCYk7ZOtZC+7zkd47bQ7rYNz2hdLXl8=</dsig:DigestValue>
     </hash>
   </file>
   <file name="Resources\icons8-holy-bible-16 (1).png" size="181">
@@ -225,6 +252,15 @@
       <dsig:DigestValue>cEgZVYZjd2LJaocRQgqEsrMQC+SrxQdHsdPwQqMcJX4=</dsig:DigestValue>
     </hash>
   </file>
+  <file name="Resources\icons8-settings-24.png" size="347">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>4vcTEpSKXprMqaKbowDeHGl/ff7YnYcgbGJp4UgbsMw=</dsig:DigestValue>
+    </hash>
+  </file>
   <file name="Resources\minimize-sign.png" size="2664">
     <hash>
       <dsig:Transforms>
@@ -252,22 +288,49 @@
       <dsig:DigestValue>4nIr/oQbRx1V2XRbDylzzhaih4pNXe/5tPAl42F/Fvw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Resources\TJCPowerPointLogo.png" size="11795">
+  <file name="Resources\TJCPowerPointLogo.png" size="8027">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>f4Vrxc5lyQWban+xS6vaJOyGVKt77+1nASciKXYk+2U=</dsig:DigestValue>
+      <dsig:DigestValue>zPVn1p0S4lZ3uSbcKXZewQaSdiPYn90DLVYU39q+gaw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="TJCPowerPoint.exe.config" size="220">
+  <file name="runtimes\win-arm64\native\WebView2Loader.dll" size="135608">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>izReS3RVASV+RGfZ+cGZXWodHUGSfDB0wKbOH+C3dVQ=</dsig:DigestValue>
+      <dsig:DigestValue>AtscPD9WBnaTkxmRNhSGebIzTRbVr7ftTvRlTXMW7fQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="runtimes\win-x64\native\WebView2Loader.dll" size="160168">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>GyP/kKxkIjvLIbFKEHB5x7tK0Gl+2EGgwEhcfQ/goXU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="runtimes\win-x86\native\WebView2Loader.dll" size="115624">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>/BTcJ1Am2rpIxAFKDeD04igEP6iZya4DCPbqLCOa8fE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="TJCPowerPoint.exe.config" size="1155">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>i57Ir8FX2t+t7gMGvXVdTB90oA0f16M0hZBODnsP8Vo=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">

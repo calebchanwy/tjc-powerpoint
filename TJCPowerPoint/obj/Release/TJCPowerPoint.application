@@ -4,17 +4,17 @@
   <description asmv2:publisher="Joshi Chan" asmv2:product="TJC PowerPoint" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <deployment install="true" disallowUrlActivation="true" mapFileExtensions="true" co.v1:createDesktopShortcut="true" />
   <compatibleFrameworks xmlns="urn:schemas-microsoft-com:clickonce.v2">
-    <framework targetVersion="4.5.2" profile="Full" supportedRuntime="4.0.30319" />
+    <framework targetVersion="4.8" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="TJCPowerPoint.exe.manifest" size="14311">
+    <dependentAssembly dependencyType="install" codebase="TJCPowerPoint.exe.manifest" size="17241">
       <assemblyIdentity name="TJCPowerPoint.exe" version="2.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>nHPdHmyqEGNZYdNeFbh/ORVDVJv8cjNAQdcVVwwqW1U=</dsig:DigestValue>
+        <dsig:DigestValue>Yo91pbznyy6pgOVSQs/sDHtptdL3vntARnke77XL/hg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

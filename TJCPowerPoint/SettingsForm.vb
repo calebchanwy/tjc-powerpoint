@@ -14,8 +14,6 @@
         maxSermonHymns.Text = My.Settings.maxSermonHymns.ToString()
     End Sub
     Private Sub loadScreens()
-
-        ' Add any initialization after the InitializeComponent() call.
         ' Get the list of screens
         Dim screens As Screen() = Screen.AllScreens
 
@@ -40,6 +38,8 @@
             Next
 
             DisplayComboBox.SelectedIndex = selectedIndex
+        Else
+            DisplayComboBox.SelectedIndex = 0
         End If
     End Sub
     Public Function getScreen() As Screen
@@ -70,6 +70,7 @@
 
     Private Sub DisplayComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles DisplayComboBox.SelectedIndexChanged
         saveScreen()
+
     End Sub
 
 
@@ -116,6 +117,7 @@
         ' Save the selected display
         My.Settings.SelectedDisplay = selectedScreen.DeviceName
         My.Settings.Save()
+
     End Sub
 
     'Ensures that upon closing, the form state is still saved

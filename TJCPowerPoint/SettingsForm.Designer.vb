@@ -23,9 +23,9 @@ Partial Class SettingsForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SettingsForm))
-        Me.DisplayComboBox = New System.Windows.Forms.ComboBox()
-        Me.header = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.DisplayComboBox = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.maxHCHymns = New System.Windows.Forms.TextBox()
@@ -34,40 +34,34 @@ Partial Class SettingsForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.maxSermonHymns = New System.Windows.Forms.TextBox()
         Me.saveBtn = New System.Windows.Forms.Button()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.header = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'DisplayComboBox
+        'TableLayoutPanel1
         '
-        Me.DisplayComboBox.Dock = System.Windows.Forms.DockStyle.Top
-        Me.DisplayComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.DisplayComboBox.FormattingEnabled = True
-        Me.DisplayComboBox.Location = New System.Drawing.Point(5, 27)
-        Me.DisplayComboBox.Name = "DisplayComboBox"
-        Me.DisplayComboBox.Size = New System.Drawing.Size(327, 29)
-        Me.DisplayComboBox.TabIndex = 0
-        '
-        'header
-        '
-        Me.header.AutoSize = True
-        Me.header.BackColor = System.Drawing.Color.Transparent
-        Me.header.Cursor = System.Windows.Forms.Cursors.Default
-        Me.header.Dock = System.Windows.Forms.DockStyle.Top
-        Me.header.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.header.ForeColor = System.Drawing.Color.SteelBlue
-        Me.header.Location = New System.Drawing.Point(10, 10)
-        Me.header.Name = "header"
-        Me.header.Size = New System.Drawing.Size(93, 30)
-        Me.header.TabIndex = 33
-        Me.header.Text = "Settings"
+        Me.TableLayoutPanel1.ColumnCount = 2
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox1, 0, 1)
+        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox2, 0, 0)
+        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(10, 40)
+        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
+        Me.TableLayoutPanel1.RowCount = 2
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(714, 330)
+        Me.TableLayoutPanel1.TabIndex = 38
         '
         'GroupBox1
         '
         Me.GroupBox1.AutoSize = True
         Me.GroupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Controls.Add(Me.DisplayComboBox)
         Me.GroupBox1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.GroupBox1.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -79,6 +73,16 @@ Partial Class SettingsForm
         Me.GroupBox1.TabIndex = 35
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Projector Display"
+        '
+        'DisplayComboBox
+        '
+        Me.DisplayComboBox.Dock = System.Windows.Forms.DockStyle.Top
+        Me.DisplayComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.DisplayComboBox.FormattingEnabled = True
+        Me.DisplayComboBox.Location = New System.Drawing.Point(5, 27)
+        Me.DisplayComboBox.Name = "DisplayComboBox"
+        Me.DisplayComboBox.Size = New System.Drawing.Size(327, 29)
+        Me.DisplayComboBox.TabIndex = 0
         '
         'GroupBox2
         '
@@ -167,21 +171,31 @@ Partial Class SettingsForm
         Me.saveBtn.Text = "Save Settings"
         Me.saveBtn.UseVisualStyleBackColor = True
         '
-        'TableLayoutPanel1
+        'header
         '
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox1, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.GroupBox2, 0, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(10, 40)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 2
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(714, 330)
-        Me.TableLayoutPanel1.TabIndex = 38
+        Me.header.AutoSize = True
+        Me.header.BackColor = System.Drawing.Color.Transparent
+        Me.header.Cursor = System.Windows.Forms.Cursors.Default
+        Me.header.Dock = System.Windows.Forms.DockStyle.Top
+        Me.header.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.header.ForeColor = System.Drawing.Color.SteelBlue
+        Me.header.Location = New System.Drawing.Point(10, 10)
+        Me.header.Name = "header"
+        Me.header.Size = New System.Drawing.Size(93, 30)
+        Me.header.TabIndex = 33
+        Me.header.Text = "Settings"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(5, 56)
+        Me.Label4.MaximumSize = New System.Drawing.Size(330, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(320, 34)
+        Me.Label4.TabIndex = 1
+        Me.Label4.Text = "* Please restart the application for the screen change to take affect"
         '
         'SettingsForm
         '
@@ -198,11 +212,12 @@ Partial Class SettingsForm
         Me.Name = "SettingsForm"
         Me.Padding = New System.Windows.Forms.Padding(10)
         Me.Text = "Settings"
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox2.ResumeLayout(False)
-        Me.GroupBox2.PerformLayout()
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
+        Me.GroupBox1.ResumeLayout(False)
+        Me.GroupBox1.PerformLayout()
+        Me.GroupBox2.ResumeLayout(False)
+        Me.GroupBox2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -220,4 +235,5 @@ Partial Class SettingsForm
     Friend WithEvents maxSermonHymns As TextBox
     Friend WithEvents saveBtn As Button
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
+    Friend WithEvents Label4 As Label
 End Class
