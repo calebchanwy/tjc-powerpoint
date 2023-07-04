@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+  <configSections>
+    <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <section name="TJCPowerPoint.My.MySettings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false"/>
+    </sectionGroup>
+  </configSections>
+  <startup>
+    <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.8"/>
+  </startup>
+  <userSettings>
+    <TJCPowerPoint.My.MySettings>
+      <setting name="SelectedDisplay" serializeAs="String">
+        <value/>
+      </setting>
+      <setting name="maxSermonHymns" serializeAs="String">
+        <value>2</value>
+      </setting>
+      <setting name="maxHymnalHymns" serializeAs="String">
+        <value>3</value>
+      </setting>
+      <setting name="maxHCHymns" serializeAs="String">
+        <value>3</value>
+      </setting>
+    </TJCPowerPoint.My.MySettings>
+  </userSettings>
+</configuration>
