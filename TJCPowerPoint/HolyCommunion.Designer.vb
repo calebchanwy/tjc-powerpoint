@@ -95,7 +95,7 @@ Partial Class HolyCommunion
         Me.enlargePreviewBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.enlargePreviewBtn.FlatAppearance.BorderSize = 0
         Me.enlargePreviewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.enlargePreviewBtn.Location = New System.Drawing.Point(743, 337)
+        Me.enlargePreviewBtn.Location = New System.Drawing.Point(764, 384)
         Me.enlargePreviewBtn.Name = "enlargePreviewBtn"
         Me.enlargePreviewBtn.Size = New System.Drawing.Size(25, 25)
         Me.enlargePreviewBtn.TabIndex = 61
@@ -107,7 +107,7 @@ Partial Class HolyCommunion
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(557, 211)
+        Me.Label4.Location = New System.Drawing.Point(547, 232)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(87, 17)
         Me.Label4.TabIndex = 60
@@ -303,9 +303,9 @@ Partial Class HolyCommunion
         '
         Me.previewBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.previewBox.Image = Global.TJCPowerPoint.My.Resources.Resources.border1
-        Me.previewBox.Location = New System.Drawing.Point(552, 226)
+        Me.previewBox.Location = New System.Drawing.Point(547, 259)
         Me.previewBox.Name = "previewBox"
-        Me.previewBox.Size = New System.Drawing.Size(219, 139)
+        Me.previewBox.Size = New System.Drawing.Size(245, 153)
         Me.previewBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.previewBox.TabIndex = 59
         Me.previewBox.TabStop = False

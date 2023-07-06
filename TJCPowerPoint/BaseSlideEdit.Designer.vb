@@ -306,7 +306,7 @@ Partial Class BaseSlideEdit
         '
         Me.previewBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.previewBox.Image = Global.TJCPowerPoint.My.Resources.Resources.border1
-        Me.previewBox.Location = New System.Drawing.Point(541, 258)
+        Me.previewBox.Location = New System.Drawing.Point(541, 278)
         Me.previewBox.Name = "previewBox"
         Me.previewBox.Size = New System.Drawing.Size(197, 119)
         Me.previewBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -318,7 +318,7 @@ Partial Class BaseSlideEdit
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(538, 238)
+        Me.Label4.Location = New System.Drawing.Point(538, 258)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(87, 17)
         Me.Label4.TabIndex = 38
@@ -332,7 +332,7 @@ Partial Class BaseSlideEdit
         Me.enlargePreviewBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.enlargePreviewBtn.FlatAppearance.BorderSize = 0
         Me.enlargePreviewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.enlargePreviewBtn.Location = New System.Drawing.Point(710, 349)
+        Me.enlargePreviewBtn.Location = New System.Drawing.Point(710, 369)
         Me.enlargePreviewBtn.Name = "enlargePreviewBtn"
         Me.enlargePreviewBtn.Size = New System.Drawing.Size(25, 25)
         Me.enlargePreviewBtn.TabIndex = 39

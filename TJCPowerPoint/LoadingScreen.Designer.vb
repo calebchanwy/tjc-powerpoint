@@ -70,13 +70,13 @@ Partial Class LoadingScreen
         Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.White
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Black
         Me.Button1.Location = New System.Drawing.Point(80, 180)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(340, 35)
+        Me.Button1.Size = New System.Drawing.Size(340, 27)
         Me.Button1.TabIndex = 3
-        Me.Button1.Text = "LOADING..."
+        Me.Button1.Text = "L O A D I N G . . ."
         Me.Button1.UseVisualStyleBackColor = False
         '
         'LoadingScreen
