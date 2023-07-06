@@ -49,7 +49,7 @@
         If DisplayComboBox.SelectedIndex >= 0 Then
             Dim displayAsString = DisplayComboBox.SelectedItem
             For Each screen As Screen In Screen.AllScreens()
-                If screen.ToString().Equals(displayAsString) Then
+                If displayAsString.Contains(screen.DeviceName) Then
                     Return screen
                 End If
             Next

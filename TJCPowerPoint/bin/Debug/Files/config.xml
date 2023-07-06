@@ -12,7 +12,7 @@
   </imageDirectories>
   <showBrowser>
     <announcements>True</announcements>
-    <prayerRequests>False</prayerRequests>
+    <prayerRequests>True</prayerRequests>
     <serviceTimes>False</serviceTimes>
   </showBrowser>
 </root>
