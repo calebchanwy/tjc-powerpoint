@@ -57,7 +57,6 @@ Public Class MainProgram
 
     'CONSTSRUCTOR
     Public Sub New()
-        LoadingScreen.Show()
         'Method dealing with what the form will do when it initially opens
         InitializeComponent()
 
@@ -88,7 +87,6 @@ Public Class MainProgram
             ' Set the default slide when loading up
             goToBreakBtn.Checked = True
 
-            LoadingScreen.Hide()
         Catch ex As Exception
             MessageBox.Show("An error occurred while loading the application. Please try again.", "Error")
             Close()

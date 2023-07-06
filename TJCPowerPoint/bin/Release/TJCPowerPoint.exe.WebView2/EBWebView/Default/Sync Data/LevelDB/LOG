@@ -1,2 +1,3 @@
-2023/07/04-15:43:15.055 24a8 Creating DB C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Release\TJCPowerPoint.exe.WebView2\EBWebView\Default\Sync Data\LevelDB since it was missing.
-2023/07/04-15:43:15.064 24a8 Reusing MANIFEST C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Release\TJCPowerPoint.exe.WebView2\EBWebView\Default\Sync Data\LevelDB/MANIFEST-000001
+2023/07/06-10:57:06.877 2614 Reusing MANIFEST C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Release\TJCPowerPoint.exe.WebView2\EBWebView\Default\Sync Data\LevelDB/MANIFEST-000001
+2023/07/06-10:57:06.878 2614 Recovering log #3
+2023/07/06-10:57:06.879 2614 Reusing old log C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Release\TJCPowerPoint.exe.WebView2\EBWebView\Default\Sync Data\LevelDB/000003.log 
