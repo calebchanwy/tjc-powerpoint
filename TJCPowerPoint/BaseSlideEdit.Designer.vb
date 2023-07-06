@@ -28,6 +28,7 @@ Partial Class BaseSlideEdit
         Me.Label3 = New System.Windows.Forms.Label()
         Me.googleSlidesLink = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label5 = New System.Windows.Forms.Label()
         Me.txtInput = New System.Windows.Forms.TextBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.updateBtn = New System.Windows.Forms.Button()
@@ -47,7 +48,6 @@ Partial Class BaseSlideEdit
         Me.Label4 = New System.Windows.Forms.Label()
         Me.enlargePreviewBtn = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
-        Me.Label5 = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -112,6 +112,16 @@ Partial Class BaseSlideEdit
         Me.GroupBox1.TabIndex = 33
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Edit:"
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(7, 60)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(278, 13)
+        Me.Label5.TabIndex = 5
+        Me.Label5.Text = "* Ensure to include website protocol. I.e., https:// or http://"
         '
         'txtInput
         '
@@ -342,16 +352,6 @@ Partial Class BaseSlideEdit
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(730, 37)
         Me.FlowLayoutPanel1.TabIndex = 40
-        '
-        'Label5
-        '
-        Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(7, 60)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(278, 13)
-        Me.Label5.TabIndex = 5
-        Me.Label5.Text = "* Ensure to include website protocol. I.e., https:// or http://"
         '
         'FlowLayoutPanel2
         '
