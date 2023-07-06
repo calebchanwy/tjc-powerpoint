@@ -131,8 +131,6 @@ C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\runti
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\runtimes\win-x64\native\WebView2Loader.dll
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\runtimes\win-arm64\native\WebView2Loader.dll
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.config
-C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.manifest
-C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.application
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.pdb
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.xml
@@ -156,10 +154,12 @@ C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPo
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.WebBrowser.resources
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.GenerateResource.cache
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.CoreCompileInputs.cache
-C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.TrustInfo.xml
-C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.exe.manifest
-C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.application
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.vbproj.CopyComplete
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.exe
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.xml
 C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.pdb
+C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.manifest
+C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.application
+C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.TrustInfo.xml
+C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.exe.manifest
+C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\obj\Debug\TJCPowerPoint.application
