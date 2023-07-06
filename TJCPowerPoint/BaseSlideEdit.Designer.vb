@@ -47,10 +47,13 @@ Partial Class BaseSlideEdit
         Me.Label4 = New System.Windows.Forms.Label()
         Me.enlargePreviewBtn = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.GroupBox1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         CType(Me.previewBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel1.SuspendLayout()
+        Me.FlowLayoutPanel2.SuspendLayout()
         Me.SuspendLayout()
         '
         'useTxtFile
@@ -96,6 +99,7 @@ Partial Class BaseSlideEdit
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
+        Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.googleSlidesLink)
         Me.GroupBox1.Controls.Add(Me.txtInput)
@@ -118,11 +122,11 @@ Partial Class BaseSlideEdit
         Me.txtInput.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtInput.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtInput.ForeColor = System.Drawing.Color.Black
-        Me.txtInput.Location = New System.Drawing.Point(10, 63)
+        Me.txtInput.Location = New System.Drawing.Point(10, 76)
         Me.txtInput.Multiline = True
         Me.txtInput.Name = "txtInput"
         Me.txtInput.ScrollBars = System.Windows.Forms.ScrollBars.Both
-        Me.txtInput.Size = New System.Drawing.Size(496, 247)
+        Me.txtInput.Size = New System.Drawing.Size(496, 281)
         Me.txtInput.TabIndex = 2
         Me.txtInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         Me.txtInput.WordWrap = False
@@ -132,7 +136,7 @@ Partial Class BaseSlideEdit
         Me.Panel1.BackColor = System.Drawing.Color.Transparent
         Me.Panel1.Controls.Add(Me.useTxtFile)
         Me.Panel1.Controls.Add(Me.useGoogleSlides)
-        Me.Panel1.Location = New System.Drawing.Point(541, 68)
+        Me.Panel1.Location = New System.Drawing.Point(539, 54)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(197, 31)
         Me.Panel1.TabIndex = 34
@@ -154,7 +158,7 @@ Partial Class BaseSlideEdit
         Me.TitleFontBtn.BackgroundImage = CType(resources.GetObject("TitleFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.TitleFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.TitleFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.TitleFontBtn.Location = New System.Drawing.Point(597, 134)
+        Me.TitleFontBtn.Location = New System.Drawing.Point(38, 3)
         Me.TitleFontBtn.Name = "TitleFontBtn"
         Me.TitleFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.TitleFontBtn.TabIndex = 27
@@ -163,21 +167,23 @@ Partial Class BaseSlideEdit
         '
         'Label1
         '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(672, 118)
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(100, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(32, 13)
+        Me.Label1.Size = New System.Drawing.Size(32, 31)
         Me.Label1.TabIndex = 28
         Me.Label1.Text = "Body"
+        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'TitleColorBtn
         '
         Me.TitleColorBtn.BackgroundImage = CType(resources.GetObject("TitleColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.TitleColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.TitleColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.TitleColorBtn.Location = New System.Drawing.Point(566, 134)
+        Me.TitleColorBtn.Location = New System.Drawing.Point(69, 3)
         Me.TitleColorBtn.Name = "TitleColorBtn"
         Me.TitleColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.TitleColorBtn.TabIndex = 26
@@ -189,7 +195,7 @@ Partial Class BaseSlideEdit
         Me.BodyColorBtn.BackgroundImage = CType(resources.GetObject("BodyColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.BodyColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BodyColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BodyColorBtn.Location = New System.Drawing.Point(659, 134)
+        Me.BodyColorBtn.Location = New System.Drawing.Point(169, 3)
         Me.BodyColorBtn.Name = "BodyColorBtn"
         Me.BodyColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.BodyColorBtn.TabIndex = 24
@@ -201,7 +207,7 @@ Partial Class BaseSlideEdit
         Me.BodyFontBtn.BackgroundImage = CType(resources.GetObject("BodyFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.BodyFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.BodyFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BodyFontBtn.Location = New System.Drawing.Point(690, 134)
+        Me.BodyFontBtn.Location = New System.Drawing.Point(138, 3)
         Me.BodyFontBtn.Name = "BodyFontBtn"
         Me.BodyFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.BodyFontBtn.TabIndex = 25
@@ -236,14 +242,16 @@ Partial Class BaseSlideEdit
         '
         'Label2
         '
+        Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(576, 118)
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(3, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(29, 13)
+        Me.Label2.Size = New System.Drawing.Size(29, 31)
         Me.Label2.TabIndex = 29
         Me.Label2.Text = "Title"
+        Me.Label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'loadTxtBtn
         '
@@ -288,7 +296,7 @@ Partial Class BaseSlideEdit
         '
         Me.previewBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.previewBox.Image = Global.TJCPowerPoint.My.Resources.Resources.border1
-        Me.previewBox.Location = New System.Drawing.Point(541, 248)
+        Me.previewBox.Location = New System.Drawing.Point(541, 258)
         Me.previewBox.Name = "previewBox"
         Me.previewBox.Size = New System.Drawing.Size(197, 119)
         Me.previewBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -300,7 +308,7 @@ Partial Class BaseSlideEdit
         Me.Label4.AutoSize = True
         Me.Label4.BackColor = System.Drawing.Color.Transparent
         Me.Label4.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(551, 238)
+        Me.Label4.Location = New System.Drawing.Point(538, 238)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(87, 17)
         Me.Label4.TabIndex = 38
@@ -314,7 +322,7 @@ Partial Class BaseSlideEdit
         Me.enlargePreviewBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.enlargePreviewBtn.FlatAppearance.BorderSize = 0
         Me.enlargePreviewBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.enlargePreviewBtn.Location = New System.Drawing.Point(710, 339)
+        Me.enlargePreviewBtn.Location = New System.Drawing.Point(710, 349)
         Me.enlargePreviewBtn.Name = "enlargePreviewBtn"
         Me.enlargePreviewBtn.Size = New System.Drawing.Size(25, 25)
         Me.enlargePreviewBtn.TabIndex = 39
@@ -335,25 +343,43 @@ Partial Class BaseSlideEdit
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(730, 37)
         Me.FlowLayoutPanel1.TabIndex = 40
         '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(7, 60)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(278, 13)
+        Me.Label5.TabIndex = 5
+        Me.Label5.Text = "* Ensure to include website protocol. I.e., https:// or http://"
+        '
+        'FlowLayoutPanel2
+        '
+        Me.FlowLayoutPanel2.Controls.Add(Me.Label2)
+        Me.FlowLayoutPanel2.Controls.Add(Me.TitleFontBtn)
+        Me.FlowLayoutPanel2.Controls.Add(Me.TitleColorBtn)
+        Me.FlowLayoutPanel2.Controls.Add(Me.Label1)
+        Me.FlowLayoutPanel2.Controls.Add(Me.BodyFontBtn)
+        Me.FlowLayoutPanel2.Controls.Add(Me.BodyColorBtn)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(540, 91)
+        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(200, 40)
+        Me.FlowLayoutPanel2.TabIndex = 41
+        '
         'BaseSlideEdit
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(750, 450)
+        Me.Controls.Add(Me.FlowLayoutPanel2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.Controls.Add(Me.enlargePreviewBtn)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.previewBox)
         Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.TitleFontBtn)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TitleColorBtn)
-        Me.Controls.Add(Me.BodyColorBtn)
-        Me.Controls.Add(Me.BodyFontBtn)
         Me.Controls.Add(Me.header)
-        Me.Controls.Add(Me.Label2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
@@ -367,6 +393,8 @@ Partial Class BaseSlideEdit
         Me.Panel1.PerformLayout()
         CType(Me.previewBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel1.ResumeLayout(False)
+        Me.FlowLayoutPanel2.ResumeLayout(False)
+        Me.FlowLayoutPanel2.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -396,4 +424,6 @@ Partial Class BaseSlideEdit
     Friend WithEvents Label4 As Label
     Friend WithEvents enlargePreviewBtn As Button
     Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
+    Friend WithEvents Label5 As Label
+    Friend WithEvents FlowLayoutPanel2 As FlowLayoutPanel
 End Class
