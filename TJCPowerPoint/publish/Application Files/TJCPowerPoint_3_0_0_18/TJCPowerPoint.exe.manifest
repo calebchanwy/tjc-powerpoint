@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
-  <asmv1:assemblyIdentity name="TJCPowerPoint.exe" version="3.0.0.16" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <asmv1:assemblyIdentity name="TJCPowerPoint.exe" version="3.0.0.18" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <description asmv2:iconFile="Resources\tjcbirdlogo.ico" asmv2:publisher="True Jesus Church London" asmv2:product="TJC PowerPoint" asmv2:supportUrl="https://github.com/calebchan1/TJCPowerPoint" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
@@ -87,7 +87,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cCYcyR0a5BLTI9rNycjBncnyIy91wJs+zKY7cFKbyF4=</dsig:DigestValue>
+        <dsig:DigestValue>Y8qpbCzy+AJ0TAY6GQz+Q8iDapCHghzGOVjrOAoj2sU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -375,6 +375,8 @@
       <!-- A list of the Windows versions that this application has been tested on
            and is designed to work with. Uncomment the appropriate elements
            and Windows will automatically select the most compatible environment. -->
+      <!-- Windows Vista -->
+      <!--<supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}" />-->
       <!-- Windows 7 -->
       <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}" />-->
       <!-- Windows 8 -->
