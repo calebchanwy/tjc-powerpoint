@@ -63,10 +63,10 @@ Public Class ImageViewer
         ' Handle the failure case here
     End Sub
 
-    Private Sub closeForm_Click(sender As Object, e As EventArgs) Handles closeForm.Click
+    Private Sub closeForm_Click(sender As Object, e As EventArgs) 
         Me.Hide()
     End Sub
-    Private Sub minForm_Click(sender As Object, e As EventArgs) Handles minForm.Click
+    Private Sub minForm_Click(sender As Object, e As EventArgs) 
         Me.WindowState = FormWindowState.Minimized
     End Sub
 

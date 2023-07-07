@@ -1,3 +1,6 @@
-2023/07/06-12:44:54.515 1cf0 Reusing MANIFEST C:\Users\caleb\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.WebView2\EBWebView\Default\Site Characteristics Database/MANIFEST-000001
-2023/07/06-12:44:54.515 1cf0 Recovering log #6
-2023/07/06-12:44:54.516 1cf0 Reusing old log C:\Users\caleb\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.WebView2\EBWebView\Default\Site Characteristics Database/000006.log 
+2023/07/07-15:01:29.553 4e90 Log #6: 372 ops saved to Table #7 OK
+2023/07/07-15:01:29.554 4e90 Archiving C:\Users\TJC London AV\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.WebView2\EBWebView\Default\Site Characteristics Database/000006.log: OK
+2023/07/07-15:01:29.554 4e90 Table #4: 297 entries OK
+2023/07/07-15:01:29.554 4e90 Table #7: 372 entries OK
+2023/07/07-15:01:29.557 4e90 Archiving C:\Users\TJC London AV\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.WebView2\EBWebView\Default\Site Characteristics Database/MANIFEST-000001: OK
+2023/07/07-15:01:29.567 4e90 **** Repaired leveldb C:\Users\TJC London AV\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.WebView2\EBWebView\Default\Site Characteristics Database; recovered 2 files; 13583 bytes. Some data may have been lost. ****

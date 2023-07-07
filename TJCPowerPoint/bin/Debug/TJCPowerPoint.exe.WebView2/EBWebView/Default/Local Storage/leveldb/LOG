@@ -1,3 +1,2 @@
-2023/07/06-12:45:57.472 f34 Reusing MANIFEST C:\Users\caleb\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
-2023/07/06-12:45:57.473 f34 Recovering log #3
-2023/07/06-12:45:57.476 f34 Reusing old log C:\Users\caleb\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.WebView2\EBWebView\Default\Local Storage\leveldb/000003.log 
+2023/07/07-15:01:29.630 3910 Creating DB C:\Users\TJC London AV\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.WebView2\EBWebView\Default\Local Storage\leveldb since it was missing.
+2023/07/07-15:01:29.639 3910 Reusing MANIFEST C:\Users\TJC London AV\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Debug\TJCPowerPoint.exe.WebView2\EBWebView\Default\Local Storage\leveldb/MANIFEST-000001
