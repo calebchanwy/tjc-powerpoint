@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <root>
   <googleSlides>
-    <announcements></announcements>
+    <announcements>https://docs.google.com/presentation/d/e/2PACX-1vQdqmBkOapEfRZU9074vKARALl_krONIhKbFSGzGkPx77mDHlqA62WBA7ludUJhXr5oewgqU5tGmGq-/pub?start=false&amp;loop=false&amp;delayms=3000</announcements>
     <prayerRequests></prayerRequests>
     <serviceTimes></serviceTimes>
   </googleSlides>
@@ -11,8 +11,8 @@
     <serviceTimes></serviceTimes>
   </imageDirectories>
   <showBrowser>
-    <announcements>True</announcements>
-    <prayerRequests>True</prayerRequests>
+    <announcements>False</announcements>
+    <prayerRequests>False</prayerRequests>
     <serviceTimes>False</serviceTimes>
   </showBrowser>
 </root>

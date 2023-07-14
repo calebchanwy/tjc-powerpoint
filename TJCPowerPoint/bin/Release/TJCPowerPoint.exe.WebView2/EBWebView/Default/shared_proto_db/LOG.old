@@ -1,2 +1,3 @@
-2023/07/04-15:43:14.901 24a8 Creating DB C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Release\TJCPowerPoint.exe.WebView2\EBWebView\Default\shared_proto_db since it was missing.
-2023/07/04-15:43:14.909 24a8 Reusing MANIFEST C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Release\TJCPowerPoint.exe.WebView2\EBWebView\Default\shared_proto_db/MANIFEST-000001
+2023/07/06-10:57:06.716 4a64 Reusing MANIFEST C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Release\TJCPowerPoint.exe.WebView2\EBWebView\Default\shared_proto_db/MANIFEST-000001
+2023/07/06-10:57:06.716 4a64 Recovering log #3
+2023/07/06-10:57:06.717 4a64 Reusing old log C:\Users\Caleb Chan\Documents\GitHub\TJCPowerPoint\TJCPowerPoint\bin\Release\TJCPowerPoint.exe.WebView2\EBWebView\Default\shared_proto_db/000003.log 

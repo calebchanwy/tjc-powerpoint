@@ -380,7 +380,7 @@ Partial Class MainProgram
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(824, 107)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(824, 105)
         Me.TableLayoutPanel2.TabIndex = 39
         '
         'Label15
@@ -398,7 +398,7 @@ Partial Class MainProgram
         '
         Me.FlowLayoutPanel7.AutoSize = True
         Me.FlowLayoutPanel7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.FlowLayoutPanel7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.FlowLayoutPanel7.BackColor = System.Drawing.Color.WhiteSmoke
         Me.FlowLayoutPanel7.Controls.Add(Me.edtHC)
         Me.FlowLayoutPanel7.Controls.Add(Me.ServiceTimesBtn)
         Me.FlowLayoutPanel7.Controls.Add(Me.Show_AN)
@@ -406,7 +406,7 @@ Partial Class MainProgram
         Me.FlowLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel7.Location = New System.Drawing.Point(579, 20)
         Me.FlowLayoutPanel7.Name = "FlowLayoutPanel7"
-        Me.FlowLayoutPanel7.Size = New System.Drawing.Size(242, 64)
+        Me.FlowLayoutPanel7.Size = New System.Drawing.Size(242, 62)
         Me.FlowLayoutPanel7.TabIndex = 30
         '
         'edtHC
@@ -479,7 +479,7 @@ Partial Class MainProgram
         '
         Me.FlowLayoutPanel4.AutoSize = True
         Me.FlowLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.FlowLayoutPanel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.FlowLayoutPanel4.BackColor = System.Drawing.Color.WhiteSmoke
         Me.FlowLayoutPanel4.Controls.Add(Me.ShowSermonHymns)
         Me.FlowLayoutPanel4.Controls.Add(Me.ShowVerses)
         Me.FlowLayoutPanel4.Controls.Add(Me.ShowHymnal)
@@ -494,7 +494,7 @@ Partial Class MainProgram
         Me.FlowLayoutPanel4.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.FlowLayoutPanel4.Location = New System.Drawing.Point(3, 20)
         Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
-        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(570, 64)
+        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(570, 62)
         Me.FlowLayoutPanel4.TabIndex = 11
         '
         'ShowSermonHymns
@@ -535,6 +535,7 @@ Partial Class MainProgram
         '
         Me.ShowHymnal.Appearance = System.Windows.Forms.Appearance.Button
         Me.ShowHymnal.AutoSize = True
+        Me.ShowHymnal.BackColor = System.Drawing.Color.Transparent
         Me.ShowHymnal.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ShowHymnal.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ShowHymnal.ForeColor = System.Drawing.Color.MidnightBlue
@@ -546,7 +547,7 @@ Partial Class MainProgram
         Me.ShowHymnal.TabIndex = 2
         Me.ShowHymnal.Text = "    Hymnal "
         Me.ShowHymnal.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.ShowHymnal.UseVisualStyleBackColor = True
+        Me.ShowHymnal.UseVisualStyleBackColor = False
         '
         'goToHowToPrayBtn
         '

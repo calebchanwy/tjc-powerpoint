@@ -472,15 +472,16 @@ Public Class MainProgram
     Private Sub clearSermonHymnsBtn_Click(sender As Object, e As EventArgs) Handles clearSermonHymnsBtn.Click
         Dim result As DialogResult
         result = MessageBox.Show("Are you sure you want to clear all hymns?", "Confirm Clear", MessageBoxButtons.OKCancel)
-        If result = DialogResult.Yes Then
+        If result = DialogResult.OK Then
             sermonHymnsListBox.Items.Clear()
             sermonHymns.updateHymns()
+            showTitlesOnly()
         End If
     End Sub
     Private Sub clearHymnalHymnsBtn_Click(sender As Object, e As EventArgs) Handles clearHymnalHymns.Click
         Dim result As DialogResult
         result = MessageBox.Show("Are you sure you want to clear all hymns?", "Confirm Clear", MessageBoxButtons.OKCancel)
-        If result = DialogResult.Yes Then
+        If result = DialogResult.OK Then
             hymnalHymnsListBox.Items.Clear()
             hymnalHymns.updateHymns()
         End If

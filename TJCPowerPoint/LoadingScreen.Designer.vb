@@ -67,6 +67,7 @@ Partial Class LoadingScreen
         Me.Button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Button1.BackColor = System.Drawing.Color.Transparent
         Me.Button1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Button1.Enabled = False
         Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.White
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
