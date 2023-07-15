@@ -11,8 +11,8 @@
     <serviceTimes></serviceTimes>
   </imageDirectories>
   <showBrowser>
-    <announcements>False</announcements>
-    <prayerRequests>False</prayerRequests>
+    <announcements>True</announcements>
+    <prayerRequests>True</prayerRequests>
     <serviceTimes>False</serviceTimes>
   </showBrowser>
 </root>

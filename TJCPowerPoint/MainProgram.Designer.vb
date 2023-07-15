@@ -156,7 +156,7 @@ Partial Class MainProgram
         Me.TableLayoutPanel1.Controls.Add(Me.UpdateTitle, 2, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.clearbtn, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(5, 108)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(5, 103)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 2
@@ -233,7 +233,8 @@ Partial Class MainProgram
         Me.EnglishTitle.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.EnglishTitle.Dock = System.Windows.Forms.DockStyle.Top
         Me.EnglishTitle.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EnglishTitle.Location = New System.Drawing.Point(5, 25)
+        Me.EnglishTitle.Location = New System.Drawing.Point(5, 20)
+        Me.EnglishTitle.Margin = New System.Windows.Forms.Padding(0)
         Me.EnglishTitle.Name = "EnglishTitle"
         Me.EnglishTitle.Size = New System.Drawing.Size(605, 33)
         Me.EnglishTitle.TabIndex = 0
@@ -345,7 +346,7 @@ Partial Class MainProgram
         Me.Label11.AutoSize = True
         Me.Label11.Dock = System.Windows.Forms.DockStyle.Top
         Me.Label11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label11.Location = New System.Drawing.Point(5, 91)
+        Me.Label11.Location = New System.Drawing.Point(5, 86)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(85, 17)
         Me.Label11.TabIndex = 19
@@ -356,7 +357,8 @@ Partial Class MainProgram
         Me.ChineseTitle.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.ChineseTitle.Dock = System.Windows.Forms.DockStyle.Top
         Me.ChineseTitle.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ChineseTitle.Location = New System.Drawing.Point(5, 58)
+        Me.ChineseTitle.Location = New System.Drawing.Point(5, 53)
+        Me.ChineseTitle.Margin = New System.Windows.Forms.Padding(0)
         Me.ChineseTitle.Name = "ChineseTitle"
         Me.ChineseTitle.Size = New System.Drawing.Size(605, 33)
         Me.ChineseTitle.TabIndex = 1
@@ -374,7 +376,7 @@ Partial Class MainProgram
         Me.TableLayoutPanel2.Controls.Add(Me.FlowLayoutPanel4, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Label12, 0, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(5, 362)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(5, 356)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 3
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
@@ -690,8 +692,8 @@ Partial Class MainProgram
         Me.Title.Margin = New System.Windows.Forms.Padding(0)
         Me.Title.MinimumSize = New System.Drawing.Size(550, 0)
         Me.Title.Name = "Title"
-        Me.Title.Padding = New System.Windows.Forms.Padding(5)
-        Me.Title.Size = New System.Drawing.Size(615, 196)
+        Me.Title.Padding = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.Title.Size = New System.Drawing.Size(615, 190)
         Me.Title.TabIndex = 14
         Me.Title.TabStop = False
         Me.Title.Text = "Sermon Titles"
@@ -714,7 +716,7 @@ Partial Class MainProgram
         Me.FlowLayoutPanel3.Controls.Add(Me.ServiceTypeFontBtn)
         Me.FlowLayoutPanel3.Controls.Add(Me.ServiceTypeColorBtn)
         Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(5, 140)
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(5, 135)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
         Me.FlowLayoutPanel3.Size = New System.Drawing.Size(605, 31)
         Me.FlowLayoutPanel3.TabIndex = 34
@@ -1097,7 +1099,7 @@ Partial Class MainProgram
         Me.BibleVerse.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BibleVerse.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BibleVerse.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.BibleVerse.Location = New System.Drawing.Point(5, 236)
+        Me.BibleVerse.Location = New System.Drawing.Point(5, 230)
         Me.BibleVerse.Margin = New System.Windows.Forms.Padding(0)
         Me.BibleVerse.Name = "BibleVerse"
         Me.BibleVerse.Padding = New System.Windows.Forms.Padding(5)
@@ -1164,7 +1166,7 @@ Partial Class MainProgram
         '
         Me.navBar.AutoSize = True
         Me.navBar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.navBar.BackColor = System.Drawing.Color.WhiteSmoke
+        Me.navBar.BackColor = System.Drawing.Color.Transparent
         Me.navBar.Controls.Add(Me.settingsBtn)
         Me.navBar.Controls.Add(Me.header)
         Me.navBar.Dock = System.Windows.Forms.DockStyle.Top
@@ -1228,11 +1230,12 @@ Partial Class MainProgram
         Me.TableLayoutPanel3.Controls.Add(Me.Title, 0, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel3.Location = New System.Drawing.Point(5, 40)
+        Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.Padding = New System.Windows.Forms.Padding(3, 0, 0, 0)
         Me.TableLayoutPanel3.RowCount = 1
         Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(824, 196)
+        Me.TableLayoutPanel3.Size = New System.Drawing.Size(824, 190)
         Me.TableLayoutPanel3.TabIndex = 9
         '
         'hymnTabControl
@@ -1242,12 +1245,13 @@ Partial Class MainProgram
         Me.hymnTabControl.Cursor = System.Windows.Forms.Cursors.Hand
         Me.hymnTabControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.hymnTabControl.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.hymnTabControl.Location = New System.Drawing.Point(621, 3)
+        Me.hymnTabControl.Location = New System.Drawing.Point(618, 0)
+        Me.hymnTabControl.Margin = New System.Windows.Forms.Padding(0)
         Me.hymnTabControl.Multiline = True
         Me.hymnTabControl.Name = "hymnTabControl"
         Me.hymnTabControl.Padding = New System.Drawing.Point(0, 0)
         Me.hymnTabControl.SelectedIndex = 0
-        Me.hymnTabControl.Size = New System.Drawing.Size(200, 190)
+        Me.hymnTabControl.Size = New System.Drawing.Size(206, 190)
         Me.hymnTabControl.TabIndex = 34
         Me.hymnTabControl.TabStop = False
         '
@@ -1260,7 +1264,7 @@ Partial Class MainProgram
         Me.TabPage1.Location = New System.Drawing.Point(4, 24)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage1.Size = New System.Drawing.Size(192, 162)
+        Me.TabPage1.Size = New System.Drawing.Size(198, 162)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Sermon Hymns"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -1276,7 +1280,7 @@ Partial Class MainProgram
         Me.FlowLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel8.Location = New System.Drawing.Point(103, 28)
         Me.FlowLayoutPanel8.Name = "FlowLayoutPanel8"
-        Me.FlowLayoutPanel8.Size = New System.Drawing.Size(86, 106)
+        Me.FlowLayoutPanel8.Size = New System.Drawing.Size(92, 106)
         Me.FlowLayoutPanel8.TabIndex = 54
         '
         'prevHymn
@@ -1358,7 +1362,7 @@ Partial Class MainProgram
         Me.sermonHymnNo.Location = New System.Drawing.Point(103, 3)
         Me.sermonHymnNo.Multiline = True
         Me.sermonHymnNo.Name = "sermonHymnNo"
-        Me.sermonHymnNo.Size = New System.Drawing.Size(86, 25)
+        Me.sermonHymnNo.Size = New System.Drawing.Size(92, 25)
         Me.sermonHymnNo.TabIndex = 44
         Me.sermonHymnNo.TabStop = False
         '
@@ -1376,7 +1380,7 @@ Partial Class MainProgram
         Me.clearSermonHymnsBtn.Location = New System.Drawing.Point(103, 134)
         Me.clearSermonHymnsBtn.Margin = New System.Windows.Forms.Padding(0)
         Me.clearSermonHymnsBtn.Name = "clearSermonHymnsBtn"
-        Me.clearSermonHymnsBtn.Size = New System.Drawing.Size(86, 25)
+        Me.clearSermonHymnsBtn.Size = New System.Drawing.Size(92, 25)
         Me.clearSermonHymnsBtn.TabIndex = 52
         Me.clearSermonHymnsBtn.TabStop = False
         Me.clearSermonHymnsBtn.Text = "Clear All"
@@ -1408,7 +1412,7 @@ Partial Class MainProgram
         Me.TabPage2.Location = New System.Drawing.Point(4, 24)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(192, 162)
+        Me.TabPage2.Size = New System.Drawing.Size(198, 162)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Hymnal Hymns"
         '
@@ -1423,7 +1427,7 @@ Partial Class MainProgram
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(103, 28)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(86, 106)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(92, 106)
         Me.FlowLayoutPanel2.TabIndex = 62
         '
         'hymnalPrevHymn
@@ -1506,7 +1510,7 @@ Partial Class MainProgram
         Me.hymnalHymnNo.Location = New System.Drawing.Point(103, 3)
         Me.hymnalHymnNo.Multiline = True
         Me.hymnalHymnNo.Name = "hymnalHymnNo"
-        Me.hymnalHymnNo.Size = New System.Drawing.Size(86, 25)
+        Me.hymnalHymnNo.Size = New System.Drawing.Size(92, 25)
         Me.hymnalHymnNo.TabIndex = 53
         Me.hymnalHymnNo.TabStop = False
         '
@@ -1524,7 +1528,7 @@ Partial Class MainProgram
         Me.clearHymnalHymns.Location = New System.Drawing.Point(103, 134)
         Me.clearHymnalHymns.Margin = New System.Windows.Forms.Padding(0)
         Me.clearHymnalHymns.Name = "clearHymnalHymns"
-        Me.clearHymnalHymns.Size = New System.Drawing.Size(86, 25)
+        Me.clearHymnalHymns.Size = New System.Drawing.Size(92, 25)
         Me.clearHymnalHymns.TabIndex = 60
         Me.clearHymnalHymns.TabStop = False
         Me.clearHymnalHymns.Text = "Clear All"
