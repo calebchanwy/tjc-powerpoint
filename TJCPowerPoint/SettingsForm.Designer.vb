@@ -25,6 +25,7 @@ Partial Class SettingsForm
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(SettingsForm))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.DisplayComboBox = New System.Windows.Forms.ComboBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -35,7 +36,6 @@ Partial Class SettingsForm
         Me.maxSermonHymns = New System.Windows.Forms.TextBox()
         Me.saveBtn = New System.Windows.Forms.Button()
         Me.header = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -73,6 +73,18 @@ Partial Class SettingsForm
         Me.GroupBox1.TabIndex = 35
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Projector Display"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(5, 56)
+        Me.Label4.MaximumSize = New System.Drawing.Size(330, 0)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(320, 34)
+        Me.Label4.TabIndex = 1
+        Me.Label4.Text = "* Please restart the application for the screen change to take affect"
         '
         'DisplayComboBox
         '
@@ -184,18 +196,6 @@ Partial Class SettingsForm
         Me.header.Size = New System.Drawing.Size(93, 30)
         Me.header.TabIndex = 33
         Me.header.Text = "Settings"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(5, 56)
-        Me.Label4.MaximumSize = New System.Drawing.Size(330, 0)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(320, 34)
-        Me.Label4.TabIndex = 1
-        Me.Label4.Text = "* Please restart the application for the screen change to take affect"
         '
         'SettingsForm
         '
