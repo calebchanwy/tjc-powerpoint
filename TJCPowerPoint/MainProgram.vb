@@ -330,12 +330,15 @@ Public Class MainProgram
         Else
             UpdateBookTextBoxes()
             textBoxDictionary.Item("chapterAndVerse").Text = $"{ChapterTxt.Text} : {VerseTxt.Text}"
+            ResizeToFit(textBoxDictionary.Item("chapterAndVerse"))
             ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("bibleVersesSlide").SlideIndex)
 
             ' Automatically change to show verses if called when show hymns is checked
             ShowVerses.Checked = True
         End If
     End Sub
+
+
     'Method that clears the PowerPoint text box text
     Private Sub ClearBibleVerses()
         textBoxDictionary.Item("englishBook").Text = ""
@@ -729,7 +732,7 @@ Public Class MainProgram
     Private Sub VerseTxt_KeyDown(sender As Object, e As KeyEventArgs) Handles VerseTxt.KeyDown
         'handling both when chapter and verse enter key pressed
         If e.KeyCode = Keys.Enter Then
-            Call updateVerseBtn_Click(sender, e)
+            UpdateVerse()
             If VerseTxt.Text IsNot "" Then
                 BookBox.Focus()
             End If

@@ -6,8 +6,8 @@ Public Class HymnSelector
     Private nameCollection As String
 
     'FONT VALUES
-    Private Const DefaultFontSize As Integer = 50
-    Private Const HighlightedFontSize As Integer = 75
+    Private Const DefaultFontSize As Integer = 55
+    Private Const HighlightedFontSize As Integer = 70
     Private Const HighlightedColorTint As Single = 0
     Private Const DefaultColorTint As Single = 0.05
 
