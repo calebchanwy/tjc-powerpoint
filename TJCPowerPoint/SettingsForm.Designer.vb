@@ -34,6 +34,7 @@ Partial Class SettingsForm
         Me.maxHymnalHymns = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.maxSermonHymns = New System.Windows.Forms.TextBox()
+        Me.openFolderBtn = New System.Windows.Forms.Button()
         Me.saveBtn = New System.Windows.Forms.Button()
         Me.header = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -48,6 +49,7 @@ Partial Class SettingsForm
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox1, 0, 1)
         Me.TableLayoutPanel1.Controls.Add(Me.GroupBox2, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.openFolderBtn, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(10, 40)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
@@ -168,6 +170,20 @@ Partial Class SettingsForm
         Me.maxSermonHymns.Size = New System.Drawing.Size(100, 29)
         Me.maxSermonHymns.TabIndex = 0
         '
+        'openFolderBtn
+        '
+        Me.openFolderBtn.AutoSize = True
+        Me.openFolderBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.openFolderBtn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.openFolderBtn.Dock = System.Windows.Forms.DockStyle.Top
+        Me.openFolderBtn.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.openFolderBtn.Location = New System.Drawing.Point(360, 3)
+        Me.openFolderBtn.Name = "openFolderBtn"
+        Me.openFolderBtn.Size = New System.Drawing.Size(351, 27)
+        Me.openFolderBtn.TabIndex = 37
+        Me.openFolderBtn.Text = "Open Configuration Folder"
+        Me.openFolderBtn.UseVisualStyleBackColor = True
+        '
         'saveBtn
         '
         Me.saveBtn.AutoSize = True
@@ -236,4 +252,5 @@ Partial Class SettingsForm
     Friend WithEvents saveBtn As Button
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Label4 As Label
+    Friend WithEvents openFolderBtn As Button
 End Class
