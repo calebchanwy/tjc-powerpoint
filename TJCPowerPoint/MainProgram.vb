@@ -251,7 +251,6 @@ Public Class MainProgram
     'to the corresponding FontStyle object in the windows form Drawing library
     Private Function GetFontStyleFromTextBox(textBox As PowerPoint.TextRange) As FontStyle
         Dim style As FontStyle = FontStyle.Regular
-
         If textBox.Font.Bold Then
             style = style Or FontStyle.Bold
         End If
@@ -261,6 +260,7 @@ Public Class MainProgram
         If textBox.Font.Underline Then
             style = style Or FontStyle.Underline
         End If
+
         Return style
     End Function
 
@@ -825,14 +825,14 @@ Public Class MainProgram
     'Following 5 methods deal with moving the chinese and english title up or down to create more/less spacing
     'Needed when English title takes two or more lines
     Private Sub moveUp(textBox As PowerPoint.Shape)
-        If textBox.Top >= 10 Then
-            textBox.Top = textBox.Top - 10
+        If textBox.Top >= 5 Then
+            textBox.Top = textBox.Top - 5
         End If
     End Sub
 
     Private Sub moveDown(textBox As PowerPoint.Shape)
         If textBox.Top <= 400 Then
-            textBox.Top = textBox.Top + 10
+            textBox.Top = textBox.Top + 5
         End If
     End Sub
 
