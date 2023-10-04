@@ -112,24 +112,9 @@ Public Class BaseSlideEdit
     End Sub
 
     Private Sub insertImage_Click(sender As Object, e As EventArgs) Handles insertImage.Click
-        Try
-            Dim ofd As New OpenFileDialog()
-            ofd.InitialDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads")
-            ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*"
-
-            If ofd.ShowDialog() = DialogResult.OK Then
-                Dim imageFilePath As String = ofd.FileName
-                slide.Shapes.AddPicture(imageFilePath, False, True, 0, 0, slide.Master.Width, slide.Master.Height)
-
-                updateDirXML(MainProgram.getCurrentDirectory() + "\Files\config.xml", imageFilePath)
-
-                MessageBox.Show("Image was successfully updated.", "Success")
-            Else
-                MessageBox.Show("No image file was selected. Please try again.", "Error")
-            End If
-        Catch ex As Exception
-            MessageBox.Show("An error occurred while updating the image. Please try again.", "Error")
-        End Try
+        Dim imageFilePath = MainProgram.uploadImage()
+        slide.Shapes.AddPicture(imageFilePath, False, True, 0, 0, slide.Master.Width, slide.Master.Height)
+        UpdateDirXML(MainProgram.getCurrentDirectory() + "\Files\config.xml", imageFilePath)
         iv.updatePreviews()
     End Sub
 

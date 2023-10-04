@@ -129,4 +129,8 @@
     Private Sub openFolderBtn_Click(sender As Object, e As EventArgs) Handles openFolderBtn.Click
         Process.Start(MainProgram.getCurrentDirectory() + "\Files")
     End Sub
+
+    Private Sub changeBgBtn_Click(sender As Object, e As EventArgs) Handles changeBgBtn.Click
+        MainProgram.changeBackground()
+    End Sub
 End Class

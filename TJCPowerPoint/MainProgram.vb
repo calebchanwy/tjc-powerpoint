@@ -4,7 +4,6 @@ Imports System.IO
 Imports System.Xml
 Imports System.Threading
 
-
 'This class is part of the TJC PowerPoint project.
 'The TJC PowerPoint is a simple program displaying bible verses, hymns
 'to a projector using Microsoft PowerPoint.
@@ -612,6 +611,32 @@ Public Class MainProgram
     End Sub
 
     '----------------------------------------FONT AND COLOUR BUTTONS------------------------------------------------------------------------------
+    Public Sub changeBackground()
+        Dim img = uploadImage()
+        ppPres.SlideMaster.Background.Fill.UserPicture(img)
+    End Sub
+
+    'Method that loads up file dialog, returning the directory of the image that the user selects
+    'If cancelled or wrong image file, message box is shown
+    Public Function uploadImage()
+        Try
+            Dim ofd As New OpenFileDialog()
+            ofd.InitialDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads")
+            ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*"
+
+            If ofd.ShowDialog() = DialogResult.OK Then
+                Dim imageFilePath As String = ofd.FileName
+                MessageBox.Show("Image was successfully updated.", "Success")
+                Return imageFilePath
+            Else
+                MessageBox.Show("No image file was selected. Please try again.", "Error")
+                Return ""
+            End If
+        Catch ex As Exception
+            MessageBox.Show("An error occurred while updating the image. Please try again.", "Error")
+            Return ""
+        End Try
+    End Function
 
     Private Sub EnglishFontBtn_Click(sender As Object, e As EventArgs) Handles EnglishFontBtn.Click
         'change text box depending on slide curretly on
