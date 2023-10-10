@@ -4,101 +4,79 @@ Imports System.IO
 Imports System.Xml
 Imports System.Threading
 
-'This class is part of the TJC PowerPoint project.
-'The TJC PowerPoint is a simple program displaying bible verses, hymns
-'to a projector using Microsoft PowerPoint.
-'It also has other purporses to help display usesful information to the projector
-'These include:
-'How to pray, service times, current time and date, holy communion slides, prayer requests
-'announcements, hymnal hymns etc.
+' This class is part of the TJC PowerPoint project.
+' The TJC PowerPoint is a simple program displaying bible verses, hymns to a projector using Microsoft PowerPoint.
+' It also has other purporses to help display usesful information to the projector
+' These include:
+' How to pray, service times, current time and date, holy communion slides, prayer requests, announcements, hymnal hymns etc.
 '
-'Initially developed by Joshi Chan (TJC Lecieseter), from V2 onwards developed by Caleb Chan (TJC London)
-'© Copyright 2023 True Jesus Church London 
-
+' Initially developed by Joshi Chan (TJC Leicester), from V2 onwards developed by Caleb Chan (TJC London).
+' © Copyright 2023 True Jesus Church London.
 
 Public Class MainProgram
     Inherits DraggableForm
-    Private ppApp As New PowerPoint.Application
-    Private ppPres As PowerPoint.Presentation
-    Private CurrentDirectory As String = Directory.GetCurrentDirectory()
-    Private Writer As XmlTextWriter = Nothing
-    Private RecentFile As String
 
-    'keep track of sermon hymns and hymnal hymns
+    Private ppPres As PowerPoint.Presentation
+    Private currentDir As String = Directory.GetCurrentDirectory()
+    Private writer As XmlTextWriter = Nothing
+    ' Create HymnSelector objects to track and store hymn numbers.
     Private sermonHymns As HymnSelector
     Private hymnalHymns As HymnSelector
-
-    'keeping track of which paragraph was last highlighted
-    Private prevSermonHymnsHighlightedPar As Integer
-    Private prevHymnalHymnsHighlightedPar As Integer
-
-    'Use of a dictionary to easily change slide numbers and shape numbers
+    ' Create dictionary objects to reference slide/text range objects.
     Private slideDictionary As Dictionary(Of String, PowerPoint.Slide)
     Private textBoxDictionary As Dictionary(Of String, PowerPoint.TextRange)
-
+    ' Create window form objects for editable slides.
     Private prayerRequestsWindow As BaseSlideEdit
     Private announcementsWindow As BaseSlideEdit
     Private serviceTimesWindow As BaseSlideEdit
 
-    Private settingsForm As SettingsForm
-
-    'Exception handlers
+    ' Handle application exceptions by displaying a message box upon exception.
     Private Sub Application_ThreadException(sender As Object, e As ThreadExceptionEventArgs)
-        ' Handle the exception here
         MessageBox.Show("An error occurred. Please restart the application" + e.ToString())
         Close()
     End Sub
+    ' Handle unhandled exceptions by displaying a message box upon exception.
     Private Sub CurrentDomain_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs)
-        ' Handle the exception here
         MessageBox.Show("An error occurred. Please restart the application" + e.ToString())
         Close()
     End Sub
-
-    'CONSTSRUCTOR
+    ' Constructor of MainProgram.
     Public Sub New()
-        'Method dealing with what the form will do when it initially opens
         InitializeComponent()
-
         ' Add the event handler for unhandled exceptions
         AddHandler Application.ThreadException, AddressOf Application_ThreadException
         AddHandler AppDomain.CurrentDomain.UnhandledException, AddressOf CurrentDomain_UnhandledException
     End Sub
-
-    'Method that handles the initial load of the main application
+    ' Handle initial load up of windows form
+    ' Creates and locates directory, loads up Microsoft PowerPoints, initialises form's controls
     Private Sub MainLoad() Handles MyBase.Load
         Try
             MakeFolder()
             LoadPres()
-
-            ' Reset service details
+            createDict()
             ResetServiceDetails()
-
-            'Handlers of slides
-            HandleAnnouncements()
-            HandleServiceTimes()
-            HandlePrayerRequests()
+            handleEditableSlides()
             HandleHC()
-
-            'hymn selector objects
+            ' Initialise HymnSelector objects.
             sermonHymns = New HymnSelector("sermon", getTextBox(Definition.sermonHymns.ToString()), sermonHymnsListBox)
             hymnalHymns = New HymnSelector("hymnal", getTextBox(Definition.hymnalHymns.ToString()), hymnalHymnsListBox)
-            settingsForm = New SettingsForm()
-            ' Set the default slide when loading up
+            ' Set default slide to Break Slide.
             goToBreakBtn.Checked = True
-
         Catch ex As Exception
+            'Show error box to user if application could not load. Force application to close
             MessageBox.Show("An error occurred while loading the application. Please try again.", "Error")
             Close()
         End Try
     End Sub
 
-    'Method to deal with the form closing
+    ' Handle closing of the form.
+    ' Ensures all processes are safely closed and exited.
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
             'Checking for Null errors due to error elsewhere, ensure safe close of program
-            If Writer IsNot Nothing Then
-                Writer.WriteEndElement()
-                Writer.Close()
+            If writer IsNot Nothing Then
+                writer.WriteEndElement()
+                writer.Close()
             End If
             If ppPres IsNot Nothing Then
                 ppPres.Close()
@@ -106,121 +84,108 @@ Public Class MainProgram
         Catch ex As Exception
         End Try
     End Sub
-    'returns the current directory that the application is located in
+    ' Returns the current directory that the application is located in.
     Public Function getCurrentDirectory()
-        Return CurrentDirectory
+        Return currentDir
     End Function
-    'returns a text box object from textbox dictionairy
+    ' Returns a text box object from textbox dictionairy.
     Public Function getTextBox(textBox As String)
         Return textBoxDictionary.Item(textBox)
     End Function
-    'returns PowerPoint slide object from slide dictionary
+    ' Returns PowerPoint slide object from slide dictionary.
     Public Function getSlide(slideName As String)
         Return slideDictionary.Item(slideName)
     End Function
-    'reads a text file of a given text file name in the same directory
-    'returns string object containing its contents
+    ' Reads a text file of a given text file name in the same directory.
+    ' Returns string object containing its contents.
     Public Function getTextFile(fileName As String)
-        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\" + fileName) Then
+        ' If the file exists, return the contents.
+        ' If the file does not exist, then create empty text file with the corresponding file name.
+        If My.Computer.FileSystem.FileExists(currentDir + "\Files\" + fileName) Then
             Dim text As String
-            text = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\" + fileName, System.Text.Encoding.UTF8)
+            text = My.Computer.FileSystem.ReadAllText(currentDir + "\Files\" + fileName, System.Text.Encoding.UTF8)
             Return text
         Else
-            Using sw As StreamWriter = File.CreateText(CurrentDirectory + "\Files\" + fileName)
+            Using sw As StreamWriter = File.CreateText(currentDir + "\Files\" + fileName)
                 sw.WriteLine(" ")
             End Using
             Return ""
         End If
     End Function
-
-    'Method called to create a folder for the files and resources
+    ' Create directory containing required resources.
+    ' For each resource that does not already exist, write it to the folder.
     Private Sub MakeFolder()
         If Directory.Exists("\Files") = False Then
-            My.Computer.FileSystem.CreateDirectory(CurrentDirectory + "\Files")
+            My.Computer.FileSystem.CreateDirectory(currentDir + "\Files")
         End If
-        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\ServiceWidescreen.pptx") = False Then
-            System.IO.File.WriteAllBytes(CurrentDirectory + "\Files\ServiceWidescreen.pptx", My.Resources.ServiceWidescreen)
+        If My.Computer.FileSystem.FileExists(currentDir + "\Files\ServiceWidescreen.pptx") = False Then
+            System.IO.File.WriteAllBytes(currentDir + "\Files\ServiceWidescreen.pptx", My.Resources.ServiceWidescreen)
         End If
-        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\config.xml") = False Then
-            System.IO.File.WriteAllText(CurrentDirectory + "\Files\config.xml", My.Resources.config)
+        If My.Computer.FileSystem.FileExists(currentDir + "\Files\config.xml") = False Then
+            System.IO.File.WriteAllText(currentDir + "\Files\config.xml", My.Resources.config)
         End If
     End Sub
-    'loads the presentation and initaites PowerPoint app
+    ' Load up the PowerPoint app, along with the matching PowerPoint file.
+    ' Set default presentation settings.
     Private Sub LoadPres()
         Dim ppApp As PowerPoint.Application
-        Dim dict As DictionairyFactory
-
         ' Create a new instance of PowerPoint application
         ppApp = New PowerPoint.Application
-
         ' Open the presentation file
-        ppPres = ppApp.Presentations.Open(CurrentDirectory & "\Files\ServiceWidescreen.pptx", ReadOnly:=Office.MsoTriState.msoFalse, WithWindow:=Office.MsoTriState.msoFalse)
-
+        ppPres = ppApp.Presentations.Open(currentDir & "\Files\ServiceWidescreen.pptx", ReadOnly:=Office.MsoTriState.msoFalse, WithWindow:=Office.MsoTriState.msoFalse)
         ' Set slide show settings
         With ppPres.SlideShowSettings
             .ShowPresenterView = False
             .Run()
         End With
-
-        ' Create dictionaries for slide and text box objects
+    End Sub
+    ' Create dictionaries for slide and text box objects.
+    Private Sub createDict()
+        Dim dict As DictionairyFactory
         dict = New DictionairyFactory(ppPres)
-        slideDictionary = dict.getSlideDictionairy
+        slideDictionary = dict.getSlideDictionairy()
         textBoxDictionary = dict.getTextBoxDictionairy()
     End Sub
-    'Method that will reset the program to the initial running state
+    ' Method that resets the program to the initial running state.
     Private Sub ResetServiceDetails()
-        ' Clearing controls individually
+        ' Clear the Form's hymns controls.
         sermonHymnNo.Text = "Enter Hymn"
         hymnalHymnNo.Text = "Enter Hymn"
-
-        ' Clearing ListBox items using a loop
+        ' Clear the various hymn list boxes and their hymns.
         Dim listBoxesToClear() As ListBox = {sermonHymnsListBox, hymnalHymnsListBox}
         For Each listBox In listBoxesToClear
             listBox.Items.Clear()
         Next
-
-        ' Setting default values or placeholder texts
+        ' Set default values or where appropiate, placeholder texts.
         ServiceType.Text = ""
         BookBox.Text = ""
         VerseTxt.Text = ""
         ChapterTxt.Text = ""
         EnglishTitle.Text = "English Sermon Title"
         ChineseTitle.Text = "中文講道題目"
-
-        ' Resetting text in dictionary-based controls
+        ' Reset all relevent text boxes in PowerPoint.
+        ' For each textbox key in array below, empty the text.
         Dim textBoxesToReset() As String = {"englishTitle", "chineseTitle", "serviceType", "englishTitle1", "chineseTitle1",
                                         "sermonHymns", "serviceType1", "englishTitle2", "chineseTitle2", "chapterAndVerse",
                                         "englishBook", "chineseBook", "serviceType2", "HChymns", "hymnalHymns",
                                         "serviceType3"}
-
         For Each textBoxKey In textBoxesToReset
             textBoxDictionary.Item(textBoxKey).Text = " "
         Next
     End Sub
-    'Method to deal with loading the Holy Communion slide with details from the text files
-    'If no text file exists, then no names will be displayed
+    ' Method to load Holy Communion slide with details from the text files.
+    ' If no text file exists, then no names will be displayed.
     Private Sub HandleHC()
-        Dim bread As String
-        Dim cup As String
-        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\bread.txt") = True Then
-            bread = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\bread.txt")
-            textBoxDictionary.Item("bread").Text = bread
+        ' Read from bread.txt and update PowerPoint textbox with read content.
+        If My.Computer.FileSystem.FileExists(currentDir + "\Files\bread.txt") = True Then
+            textBoxDictionary.Item("bread").Text = My.Computer.FileSystem.ReadAllText(currentDir + "\Files\bread.txt")
         End If
-        If My.Computer.FileSystem.FileExists(CurrentDirectory + "\Files\cup.txt") = True Then
-            cup = My.Computer.FileSystem.ReadAllText(CurrentDirectory + "\Files\cup.txt")
-            textBoxDictionary.Item("cup").Text = cup
+        ' Read from cup.txt and update PowerPoint textbox with read content.
+        If My.Computer.FileSystem.FileExists(currentDir + "\Files\cup.txt") = True Then
+            textBoxDictionary.Item("cup").Text = My.Computer.FileSystem.ReadAllText(currentDir + "\Files\cup.txt")
         End If
     End Sub
-    Public Sub HandleAnnouncements()
-        HandleData("Announcements", "announcements", "AnnouncementsTxt", "AnnouncementsTitle", announcementsWindow)
-    End Sub
-    Public Sub HandleServiceTimes()
-        HandleData("Service Times", "serviceTimes", "ServiceTimesTxt", "ServiceTimesTitle", serviceTimesWindow)
-    End Sub
-    Public Sub HandlePrayerRequests()
-        HandleData("Prayer Requests", "prayerRequests", "PrayerRequestsTxt", "PrayerRequestsTitle", prayerRequestsWindow)
-    End Sub
-    'method takes in name, slide key, text box key and title name, creating new BaseSlideEdit form
+    ' Method takes in name, slide key, text box key and title name, creating new BaseSlideEdit Form.
     Private Sub HandleData(title As String, slideKey As String, bodyTextboxKey As String, titleTextboxKey As String, ByRef slideWindow As BaseSlideEdit)
         Dim dataTxt As String = getTextFile($"{title}.txt")
         textBoxDictionary.Item(bodyTextboxKey).Text = dataTxt
@@ -229,40 +194,45 @@ Public Class MainProgram
         slideWindow.setBodyTB(textBoxDictionary.Item(bodyTextboxKey))
         slideWindow.setTitleTB(textBoxDictionary.Item(titleTextboxKey))
     End Sub
-
-    'Method that changes the font of a given PowerPoint text range object
-    'Opens a dialog that allows user to select a style and font, and applies font
-    'to text box
+    ' Method that initialises editable slides and their BaseSlideEdit objects.
+    Private Sub handleEditableSlides()
+        HandleData("Announcements", "announcements", "AnnouncementsTxt", "AnnouncementsTitle", announcementsWindow)
+        HandleData("Service Times", "serviceTimes", "ServiceTimesTxt", "ServiceTimesTitle", serviceTimesWindow)
+        HandleData("Prayer Requests", "prayerRequests", "PrayerRequestsTxt", "PrayerRequestsTitle", prayerRequestsWindow)
+    End Sub
+    ' Method that changes the font of a given PowerPoint text range object.
+    ' Opens a dialog that allows user to select a style and font, and applies font to text box.
     Public Sub ChangeFont(textBox As PowerPoint.TextRange)
+        ' Create FontDialog object.
         Dim dialog = New FontDialog()
-
+        'If the name of the font from the selected PowerPoint textbox is valid, then update font in dialog to match.
+        'Else if no matching font is found, select a default font (Roboto)
         If textBox.Font.Name IsNot Nothing Then
             Dim originalFont = New Font(textBox.Font.Name, textBox.Font.Size, GetFontStyleFromTextBox(textBox))
             dialog.Font = originalFont
+        Else
+            Dim originalFont = New Font("Roboto", textBox.Font.Size, GetFontStyleFromTextBox(textBox))
         End If
 
         If dialog.ShowDialog() = DialogResult.OK Then
             SetFontOfTextbox(textBox, dialog.Font)
         End If
     End Sub
-
-    'Adapter method that translates font styles from powerpoint text boxes (TextRange object)
-    'to the corresponding FontStyle object in the windows form Drawing library
+    ' Adapter method translates font styles from PowerPoint text boxes (TextRange object) to a FontStyle object.
     Private Function GetFontStyleFromTextBox(textBox As PowerPoint.TextRange) As FontStyle
         Dim style As FontStyle = FontStyle.Regular
-        If textBox.Font.Bold Then
-            style = style Or FontStyle.Bold
+        If textBox.Font.Bold Or textBox.Font.Name.Contains("Bold") Then
+            style = FontStyle.Bold
         End If
-        If textBox.Font.Italic Then
-            style = style Or FontStyle.Italic
+        If textBox.Font.Italic Or textBox.Font.Name.Contains("Italic") Then
+            style = FontStyle.Italic
         End If
-        If textBox.Font.Underline Then
-            style = style Or FontStyle.Underline
+        If textBox.Font.Underline Or textBox.Font.Name.Contains("Underline") Then
+            style = FontStyle.Underline
         End If
-
         Return style
     End Function
-
+    ' Applies Font object styling to PowerPoint text box.
     Private Sub SetFontOfTextbox(textBox As PowerPoint.TextRange, font As Font)
         textBox.Font.Name = font.Name
         textBox.Font.Size = font.Size
@@ -270,12 +240,17 @@ Public Class MainProgram
         textBox.Font.Italic = font.Italic
         textBox.Font.Underline = font.Underline
     End Sub
-
+    ' Method that changes the text colour of a given PowerPoint text range object.
+    ' Opens a dialog that allows user to select a colour, and applies text colour to the text box.
     Public Sub ChangeColor(textBox As PowerPoint.TextRange)
+        ' Create ColorDialog object.
         Dim dialog = New ColorDialog()
         dialog.FullOpen = True
+        ' Show Dialog and respond based on result.
         If dialog.ShowDialog() = DialogResult.OK Then
             Dim color = dialog.Color
+            ' Handle special case of text boxes which occur in multiple slides.
+            ' For each reccurrence, apply the selected colour to occurence.
             Select Case textBox.Text
                 Case textBoxDictionary.Item("englishTitle1").Text
                     ApplyColorToTextBoxes(color, "englishTitle", "englishTitle1", "englishTitle2")
@@ -288,10 +263,12 @@ Public Class MainProgram
             End Select
         End If
     End Sub
-
+    ' Method that takes in a Color object, and any number of text boxes.
+    ' Applies the colour to the text of each text box.
     Private Sub ApplyColorToTextBoxes(color As Color, ParamArray textBoxNames() As String)
+        ' Convert Color object to RGB values.
         Dim rgbColor As Integer = ColorToRGB(color)
-
+        ' Cycle through each text box and apply the color.
         For Each textBoxName As String In textBoxNames
             If textBoxDictionary.ContainsKey(textBoxName) Then
                 textBoxDictionary(textBoxName).Font.Color.RGB = rgbColor
@@ -432,11 +409,20 @@ Public Class MainProgram
         ' Update service types
         updateServiceTypes()
     End Sub
+    ' Resizes a given textbox to ensure the text does not exceed one line.
+    ' Includes a slight margin.
     Private Sub ResizeToFit(textBox As PowerPoint.TextRange)
-        While textBox.Lines.Count >= 2
+        ' Check if already only one line of text. If so, return.
+        ' Else, continue to decrease font size until text fits on one line.
+        If textBox.Lines.Count = 1 Then
+            Return
+        Else
+            While textBox.Lines.Count >= 2
+                textBox.Font.Size -= 1
+            End While
+            ' Decrease by 1 more to introduce slight margin around text.
             textBox.Font.Size -= 1
-        End While
-        Return
+        End If
     End Sub
 
     Private Sub TrimTitleText(titleTextBox As TextBox)
@@ -609,11 +595,11 @@ Public Class MainProgram
     Private Sub hymnalHymnNos_LostFocus(sender As Object, e As EventArgs) Handles hymnalHymnNo.LostFocus
         hymnalHymnNo.Text = "Enter Hymn"
     End Sub
-
-    '----------------------------------------FONT AND COLOUR BUTTONS------------------------------------------------------------------------------
     Public Sub changeBackground()
         Dim img = uploadImage()
-        ppPres.SlideMaster.Background.Fill.UserPicture(img)
+        If img IsNot "" Then
+            ppPres.SlideMaster.Background.Fill.UserPicture(img)
+        End If
     End Sub
 
     'Method that loads up file dialog, returning the directory of the image that the user selects
@@ -900,7 +886,7 @@ Public Class MainProgram
     End Sub
 
     Private Sub settingsBtn_Click(sender As Object, e As EventArgs) Handles settingsBtn.Click
-        settingsForm.Show()
+        SettingsForm.Show()
     End Sub
 
     Private Sub ServiceType_SelectedValueChanged(sender As Object, e As EventArgs) Handles ServiceType.SelectedValueChanged
