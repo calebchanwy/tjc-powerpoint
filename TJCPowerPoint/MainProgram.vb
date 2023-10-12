@@ -205,14 +205,8 @@ Public Class MainProgram
     Public Sub ChangeFont(textBox As PowerPoint.TextRange)
         ' Create FontDialog object.
         Dim dialog = New FontDialog()
-        'If the name of the font from the selected PowerPoint textbox is valid, then update font in dialog to match.
-        'Else if no matching font is found, select a default font (Roboto)
-        If textBox.Font.Name IsNot Nothing Then
-            Dim originalFont = New Font(textBox.Font.Name, textBox.Font.Size, GetFontStyleFromTextBox(textBox))
-            dialog.Font = originalFont
-        Else
-            Dim originalFont = New Font("Roboto", textBox.Font.Size, GetFontStyleFromTextBox(textBox))
-        End If
+        ' Set initial font from existing textbox font.
+        dialog.Font = New Font(textBox.Font.Name, textBox.Font.Size, GetFontStyleFromTextBox(textBox))
 
         If dialog.ShowDialog() = DialogResult.OK Then
             SetFontOfTextbox(textBox, dialog.Font)
@@ -275,17 +269,82 @@ Public Class MainProgram
             End If
         Next
     End Sub
-
+    ' Converts Color object to RGB values.
     Private Function ColorToRGB(color As Color) As Integer
         Return Color.FromArgb(255, color.B, color.G, color.R).ToArgb
     End Function
-
-
-    'Method dealing when the exit button is clicked
-    Private Sub ExitBtn_Click(sender As Object, e As EventArgs)
-        Me.Close()
+    ' Resizes a given textbox to ensure the text does not exceed one line.
+    ' Includes a slight margin.
+    Private Sub ResizeToFit(textBox As PowerPoint.TextRange)
+        ' Check if already only one line of text. If so, return.
+        ' Else, continue to decrease font size until text fits on one line.
+        If textBox.Lines.Count = 1 Then
+            Return
+        Else
+            While textBox.Lines.Count >= 2
+                textBox.Font.Size -= 1
+            End While
+            ' Decrease by 1 more to introduce slight margin around text.
+            textBox.Font.Size -= 1
+        End If
     End Sub
-
+    ' Function that returns whether or not the active slide's index of the PowerPoint presentation matches with a given slide index.
+    Public Function IsCurrentSlideIndex(slideIndex As Integer) As Boolean
+        Return ppPres.SlideShowWindow.View.Slide.SlideIndex = slideIndex
+    End Function
+    ' Method that causes the acive PowerPoint presentation to move to a specified slide index.
+    Public Sub GoToSlide(slideIndex As Integer)
+        ppPres.SlideShowWindow.View.GotoSlide(slideIndex)
+    End Sub
+    ' Method that is called when only the sermon titles should be displayed.
+    Private Sub showTitlesOnly()
+        ' Navigate to title slide.
+        ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item(Definition.sermonTitle.ToString()).SlideIndex)
+    End Sub
+    ' Method that updates the verses in the PowerPoint presentation and displays the entered verses.
+    ' If verses entered is empty, only sermon titles are shown.
+    Private Sub UpdateVerse()
+        ' If all input fields empty, then the text box should also be empty.
+        If String.IsNullOrWhiteSpace(VerseTxt.Text) AndAlso String.IsNullOrWhiteSpace(BookBox.Text) AndAlso String.IsNullOrWhiteSpace(ChapterTxt.Text) Then
+            textBoxDictionary.Item("chapterAndVerse").Text = " "
+        ElseIf String.IsNullOrEmpty(BookBox.Text) OrElse BookBox.SelectedIndex = -1 Then
+            ' When no verse is entered, then only show sermon titles.
+            showTitlesOnly()
+        Else
+            'Update text boxes to display verse details, including chapter, verse and book name.
+            Dim commaPos As Integer = InStr(BookBox.Text, ",")
+            textBoxDictionary.Item("englishBook").Text = Mid(BookBox.Text, 1, commaPos - 1)
+            textBoxDictionary.Item("chineseBook").Text = Mid(BookBox.Text, commaPos + 1)
+            textBoxDictionary.Item("chapterAndVerse").Text = $"{ChapterTxt.Text} : {VerseTxt.Text}"
+            ResizeToFit(textBoxDictionary.Item("chapterAndVerse"))
+            ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("bibleVersesSlide").SlideIndex)
+            ' Automatically change to show verses when a verse is entered.
+            If ShowVerses.Checked = False Then
+                ShowVerses.Checked = True
+            End If
+        End If
+    End Sub
+    ' Method that clears the text in the verses text boxes in the PowerPoint presentation.
+    Private Sub ClearBibleVerses()
+        textBoxDictionary.Item("englishBook").Text = ""
+        textBoxDictionary.Item("chineseBook").Text = ""
+        textBoxDictionary.Item("chapterAndVerse").Text = ""
+    End Sub
+    ' Method that clears the Form's input fields.
+    Private Sub ClearInputFields()
+        BookBox.Text = ""
+        VerseTxt.Text = ""
+        ChapterTxt.Text = ""
+    End Sub
+    ' Method that handles when the ShowHymnal control is checked/unchecked.
+    ' Upon checked, PowerPoint presentation goes to the hymnal slide.
+    Private Sub ShowHymnal_CheckedChanged(sender As Object, e As EventArgs) Handles ShowHymnal.CheckedChanged
+        If ShowHymnal.Checked Then
+            ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("hymnalHymnsSlide").SlideIndex)
+        End If
+    End Sub
+    ' Method that handles when the ShowVerses control is checked/unchecked.
+    ' On checking, the verse is updated. If unchecked, verses are cleared.
     Private Sub ShowVerses_CheckedChanged(sender As Object, e As EventArgs) Handles ShowVerses.CheckedChanged
         If ShowVerses.Checked Then
             UpdateVerse()
@@ -295,95 +354,50 @@ Public Class MainProgram
         End If
     End Sub
 
-    'Method that updates the verses in the powerpoint slides
-    'Handles if the contents are empty or not
-    'Also handles when no book is selected, to reset and show titles only
-    Private Sub UpdateVerse()
-        If String.IsNullOrWhiteSpace(VerseTxt.Text) AndAlso String.IsNullOrWhiteSpace(BookBox.Text) AndAlso String.IsNullOrWhiteSpace(ChapterTxt.Text) Then
-            textBoxDictionary.Item("chapterAndVerse").Text = " "
-        ElseIf String.IsNullOrEmpty(BookBox.Text) OrElse BookBox.SelectedIndex = -1 Then
-            showTitlesOnly()
-        Else
-            UpdateBookTextBoxes()
-            textBoxDictionary.Item("chapterAndVerse").Text = $"{ChapterTxt.Text} : {VerseTxt.Text}"
-            ResizeToFit(textBoxDictionary.Item("chapterAndVerse"))
-            ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("bibleVersesSlide").SlideIndex)
+    ' -----------------------------------------------------------------------------------------------------------------------------------------
+    ' FOLLOWING METHODS HANDLE ON CLICK ON CONTROLS.
+    ' -----------------------------------------------------------------------------------------------------------------------------------------
 
-            ' Automatically change to show verses if called when show hymns is checked
-            ShowVerses.Checked = True
-        End If
-    End Sub
-
-
-    'Method that clears the PowerPoint text box text
-    Private Sub ClearBibleVerses()
-        textBoxDictionary.Item("englishBook").Text = ""
-        textBoxDictionary.Item("chineseBook").Text = ""
-        textBoxDictionary.Item("chapterAndVerse").Text = ""
-    End Sub
-    'Method that clears the windows form input fields
-    Private Sub ClearInputFields()
-        BookBox.Text = ""
-        VerseTxt.Text = ""
-        ChapterTxt.Text = ""
-    End Sub
-    Private Sub ShowHymnal_CheckedChanged(sender As Object, e As EventArgs) Handles ShowHymnal.CheckedChanged
-        If ShowHymnal.Checked Then
-            ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item("hymnalHymnsSlide").SlideIndex)
-        End If
-    End Sub
-
-    'On click methods
+    ' Method to handle when the ShowSermonHymns control is clicked on.
     Private Sub ShowSermonHymns_Click(sender As Object, e As EventArgs) Handles ShowSermonHymns.Click
+        ' If showing sermon hymns, but there are no hymns to show, only show the sermon titles.
         If ShowSermonHymns.Checked AndAlso sermonHymnsListBox.Items.Count = 0 Then
             showTitlesOnly()
             Return
         End If
-
+        ' If ShowSermonHymns is checked, but not on sermon hymns slide, then go to slide.
         If ShowSermonHymns.Checked AndAlso Not IsCurrentSlideIndex(slideDictionary.Item("sermonHymnsSlide").SlideIndex) Then
             GoToSlide(slideDictionary.Item("sermonHymnsSlide").SlideIndex)
         End If
     End Sub
-
+    ' Method to handle when the ShowHymnal control is clicked.
     Private Sub ShowHymnal_Click(sender As Object, e As EventArgs) Handles ShowHymnal.Click
+        ' If ShowHymnal is checked, but not on hymnal slide, then go to hymnal slide.
         If ShowHymnal.Checked AndAlso Not IsCurrentSlideIndex(slideDictionary.Item("hymnalHymnsSlide").SlideIndex) Then
             GoToSlide(slideDictionary.Item("hymnalHymnsSlide").SlideIndex)
         End If
     End Sub
-
+    ' Method to handle when the ShowVerses control is clicked.
     Private Sub ShowVerses_Click(sender As Object, e As EventArgs) Handles ShowVerses.Click
+        ' If showing bible verses, but there are no verses to show, only show the sermon titles.
         If ShowVerses.Checked AndAlso BookBox.Text = "" Then
             showTitlesOnly()
             Return
         End If
-
+        ' If ShowVerses is checked, but not on sermon hymns slide, then go to slide.
         If ShowVerses.Checked AndAlso Not IsCurrentSlideIndex(slideDictionary.Item("bibleVersesSlide").SlideIndex) Then
             GoToSlide(slideDictionary.Item("bibleVersesSlide").SlideIndex)
         End If
     End Sub
-
-    Public Function IsCurrentSlideIndex(slideIndex As Integer) As Boolean
-        Return ppPres.SlideShowWindow.View.Slide.SlideIndex = slideIndex
-    End Function
-
-    Public Sub GoToSlide(slideIndex As Integer)
-        ppPres.SlideShowWindow.View.GotoSlide(slideIndex)
-    End Sub
-
+    ' Handles when updateVerseBtn is clicked.
     Private Sub updateVerseBtn_Click(sender As Object, e As EventArgs) Handles updateVerseBtn.Click
         UpdateVerse()
     End Sub
-
-    Private Sub UpdateBookTextBoxes()
-        Dim commaPos As Integer = InStr(BookBox.Text, ",")
-        textBoxDictionary.Item("englishBook").Text = Mid(BookBox.Text, 1, commaPos - 1)
-        textBoxDictionary.Item("chineseBook").Text = Mid(BookBox.Text, commaPos + 1)
-    End Sub
-
+    ' Handles when UpdateTitle control is clicked.
     Private Sub UpdateTitle_Click(sender As Object, e As EventArgs) Handles UpdateTitle.Click
-        TrimTitleText(EnglishTitle)
-        TrimTitleText(ChineseTitle)
-
+        ' Remove whitespace from the beginnings and ends of the Titles.
+        EnglishTitle.Text.Trim()
+        ChineseTitle.Text.Trim()
 
         ' Update text on title slide, sermon slide, and bible verse slide
         Dim englishTitles() As String = {"englishTitle", "englishTitle1", "englishTitle2"}
@@ -409,28 +423,22 @@ Public Class MainProgram
         ' Update service types
         updateServiceTypes()
     End Sub
-    ' Resizes a given textbox to ensure the text does not exceed one line.
-    ' Includes a slight margin.
-    Private Sub ResizeToFit(textBox As PowerPoint.TextRange)
-        ' Check if already only one line of text. If so, return.
-        ' Else, continue to decrease font size until text fits on one line.
-        If textBox.Lines.Count = 1 Then
-            Return
-        Else
-            While textBox.Lines.Count >= 2
-                textBox.Font.Size -= 1
-            End While
-            ' Decrease by 1 more to introduce slight margin around text.
-            textBox.Font.Size -= 1
-        End If
+
+    ' -----------------------------------------------------------------------------------------------------------------------------------------
+    ' FOLLOWING METHODS HANDLE HYMN SELECTION FOR SERMON HYMNS AND HYMNAL HYMNS.
+    ' -----------------------------------------------------------------------------------------------------------------------------------------
+    Private Sub HymnNos_GotFocus(sender As Object, e As EventArgs) Handles sermonHymnNo.GotFocus
+        sermonHymnNo.Text = ""
     End Sub
-
-    Private Sub TrimTitleText(titleTextBox As TextBox)
-        titleTextBox.Text = titleTextBox.Text.Trim()
+    Private Sub HymnNos_LostFocus(sender As Object, e As EventArgs) Handles sermonHymnNo.LostFocus
+        sermonHymnNo.Text = "Enter Hymn"
     End Sub
-
-    '-------------------------------------------HYMN SELECTION --------------------------------------------
-
+    Private Sub hymnalHymnNos_GotFocus(sender As Object, e As EventArgs) Handles hymnalHymnNo.GotFocus
+        hymnalHymnNo.Text = ""
+    End Sub
+    Private Sub hymnalHymnNos_LostFocus(sender As Object, e As EventArgs) Handles hymnalHymnNo.LostFocus
+        hymnalHymnNo.Text = "Enter Hymn"
+    End Sub
     Private Sub nextHymn_Click(sender As Object, e As EventArgs) Handles nextHymn.Click
         If sermonHymnsListBox.SelectedIndex = sermonHymnsListBox.Items.Count - 1 Then
             Return
@@ -525,9 +533,9 @@ Public Class MainProgram
         hymnalHymns.HandleHymnTextBoxKeyDown(e, hymnalHymnNo)
     End Sub
 
-    '-----------------------------------------------------------------------------BUTTONS----------------------------------------
-    'Project slide radio group
-
+    ' -----------------------------------------------------------------------------------------------------------------------------------------
+    ' FOLLOWING METHODS HANDLE PROJECT SLIDE RADIO GROUP
+    ' -----------------------------------------------------------------------------------------------------------------------------------------
     Private Sub GoToSlideIfNotAlreadyChecked(sender As Object, targetSlideName As String)
         Dim radioButton As RadioButton = DirectCast(sender, RadioButton)
 
@@ -579,22 +587,7 @@ Public Class MainProgram
     Private Sub goToHCBtn_CheckedChanged(sender As Object, e As EventArgs) Handles goToHCBtn.CheckedChanged
         GoToSlideIfNotAlreadyChecked(sender, Definition.holyCommunion.ToString())
     End Sub
-    Private Sub showTitlesOnly()
-        'navigate to title slide
-        ppPres.SlideShowWindow.View.GotoSlide(slideDictionary.Item(Definition.sermonTitle.ToString()).SlideIndex)
-    End Sub
-    Private Sub HymnNos_GotFocus(sender As Object, e As EventArgs) Handles sermonHymnNo.GotFocus
-        sermonHymnNo.Text = ""
-    End Sub
-    Private Sub HymnNos_LostFocus(sender As Object, e As EventArgs) Handles sermonHymnNo.LostFocus
-        sermonHymnNo.Text = "Enter Hymn"
-    End Sub
-    Private Sub hymnalHymnNos_GotFocus(sender As Object, e As EventArgs) Handles hymnalHymnNo.GotFocus
-        hymnalHymnNo.Text = ""
-    End Sub
-    Private Sub hymnalHymnNos_LostFocus(sender As Object, e As EventArgs) Handles hymnalHymnNo.LostFocus
-        hymnalHymnNo.Text = "Enter Hymn"
-    End Sub
+
     Public Sub changeBackground()
         Dim img = uploadImage()
         If img IsNot "" Then
@@ -602,23 +595,27 @@ Public Class MainProgram
         End If
     End Sub
 
-    'Method that loads up file dialog, returning the directory of the image that the user selects
-    'If cancelled or wrong image file, message box is shown
+    ' Method that loads up file dialog, returning the directory of the image that the user selects.
+    ' If cancelled or wrong image file, message box is shown.
+    ' Returns the image path as a string.
     Public Function uploadImage()
         Try
+            ' Initialise our open file dialog to accept all image files.
             Dim ofd As New OpenFileDialog()
             ofd.InitialDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Downloads")
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.GIF;*.PNG)|*.BMP;*.JPG;*.GIF;*.PNG|All files (*.*)|*.*"
-
             If ofd.ShowDialog() = DialogResult.OK Then
+                ' User has successfully selected an image, return the selected image path.
                 Dim imageFilePath As String = ofd.FileName
                 MessageBox.Show("Image was successfully updated.", "Success")
                 Return imageFilePath
             Else
+                ' User has not selected an image file correctly, show a message box to user and return empty string.
                 MessageBox.Show("No image file was selected. Please try again.", "Error")
                 Return ""
             End If
         Catch ex As Exception
+            ' Upon any exception, show a message box to the user, and return empty string.
             MessageBox.Show("An error occurred while updating the image. Please try again.", "Error")
             Return ""
         End Try
@@ -893,6 +890,9 @@ Public Class MainProgram
         updateServiceTypes()
     End Sub
 
+    ' -----------------------------------------------------------------------------------------------------------------------------------------
+    ' FOLLOWING METHODS HANDLE FORM DRAGGING
+    ' -----------------------------------------------------------------------------------------------------------------------------------------
     'Add handlers to specific controls, passing objects back to superclass
     'All passed controls will allow the window to move as the mouse is dragged on it
     Private Sub navBar_MouseDown(sender As Object, e As MouseEventArgs) Handles navBar.MouseDown, header.MouseDown
