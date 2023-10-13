@@ -152,18 +152,25 @@ Public Class HymnSelector
                 ' User tried to enter an empty line
                 hymnNo.Text = ""
                 Return
+            ElseIf hymnText.Contains(",") Then
+                ' User has entered more than hymn, separated by commas.
+                ' Split the entered text by the comma, remove any whitespaces and add all hymns to list box.
+                Dim arr = hymnText.Split(",")
+                For Each hymn In arr
+                    hymn = hymn.Trim()
+                    hymnListBox.Items.Add(hymn)
+                Next
+            Else
+                ' For all other cases (user enters hymn one by one), add hymn to list box.
+                hymnListBox.Items.Add(hymnText)
             End If
-
-            hymnListBox.Items.Add(hymnText)
+            ' Clear hymn no.
             hymnNo.Text = ""
-
             ' If first hymn added, select hymn
-            If hymnListBox.Items.Count = 1 Then
+            If hymnListBox.Items.Count >= 1 Then
                 hymnListBox.SelectedIndex = 0
             End If
-
             updateHymns()
-
         End If
     End Sub
 End Class
