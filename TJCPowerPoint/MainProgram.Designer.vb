@@ -167,7 +167,7 @@ Partial Class MainProgram
         '
         'ServiceType
         '
-        Me.ServiceType.AutoCompleteCustomSource.AddRange(New String() {"Sabbath Service", "Sabbath Bible Study", "Sabbath Afternoon Service", "Friday Evening Service", "Wednesday Evening Service", "Afternoon Service", "Bible Study", "End of Year Services", "Spiritual Convocation", "AMTC", "Evangelistic Service", "Special Service", "Fellowship", "Autumn Spiritual Convocation", "Spring Spiritual Convocation", "NSSC", "YTTC"})
+        Me.ServiceType.AutoCompleteCustomSource.AddRange(New String() {"Sabbath Service 安息日聚會", "Sabbath Bible Study", "Sabbath Afternoon Service 安息日聚會", "Friday Evening Sabbath Service", "Wednesday Evening Service", "Bible Study", "End of Year Services", "Spiritual Convocation 靈恩會", "AMTC", "Evangelistic Service 佈道會", "Special Service", "Fellowship", "Autumn Spiritual Convocation 秋天靈恩會", "Spring Spiritual Convocation 春季靈恩會", "NSSC", "YTTC"})
         Me.ServiceType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.ServiceType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.ServiceType.Cursor = System.Windows.Forms.Cursors.Default
@@ -179,7 +179,7 @@ Partial Class MainProgram
         Me.ServiceType.FormattingEnabled = True
         Me.ServiceType.ImeMode = System.Windows.Forms.ImeMode.[On]
         Me.ServiceType.IntegralHeight = False
-        Me.ServiceType.Items.AddRange(New Object() {"Sabbath Service", "Sabbath Bible Study", "Sabbath Afternoon Service", "Friday Evening Service", "Wednesday Evening Service", "Afternoon Service", "Bible Study", "End of Year Services", "Spiritual Convocation", "AMTC", "Evangelistic Service", "Special Service", "Fellowship", "Autumn Spiritual Convocation", "Spring Spiritual Convocation", "NSSC", "YTTC"})
+        Me.ServiceType.Items.AddRange(New Object() {"Sabbath Service 安息日聚會", "Sabbath Bible Study", "Sabbath Afternoon Service 安息日聚會", "Friday Evening Sabbath Service", "Wednesday Evening Service", "Bible Study", "End of Year Services", "Spiritual Convocation 靈恩會", "AMTC", "Evangelistic Service 佈道會", "Special Service", "Fellowship", "Autumn Spiritual Convocation 秋天靈恩會", "Spring Spiritual Convocation 春季靈恩會", "NSSC", "YTTC"})
         Me.ServiceType.Location = New System.Drawing.Point(0, 3)
         Me.ServiceType.Margin = New System.Windows.Forms.Padding(0, 3, 0, 0)
         Me.ServiceType.MaxDropDownItems = 5
