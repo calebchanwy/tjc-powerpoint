@@ -376,7 +376,7 @@ Partial Class MainProgram
         Me.TableLayoutPanel2.Controls.Add(Me.FlowLayoutPanel4, 0, 1)
         Me.TableLayoutPanel2.Controls.Add(Me.Label12, 0, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(5, 356)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(5, 355)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 3
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
@@ -465,7 +465,6 @@ Partial Class MainProgram
         Me.OpenPrayerRequestsWindow.AutoSize = True
         Me.OpenPrayerRequestsWindow.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.OpenPrayerRequestsWindow.BackColor = System.Drawing.Color.Transparent
-        Me.OpenPrayerRequestsWindow.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border2
         Me.OpenPrayerRequestsWindow.Cursor = System.Windows.Forms.Cursors.Hand
         Me.OpenPrayerRequestsWindow.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.OpenPrayerRequestsWindow.Location = New System.Drawing.Point(122, 34)
@@ -523,7 +522,7 @@ Partial Class MainProgram
         Me.ShowVerses.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ShowVerses.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ShowVerses.ForeColor = System.Drawing.Color.MidnightBlue
-        Me.ShowVerses.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_holy_bible_16__1_
+        Me.ShowVerses.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_holy_bible_16
         Me.ShowVerses.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ShowVerses.Location = New System.Drawing.Point(121, 3)
         Me.ShowVerses.Name = "ShowVerses"
@@ -1099,7 +1098,7 @@ Partial Class MainProgram
         Me.BibleVerse.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BibleVerse.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BibleVerse.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.BibleVerse.Location = New System.Drawing.Point(5, 230)
+        Me.BibleVerse.Location = New System.Drawing.Point(5, 229)
         Me.BibleVerse.Margin = New System.Windows.Forms.Padding(0)
         Me.BibleVerse.Name = "BibleVerse"
         Me.BibleVerse.Padding = New System.Windows.Forms.Padding(5)
@@ -1156,7 +1155,7 @@ Partial Class MainProgram
         Me.settingsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.settingsBtn.Location = New System.Drawing.Point(759, 5)
         Me.settingsBtn.Name = "settingsBtn"
-        Me.settingsBtn.Size = New System.Drawing.Size(60, 30)
+        Me.settingsBtn.Size = New System.Drawing.Size(60, 29)
         Me.settingsBtn.TabIndex = 8
         Me.settingsBtn.Text = "Settings"
         Me.settingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -1174,20 +1173,19 @@ Partial Class MainProgram
         Me.navBar.Margin = New System.Windows.Forms.Padding(0)
         Me.navBar.Name = "navBar"
         Me.navBar.Padding = New System.Windows.Forms.Padding(5)
-        Me.navBar.Size = New System.Drawing.Size(824, 40)
+        Me.navBar.Size = New System.Drawing.Size(824, 39)
         Me.navBar.TabIndex = 38
         '
         'header
         '
-        Me.header.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.header.BackColor = System.Drawing.Color.Transparent
         Me.header.Cursor = System.Windows.Forms.Cursors.Default
-        Me.header.Image = CType(resources.GetObject("header.Image"), System.Drawing.Image)
+        Me.header.Image = Global.TJCPowerPoint.My.Resources.Resources.tjcpowerpoint
         Me.header.InitialImage = Nothing
-        Me.header.Location = New System.Drawing.Point(5, 8)
+        Me.header.Location = New System.Drawing.Point(3, 5)
         Me.header.Margin = New System.Windows.Forms.Padding(0)
         Me.header.Name = "header"
-        Me.header.Size = New System.Drawing.Size(300, 31)
+        Me.header.Size = New System.Drawing.Size(330, 29)
         Me.header.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.header.TabIndex = 2
         Me.header.TabStop = False
@@ -1229,7 +1227,7 @@ Partial Class MainProgram
         Me.TableLayoutPanel3.Controls.Add(Me.hymnTabControl, 0, 0)
         Me.TableLayoutPanel3.Controls.Add(Me.Title, 0, 0)
         Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(5, 40)
+        Me.TableLayoutPanel3.Location = New System.Drawing.Point(5, 39)
         Me.TableLayoutPanel3.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
         Me.TableLayoutPanel3.Padding = New System.Windows.Forms.Padding(3, 0, 0, 0)
@@ -1309,7 +1307,6 @@ Partial Class MainProgram
         '
         'delHymnBtn
         '
-        Me.delHymnBtn.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.icons8_delete_trash_20
         Me.delHymnBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.delHymnBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.delHymnBtn.Location = New System.Drawing.Point(3, 34)
@@ -1345,7 +1342,6 @@ Partial Class MainProgram
         '
         'PictureBox2
         '
-        Me.PictureBox2.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.icons8_music_16
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.PictureBox2.Location = New System.Drawing.Point(34, 65)
         Me.PictureBox2.Name = "PictureBox2"
@@ -1456,7 +1452,6 @@ Partial Class MainProgram
         '
         'hymnalDelHymn
         '
-        Me.hymnalDelHymn.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.icons8_delete_trash_20
         Me.hymnalDelHymn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.hymnalDelHymn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.hymnalDelHymn.Location = New System.Drawing.Point(3, 34)
@@ -1493,7 +1488,6 @@ Partial Class MainProgram
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.icons8_musical_notes_16
         Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.PictureBox1.Location = New System.Drawing.Point(34, 65)
         Me.PictureBox1.Name = "PictureBox1"

@@ -37,7 +37,7 @@ Partial Class LoadingScreen
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PictureBox1.Image = Global.TJCPowerPoint.My.Resources.Resources.TJCPowerPointLogo
+        Me.PictureBox1.Image = Global.TJCPowerPoint.My.Resources.Resources.tjcpowerpoint
         Me.PictureBox1.Location = New System.Drawing.Point(80, 80)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(340, 50)
@@ -49,7 +49,7 @@ Partial Class LoadingScreen
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PictureBox2.Image = Global.TJCPowerPoint.My.Resources.Resources.Book
+        Me.PictureBox2.Image = Global.TJCPowerPoint.My.Resources.Resources.book_animation
         Me.PictureBox2.Location = New System.Drawing.Point(80, 130)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(340, 50)
@@ -86,7 +86,7 @@ Partial Class LoadingScreen
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.White
-        Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border5
+        Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(500, 300)
         Me.Controls.Add(Me.Button1)

@@ -302,7 +302,7 @@ Partial Class HolyCommunion
         'previewBox
         '
         Me.previewBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.previewBox.Image = Global.TJCPowerPoint.My.Resources.Resources.border1
+        Me.previewBox.Image = Global.TJCPowerPoint.My.Resources.Resources.border
         Me.previewBox.Location = New System.Drawing.Point(547, 259)
         Me.previewBox.Name = "previewBox"
         Me.previewBox.Size = New System.Drawing.Size(245, 153)

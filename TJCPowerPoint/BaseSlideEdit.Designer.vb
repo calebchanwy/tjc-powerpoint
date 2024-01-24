@@ -305,7 +305,7 @@ Partial Class BaseSlideEdit
         'previewBox
         '
         Me.previewBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.previewBox.Image = Global.TJCPowerPoint.My.Resources.Resources.border1
+        Me.previewBox.Image = Global.TJCPowerPoint.My.Resources.Resources.border
         Me.previewBox.Location = New System.Drawing.Point(541, 278)
         Me.previewBox.Name = "previewBox"
         Me.previewBox.Size = New System.Drawing.Size(197, 119)

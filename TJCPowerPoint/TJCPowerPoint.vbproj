@@ -74,7 +74,7 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\tjcbirdlogo.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\tjcbird.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -260,7 +260,6 @@
     </None>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Resources\bible" />
     <None Include="Resources\ServiceWidescreen.pptx" />
   </ItemGroup>
   <ItemGroup>
@@ -305,36 +304,8 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\border3.png" />
     <Content Include="Resources\config.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Resources\Book.gif" />
-    <Content Include="Resources\border.png" />
-    <Content Include="Resources\close.png" />
-    <Content Include="Resources\icons8-announcement-16.png" />
-    <Content Include="Resources\icons8-announcement-20.png" />
-    <Content Include="Resources\icons8-close-24.png" />
-    <Content Include="Resources\icons8-close-48.png" />
-    <Content Include="Resources\icons8-cup-16.png" />
-    <Content Include="Resources\icons8-delete-trash-20.png" />
-    <Content Include="Resources\icons8-folder-20.png" />
-    <Content Include="Resources\icons8-full-screen-16.png" />
-    <Content Include="Resources\icons8-full-screen-30.png" />
-    <Content Include="Resources\icons8-holy-bible-16 %281%29.png" />
-    <Content Include="Resources\icons8-justify-paragraph-16.png" />
-    <Content Include="Resources\icons8-music-16.png" />
-    <Content Include="Resources\icons8-musical-notes-16.png" />
-    <Content Include="Resources\icons8-no-mobile-16.png" />
-    <Content Include="Resources\icons8-question-mark-16.png" />
-    <Content Include="Resources\icons8-save-20.png" />
-    <Content Include="Resources\icons8-schedule-16.png" />
-    <Content Include="Resources\icons8-schedule-20.png" />
-    <Content Include="Resources\icons8-settings-24.png" />
-    <Content Include="Resources\minimize-sign.png" />
-    <Content Include="Resources\tjcbirdlogo.ico" />
-    <Content Include="Resources\tjcbirdlogoTransparent.png" />
-    <Content Include="Resources\TJCPowerPointLogo.png" />
+    <None Include="Resources\tjcbird.ico" />
   </ItemGroup>
   <ItemGroup>
     <PublishFile Include="TJCPowerPoint.exe.manifest">
