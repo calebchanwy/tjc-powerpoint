@@ -819,7 +819,6 @@ Public Class MainProgram
         result = MessageBox.Show("Are you sure you want to reset all sermon details?", "Confirm Reset", MessageBoxButtons.OKCancel)
         If result = DialogResult.OK Then
             ResetServiceDetails()
-            showTitlesOnly()
             ShowBreakBtn.Checked = True
         End If
 
