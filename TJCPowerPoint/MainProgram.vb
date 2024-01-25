@@ -820,7 +820,7 @@ Public Class MainProgram
         If result = DialogResult.OK Then
             ResetServiceDetails()
             showTitlesOnly()
-            ShowSermonHymnsBtn.Checked = True
+            ShowBreakBtn.Checked = True
         End If
 
     End Sub

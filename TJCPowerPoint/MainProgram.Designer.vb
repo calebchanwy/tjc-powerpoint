@@ -167,7 +167,7 @@ Partial Class MainProgram
         '
         'ServiceTypeTxt
         '
-        Me.ServiceTypeTxt.AutoCompleteCustomSource.AddRange(New String() {"Sabbath Service 安息日聚會", "Sabbath Bible Study", "Sabbath Afternoon Service 安息日聚會", "Friday Evening Sabbath Service", "Wednesday Evening Service", "Bible Study", "End of Year Services", "Spiritual Convocation 靈恩會", "AMTC", "Evangelistic Service 佈道會", "Special Service", "Fellowship", "Autumn Spiritual Convocation 秋天靈恩會", "Spring Spiritual Convocation 春季靈恩會", "NSSC", "YTTC"})
+        Me.ServiceTypeTxt.AutoCompleteCustomSource.AddRange(New String() {"Sabbath Service 安息日聚會", "Sabbath Bible Study  安息日查經", "Sabbath Afternoon Service 安息日下午聚會", "Friday Evening Service 星期五晚間聚會", "Wednesday Evening Service 星期三晚間聚會", "Bible Study 查經", "End of Year Services 年末特別聚會", "", "Spiritual Convocation 靈恩會", "Evangelistic Service 佈道會", "Special Service 特別聚會", "Fellowship 團契", "Autumn Spiritual Convocation 秋季靈恩會", "Spring Spiritual Convocation 春季靈恩會", "Spiritual Cultivation Seminar 靈修講習會", "NSSC", "YTTC", "AMTC"})
         Me.ServiceTypeTxt.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
         Me.ServiceTypeTxt.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.ServiceTypeTxt.Cursor = System.Windows.Forms.Cursors.Default
@@ -179,7 +179,7 @@ Partial Class MainProgram
         Me.ServiceTypeTxt.FormattingEnabled = True
         Me.ServiceTypeTxt.ImeMode = System.Windows.Forms.ImeMode.[On]
         Me.ServiceTypeTxt.IntegralHeight = False
-        Me.ServiceTypeTxt.Items.AddRange(New Object() {"Sabbath Service 安息日聚會", "Sabbath Bible Study  安息日查經", "Sabbath Afternoon Service 安息日聚會", "Friday Evening Service 星期五晚上聚會", "Wednesday Evening Service 星期三晚上聚會", "Bible Study 查經", "End of Year Services 斯年末特別聚會", "Spiritual Convocation 靈恩會", "Evangelistic Service 佈道會", "Special Service 特別聚會", "Fellowship 團契", "Autumn Spiritual Convocation 秋天靈恩會", "Spring Spiritual Convocation 春季靈恩會", "Spiritual Cultivation Seminar 靈修講習會", "NSSC", "YTTC", "AMTC"})
+        Me.ServiceTypeTxt.Items.AddRange(New Object() {"Sabbath Service 安息日聚會", "Sabbath Bible Study  安息日查經", "Sabbath Afternoon Service 安息日下午聚會", "Friday Evening Service 星期五晚間聚會", "Wednesday Evening Service 星期三晚間聚會", "Bible Study 查經", "End of Year Services 年末特別聚會", "Spiritual Convocation 靈恩會", "Evangelistic Service 佈道會", "Special Service 特別聚會", "Fellowship 團契", "Autumn Spiritual Convocation 秋季靈恩會", "Spring Spiritual Convocation 春季靈恩會", "Spiritual Cultivation Seminar 靈修講習會", "NSSC", "YTTC", "AMTC"})
         Me.ServiceTypeTxt.Location = New System.Drawing.Point(0, 3)
         Me.ServiceTypeTxt.Margin = New System.Windows.Forms.Padding(0, 3, 0, 0)
         Me.ServiceTypeTxt.MaxDropDownItems = 5
