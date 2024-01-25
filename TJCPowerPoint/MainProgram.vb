@@ -162,7 +162,7 @@ Public Class MainProgram
         VerseTxt.Text = ""
         ChapterTxt.Text = ""
         EnglishTitleTxt.Text = "English Sermon Title"
-        ChineseTitleTxt.Text = "中文講道題目"
+        ChineseTitleTxt.Text = "中文讲道题目"
         ' Reset all relevent text boxes in PowerPoint.
         ' For each textbox key in array below, empty the text.
         Dim textBoxesToReset() As String = {"englishTitle", "chineseTitle", "serviceType", "englishTitle1", "chineseTitle1",
