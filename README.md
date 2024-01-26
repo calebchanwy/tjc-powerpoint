@@ -22,4 +22,5 @@ V1 - Original version, developed by Joshi Chan and Alex Lai (2017)
 - Requires Windows 7 and above.
 
 ### Installation
-To install the application, navigate to TJCPowerPoint\publish and run the setup file.
+To install the application, download TJCPowerPoint_PUBLISH.zip or TJCPowerPoint_ZH_PUBLISH.zip (for the simplified Chinese version).
+Extract all files, and run the setup file.
