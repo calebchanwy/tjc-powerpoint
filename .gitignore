@@ -17,7 +17,6 @@
 *.exe
 *.bat
 *.bak
-*.zip
 *.old
 *.enc
 *.key
