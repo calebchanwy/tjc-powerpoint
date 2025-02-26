@@ -3,6 +3,8 @@
 True Jesus Church PowerPoint (VB.NET) is a desktoped-based application developed in VB.NET, used to display Bible verses and relevant information for members in church services in the True Jesus Church. It is built around using Microsoft PowerPoint as the view and uses Windows Forms as the form/controller. This is currently being transitioned to being built on the Electron and Node.js framework at: [tjcpowerpoint_electron](https://github.com/calebchanwy/tjcpowerpoint_electron)
 
 ## Releases
+[**Latest Release**](https://github.com/calebchanwy/tjc-powerpoint/releases/latest)
+
 V3 - Enabled web browser within the app, to display Google slides, improved layouts and code efficiency
 
 V2 - White-themed redesign. Removal of redundant functions and improved hymn selection.
