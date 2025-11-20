@@ -546,10 +546,12 @@ Public Class MainProgram
         End If
     End Sub
     Private Sub goToBreakBtn_CheckedChanged(sender As Object, e As EventArgs) Handles ShowBreakBtn.CheckedChanged
+        ShowBreakBtn.TabStop = False
         GoToSlideIfNotAlreadyChecked(sender, Definition.break.ToString())
     End Sub
 
     Private Sub goToTimetableBtn_CheckedChanged(sender As Object, e As EventArgs) Handles ShowTimetableBtn.CheckedChanged
+        ShowTimetableBtn.TabStop = False
         GoToSlideIfNotAlreadyChecked(sender, Definition.serviceTimes.ToString())
         If ShowTimetableBtn.Checked = False Then
             serviceTimesWindow.HideBrowser()
@@ -559,6 +561,7 @@ Public Class MainProgram
     End Sub
 
     Private Sub goToPRBtn_CheckedChanged(sender As Object, e As EventArgs) Handles ShowPRBtn.CheckedChanged
+        ShowPRBtn.TabStop = False
         GoToSlideIfNotAlreadyChecked(sender, Definition.prayerRequests.ToString())
         If ShowPRBtn.Checked = False Then
             prayerRequestsWindow.HideBrowser()
@@ -568,14 +571,17 @@ Public Class MainProgram
     End Sub
 
     Private Sub goToHowToPrayBtn_CheckedChanged(sender As Object, e As EventArgs) Handles ShowHowToPrayBtn.CheckedChanged
+        ShowHowToPrayBtn.TabStop = False
         GoToSlideIfNotAlreadyChecked(sender, Definition.howToPray.ToString())
     End Sub
 
     Private Sub goToTurnOffDevicesBtn_CheckedChanged(sender As Object, e As EventArgs) Handles ShowOffDevicesBtn.CheckedChanged
+        ShowOffDevicesBtn.TabStop = False
         GoToSlideIfNotAlreadyChecked(sender, Definition.turnOffDevices.ToString())
     End Sub
 
     Private Sub goToAnnouncementsBtn_CheckedChanged(sender As Object, e As EventArgs) Handles ShowAnnouncementsBtn.CheckedChanged
+        ShowAnnouncementsBtn.TabStop = False
         GoToSlideIfNotAlreadyChecked(sender, Definition.announcements.ToString())
         If ShowAnnouncementsBtn.Checked = False Then
             announcementsWindow.HideBrowser()
@@ -585,6 +591,7 @@ Public Class MainProgram
     End Sub
 
     Private Sub goToHCBtn_CheckedChanged(sender As Object, e As EventArgs) Handles ShowHCBtn.CheckedChanged
+        ShowHCBtn.TabStop = False
         GoToSlideIfNotAlreadyChecked(sender, Definition.holyCommunion.ToString())
     End Sub
 
