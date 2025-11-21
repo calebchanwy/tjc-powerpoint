@@ -36,11 +36,10 @@ Partial Class LoadingScreen
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.PictureBox1.Image = Global.TJCPowerPoint.My.Resources.Resources.tjcpowerpoint
-        Me.PictureBox1.Location = New System.Drawing.Point(80, 80)
+        Me.PictureBox1.Image = Global.TJCPowerPoint.My.Resources.Resources.powerpoint_en
+        Me.PictureBox1.Location = New System.Drawing.Point(31, 40)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(340, 50)
+        Me.PictureBox1.Size = New System.Drawing.Size(198, 50)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -48,11 +47,10 @@ Partial Class LoadingScreen
         'PictureBox2
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Top
         Me.PictureBox2.Image = Global.TJCPowerPoint.My.Resources.Resources.book_animation
-        Me.PictureBox2.Location = New System.Drawing.Point(80, 130)
+        Me.PictureBox2.Location = New System.Drawing.Point(395, 40)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(340, 50)
+        Me.PictureBox2.Size = New System.Drawing.Size(65, 52)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox2.TabIndex = 1
         Me.PictureBox2.TabStop = False
@@ -66,16 +64,16 @@ Partial Class LoadingScreen
         Me.Button1.AutoSize = True
         Me.Button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Button1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Button1.Enabled = False
         Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.White
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Location = New System.Drawing.Point(80, 180)
+        Me.Button1.Location = New System.Drawing.Point(40, 233)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(340, 27)
+        Me.Button1.Size = New System.Drawing.Size(420, 27)
         Me.Button1.TabIndex = 3
         Me.Button1.Text = "L O A D I N G . . ."
         Me.Button1.UseVisualStyleBackColor = False
@@ -89,16 +87,16 @@ Partial Class LoadingScreen
         Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(500, 300)
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PictureBox2)
-        Me.Controls.Add(Me.PictureBox1)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximumSize = New System.Drawing.Size(500, 300)
         Me.MinimumSize = New System.Drawing.Size(500, 300)
         Me.Name = "LoadingScreen"
-        Me.Padding = New System.Windows.Forms.Padding(80)
+        Me.Padding = New System.Windows.Forms.Padding(40)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "True Jesus Church PowerPoint"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()

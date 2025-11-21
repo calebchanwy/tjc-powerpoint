@@ -308,6 +308,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\config.xml" />
+    <None Include="Resources\powerpoint_en.png" />
     <None Include="Resources\tjcbird.ico" />
   </ItemGroup>
   <ItemGroup>
