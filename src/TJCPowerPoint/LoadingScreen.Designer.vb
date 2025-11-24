@@ -28,7 +28,7 @@ Partial Class LoadingScreen
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.LoadingLabel = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -36,10 +36,11 @@ Partial Class LoadingScreen
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.Image = Global.TJCPowerPoint.My.Resources.Resources.powerpoint_en
-        Me.PictureBox1.Location = New System.Drawing.Point(31, 40)
+        Me.PictureBox1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.PictureBox1.Image = Global.TJCPowerPoint.My.Resources.Resources.powerpoint_en_white
+        Me.PictureBox1.Location = New System.Drawing.Point(272, 30)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(198, 50)
+        Me.PictureBox1.Size = New System.Drawing.Size(198, 240)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -47,10 +48,11 @@ Partial Class LoadingScreen
         'PictureBox2
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox2.Image = Global.TJCPowerPoint.My.Resources.Resources.book_animation
-        Me.PictureBox2.Location = New System.Drawing.Point(395, 40)
+        Me.PictureBox2.Dock = System.Windows.Forms.DockStyle.Left
+        Me.PictureBox2.Image = Global.TJCPowerPoint.My.Resources.Resources.loading_book
+        Me.PictureBox2.Location = New System.Drawing.Point(30, 30)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(65, 52)
+        Me.PictureBox2.Size = New System.Drawing.Size(38, 240)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox2.TabIndex = 1
         Me.PictureBox2.TabStop = False
@@ -59,24 +61,18 @@ Partial Class LoadingScreen
         '
         Me.Timer1.Interval = 1000
         '
-        'Button1
+        'LoadingLabel
         '
-        Me.Button1.AutoSize = True
-        Me.Button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.Button1.BackColor = System.Drawing.Color.Transparent
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Button1.Enabled = False
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.White
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Location = New System.Drawing.Point(40, 233)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(420, 27)
-        Me.Button1.TabIndex = 3
-        Me.Button1.Text = "L O A D I N G . . ."
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.LoadingLabel.AutoSize = True
+        Me.LoadingLabel.BackColor = System.Drawing.Color.Transparent
+        Me.LoadingLabel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LoadingLabel.ForeColor = System.Drawing.Color.White
+        Me.LoadingLabel.Location = New System.Drawing.Point(200, 253)
+        Me.LoadingLabel.Name = "LoadingLabel"
+        Me.LoadingLabel.Size = New System.Drawing.Size(108, 17)
+        Me.LoadingLabel.TabIndex = 3
+        Me.LoadingLabel.Text = "L O A D I N G . . ."
+        Me.LoadingLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LoadingScreen
         '
@@ -84,11 +80,11 @@ Partial Class LoadingScreen
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi
         Me.AutoSize = True
         Me.BackColor = System.Drawing.Color.White
-        Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.border
+        Me.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.background
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(500, 300)
+        Me.Controls.Add(Me.LoadingLabel)
         Me.Controls.Add(Me.PictureBox1)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -96,7 +92,7 @@ Partial Class LoadingScreen
         Me.MaximumSize = New System.Drawing.Size(500, 300)
         Me.MinimumSize = New System.Drawing.Size(500, 300)
         Me.Name = "LoadingScreen"
-        Me.Padding = New System.Windows.Forms.Padding(40)
+        Me.Padding = New System.Windows.Forms.Padding(30)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "True Jesus Church PowerPoint"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -110,5 +106,5 @@ Partial Class LoadingScreen
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents Timer1 As Timer
     Friend WithEvents Timer2 As Timer
-    Friend WithEvents Button1 As Button
+    Friend WithEvents LoadingLabel As Label
 End Class
