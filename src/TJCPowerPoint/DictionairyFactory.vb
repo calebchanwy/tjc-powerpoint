@@ -73,7 +73,7 @@ Public Class DictionairyFactory
     Private Sub MakeTextBoxDictionairy()
         'ADD all shapes as appears in powerpoint with key as shappe name
         textBoxDictionary = New Dictionary(Of String, PowerPoint.TextRange)
-        textBoxDictionary.Add("time", slideDictionary.Item("break").Shapes(1).TextFrame.TextRange)
+        textBoxDictionary.Add("time", slideDictionary.Item("break").Shapes(2).TextFrame.TextRange)
         'title slide
         textBoxDictionary.Add("englishTitle", slideDictionary.Item("sermonTitle").Shapes(1).TextFrame.TextRange)
         textBoxDictionary.Add("chineseTitle", slideDictionary.Item("sermonTitle").Shapes(2).TextFrame.TextRange)
