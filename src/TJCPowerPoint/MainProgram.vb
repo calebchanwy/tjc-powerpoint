@@ -732,7 +732,7 @@ Public Class MainProgram
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
         If ShowBreakBtn.Checked Then
             'update time on break slide
-            ppPres.Slides(1).Shapes(1).TextFrame.TextRange.Text = DateTime.Now.ToString("HH:mm:ss")
+            textBoxDictionary.Item("time").Text = DateTime.Now.ToString("HH:mm:ss")
         End If
     End Sub
 

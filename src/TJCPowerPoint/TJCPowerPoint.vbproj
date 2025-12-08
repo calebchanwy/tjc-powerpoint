@@ -307,7 +307,11 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\loading-book.gif" />
+    <None Include="Resources\powerpoint_en_white.png" />
+    <None Include="Resources\background.png" />
     <Content Include="Resources\config.xml" />
+    <None Include="Resources\powerpoint_en.png" />
     <None Include="Resources\tjcbird.ico" />
   </ItemGroup>
   <ItemGroup>

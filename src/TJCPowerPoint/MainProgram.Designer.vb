@@ -248,7 +248,7 @@ Partial Class MainProgram
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(3, 8)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(70, 15)
+        Me.Label1.Size = New System.Drawing.Size(71, 15)
         Me.Label1.TabIndex = 33
         Me.Label1.Text = "English Title"
         '
@@ -258,7 +258,7 @@ Partial Class MainProgram
         Me.EnglishFontBtn.BackgroundImage = CType(resources.GetObject("EnglishFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.EnglishFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.EnglishFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.EnglishFontBtn.Location = New System.Drawing.Point(79, 3)
+        Me.EnglishFontBtn.Location = New System.Drawing.Point(80, 3)
         Me.EnglishFontBtn.Name = "EnglishFontBtn"
         Me.EnglishFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.EnglishFontBtn.TabIndex = 6
@@ -271,7 +271,7 @@ Partial Class MainProgram
         Me.EnglishColorBtn.BackgroundImage = CType(resources.GetObject("EnglishColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.EnglishColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.EnglishColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.EnglishColorBtn.Location = New System.Drawing.Point(110, 3)
+        Me.EnglishColorBtn.Location = New System.Drawing.Point(111, 3)
         Me.EnglishColorBtn.Name = "EnglishColorBtn"
         Me.EnglishColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.EnglishColorBtn.TabIndex = 5
@@ -284,7 +284,7 @@ Partial Class MainProgram
         Me.EnglishMoveDownBtn.BackgroundImage = CType(resources.GetObject("EnglishMoveDownBtn.BackgroundImage"), System.Drawing.Image)
         Me.EnglishMoveDownBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.EnglishMoveDownBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.EnglishMoveDownBtn.Location = New System.Drawing.Point(141, 3)
+        Me.EnglishMoveDownBtn.Location = New System.Drawing.Point(142, 3)
         Me.EnglishMoveDownBtn.Name = "EnglishMoveDownBtn"
         Me.EnglishMoveDownBtn.Size = New System.Drawing.Size(25, 25)
         Me.EnglishMoveDownBtn.TabIndex = 40
@@ -297,7 +297,7 @@ Partial Class MainProgram
         Me.EnglishMoveUpBtn.BackgroundImage = CType(resources.GetObject("EnglishMoveUpBtn.BackgroundImage"), System.Drawing.Image)
         Me.EnglishMoveUpBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.EnglishMoveUpBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.EnglishMoveUpBtn.Location = New System.Drawing.Point(172, 3)
+        Me.EnglishMoveUpBtn.Location = New System.Drawing.Point(173, 3)
         Me.EnglishMoveUpBtn.Name = "EnglishMoveUpBtn"
         Me.EnglishMoveUpBtn.Size = New System.Drawing.Size(25, 25)
         Me.EnglishMoveUpBtn.TabIndex = 41
@@ -309,9 +309,9 @@ Partial Class MainProgram
         Me.Label2.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(203, 8)
+        Me.Label2.Location = New System.Drawing.Point(204, 8)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(74, 15)
+        Me.Label2.Size = New System.Drawing.Size(75, 15)
         Me.Label2.TabIndex = 42
         Me.Label2.Text = "Chinese Title"
         '
@@ -321,7 +321,7 @@ Partial Class MainProgram
         Me.ChineseFontBtn.BackgroundImage = CType(resources.GetObject("ChineseFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.ChineseFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ChineseFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ChineseFontBtn.Location = New System.Drawing.Point(283, 3)
+        Me.ChineseFontBtn.Location = New System.Drawing.Point(285, 3)
         Me.ChineseFontBtn.Name = "ChineseFontBtn"
         Me.ChineseFontBtn.Size = New System.Drawing.Size(25, 25)
         Me.ChineseFontBtn.TabIndex = 8
@@ -334,7 +334,7 @@ Partial Class MainProgram
         Me.ChineseColorBtn.BackgroundImage = CType(resources.GetObject("ChineseColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.ChineseColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ChineseColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ChineseColorBtn.Location = New System.Drawing.Point(314, 3)
+        Me.ChineseColorBtn.Location = New System.Drawing.Point(316, 3)
         Me.ChineseColorBtn.Name = "ChineseColorBtn"
         Me.ChineseColorBtn.Size = New System.Drawing.Size(25, 25)
         Me.ChineseColorBtn.TabIndex = 7
@@ -502,6 +502,7 @@ Partial Class MainProgram
         '
         Me.ShowSermonHymnsBtn.Appearance = System.Windows.Forms.Appearance.Button
         Me.ShowSermonHymnsBtn.AutoSize = True
+        Me.ShowSermonHymnsBtn.CausesValidation = False
         Me.ShowSermonHymnsBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ShowSermonHymnsBtn.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ShowSermonHymnsBtn.ForeColor = System.Drawing.Color.MidnightBlue
@@ -726,7 +727,7 @@ Partial Class MainProgram
         Me.ChineseMoveDownBtn.BackgroundImage = CType(resources.GetObject("ChineseMoveDownBtn.BackgroundImage"), System.Drawing.Image)
         Me.ChineseMoveDownBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ChineseMoveDownBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ChineseMoveDownBtn.Location = New System.Drawing.Point(345, 3)
+        Me.ChineseMoveDownBtn.Location = New System.Drawing.Point(347, 3)
         Me.ChineseMoveDownBtn.Name = "ChineseMoveDownBtn"
         Me.ChineseMoveDownBtn.Size = New System.Drawing.Size(25, 25)
         Me.ChineseMoveDownBtn.TabIndex = 39
@@ -740,7 +741,7 @@ Partial Class MainProgram
         Me.ChineseMoveUpBtn.BackgroundImage = CType(resources.GetObject("ChineseMoveUpBtn.BackgroundImage"), System.Drawing.Image)
         Me.ChineseMoveUpBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ChineseMoveUpBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ChineseMoveUpBtn.Location = New System.Drawing.Point(376, 3)
+        Me.ChineseMoveUpBtn.Location = New System.Drawing.Point(378, 3)
         Me.ChineseMoveUpBtn.Name = "ChineseMoveUpBtn"
         Me.ChineseMoveUpBtn.Size = New System.Drawing.Size(25, 25)
         Me.ChineseMoveUpBtn.TabIndex = 38
@@ -752,9 +753,9 @@ Partial Class MainProgram
         Me.Label10.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.Location = New System.Drawing.Point(407, 8)
+        Me.Label10.Location = New System.Drawing.Point(409, 8)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(71, 15)
+        Me.Label10.Size = New System.Drawing.Size(72, 15)
         Me.Label10.TabIndex = 43
         Me.Label10.Text = "Service Type"
         '
@@ -765,7 +766,7 @@ Partial Class MainProgram
         Me.ServiceTypeFontBtn.BackgroundImage = CType(resources.GetObject("ServiceTypeFontBtn.BackgroundImage"), System.Drawing.Image)
         Me.ServiceTypeFontBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ServiceTypeFontBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ServiceTypeFontBtn.Location = New System.Drawing.Point(484, 3)
+        Me.ServiceTypeFontBtn.Location = New System.Drawing.Point(487, 3)
         Me.ServiceTypeFontBtn.Name = "ServiceTypeFontBtn"
         Me.ServiceTypeFontBtn.Size = New System.Drawing.Size(24, 25)
         Me.ServiceTypeFontBtn.TabIndex = 15
@@ -778,7 +779,7 @@ Partial Class MainProgram
         Me.ServiceTypeColorBtn.BackgroundImage = CType(resources.GetObject("ServiceTypeColorBtn.BackgroundImage"), System.Drawing.Image)
         Me.ServiceTypeColorBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ServiceTypeColorBtn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.ServiceTypeColorBtn.Location = New System.Drawing.Point(514, 3)
+        Me.ServiceTypeColorBtn.Location = New System.Drawing.Point(517, 3)
         Me.ServiceTypeColorBtn.Name = "ServiceTypeColorBtn"
         Me.ServiceTypeColorBtn.Size = New System.Drawing.Size(24, 25)
         Me.ServiceTypeColorBtn.TabIndex = 14
@@ -1180,12 +1181,12 @@ Partial Class MainProgram
         '
         Me.HeaderLogo.BackColor = System.Drawing.Color.Transparent
         Me.HeaderLogo.Cursor = System.Windows.Forms.Cursors.Default
-        Me.HeaderLogo.Image = Global.TJCPowerPoint.My.Resources.Resources.tjcpowerpoint
+        Me.HeaderLogo.Image = Global.TJCPowerPoint.My.Resources.Resources.powerpoint_en
         Me.HeaderLogo.InitialImage = Nothing
-        Me.HeaderLogo.Location = New System.Drawing.Point(3, 5)
+        Me.HeaderLogo.Location = New System.Drawing.Point(0, 5)
         Me.HeaderLogo.Margin = New System.Windows.Forms.Padding(0)
         Me.HeaderLogo.Name = "HeaderLogo"
-        Me.HeaderLogo.Size = New System.Drawing.Size(330, 29)
+        Me.HeaderLogo.Size = New System.Drawing.Size(149, 29)
         Me.HeaderLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.HeaderLogo.TabIndex = 2
         Me.HeaderLogo.TabStop = False
