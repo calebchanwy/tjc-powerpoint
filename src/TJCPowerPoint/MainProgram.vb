@@ -345,7 +345,8 @@ Public Class MainProgram
     End Sub
     ' Method that handles when the ShowVerses control is checked/unchecked.
     ' On checking, the verse is updated. If unchecked, verses are cleared.
-    Private Sub ShowVerses_CheckedChanged(sender As Object, e As EventArgs)
+    Private Sub ShowVerses_CheckedChanged(sender As Object, e As EventArgs) Handles ShowVersesBtn.CheckedChanged
+        ShowVersesBtn.TabStop = False
         If ShowVersesBtn.Checked Then
             UpdateVerse()
         Else
@@ -378,7 +379,7 @@ Public Class MainProgram
         End If
     End Sub
     ' Method to handle when the ShowVerses control is clicked.
-    Private Sub ShowVerses_Click(sender As Object, e As EventArgs)
+    Private Sub ShowVerses_Click(sender As Object, e As EventArgs) Handles ShowVersesBtn.Click
         ' If showing bible verses, but there are no verses to show, only show the sermon titles.
         If ShowVersesBtn.Checked AndAlso BookTxt.Text = "" Then
             showTitlesOnly()
