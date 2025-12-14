@@ -30,6 +30,7 @@ Partial Class ImageViewer
         '
         'pictureBox
         '
+        Me.pictureBox.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.background
         Me.pictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.pictureBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill
@@ -44,11 +45,12 @@ Partial Class ImageViewer
         Me.header.AutoSize = True
         Me.header.BackColor = System.Drawing.Color.Transparent
         Me.header.Cursor = System.Windows.Forms.Cursors.Default
-        Me.header.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.header.ForeColor = System.Drawing.Color.SteelBlue
-        Me.header.Location = New System.Drawing.Point(5, 7)
+        Me.header.Dock = System.Windows.Forms.DockStyle.Top
+        Me.header.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.header.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.header.Location = New System.Drawing.Point(10, 10)
         Me.header.Name = "header"
-        Me.header.Size = New System.Drawing.Size(144, 30)
+        Me.header.Size = New System.Drawing.Size(134, 30)
         Me.header.TabIndex = 35
         Me.header.Text = "Slide Preview"
         '
@@ -58,13 +60,13 @@ Partial Class ImageViewer
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(800, 450)
-        Me.Controls.Add(Me.header)
         Me.Controls.Add(Me.pictureBox)
+        Me.Controls.Add(Me.header)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.Name = "ImageViewer"
-        Me.Padding = New System.Windows.Forms.Padding(10, 40, 10, 10)
+        Me.Padding = New System.Windows.Forms.Padding(10)
         Me.Text = "ImageViewer"
         CType(Me.pictureBox, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

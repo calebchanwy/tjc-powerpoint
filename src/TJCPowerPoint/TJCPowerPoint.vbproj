@@ -308,6 +308,7 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icons8-info-16.png" />
     <None Include="Resources\icons8-edit-16.png" />
     <None Include="Resources\icons8-question-16.png" />
     <None Include="Resources\icons8-font-25.png" />
