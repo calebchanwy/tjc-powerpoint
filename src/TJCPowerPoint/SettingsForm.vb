@@ -124,4 +124,8 @@
     Private Sub changeBgBtn_Click(sender As Object, e As EventArgs) Handles changeBgBtn.Click
         MainProgram.changeBackground()
     End Sub
+
+    Private Sub cancelBtn_Click(sender As Object, e As EventArgs) Handles cancelBtn.Click
+        Me.Close()
+    End Sub
 End Class

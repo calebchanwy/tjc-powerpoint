@@ -216,7 +216,7 @@ Partial Class SettingsForm
         Me.TableLayoutPanel1.Padding = New System.Windows.Forms.Padding(2)
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(654, 35)
         Me.TableLayoutPanel1.TabIndex = 6
         '
