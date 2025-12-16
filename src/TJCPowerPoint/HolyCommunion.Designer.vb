@@ -347,13 +347,13 @@ Partial Class HolyCommunion
         Me.updateHC.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.background
         Me.updateHC.Cursor = System.Windows.Forms.Cursors.Hand
         Me.updateHC.Dock = System.Windows.Forms.DockStyle.Right
-        Me.updateHC.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.updateHC.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.updateHC.ForeColor = System.Drawing.Color.White
-        Me.updateHC.Location = New System.Drawing.Point(694, 0)
+        Me.updateHC.Location = New System.Drawing.Point(695, 0)
         Me.updateHC.Margin = New System.Windows.Forms.Padding(0)
         Me.updateHC.Name = "updateHC"
         Me.updateHC.Padding = New System.Windows.Forms.Padding(20, 5, 20, 5)
-        Me.updateHC.Size = New System.Drawing.Size(86, 40)
+        Me.updateHC.Size = New System.Drawing.Size(85, 40)
         Me.updateHC.TabIndex = 55
         Me.updateHC.Text = "Save"
         Me.updateHC.UseVisualStyleBackColor = True
@@ -433,7 +433,7 @@ Partial Class HolyCommunion
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 393.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 390.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(780, 390)
         Me.TableLayoutPanel1.TabIndex = 62
         '
@@ -450,7 +450,7 @@ Partial Class HolyCommunion
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 360.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 357.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(540, 357)
         Me.TableLayoutPanel2.TabIndex = 59
         '
@@ -519,13 +519,13 @@ Partial Class HolyCommunion
         Me.cancelBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.cancelBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cancelBtn.Dock = System.Windows.Forms.DockStyle.Right
-        Me.cancelBtn.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cancelBtn.Font = New System.Drawing.Font("Segoe UI Semilight", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cancelBtn.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.cancelBtn.Location = New System.Drawing.Point(617, 0)
+        Me.cancelBtn.Location = New System.Drawing.Point(619, 0)
         Me.cancelBtn.Margin = New System.Windows.Forms.Padding(0)
         Me.cancelBtn.Name = "cancelBtn"
         Me.cancelBtn.Padding = New System.Windows.Forms.Padding(10, 5, 10, 5)
-        Me.cancelBtn.Size = New System.Drawing.Size(77, 40)
+        Me.cancelBtn.Size = New System.Drawing.Size(76, 40)
         Me.cancelBtn.TabIndex = 56
         Me.cancelBtn.Text = "Cancel"
         Me.cancelBtn.UseVisualStyleBackColor = True

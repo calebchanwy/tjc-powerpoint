@@ -321,7 +321,7 @@ Partial Class SettingsForm
         Me.cancelBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.cancelBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.cancelBtn.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.cancelBtn.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cancelBtn.Font = New System.Drawing.Font("Segoe UI Semilight", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cancelBtn.ForeColor = System.Drawing.SystemColors.ControlText
         Me.cancelBtn.Location = New System.Drawing.Point(524, 3)
         Me.cancelBtn.Name = "cancelBtn"

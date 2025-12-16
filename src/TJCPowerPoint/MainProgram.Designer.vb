@@ -180,7 +180,7 @@ Partial Class MainProgram
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle())
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(834, 114)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(834, 116)
         Me.TableLayoutPanel1.TabIndex = 37
         '
         'TableLayoutPanel5
@@ -199,7 +199,7 @@ Partial Class MainProgram
         Me.TableLayoutPanel5.RowCount = 1
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel5.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel5.Size = New System.Drawing.Size(410, 35)
+        Me.TableLayoutPanel5.Size = New System.Drawing.Size(410, 37)
         Me.TableLayoutPanel5.TabIndex = 38
         '
         'UpdateTitleBtn
@@ -211,14 +211,14 @@ Partial Class MainProgram
         Me.UpdateTitleBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.UpdateTitleBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.UpdateTitleBtn.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.UpdateTitleBtn.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UpdateTitleBtn.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UpdateTitleBtn.ForeColor = System.Drawing.SystemColors.Control
         Me.UpdateTitleBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.UpdateTitleBtn.Location = New System.Drawing.Point(2, 2)
         Me.UpdateTitleBtn.Margin = New System.Windows.Forms.Padding(2)
         Me.UpdateTitleBtn.Name = "UpdateTitleBtn"
-        Me.UpdateTitleBtn.Padding = New System.Windows.Forms.Padding(2)
-        Me.UpdateTitleBtn.Size = New System.Drawing.Size(284, 31)
+        Me.UpdateTitleBtn.Padding = New System.Windows.Forms.Padding(3)
+        Me.UpdateTitleBtn.Size = New System.Drawing.Size(284, 33)
         Me.UpdateTitleBtn.TabIndex = 3
         Me.UpdateTitleBtn.TabStop = False
         Me.UpdateTitleBtn.Text = "Update Title(s)"
@@ -239,7 +239,7 @@ Partial Class MainProgram
         Me.ResetAllBtn.MinimumSize = New System.Drawing.Size(50, 20)
         Me.ResetAllBtn.Name = "ResetAllBtn"
         Me.ResetAllBtn.Padding = New System.Windows.Forms.Padding(2)
-        Me.ResetAllBtn.Size = New System.Drawing.Size(118, 31)
+        Me.ResetAllBtn.Size = New System.Drawing.Size(118, 33)
         Me.ResetAllBtn.TabIndex = 33
         Me.ResetAllBtn.TabStop = False
         Me.ResetAllBtn.Text = "Reset Form"
@@ -529,7 +529,7 @@ Partial Class MainProgram
         Me.ServiceTypeTxt.IntegralHeight = False
         Me.ServiceTypeTxt.Items.AddRange(New Object() {"Sabbath Service 安息日聚會", "Sabbath Bible Study  安息日查經", "Sabbath Afternoon Service 安息日下午聚會", "Friday Evening Service 星期五晚間聚會", "Wednesday Evening Service 星期三晚間聚會", "Bible Study 查經", "End of Year Services 年末特別聚會", "Spiritual Convocation 靈恩會", "Evangelistic Service 佈道會", "Special Service 特別聚會", "Fellowship 團契", "Autumn Spiritual Convocation 秋季靈恩會", "Spring Spiritual Convocation 春季靈恩會", "Spiritual Cultivation Seminar 靈修講習會", "NSSC", "YTTC", "AMTC"})
         Me.ServiceTypeTxt.Location = New System.Drawing.Point(9, 81)
-        Me.ServiceTypeTxt.Margin = New System.Windows.Forms.Padding(2)
+        Me.ServiceTypeTxt.Margin = New System.Windows.Forms.Padding(2, 2, 2, 0)
         Me.ServiceTypeTxt.MaxDropDownItems = 5
         Me.ServiceTypeTxt.Name = "ServiceTypeTxt"
         Me.ServiceTypeTxt.Size = New System.Drawing.Size(406, 28)
@@ -1051,7 +1051,7 @@ Partial Class MainProgram
         Me.UpdateVerseBtn.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.background
         Me.UpdateVerseBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.UpdateVerseBtn.Dock = System.Windows.Forms.DockStyle.Top
-        Me.UpdateVerseBtn.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UpdateVerseBtn.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UpdateVerseBtn.ForeColor = System.Drawing.SystemColors.Control
         Me.UpdateVerseBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.UpdateVerseBtn.Location = New System.Drawing.Point(0, 105)
@@ -1249,13 +1249,13 @@ Partial Class MainProgram
         Me.BibleHymnPanel.Controls.Add(Me.Panel3, 1, 0)
         Me.BibleHymnPanel.Controls.Add(Me.Panel1, 0, 0)
         Me.BibleHymnPanel.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.BibleHymnPanel.Location = New System.Drawing.Point(0, 265)
+        Me.BibleHymnPanel.Location = New System.Drawing.Point(0, 267)
         Me.BibleHymnPanel.Margin = New System.Windows.Forms.Padding(0)
         Me.BibleHymnPanel.Name = "BibleHymnPanel"
         Me.BibleHymnPanel.Padding = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.BibleHymnPanel.RowCount = 1
         Me.BibleHymnPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.BibleHymnPanel.Size = New System.Drawing.Size(834, 151)
+        Me.BibleHymnPanel.Size = New System.Drawing.Size(834, 149)
         Me.BibleHymnPanel.TabIndex = 9
         '
         'Panel3
@@ -1264,7 +1264,7 @@ Partial Class MainProgram
         Me.Panel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel3.Location = New System.Drawing.Point(584, 3)
         Me.Panel3.Name = "Panel3"
-        Me.Panel3.Size = New System.Drawing.Size(242, 145)
+        Me.Panel3.Size = New System.Drawing.Size(242, 143)
         Me.Panel3.TabIndex = 36
         '
         'hymnTabControl
@@ -1280,7 +1280,7 @@ Partial Class MainProgram
         Me.hymnTabControl.Name = "hymnTabControl"
         Me.hymnTabControl.Padding = New System.Drawing.Point(0, 0)
         Me.hymnTabControl.SelectedIndex = 0
-        Me.hymnTabControl.Size = New System.Drawing.Size(242, 145)
+        Me.hymnTabControl.Size = New System.Drawing.Size(242, 143)
         Me.hymnTabControl.TabIndex = 34
         Me.hymnTabControl.TabStop = False
         '
@@ -1294,7 +1294,7 @@ Partial Class MainProgram
         Me.TabPage1.Margin = New System.Windows.Forms.Padding(0)
         Me.TabPage1.Name = "TabPage1"
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(2)
-        Me.TabPage1.Size = New System.Drawing.Size(234, 117)
+        Me.TabPage1.Size = New System.Drawing.Size(234, 115)
         Me.TabPage1.TabIndex = 0
         Me.TabPage1.Text = "Sermon Hymns"
         Me.TabPage1.UseVisualStyleBackColor = True
@@ -1313,7 +1313,7 @@ Partial Class MainProgram
         Me.FlowLayoutPanel8.Location = New System.Drawing.Point(76, 27)
         Me.FlowLayoutPanel8.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel8.Name = "FlowLayoutPanel8"
-        Me.FlowLayoutPanel8.Size = New System.Drawing.Size(156, 61)
+        Me.FlowLayoutPanel8.Size = New System.Drawing.Size(156, 59)
         Me.FlowLayoutPanel8.TabIndex = 54
         '
         'PrevHymnBtn
@@ -1410,7 +1410,7 @@ Partial Class MainProgram
         Me.ClearSermonHymnsBtn.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ClearSermonHymnsBtn.ForeColor = System.Drawing.SystemColors.ControlText
         Me.ClearSermonHymnsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ClearSermonHymnsBtn.Location = New System.Drawing.Point(76, 88)
+        Me.ClearSermonHymnsBtn.Location = New System.Drawing.Point(76, 86)
         Me.ClearSermonHymnsBtn.Margin = New System.Windows.Forms.Padding(0)
         Me.ClearSermonHymnsBtn.Name = "ClearSermonHymnsBtn"
         Me.ClearSermonHymnsBtn.Size = New System.Drawing.Size(156, 27)
@@ -1431,7 +1431,7 @@ Partial Class MainProgram
         Me.SermonHymnsListBox.Location = New System.Drawing.Point(2, 2)
         Me.SermonHymnsListBox.Name = "SermonHymnsListBox"
         Me.SermonHymnsListBox.ScrollAlwaysVisible = True
-        Me.SermonHymnsListBox.Size = New System.Drawing.Size(74, 113)
+        Me.SermonHymnsListBox.Size = New System.Drawing.Size(74, 111)
         Me.SermonHymnsListBox.TabIndex = 47
         Me.SermonHymnsListBox.TabStop = False
         '
@@ -1597,7 +1597,7 @@ Partial Class MainProgram
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(8, 3)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(570, 145)
+        Me.Panel1.Size = New System.Drawing.Size(570, 143)
         Me.Panel1.TabIndex = 37
         '
         'Label2

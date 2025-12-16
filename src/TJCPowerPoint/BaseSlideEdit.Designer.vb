@@ -49,13 +49,13 @@ Partial Class BaseSlideEdit
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label9 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.Label10 = New System.Windows.Forms.Label()
         CType(Me.previewBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -137,12 +137,12 @@ Partial Class BaseSlideEdit
         Me.updateBtn.BackgroundImage = Global.TJCPowerPoint.My.Resources.Resources.background
         Me.updateBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.updateBtn.Dock = System.Windows.Forms.DockStyle.Right
-        Me.updateBtn.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.updateBtn.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.updateBtn.ForeColor = System.Drawing.Color.White
-        Me.updateBtn.Location = New System.Drawing.Point(556, 0)
+        Me.updateBtn.Location = New System.Drawing.Point(557, 0)
         Me.updateBtn.Name = "updateBtn"
         Me.updateBtn.Padding = New System.Windows.Forms.Padding(40, 5, 40, 5)
-        Me.updateBtn.Size = New System.Drawing.Size(174, 40)
+        Me.updateBtn.Size = New System.Drawing.Size(173, 40)
         Me.updateBtn.TabIndex = 22
         Me.updateBtn.Text = "Update Slide"
         Me.updateBtn.UseVisualStyleBackColor = True
@@ -259,11 +259,11 @@ Partial Class BaseSlideEdit
         Me.loadTxtBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.loadTxtBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.loadTxtBtn.Dock = System.Windows.Forms.DockStyle.Right
-        Me.loadTxtBtn.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.loadTxtBtn.ForeColor = System.Drawing.Color.Navy
-        Me.loadTxtBtn.Location = New System.Drawing.Point(441, 0)
+        Me.loadTxtBtn.Font = New System.Drawing.Font("Segoe UI Semilight", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.loadTxtBtn.ForeColor = System.Drawing.SystemColors.Desktop
+        Me.loadTxtBtn.Location = New System.Drawing.Point(451, 0)
         Me.loadTxtBtn.Name = "loadTxtBtn"
-        Me.loadTxtBtn.Size = New System.Drawing.Size(115, 40)
+        Me.loadTxtBtn.Size = New System.Drawing.Size(106, 40)
         Me.loadTxtBtn.TabIndex = 23
         Me.loadTxtBtn.TabStop = False
         Me.loadTxtBtn.Text = "Insert as .txt file"
@@ -275,12 +275,12 @@ Partial Class BaseSlideEdit
         Me.insertImage.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.insertImage.Cursor = System.Windows.Forms.Cursors.Hand
         Me.insertImage.Dock = System.Windows.Forms.DockStyle.Right
-        Me.insertImage.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.insertImage.ForeColor = System.Drawing.Color.Navy
-        Me.insertImage.Location = New System.Drawing.Point(319, 0)
+        Me.insertImage.Font = New System.Drawing.Font("Segoe UI Semilight", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.insertImage.ForeColor = System.Drawing.SystemColors.Desktop
+        Me.insertImage.Location = New System.Drawing.Point(338, 0)
         Me.insertImage.Name = "insertImage"
         Me.insertImage.Padding = New System.Windows.Forms.Padding(5)
-        Me.insertImage.Size = New System.Drawing.Size(122, 40)
+        Me.insertImage.Size = New System.Drawing.Size(113, 40)
         Me.insertImage.TabIndex = 35
         Me.insertImage.TabStop = False
         Me.insertImage.Text = "Insert as Image"
@@ -292,11 +292,11 @@ Partial Class BaseSlideEdit
         Me.delImage.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.delImage.Cursor = System.Windows.Forms.Cursors.Hand
         Me.delImage.Dock = System.Windows.Forms.DockStyle.Left
-        Me.delImage.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.delImage.Font = New System.Drawing.Font("Segoe UI Semilight", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.delImage.ForeColor = System.Drawing.Color.DarkRed
         Me.delImage.Location = New System.Drawing.Point(0, 0)
         Me.delImage.Name = "delImage"
-        Me.delImage.Size = New System.Drawing.Size(98, 40)
+        Me.delImage.Size = New System.Drawing.Size(94, 40)
         Me.delImage.TabIndex = 36
         Me.delImage.TabStop = False
         Me.delImage.Text = "Delete Image"
@@ -421,6 +421,22 @@ Partial Class BaseSlideEdit
         Me.Label9.TabIndex = 32
         Me.Label9.Text = "Slide Content"
         '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
+        Me.Label10.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Label10.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label10.Location = New System.Drawing.Point(5, 47)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(117, 17)
+        Me.Label10.TabIndex = 33
+        Me.Label10.Text = "Google Slides Link"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
         'Panel3
         '
         Me.Panel3.AutoSize = True
@@ -505,22 +521,6 @@ Partial Class BaseSlideEdit
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(730, 40)
         Me.Panel1.TabIndex = 43
-        '
-        'Label10
-        '
-        Me.Label10.AutoSize = True
-        Me.Label10.BackColor = System.Drawing.Color.Transparent
-        Me.Label10.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label10.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label10.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label10.Location = New System.Drawing.Point(5, 47)
-        Me.Label10.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(117, 17)
-        Me.Label10.TabIndex = 33
-        Me.Label10.Text = "Google Slides Link"
-        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'BaseSlideEdit
         '
