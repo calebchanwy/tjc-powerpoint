@@ -14,7 +14,7 @@ Imports System.Threading
 ' © Copyright 2023 True Jesus Church London.
 
 Public Class MainProgram
-    Inherits DraggableForm
+    Inherits Form
 
     Private ppPres As PowerPoint.Presentation
     Private currentDir As String = Directory.GetCurrentDirectory()
@@ -897,18 +897,4 @@ Public Class MainProgram
         updateServiceTypes()
     End Sub
 
-    ' -----------------------------------------------------------------------------------------------------------------------------------------
-    ' FOLLOWING METHODS HANDLE FORM DRAGGING
-    ' -----------------------------------------------------------------------------------------------------------------------------------------
-    'Add handlers to specific controls, passing objects back to superclass
-    'All passed controls will allow the window to move as the mouse is dragged on it
-    Private Sub navBar_MouseDown(sender As Object, e As MouseEventArgs) Handles navBar.MouseDown, HeaderLogo.MouseDown
-        MyBase.Form1_MouseDown(sender, e)
-    End Sub
-    Private Sub navBar_MouseUp(sender As Object, e As MouseEventArgs) Handles navBar.MouseUp, HeaderLogo.MouseUp
-        MyBase.Form1_MouseUp(sender, e)
-    End Sub
-    Private Sub navBar_MouseMove(sender As Object, e As MouseEventArgs) Handles navBar.MouseMove, HeaderLogo.MouseMove
-        MyBase.Form1_MouseMove(sender, e)
-    End Sub
 End Class
