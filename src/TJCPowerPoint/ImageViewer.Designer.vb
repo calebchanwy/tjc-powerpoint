@@ -36,7 +36,7 @@ Partial Class ImageViewer
         Me.pictureBox.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pictureBox.Location = New System.Drawing.Point(10, 40)
         Me.pictureBox.Name = "pictureBox"
-        Me.pictureBox.Size = New System.Drawing.Size(780, 400)
+        Me.pictureBox.Size = New System.Drawing.Size(764, 431)
         Me.pictureBox.TabIndex = 34
         Me.pictureBox.TabStop = False
         '
@@ -59,7 +59,7 @@ Partial Class ImageViewer
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(784, 481)
         Me.Controls.Add(Me.pictureBox)
         Me.Controls.Add(Me.header)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
