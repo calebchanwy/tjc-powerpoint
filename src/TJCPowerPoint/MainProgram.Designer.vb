@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class MainProgram
-    Inherits DraggableForm
+    Inherits Form
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()>
@@ -232,7 +232,7 @@ Partial Class MainProgram
         Me.ResetAllBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ResetAllBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ResetAllBtn.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.ResetAllBtn.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ResetAllBtn.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ResetAllBtn.ForeColor = System.Drawing.SystemColors.ControlText
         Me.ResetAllBtn.Location = New System.Drawing.Point(290, 2)
         Me.ResetAllBtn.Margin = New System.Windows.Forms.Padding(2)
@@ -1407,11 +1407,11 @@ Partial Class MainProgram
         Me.ClearSermonHymnsBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ClearSermonHymnsBtn.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ClearSermonHymnsBtn.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.ClearSermonHymnsBtn.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ClearSermonHymnsBtn.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ClearSermonHymnsBtn.ForeColor = System.Drawing.SystemColors.ControlText
         Me.ClearSermonHymnsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.ClearSermonHymnsBtn.Location = New System.Drawing.Point(76, 86)
-        Me.ClearSermonHymnsBtn.Margin = New System.Windows.Forms.Padding(0)
+        Me.ClearSermonHymnsBtn.Margin = New System.Windows.Forms.Padding(2)
         Me.ClearSermonHymnsBtn.Name = "ClearSermonHymnsBtn"
         Me.ClearSermonHymnsBtn.Size = New System.Drawing.Size(156, 27)
         Me.ClearSermonHymnsBtn.TabIndex = 52
@@ -1446,7 +1446,7 @@ Partial Class MainProgram
         Me.TabPage2.Margin = New System.Windows.Forms.Padding(0)
         Me.TabPage2.Name = "TabPage2"
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(2)
-        Me.TabPage2.Size = New System.Drawing.Size(234, 117)
+        Me.TabPage2.Size = New System.Drawing.Size(234, 115)
         Me.TabPage2.TabIndex = 1
         Me.TabPage2.Text = "Hymnal Hymns"
         '
@@ -1463,7 +1463,7 @@ Partial Class MainProgram
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(76, 27)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(156, 61)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(156, 59)
         Me.FlowLayoutPanel2.TabIndex = 62
         '
         'HymnalPrevHymnBtn
@@ -1561,7 +1561,7 @@ Partial Class MainProgram
         Me.ClearHymnalBtn.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ClearHymnalBtn.ForeColor = System.Drawing.SystemColors.ControlText
         Me.ClearHymnalBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ClearHymnalBtn.Location = New System.Drawing.Point(76, 88)
+        Me.ClearHymnalBtn.Location = New System.Drawing.Point(76, 86)
         Me.ClearHymnalBtn.Margin = New System.Windows.Forms.Padding(0)
         Me.ClearHymnalBtn.Name = "ClearHymnalBtn"
         Me.ClearHymnalBtn.Size = New System.Drawing.Size(156, 27)
@@ -1582,7 +1582,7 @@ Partial Class MainProgram
         Me.HymnalListBox.Location = New System.Drawing.Point(2, 2)
         Me.HymnalListBox.Name = "HymnalListBox"
         Me.HymnalListBox.ScrollAlwaysVisible = True
-        Me.HymnalListBox.Size = New System.Drawing.Size(74, 113)
+        Me.HymnalListBox.Size = New System.Drawing.Size(74, 111)
         Me.HymnalListBox.TabIndex = 56
         Me.HymnalListBox.TabStop = False
         '

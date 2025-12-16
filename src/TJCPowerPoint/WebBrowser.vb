@@ -1,4 +1,5 @@
 ﻿Public Class WebBrowser
+    Inherits Form
     Private src As String
 
     Public Sub New(name As String)

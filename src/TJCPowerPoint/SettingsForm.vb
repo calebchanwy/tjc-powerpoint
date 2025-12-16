@@ -1,5 +1,5 @@
 ﻿Public Class SettingsForm
-    Inherits DraggableForm
+    Inherits Form
 
     Public Sub New()
         ' This call is required by the designer.

@@ -4,7 +4,7 @@ Imports System.Threading
 Imports System.Drawing
 Imports System.Windows.Forms
 Public Class BaseSlideEdit
-    Inherits DraggableForm
+    Inherits Form
     Private slideName As String
     Private slideKey As String
     Private aeroEnabled As Boolean

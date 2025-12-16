@@ -4,7 +4,7 @@ Imports System.IO
 Imports System.Threading
 
 Public Class ImageViewer
-    Inherits DraggableForm
+    Inherits Form
 
     Private Const imageWidth = 764
     Private Const imageHeight = 430
