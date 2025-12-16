@@ -6,8 +6,8 @@ Imports System.Threading
 Public Class ImageViewer
     Inherits DraggableForm
 
-    Private Const imageWidth = 775
-    Private Const imageHeight = 390
+    Private Const imageWidth = 764
+    Private Const imageHeight = 430
     Private previewBoxes As ArrayList
     Private slide As Slide
 

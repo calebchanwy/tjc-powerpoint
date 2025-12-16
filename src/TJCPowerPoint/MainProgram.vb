@@ -346,6 +346,7 @@ Public Class MainProgram
     ' Method that handles when the ShowVerses control is checked/unchecked.
     ' On checking, the verse is updated. If unchecked, verses are cleared.
     Private Sub ShowVerses_CheckedChanged(sender As Object, e As EventArgs) Handles ShowVersesBtn.CheckedChanged
+        ShowVersesBtn.TabStop = False
         If ShowVersesBtn.Checked Then
             UpdateVerse()
         Else

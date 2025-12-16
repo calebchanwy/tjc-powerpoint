@@ -120,6 +120,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Design" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Management" />
     <Reference Include="System.Web" />
@@ -307,6 +308,25 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\icons8-info-16.png" />
+    <None Include="Resources\icons8-edit-16.png" />
+    <None Include="Resources\icons8-question-16.png" />
+    <None Include="Resources\icons8-font-25.png" />
+    <None Include="Resources\icons8-music-16.png" />
+    <None Include="Resources\icons8-font-16.png" />
+    <None Include="Resources\icons8-color-16.png" />
+    <None Include="Resources\icons8-down-16.png" />
+    <None Include="Resources\icons8-up-16.png" />
+    <None Include="Resources\icons8-move-up-16.png" />
+    <None Include="Resources\icons8-smartphone-16 %281%29.png" />
+    <None Include="Resources\icons8-smartphone-16.png" />
+    <None Include="Resources\icons8-calendar-16.png" />
+    <None Include="Resources\icons8-coffee-cup-16.png" />
+    <None Include="Resources\icons8-chat-16.png" />
+    <None Include="Resources\icons8-musical-note-16.png" />
+    <None Include="Resources\icons8-bible-16.png" />
+    <None Include="Resources\icons8-settings-16.png" />
+    <None Include="Resources\icons8-settings-48.png" />
     <None Include="Resources\loading-book.gif" />
     <None Include="Resources\powerpoint_en_white.png" />
     <None Include="Resources\background.png" />

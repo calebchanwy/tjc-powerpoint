@@ -13,7 +13,7 @@ Imports Microsoft.Office.Interop
 '© Copyright 2023 True Jesus Church London 
 
 Public Class HolyCommunion
-    Inherits DraggableForm
+    Inherits Form
     Private slide As PowerPoint.Slide
     Private HCHymns As HymnSelector
     Private iv As ImageViewer
@@ -172,23 +172,13 @@ Public Class HolyCommunion
     Private Sub enlargePreviewBtn_Click(sender As Object, e As EventArgs) Handles enlargePreviewBtn.Click, previewBox.Click
         iv.Show()
     End Sub
-
-
-    'Add handlers to specific controls, passing objects back to superclass
-    'All passed controls will allow the window to move as the mouse is dragged on it
-    Private Sub navBar_MouseDown(sender As Object, e As MouseEventArgs) Handles navBar.MouseDown, header.MouseDown
-        MyBase.Form1_MouseDown(sender, e)
-    End Sub
-    Private Sub navBar_MouseUp(sender As Object, e As MouseEventArgs) Handles navBar.MouseUp, header.MouseUp
-        MyBase.Form1_MouseUp(sender, e)
-    End Sub
-    Private Sub navBar_MouseMove(sender As Object, e As MouseEventArgs) Handles navBar.MouseMove, header.MouseMove
-        MyBase.Form1_MouseMove(sender, e)
-    End Sub
-
     Private Sub HolyCommunion_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.Closing
         Hide()
         iv.Hide()
         e.Cancel = True
+    End Sub
+
+    Private Sub cancelBtn_Click(sender As Object, e As EventArgs) Handles cancelBtn.Click
+        Me.Close()
     End Sub
 End Class

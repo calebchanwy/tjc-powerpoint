@@ -9,9 +9,9 @@
     End Sub
 
     Private Sub loadMaxHymns()
-        maxHCHymns.Text = My.Settings.maxHCHymns.ToString()
-        maxHymnalHymns.Text = My.Settings.maxHymnalHymns.ToString()
-        maxSermonHymns.Text = My.Settings.maxSermonHymns.ToString()
+        maxHCHymns.Value = My.Settings.maxHCHymns
+        maxHymnalHymns.Value = My.Settings.maxHymnalHymns
+        maxSermonHymns.Value = My.Settings.maxSermonHymns
     End Sub
     Private Sub loadScreens()
         ' Get the list of screens
@@ -73,12 +73,10 @@
 
     End Sub
 
-
-    Private Sub maxSermonHymns_KeyDown(sender As Object, e As KeyEventArgs) Handles maxSermonHymns.KeyDown, maxHymnalHymns.KeyDown, maxHCHymns.KeyDown
-        If e.KeyCode = Keys.Enter Then
-            saveMaxHymns()
-        End If
+    Private Sub maxHymnsChanged(sender As Object, e As EventArgs) Handles maxHCHymns.ValueChanged, maxHymnalHymns.ValueChanged, maxSermonHymns.ValueChanged
+        saveMaxHymns()
     End Sub
+
     Private Sub saveBtn_Click(sender As Object, e As EventArgs) Handles saveBtn.Click
         saveSettings()
     End Sub
@@ -90,24 +88,17 @@
     End Sub
     'Method to save the settings of all maximum hymns
     Private Sub saveMaxHymns()
-        'For each textbox, check if text are all integers, if any are not integers return error
-        Dim textBoxes() = {maxSermonHymns, maxHymnalHymns, maxHCHymns}
-        For Each textBox In textBoxes
-            Dim result As Integer
-            If Integer.TryParse(textBox.Text.ToString, result) Then
-                If textBox.Name.Equals("maxSermonHymns") Then
-                    My.Settings.maxSermonHymns = result
-                ElseIf textBox.Name.Equals("maxHymnalHymns") Then
-                    My.Settings.maxHymnalHymns = result
-                ElseIf textBox.Name.Equals("maxHCHymns") Then
-                    My.Settings.maxHCHymns = result
-                End If
-            Else
-                MessageBox.Show("Please enter in a number", "Error")
-                Return
+        'For each updown, check if text are all integers, if any are not integers return error
+        Dim updowns() = {maxSermonHymns, maxHymnalHymns, maxHCHymns}
+        For Each updown In updowns
+            If updown.Name.Equals("maxSermonHymns") Then
+                My.Settings.maxSermonHymns = updown.Value
+            ElseIf updown.Name.Equals("maxHymnalHymns") Then
+                My.Settings.maxHymnalHymns = updown.Value
+            ElseIf updown.Name.Equals("maxHCHymns") Then
+                My.Settings.maxHCHymns = updown.Value
             End If
         Next
-        MessageBox.Show("Save Successful", "Success")
     End Sub
     'Method to save the selected screen
     Private Sub saveScreen()
@@ -132,5 +123,9 @@
 
     Private Sub changeBgBtn_Click(sender As Object, e As EventArgs) Handles changeBgBtn.Click
         MainProgram.changeBackground()
+    End Sub
+
+    Private Sub cancelBtn_Click(sender As Object, e As EventArgs) Handles cancelBtn.Click
+        Me.Close()
     End Sub
 End Class
