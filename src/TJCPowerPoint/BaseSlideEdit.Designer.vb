@@ -48,13 +48,14 @@ Partial Class BaseSlideEdit
         Me.Label7 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.Panel3 = New System.Windows.Forms.Panel()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label9 = New System.Windows.Forms.Label()
-        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label10 = New System.Windows.Forms.Label()
         CType(Me.previewBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
@@ -90,7 +91,7 @@ Partial Class BaseSlideEdit
         '
         Me.googleSlidesLink.Dock = System.Windows.Forms.DockStyle.Top
         Me.googleSlidesLink.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.googleSlidesLink.Location = New System.Drawing.Point(5, 47)
+        Me.googleSlidesLink.Location = New System.Drawing.Point(5, 64)
         Me.googleSlidesLink.Margin = New System.Windows.Forms.Padding(0)
         Me.googleSlidesLink.Name = "googleSlidesLink"
         Me.googleSlidesLink.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal
@@ -103,7 +104,7 @@ Partial Class BaseSlideEdit
         Me.Label5.AutoSize = True
         Me.Label5.Dock = System.Windows.Forms.DockStyle.Top
         Me.Label5.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(5, 70)
+        Me.Label5.Location = New System.Drawing.Point(5, 87)
         Me.Label5.Margin = New System.Windows.Forms.Padding(0, 0, 0, 10)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(278, 13)
@@ -119,8 +120,8 @@ Partial Class BaseSlideEdit
         Me.txtInput.Dock = System.Windows.Forms.DockStyle.Top
         Me.txtInput.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtInput.ForeColor = System.Drawing.Color.Black
-        Me.txtInput.Location = New System.Drawing.Point(5, 100)
-        Me.txtInput.MinimumSize = New System.Drawing.Size(0, 260)
+        Me.txtInput.Location = New System.Drawing.Point(5, 117)
+        Me.txtInput.MinimumSize = New System.Drawing.Size(4, 260)
         Me.txtInput.Multiline = True
         Me.txtInput.Name = "txtInput"
         Me.txtInput.ScrollBars = System.Windows.Forms.ScrollBars.Both
@@ -231,7 +232,7 @@ Partial Class BaseSlideEdit
         Me.header.Cursor = System.Windows.Forms.Cursors.Default
         Me.header.Dock = System.Windows.Forms.DockStyle.Top
         Me.header.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.header.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.header.ForeColor = System.Drawing.SystemColors.ControlDarkDark
         Me.header.Location = New System.Drawing.Point(5, 30)
         Me.header.Margin = New System.Windows.Forms.Padding(0)
         Me.header.Name = "header"
@@ -386,7 +387,7 @@ Partial Class BaseSlideEdit
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 363.0!))
+        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 390.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(730, 390)
         Me.TableLayoutPanel1.TabIndex = 42
         '
@@ -396,6 +397,7 @@ Partial Class BaseSlideEdit
         Me.Panel2.Controls.Add(Me.Label9)
         Me.Panel2.Controls.Add(Me.Label5)
         Me.Panel2.Controls.Add(Me.googleSlidesLink)
+        Me.Panel2.Controls.Add(Me.Label10)
         Me.Panel2.Controls.Add(Me.header)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel2.Location = New System.Drawing.Point(3, 3)
@@ -403,6 +405,21 @@ Partial Class BaseSlideEdit
         Me.Panel2.Padding = New System.Windows.Forms.Padding(5, 30, 5, 5)
         Me.Panel2.Size = New System.Drawing.Size(505, 384)
         Me.Panel2.TabIndex = 5
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.Color.Transparent
+        Me.Label9.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Label9.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label9.Location = New System.Drawing.Point(5, 100)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(89, 17)
+        Me.Label9.TabIndex = 32
+        Me.Label9.Text = "Slide Content"
         '
         'Panel3
         '
@@ -435,6 +452,18 @@ Partial Class BaseSlideEdit
         Me.Label6.TabIndex = 43
         Me.Label6.Text = "Formatting:"
         '
+        'FlowLayoutPanel3
+        '
+        Me.FlowLayoutPanel3.AutoSize = True
+        Me.FlowLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.FlowLayoutPanel3.Controls.Add(Me.useTxtFile)
+        Me.FlowLayoutPanel3.Controls.Add(Me.useGoogleSlides)
+        Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(5, 22)
+        Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(203, 46)
+        Me.FlowLayoutPanel3.TabIndex = 44
+        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -462,33 +491,6 @@ Partial Class BaseSlideEdit
         Me.Label8.TabIndex = 31
         Me.Label8.Text = "Edit Slide"
         '
-        'Label9
-        '
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.Transparent
-        Me.Label9.Cursor = System.Windows.Forms.Cursors.Default
-        Me.Label9.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label9.Location = New System.Drawing.Point(5, 83)
-        Me.Label9.Margin = New System.Windows.Forms.Padding(0)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(89, 17)
-        Me.Label9.TabIndex = 32
-        Me.Label9.Text = "Slide Content"
-        '
-        'FlowLayoutPanel3
-        '
-        Me.FlowLayoutPanel3.AutoSize = True
-        Me.FlowLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.FlowLayoutPanel3.Controls.Add(Me.useTxtFile)
-        Me.FlowLayoutPanel3.Controls.Add(Me.useGoogleSlides)
-        Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(5, 22)
-        Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(203, 46)
-        Me.FlowLayoutPanel3.TabIndex = 44
-        '
         'Panel1
         '
         Me.Panel1.AutoSize = True
@@ -503,6 +505,22 @@ Partial Class BaseSlideEdit
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(730, 40)
         Me.Panel1.TabIndex = 43
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
+        Me.Label10.Cursor = System.Windows.Forms.Cursors.Default
+        Me.Label10.Dock = System.Windows.Forms.DockStyle.Top
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.Label10.Location = New System.Drawing.Point(5, 47)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(0)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(117, 17)
+        Me.Label10.TabIndex = 33
+        Me.Label10.Text = "Google Slides Link"
+        Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'BaseSlideEdit
         '
@@ -571,4 +589,5 @@ Partial Class BaseSlideEdit
     Friend WithEvents Label8 As Label
     Friend WithEvents FlowLayoutPanel3 As FlowLayoutPanel
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents Label10 As Label
 End Class
