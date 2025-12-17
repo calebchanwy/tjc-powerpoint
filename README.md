@@ -6,11 +6,11 @@ True Jesus Church PowerPoint (VB.NET) is a desktoped-based application developed
 ## Releases
 [**Latest Release**](https://github.com/calebchanwy/tjc-powerpoint/releases/latest)
 
-V3 - Enabled web browser within the app, to display Google slides, improved layouts and code efficiency
+v3 - Enabled web browser within the app, to display Google slides, improved layouts and code efficiency
 
-V2 - White-themed redesign. Removal of redundant functions and improved hymn selection.
+v2 - White-themed redesign. Removal of redundant functions and improved hymn selection.
 
-V1 - Original version, developed by Joshua Chan and Alex Lai (2017)
+v1 - Original version, developed by Joshua Chan and Alex Lai (2017)
 
 ## Features
 - **Verse Selection:** Choose specific Bible verses for projection.
@@ -25,5 +25,5 @@ V1 - Original version, developed by Joshua Chan and Alex Lai (2017)
 - Requires Windows 7 and above.
 
 ### Installation
-To install the application, download TJCPowerPoint_PUBLISH.zip or TJCPowerPoint_CB_PUBLISH.zip (for the simplified Chinese version).
+To install the application, view the [latest release](https://github.com/calebchanwy/tjc-powerpoint/releases/latest), download TJCPowerPoint_PUBLISH.zip or TJCPowerPoint_CB_PUBLISH.zip (for the simplified Chinese version).
 Extract all files, and run the setup file.
