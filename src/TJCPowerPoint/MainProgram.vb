@@ -1,7 +1,6 @@
 ﻿Imports Office = Microsoft.Office.Core
 Imports PowerPoint = Microsoft.Office.Interop.PowerPoint
 Imports System.IO
-Imports System.Xml
 Imports System.Threading
 
 ' This class is part of the TJC PowerPoint project.
@@ -18,7 +17,6 @@ Public Class MainProgram
 
     Private ppPres As PowerPoint.Presentation
     Private currentDir As String = Directory.GetCurrentDirectory()
-    Private writer As XmlTextWriter = Nothing
     ' Create HymnSelector objects to track and store hymn numbers.
     Private sermonHymns As HymnSelector
     Private hymnalHymns As HymnSelector
@@ -74,10 +72,6 @@ Public Class MainProgram
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
             'Checking for Null errors due to error elsewhere, ensure safe close of program
-            If writer IsNot Nothing Then
-                writer.WriteEndElement()
-                writer.Close()
-            End If
             If ppPres IsNot Nothing Then
                 ppPres.Close()
             End If
@@ -120,9 +114,6 @@ Public Class MainProgram
         End If
         If My.Computer.FileSystem.FileExists(currentDir + "\Files\ServiceWidescreen.pptx") = False Then
             System.IO.File.WriteAllBytes(currentDir + "\Files\ServiceWidescreen.pptx", My.Resources.ServiceWidescreen)
-        End If
-        If My.Computer.FileSystem.FileExists(currentDir + "\Files\config.xml") = False Then
-            System.IO.File.WriteAllText(currentDir + "\Files\config.xml", My.Resources.config)
         End If
     End Sub
     ' Load up the PowerPoint app, along with the matching PowerPoint file.

@@ -15,7 +15,7 @@ Option Explicit On
 Namespace My
     
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.6.0.0"),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.14.0.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
@@ -99,6 +99,114 @@ Namespace My
             End Get
             Set
                 Me("maxHCHymns") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property announcementsWebLink() As String
+            Get
+                Return CType(Me("announcementsWebLink"),String)
+            End Get
+            Set
+                Me("announcementsWebLink") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property announcementsImage() As String
+            Get
+                Return CType(Me("announcementsImage"),String)
+            End Get
+            Set
+                Me("announcementsImage") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property announcementsEnableWeb() As Boolean
+            Get
+                Return CType(Me("announcementsEnableWeb"),Boolean)
+            End Get
+            Set
+                Me("announcementsEnableWeb") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property prayerRequestsWebLink() As String
+            Get
+                Return CType(Me("prayerRequestsWebLink"),String)
+            End Get
+            Set
+                Me("prayerRequestsWebLink") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property prayerRequestsImage() As String
+            Get
+                Return CType(Me("prayerRequestsImage"),String)
+            End Get
+            Set
+                Me("prayerRequestsImage") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property prayerRequestsEnableWeb() As Boolean
+            Get
+                Return CType(Me("prayerRequestsEnableWeb"),Boolean)
+            End Get
+            Set
+                Me("prayerRequestsEnableWeb") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property serviceTimesWebLink() As String
+            Get
+                Return CType(Me("serviceTimesWebLink"),String)
+            End Get
+            Set
+                Me("serviceTimesWebLink") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property serviceTimesImage() As String
+            Get
+                Return CType(Me("serviceTimesImage"),String)
+            End Get
+            Set
+                Me("serviceTimesImage") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
+        Public Property serviceTimesEnableWeb() As Boolean
+            Get
+                Return CType(Me("serviceTimesEnableWeb"),Boolean)
+            End Get
+            Set
+                Me("serviceTimesEnableWeb") = value
             End Set
         End Property
     End Class
