@@ -7,11 +7,9 @@ Public Class BaseSlideEdit
 
     Private slideName As String
     Private slideKey As String
-    Private enableWeb As Boolean
     Private slide As PowerPoint.Slide
     Private titleTB As PowerPoint.TextRange
     Private bodyTB As PowerPoint.TextRange
-    Private webLink As String
 
     'Image Viewer
     Private imageViewer As ImageViewer
@@ -28,38 +26,42 @@ Public Class BaseSlideEdit
         ' Initialize component as required by the designer.
         InitializeComponent()
         ' Add any initialization after the InitializeComponent() call.
-        loadData()
+        LoadData()
         header.Text = slideName
         Text = slideName
         imageViewer.addPreviewBox(previewBox)
         imageViewer.updatePreviews()
     End Sub
-    'Method that updates form's own internal text box
-    Public Sub setInput(txt As String)
-        txtInput.Text = txt
-    End Sub
-
-    Private Sub loadData()
-        ' Pass the KEY and the DEFAULT VALUE to the helper function
+    Private Sub LoadData()
         Dim link As String = My.Settings(slideKey & "WebLink")
-        setWebLink(link)
+        SetWebLink(link)
         Dim img As String = My.Settings(slideKey & "Image")
         loadImage(img)
         Dim enableWeb As Boolean = My.Settings(slideKey & "EnableWeb")
-        setEnableWeb(enableWeb)
+        SetEnableWeb(enableWeb)
     End Sub
 
-    Public Sub setWebLink(link As String)
+    ''' <summary>
+    ''' Updates main content of slide
+    ''' </summary>
+    ''' <param name="txt"></param>
+    Public Sub SetContent(txt As String)
+        bodyTB.Text = txt
+        txtInput.Text = txt
+    End Sub
+
+    Public Sub SetWebLink(link As String)
+        My.Settings.Item(slideKey & "WebLink") = link
         If link.Equals("") Then
             useTxtFile.Checked = True
         End If
-        webLink = link
-        googleSlidesLink.Text = webLink
+        googleSlidesLink.Text = link
+        webBrowser.refreshBrowser(link)
     End Sub
 
-    Public Sub setEnableWeb(bool As String)
-        enableWeb = Boolean.Parse(bool)
-        If enableWeb Then
+    Public Sub SetEnableWeb(bool As Boolean)
+        My.Settings.Item(slideKey & "EnableWeb") = bool
+        If bool Then
             useGoogleSlides.Checked = True
         Else
             useTxtFile.Checked = True
@@ -67,10 +69,9 @@ Public Class BaseSlideEdit
     End Sub
 
     Public Sub ShowBrowser()
-        'check if using browser or not
-        If enableWeb Then
+        If My.Settings.Item(slideKey & "EnableWeb") Then
             webBrowser.MaximizeOnScreen(SettingsForm.getScreen())
-            webBrowser.refreshBrowser(webLink)
+            webBrowser.refreshBrowser(My.Settings.Item(slideKey & "WebLink"))
             webBrowser.Show()
         End If
     End Sub
@@ -78,26 +79,12 @@ Public Class BaseSlideEdit
     Public Sub HideBrowser()
         webBrowser.Hide()
     End Sub
-
-
-    Private Sub updateLink()
-        'update in settings config file
-        webLink = googleSlidesLink.Text
-        My.Settings.Item(slideKey & "WebLink") = webLink
-        'update in web browser
-        webBrowser.refreshBrowser(webLink)
-    End Sub
-    Public Function getWebLink()
-        Return webLink
-    End Function
     Public Sub setTitleTB(tb As PowerPoint.TextRange)
         titleTB = tb
     End Sub
-
     Public Sub setBodyTB(tb As PowerPoint.TextRange)
         bodyTB = tb
     End Sub
-
 
     Public Sub loadImage(dir As String)
         If My.Computer.FileSystem.FileExists(dir) = True Then
@@ -152,10 +139,10 @@ Public Class BaseSlideEdit
     End Sub
 
     Private Sub updateBtn_Click(sender As Object, e As EventArgs) Handles updateBtn.Click
-        bodyTB.Text = txtInput.Text
         Try
+            SetContent(txtInput.Text)
             imageViewer.updatePreviews()
-            updateLink()
+            SetWebLink(googleSlidesLink.Text)
             My.Settings.Item(slideKey & "Content") = txtInput.Text
             MessageBox.Show("Save Successful", "Save Successful")
 
@@ -163,8 +150,6 @@ Public Class BaseSlideEdit
             MessageBox.Show("Save Unsuccessful", "Save Unsuccessful")
         End Try
     End Sub
-
-
 
     Private Sub loadTxtBtn_Click(sender As Object, e As EventArgs) Handles loadTxtBtn.Click
         OpenFileDialog.InitialDirectory = MainProgram.getCurrentDirectory() + "\Files\"
@@ -174,29 +159,19 @@ Public Class BaseSlideEdit
         End If
     End Sub
 
-    Private Sub closeForm_Click(sender As Object, e As EventArgs)
-        Me.Hide()
-    End Sub
-    Private Sub minForm_Click(sender As Object, e As EventArgs)
-        Me.WindowState = FormWindowState.Minimized
-    End Sub
-
     Private Sub previewBox_Click(sender As Object, e As EventArgs) Handles previewBox.Click, enlargePreviewBtn.Click
         imageViewer.Show()
     End Sub
 
-
     Private Sub googleSlidesLink_KeyDown(sender As Object, e As KeyEventArgs) Handles googleSlidesLink.KeyDown
         If e.KeyCode = Keys.Enter Then
-            setWebLink(googleSlidesLink.Text)
-            updateLink()
+            SetWebLink(googleSlidesLink.Text)
             MessageBox.Show("Google link saved", "Save Successful")
         End If
     End Sub
 
     Private Sub useTxtFile_CheckedChanged(sender As Object, e As EventArgs) Handles useTxtFile.CheckedChanged
         If useTxtFile.Checked Then
-            enableWeb = False
             My.Settings.Item(slideKey & "EnableWeb") = False
             HideBrowser()
         End If
@@ -205,7 +180,6 @@ Public Class BaseSlideEdit
 
     Private Sub useGoogleSlides_CheckedChanged(sender As Object, e As EventArgs) Handles useGoogleSlides.CheckedChanged
         If useGoogleSlides.Checked Then
-            enableWeb = True
             My.Settings.Item(slideKey & "EnableWeb") = True
             If MainProgram.IsCurrentSlideIndex(slide.SlideIndex) Then
                 ShowBrowser()
@@ -214,8 +188,8 @@ Public Class BaseSlideEdit
 
     End Sub
 
-    'Ensures that upon closing, the form state is still saved
     Private Sub BaseSlideEdit_Closing(sender As Object, e As FormClosingEventArgs) Handles MyBase.Closing
+        'Ensure that upon closing, the form state is still saved
         Hide()
         imageViewer.Hide()
         e.Cancel = True

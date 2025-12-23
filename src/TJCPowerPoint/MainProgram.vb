@@ -62,7 +62,7 @@ Public Class MainProgram
             ShowBreakBtn.Checked = True
         Catch ex As Exception
             'Show error box to user if application could not load. Force application to close
-            MessageBox.Show("An error occurred while loading the application. Please try again.", "Error")
+            MessageBox.Show("An error occurred while loading the application. Please try again." & ex.ToString(), "Error")
             Close()
         End Try
     End Sub
@@ -142,10 +142,9 @@ Public Class MainProgram
         Dim content As String = My.Settings(slideKey & "Content")
         textBoxDictionary.Item(bodyTextboxKey).Text = content
         slideWindow = New BaseSlideEdit(title, slideKey, slideDictionary.Item(slideKey))
-        slideWindow.setInput(content)
         slideWindow.setBodyTB(textBoxDictionary.Item(bodyTextboxKey))
         slideWindow.setTitleTB(textBoxDictionary.Item(titleTextboxKey))
-        slideWindow.Update()
+        slideWindow.SetContent(content)
     End Sub
     ' Method that initialises editable slides and their BaseSlideEdit objects.
     Private Sub handleEditableSlides()
