@@ -85,6 +85,7 @@
     Private Sub saveSettings()
         saveScreen()
         saveMaxHymns()
+        MessageBox.Show("Save Successful", "Save Successful")
     End Sub
     'Method to save the settings of all maximum hymns
     Private Sub saveMaxHymns()
@@ -118,7 +119,7 @@
     End Sub
 
     Private Sub openFolderBtn_Click(sender As Object, e As EventArgs) Handles openFolderBtn.Click
-        Process.Start(MainProgram.getCurrentDirectory() + "\Files")
+        Process.Start(MainProgram.getCurrentDirectory())
     End Sub
 
     Private Sub changeBgBtn_Click(sender As Object, e As EventArgs) Handles changeBgBtn.Click
