@@ -149,17 +149,9 @@ Public Class MainProgram
             textBoxDictionary.Item(textBoxKey).Text = " "
         Next
     End Sub
-    ' Method to load Holy Communion slide with details from the text files.
-    ' If no text file exists, then no names will be displayed.
     Private Sub HandleHC()
-        ' Read from bread.txt and update PowerPoint textbox with read content.
-        If My.Computer.FileSystem.FileExists(currentDir + "\Files\bread.txt") = True Then
-            textBoxDictionary.Item("bread").Text = My.Computer.FileSystem.ReadAllText(currentDir + "\Files\bread.txt")
-        End If
-        ' Read from cup.txt and update PowerPoint textbox with read content.
-        If My.Computer.FileSystem.FileExists(currentDir + "\Files\cup.txt") = True Then
-            textBoxDictionary.Item("cup").Text = My.Computer.FileSystem.ReadAllText(currentDir + "\Files\cup.txt")
-        End If
+        textBoxDictionary.Item("bread").Text = My.Settings.Item("holyCommunionBreadList")
+        textBoxDictionary.Item("cup").Text = My.Settings.Item("holyCommunionCupList")
     End Sub
     ' Method takes in name, slide key, text box key and title name, creating new BaseSlideEdit Form.
     Private Sub HandleData(title As String, slideKey As String, bodyTextboxKey As String, titleTextboxKey As String, ByRef slideWindow As BaseSlideEdit)

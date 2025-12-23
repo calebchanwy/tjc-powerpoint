@@ -1,6 +1,4 @@
-﻿Imports System.IO
-Imports Microsoft
-Imports Microsoft.Office.Interop
+﻿Imports Microsoft.Office.Interop
 'This class is part of the TJC PowerPoint project.
 'The TJC PowerPoint is a simple program displaying bible verses, hymns
 'to a projector using Microsoft PowerPoint.
@@ -22,21 +20,10 @@ Public Class HolyCommunion
 
         ' This call is required by the designer.
         InitializeComponent()
-
         ' Add any initialization after the InitializeComponent() call.
-        ' File paths
-        Dim breadFilePath As String = Path.Combine(MainProgram.getCurrentDirectory(), "Files\bread.txt")
-        Dim cupFilePath As String = Path.Combine(MainProgram.getCurrentDirectory(), "Files\cup.txt")
 
-        ' Load bread text from file
-        If File.Exists(breadFilePath) Then
-            breadTxt.Text = File.ReadAllText(breadFilePath)
-        End If
-
-        ' Load cup text from file
-        If File.Exists(cupFilePath) Then
-            cupTxt.Text = File.ReadAllText(cupFilePath)
-        End If
+        breadTxt.Text = My.Settings.Item("holyCommunionBreadList")
+        cupTxt.Text = My.Settings.Item("holyCommunionCupList")
 
         ' Set slide number for holyCommunion
         slide = MainProgram.getSlide("holyCommunion")
@@ -68,8 +55,8 @@ Public Class HolyCommunion
         MainProgram.getTextBox("bread").Text = breadTxt.Text
         MainProgram.getTextBox("cup").Text = cupTxt.Text
         Try
-            My.Computer.FileSystem.WriteAllText(MainProgram.getCurrentDirectory() + "\Files\bread.txt", breadTxt.Text, False)
-            My.Computer.FileSystem.WriteAllText(MainProgram.getCurrentDirectory() + "\Files\cup.txt", cupTxt.Text, False)
+            My.Settings.Item("holyCommunionBreadList") = breadTxt.Text
+            My.Settings.Item("holyCommunionCupList") = cupTxt.Text
             MessageBox.Show("Update Successful", "Update Successful")
             iv.updatePreviews()
         Catch ex As Exception
