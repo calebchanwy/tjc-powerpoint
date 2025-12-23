@@ -30,7 +30,6 @@ Partial Class SettingsForm
         Me.DisplayComboBox = New System.Windows.Forms.ComboBox()
         Me.GeneralSettings = New System.Windows.Forms.GroupBox()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.Label6 = New System.Windows.Forms.Label()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -63,7 +62,7 @@ Partial Class SettingsForm
         Me.Utilities.Controls.Add(Me.FlowLayoutPanel1)
         Me.Utilities.Dock = System.Windows.Forms.DockStyle.Top
         Me.Utilities.Font = New System.Drawing.Font("Segoe UI Semibold", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Utilities.Location = New System.Drawing.Point(0, 139)
+        Me.Utilities.Location = New System.Drawing.Point(0, 119)
         Me.Utilities.Margin = New System.Windows.Forms.Padding(10)
         Me.Utilities.Name = "Utilities"
         Me.Utilities.Padding = New System.Windows.Forms.Padding(5)
@@ -136,7 +135,7 @@ Partial Class SettingsForm
         Me.GeneralSettings.Margin = New System.Windows.Forms.Padding(10)
         Me.GeneralSettings.Name = "GeneralSettings"
         Me.GeneralSettings.Padding = New System.Windows.Forms.Padding(5)
-        Me.GeneralSettings.Size = New System.Drawing.Size(664, 139)
+        Me.GeneralSettings.Size = New System.Drawing.Size(664, 119)
         Me.GeneralSettings.TabIndex = 36
         Me.GeneralSettings.TabStop = False
         Me.GeneralSettings.Text = "General Settings"
@@ -147,38 +146,18 @@ Partial Class SettingsForm
         Me.TableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.TableLayoutPanel2.ColumnCount = 2
         Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20.59925!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.40076!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.Label6, 1, 1)
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 79.40075!))
         Me.TableLayoutPanel2.Controls.Add(Me.Label5, 0, 0)
         Me.TableLayoutPanel2.Controls.Add(Me.DisplayComboBox, 1, 0)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.TableLayoutPanel2.Location = New System.Drawing.Point(5, 79)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.Padding = New System.Windows.Forms.Padding(2)
-        Me.TableLayoutPanel2.RowCount = 2
+        Me.TableLayoutPanel2.RowCount = 1
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(654, 55)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(654, 35)
         Me.TableLayoutPanel2.TabIndex = 7
-        '
-        'Label6
-        '
-        Me.Label6.AutoSize = True
-        Me.Label6.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI Semilight", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.ForeColor = System.Drawing.SystemColors.GrayText
-        Me.Label6.Image = Global.TJCPowerPoint.My.Resources.Resources.icons8_info_16
-        Me.Label6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Label6.Location = New System.Drawing.Point(138, 33)
-        Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(511, 17)
-        Me.Label6.TabIndex = 8
-        Me.Label6.Text = "     Application restart required to apply"
         '
         'Label5
         '
@@ -407,7 +386,6 @@ Partial Class SettingsForm
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents Label4 As Label
     Friend WithEvents TableLayoutPanel2 As TableLayoutPanel
-    Friend WithEvents Label6 As Label
     Friend WithEvents Label5 As Label
     Friend WithEvents maxHCHymns As NumericUpDown
     Friend WithEvents maxSermonHymns As NumericUpDown

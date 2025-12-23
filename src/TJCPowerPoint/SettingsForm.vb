@@ -44,11 +44,9 @@
     Public Function getScreen() As Screen
         ' Get the selected screen
         Dim selectedScreen As Screen = Nothing
-
         If DisplayComboBox.SelectedIndex >= 0 Then
-            Dim displayAsString = DisplayComboBox.SelectedItem
             For Each screen As Screen In Screen.AllScreens()
-                If displayAsString.Contains(screen.DeviceName) Then
+                If My.Settings.Item("SelectedDisplay").Contains(screen.DeviceName) Then
                     Return screen
                 End If
             Next
