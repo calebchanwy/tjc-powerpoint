@@ -74,6 +74,7 @@ Public Class MainProgram
             'Checking for Null errors due to error elsewhere, ensure safe close of program
             If ppPres IsNot Nothing Then
                 ppPres.Close()
+                My.Settings.Save()
             End If
         Catch ex As Exception
         End Try
@@ -89,22 +90,6 @@ Public Class MainProgram
     ' Returns PowerPoint slide object from slide dictionary.
     Public Function getSlide(slideName As String)
         Return slideDictionary.Item(slideName)
-    End Function
-    ' Reads a text file of a given text file name in the same directory.
-    ' Returns string object containing its contents.
-    Public Function getTextFile(fileName As String)
-        ' If the file exists, return the contents.
-        ' If the file does not exist, then create empty text file with the corresponding file name.
-        If My.Computer.FileSystem.FileExists(currentDir + "\Files\" + fileName) Then
-            Dim text As String
-            text = My.Computer.FileSystem.ReadAllText(currentDir + "\Files\" + fileName, System.Text.Encoding.UTF8)
-            Return text
-        Else
-            Using sw As StreamWriter = File.CreateText(currentDir + "\Files\" + fileName)
-                sw.WriteLine(" ")
-            End Using
-            Return ""
-        End If
     End Function
     ' Create directory containing required resources.
     ' For each resource that does not already exist, write it to the folder.
@@ -178,12 +163,13 @@ Public Class MainProgram
     End Sub
     ' Method takes in name, slide key, text box key and title name, creating new BaseSlideEdit Form.
     Private Sub HandleData(title As String, slideKey As String, bodyTextboxKey As String, titleTextboxKey As String, ByRef slideWindow As BaseSlideEdit)
-        Dim dataTxt As String = getTextFile($"{title}.txt")
-        textBoxDictionary.Item(bodyTextboxKey).Text = dataTxt
+        Dim content As String = My.Settings(slideKey & "Content")
+        textBoxDictionary.Item(bodyTextboxKey).Text = content
         slideWindow = New BaseSlideEdit(title, slideKey, slideDictionary.Item(slideKey))
-        slideWindow.setInput(dataTxt)
+        slideWindow.setInput(content)
         slideWindow.setBodyTB(textBoxDictionary.Item(bodyTextboxKey))
         slideWindow.setTitleTB(textBoxDictionary.Item(titleTextboxKey))
+        slideWindow.Update()
     End Sub
     ' Method that initialises editable slides and their BaseSlideEdit objects.
     Private Sub handleEditableSlides()

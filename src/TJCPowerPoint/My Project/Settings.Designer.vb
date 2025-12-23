@@ -209,6 +209,42 @@ Namespace My
                 Me("serviceTimesEnableWeb") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property announcementsContent() As String
+            Get
+                Return CType(Me("announcementsContent"),String)
+            End Get
+            Set
+                Me("announcementsContent") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property prayerRequestsContent() As String
+            Get
+                Return CType(Me("prayerRequestsContent"),String)
+            End Get
+            Set
+                Me("prayerRequestsContent") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property serviceTimesContent() As String
+            Get
+                Return CType(Me("serviceTimesContent"),String)
+            End Get
+            Set
+                Me("serviceTimesContent") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

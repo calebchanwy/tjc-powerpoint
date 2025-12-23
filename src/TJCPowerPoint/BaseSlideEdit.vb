@@ -156,8 +156,7 @@ Public Class BaseSlideEdit
         Try
             imageViewer.updatePreviews()
             updateLink()
-            My.Computer.FileSystem.WriteAllText(MainProgram.getCurrentDirectory() + "\Files\" + slideName.Replace(" ", "") + ".txt", txtInput.Text, False)
-
+            My.Settings.Item(slideKey & "Content") = txtInput.Text
             MessageBox.Show("Save Successful", "Save Successful")
 
         Catch ex As Exception
