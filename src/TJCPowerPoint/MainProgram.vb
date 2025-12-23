@@ -3,14 +3,16 @@ Imports PowerPoint = Microsoft.Office.Interop.PowerPoint
 Imports System.IO
 Imports System.Threading
 
-' This class is part of the TJC PowerPoint project.
-' The TJC PowerPoint is a simple program displaying bible verses, hymns to a projector using Microsoft PowerPoint.
-' It also has other purporses to help display usesful information to the projector
-' These include:
-' How to pray, service times, current time and date, holy communion slides, prayer requests, announcements, hymnal hymns etc.
-'
-' Initially developed by Joshi Chan (TJC Leicester), from V2 onwards developed by Caleb Chan (TJC London).
-' © Copyright 2023 True Jesus Church London.
+''' <summary>
+''' The Main Entry point for the TJC PowerPoint Controller.
+''' Manages the connection between the Windows Form and the PowerPoint Application.
+''' Handles Bible verses, Hymns, and other information slides.
+''' </summary>
+''' <remarks>
+''' Originally developed by Joshua Chan (TJC Leicester) and Alex Lai (TJC Forest Hill)
+''' V2+ developed by Caleb Chan (TJC London).
+''' © Copyright 2025 True Jesus Church.
+''' </remarks>
 
 Public Class MainProgram
     Inherits Form
@@ -28,29 +30,27 @@ Public Class MainProgram
     Private announcementsWindow As BaseSlideEdit
     Private serviceTimesWindow As BaseSlideEdit
 
-    ' Handle application exceptions by displaying a message box upon exception.
-    Private Sub Application_ThreadException(sender As Object, e As ThreadExceptionEventArgs)
-        MessageBox.Show("An error occurred. Please restart the application" + e.ToString())
-        Close()
-    End Sub
-    ' Handle unhandled exceptions by displaying a message box upon exception.
-    Private Sub CurrentDomain_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs)
-        MessageBox.Show("An error occurred. Please restart the application" + e.ToString())
-        Close()
-    End Sub
-    ' Constructor of MainProgram.
     Public Sub New()
         InitializeComponent()
-        ' Add the event handler for unhandled exceptions
         AddHandler Application.ThreadException, AddressOf Application_ThreadException
         AddHandler AppDomain.CurrentDomain.UnhandledException, AddressOf CurrentDomain_UnhandledException
     End Sub
-    ' Handle initial load up of windows form
-    ' Creates and locates directory, loads up Microsoft PowerPoints, initialises form's controls
+    ''' <summary>
+    ''' Initial setup: Open PowerPoint, load dictionaries, and reset UI.
+    ''' </summary>
     Private Sub MainLoad() Handles MyBase.Load
         Try
-            MakeFolder()
-            LoadPres()
+            ' Load PowerPoint presentation
+            If My.Computer.FileSystem.FileExists(currentDir + "\ServiceWidescreen.pptx") = False Then
+                System.IO.File.WriteAllBytes(currentDir + "\ServiceWidescreen.pptx", My.Resources.ServiceWidescreen)
+            End If
+            Dim ppApp As PowerPoint.Application = New PowerPoint.Application
+            ppPres = ppApp.Presentations.Open(currentDir & "\ServiceWidescreen.pptx", ReadOnly:=Office.MsoTriState.msoFalse, WithWindow:=Office.MsoTriState.msoFalse)
+            With ppPres.SlideShowSettings
+                .ShowPresenterView = False
+                .Run()
+            End With
+
             createDict()
             ResetServiceDetails()
             handleEditableSlides()
@@ -67,8 +67,6 @@ Public Class MainProgram
         End Try
     End Sub
 
-    ' Handle closing of the form.
-    ' Ensures all processes are safely closed and exited.
     Private Sub Main_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Try
             'Checking for Null errors due to error elsewhere, ensure safe close of program
@@ -79,6 +77,16 @@ Public Class MainProgram
         Catch ex As Exception
         End Try
     End Sub
+    Private Sub Application_ThreadException(sender As Object, e As ThreadExceptionEventArgs)
+        MessageBox.Show("An error occurred. Please restart the application" + e.ToString())
+        Close()
+    End Sub
+    Private Sub CurrentDomain_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs)
+        MessageBox.Show("An error occurred. Please restart the application" + e.ToString())
+        Close()
+    End Sub
+
+
     ' Returns the current directory that the application is located in.
     Public Function getCurrentDirectory()
         Return currentDir
@@ -91,30 +99,6 @@ Public Class MainProgram
     Public Function getSlide(slideName As String)
         Return slideDictionary.Item(slideName)
     End Function
-    ' Create directory containing required resources.
-    ' For each resource that does not already exist, write it to the folder.
-    Private Sub MakeFolder()
-        If Directory.Exists("\Files") = False Then
-            My.Computer.FileSystem.CreateDirectory(currentDir + "\Files")
-        End If
-        If My.Computer.FileSystem.FileExists(currentDir + "\Files\ServiceWidescreen.pptx") = False Then
-            System.IO.File.WriteAllBytes(currentDir + "\Files\ServiceWidescreen.pptx", My.Resources.ServiceWidescreen)
-        End If
-    End Sub
-    ' Load up the PowerPoint app, along with the matching PowerPoint file.
-    ' Set default presentation settings.
-    Private Sub LoadPres()
-        Dim ppApp As PowerPoint.Application
-        ' Create a new instance of PowerPoint application
-        ppApp = New PowerPoint.Application
-        ' Open the presentation file
-        ppPres = ppApp.Presentations.Open(currentDir & "\Files\ServiceWidescreen.pptx", ReadOnly:=Office.MsoTriState.msoFalse, WithWindow:=Office.MsoTriState.msoFalse)
-        ' Set slide show settings
-        With ppPres.SlideShowSettings
-            .ShowPresenterView = False
-            .Run()
-        End With
-    End Sub
     ' Create dictionaries for slide and text box objects.
     Private Sub createDict()
         Dim dict As DictionairyFactory
@@ -667,7 +651,6 @@ Public Class MainProgram
     Private Sub hymnalHymnFontBtn_Click(sender As Object, e As EventArgs) Handles HymnalHymnFontBtn.Click
         ChangeFont(textBoxDictionary.Item("hymnalHymns"))
     End Sub
-
     Private Sub BBibleHDFont_Click(sender As Object, e As EventArgs) Handles BibleHDFont.Click
         ChangeFont(textBoxDictionary.Item("bibleHeader"))
     End Sub
@@ -694,9 +677,7 @@ Public Class MainProgram
         ChangeColor(textBoxDictionary.Item("chapterAndVerse"))
     End Sub
 
-    Private Sub OpenPrayerRequestsWindow_Click(sender As Object, e As EventArgs) Handles EditPRBtn.Click
-        prayerRequestsWindow.Show()
-    End Sub
+
 
 
     Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles Timer.Tick
@@ -783,12 +764,18 @@ Public Class MainProgram
     Private Sub ChapterTxt_GotFocus(sender As Object, e As EventArgs) Handles ChapterTxt.GotFocus
         ChapterTxt.SelectAll()
     End Sub
+
+    Private Sub OpenPrayerRequestsWindow_Click(sender As Object, e As EventArgs) Handles EditPRBtn.Click
+        prayerRequestsWindow.Show()
+    End Sub
     Private Sub Show_AN_Click(sender As Object, e As EventArgs) Handles EditAnnouncementsBtn.Click
         announcementsWindow.Show()
     End Sub
-
     Private Sub edtHC_Click(sender As Object, e As EventArgs) Handles EditHCBtn.Click
         HolyCommunion.Show()
+    End Sub
+    Private Sub ServiceTimesBtn_Click(sender As Object, e As EventArgs) Handles EditTimetableBtn.Click
+        serviceTimesWindow.Show()
     End Sub
 
     Private Sub clearbtn_Click(sender As Object, e As EventArgs) Handles ResetAllBtn.Click
@@ -801,25 +788,24 @@ Public Class MainProgram
 
     End Sub
 
-    Private Sub ServiceTimesBtn_Click(sender As Object, e As EventArgs) Handles EditTimetableBtn.Click
-        serviceTimesWindow.Show()
+    Private Sub settingsBtn_Click(sender As Object, e As EventArgs) Handles SettingsBtn.Click
+        SettingsForm.Show()
+    End Sub
+    Private Sub ServiceType_SelectedValueChanged(sender As Object, e As EventArgs) Handles ServiceTypeTxt.SelectedValueChanged
+        updateServiceTypes()
     End Sub
 
 
-    'Following 5 methods deal with moving the chinese and english title up or down to create more/less spacing
-    'Needed when English title takes two or more lines
     Private Sub moveUp(textBox As PowerPoint.Shape)
         If textBox.Top >= 5 Then
             textBox.Top = textBox.Top - 5
         End If
     End Sub
-
     Private Sub moveDown(textBox As PowerPoint.Shape)
         If textBox.Top <= 400 Then
             textBox.Top = textBox.Top + 5
         End If
     End Sub
-
     Private Sub MoveShapeByOffset(shapeIndex As Integer, offset As Integer)
         Dim targetShape As PowerPoint.Shape = Nothing
 
@@ -837,33 +823,17 @@ Public Class MainProgram
             End If
         End If
     End Sub
-
     Private Sub moveEnglishDown_Click(sender As Object, e As EventArgs) Handles EnglishMoveDownBtn.Click
         MoveShapeByOffset(1, 1)
     End Sub
-
     Private Sub moveEnglishUp_Click(sender As Object, e As EventArgs) Handles EnglishMoveUpBtn.Click
         MoveShapeByOffset(1, -1)
     End Sub
-
     Private Sub moveChineseUp_Click(sender As Object, e As EventArgs) Handles ChineseMoveUpBtn.Click
         MoveShapeByOffset(2, -1)
     End Sub
-
     Private Sub moveChineseDown_Click(sender As Object, e As EventArgs) Handles ChineseMoveDownBtn.Click
         MoveShapeByOffset(2, 1)
-    End Sub
-
-    Private Sub minForm_Click(sender As Object, e As EventArgs)
-        Me.WindowState = FormWindowState.Minimized
-    End Sub
-
-    Private Sub settingsBtn_Click(sender As Object, e As EventArgs) Handles SettingsBtn.Click
-        SettingsForm.Show()
-    End Sub
-
-    Private Sub ServiceType_SelectedValueChanged(sender As Object, e As EventArgs) Handles ServiceTypeTxt.SelectedValueChanged
-        updateServiceTypes()
     End Sub
 
 End Class
