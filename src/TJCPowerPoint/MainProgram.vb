@@ -158,33 +158,30 @@ Public Class MainProgram
         ' Create FontDialog object.
         Dim dialog = New FontDialog()
         ' Set initial font from existing textbox font.
-        dialog.Font = New Font(textBox.Font.Name, textBox.Font.Size, GetFontStyleFromTextBox(textBox))
-
-        If dialog.ShowDialog() = DialogResult.OK Then
-            SetFontOfTextbox(textBox, dialog.Font)
-        End If
-    End Sub
-    ' Adapter method translates font styles from PowerPoint text boxes (TextRange object) to a FontStyle object.
-    Private Function GetFontStyleFromTextBox(textBox As PowerPoint.TextRange) As FontStyle
         Dim style As FontStyle = FontStyle.Regular
-        If textBox.Font.Bold Or textBox.Font.Name.Contains("Bold") Then
+        Dim name As String = textBox.Font.Name
+        If name.Contains("Light") Then
+            name = name.Replace(" Light", "")
+        End If
+        If textBox.Font.Bold Or name.Contains("Bold") Or name.Contains("Semibold") Then
+            name = name.Replace(" Semibold", "")
             style = FontStyle.Bold
         End If
-        If textBox.Font.Italic Or textBox.Font.Name.Contains("Italic") Then
+        If textBox.Font.Italic Or name.Contains("Italic") Then
             style = FontStyle.Italic
         End If
-        If textBox.Font.Underline Or textBox.Font.Name.Contains("Underline") Then
+        If textBox.Font.Underline Or name.Contains("Underline") Then
             style = FontStyle.Underline
         End If
-        Return style
-    End Function
-    ' Applies Font object styling to PowerPoint text box.
-    Private Sub SetFontOfTextbox(textBox As PowerPoint.TextRange, font As Font)
-        textBox.Font.Name = font.Name
-        textBox.Font.Size = font.Size
-        textBox.Font.Bold = font.Bold
-        textBox.Font.Italic = font.Italic
-        textBox.Font.Underline = font.Underline
+
+        dialog.Font = New Font(name, textBox.Font.Size, style)
+        If dialog.ShowDialog() = DialogResult.OK Then
+            textBox.Font.Name = dialog.Font.Name
+            textBox.Font.Size = dialog.Font.Size
+            textBox.Font.Bold = dialog.Font.Bold
+            textBox.Font.Italic = dialog.Font.Italic
+            textBox.Font.Underline = dialog.Font.Underline
+        End If
     End Sub
     ' Method that changes the text colour of a given PowerPoint text range object.
     ' Opens a dialog that allows user to select a colour, and applies text colour to the text box.
@@ -192,7 +189,13 @@ Public Class MainProgram
         ' Create ColorDialog object.
         Dim dialog = New ColorDialog()
         dialog.FullOpen = True
-        ' Show Dialog and respond based on result.
+        Try
+            Dim pptColor As Integer = textBox.Font.Color.RGB
+            dialog.Color = System.Drawing.ColorTranslator.FromOle(pptColor)
+        Catch ex As Exception
+            ' Fallback to Black if the color cannot be read (e.g., mixed selection)
+            dialog.Color = System.Drawing.Color.Black
+        End Try
         If dialog.ShowDialog() = DialogResult.OK Then
             Dim color = dialog.Color
             ' Handle special case of text boxes which occur in multiple slides.
